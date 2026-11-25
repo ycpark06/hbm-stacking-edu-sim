@@ -259,6 +259,7 @@ repo/
 |---|---|
 | `feat/repo-setup` | 1 |
 | `feat/firmware` | 2 |
+| `docs/model-inventory` | 3 준비 (중간 모델 인벤토리·golden vector) |
 | `feat/thermal-history`, `feat/tcncf-mode`, `feat/mrmuf-mode` | 3 |
 | `feat/vision`, `feat/hmi`, `feat/alarm`, `feat/3d-viewer` | 4 |
 | `cad/stacking-parts` | 5 |
