@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "fw.h"
+#include "fw_config.h"
 #include "hal.h"
 #include "hal_host.h"
 /* 검증 6 가정값: fixed_inputs.csv is an open-loop measurement sequence,
@@ -17,13 +18,15 @@ int main(int argc, char **argv)
         float f, t;
         int hw, reset;
         char header[80];
-        fw_recipe_t r = {2.0f, 1.0f, 5.0f, 0.02f, 1u, (fw_mode_t)mode};
+        /* 동일한 유효 1 N/s로 PC/wasm 및 두 모드를 비교한다.
+         * 설계값: #13, 사용자 결정 2026-11-25. */
+        fw_recipe_t r = {2.0f, 1.0f, FW_FORCE_LOW_RANGE_RAMP_N_S, 0.02f, 1u, (fw_mode_t)mode};
         rewind(in);
         if (!fgets(header, sizeof(header), in)) return 1;
         hal_host_reset();
         fw_reset_latch();
         fw_init();
-        if (!fw_set_recipe(&r)) return 1;
+        if (fw_set_recipe(&r) != FW_OK) return 1;
         while (fscanf(in, "%f,%f,%d,%d", &f, &t, &hw, &reset) == 4) {
             hal_host_set_force_N(f);
             hal_host_set_temp_C(t);

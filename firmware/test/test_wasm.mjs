@@ -18,7 +18,9 @@ try {
   for (let mode = 0; mode < 2; ++mode) {
     const m = await createController({wasmBinary: fs.readFileSync(root + 'build/controller.wasm')});
     m._fw_init();
-    if (!m._fw_wasm_set_recipe(2, 1, 5, 0.02, 1, mode)) throw new Error('Recipe rejected');
+    if (mode === 1) { if (m._fw_wasm_set_recipe(2, 1, 5, 0.02, 1, mode) !== -1) throw new Error('Ramp rejection code mismatch'); console.log('Ramp d wasm low FIRMWARE 5 N/s: -1 PASS'); }
+    // 승인된 설계값 1 N/s, PC와 동일한 유효 레시피 (#13, 2026-11-25).
+    if (m._fw_wasm_set_recipe(2, 1, 1, 0.02, 1, mode) !== 1) throw new Error('Recipe rejected');
     for (const [step, [f,t,hw,reset]] of inputs.entries()) {
       m._fw_set_hw_fault(hw);
       m._fw_step_1ms(f,t);
