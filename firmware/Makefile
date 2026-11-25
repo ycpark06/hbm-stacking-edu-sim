@@ -25,3 +25,19 @@ build/test_temp: $(SOURCES) $(wildcard src/*.h hal/*.h) test/test_temp.c build/g
 
 build/test_safety: $(SOURCES) $(wildcard src/*.h hal/*.h) test/test_safety.c
 	$(CC) $(CPPFLAGS) $(CFLAGS) $(SOURCES) test/test_safety.c -lm -o $@
+
+CORE_SOURCES = $(filter-out hal/hal_host.c,$(SOURCES))
+ARM_CC ?= arm-none-eabi-gcc
+ARM_OBJCOPY ?= arm-none-eabi-objcopy
+ARM_SIZE ?= arm-none-eabi-size
+MCU_FLAGS = -mcpu=cortex-m7 -mthumb -mfpu=fpv5-d16 -mfloat-abi=hard -ffunction-sections -fdata-sections
+.PHONY: mcu
+mcu: build/controller.bin
+	$(ARM_SIZE) build/controller.elf
+
+build/controller.elf: $(CORE_SOURCES) hal/hal_stm32h7.c mcu/startup_stm32h743.s mcu/stm32h743.ld $(wildcard src/*.h hal/*.h)
+	@mkdir -p build
+	$(ARM_CC) $(CPPFLAGS) $(CFLAGS) $(MCU_FLAGS) $(CORE_SOURCES) hal/hal_stm32h7.c mcu/startup_stm32h743.s -nostartfiles -Wl,--gc-sections,-Map,build/controller.map -T mcu/stm32h743.ld -o $@
+
+build/controller.bin: build/controller.elf
+	$(ARM_OBJCOPY) -O binary $< $@
