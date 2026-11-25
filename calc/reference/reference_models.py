@@ -13,6 +13,7 @@
 import json
 import math
 import sys
+from pathlib import Path
 
 import numpy as np
 
@@ -966,7 +967,7 @@ def verify_original_json(calc_dir):
 if __name__ == "__main__":
     if len(sys.argv) > 2 and sys.argv[1] == "--verify-json":
         sys.exit(0 if verify_original_json(sys.argv[2]) else 1)
-    out_path = sys.argv[1] if len(sys.argv) > 1 else "golden_vectors.json"
+    out_path = sys.argv[1] if len(sys.argv) > 1 else Path(__file__).resolve().parents[2] / "sim" / "test" / "golden_vectors.json"
     vecs = build_golden()
     doc = dict(
         meta=dict(
