@@ -56,7 +56,14 @@ _(그림 — 단계 4에서 추가)_
 ## 3. 제어 로직 및 알고리즘
 
 ### 3.1 펌웨어
-_(단계 2에서 작성 — 하중·온도 PI 구조, 인터락 로직, HAL 분리, 두 빌드)_
+`firmware/src/`의 공통 C99 float 제어기(하중 PI 1 ms·온도 PI 10 ms·시퀀서·인터락)를
+`hal/`의 PC·STM32H743·wasm HAL과 연결한다. 동적 할당은 없다.
+`FW_MODE_REFERENCE`는 원본 golden 대조용이며 제한·anti-windup이 없다.
+기본 `FW_MODE_FIRMWARE`는 하중 속도 ±0.5 mm/s와 `I_max=v_max/Ki`를 적용하고
+포화 시 이번 적분을 되돌린다(설계값, 10장 최대 접근 속도 기준).
+인터락은 실물 비교기·래치에 의한 독립 하드웨어 차단의 모사다. 경고는 Z를 정지하고,
+고장 래치는 히터·Z를 정지하며 수동 리셋 전까지 유지한다.
+[빌드·검증 및 wasm API](firmware/README.md), [#6·#13 결정 기록](firmware/docs/force_integral_limit.md)을 참고한다.
 
 ### 3.2 비전 정렬
 _(단계 4에서 작성 — 피듀셜 생성, NCC 검출, 서브픽셀 보간, 아핀 보정, 폐루프 정렬)_
@@ -101,8 +108,16 @@ _(단계 4에서 작성)_
 ```
 
 ### 펌웨어 빌드
+
+도구: make, C99 cc, Python 3, arm-none-eabi-gcc/objcopy/size, Emscripten emcc, Node.
+MCU는 NUCLEO-H743ZI2 기준 STM32H743이며 ADC·PWM·서보 실물 bring-up은 미구현이다.
+`firmware/build/controller.bin`, `controller.js`, `controller.wasm`은 일반 Git 산출물이다.
+
 ```bash
-# 단계 2에서 작성
+make -C firmware test       # PC 검증 1~4
+make -C firmware mcu        # STM32H743 .elf → .bin 및 size
+make -C firmware wasm       # ES module controller.js + controller.wasm
+make -C firmware test-wasm  # 검증 6, Node ↔ PC 고정 입력 비교 (별도 실행)
 ```
 
 ---
@@ -113,6 +128,8 @@ _(단계 4에서 작성)_
 
 | 날짜 | Issue | 문제 | 원인 | 해결 |
 |---|---|---|---|---|
+| 2026-11-25 | #6 | 하중 적분 누적·초과량 | 출력·적분 한계와 anti-windup 없음 | FIRMWARE에 ±0.5 mm/s·I_max=v_max/Ki·포화 시 이번 적분 차감, 포화 3조건 검증 통과 |
+| 2026-11-25 | #13 | 저레인지 원본 유지 구간 오차 초과 | 속도 제한으로 유지 구간 시작 전 목표 미도달 | 두 모드의 판정 시작=max(원본 시작, 98% 목표 도달+0.5 s), 원본 오차·도달 시각 관찰값 보존, 검증 2 통과 |
 | 2026-11-25 | #8 | Codex 샌드박스에서 브랜치 생성 실패 | workspace-write가 `.git` 쓰기를 막음 | 브랜치는 Claude가 만들고 `.git`만 writable_roots에 추가 |
 | 2026-11-25 | #9 | golden 재생성 시 끝자리 값이 달라짐 | Python 3.13.18 ↔ 3.13.9 부동소수점 끝자리 차이 (최대 상대 8.6e-15) | 바이트 비교 대신 `check_golden.py`로 벡터별 tolerance 비교 |
 
