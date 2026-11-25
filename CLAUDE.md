@@ -44,7 +44,7 @@ UNIST MSE489 첨단패키징기술 기말 대체 PBL 과제. 중간 과제의 **
 ## 4. Git 규칙
 
 1. **작업 전에 브랜치를 만든다.** `main`에 직접 커밋하지 않는다. 브랜치 이름은 `docs/PLAN.md` 11.2절을 따른다.
-2. **작게 커밋한다.** 기능 단위로 나눈다. 접두어: `feat:`, `fix:`, `docs:`, `refactor:`, `test:`, `cad:`
+2. **작게 커밋한다.** 기능 단위로 나눈다. 접두어: `feat:`, `fix:`, `docs:`, `refactor:`, `test:`, `cad:`, `chore:`, `build:`
 3. **PR로 병합한다.** `.github/pull_request_template.md`의 리뷰 체크리스트를 채우고, 리뷰 의견과 반영 내용을 기록한 뒤 병합한다.
 4. **문제가 생기면 Issue에 기록한다.** 순서: 증상 → 원인 분석 → 해결 → 결과. 라벨: `bug`, `model`, `firmware`, `ui`, `cad`, `docs`
 5. **해결한 Issue는 README 트러블슈팅 로그에 한 줄로 반영한다.**
@@ -60,14 +60,19 @@ UNIST MSE489 첨단패키징기술 기말 대체 PBL 과제. 중간 과제의 **
 제어 로직 C 코드 한 벌을 두 가지로 빌드한다 (SIL 검증).
 
 ```bash
-# MCU 빌드 → firmware/build/controller.bin
-# (단계 2에서 대상 MCU를 정한 뒤 명령어를 채운다)
-
-# 웹 빌드 → firmware/build/controller.wasm
-# (단계 2에서 emscripten 명령어를 채운다)
+# PC golden·성능·anti-windup·인터락 검증
+make -C firmware test
+# STM32H743 → controller.elf/.bin, size 출력
+make -C firmware mcu
+# Emscripten ES module → controller.js/.wasm
+make -C firmware wasm
+# Node 고정 입력 PC ↔ wasm 검증 (별도 타깃)
+make -C firmware test-wasm
 ```
 
-필요한 도구: `arm-none-eabi-gcc`, `emscripten` (Homebrew로 설치)
+필요한 도구: `make`, C99 `cc`, `python3`, `arm-none-eabi-gcc`·`objcopy`·`size`, `emcc`, `node`.
+하중 1 ms·온도 10 ms의 공통 float 제어기를 PC/MCU/wasm HAL과 연결한다.
+실물 bring-up은 범위 밖이며 자세한 인터페이스와 검증은 `firmware/README.md`를 따른다.
 
 ## 6. 웹 실행과 배포
 

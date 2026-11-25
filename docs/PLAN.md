@@ -330,5 +330,5 @@ repo/
 ## 14. 미정 사항
 - [ ] 데모·제출 날짜 → 12절 단계에 날짜 기입
 - [x] GitHub 저장소 이름과 주소 → ycpark06/hbm-stacking-edu-sim (https://github.com/ycpark06/hbm-stacking-edu-sim)
-- [ ] 대상 MCU 계열 (단계 2)
+- [x] 대상 MCU 계열 (단계 2) → STM32H743 (NUCLEO-H743ZI2 기준)
 - [x] 설계 목표 수치 (단계 1) → docs/requirements.md
