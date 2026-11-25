@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <string.h>
 #include "fw.h"
+#include "fw_config.h"
 #include "hal.h"
 #include "hal_host.h"
 
@@ -21,10 +22,16 @@ typedef struct {
 typedef struct {
     double contact, overshoot, ss_err, peak, force_1s;
     double integral_max, ramp_integral_max, hold_min, hold_max, hold_last;
-    double velocity_max;
+    double velocity_max, reach, settled_err, i_limit;
+    unsigned hold_samples, settled_samples, saturated_ticks;
+    int interlocked;
 } result_t;
 
-static result_t simulate(const golden_case_t *g)
+/* 설계값/가정값 테스트 옵션: limit=0은 단계 A 원본 플랜트.
+ * limit=1: 실제 Z 이동속도 ±0.5 mm/s (10장 최대 접근 속도).
+ * block_s: 접촉+block_start_s부터 구동기 고착, 밀린 위치 명령은 폐기한다. */
+static result_t simulate_options(const golden_case_t *g, fw_mode_t mode,
+                                  int limit, double block_s, double block_start_s)
 {
     /* Plant constants: control_sim.py:6-19,29-33 / reference_models.py:312-346.
      * No noise; double plant, float controller connected only through host HAL. */
@@ -35,10 +42,11 @@ static result_t simulate(const golden_case_t *g)
     double max_force = -DBL_MAX, prev_t = 0.0, prev_f = 0.0;
     unsigned slot = 0, i, n = (unsigned)(g->end_s / dt);
     result_t r = {.contact = -1.0, .peak = -DBL_MAX,
-                  .hold_min = DBL_MAX, .hold_max = -DBL_MAX};
+                  .hold_min = DBL_MAX, .hold_max = -DBL_MAX, .reach = -1.0};
     fw_recipe_t recipe = {(float)g->spring, (float)g->target, (float)g->ramp,
-                          (float)g->approach, g->period_ms, FW_MODE_REFERENCE};
+                          (float)g->approach, g->period_ms, mode};
     hal_host_reset();
+    fw_reset_latch();
     fw_init();
     if (!fw_set_recipe(&recipe)) return r;
     for (i = 0; i < n; ++i) {
@@ -52,11 +60,14 @@ static result_t simulate(const golden_case_t *g)
             hal_host_set_force_N((float)delayed);
             fw_step_1ms();
             const force_ctrl_t *c = fw_get_force_state();
+            r.interlocked |= fw_get_interlock_state()->warning || fw_get_interlock_state()->latched;
             if (r.contact < 0.0 && c->contacted) r.contact = t;
-            /* Stage B observation only: no force integral/output limits applied.
+            /* Observe actual state after each selected mode update.
              * Sample every 1 ms call, including every actual PI update. */
             if (c->contacted) {
                 double integral = c->integral_N_s;
+                r.i_limit = c->integral_limit_N_s;
+                if (fabs(c->velocity_mm_s) >= FW_FORCE_V_MAX_MM_S) ++r.saturated_ticks;
                 r.integral_max = fmax(r.integral_max, fabs(integral));
                 r.velocity_max = fmax(r.velocity_max, fabs(c->velocity_mm_s));
                 if (t <= r.contact + (g->target - 0.1) / g->ramp)
@@ -69,16 +80,41 @@ static result_t simulate(const golden_case_t *g)
                 }
             }
         }
-        z_cmd += (double)hal_host_get_z_velocity_mm_s() * dt;
-        z += (z_cmd - z) * dt / tau;
+        {
+            double v = hal_host_get_z_velocity_mm_s();
+            /* 구동기가 수락하는 속도에도 한계 적용: 위치 backlog를
+             * 무한 누적시키는 별도 가상 적분기를 만들지 않는다. */
+            if (limit) v = fmax(-FW_FORCE_V_MAX_MM_S, fmin(FW_FORCE_V_MAX_MM_S, v));
+            z_cmd += v * dt;
+        }
+        {
+            double dz = (z_cmd - z) * dt / tau;
+            if (limit) dz = fmax(-FW_FORCE_V_MAX_MM_S * dt,
+                                  fmin(FW_FORCE_V_MAX_MM_S * dt, dz));
+            if (r.contact >= 0 && t >= r.contact + block_start_s &&
+                t < r.contact + block_start_s + block_s) {
+                dz = 0;
+                z_cmd = z; /* 고착 중 위치 명령 backlog 없음. */
+            }
+            z += dz;
+        }
         if (i % 100u == 0u) {
             double sp = fw_get_force_state()->setpoint_N;
+            if (r.contact >= 0 && r.reach < 0 && f >= 0.98 * g->target)
+                r.reach = t;
+            /* #13 설계값: 두 모드 동일, golden ss_err 마스크는 아래 보존. */
+            if (r.reach >= 0 && t > fmax(r.contact + g->target/g->ramp + 0.5, r.reach + 0.5)) {
+                r.settled_err = fmax(r.settled_err, fabs(f - g->target));
+                ++r.settled_samples;
+            }
             max_force = fmax(max_force, f);
             /* Original hold mask is strict >; inventory section 6 item 14:
              * all metrics use pre-integration F_true recorded every 1 ms. */
             if (r.contact >= 0.0) {
-                if (t > r.contact + g->target / g->ramp + 0.5)
+                if (t > r.contact + g->target / g->ramp + 0.5) {
                     r.ss_err = fmax(r.ss_err, fabs(f - g->target));
+                    ++r.hold_samples;
+                }
                 /* reference_models.py:349-353: strict open 0.3 s window. */
                 if (t > r.contact && t < r.contact + 0.3)
                     r.peak = fmax(r.peak, f - sp);
@@ -94,6 +130,60 @@ static result_t simulate(const golden_case_t *g)
     }
     r.overshoot = max_force - g->target;
     return r;
+}
+
+static result_t simulate(const golden_case_t *g)
+{
+    return simulate_options(g, FW_MODE_REFERENCE, 0, 0, 0);
+}
+
+static unsigned check_firmware(void)
+{
+    unsigned i, failed = 0;
+    puts("Validation 2 force (#13) | mode | overshoot_N | ss_original_N (observation) | ss_judged_N | spec_N | reach_s (observation) | result");
+    for (i = 0; i < sizeof(cases)/sizeof(cases[0]); ++i) {
+        const golden_case_t *g = &cases[i];
+        if (!strncmp(g->id, "control.force_sim.", strlen("control.force_sim."))) {
+            unsigned mode;
+            for (mode = 0; mode < 2; ++mode) {
+                result_t r = simulate_options(g, mode == 0 ? FW_MODE_REFERENCE : FW_MODE_FIRMWARE, 0, 0, 0);
+                double spec = g->spring == 2 ? 0.06 : 0.30;
+                /* #13: arrival and original error are observations only.
+                 * Missing judged hold samples is a failed measurement. */
+                int pass = !r.interlocked && r.settled_samples &&
+                    isfinite(r.overshoot) && r.overshoot <= spec && r.settled_err <= spec;
+                printf("%s | %s | %.9g | %.9g | %.9g | %.2f | %.3f | %s\n",
+                    g->id, mode == 0 ? "REFERENCE" : "FIRMWARE", r.overshoot,
+                    r.ss_err, r.settled_err, spec, r.reach-r.contact, pass ? "PASS" : "FAIL");
+                if (!pass) ++failed;
+            }
+        }
+    }
+    puts("Validation 3 | mode | overshoot_N | max_abs_I_Ns | I_max_Ns | reach_s | saturated_ticks | result");
+    /* 가정값 고착: high는 접촉+3.7 s부터 0.5 s, 추가 low는 접촉 직후 0.5 s. high 원본 5 N/s는
+     * ±0.5 한계만 켜면 포화하지 않으므로 실제 포화를 만들기 위해 고착 주입. */
+    for (i = 0; i < 3; ++i) {
+        golden_case_t g = {.id = i == 0 ? "low1N-speed" :
+            (i == 1 ? "high20N-block3.7+0.5s" : "low1N-block0.5s"),
+            .spring = i == 1 ? 50 : 2, .target = i == 1 ? 20 : 1,
+            .ramp = 5, .approach = 0.02, .period_ms = 1, .end_s = 12};
+        double block = i == 0 ? 0 : 0.5;
+        double start = i == 1 ? 3.7 : 0;
+        result_t ref = simulate_options(&g, FW_MODE_REFERENCE, 1, block, start);
+        result_t fw = simulate_options(&g, FW_MODE_FIRMWARE, 1, block, start);
+        int pass = !ref.interlocked && !fw.interlocked &&
+                   fw.reach >= 0 && ref.reach >= 0 && ref.saturated_ticks &&
+                   fw.saturated_ticks && fw.overshoot < ref.overshoot &&
+                   fw.integral_max <= fw.i_limit;
+        printf("%s | REFERENCE | %.9g | %.9g | %.9g | %.3f | %u | %s\n",
+               g.id, ref.overshoot, ref.integral_max, ref.i_limit,
+               ref.reach-ref.contact, ref.saturated_ticks, pass ? "PASS" : "FAIL");
+        printf("%s | FIRMWARE | %.9g | %.9g | %.9g | %.3f | %u | %s\n",
+               g.id, fw.overshoot, fw.integral_max, fw.i_limit,
+               fw.reach-fw.contact, fw.saturated_ticks, pass ? "PASS" : "FAIL");
+        if (!pass) ++failed;
+    }
+    return failed;
 }
 
 static double metric(const char *name, result_t r, const force_ctrl_t *c)
@@ -119,6 +209,7 @@ static unsigned check_contract(void)
 #define CHECK(condition) do { if (!(condition)) { \
     printf("Contract FAIL: %s\n", #condition); ++failed; } } while (0)
     hal_host_reset();
+    fw_reset_latch();
     fw_init();
     CHECK(fw_set_recipe(&recipe));
     hal_host_set_force_N(0.1f);
@@ -135,7 +226,7 @@ static unsigned check_contract(void)
     CHECK(fw_get_force_state()->setpoint_N == 0.1f);
     CHECK(hal_host_get_z_velocity_mm_s() < 0.0f);
     velocity = hal_host_get_z_velocity_mm_s();
-    hal_host_set_force_N(100.0f);
+    hal_host_set_force_N(1.0f);
     fw_step_1ms();
     CHECK(hal_host_get_z_velocity_mm_s() == velocity);
     CHECK(fw_set_recipe(&recipe));
@@ -196,5 +287,6 @@ int main(void)
     printf("Golden: %u/%u PASS (%u vectors), %u FAIL\n", checks - failures,
            checks, (unsigned)(sizeof(cases) / sizeof(cases[0])), failures);
     failures += check_contract();
+    failures += check_firmware();
     return failures ? 1 : 0;
 }

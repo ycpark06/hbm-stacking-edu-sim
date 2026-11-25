@@ -17,7 +17,7 @@ typedef struct { const char *id; double time_s, expected_C; } profile_case_t;
 #include "golden_temp_cases.h"
 typedef struct { double overshoot, stab150, stab300, ramp, hold_W, at50; } result_t;
 
-static result_t simulate(const temp_case_t *g)
+static result_t simulate(const temp_case_t *g, fw_mode_t mode)
 {
     /* control_sim.py:45-64 / reference_models.py:temp_sim:
      * double test plant, float firmware; noise=0, explicit Euler dt=1 ms.
@@ -32,7 +32,12 @@ static result_t simulate(const temp_case_t *g)
     unsigned i, j, nr = 0, nh = 0;
     result_t r = {.overshoot = -DBL_MAX};
     hal_host_reset();
+    fw_reset_latch();
     fw_init();
+    {
+        const fw_recipe_t recipe = {50.0f, 20.0f, 5.0f, 0.02f, 1u, mode};
+        if (!fw_set_recipe(&recipe)) return r;
+    }
     if (!fw_set_temp_period_ms(g->period_ms)) return r;
     for (i = 0; i < (unsigned)(g->end_s / dt); ++i) {
         double t = i * dt, P, loss, q1, q[3], fl01, fl12;
@@ -142,7 +147,7 @@ int main(void)
     unsigned i, j, checks = 0, failures = 0;
     puts("id.metric | golden | fw | abs_error | result");
     for (i = 0; i < sizeof(temp_cases)/sizeof(temp_cases[0]); ++i) {
-        result_t r = simulate(&temp_cases[i]);
+        result_t r = simulate(&temp_cases[i], FW_MODE_REFERENCE);
         for (j = 0; j < 6; ++j) {
             const metric_t *m = &temp_cases[i].expected[j];
             double v = metric(m->name, r), err = fabs(v - m->value);
@@ -165,6 +170,14 @@ int main(void)
         if (pass) ++checks; else ++failures;
     }
     printf("Profile golden: %u/6 PASS\n", checks);
+    {
+        result_t r = simulate(&temp_cases[0], FW_MODE_FIRMWARE);
+        int pass = isfinite(r.ramp) && r.stab150 <= 2 && r.stab300 <= 2 && r.ramp >= 20;
+        puts("Validation 2 temperature | stab150_C | stab300_C | ramp_K_s | result");
+        printf("10ms FIRMWARE | %.9g | %.9g | %.9g | %s\n", r.stab150, r.stab300,
+               r.ramp, pass ? "PASS" : "FAIL");
+        if (!pass) ++failures;
+    }
     failures += check_contract();
     return failures ? 1 : 0;
 }
