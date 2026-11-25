@@ -30,6 +30,15 @@
  * Ki 단위 (mm/s)/(N·s), I_max 단위 N·s; 레인지 이득에서 계산한다. */
 #define FW_FORCE_V_MAX_MM_S 0.5f
 #define FW_FORCE_I_MAX(Ki) (FW_FORCE_V_MAX_MM_S / (Ki))
+/* 설계값: #13 분석, 사용자 결정 2026-11-25.
+ * k_eff ≈ 2 N/mm × v_max 0.5 mm/s ≈ 1 N/s. */
+#define FW_FORCE_LOW_RANGE_RAMP_N_S 1.0f
+/* 설계값: 레인지 정격 스프링 강성 기준 ramp_max = k_spring × v_max.
+ * 실제 k_eff는 접촉 강성 2000 N/mm 때문에 저레인지에서 k_spring보다
+ * 약 0.1 % 작아(저레인지 0.999 N/s), 상한에서는 출력이 미세하게
+ * 포화될 수 있고 anti-windup이 처리한다 (#13, 사용자 결정 2026-11-25).
+ * 고레인지의 직렬 강성 감소율은 약 2.44 %다. */
+#define FW_FORCE_RAMP_MAX_N_S(k_spring) ((k_spring) * FW_FORCE_V_MAX_MM_S)
 /* 10장 10.4절 / HANDOFF 3.3절 안전 계층의 설계값 (KPI 아님). */
 #define FW_WARN_FORCE_N 52.0f
 #define FW_WARN_TEMP_C 410.0f
