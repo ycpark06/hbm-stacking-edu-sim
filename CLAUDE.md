@@ -49,6 +49,11 @@ UNIST MSE489 첨단패키징기술 기말 대체 PBL 과제. 중간 과제의 **
 4. **문제가 생기면 Issue에 기록한다.** 순서: 증상 → 원인 분석 → 해결 → 결과. 라벨: `bug`, `model`, `firmware`, `ui`, `cad`, `docs`
 5. **해결한 Issue는 README 트러블슈팅 로그에 한 줄로 반영한다.**
 6. **태그:** 중간 자산 이관 직후 `v1.0-midterm`, 최종 제출 시 `v2.0-final`
+7. **작업 분담:** 코드·문서 작성은 Codex가, 검증은 Claude가 맡는다.
+   - Claude는 작업을 나누고 브랜치를 만든 뒤 `codex exec`로 Codex에게 작업을 지시한다. 지시에는 목표, 파일 위치, 완료 기준, 지켜야 할 원칙(CLAUDE.md 2절)을 포함한다.
+   - Codex가 끝내면 Claude가 검증한다: (1) PLAN 10절 폴더 구조, (2) 테스트 통과 (모델은 golden vector 일치), (3) 원문 KPI·설계 목표·가정값 구분 표기, (4) HANDOFF 또는 PLAN의 완료 기준.
+   - 실패하면 Claude가 원인을 Issue로 남기고 Codex에게 수정을 다시 지시한다.
+   - 통과하면 Claude가 PR을 만들고, 체크리스트의 '리뷰 의견과 반영 내용'에 검증 결과와 수정 이력을 적는다. PR 설명에 작성자(Codex)·리뷰어(Claude)를 밝힌다.
 
 ## 5. 펌웨어 빌드
 
