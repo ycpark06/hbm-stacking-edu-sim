@@ -1,0 +1,5 @@
+# 큰 CAD 원본은 LFS로 관리한다 (웹이 읽는 GLB/JSON/wasm은 일반 커밋)
+*.step filter=lfs diff=lfs merge=lfs -text
+*.stp  filter=lfs diff=lfs merge=lfs -text
+*.f3d  filter=lfs diff=lfs merge=lfs -text
+*.f3z  filter=lfs diff=lfs merge=lfs -text
