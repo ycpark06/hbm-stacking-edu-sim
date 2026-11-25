@@ -20,6 +20,8 @@ typedef struct {
 
 typedef struct {
     double contact, overshoot, ss_err, peak, force_1s;
+    double integral_max, ramp_integral_max, hold_min, hold_max, hold_last;
+    double velocity_max;
 } result_t;
 
 static result_t simulate(const golden_case_t *g)
@@ -32,7 +34,8 @@ static result_t simulate(const golden_case_t *g)
     double delay[50] = {0.0}; /* 0.5 ms / 10 us pure ADC delay. */
     double max_force = -DBL_MAX, prev_t = 0.0, prev_f = 0.0;
     unsigned slot = 0, i, n = (unsigned)(g->end_s / dt);
-    result_t r = {-1.0, 0.0, 0.0, -DBL_MAX, 0.0};
+    result_t r = {.contact = -1.0, .peak = -DBL_MAX,
+                  .hold_min = DBL_MAX, .hold_max = -DBL_MAX};
     fw_recipe_t recipe = {(float)g->spring, (float)g->target, (float)g->ramp,
                           (float)g->approach, g->period_ms, FW_MODE_REFERENCE};
     hal_host_reset();
@@ -48,7 +51,23 @@ static result_t simulate(const golden_case_t *g)
         if (i % 100u == 0u) {
             hal_host_set_force_N((float)delayed);
             fw_step_1ms();
-            if (r.contact < 0.0 && fw_get_force_state()->contacted) r.contact = t;
+            const force_ctrl_t *c = fw_get_force_state();
+            if (r.contact < 0.0 && c->contacted) r.contact = t;
+            /* Stage B observation only: no force integral/output limits applied.
+             * Sample every 1 ms call, including every actual PI update. */
+            if (c->contacted) {
+                double integral = c->integral_N_s;
+                r.integral_max = fmax(r.integral_max, fabs(integral));
+                r.velocity_max = fmax(r.velocity_max, fabs(c->velocity_mm_s));
+                if (t <= r.contact + (g->target - 0.1) / g->ramp)
+                    r.ramp_integral_max = fmax(r.ramp_integral_max, fabs(integral));
+                /* Same strict hold mask as original force_sim. */
+                if (t > r.contact + g->target / g->ramp + 0.5) {
+                    r.hold_min = fmin(r.hold_min, integral);
+                    r.hold_max = fmax(r.hold_max, integral);
+                    r.hold_last = integral;
+                }
+            }
         }
         z_cmd += (double)hal_host_get_z_velocity_mm_s() * dt;
         z += (z_cmd - z) * dt / tau;
@@ -152,6 +171,12 @@ int main(void)
             if (!fw_set_recipe(&recipe)) return 1;
         } else {
             r = simulate(g);
+            if (!strncmp(g->id, "control.force_sim.", strlen("control.force_sim."))) {
+                printf("Integral: %s | Ki=%.12g | max_abs=%.12g | ramp_max_abs=%.12g | hold_min=%.12g | hold_max=%.12g | hold_last=%.12g | velocity_max_abs=%.12g\n",
+                       g->id, (double)fw_get_force_state()->Ki,
+                       r.integral_max, r.ramp_integral_max, r.hold_min, r.hold_max,
+                       r.hold_last, r.velocity_max);
+            }
         }
         for (j = 0; j < g->count; ++j) {
             const metric_t *m = &g->expected[j];
