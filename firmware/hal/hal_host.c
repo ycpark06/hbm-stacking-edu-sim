@@ -1,4 +1,5 @@
 #include "hal.h"
+#include "hal_host.h"
 static float measured_force;
 static float commanded_velocity;
 void hal_host_reset(void) { measured_force = 0.0f; commanded_velocity = 0.0f; }

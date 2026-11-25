@@ -4,6 +4,7 @@
 #include <string.h>
 #include "fw.h"
 #include "hal.h"
+#include "hal_host.h"
 
 typedef struct { const char *name; double value; } metric_t;
 typedef struct {
