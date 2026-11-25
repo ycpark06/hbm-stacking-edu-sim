@@ -1,0 +1,131 @@
+{
+ "doe": [
+  {
+   "run": 1,
+   "T": 150,
+   "F": 0.5,
+   "t": 2,
+   "V": 0.66,
+   "BLT_um": 51.3,
+   "fillet_pct": 0.0,
+   "warp_5mm_um": 10.2
+  },
+  {
+   "run": 2,
+   "T": 150,
+   "F": 0.5,
+   "t": 10,
+   "V": 0.8,
+   "BLT_um": 24.1,
+   "fillet_pct": 47.0,
+   "warp_5mm_um": 10.2
+  },
+  {
+   "run": 3,
+   "T": 150,
+   "F": 2.0,
+   "t": 2,
+   "V": 0.8,
+   "BLT_um": 26.9,
+   "fillet_pct": 38.0,
+   "warp_5mm_um": 10.2
+  },
+  {
+   "run": 4,
+   "T": 150,
+   "F": 2.0,
+   "t": 10,
+   "V": 0.66,
+   "BLT_um": 15.0,
+   "fillet_pct": 56.0,
+   "warp_5mm_um": 10.2
+  },
+  {
+   "run": 5,
+   "T": 180,
+   "F": 0.5,
+   "t": 2,
+   "V": 0.8,
+   "BLT_um": 51.3,
+   "fillet_pct": 0.0,
+   "warp_5mm_um": 12.7
+  },
+  {
+   "run": 6,
+   "T": 180,
+   "F": 0.5,
+   "t": 10,
+   "V": 0.66,
+   "BLT_um": 24.1,
+   "fillet_pct": 25.0,
+   "warp_5mm_um": 12.7
+  },
+  {
+   "run": 7,
+   "T": 180,
+   "F": 2.0,
+   "t": 2,
+   "V": 0.66,
+   "BLT_um": 26.9,
+   "fillet_pct": 0.0,
+   "warp_5mm_um": 12.7
+  },
+  {
+   "run": 8,
+   "T": 180,
+   "F": 2.0,
+   "t": 10,
+   "V": 0.8,
+   "BLT_um": 15.0,
+   "fillet_pct": 69.0,
+   "warp_5mm_um": 12.7
+  }
+ ],
+ "underfill_s": {
+  "25C_L5_gap30": 87.0,
+  "25C_L5_gap50": 52.2,
+  "25C_L10_gap30": 348.1,
+  "25C_L10_gap50": 208.9,
+  "90C_L5_gap30": 10.9,
+  "90C_L5_gap50": 6.5,
+  "90C_L10_gap30": 43.5,
+  "90C_L10_gap50": 26.1
+ },
+ "force_limit_N": [
+  {
+   "die": 2,
+   "epoxy": 4.0,
+   "epoxy_thin": 2.0,
+   "tcb": 8.0
+  },
+  {
+   "die": 3,
+   "epoxy": 9.0,
+   "epoxy_thin": 4.5,
+   "tcb": 18.0
+  },
+  {
+   "die": 5,
+   "epoxy": 25.0,
+   "epoxy_thin": 12.5,
+   "tcb": 50.0
+  },
+  {
+   "die": 7,
+   "epoxy": 49.0,
+   "epoxy_thin": 24.5,
+   "tcb": 50.0
+  },
+  {
+   "die": 10,
+   "epoxy": 50,
+   "epoxy_thin": 50.0,
+   "tcb": 50.0
+  }
+ ],
+ "parallel_meas": {
+  "points": 225,
+  "laser_sigma_um": 0.5,
+  "tilt_est_95pct_um_per_10mm": 0.267
+ }
+}
