@@ -259,6 +259,7 @@ repo/
 | 브랜치 | 단계 |
 |---|---|
 | `feat/repo-setup` | 1 |
+| `docs/requirements` | 1 (요구사항·설계 목표) |
 | `feat/firmware` | 2 |
 | `docs/model-inventory` | 3 준비 (중간 모델 인벤토리·golden vector) |
 | `feat/thermal-history`, `feat/tcncf-mode`, `feat/mrmuf-mode` | 3 |
@@ -328,6 +329,6 @@ repo/
 
 ## 14. 미정 사항
 - [ ] 데모·제출 날짜 → 12절 단계에 날짜 기입
-- [ ] GitHub 저장소 이름과 주소
+- [x] GitHub 저장소 이름과 주소 → ycpark06/hbm-stacking-edu-sim (https://github.com/ycpark06/hbm-stacking-edu-sim)
 - [ ] 대상 MCU 계열 (단계 2)
 - [x] 설계 목표 수치 (단계 1) → docs/requirements.md
