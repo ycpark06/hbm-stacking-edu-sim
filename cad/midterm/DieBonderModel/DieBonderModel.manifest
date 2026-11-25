@@ -1,0 +1,8 @@
+{
+ "autodeskProduct": "Fusion",
+ "type": "script",
+ "author": "MSE489",
+ "description": {"": "MSE489 die bonder concept assembly"},
+ "supportedOS": "windows|mac",
+ "editEnabled": true
+}
