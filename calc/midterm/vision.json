@@ -1,0 +1,174 @@
+{
+ "detection": [
+  {
+   "method": "para",
+   "noise_gray": 1,
+   "frames": 1,
+   "SNR": 190.0,
+   "rms_err_px": 0.010874038911290997,
+   "repeat_sigma_px": 0.000978759373538196,
+   "total_sigma_um": 0.01875771712197697
+  },
+  {
+   "method": "para",
+   "noise_gray": 1,
+   "frames": 4,
+   "SNR": 190.0,
+   "rms_err_px": 0.010695723135677074,
+   "repeat_sigma_px": 0.0005304617225192487,
+   "total_sigma_um": 0.018450122409042955
+  },
+  {
+   "method": "para",
+   "noise_gray": 2,
+   "frames": 1,
+   "SNR": 95.0,
+   "rms_err_px": 0.010891839351773328,
+   "repeat_sigma_px": 0.0019546120893210173,
+   "total_sigma_um": 0.018788422881808993
+  },
+  {
+   "method": "para",
+   "noise_gray": 2,
+   "frames": 4,
+   "SNR": 95.0,
+   "rms_err_px": 0.010829616466649343,
+   "repeat_sigma_px": 0.0009637171169742942,
+   "total_sigma_um": 0.01868108840497012
+  },
+  {
+   "method": "para",
+   "noise_gray": 4,
+   "frames": 1,
+   "SNR": 47.5,
+   "rms_err_px": 0.011639328605296819,
+   "repeat_sigma_px": 0.004174172878265381,
+   "total_sigma_um": 0.020077841844137013
+  },
+  {
+   "method": "para",
+   "noise_gray": 4,
+   "frames": 4,
+   "SNR": 47.5,
+   "rms_err_px": 0.01097437339580693,
+   "repeat_sigma_px": 0.0021587354131042957,
+   "total_sigma_um": 0.018930794107766956
+  },
+  {
+   "method": "para",
+   "noise_gray": 8,
+   "frames": 1,
+   "SNR": 23.75,
+   "rms_err_px": 0.013363655618684227,
+   "repeat_sigma_px": 0.008263724856078625,
+   "total_sigma_um": 0.023052305942230292
+  },
+  {
+   "method": "para",
+   "noise_gray": 8,
+   "frames": 4,
+   "SNR": 23.75,
+   "rms_err_px": 0.011379521525606312,
+   "repeat_sigma_px": 0.003950885031372309,
+   "total_sigma_um": 0.01962967463167089
+  },
+  {
+   "method": "gauss",
+   "noise_gray": 1,
+   "frames": 1,
+   "SNR": 190.0,
+   "rms_err_px": 0.008454534803453755,
+   "repeat_sigma_px": 0.001001067808829248,
+   "total_sigma_um": 0.014584072535957728
+  },
+  {
+   "method": "gauss",
+   "noise_gray": 1,
+   "frames": 4,
+   "SNR": 190.0,
+   "rms_err_px": 0.008474601394998183,
+   "repeat_sigma_px": 0.0005115993553772569,
+   "total_sigma_um": 0.014618687406371867
+  },
+  {
+   "method": "gauss",
+   "noise_gray": 2,
+   "frames": 1,
+   "SNR": 95.0,
+   "rms_err_px": 0.008588087738606764,
+   "repeat_sigma_px": 0.001975208753719926,
+   "total_sigma_um": 0.014814451349096668
+  },
+  {
+   "method": "gauss",
+   "noise_gray": 2,
+   "frames": 4,
+   "SNR": 95.0,
+   "rms_err_px": 0.00860155658771287,
+   "repeat_sigma_px": 0.000990034081041813,
+   "total_sigma_um": 0.0148376851138047
+  },
+  {
+   "method": "gauss",
+   "noise_gray": 4,
+   "frames": 1,
+   "SNR": 47.5,
+   "rms_err_px": 0.009272939960098684,
+   "repeat_sigma_px": 0.0037995148450136185,
+   "total_sigma_um": 0.015995821431170232
+  },
+  {
+   "method": "gauss",
+   "noise_gray": 4,
+   "frames": 4,
+   "SNR": 47.5,
+   "rms_err_px": 0.00878392897361751,
+   "repeat_sigma_px": 0.0018776762299239635,
+   "total_sigma_um": 0.015152277479490205
+  },
+  {
+   "method": "gauss",
+   "noise_gray": 8,
+   "frames": 1,
+   "SNR": 23.75,
+   "rms_err_px": 0.01113179653202083,
+   "repeat_sigma_px": 0.007898214273154736,
+   "total_sigma_um": 0.01920234901773593
+  },
+  {
+   "method": "gauss",
+   "noise_gray": 8,
+   "frames": 4,
+   "SNR": 23.75,
+   "rms_err_px": 0.009361251872593014,
+   "repeat_sigma_px": 0.003868472995236516,
+   "total_sigma_um": 0.01614815948022295
+  }
+ ],
+ "pixel_locking_max_px": 0.0117645263671875,
+ "affine": {
+  "true_rot_deg": 0.3,
+  "true_scale_err": 0.002,
+  "fit_rot_deg": 0.29975703255215336,
+  "fit_scale_um_px": 1.728443676902136,
+  "cal_err_rms_um": 0.028466935957139092,
+  "nominal_err_at_1mm_um": 5.602999096422417
+ },
+ "closed_loop": {
+  "final_sigma_um": 0.030227602462842652,
+  "final_3sigma_um": 0.09068280738852796,
+  "pct_within_0p15": 100.0,
+  "iter_hist": {
+   "0": 0,
+   "1": 4954,
+   "2": 41,
+   "3": 5
+  },
+  "theta_3sigma_deg": 0.001740253389876073
+ },
+ "angle": {
+  "per_mark_sigma_um": 0.0148376851138047,
+  "sigma_deg_2marks": 0.00042506836738254904,
+  "sigma_deg_4marks": 0.00030056872504409505
+ }
+}

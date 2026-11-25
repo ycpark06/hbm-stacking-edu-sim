@@ -1,0 +1,85 @@
+{
+ "budget": {
+  "rss_sigma": 0.29416548630546946,
+  "rss_3s": 0.8824964589164084,
+  "mc_p9973": 0.8610789365474985,
+  "within": 0.999561
+ },
+ "typical": {
+  "rss_sigma": 0.2297534910870054,
+  "rss_3s": 0.6892604732610162,
+  "mc_p9973": 0.6599247151101009,
+  "within": 0.999997
+ },
+ "conservative": {
+  "rss_sigma": 0.30115057142012314,
+  "rss_3s": 0.9034517142603694,
+  "mc_p9973": 0.8777944369638285,
+  "within": 0.999456
+ },
+ "rows": [
+  {
+   "item": "#1 비전 검출",
+   "budget": 0.1,
+   "typical": 0.021,
+   "src": "9장 기준 조건",
+   "conservative": 0.075
+  },
+  {
+   "item": "#2 정렬 수렴",
+   "budget": 0.087,
+   "typical": 0.03,
+   "src": "9장 폐루프 5,000회",
+   "conservative": 0.087
+  },
+  {
+   "item": "#3 광학 오프셋",
+   "budget": 0.1,
+   "typical": 0.048,
+   "src": "7장 인바 홀더",
+   "conservative": 0.1
+  },
+  {
+   "item": "#4 미동 스테이지",
+   "budget": 0.02,
+   "typical": 0.02,
+   "src": "6장 센서 10 nm",
+   "conservative": 0.02
+  },
+  {
+   "item": "#5 Z 측면 비반복",
+   "budget": 0.12,
+   "typical": 0.1,
+   "src": "6장 가이드 사양 환산",
+   "conservative": 0.12
+  },
+  {
+   "item": "#6 열드리프트",
+   "budget": 0.15,
+   "typical": 0.144,
+   "src": "7장 90 s 대기",
+   "conservative": 0.15
+  },
+  {
+   "item": "#7 가압 변형",
+   "budget": 0.069,
+   "typical": 0.032,
+   "src": "8장 v5, 편심 1 mm",
+   "conservative": 0.115
+  },
+  {
+   "item": "#8 다이 미끄러짐",
+   "budget": 0.12,
+   "typical": 0.12,
+   "src": "모델 없음, 예산 유지",
+   "conservative": 0.12
+  },
+  {
+   "item": "#9 바닥 진동",
+   "budget": 0.05,
+   "typical": 0.05,
+   "src": "8장 177 Hz, 진폭은 예산 유지",
+   "conservative": 0.05
+  }
+ ]
+}
