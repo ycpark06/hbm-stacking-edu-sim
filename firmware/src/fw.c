@@ -10,14 +10,14 @@ void fw_init(void)
 {
     /* 기본 시나리오: control_sim.py:38 고레인지 20 N, ramp/approach:6. */
     const fw_recipe_t defaults = {50.0f, 20.0f, 5.0f, 0.02f,
-                                  FW_FORCE_PERIOD_MS, FW_MODE_REFERENCE};
+                                  FW_FORCE_PERIOD_MS, FW_MODE_FIRMWARE};
     (void)fw_set_recipe(&defaults);
 }
 int fw_set_recipe(const fw_recipe_t *r)
 {
     if (!r || !(r->k_spring_N_mm > 0.0f) || !(r->target_N > 0.0f) ||
         !(r->ramp_N_s > 0.0f) || !(r->approach_mm_s > 0.0f) ||
-        r->force_period_ms == 0u || r->mode != FW_MODE_REFERENCE) return 0;
+        r->force_period_ms == 0u || (r->mode != FW_MODE_REFERENCE && r->mode != FW_MODE_FIRMWARE)) return 0;
     recipe = *r;
     tick_ms = 0u;
     force_ctrl_init(&force, &recipe);
