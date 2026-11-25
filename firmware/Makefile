@@ -2,7 +2,7 @@ CC = cc
 PYTHON ?= python3
 CPPFLAGS = -Isrc -Ihal -Ibuild
 CFLAGS = -std=c99 -Wall -Wextra -Werror -O2
-SOURCES = src/fw.c src/force_ctrl.c src/temp_ctrl.c hal/hal_host.c
+SOURCES = src/fw.c src/force_ctrl.c src/temp_ctrl.c src/interlock.c src/sequencer.c hal/hal_host.c
 .PHONY: test
 test: build/test_force build/test_temp
 	./build/test_force

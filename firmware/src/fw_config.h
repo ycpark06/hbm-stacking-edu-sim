@@ -30,4 +30,12 @@
  * Ki 단위 (mm/s)/(N·s), I_max 단위 N·s; 레인지 이득에서 계산한다. */
 #define FW_FORCE_V_MAX_MM_S 0.5f
 #define FW_FORCE_I_MAX(Ki) (FW_FORCE_V_MAX_MM_S / (Ki))
+/* 10장 10.4절 / HANDOFF 3.3절 안전 계층의 설계값 (KPI 아님). */
+#define FW_WARN_FORCE_N 52.0f
+#define FW_WARN_TEMP_C 410.0f
+#define FW_FAULT_FORCE_N 55.0f
+#define FW_FAULT_TEMP_C 420.0f
+/* 설계값: HANDOFF 2절 해제 후 상승 거리. 원본 초기 간극
+ * control_sim.py:12의 0.02 mm를 재사용; 속도는 레시피 접근 속도. */
+#define FW_RETRACT_DISTANCE_MM 0.02f
 #endif
