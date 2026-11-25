@@ -3,7 +3,7 @@ import { readFileSync } from 'node:fs';
 import test from 'node:test';
 
 const params = JSON.parse(readFileSync(new URL('../params.json', import.meta.url), 'utf8'));
-const kinds = new Set(['literature', 'assumption', 'design', 'midterm']);
+const kinds = new Set(['literature', 'assumption', 'design', 'midterm', 'observation']);
 const valueKeys = ['value', 'equipment_value', 'literature_value'];
 
 function checkTree(node, path = 'params') {
@@ -48,7 +48,25 @@ test('all parameter leaves have values, units, kinds, sources and valid ranges',
 test('linked warpage failure criterion retains its cited value and source', () => {
   const criterion = params.judgement.warpage_fail_um;
   const target = criterion.ref.split('.').reduce((node, key) => node[key], params);
-  for (const key of ['value', 'unit', 'kind', 'source']) assert.equal(criterion[key], target[key]);
+  for (const key of ['value', 'unit', 'source']) assert.equal(criterion[key], target[key]);
+  assert.equal(criterion.kind, 'design');
+  assert.equal(target.kind, 'literature');
+});
+
+test('all judgement criteria are design targets', () => {
+  assert.ok(Object.keys(params.judgement).length);
+  for (const [key, criterion] of Object.entries(params.judgement)) {
+    assert.equal(criterion.kind, 'design', `judgement.${key}`);
+  }
+});
+
+test('all vendor claims are observations with company and source', () => {
+  assert.ok(Object.keys(params.vendor_claims).length);
+  for (const [key, claim] of Object.entries(params.vendor_claims)) {
+    assert.equal(claim.kind, 'observation', `vendor_claims.${key}`);
+    assert.ok(typeof claim.company === 'string' && claim.company.trim(), `vendor_claims.${key}: company`);
+    assert.ok(typeof claim.source === 'string' && claim.source.trim(), `vendor_claims.${key}: source`);
+  }
 });
 
 test('ramp comparison retains separate equipment and literature provenance', () => {

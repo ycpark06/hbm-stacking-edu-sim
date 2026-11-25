@@ -31,7 +31,7 @@
 | 설계 목표 | 층간 정렬 오차 | 층마다 아래층 대비 3σ ≤ 1 μm |
 | 문헌값 | 층간 간격 | 기본 15 μm, 선택 7~30 μm, 20 μm는 "시험 칩" 선택지 |
 | 설계 목표 | 층별 휨 한도 (주의) | 절대 휨이 층간 간격의 1/4 초과 (15 μm 기준 3.75 μm), 조기 경고 |
-| 설계 목표 (문헌 안정 범위 적용) | 층별 휨 한도 (불량) | ±20 μm 초과 (절대 휨 > 20 μm), SK hynix MR 접합 안정 범위 (220 ℃ 측정, ECTC 2023) |
+| 설계 목표 (근거: 문헌값, SK hynix ECTC 2023) | 층별 휨 한도 (불량) | ±20 μm 초과 (절대 휨 > 20 μm), SK hynix MR 접합 안정 범위 (220 ℃ 측정, ECTC 2023) |
 | 설계 목표 | 결함 면적률 (보이드 + 미충전 합산) | ≤ 1 % 양호 / 1~5 % 주의 / > 5 % 불량 |
 
 시편 조건·관찰 항목(사이클 시간 등)·근거는 [`docs/requirements.md`](docs/requirements.md)에 있다.
@@ -40,7 +40,7 @@ TC-NCF 기본 하중은 **40 N** (선택 25~50 N, 사용자 확정 설계값; He
 
 공정 조건(온도, 하중, 시간, 재료 물성)은 문헌값·설계값·중간 보고서값·가정값으로 구분하고, 가정값에는 근거 문장을 붙인다. 전체 목록은 [`sim/params.json`](sim/params.json), 출처는 [파라미터 조사 자료](docs/research/params_research.md)에 있다.
 
-업체 주장은 판정에 쓰지 않고 출처별로 표시한다: SK hynix는 MR-MUF 접합 온도가 TC-NCF보다 **14 ℃ 낮음**을 주장한다 (Lee et al., ECTC 2023). Samsung 인용 시뮬레이션은 TC-NCF 접합부 열저항이 MR-MUF보다 **35 % 낮음**을 주장한다 (Chip Scale Review 2024 p.47, A.U.). [조사 자료 7절](docs/research/params_research.md#7-tc-ncf-vs-mr-muf-공개-비교)에 회사와 출처가 있다.
+업체 주장은 **관찰 항목(표시만)**으로 구분하고, 판정·계산 입력에 쓰지 않으며 회사·출처와 함께 표시한다: SK hynix는 MR-MUF 접합 온도가 TC-NCF보다 **14 ℃ 낮음**을 주장한다 (Lee et al., ECTC 2023). Samsung 인용 시뮬레이션은 TC-NCF 접합부 열저항이 MR-MUF보다 **35 % 낮음**을 주장한다 (Chip Scale Review 2024 p.47, A.U.). [조사 자료 7절](docs/research/params_research.md#7-tc-ncf-vs-mr-muf-공개-비교)에 회사와 출처가 있다.
 
 ---
 

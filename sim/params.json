@@ -4,10 +4,11 @@
     "note": "HBM TC-NCF / MR-MUF 교육용 시뮬레이션 입력. 조사 원문은 docs/research/params_research.md에 보존한다. 사용자 확정값은 조사 초안보다 우선한다.",
     "units_note": "SI-friendly units stated per key",
     "kind_definitions": {
-      "literature": "공개 문헌에서 가져오거나 문헌으로 범위를 정한 입력값. 판정 대상 KPI가 아님.",
+      "literature": "공개 문헌에서 가져오거나 문헌으로 범위를 정한 입력값. 판정 대상이 아님. 판정 기준으로 채택하면 design으로 구분하고 근거로 문헌값을 명시한다.",
       "assumption": "공개 수치가 없어 근거 문장을 붙인 교육용 가정값.",
       "design": "사용자 확정 설계값 또는 설계 목표. 원문 KPI와 구분.",
-      "midterm": "중간 보고서의 장비 설계·계산에 근거한 값."
+      "midterm": "중간 보고서의 장비 설계·계산에 근거한 값.",
+      "observation": "관찰 항목: 표시만, 판정·계산 입력에 쓰지 않음."
     },
     "decisions_applied": "HANDOFF 1절 #1~#5 사용자 확정 사항 반영, 2026-11-25"
   },
@@ -722,7 +723,7 @@
       ],
       "kind": "literature",
       "source": "https://conferences.computer.org/ectc/pdfs/ECTC2023-1NkkviSxgDnmPjptC1ysqm/349800a878/349800a878.pdf",
-      "note": "+/-20 um stable joints; +/-30 um with planar mount sequence; 220 ℃ 측정. judgement.warpage_fail_um의 불량 기준에 연결 (HANDOFF 1절 #2)."
+      "note": "+/-20 um stable joints; +/-30 um with planar mount sequence; 220 ℃ 측정. 문헌값으로 보존하며, judgement.warpage_fail_um의 설계 목표(불량 판정 기준)에 근거로 연결 (HANDOFF 1절 #2)."
     },
     "mold_fill_temp": {
       "value": 150,
@@ -1015,10 +1016,10 @@
     "warpage_fail_um": {
       "value": 20,
       "unit": "um",
-      "kind": "literature",
+      "kind": "design",
       "source": "https://conferences.computer.org/ectc/pdfs/ECTC2023-1NkkviSxgDnmPjptC1ysqm/349800a878/349800a878.pdf",
       "ref": "mrmuf_process.warpage_tolerance",
-      "note": "절대 휨 20 μm 초과 (±20 μm 밖)이면 불량. SK hynix MR 접합 안정 범위, 220 ℃ 측정. 교육용 공통 판정에 적용 (docs/requirements.md 4절)."
+      "note": "판정 기준(설계 목표), 근거는 문헌값. 절대 휨 20 μm 초과 (±20 μm 밖)이면 불량. SK hynix MR 접합 안정 범위, 220 ℃ 측정. 교육용 공통 판정에 적용 (docs/requirements.md 4절)."
     },
     "defect_good_max_pct": {
       "value": 1,
@@ -1039,18 +1040,18 @@
     "skhynix_junction_temp_reduction": {
       "value": 14,
       "unit": "C",
-      "kind": "literature",
+      "kind": "observation",
       "company": "SK hynix",
       "source": "https://conferences.computer.org/ectc/pdfs/ECTC2023-1NkkviSxgDnmPjptC1ysqm/349800a878/349800a878.pdf",
-      "note": "docs/research/params_research.md 7절, Lee et al., ECTC 2023: Advanced CoW MR-MUF 메모리 칩 평균 최대 접합온도가 TC-NCF보다 14 ℃ 낮다는 업체 내부 비교 주장. 판정에 쓰지 않는다."
+      "note": "docs/research/params_research.md 7절, Lee et al., ECTC 2023: Advanced CoW MR-MUF 메모리 칩 평균 최대 접합온도가 TC-NCF보다 14 ℃ 낮다는 업체 내부 비교 주장. 관찰 항목(표시만): 회사·출처와 함께 표시하며 판정·계산 입력에 쓰지 않는다."
     },
     "samsung_thermal_resistance_reduction": {
       "value": 35,
       "unit": "%",
-      "kind": "literature",
+      "kind": "observation",
       "company": "Samsung (인용 시뮬레이션)",
       "source": "https://chipscalereview.com/wp-content/uploads/flipbook/38/files/basic-html/page47.html",
-      "note": "docs/research/params_research.md 7절: Samsung ECTC 2023 인용, TC-NCF 접합부 열저항이 MR-MUF보다 35 % 낮다는 임의 단위(A.U.) 시뮬레이션 주장. 판정에 쓰지 않는다."
+      "note": "docs/research/params_research.md 7절: Samsung ECTC 2023 인용, TC-NCF 접합부 열저항이 MR-MUF보다 35 % 낮다는 임의 단위(A.U.) 시뮬레이션 주장. 관찰 항목(표시만): 회사·출처와 함께 표시하며 판정·계산 입력에 쓰지 않는다."
     }
   }
 }
