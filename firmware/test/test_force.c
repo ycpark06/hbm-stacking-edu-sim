@@ -22,7 +22,7 @@ typedef struct {
 typedef struct {
     double contact, overshoot, ss_err, peak, force_1s;
     double integral_max, ramp_integral_max, hold_min, hold_max, hold_last;
-    double velocity_max, reach, settled_err, i_limit;
+    double velocity_max, reach, settled_err, i_limit, early_err;
     unsigned hold_samples, settled_samples, saturated_ticks;
     int interlocked;
 } result_t;
@@ -48,7 +48,7 @@ static result_t simulate_options(const golden_case_t *g, fw_mode_t mode,
     hal_host_reset();
     fw_reset_latch();
     fw_init();
-    if (!fw_set_recipe(&recipe)) return r;
+    if (fw_set_recipe(&recipe) != FW_OK) return r;
     for (i = 0; i < n; ++i) {
         double f = fmax(0.0, ke * (z + g->therm * t));
         double delayed = delay[slot];
@@ -107,6 +107,10 @@ static result_t simulate_options(const golden_case_t *g, fw_mode_t mode,
                 r.settled_err = fmax(r.settled_err, fabs(f - g->target));
                 ++r.settled_samples;
             }
+            /* 지시의 1.4 s도 별도 관찰: (target-0.1)/ramp+0.5.
+             * 원본 식 target/ramp+0.5는 1 N/s에서 실제로 1.5 s다. */
+            if (r.contact >= 0 && t > r.contact + (g->target-0.1)/g->ramp + 0.5)
+                r.early_err = fmax(r.early_err, fabs(f-g->target));
             max_force = fmax(max_force, f);
             /* Original hold mask is strict >; inventory section 6 item 14:
              * all metrics use pre-integration F_true recorded every 1 ms. */
@@ -140,33 +144,40 @@ static result_t simulate(const golden_case_t *g)
 static unsigned check_firmware(void)
 {
     unsigned i, failed = 0;
-    puts("Validation 2 force (#13) | mode | overshoot_N | ss_original_N (observation) | ss_judged_N | spec_N | reach_s (observation) | result");
+    puts("Validation 2 force (#13) | mode | ramp_N_s | overshoot_N | ss_original_N (observation) | ss_judged_N | spec_N | reach_s (observation) | result");
     for (i = 0; i < sizeof(cases)/sizeof(cases[0]); ++i) {
         const golden_case_t *g = &cases[i];
         if (!strncmp(g->id, "control.force_sim.", strlen("control.force_sim."))) {
             unsigned mode;
             for (mode = 0; mode < 2; ++mode) {
-                result_t r = simulate_options(g, mode == 0 ? FW_MODE_REFERENCE : FW_MODE_FIRMWARE, 0, 0, 0);
+                /* golden/REFERENCE 원본 5 N/s 보존, FIRMWARE 저레인지는
+                 * 승인된 설계값 1 N/s 사용. 능력 검사는 우회하지 않는다. */
+                golden_case_t active = *g;
+                if (mode && active.spring == 2) active.ramp = FW_FORCE_LOW_RANGE_RAMP_N_S;
+                result_t r = simulate_options(&active, mode == 0 ? FW_MODE_REFERENCE : FW_MODE_FIRMWARE, 0, 0, 0);
                 double spec = g->spring == 2 ? 0.06 : 0.30;
                 /* #13: arrival and original error are observations only.
                  * Missing judged hold samples is a failed measurement. */
                 int pass = !r.interlocked && r.settled_samples &&
                     isfinite(r.overshoot) && r.overshoot <= spec && r.settled_err <= spec;
-                printf("%s | %s | %.9g | %.9g | %.9g | %.2f | %.3f | %s\n",
-                    g->id, mode == 0 ? "REFERENCE" : "FIRMWARE", r.overshoot,
+                printf("%s | %s | %.2f | %.9g | %.9g | %.9g | %.2f | %.3f | %s\n",
+                    g->id, mode == 0 ? "REFERENCE" : "FIRMWARE", active.ramp, r.overshoot,
                     r.ss_err, r.settled_err, spec, r.reach-r.contact, pass ? "PASS" : "FAIL");
                 if (!pass) ++failed;
             }
         }
     }
     puts("Validation 3 | mode | overshoot_N | max_abs_I_Ns | I_max_Ns | reach_s | saturated_ticks | result");
-    /* 가정값 고착: high는 접촉+3.7 s부터 0.5 s, 추가 low는 접촉 직후 0.5 s. high 원본 5 N/s는
+    /* 저레인지 두 모드 모두 승인된 1 N/s로 변경한다. 상한 검사 우회 없음.
+     * 정격 상한도 실제 k_eff*v_max보다 미세하게 높아 속도 한계만으로
+     * 포화하며, 고착 조건도 유지해 anti-windup 효과를 비교한다.
+     * 가정값 고착: high는 접촉+3.7 s부터 0.5 s, 추가 low는 접촉 직후 0.5 s. high 원본 5 N/s는
      * ±0.5 한계만 켜면 포화하지 않으므로 실제 포화를 만들기 위해 고착 주입. */
     for (i = 0; i < 3; ++i) {
         golden_case_t g = {.id = i == 0 ? "low1N-speed" :
             (i == 1 ? "high20N-block3.7+0.5s" : "low1N-block0.5s"),
             .spring = i == 1 ? 50 : 2, .target = i == 1 ? 20 : 1,
-            .ramp = 5, .approach = 0.02, .period_ms = 1, .end_s = 12};
+            .ramp = i == 1 ? 5 : FW_FORCE_LOW_RANGE_RAMP_N_S, .approach = 0.02, .period_ms = 1, .end_s = 12};
         double block = i == 0 ? 0 : 0.5;
         double start = i == 1 ? 3.7 : 0;
         result_t ref = simulate_options(&g, FW_MODE_REFERENCE, 1, block, start);
@@ -183,6 +194,66 @@ static unsigned check_firmware(void)
                fw.reach-fw.contact, fw.saturated_ticks, pass ? "PASS" : "FAIL");
         if (!pass) ++failed;
     }
+    return failed;
+}
+
+
+static unsigned check_ramp_capability(void)
+{
+    unsigned failed = 0, tick;
+    fw_recipe_t low = fw_recipe_low_range_default();
+    fw_recipe_t high = fw_recipe_high_range_default();
+    force_ctrl_t before;
+    float sp;
+#define CHECK_R(label, condition) do { int ok = (condition); \
+    printf("Ramp %s | %s\n", label, ok ? "PASS" : "FAIL"); \
+    if (!ok) ++failed; } while (0)
+    hal_host_reset(); fw_reset_latch(); fw_init();
+    CHECK_R("a high FIRMWARE 5 N/s (max 25)", fw_set_recipe(&high) == FW_OK);
+    hal_host_set_force_N(0.2f);
+    for (tick = 0; tick < 30; ++tick) fw_step_1ms();
+    before = *fw_get_force_state();
+    sp = before.setpoint_N;
+    low.ramp_N_s = 5;
+    CHECK_R("a low FIRMWARE 5 N/s rejected (-1)",
+        fw_set_recipe(&low) == FW_ERR_RAMP_EXCEEDS_CAPABILITY);
+    CHECK_R("a rejection preserves controller state/output",
+        !memcmp(&before, fw_get_force_state(), sizeof(before)) &&
+        hal_host_get_z_velocity_mm_s() == before.velocity_mm_s && fw_get_mode() == FW_MODE_FIRMWARE);
+    fw_step_1ms();
+    CHECK_R("a previous high recipe/time continues (5 N/s)",
+        fabsf(fw_get_force_state()->setpoint_N - sp - 0.005f) < 1e-6f);
+    low.ramp_N_s = FW_FORCE_LOW_RANGE_RAMP_N_S;
+    CHECK_R("a low FIRMWARE 1.0 N/s accepted", fw_set_recipe(&low) == FW_OK);
+    low.ramp_N_s = 1.01f; /* 경계 시험값: 승인 상한 1 N/s 바로 위. */
+    CHECK_R("a low FIRMWARE 1.01 N/s rejected (-1)",
+        fw_set_recipe(&low) == FW_ERR_RAMP_EXCEEDS_CAPABILITY);
+    hal_host_set_force_N(0.2f);
+    fw_step_1ms();
+    fw_step_1ms();
+    CHECK_R("a previous low recipe continues (1 N/s)",
+        fabsf(fw_get_force_state()->setpoint_N - 0.101f) < 1e-7f);
+    for (tick = 2; tick < 1200; ++tick) fw_step_1ms();
+    CHECK_R("a rejection preserves low target/ramp/spring", fw_get_force_state()->setpoint_N == 1.0f &&
+        fabsf(fw_get_force_state()->k_eff - 1.998002f) < 1e-5f);
+    low.ramp_N_s = 5; low.mode = FW_MODE_REFERENCE;
+    CHECK_R("b low REFERENCE 5 N/s accepted", fw_set_recipe(&low) == FW_OK);
+    {
+        const golden_case_t g = {.id="low1N-ramp1-noise0", .spring=2, .target=1,
+            .ramp=FW_FORCE_LOW_RANGE_RAMP_N_S, .approach=0.02, .period_ms=1, .end_s=9};
+        result_t r = simulate_options(&g, FW_MODE_FIRMWARE, 0, 0, 0);
+        int original = r.hold_samples && r.overshoot <= 0.06 && r.ss_err <= 0.06;
+        int judged = r.settled_samples && r.overshoot <= 0.06 && r.settled_err <= 0.06;
+        puts("Ramp c stage-A noise0 | overshoot_N | ss_original_N | ss_13_N | ss_1.4s_N | contact_s | reach_absolute_s | reach_after_contact_s | max_abs_I_Ns | I_max_Ns | saturated_ticks | original | #13");
+        printf("low1N-ramp1 | %.12g | %.12g | %.12g | %.12g | %.3f | %.3f | %.3f | %.12g | %.12g | %u | %s | %s\n",
+            r.overshoot, r.ss_err, r.settled_err, r.early_err, r.contact, r.reach,
+            r.reach-r.contact, r.integral_max, r.i_limit, r.saturated_ticks,
+            original ? "PASS" : "FAIL", judged ? "PASS" : "FAIL");
+        CHECK_R("c both windows / 1.4 s / I_max / reach / no interlock",
+            original && judged && r.early_err <= 0.06 && r.reach >= 0 &&
+            !r.interlocked && r.integral_max <= r.i_limit);
+    }
+#undef CHECK_R
     return failed;
 }
 
@@ -211,7 +282,7 @@ static unsigned check_contract(void)
     hal_host_reset();
     fw_reset_latch();
     fw_init();
-    CHECK(fw_set_recipe(&recipe));
+    CHECK(fw_set_recipe(&recipe) == FW_OK);
     hal_host_set_force_N(0.1f);
     fw_step_1ms(); /* tick 0: equality must remain approach. */
     CHECK(!fw_get_force_state()->contacted);
@@ -229,7 +300,7 @@ static unsigned check_contract(void)
     hal_host_set_force_N(1.0f);
     fw_step_1ms();
     CHECK(hal_host_get_z_velocity_mm_s() == velocity);
-    CHECK(fw_set_recipe(&recipe));
+    CHECK(fw_set_recipe(&recipe) == FW_OK);
     CHECK(!fw_get_force_state()->contacted);
     CHECK(fw_get_force_state()->integral_N_s == 0.0f);
     CHECK(hal_host_get_z_velocity_mm_s() == recipe.approach_mm_s);
@@ -259,7 +330,7 @@ int main(void)
             fw_recipe_t recipe = {(float)g->spring, (float)g->target,
                 (float)g->ramp, (float)g->approach, g->period_ms, FW_MODE_REFERENCE};
             fw_init();
-            if (!fw_set_recipe(&recipe)) return 1;
+            if (fw_set_recipe(&recipe) != FW_OK) return 1;
         } else {
             r = simulate(g);
             if (!strncmp(g->id, "control.force_sim.", strlen("control.force_sim."))) {
@@ -287,6 +358,7 @@ int main(void)
     printf("Golden: %u/%u PASS (%u vectors), %u FAIL\n", checks - failures,
            checks, (unsigned)(sizeof(cases) / sizeof(cases[0])), failures);
     failures += check_contract();
+    failures += check_ramp_capability();
     failures += check_firmware();
     return failures ? 1 : 0;
 }

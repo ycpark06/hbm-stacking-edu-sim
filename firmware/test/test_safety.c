@@ -22,7 +22,7 @@ static unsigned check_interlocks(void)
         unsigned before = failed;
         float sp, integral;
         hal_host_reset(); fw_reset_latch(); fw_init();
-        CHECK(fw_set_recipe(&r));
+        CHECK(fw_set_recipe(&r) == FW_OK);
         hal_host_set_temp_C(149); hal_host_set_force_N(0.2f);
         fw_step_1ms(); /* both controllers active at tick 0 */
         sp = fw_get_force_state()->setpoint_N;
@@ -56,7 +56,7 @@ static unsigned check_interlocks(void)
             CHECK(hal_host_get_heater_W() == 0 && hal_host_get_z_velocity_mm_s() == 0);
             /* Init/recipe must never provide another latch reset path. */
             fw_init(); CHECK(fw_get_interlock_state()->latched);
-            CHECK(fw_set_recipe(&r)); CHECK(fw_get_interlock_state()->latched);
+            CHECK(fw_set_recipe(&r) == FW_OK); CHECK(fw_get_interlock_state()->latched);
             CHECK(hal_host_get_z_velocity_mm_s() == 0 && hal_host_get_heater_W() == 0);
         } else CHECK(fw_get_force_state()->setpoint_N > sp);
         fw_reset_latch();
@@ -77,8 +77,8 @@ static unsigned check_sequence(void)
     double z = -0.02, cmd = z, previous_sp = 1;
     /* 설계값 테스트: low 1 N, 원본 dt=10 us, servo=0.8 ms, noise=0.
      * 6 s 유지 후 호출자가 해제 요청; 12 s 안에 무하중/상승/정지 확인. */
-    fw_recipe_t r = {2, 1, 5, 0.02f, 1, FW_MODE_FIRMWARE};
-    hal_host_reset(); fw_reset_latch(); fw_init(); CHECK(fw_set_recipe(&r));
+    fw_recipe_t r = fw_recipe_low_range_default();
+    hal_host_reset(); fw_reset_latch(); fw_init(); CHECK(fw_set_recipe(&r) == FW_OK);
     CHECK(fw_get_sequence_state()->phase == FW_SEQ_APPROACH);
     for (i = 0; i < 1200000; ++i) {
         double f = fmax(0, (1.0/(1.0/2 + 1.0/2000)) * z);

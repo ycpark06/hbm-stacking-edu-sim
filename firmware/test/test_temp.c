@@ -36,7 +36,7 @@ static result_t simulate(const temp_case_t *g, fw_mode_t mode)
     fw_init();
     {
         const fw_recipe_t recipe = {50.0f, 20.0f, 5.0f, 0.02f, 1u, mode};
-        if (!fw_set_recipe(&recipe)) return r;
+        if (fw_set_recipe(&recipe) != FW_OK) return r;
     }
     if (!fw_set_temp_period_ms(g->period_ms)) return r;
     for (i = 0; i < (unsigned)(g->end_s / dt); ++i) {

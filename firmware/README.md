@@ -8,6 +8,7 @@
 - `fw_config.h`의 설계값 `v_max=0.5 mm/s`, `I_max=v_max/Ki`와 근거는
   [적분 제한 결정](docs/force_integral_limit.md)에 기록한다.
 - 검증 2: 원본 노이즈 0 플랜트, 하중 네 시나리오와 온도 10 ms.
+  REFERENCE는 원본 5 N/s를 유지하고 FIRMWARE 저레인지는 승인된 1 N/s를 쓴다.
   하중 표의 도달 시간은 첫 `F >= 0.98*target` 시각에서 접촉 시각을 뺀 값이다.
   #13 판정 시작은 두 모드 모두
   `max(t_contact + target/ramp + 0.5 s, 첫 F >= 0.98*target 시각 + 0.5 s)`이며
@@ -17,7 +18,8 @@
 - 검증 3: 테스트 플랜트의 선택적 실제 속도 한계 ±0.5 mm/s와 고착 외란.
   옵션 기본값은 꺼짐이다. 한계를 켜면 수락 속도와 실제 Z 속도를 함께 제한해
   위치 명령 backlog가 생기지 않게 한다. 고착 중 위치 명령도 누적하지 않는다.
-  저레인지 1 N은 속도 한계만으로 포화한다. 고레인지 20 N, 5 N/s는 그 한계만으로
+  저레인지 1 N은 두 모드 모두 1 N/s를 사용하며 속도 한계만으로도 미세하게 포화한다.
+  램프 상한 검사를 우회하거나 테스트에서 끄지 않는다. 고레인지 20 N, 5 N/s는 그 한계만으로
   포화하지 않으므로 접촉 후 3.7 s에 0.5 s 고착을 넣는다. 추가 조건은 저레인지
   접촉 직후 0.5 s 고착이다. 고착 시각·기간은 테스트 가정값이며 KPI가 아니다.
   각 12 s 동안 모든 PI 갱신의 적분을 관찰하며, 인터락 개입 없이 비교함을 검사한다.
@@ -35,6 +37,66 @@
 설정값을 레시피 속도로 0 N까지 내리고 측정 하중이 접촉 문턱 이하가 되면
 상승한다. 잔류 압축을 푼 뒤 무하중에서 초기 간극 0.02 mm만큼 더 상승하고 정지한다
 (설계값, 원본 `control_sim.py:12`의 초기 간극 재사용).
+
+## 하중 램프 상한과 프리셋 (2026-11-25 결정)
+
+램프 상한은 **설계값** `ramp_max = k_spring × v_max`이며 레인지 정격
+스프링 강성을 사용한다. Z 속도 한계 ±0.5 mm/s와 적분 한계 `I_max=v_max/Ki`,
+#13 판정 규칙은 유지한다. 저레인지는 `2 N/mm × 0.5 mm/s ≈ 1 N/s`로
+기본 램프를 제한한다 (#13 분석, 사용자 결정 2026-11-25).
+접촉 강성 2000 N/mm와 직렬로 연결되므로 저레인지 실제 `k_eff`는 정격보다
+약 0.1 % 작다. 실제 지속 가능 램프는 약 0.999 N/s이며 정격 상한에서의
+미세한 포화는 anti-windup이 처리한다. 고레인지의 강성 감소율은 약 2.44 %다.
+
+`fw_config.h`에 `FW_FORCE_LOW_RANGE_RAMP_N_S`와
+`FW_FORCE_RAMP_MAX_N_S(k_spring)`를 정의한다.
+`fw.h`의 다음 함수는 상태 변경 없이 레시피 값을 반환한다.
+
+| 프리셋 함수 | k_spring (N/mm) | 목표 (N) | 램프 (N/s) | 접근 (mm/s) | 하중 주기 | 모드 |
+|---|---:|---:|---:|---:|---|---|
+| `fw_recipe_low_range_default()` | 2 | 1 | 1 | 0.02 | 1 ms | FIRMWARE |
+| `fw_recipe_high_range_default()` | 50 | 20 | 5 | 0.02 | 1 ms | FIRMWARE |
+
+`fw_init()`은 기존처럼 고레인지로 초기화한다. 강성·목표·접근·주기는
+`control_sim.py:6,38` 원본 시험 조건, 저레인지 램프 1 N/s는 새 설계값이다.
+
+| `fw_set_recipe()` / wasm 래퍼 반환값 | 의미 |
+|---|---|
+| `FW_OK = 1` | 수락, 제어 상태·시간 초기화 |
+| `FW_ERR_INVALID_RECIPE = 0` | 기존 유효성 검사 실패 |
+| `FW_ERR_RAMP_EXCEEDS_CAPABILITY = -1` | FIRMWARE에서 램프가 `k_spring*v_max` 초과 |
+
+모든 거부는 이전 레시피·제어 상태·출력을 보존한다. 성공 판정은 C에서
+`== FW_OK`, JS에서 `=== 1`을 사용한다. 새 음수 오류를 참/거짓으로 검사하면
+성공으로 오인할 수 있다. REFERENCE는 golden 대조용으로 능력 검사를 하지
+않으며 저레인지 원본 5 N/s도 수락한다. wasm 래퍼는 코어 반환값을 그대로 전달한다.
+
+`make test`는 저레인지 FIRMWARE 5/1.01 N/s 거부·이전 레시피 보존,
+1 N/s 수락, 고레인지 5 N/s 수락(상한 25 N/s), REFERENCE 저레인지
+5 N/s 수락을 출력한다. 저레인지 1 N/s, 1 N 단계 A 플랜트(노이즈 0) 결과:
+
+| 지표 | 결과 |
+|---|---:|
+| overshoot | 0.00119061810232 N |
+| ss_err 원본 유지 구간 | 4.42539989987e-7 N (PASS, 허용 0.06 N) |
+| ss_err #13 구간 | 4.42539989987e-7 N (PASS, 허용 0.06 N) |
+| 접촉 후 1.4 s 이후 ss_err | 1.75678246195e-6 N (PASS) |
+| 접촉 시각 / 첫 98 % 목표 도달 시각 | 3.504 / 4.392 s |
+| 접촉 기준 도달 시간 | 0.888 s |
+| max\|I\| / I_max | 0.000108011619886 / 0.000632624665741 N·s |
+| 포화 tick 수 | 885 |
+
+원본 식 `t_contact + target/ramp + 0.5 s`는 접촉 후 **1.5 s**다.
+지시의 1.4 s는 `(target-0.1)/ramp+0.5 s`에 해당하여 별도 관찰·검사한다.
+원본 정의와 #13 판정 규칙을 보존하며 두 구간 모두 통과했다.
+
+검증 3의 저레인지 속도 한계·고착은 두 모드에 같은 1 N/s를 적용한다.
+고레인지는 기존 5 N/s와 접촉 후 3.7 s부터 0.5 s 고착을 유지한다.
+모든 조건에서 실제 포화, FIRMWARE 초과량 감소와 적분 한계 준수를 확인했다.
+검증 6은 같은 고정 입력 600개 × 두 모드를 유지하며 PC/wasm 양쪽 저레인지
+레시피를 1 N/s로 맞췄다. `test_wasm.mjs`는 5 N/s FIRMWARE 거부 코드 -1도
+검사한다. `controller.js`는 재생성 결과 기존 추적 파일과 바이트가 동일하며,
+`controller.bin`·`controller.wasm`은 변경된 산출물이다.
 
 ## 구조와 빌드
 
@@ -71,7 +133,7 @@ ES module의 기본 export는 비동기 모듈 생성 함수다. `cwrap`/`ccall`
 | 함수 | 인자·반환 |
 |---|---|
 | `fw_init()` | 기본 FIRMWARE 레시피, 기존 래치 보존 |
-| `fw_wasm_set_recipe(spring,target,ramp,approach,period_ms,mode)` | N/mm, N, N/s, mm/s, 정수 ms, 0=REFERENCE/1=FIRMWARE; 성공 1 |
+| `fw_wasm_set_recipe(spring,target,ramp,approach,period_ms,mode)` | N/mm, N, N/s, mm/s, 정수 ms, 0=REFERENCE/1=FIRMWARE; 성공 1, 일반 오류 0, 램프 초과 -1 |
 | `fw_step_1ms(force_meas_N,temp_meas_C)` | 두 float 측정값 저장 후 공통 코어 1 ms 실행 |
 | `fw_reset_latch()` | 현재 측정값으로 수동 해제, 조건 잔존 시 재래치 |
 | `fw_set_hw_fault(fault)` | 외부 고장 모사 입력 |
@@ -88,7 +150,7 @@ ES module의 기본 export는 비동기 모듈 생성 함수다. `cwrap`/`ccall`
 PC 프로그램은 host HAL을, Node는 wasm HAL을 사용하며 각각 CSV를
 `build/fixed_pc.csv`, `build/fixed_wasm.csv`에 기록한다.
 출력 12열·1,200행(14,400값)을 `max(상대 1e-3, 절대 1e-4)`로 비교한다.
-결과: PASS, 최대 절대 차이 `7.676563e-6`.
+결과: PASS, 최대 절대 차이 `8.119141e-6` (1 N/s 레시피 갱신 후).
 
 ## 검증 7 — 출처·설계값 자체 확인 (2026-11-25)
 
@@ -96,7 +158,7 @@ PC 프로그램은 host HAL을, Node는 wasm HAL을 사용하며 각각 CSV를
 |---|---|
 | fw_config.h: 1 ms tick, 하중 1 ms | HANDOFF 2절·control_sim.py:6, 호스트 tick은 설계값 |
 | 접촉 강성 2000, PI 20 Hz·2 Hz·π | control_sim.py:8–10,40, 원본 이득식 |
-| fw.c 기본 레시피 50 N/mm·20 N·5 N/s·0.02 mm/s | control_sim.py:6,38 고레인지 시나리오, 원본 시험 조건 |
+| fw.c 고레인지 기본 레시피 50 N/mm·20 N·5 N/s·0.02 mm/s | control_sim.py:6,38 고레인지 시나리오, 원본 시험 조건 |
 | 접촉 문턱·램프 시작 0.1 N | control_sim.py:24,26 |
 | 온도 10 ms·Kp=25·Ki=6·Kd=0, 적분 ±30, 히터 400 W | 10장 10.3·HANDOFF 3.2·control_sim.py:45,54–56 |
 | 150→300 ℃, 20 K/s, 40·70 s | control_sim.py:65 프로파일 가정값 |
