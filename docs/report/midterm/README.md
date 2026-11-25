@@ -5,6 +5,6 @@
 - `00_요약.md`, `01_문제정의.md` ~ `14_결론.md`: 장별 원고
 - `fig/`: 그림과 그림 생성 스크립트, `fig/dwg/`: 2D 도면 스크립트
 - `build_final.py`: PDF 빌드 (Playwright Chromium, Noto Sans CJK 필요). 이 폴더에서 `python3 build_final.py`
-- 계산 스크립트와 결과 JSON은 저장소 루트의 `calc/`에 있다. CAD 스크립트와 STEP은 `cad/midterm/`에 있다.
+- 계산 스크립트와 결과 JSON은 `calc/midterm/`에 있다. CAD 스크립트와 STEP은 `cad/midterm/`에 있다.
 
 제출본 PDF와 docx는 표지에 개인정보가 들어가므로 옮기지 않았다.
