@@ -82,3 +82,5 @@ void fw_reset_latch(void)
 void fw_release(void) { sequencer_release(&sequence); }
 const interlock_t *fw_get_interlock_state(void) { return &safety; }
 const sequencer_t *fw_get_sequence_state(void) { return &sequence; }
+
+fw_mode_t fw_get_mode(void) { return recipe.mode; }

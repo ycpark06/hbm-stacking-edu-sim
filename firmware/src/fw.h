@@ -5,6 +5,7 @@
 #include "interlock.h"
 #include "sequencer.h"
 void fw_init(void);
+fw_mode_t fw_get_mode(void);
 /* 유효 레시피는 제어 상태와 시간 기준을 초기화한다. 실패는 0, 성공은 1. */
 int fw_set_recipe(const fw_recipe_t *recipe);
 /* 설계값: 1 ms 정수 분주 설정. 0은 거부하며 상태를 바꾸지 않는다.
