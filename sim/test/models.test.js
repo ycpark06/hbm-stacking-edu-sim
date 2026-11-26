@@ -318,3 +318,61 @@ test('C2 recorded 2/4/8/12 x 100/50 scenarios, gel/void rules, parameter sensiti
   assert.equal(voidRule.quantitative,false);assert.equal(voidRule.grade,'미접합 위험');
   writeFileSync(new URL('c2_results.json',import.meta.url),JSON.stringify({correction_reason:'Issue #20: h0 = gap + film excess (um); separate bonder occupancy and batch post-processing.',results,alignment,sensitivity,convergence},null,2)+'\n');
 });
+
+import {pressureFillTime,unfilledFraction,stackFillTime,washburnFillTime} from '../muf.js';
+import {selfAlign,selfAlignCoefficients} from '../alignment.js';
+import {runStack,judgeDefect} from '../stack.js';
+
+test('Washburn and zero-pressure filling obey gap and length scaling; parallel gaps use max',()=>{
+  const mu=params.muf.viscosity_at_fill.value,L=params.geometry.die_size.value*1e-3,h=params.geometry.interlayer_gap.value*1e-6;
+  const opts={gamma:params.muf.surface_tension.value,theta_deg:params.muf.contact_angle.value,dP_app_Pa:0};
+  for(const fn of [washburnFillTime,pressureFillTime]) {
+    const t=fn(mu,L,h,opts);close(fn(mu,L,2*h,opts),t/2);close(fn(mu,2*L,h,opts),4*t);
+  }
+  close(washburnFillTime(mu,L,h,opts),pressureFillTime(mu,L,h,opts));
+  assert.ok(pressureFillTime(mu,L,h,{...opts,dP_app_Pa:1e4})<pressureFillTime(mu,L,h,opts));
+  const r=stackFillTime([{gap_m:h},{gap_m:2*h,mu_Pa_s:mu*3,L_m:L*2}],{params});
+  close(r.fill_time_s,Math.max(...r.layers.map(l=>l.fill_time_s)));
+  close(unfilledFraction(r.fill_time_s,r.fill_time_s/4),0.5);
+  assert.equal(unfilledFraction(r.fill_time_s,r.fill_time_s*2),0);
+  assert.equal(unfilledFraction(Infinity,1),1);
+  assert.equal(pressureFillTime(mu,L,h,{gamma:0,theta_deg:0,dP_app_Pa:0}),Infinity);
+  assert.throws(()=>pressureFillTime(-1,L,h,opts));assert.throws(()=>unfilledFraction(1,-1));
+});
+
+test('self alignment: zero time, damped envelope, dry friction stiction and sign symmetry',()=>{
+  const base={x0_um:0.5,K_N_m:4,c_Ns_m:1,m_kg:1,F_resist_N:0,t_liquid_s:0};
+  assert.equal(selfAlign(base).x_um,base.x0_um);
+  const w=Math.sqrt(base.K_N_m/base.m_kg-(base.c_Ns_m/(2*base.m_kg))**2);
+  let previous=base.x0_um;
+  for(const n of [1,2,3,4]) {
+    const r=selfAlign({...base,t_liquid_s:n*Math.PI/w});
+    assert.ok(Math.abs(r.x_um)<previous);previous=Math.abs(r.x_um);
+    close(Math.abs(r.x_um),base.x0_um*Math.exp(-base.c_Ns_m/(2*base.m_kg)*n*Math.PI/w));
+  }
+  for(const c of [4,5]) {
+    let prev=base.x0_um;
+    for(const t of [0,0.1,1,10]){const r=selfAlign({...base,c_Ns_m:c,t_liquid_s:t});assert.ok(r.x_um<=prev&&r.x_um>=0);prev=r.x_um;}
+  }
+  const actual={x0_um:0.5,...selfAlignCoefficients(100,params),t_liquid_s:90};
+  const r=selfAlign(actual),negative=selfAlign({...actual,x0_um:-actual.x0_um});
+  assert.ok(Math.abs(r.x_um)<actual.x0_um);assert.ok(r.stuck);
+  close(r.x_um,-negative.x_um);
+  const stuck=selfAlign({...actual,x0_um:actual.F_resist_N/actual.K_N_m*1e6/2});
+  close(stuck.x_um,actual.F_resist_N/actual.K_N_m*1e6/2);
+  // No-damping Coulomb half-cycle: exact x_next = -x0 + 2F/K.
+  close(selfAlign({...base,c_Ns_m:0,F_resist_N:0.1e-6,t_liquid_s:Math.PI/2}).x_um,-0.45);
+});
+
+test('runStack recipe validation, deterministic offsets, immutable params, design threshold edges',()=>{
+  const saved=structuredClone(params),recipe={layers:2,thickness_um:50,gap_um:20,bond_force_N:25,seed:123};
+  const a=runStack('TC-NCF',recipe,params),b=runStack('TC-NCF',recipe,params);
+  assert.deepEqual(a.alignment,b.alignment);assert.deepEqual(params,saved);
+  assert.equal(a.defect_area_pct,null);
+  assert.match(a.defect_judgement,/정량 모델 없음/);
+  close(a.ncf[0].contact_gap_m,20e-6);
+  assert.equal(a.thermal.layers.length,2);
+  for(const override of [{gap_um:6},{bond_force_N:51},{layers:0},{thickness_um:-1},{seed:NaN}])assert.throws(()=>runStack('TC-NCF',override,params));
+  assert.equal(judgeDefect(params.judgement.defect_good_max_pct.value,params),'양호');
+  assert.equal(judgeDefect(params.judgement.defect_fail_above_pct.value,params),'주의');
+});
