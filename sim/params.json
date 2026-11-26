@@ -278,6 +278,82 @@
       "kind": "assumption",
       "source": "docs/research/params_research.md (기본값 제안·미확인 항목), params_draft.json: 양산 NCF 비열이 미공개이므로 초안의 충전 에폭시 대리값 1100 J/kg/K(1000~1300)를 유지한다. 측정값이 아닌 열용량 계산용 가정이다.",
       "note": "typical filled epoxy"
+    },
+    "gel_conversion": {
+      "value": 0.6,
+      "unit": "1",
+      "kind": "assumption",
+      "source": "겔 전환율 실측값 부재로 0.6을 교육용 기준으로 가정한다. 250 ℃ gel_time을 이 전환율 도달 시간으로 정규화한다.",
+      "range": [
+        0.4,
+        0.8
+      ]
+    },
+    "castro_A": {
+      "value": 2,
+      "unit": "1",
+      "kind": "assumption",
+      "source": "model_inventory G10의 발산형 점도를 사용하며 실측 피팅 계수가 없어 지수 A=2를 가정한다.",
+      "range": [
+        1,
+        3
+      ]
+    },
+    "castro_B": {
+      "value": 0,
+      "unit": "1",
+      "kind": "assumption",
+      "source": "경화도 의존 지수의 실측 자료가 없어 B=0으로 단순화한다."
+    },
+    "cure_activation_energy": {
+      "value": 60,
+      "unit": "kJ/mol",
+      "kind": "assumption",
+      "source": "NCF 반응속도 실측값 부재로 원본 process_physics.py의 60 kJ/mol 에폭시 기준을 NCF에 대리 적용한다.",
+      "range": [
+        40,
+        80
+      ]
+    },
+    "gel_reference_temp": {
+      "value": 250,
+      "unit": "C",
+      "kind": "design",
+      "source": "ncf.gel_time_at_250C에 대응하는 기준 온도이며 원본 cureRate의 기준점만 변경한다."
+    },
+    "integration_dt": {
+      "value": 0.005,
+      "unit": "s",
+      "kind": "assumption",
+      "source": "C1 열 기록을 선형 보간하여 경화와 유동을 결합하는 시간 간격 가정. 절반 간격 검증을 수행한다."
+    },
+    "film_initialization": {
+      "value": "numeric film_thickness_over_gap times gap",
+      "unit": "model",
+      "kind": "assumption",
+      "source": "단계 3-C2 사용자 명시 곱셈을 우선한다. 기존 항목은 4 um 초과 두께라는 가산 정의이지만 값을 변경하지 않고 숫자 4를 무차원 배수로 해석한다. 기본 h0=60 um이며 기존 가산 해석은 19 um이다."
+    },
+    "temperature_proxy": {
+      "value": "new die-centre temperature for lumped filling layer",
+      "unit": "model",
+      "kind": "assumption",
+      "source": "C1 volume_model은 충전층 독립 온도 없이 다이 절점에 열용량을 합친다. 새 층 절점 온도를 충전층 온도의 대리값으로 사용하는 가정이다."
+    },
+    "low_viscosity_factor": {
+      "value": 2,
+      "unit": "1",
+      "kind": "assumption",
+      "source": "최소 용융 점도의 2배 이하를 기포 배출에 유리한 저점도 구간으로 분류하는 정성 규칙 가정이다."
+    },
+    "low_viscosity_window": {
+      "value": 1,
+      "unit": "s",
+      "kind": "assumption",
+      "source": "접촉 전 저점도 노출이 1 s 미만이면 짧다고 분류한다. 보이드 면적률로 보정하지 않는 교육용 정성 임계값이다.",
+      "range": [
+        0.5,
+        2
+      ]
     }
   },
   "muf": {
@@ -1268,6 +1344,32 @@
       "unit": "s",
       "kind": "midterm",
       "source": "calc/midterm/thermal.py:43의 가열 해석 400 s 구간을 미도달 감지 상한으로 사용한다."
+    }
+  },
+  "alignment": {
+    "sigma_layer_um": {
+      "value": 0.29416548630546946,
+      "unit": "um",
+      "kind": "midterm",
+      "source": "calc/midterm/error_budget.json rss_sigma=0.29416548630546946 (RSS 3sigma=0.8824964589164084 um), 중간 5장."
+    },
+    "mc_samples": {
+      "value": 20000,
+      "unit": "count",
+      "kind": "assumption",
+      "source": "표본 표준편차 상대 표준오차 약 1/sqrt(2(M-1))가 0.5%인 20000회를 사용한다."
+    },
+    "mc_seed": {
+      "value": 489,
+      "unit": "seed",
+      "kind": "assumption",
+      "source": "재현 가능한 xoshiro128** Monte Carlo 보고용 시드 가정."
+    },
+    "error_model": {
+      "value": "independent Gaussian per axis; substrate is bottom datum",
+      "unit": "model",
+      "kind": "assumption",
+      "source": "중간 RSS 분산을 독립 정규 층 오차로 근사한다. N은 기판 위 배치 횟수이며 맨 아래 기준은 기판이다. 최상위-첫 다이 오차도 별도 제공한다. TC-NCF는 중간 4장에 따라 자기정렬을 적용하지 않는다."
     }
   }
 }
