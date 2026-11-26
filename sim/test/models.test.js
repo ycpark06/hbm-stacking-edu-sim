@@ -73,18 +73,36 @@ function crossings(history,index,tl) {
   return {count,byPhase};
 }
 
-test('2/4/8/12 layers: count actual liquidus crossings and record expectation discrepancies',t=>{
+test('2/4/8/12 layers: separate scheduled bonding/tack exposures from liquidus crossings',t=>{
   const results=[];
   for(const mode of ['TC-NCF','MR-MUF']) for(const N of [2,4,8,12]) for(const thickness_um of [100,50]) {
     const m=model(N,mode,thickness_um),schedule=(mode==='TC-NCF'?tcncfSchedule:mrmufSchedule)(N,params),r=stackSim(m,schedule);
     assert.ok(r.history.every(row=>row.T.every(Number.isFinite)));
     for(let i=0;i<N;i++) {
       const actual=crossings(r.history,i,params.solder.liquidus_snag.value);
-      assert.equal(r.layers[i].reheat_count,actual.count);
+      assert.equal(r.layers[i].remelt_count,actual.count);
       assert.deepEqual(r.layers[i].crossings_by_phase,actual.byPhase);
       assert.ok(r.layers[i].time_above_s>=0&&Number.isFinite(r.layers[i].peak_C));
     }
+    // Independently group recorded samples by the upper layer being processed.
+    // Include cooling samples: a lower node can reach its peak after tool release.
+    for(let i=0;i<N;i++) {
+      const expected=[];
+      for(let n=i+2;n<=N;n++) expected.push(Math.max(...r.history.filter(row=>row.T.length===n&&
+        (mode==='TC-NCF'?row.phase.startsWith('bond-'):row.phase.startsWith('tack'))).map(row=>row.T[i])));
+      assert.deepEqual(mode==='TC-NCF'?r.layers[i].reheat_peaks_C:r.layers[i].tack_peaks_C,expected);
+    }
     const bottom=r.layers[0],tack_crossings=r.layers.map(l=>l.crossings_by_phase.tack??0);
+    if(mode==='TC-NCF') {
+      assert.equal(bottom.reheat_count,N-1);
+      assert.equal(bottom.reheat_peaks_C.length,N-1);
+      assert.ok(bottom.reheat_peaks_C.every((peak,i,peaks)=>peak>params.tcncf_process.stage_temp.value&&(i===0||peak<peaks[i-1])));
+      for(let i=0;i<N;i++) assert.equal(r.layers[i].reheat_count,N-i-1);
+    } else {
+      assert.ok(r.layers.every(l=>l.reflow_count===1&&l.reheat_count===0));
+      assert.equal(bottom.tack_exposures,N-1);
+      for(let i=0;i<N;i++) assert.equal(r.layers[i].tack_peaks_C.length,N-i-1);
+    }
     if(mode==='MR-MUF') assert.equal(Object.entries(bottom.crossings_by_phase).filter(([k])=>k.startsWith('reflow')).reduce((s,[,v])=>s+v,0),1);
     const warp=stackWarpHistory(thermalWarpSteps(r,m));
     assert.ok(warp.every(row=>Number.isFinite(row.w_um)));
@@ -92,7 +110,7 @@ test('2/4/8/12 layers: count actual liquidus crossings and record expectation di
     const warp_by_layer=Array.from({length:N},(_,i)=>({layer_count:i+1,max_um:Math.max(...warp.filter(row=>row.layer_count===i+1).map(row=>Math.abs(row.w_um)))}));
     const entry={mode,N,thickness_um,bottom,layers:r.layers,tack_crossings,max_warp_um,warp_by_layer,judgement:judgeWarpage(max_warp_um,params.geometry.interlayer_gap.value,params)};
     results.push(entry);
-    t.diagnostic(`${mode} N=${N} t=${thickness_um}: bottom crossings=${bottom.reheat_count}, subsequent=${bottom.subsequent_reheats}, expected TC subsequent=${N-1}; tack all-layer crossings=${tack_crossings}`);
+    t.diagnostic(`${mode} N=${N} t=${thickness_um}: bottom reheats=${bottom.reheat_count}, remelts=${bottom.remelt_count}, subsequent_remelts=${bottom.subsequent_remelts}, reflows=${bottom.reflow_count}, tack exposures=${bottom.tack_exposures}; tack all-layer crossings=${tack_crossings}`);
   }
   const fine=structuredClone(params);fine.thermal_stack.dt.value/=2;
   const convergence=[];
@@ -131,7 +149,7 @@ test('crossing definition includes first bond and tack; interpolated liquidus ti
   const m=model(1),tl=params.solder.liquidus_snag.value;
   const seg=(T,phase)=>({duration_s:1,dt_s:1,phase,input:{T_head_C:T}});
   const r=stackSim(m,[seg(300,'tack'),seg(20,'cool'),seg(300,'reflow')]);
-  assert.equal(r.layers[0].reheat_count,2);assert.equal(r.layers[0].subsequent_reheats,1);
+  assert.equal(r.layers[0].remelt_count,2);assert.equal(r.layers[0].subsequent_remelts,1);
   assert.equal(r.layers[0].crossings_by_phase.tack,1);
   let above=0;
   for(let i=1;i<r.history.length;i++) {
@@ -140,6 +158,18 @@ test('crossing definition includes first bond and tack; interpolated liquidus ti
     else if((ta>tl)!==(tb>tl)) above+=dt*(ta>tl?(ta-tl)/(ta-tb):(tb-tl)/(tb-ta));
   }
   close(r.layers[0].time_above_s,above);
+});
+
+test('repeated reflows count post-bond reheating independently of melting',()=>{
+  const m=model(1,'MR-MUF'),first=mrmufSchedule(1,params);
+  const second=first.filter(s=>s.phase.startsWith('reflow')).map(s=>({...s,
+    exposure:{id:'reflow-2',kind:'reflow'},
+    input:{T_chuck_C:params.thermal_stack.ambient_temp.value}}));
+  const r=stackSim(m,[...first,...second]);
+  assert.equal(r.layers[0].reflow_count,2);
+  assert.equal(r.layers[0].reheat_count,1);
+  assert.equal(r.layers[0].tack_exposures,0);
+  assert.ok(r.layers[0].reheat_peaks_C[0]<params.solder.liquidus_snag.value);
 });
 
 test('warpage stress-free state, cooling, and strict judgement thresholds',()=>{

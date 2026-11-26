@@ -152,18 +152,33 @@ export function stackStep(state,input,model,dt) {
   return {T:next,input_J,loss_J,stored_J:model.C.reduce((s,c,i)=>s+c*(next[i]-T[i]),0)};
 }
 
-/* Reheat count = EVERY below→above liquidus crossing, including first bonding.
- * subsequent_reheats excludes the first crossing. Linear crossing interpolation
- * gives time above liquidus; no latent heat or cure heat is included in C1. */
+/* remelt_count counts all below→above liquidus crossings (including the first);
+ * subsequent_remelts excludes that first crossing. TAL uses linear interpolation.
+ * Schedule segments may share exposure: {id, kind: 'bond'|'tack'|'reflow', layer}.
+ * id identifies one complete cycle (ramp/hold/cool); layer is 1-based for bond/tack.
+ * Event peaks include segment start/end and cooling, so delayed peaks are retained.
+ * reheat_count/peaks count bonding events AFTER a layer's own bond; reflow bonds
+ * all present layers and is also counted separately in reflow_count. Tack peaks
+ * count only later layers' temporary fixation, excluding a layer's own tack.
+ * No temperature threshold is used for event counts. No latent/cure heat in C1. */
 export function stackSim(model,schedule) {
   const p=model.params,tl=p.solder.liquidus_snag.value,N=model.C.length;
-  const stats=Array.from({length:N},()=>({peak_C:-Infinity,time_above_s:0,reheat_count:0,subsequent_reheats:0,crossings_by_phase:{}}));
-  let T=[],t=0;const history=[];
+  const stats=Array.from({length:N},()=>({peak_C:-Infinity,time_above_s:0,remelt_count:0,subsequent_remelts:0,reheat_count:0,reheat_peaks_C:[],reflow_count:0,tack_exposures:0,tack_peaks_C:[],crossings_by_phase:{}}));
+  let T=[],t=0;const history=[],exposures=new Map();
   for(const segment of schedule) {
     const n=segment.activeLayers??N;
     if(!Number.isInteger(n)||n<T.length||n>N||!(segment.duration_s>0)) throw new RangeError('schedule');
     const initial=p.thermal_stack.ambient_temp.value;
     while(T.length<n) T.push(initial);
+    let exposure;
+    if(segment.exposure) {
+      const {id,kind,layer}=segment.exposure;
+      if(!id||!['bond','tack','reflow'].includes(kind)||
+        (kind!=='reflow'&&(!Number.isInteger(layer)||layer<1||layer>n))) throw new RangeError('exposure');
+      if(!exposures.has(id)) exposures.set(id,{kind,layer,peaks:Array(n).fill(-Infinity)});
+      exposure=exposures.get(id);
+      for(let i=0;i<n;i++) exposure.peaks[i]=Math.max(exposure.peaks[i],T[i]);
+    }
     const active=buildStack({...model,layers:model.layers.slice(0,n)});
     for(let i=0;i<n;i++) stats[i].peak_C=Math.max(stats[i].peak_C,T[i]);
     history.push({t_s:t,T:[...T],phase:segment.phase,event:segment.startEvent??null});
@@ -174,7 +189,8 @@ export function stackSim(model,schedule) {
       const next=stackStep({T},input,active,dt).T;
       for(let i=0;i<n;i++) {
         const s=stats[i],a=T[i],b=next[i];s.peak_C=Math.max(s.peak_C,b);
-        if(a<=tl&&b>tl) {s.reheat_count++;s.crossings_by_phase[segment.phase]=(s.crossings_by_phase[segment.phase]??0)+1;}
+        if(exposure) exposure.peaks[i]=Math.max(exposure.peaks[i],b);
+        if(a<=tl&&b>tl) {s.remelt_count++;s.crossings_by_phase[segment.phase]=(s.crossings_by_phase[segment.phase]??0)+1;}
         const fraction=a>tl?(b>tl?1:(a-tl)/(a-b)):(b>tl?(b-tl)/(b-a):0);
         s.time_above_s+=dt*fraction;
       }
@@ -182,7 +198,22 @@ export function stackSim(model,schedule) {
       history.push({t_s:t,T:[...T],phase:segment.phase,event:elapsed>=segment.duration_s?(segment.endEvent??null):null});
     }
   }
-  for(const s of stats) {s.subsequent_reheats=Math.max(0,s.reheat_count-1);if(s.peak_C===-Infinity) s.peak_C=null;}
+  const bonded=new Set();
+  for(const {kind,layer,peaks} of exposures.values()) {
+    for(let i=0;i<peaks.length;i++) {
+      const s=stats[i];
+      if(kind==='tack'&&i<layer-1) s.tack_peaks_C.push(peaks[i]);
+      if(kind==='reflow') s.reflow_count++;
+      if((kind==='bond'||kind==='reflow')&&bonded.has(i)) s.reheat_peaks_C.push(peaks[i]);
+    }
+    if(kind==='bond') bonded.add(layer-1);
+    if(kind==='reflow') peaks.forEach((_,i)=>bonded.add(i));
+  }
+  for(const s of stats) {
+    s.reheat_count=s.reheat_peaks_C.length;s.tack_exposures=s.tack_peaks_C.length;
+    s.subsequent_remelts=Math.max(0,s.remelt_count-1);
+    if(s.peak_C===-Infinity) s.peak_C=null;
+  }
   return {history,layers:stats};
 }
 
@@ -192,7 +223,7 @@ export function tcncfSchedule(N,p) {
   if(!(ramp>0)) throw new RangeError('head above stage');
   const schedule=[];
   for(let n=1;n<=N;n++) {
-    const base={activeLayers:n};
+    const base={activeLayers:n,exposure:{id:`bond-${n}`,kind:'bond',layer:n}};
     const input=T=>({T_head_C:T,T_chuck_C:stage,h_conv:s.h_conv.value,T_amb_C:s.ambient_temp.value});
     schedule.push({...base,phase:'bond-ramp',duration_s:ramp,input:t=>input(stage+q.ramp_rate.equipment_value*t)});
     schedule.push({...base,phase:'bond-hold',duration_s:q.hold_time.value,input:input(head),endEvent:'bond'});
@@ -204,15 +235,16 @@ export function mrmufSchedule(N,p) {
   const q=p.mrmuf_process,s=p.thermal_stack,r=p.reflow,ambient=s.ambient_temp.value;
   const schedule=[];
   for(let n=1;n<=N;n++) {
-    schedule.push({activeLayers:n,phase:'tack',duration_s:q.tack_time.value,input:{T_head_C:q.tack_temp.value,T_chuck_C:ambient,h_conv:s.h_conv.value,T_amb_C:ambient},endEvent:'tack'});
+    const base={activeLayers:n,exposure:{id:`tack-${n}`,kind:'tack',layer:n}};
+    schedule.push({...base,phase:'tack',duration_s:q.tack_time.value,input:{T_head_C:q.tack_temp.value,T_chuck_C:ambient,h_conv:s.h_conv.value,T_amb_C:ambient},endEvent:'tack'});
     const rest=p.cycle.mrmuf_tack_cycle_per_die.value-q.tack_time.value;
     if(!(rest>0)) throw new RangeError('tack cycle must include cooling/handling');
-    schedule.push({activeLayers:n,phase:'tack-cool',duration_s:rest,input:{T_chuck_C:ambient,h_conv:s.h_conv.value,T_amb_C:ambient}});
+    schedule.push({...base,phase:'tack-cool',duration_s:rest,input:{T_chuck_C:ambient,h_conv:s.h_conv.value,T_amb_C:ambient}});
   }
   // Piecewise oven/chuck program: a shoulder dwell implements requested TL
   // duration without extending the near-peak hold. Actual die TL time is measured.
   const oven=T=>({T_chuck_C:T,T_amb_C:T,h_conv:s.h_oven.value});
-  const add=(phase,from,to,time,event)=>schedule.push({activeLayers:N,phase,duration_s:time,input:t=>oven(from+(to-from)*t/time),endEvent:event});
+  const add=(phase,from,to,time,event)=>schedule.push({activeLayers:N,exposure:{id:'reflow-1',kind:'reflow'},phase,duration_s:time,input:t=>oven(from+(to-from)*t/time),endEvent:event});
   add('reflow-preheat',ambient,r.preheat_start.value,(r.preheat_start.value-ambient)/r.ramp_up.value);
   add('reflow-soak',r.preheat_start.value,r.preheat_end.value,r.soak_time.value);
   const shoulder=s.reflow_shoulder_temp.value;

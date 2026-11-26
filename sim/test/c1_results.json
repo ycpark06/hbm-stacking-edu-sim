@@ -7,8 +7,15 @@
       "bottom": {
         "peak_C": 264.4680028373682,
         "time_above_s": 6.292234905755436,
+        "remelt_count": 1,
+        "subsequent_remelts": 0,
         "reheat_count": 1,
-        "subsequent_reheats": 0,
+        "reheat_peaks_C": [
+          199.3027654767146
+        ],
+        "reflow_count": 0,
+        "tack_exposures": 0,
+        "tack_peaks_C": [],
         "crossings_by_phase": {
           "bond-ramp": 1
         }
@@ -17,8 +24,15 @@
         {
           "peak_C": 264.4680028373682,
           "time_above_s": 6.292234905755436,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
           "reheat_count": 1,
-          "subsequent_reheats": 0,
+          "reheat_peaks_C": [
+            199.3027654767146
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
           "crossings_by_phase": {
             "bond-ramp": 1
           }
@@ -26,8 +40,13 @@
         {
           "peak_C": 278.54367217555836,
           "time_above_s": 6.970825211059929,
-          "reheat_count": 1,
-          "subsequent_reheats": 0,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
           "crossings_by_phase": {
             "bond-ramp": 1
           }
@@ -57,8 +76,15 @@
       "bottom": {
         "peak_C": 264.84043171334804,
         "time_above_s": 6.311687836729964,
+        "remelt_count": 1,
+        "subsequent_remelts": 0,
         "reheat_count": 1,
-        "subsequent_reheats": 0,
+        "reheat_peaks_C": [
+          199.6486521775553
+        ],
+        "reflow_count": 0,
+        "tack_exposures": 0,
+        "tack_peaks_C": [],
         "crossings_by_phase": {
           "bond-ramp": 1
         }
@@ -67,8 +93,15 @@
         {
           "peak_C": 264.84043171334804,
           "time_above_s": 6.311687836729964,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
           "reheat_count": 1,
-          "subsequent_reheats": 0,
+          "reheat_peaks_C": [
+            199.6486521775553
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
           "crossings_by_phase": {
             "bond-ramp": 1
           }
@@ -76,8 +109,13 @@
         {
           "peak_C": 278.7439488580476,
           "time_above_s": 6.979719429897845,
-          "reheat_count": 1,
-          "subsequent_reheats": 0,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
           "crossings_by_phase": {
             "bond-ramp": 1
           }
@@ -107,8 +145,17 @@
       "bottom": {
         "peak_C": 264.4680028373682,
         "time_above_s": 6.292234905755436,
-        "reheat_count": 1,
-        "subsequent_reheats": 0,
+        "remelt_count": 1,
+        "subsequent_remelts": 0,
+        "reheat_count": 3,
+        "reheat_peaks_C": [
+          199.3027654767146,
+          171.11915472614544,
+          155.3936584200121
+        ],
+        "reflow_count": 0,
+        "tack_exposures": 0,
+        "tack_peaks_C": [],
         "crossings_by_phase": {
           "bond-ramp": 1
         }
@@ -117,8 +164,17 @@
         {
           "peak_C": 264.4680028373682,
           "time_above_s": 6.292234905755436,
-          "reheat_count": 1,
-          "subsequent_reheats": 0,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 3,
+          "reheat_peaks_C": [
+            199.3027654767146,
+            171.11915472614544,
+            155.3936584200121
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
           "crossings_by_phase": {
             "bond-ramp": 1
           }
@@ -126,8 +182,16 @@
         {
           "peak_C": 278.54367217555836,
           "time_above_s": 10.799281160020024,
+          "remelt_count": 2,
+          "subsequent_remelts": 1,
           "reheat_count": 2,
-          "subsequent_reheats": 1,
+          "reheat_peaks_C": [
+            227.87110364460852,
+            199.59753372100863
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
           "crossings_by_phase": {
             "bond-ramp": 2
           }
@@ -135,8 +199,15 @@
         {
           "peak_C": 284.63035161042427,
           "time_above_s": 12.287739785817768,
-          "reheat_count": 2,
-          "subsequent_reheats": 1,
+          "remelt_count": 2,
+          "subsequent_remelts": 1,
+          "reheat_count": 1,
+          "reheat_peaks_C": [
+            243.8077152900726
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
           "crossings_by_phase": {
             "bond-ramp": 2
           }
@@ -144,8 +215,13 @@
         {
           "peak_C": 288.02575549404617,
           "time_above_s": 7.370671278565695,
-          "reheat_count": 1,
-          "subsequent_reheats": 0,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
           "crossings_by_phase": {
             "bond-ramp": 1
           }
@@ -185,8 +261,17 @@
       "bottom": {
         "peak_C": 264.84043171334804,
         "time_above_s": 6.311687836729964,
-        "reheat_count": 1,
-        "subsequent_reheats": 0,
+        "remelt_count": 1,
+        "subsequent_remelts": 0,
+        "reheat_count": 3,
+        "reheat_peaks_C": [
+          199.6486521775553,
+          171.4059694587235,
+          155.63541453827744
+        ],
+        "reflow_count": 0,
+        "tack_exposures": 0,
+        "tack_peaks_C": [],
         "crossings_by_phase": {
           "bond-ramp": 1
         }
@@ -195,8 +280,17 @@
         {
           "peak_C": 264.84043171334804,
           "time_above_s": 6.311687836729964,
-          "reheat_count": 1,
-          "subsequent_reheats": 0,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 3,
+          "reheat_peaks_C": [
+            199.6486521775553,
+            171.4059694587235,
+            155.63541453827744
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
           "crossings_by_phase": {
             "bond-ramp": 1
           }
@@ -204,8 +298,16 @@
         {
           "peak_C": 278.7439488580476,
           "time_above_s": 10.82678100371248,
+          "remelt_count": 2,
+          "subsequent_remelts": 1,
           "reheat_count": 2,
-          "subsequent_reheats": 1,
+          "reheat_peaks_C": [
+            228.08431548641758,
+            199.79626161098886
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
           "crossings_by_phase": {
             "bond-ramp": 2
           }
@@ -213,8 +315,15 @@
         {
           "peak_C": 284.7667552262117,
           "time_above_s": 12.303909133684115,
-          "reheat_count": 2,
-          "subsequent_reheats": 1,
+          "remelt_count": 2,
+          "subsequent_remelts": 1,
+          "reheat_count": 1,
+          "reheat_peaks_C": [
+            243.96064587548707
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
           "crossings_by_phase": {
             "bond-ramp": 2
           }
@@ -222,8 +331,13 @@
         {
           "peak_C": 288.1294361924252,
           "time_above_s": 7.3748389577575075,
-          "reheat_count": 1,
-          "subsequent_reheats": 0,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
           "crossings_by_phase": {
             "bond-ramp": 1
           }
@@ -263,8 +377,21 @@
       "bottom": {
         "peak_C": 264.4680028373682,
         "time_above_s": 6.292234905755436,
-        "reheat_count": 1,
-        "subsequent_reheats": 0,
+        "remelt_count": 1,
+        "subsequent_remelts": 0,
+        "reheat_count": 7,
+        "reheat_peaks_C": [
+          199.3027654767146,
+          171.11915472614544,
+          155.3936584200121,
+          145.36049061393683,
+          138.40209616976173,
+          133.29249250133958,
+          129.381004231334
+        ],
+        "reflow_count": 0,
+        "tack_exposures": 0,
+        "tack_peaks_C": [],
         "crossings_by_phase": {
           "bond-ramp": 1
         }
@@ -273,8 +400,21 @@
         {
           "peak_C": 264.4680028373682,
           "time_above_s": 6.292234905755436,
-          "reheat_count": 1,
-          "subsequent_reheats": 0,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 7,
+          "reheat_peaks_C": [
+            199.3027654767146,
+            171.11915472614544,
+            155.3936584200121,
+            145.36049061393683,
+            138.40209616976173,
+            133.29249250133958,
+            129.381004231334
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
           "crossings_by_phase": {
             "bond-ramp": 1
           }
@@ -282,8 +422,20 @@
         {
           "peak_C": 278.54367217555836,
           "time_above_s": 10.799281160020024,
-          "reheat_count": 2,
-          "subsequent_reheats": 1,
+          "remelt_count": 2,
+          "subsequent_remelts": 1,
+          "reheat_count": 6,
+          "reheat_peaks_C": [
+            227.87110364460852,
+            199.59753372100863,
+            181.55845463581366,
+            169.0476474699603,
+            159.86086354984513,
+            152.82822464583737
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
           "crossings_by_phase": {
             "bond-ramp": 2
           }
@@ -291,8 +443,19 @@
         {
           "peak_C": 284.63035161042427,
           "time_above_s": 12.287739785817768,
-          "reheat_count": 2,
-          "subsequent_reheats": 1,
+          "remelt_count": 2,
+          "subsequent_remelts": 1,
+          "reheat_count": 5,
+          "reheat_peaks_C": [
+            243.8077152900726,
+            217.76209151356102,
+            199.69843232988703,
+            186.4341455794728,
+            176.28010910206882
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
           "crossings_by_phase": {
             "bond-ramp": 2
           }
@@ -300,8 +463,18 @@
         {
           "peak_C": 288.02575549404617,
           "time_above_s": 17.11408452098106,
-          "reheat_count": 3,
-          "subsequent_reheats": 2,
+          "remelt_count": 3,
+          "subsequent_remelts": 2,
+          "reheat_count": 4,
+          "reheat_peaks_C": [
+            253.9726724775484,
+            230.3555270007677,
+            213.0132716667323,
+            199.7374810738646
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
           "crossings_by_phase": {
             "bond-ramp": 3
           }
@@ -309,8 +482,17 @@
         {
           "peak_C": 290.1914690019755,
           "time_above_s": 21.70645228617214,
-          "reheat_count": 4,
-          "subsequent_reheats": 3,
+          "remelt_count": 4,
+          "subsequent_remelts": 3,
+          "reheat_count": 3,
+          "reheat_peaks_C": [
+            261.0200079553865,
+            239.5991750933377,
+            223.20116422774586
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
           "crossings_by_phase": {
             "bond-ramp": 4
           }
@@ -318,8 +500,16 @@
         {
           "peak_C": 291.69295192588476,
           "time_above_s": 19.1432029488165,
-          "reheat_count": 3,
-          "subsequent_reheats": 2,
+          "remelt_count": 3,
+          "subsequent_remelts": 2,
+          "reheat_count": 2,
+          "reheat_peaks_C": [
+            266.1927893789779,
+            246.67198245184045
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
           "crossings_by_phase": {
             "bond-ramp": 3
           }
@@ -327,8 +517,15 @@
         {
           "peak_C": 292.79504831409594,
           "time_above_s": 14.136351356768676,
-          "reheat_count": 2,
-          "subsequent_reheats": 1,
+          "remelt_count": 2,
+          "subsequent_remelts": 1,
+          "reheat_count": 1,
+          "reheat_peaks_C": [
+            270.15075988481226
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
           "crossings_by_phase": {
             "bond-ramp": 2
           }
@@ -336,8 +533,13 @@
         {
           "peak_C": 293.6383209447995,
           "time_above_s": 7.588869534842534,
-          "reheat_count": 1,
-          "subsequent_reheats": 0,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
           "crossings_by_phase": {
             "bond-ramp": 1
           }
@@ -397,8 +599,21 @@
       "bottom": {
         "peak_C": 264.84043171334804,
         "time_above_s": 6.311687836729964,
-        "reheat_count": 1,
-        "subsequent_reheats": 0,
+        "remelt_count": 1,
+        "subsequent_remelts": 0,
+        "reheat_count": 7,
+        "reheat_peaks_C": [
+          199.6486521775553,
+          171.4059694587235,
+          155.63541453827744,
+          145.56924559268944,
+          138.58621727508063,
+          133.45776427602888,
+          129.5315284491729
+        ],
+        "reflow_count": 0,
+        "tack_exposures": 0,
+        "tack_peaks_C": [],
         "crossings_by_phase": {
           "bond-ramp": 1
         }
@@ -407,8 +622,21 @@
         {
           "peak_C": 264.84043171334804,
           "time_above_s": 6.311687836729964,
-          "reheat_count": 1,
-          "subsequent_reheats": 0,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 7,
+          "reheat_peaks_C": [
+            199.6486521775553,
+            171.4059694587235,
+            155.63541453827744,
+            145.56924559268944,
+            138.58621727508063,
+            133.45776427602888,
+            129.5315284491729
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
           "crossings_by_phase": {
             "bond-ramp": 1
           }
@@ -416,8 +644,20 @@
         {
           "peak_C": 278.7439488580476,
           "time_above_s": 10.82678100371248,
-          "reheat_count": 2,
-          "subsequent_reheats": 1,
+          "remelt_count": 2,
+          "subsequent_remelts": 1,
+          "reheat_count": 6,
+          "reheat_peaks_C": [
+            228.08431548641758,
+            199.79626161098886,
+            181.74031298467986,
+            169.21467376281188,
+            160.0156344476705,
+            152.9730432923176
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
           "crossings_by_phase": {
             "bond-ramp": 2
           }
@@ -425,8 +665,19 @@
         {
           "peak_C": 284.7667552262117,
           "time_above_s": 12.303909133684115,
-          "reheat_count": 2,
-          "subsequent_reheats": 1,
+          "remelt_count": 2,
+          "subsequent_remelts": 1,
+          "reheat_count": 5,
+          "reheat_peaks_C": [
+            243.96064587548707,
+            217.914562347761,
+            199.84606580055828,
+            186.5762591935605,
+            176.41717415846733
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
           "crossings_by_phase": {
             "bond-ramp": 2
           }
@@ -434,8 +685,18 @@
         {
           "peak_C": 288.1294361924252,
           "time_above_s": 17.137102599919526,
-          "reheat_count": 3,
-          "subsequent_reheats": 2,
+          "remelt_count": 3,
+          "subsequent_remelts": 2,
+          "reheat_count": 4,
+          "reheat_peaks_C": [
+            254.0927053499988,
+            230.4809960099058,
+            213.14016104972302,
+            199.86438227182342
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
           "crossings_by_phase": {
             "bond-ramp": 3
           }
@@ -443,8 +704,17 @@
         {
           "peak_C": 290.2754537360599,
           "time_above_s": 21.74822393422838,
-          "reheat_count": 4,
-          "subsequent_reheats": 3,
+          "remelt_count": 4,
+          "subsequent_remelts": 3,
+          "reheat_count": 3,
+          "reheat_peaks_C": [
+            261.12006708204825,
+            239.70786261665396,
+            223.31512891712677
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
           "crossings_by_phase": {
             "bond-ramp": 4
           }
@@ -452,8 +722,16 @@
         {
           "peak_C": 291.76388178964385,
           "time_above_s": 19.15746221891954,
-          "reheat_count": 3,
-          "subsequent_reheats": 2,
+          "remelt_count": 3,
+          "subsequent_remelts": 2,
+          "reheat_count": 2,
+          "reheat_peaks_C": [
+            266.2798865696022,
+            246.769875448733
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
           "crossings_by_phase": {
             "bond-ramp": 3
           }
@@ -461,8 +739,15 @@
         {
           "peak_C": 292.8567556688522,
           "time_above_s": 14.142694067888286,
-          "reheat_count": 2,
-          "subsequent_reheats": 1,
+          "remelt_count": 2,
+          "subsequent_remelts": 1,
+          "reheat_count": 1,
+          "reheat_peaks_C": [
+            270.229083299689
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
           "crossings_by_phase": {
             "bond-ramp": 2
           }
@@ -470,8 +755,13 @@
         {
           "peak_C": 293.6932139908105,
           "time_above_s": 7.590976297242087,
-          "reheat_count": 1,
-          "subsequent_reheats": 0,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
           "crossings_by_phase": {
             "bond-ramp": 1
           }
@@ -531,8 +821,25 @@
       "bottom": {
         "peak_C": 264.4680028373682,
         "time_above_s": 6.292234905755436,
-        "reheat_count": 1,
-        "subsequent_reheats": 0,
+        "remelt_count": 1,
+        "subsequent_remelts": 0,
+        "reheat_count": 11,
+        "reheat_peaks_C": [
+          199.3027654767146,
+          171.11915472614544,
+          155.3936584200121,
+          145.36049061393683,
+          138.40209616976173,
+          133.29249250133958,
+          129.381004231334,
+          126.2902336066594,
+          123.78622531970163,
+          121.7162302246154,
+          119.9762851732102
+        ],
+        "reflow_count": 0,
+        "tack_exposures": 0,
+        "tack_peaks_C": [],
         "crossings_by_phase": {
           "bond-ramp": 1
         }
@@ -541,8 +848,25 @@
         {
           "peak_C": 264.4680028373682,
           "time_above_s": 6.292234905755436,
-          "reheat_count": 1,
-          "subsequent_reheats": 0,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 11,
+          "reheat_peaks_C": [
+            199.3027654767146,
+            171.11915472614544,
+            155.3936584200121,
+            145.36049061393683,
+            138.40209616976173,
+            133.29249250133958,
+            129.381004231334,
+            126.2902336066594,
+            123.78622531970163,
+            121.7162302246154,
+            119.9762851732102
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
           "crossings_by_phase": {
             "bond-ramp": 1
           }
@@ -550,8 +874,24 @@
         {
           "peak_C": 278.54367217555836,
           "time_above_s": 10.799281160020024,
-          "reheat_count": 2,
-          "subsequent_reheats": 1,
+          "remelt_count": 2,
+          "subsequent_remelts": 1,
+          "reheat_count": 10,
+          "reheat_peaks_C": [
+            227.87110364460852,
+            199.59753372100863,
+            181.55845463581366,
+            169.0476474699603,
+            159.86086354984513,
+            152.82822464583737,
+            147.27119053553946,
+            142.7691225554681,
+            139.0473862157634,
+            135.9190615437528
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
           "crossings_by_phase": {
             "bond-ramp": 2
           }
@@ -559,8 +899,23 @@
         {
           "peak_C": 284.63035161042427,
           "time_above_s": 12.287739785817768,
-          "reheat_count": 2,
-          "subsequent_reheats": 1,
+          "remelt_count": 2,
+          "subsequent_remelts": 1,
+          "reheat_count": 9,
+          "reheat_peaks_C": [
+            243.8077152900726,
+            217.76209151356102,
+            199.69843232988703,
+            186.4341455794728,
+            176.28010910206882,
+            168.2566163801566,
+            161.75633062435787,
+            156.38272235746626,
+            151.86590821894745
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
           "crossings_by_phase": {
             "bond-ramp": 2
           }
@@ -568,8 +923,22 @@
         {
           "peak_C": 288.02575549404617,
           "time_above_s": 17.11408452098106,
-          "reheat_count": 3,
-          "subsequent_reheats": 2,
+          "remelt_count": 3,
+          "subsequent_remelts": 2,
+          "reheat_count": 8,
+          "reheat_peaks_C": [
+            253.9726724775484,
+            230.3555270007677,
+            213.0132716667323,
+            199.7374810738646,
+            189.24724800876365,
+            180.7485162305371,
+            173.72284735116042,
+            167.81738514573865
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
           "crossings_by_phase": {
             "bond-ramp": 3
           }
@@ -577,8 +946,21 @@
         {
           "peak_C": 290.1914690019755,
           "time_above_s": 21.70645228617214,
-          "reheat_count": 4,
-          "subsequent_reheats": 3,
+          "remelt_count": 4,
+          "subsequent_remelts": 3,
+          "reheat_count": 7,
+          "reheat_peaks_C": [
+            261.0200079553865,
+            239.5991750933377,
+            223.20116422774586,
+            210.2438224724058,
+            199.74634625294954,
+            191.06837006643488,
+            183.7740524336541
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
           "crossings_by_phase": {
             "bond-ramp": 4
           }
@@ -586,8 +968,20 @@
         {
           "peak_C": 291.69295192588476,
           "time_above_s": 23.249264644922373,
-          "reheat_count": 4,
-          "subsequent_reheats": 3,
+          "remelt_count": 4,
+          "subsequent_remelts": 3,
+          "reheat_count": 6,
+          "reheat_peaks_C": [
+            266.1927893789779,
+            246.67198245184045,
+            231.2470770308012,
+            218.75048776873354,
+            208.41989956241062,
+            199.73647037447193
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
           "crossings_by_phase": {
             "bond-ramp": 4
           }
@@ -595,8 +989,19 @@
         {
           "peak_C": 292.79504831409594,
           "time_above_s": 27.968020237199315,
+          "remelt_count": 5,
+          "subsequent_remelts": 4,
           "reheat_count": 5,
-          "subsequent_reheats": 4,
+          "reheat_peaks_C": [
+            270.15075988481226,
+            252.257749178228,
+            237.76160807664473,
+            225.77804510912662,
+            215.70519946189435
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
           "crossings_by_phase": {
             "bond-ramp": 5
           }
@@ -604,8 +1009,18 @@
         {
           "peak_C": 293.6383209447995,
           "time_above_s": 29.32175209953612,
-          "reheat_count": 5,
-          "subsequent_reheats": 4,
+          "remelt_count": 5,
+          "subsequent_remelts": 4,
+          "reheat_count": 4,
+          "reheat_peaks_C": [
+            273.276576669421,
+            256.78037472048766,
+            243.1434162089335,
+            231.68080041122852
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
           "crossings_by_phase": {
             "bond-ramp": 5
           }
@@ -613,8 +1028,17 @@
         {
           "peak_C": 294.3042975454762,
           "time_above_s": 25.847491725712732,
-          "reheat_count": 4,
-          "subsequent_reheats": 3,
+          "remelt_count": 4,
+          "subsequent_remelts": 3,
+          "reheat_count": 3,
+          "reheat_peaks_C": [
+            275.8074555125549,
+            260.5166226178951,
+            247.66383417907485
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
           "crossings_by_phase": {
             "bond-ramp": 4
           }
@@ -622,8 +1046,16 @@
         {
           "peak_C": 294.8435185570768,
           "time_above_s": 20.823163415755598,
-          "reheat_count": 3,
-          "subsequent_reheats": 2,
+          "remelt_count": 3,
+          "subsequent_remelts": 2,
+          "reheat_count": 2,
+          "reheat_peaks_C": [
+            277.8982743671991,
+            263.6548619830247
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
           "crossings_by_phase": {
             "bond-ramp": 3
           }
@@ -631,8 +1063,15 @@
         {
           "peak_C": 295.2889817845772,
           "time_above_s": 14.66970296367472,
-          "reheat_count": 2,
-          "subsequent_reheats": 1,
+          "remelt_count": 2,
+          "subsequent_remelts": 1,
+          "reheat_count": 1,
+          "reheat_peaks_C": [
+            279.65444532136604
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
           "crossings_by_phase": {
             "bond-ramp": 2
           }
@@ -640,8 +1079,13 @@
         {
           "peak_C": 295.6631459928001,
           "time_above_s": 7.664449646604268,
-          "reheat_count": 1,
-          "subsequent_reheats": 0,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
           "crossings_by_phase": {
             "bond-ramp": 1
           }
@@ -721,8 +1165,25 @@
       "bottom": {
         "peak_C": 264.84043171334804,
         "time_above_s": 6.311687836729964,
-        "reheat_count": 1,
-        "subsequent_reheats": 0,
+        "remelt_count": 1,
+        "subsequent_remelts": 0,
+        "reheat_count": 11,
+        "reheat_peaks_C": [
+          199.6486521775553,
+          171.4059694587235,
+          155.63541453827744,
+          145.56924559268944,
+          138.58621727508063,
+          133.45776427602888,
+          129.5315284491729,
+          126.42900328757707,
+          123.91548306440785,
+          121.83769605490399,
+          120.09130538794962
+        ],
+        "reflow_count": 0,
+        "tack_exposures": 0,
+        "tack_peaks_C": [],
         "crossings_by_phase": {
           "bond-ramp": 1
         }
@@ -731,8 +1192,25 @@
         {
           "peak_C": 264.84043171334804,
           "time_above_s": 6.311687836729964,
-          "reheat_count": 1,
-          "subsequent_reheats": 0,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 11,
+          "reheat_peaks_C": [
+            199.6486521775553,
+            171.4059694587235,
+            155.63541453827744,
+            145.56924559268944,
+            138.58621727508063,
+            133.45776427602888,
+            129.5315284491729,
+            126.42900328757707,
+            123.91548306440785,
+            121.83769605490399,
+            120.09130538794962
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
           "crossings_by_phase": {
             "bond-ramp": 1
           }
@@ -740,8 +1218,24 @@
         {
           "peak_C": 278.7439488580476,
           "time_above_s": 10.82678100371248,
-          "reheat_count": 2,
-          "subsequent_reheats": 1,
+          "remelt_count": 2,
+          "subsequent_remelts": 1,
+          "reheat_count": 10,
+          "reheat_peaks_C": [
+            228.08431548641758,
+            199.79626161098886,
+            181.74031298467986,
+            169.21467376281188,
+            160.0156344476705,
+            152.9730432923176,
+            147.4079633465694,
+            142.8993968535915,
+            139.17241634066679,
+            136.0398700527551
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
           "crossings_by_phase": {
             "bond-ramp": 2
           }
@@ -749,8 +1243,23 @@
         {
           "peak_C": 284.7667552262117,
           "time_above_s": 12.303909133684115,
-          "reheat_count": 2,
-          "subsequent_reheats": 1,
+          "remelt_count": 2,
+          "subsequent_remelts": 1,
+          "reheat_count": 9,
+          "reheat_peaks_C": [
+            243.96064587548707,
+            217.914562347761,
+            199.84606580055828,
+            186.5762591935605,
+            176.41717415846733,
+            168.38942994489392,
+            161.88572848357592,
+            156.50948114510038,
+            151.990717608604
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
           "crossings_by_phase": {
             "bond-ramp": 2
           }
@@ -758,8 +1267,22 @@
         {
           "peak_C": 288.1294361924252,
           "time_above_s": 17.137102599919526,
-          "reheat_count": 3,
-          "subsequent_reheats": 2,
+          "remelt_count": 3,
+          "subsequent_remelts": 2,
+          "reheat_count": 8,
+          "reheat_peaks_C": [
+            254.0927053499988,
+            230.4809960099058,
+            213.14016104972302,
+            199.86438227182342,
+            189.3738158579369,
+            180.87485147879207,
+            173.84923154605974,
+            167.94416186183744
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
           "crossings_by_phase": {
             "bond-ramp": 3
           }
@@ -767,8 +1290,21 @@
         {
           "peak_C": 290.2754537360599,
           "time_above_s": 21.74822393422838,
-          "reheat_count": 4,
-          "subsequent_reheats": 3,
+          "remelt_count": 4,
+          "subsequent_remelts": 3,
+          "reheat_count": 7,
+          "reheat_peaks_C": [
+            261.12006708204825,
+            239.70786261665396,
+            223.31512891712677,
+            210.3615339185172,
+            199.8671394185863,
+            191.1920086742344,
+            183.90051666988188
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
           "crossings_by_phase": {
             "bond-ramp": 4
           }
@@ -776,8 +1312,20 @@
         {
           "peak_C": 291.76388178964385,
           "time_above_s": 23.277493870013505,
-          "reheat_count": 4,
-          "subsequent_reheats": 3,
+          "remelt_count": 4,
+          "subsequent_remelts": 3,
+          "reheat_count": 6,
+          "reheat_peaks_C": [
+            266.2798865696022,
+            246.769875448733,
+            231.3529970250082,
+            218.86296594457008,
+            208.5381537198597,
+            199.86009594742436
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
           "crossings_by_phase": {
             "bond-ramp": 4
           }
@@ -785,8 +1333,19 @@
         {
           "peak_C": 292.8567556688522,
           "time_above_s": 28.021034911474437,
+          "remelt_count": 5,
+          "subsequent_remelts": 4,
           "reheat_count": 5,
-          "subsequent_reheats": 4,
+          "reheat_peaks_C": [
+            270.229083299689,
+            252.34861814946072,
+            237.86270476797063,
+            225.88800793942934,
+            215.8232136725878
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
           "crossings_by_phase": {
             "bond-ramp": 5
           }
@@ -794,8 +1353,18 @@
         {
           "peak_C": 293.6932139908105,
           "time_above_s": 29.366216078620926,
-          "reheat_count": 5,
-          "subsequent_reheats": 4,
+          "remelt_count": 5,
+          "subsequent_remelts": 4,
+          "reheat_count": 4,
+          "reheat_peaks_C": [
+            273.3488103457276,
+            256.8667296769829,
+            243.24191266240845,
+            231.79018389310826
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
           "crossings_by_phase": {
             "bond-ramp": 5
           }
@@ -803,8 +1372,17 @@
         {
           "peak_C": 294.3539867575902,
           "time_above_s": 25.868720606626944,
-          "reheat_count": 4,
-          "subsequent_reheats": 3,
+          "remelt_count": 4,
+          "subsequent_remelts": 3,
+          "reheat_count": 3,
+          "reheat_peaks_C": [
+            275.8754145441238,
+            260.60020929794945,
+            247.7613207325132
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
           "crossings_by_phase": {
             "bond-ramp": 4
           }
@@ -812,8 +1390,16 @@
         {
           "peak_C": 294.8891333335868,
           "time_above_s": 20.83393285634295,
-          "reheat_count": 3,
-          "subsequent_reheats": 2,
+          "remelt_count": 3,
+          "subsequent_remelts": 2,
+          "reheat_count": 2,
+          "reheat_peaks_C": [
+            277.963239341608,
+            263.73693839630147
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
           "crossings_by_phase": {
             "bond-ramp": 3
           }
@@ -821,8 +1407,15 @@
         {
           "peak_C": 295.331344382062,
           "time_above_s": 14.674626261241235,
-          "reheat_count": 2,
-          "subsequent_reheats": 1,
+          "remelt_count": 2,
+          "subsequent_remelts": 1,
+          "reheat_count": 1,
+          "reheat_peaks_C": [
+            279.71735117812443
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
           "crossings_by_phase": {
             "bond-ramp": 2
           }
@@ -830,8 +1423,13 @@
         {
           "peak_C": 295.70287346596956,
           "time_above_s": 7.666010506258611,
-          "reheat_count": 1,
-          "subsequent_reheats": 0,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
           "crossings_by_phase": {
             "bond-ramp": 1
           }
@@ -911,8 +1509,15 @@
       "bottom": {
         "peak_C": 249.99999999999997,
         "time_above_s": 89.99999999999739,
-        "reheat_count": 1,
-        "subsequent_reheats": 0,
+        "remelt_count": 1,
+        "subsequent_remelts": 0,
+        "reheat_count": 0,
+        "reheat_peaks_C": [],
+        "reflow_count": 1,
+        "tack_exposures": 1,
+        "tack_peaks_C": [
+          127.98001474206256
+        ],
         "crossings_by_phase": {
           "reflow-ramp": 1
         }
@@ -921,8 +1526,15 @@
         {
           "peak_C": 249.99999999999997,
           "time_above_s": 89.99999999999739,
-          "reheat_count": 1,
-          "subsequent_reheats": 0,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 1,
+          "tack_peaks_C": [
+            127.98001474206256
+          ],
           "crossings_by_phase": {
             "reflow-ramp": 1
           }
@@ -930,8 +1542,13 @@
         {
           "peak_C": 249.99999999999994,
           "time_above_s": 89.99999999999736,
-          "reheat_count": 1,
-          "subsequent_reheats": 0,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
           "crossings_by_phase": {
             "reflow-ramp": 1
           }
@@ -961,8 +1578,15 @@
       "bottom": {
         "peak_C": 249.99999999999991,
         "time_above_s": 89.99999999999737,
-        "reheat_count": 1,
-        "subsequent_reheats": 0,
+        "remelt_count": 1,
+        "subsequent_remelts": 0,
+        "reheat_count": 0,
+        "reheat_peaks_C": [],
+        "reflow_count": 1,
+        "tack_exposures": 1,
+        "tack_peaks_C": [
+          128.97104551737786
+        ],
         "crossings_by_phase": {
           "reflow-ramp": 1
         }
@@ -971,8 +1595,15 @@
         {
           "peak_C": 249.99999999999991,
           "time_above_s": 89.99999999999737,
-          "reheat_count": 1,
-          "subsequent_reheats": 0,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 1,
+          "tack_peaks_C": [
+            128.97104551737786
+          ],
           "crossings_by_phase": {
             "reflow-ramp": 1
           }
@@ -980,8 +1611,13 @@
         {
           "peak_C": 249.99999999999994,
           "time_above_s": 89.99999999999739,
-          "reheat_count": 1,
-          "subsequent_reheats": 0,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
           "crossings_by_phase": {
             "reflow-ramp": 1
           }
@@ -1011,8 +1647,17 @@
       "bottom": {
         "peak_C": 249.99999999999994,
         "time_above_s": 89.99999999999739,
-        "reheat_count": 1,
-        "subsequent_reheats": 0,
+        "remelt_count": 1,
+        "subsequent_remelts": 0,
+        "reheat_count": 0,
+        "reheat_peaks_C": [],
+        "reflow_count": 1,
+        "tack_exposures": 3,
+        "tack_peaks_C": [
+          127.98001474206256,
+          108.16240698772151,
+          94.49056865714346
+        ],
         "crossings_by_phase": {
           "reflow-ramp": 1
         }
@@ -1021,8 +1666,17 @@
         {
           "peak_C": 249.99999999999994,
           "time_above_s": 89.99999999999739,
-          "reheat_count": 1,
-          "subsequent_reheats": 0,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 3,
+          "tack_peaks_C": [
+            127.98001474206256,
+            108.16240698772151,
+            94.49056865714346
+          ],
           "crossings_by_phase": {
             "reflow-ramp": 1
           }
@@ -1030,8 +1684,16 @@
         {
           "peak_C": 249.99999999999994,
           "time_above_s": 89.99999999999734,
-          "reheat_count": 1,
-          "subsequent_reheats": 0,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 2,
+          "tack_peaks_C": [
+            148.53650809527596,
+            128.60363173335452
+          ],
           "crossings_by_phase": {
             "reflow-ramp": 1
           }
@@ -1039,8 +1701,15 @@
         {
           "peak_C": 249.99999999999997,
           "time_above_s": 89.99999999999733,
-          "reheat_count": 1,
-          "subsequent_reheats": 0,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 1,
+          "tack_peaks_C": [
+            162.717510784852
+          ],
           "crossings_by_phase": {
             "reflow-ramp": 1
           }
@@ -1048,8 +1717,13 @@
         {
           "peak_C": 249.99999999999997,
           "time_above_s": 89.99999999999733,
-          "reheat_count": 1,
-          "subsequent_reheats": 0,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
           "crossings_by_phase": {
             "reflow-ramp": 1
           }
@@ -1089,8 +1763,17 @@
       "bottom": {
         "peak_C": 249.9999999999999,
         "time_above_s": 89.99999999999736,
-        "reheat_count": 1,
-        "subsequent_reheats": 0,
+        "remelt_count": 1,
+        "subsequent_remelts": 0,
+        "reheat_count": 0,
+        "reheat_peaks_C": [],
+        "reflow_count": 1,
+        "tack_exposures": 3,
+        "tack_peaks_C": [
+          128.97104551737786,
+          109.34731935594733,
+          95.71254313337172
+        ],
         "crossings_by_phase": {
           "reflow-ramp": 1
         }
@@ -1099,8 +1782,17 @@
         {
           "peak_C": 249.9999999999999,
           "time_above_s": 89.99999999999736,
-          "reheat_count": 1,
-          "subsequent_reheats": 0,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 3,
+          "tack_peaks_C": [
+            128.97104551737786,
+            109.34731935594733,
+            95.71254313337172
+          ],
           "crossings_by_phase": {
             "reflow-ramp": 1
           }
@@ -1108,8 +1800,16 @@
         {
           "peak_C": 249.99999999999991,
           "time_above_s": 89.99999999999739,
-          "reheat_count": 1,
-          "subsequent_reheats": 0,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 2,
+          "tack_peaks_C": [
+            148.96394754009287,
+            129.2835074534245
+          ],
           "crossings_by_phase": {
             "reflow-ramp": 1
           }
@@ -1117,8 +1817,15 @@
         {
           "peak_C": 249.99999999999991,
           "time_above_s": 89.99999999999739,
-          "reheat_count": 1,
-          "subsequent_reheats": 0,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 1,
+          "tack_peaks_C": [
+            162.85491692163097
+          ],
           "crossings_by_phase": {
             "reflow-ramp": 1
           }
@@ -1126,8 +1833,13 @@
         {
           "peak_C": 249.99999999999994,
           "time_above_s": 89.99999999999739,
-          "reheat_count": 1,
-          "subsequent_reheats": 0,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
           "crossings_by_phase": {
             "reflow-ramp": 1
           }
@@ -1167,8 +1879,21 @@
       "bottom": {
         "peak_C": 249.99999999999991,
         "time_above_s": 89.99999999999736,
-        "reheat_count": 1,
-        "subsequent_reheats": 0,
+        "remelt_count": 1,
+        "subsequent_remelts": 0,
+        "reheat_count": 0,
+        "reheat_peaks_C": [],
+        "reflow_count": 1,
+        "tack_exposures": 7,
+        "tack_peaks_C": [
+          127.98001474206256,
+          108.16240698772151,
+          94.49056865714346,
+          84.48935810184513,
+          76.85543826504616,
+          70.83720805474724,
+          65.97078835533955
+        ],
         "crossings_by_phase": {
           "reflow-ramp": 1
         }
@@ -1177,8 +1902,21 @@
         {
           "peak_C": 249.99999999999991,
           "time_above_s": 89.99999999999736,
-          "reheat_count": 1,
-          "subsequent_reheats": 0,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 7,
+          "tack_peaks_C": [
+            127.98001474206256,
+            108.16240698772151,
+            94.49056865714346,
+            84.48935810184513,
+            76.85543826504616,
+            70.83720805474724,
+            65.97078835533955
+          ],
           "crossings_by_phase": {
             "reflow-ramp": 1
           }
@@ -1186,8 +1924,20 @@
         {
           "peak_C": 249.9999999999999,
           "time_above_s": 89.99999999999731,
-          "reheat_count": 1,
-          "subsequent_reheats": 0,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 6,
+          "tack_peaks_C": [
+            148.53650809527596,
+            128.60363173335452,
+            114.0223524168461,
+            102.89246800888006,
+            94.11818061614757,
+            87.023177014727
+          ],
           "crossings_by_phase": {
             "reflow-ramp": 1
           }
@@ -1195,8 +1945,19 @@
         {
           "peak_C": 249.99999999999986,
           "time_above_s": 89.9999999999973,
-          "reheat_count": 1,
-          "subsequent_reheats": 0,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 5,
+          "tack_peaks_C": [
+            162.717510784852,
+            143.55605315312155,
+            128.93012055145692,
+            117.39971005214505,
+            108.07606924158661
+          ],
           "crossings_by_phase": {
             "reflow-ramp": 1
           }
@@ -1204,8 +1965,18 @@
         {
           "peak_C": 249.99999999999983,
           "time_above_s": 89.9999999999973,
-          "reheat_count": 1,
-          "subsequent_reheats": 0,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 4,
+          "tack_peaks_C": [
+            173.09068220720965,
+            154.9685915223395,
+            140.6819712846308,
+            129.12962321331568
+          ],
           "crossings_by_phase": {
             "reflow-ramp": 1
           }
@@ -1213,8 +1984,17 @@
         {
           "peak_C": 249.99999999999977,
           "time_above_s": 89.99999999999729,
-          "reheat_count": 1,
-          "subsequent_reheats": 0,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 3,
+          "tack_peaks_C": [
+            181.00807655723975,
+            163.9651392409943,
+            150.18399711228324
+          ],
           "crossings_by_phase": {
             "reflow-ramp": 1
           }
@@ -1222,8 +2002,16 @@
         {
           "peak_C": 249.99999999999977,
           "time_above_s": 89.9999999999973,
-          "reheat_count": 1,
-          "subsequent_reheats": 0,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 2,
+          "tack_peaks_C": [
+            187.2493888554374,
+            171.23934912701841
+          ],
           "crossings_by_phase": {
             "reflow-ramp": 1
           }
@@ -1231,8 +2019,15 @@
         {
           "peak_C": 249.99999999999974,
           "time_above_s": 89.9999999999973,
-          "reheat_count": 1,
-          "subsequent_reheats": 0,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 1,
+          "tack_peaks_C": [
+            192.295837453399
+          ],
           "crossings_by_phase": {
             "reflow-ramp": 1
           }
@@ -1240,8 +2035,13 @@
         {
           "peak_C": 249.99999999999974,
           "time_above_s": 89.9999999999973,
-          "reheat_count": 1,
-          "subsequent_reheats": 0,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
           "crossings_by_phase": {
             "reflow-ramp": 1
           }
@@ -1301,8 +2101,21 @@
       "bottom": {
         "peak_C": 249.99999999999972,
         "time_above_s": 89.99999999999719,
-        "reheat_count": 1,
-        "subsequent_reheats": 0,
+        "remelt_count": 1,
+        "subsequent_remelts": 0,
+        "reheat_count": 0,
+        "reheat_peaks_C": [],
+        "reflow_count": 1,
+        "tack_exposures": 7,
+        "tack_peaks_C": [
+          128.97104551737786,
+          109.34731935594733,
+          95.71254313337172,
+          85.68800941560995,
+          78.00744017929142,
+          71.93475804690499,
+          67.01288252235142
+        ],
         "crossings_by_phase": {
           "reflow-ramp": 1
         }
@@ -1311,8 +2124,21 @@
         {
           "peak_C": 249.99999999999972,
           "time_above_s": 89.99999999999719,
-          "reheat_count": 1,
-          "subsequent_reheats": 0,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 7,
+          "tack_peaks_C": [
+            128.97104551737786,
+            109.34731935594733,
+            95.71254313337172,
+            85.68800941560995,
+            78.00744017929142,
+            71.93475804690499,
+            67.01288252235142
+          ],
           "crossings_by_phase": {
             "reflow-ramp": 1
           }
@@ -1320,8 +2146,20 @@
         {
           "peak_C": 249.9999999999996,
           "time_above_s": 89.9999999999971,
-          "reheat_count": 1,
-          "subsequent_reheats": 0,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 6,
+          "tack_peaks_C": [
+            148.96394754009287,
+            129.2835074534245,
+            114.81409248036896,
+            103.72795654242822,
+            94.96264533226474,
+            87.85840872479966
+          ],
           "crossings_by_phase": {
             "reflow-ramp": 1
           }
@@ -1329,8 +2167,19 @@
         {
           "peak_C": 249.99999999999946,
           "time_above_s": 89.99999999999703,
-          "reheat_count": 1,
-          "subsequent_reheats": 0,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 5,
+          "tack_peaks_C": [
+            162.85491692163097,
+            143.9405617545313,
+            129.44881395744133,
+            117.99083796546647,
+            108.7042113371661
+          ],
           "crossings_by_phase": {
             "reflow-ramp": 1
           }
@@ -1338,8 +2187,18 @@
         {
           "peak_C": 249.9999999999994,
           "time_above_s": 89.99999999999697,
-          "reheat_count": 1,
-          "subsequent_reheats": 0,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 4,
+          "tack_peaks_C": [
+            173.0675358799152,
+            155.17011719395663,
+            141.01942974801483,
+            129.55037527135337
+          ],
           "crossings_by_phase": {
             "reflow-ramp": 1
           }
@@ -1347,8 +2206,17 @@
         {
           "peak_C": 249.99999999999935,
           "time_above_s": 89.99999999999692,
-          "reheat_count": 1,
-          "subsequent_reheats": 0,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 3,
+          "tack_peaks_C": [
+            180.89197102341592,
+            164.04851448304038,
+            150.39698544073593
+          ],
           "crossings_by_phase": {
             "reflow-ramp": 1
           }
@@ -1356,8 +2224,16 @@
         {
           "peak_C": 249.99999999999932,
           "time_above_s": 89.99999999999687,
-          "reheat_count": 1,
-          "subsequent_reheats": 0,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 2,
+          "tack_peaks_C": [
+            187.07818597568155,
+            171.24412676050585
+          ],
           "crossings_by_phase": {
             "reflow-ramp": 1
           }
@@ -1365,8 +2241,15 @@
         {
           "peak_C": 249.99999999999932,
           "time_above_s": 89.99999999999685,
-          "reheat_count": 1,
-          "subsequent_reheats": 0,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 1,
+          "tack_peaks_C": [
+            192.0918841480188
+          ],
           "crossings_by_phase": {
             "reflow-ramp": 1
           }
@@ -1374,8 +2257,13 @@
         {
           "peak_C": 249.99999999999935,
           "time_above_s": 89.99999999999687,
-          "reheat_count": 1,
-          "subsequent_reheats": 0,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
           "crossings_by_phase": {
             "reflow-ramp": 1
           }
@@ -1435,8 +2323,25 @@
       "bottom": {
         "peak_C": 249.99999999999991,
         "time_above_s": 89.99999999999733,
-        "reheat_count": 1,
-        "subsequent_reheats": 0,
+        "remelt_count": 1,
+        "subsequent_remelts": 0,
+        "reheat_count": 0,
+        "reheat_peaks_C": [],
+        "reflow_count": 1,
+        "tack_exposures": 11,
+        "tack_peaks_C": [
+          127.98001474206256,
+          108.16240698772151,
+          94.49056865714346,
+          84.48935810184513,
+          76.85543826504616,
+          70.83720805474724,
+          65.97078835533955,
+          61.95436817153176,
+          58.583111753358146,
+          55.71310560328514,
+          53.24027658394617
+        ],
         "crossings_by_phase": {
           "reflow-ramp": 1
         }
@@ -1445,8 +2350,25 @@
         {
           "peak_C": 249.99999999999991,
           "time_above_s": 89.99999999999733,
-          "reheat_count": 1,
-          "subsequent_reheats": 0,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 11,
+          "tack_peaks_C": [
+            127.98001474206256,
+            108.16240698772151,
+            94.49056865714346,
+            84.48935810184513,
+            76.85543826504616,
+            70.83720805474724,
+            65.97078835533955,
+            61.95436817153176,
+            58.583111753358146,
+            55.71310560328514,
+            53.24027658394617
+          ],
           "crossings_by_phase": {
             "reflow-ramp": 1
           }
@@ -1454,8 +2376,24 @@
         {
           "peak_C": 249.99999999999983,
           "time_above_s": 89.99999999999729,
-          "reheat_count": 1,
-          "subsequent_reheats": 0,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 10,
+          "tack_peaks_C": [
+            148.53650809527596,
+            128.60363173335452,
+            114.0223524168461,
+            102.89246800888006,
+            94.11818061614757,
+            87.023177014727,
+            81.16743142987389,
+            76.25230328538355,
+            72.06797369124979,
+            68.46270907053908
+          ],
           "crossings_by_phase": {
             "reflow-ramp": 1
           }
@@ -1463,8 +2401,23 @@
         {
           "peak_C": 249.99999999999986,
           "time_above_s": 89.99999999999726,
-          "reheat_count": 1,
-          "subsequent_reheats": 0,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 9,
+          "tack_peaks_C": [
+            162.717510784852,
+            143.55605315312155,
+            128.93012055145692,
+            117.39971005214505,
+            108.07606924158661,
+            100.38095425954583,
+            93.92191745997148,
+            88.42323298500466,
+            83.685505682943
+          ],
           "crossings_by_phase": {
             "reflow-ramp": 1
           }
@@ -1472,8 +2425,22 @@
         {
           "peak_C": 249.99999999999983,
           "time_above_s": 89.99999999999724,
-          "reheat_count": 1,
-          "subsequent_reheats": 0,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 8,
+          "tack_peaks_C": [
+            173.09068220720965,
+            154.9685915223395,
+            140.6819712846308,
+            129.12962321331568,
+            119.59508101815479,
+            111.59208703487928,
+            104.77900636747053,
+            98.90878079737298
+          ],
           "crossings_by_phase": {
             "reflow-ramp": 1
           }
@@ -1481,8 +2448,21 @@
         {
           "peak_C": 249.99999999999977,
           "time_above_s": 89.9999999999972,
-          "reheat_count": 1,
-          "subsequent_reheats": 0,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 7,
+          "tack_peaks_C": [
+            181.00807655723975,
+            163.9651392409943,
+            150.18399711228324,
+            138.8099560678429,
+            129.262944772017,
+            121.13541672531244,
+            114.1326487930881
+          ],
           "crossings_by_phase": {
             "reflow-ramp": 1
           }
@@ -1490,8 +2470,20 @@
         {
           "peak_C": 249.99999999999977,
           "time_above_s": 89.9999999999972,
-          "reheat_count": 1,
-          "subsequent_reheats": 0,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 6,
+          "tack_peaks_C": [
+            187.2493888554374,
+            171.23934912701841,
+            158.02572377637162,
+            146.9346234384426,
+            137.492586949847,
+            129.35722405316912
+          ],
           "crossings_by_phase": {
             "reflow-ramp": 1
           }
@@ -1499,8 +2491,19 @@
         {
           "peak_C": 249.99999999999974,
           "time_above_s": 89.99999999999717,
-          "reheat_count": 1,
-          "subsequent_reheats": 0,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 5,
+          "tack_peaks_C": [
+            192.295837453399,
+            177.24252851820643,
+            164.6072558073587,
+            153.8506399379574,
+            144.58262096532636
+          ],
           "crossings_by_phase": {
             "reflow-ramp": 1
           }
@@ -1508,8 +2511,18 @@
         {
           "peak_C": 249.99999999999972,
           "time_above_s": 89.99999999999717,
-          "reheat_count": 1,
-          "subsequent_reheats": 0,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 4,
+          "tack_peaks_C": [
+            196.46051467560167,
+            182.28097465911074,
+            170.20969859301601,
+            159.80895392273993
+          ],
           "crossings_by_phase": {
             "reflow-ramp": 1
           }
@@ -1517,8 +2530,17 @@
         {
           "peak_C": 249.99999999999972,
           "time_above_s": 89.99999999999717,
-          "reheat_count": 1,
-          "subsequent_reheats": 0,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 3,
+          "tack_peaks_C": [
+            199.9559127821865,
+            186.56988582581533,
+            175.0363373249336
+          ],
           "crossings_by_phase": {
             "reflow-ramp": 1
           }
@@ -1526,8 +2548,16 @@
         {
           "peak_C": 249.99999999999972,
           "time_above_s": 89.99999999999716,
-          "reheat_count": 1,
-          "subsequent_reheats": 0,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 2,
+          "tack_peaks_C": [
+            202.9313245555059,
+            190.26488557868154
+          ],
           "crossings_by_phase": {
             "reflow-ramp": 1
           }
@@ -1535,8 +2565,15 @@
         {
           "peak_C": 249.99999999999974,
           "time_above_s": 89.99999999999716,
-          "reheat_count": 1,
-          "subsequent_reheats": 0,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 1,
+          "tack_peaks_C": [
+            205.49471309894537
+          ],
           "crossings_by_phase": {
             "reflow-ramp": 1
           }
@@ -1544,8 +2581,13 @@
         {
           "peak_C": 249.99999999999974,
           "time_above_s": 89.99999999999714,
-          "reheat_count": 1,
-          "subsequent_reheats": 0,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
           "crossings_by_phase": {
             "reflow-ramp": 1
           }
@@ -1625,8 +2667,25 @@
       "bottom": {
         "peak_C": 249.9999999999994,
         "time_above_s": 89.99999999999703,
-        "reheat_count": 1,
-        "subsequent_reheats": 0,
+        "remelt_count": 1,
+        "subsequent_remelts": 0,
+        "reheat_count": 0,
+        "reheat_peaks_C": [],
+        "reflow_count": 1,
+        "tack_exposures": 11,
+        "tack_peaks_C": [
+          128.97104551737786,
+          109.34731935594733,
+          95.71254313337172,
+          85.68800941560995,
+          78.00744017929142,
+          71.93475804690499,
+          67.01288252235142,
+          62.94298555915246,
+          59.52145884107759,
+          56.60478564277736,
+          54.088895337229104
+        ],
         "crossings_by_phase": {
           "reflow-ramp": 1
         }
@@ -1635,8 +2694,25 @@
         {
           "peak_C": 249.9999999999994,
           "time_above_s": 89.99999999999703,
-          "reheat_count": 1,
-          "subsequent_reheats": 0,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 11,
+          "tack_peaks_C": [
+            128.97104551737786,
+            109.34731935594733,
+            95.71254313337172,
+            85.68800941560995,
+            78.00744017929142,
+            71.93475804690499,
+            67.01288252235142,
+            62.94298555915246,
+            59.52145884107759,
+            56.60478564277736,
+            54.088895337229104
+          ],
           "crossings_by_phase": {
             "reflow-ramp": 1
           }
@@ -1644,8 +2720,24 @@
         {
           "peak_C": 249.99999999999918,
           "time_above_s": 89.9999999999969,
-          "reheat_count": 1,
-          "subsequent_reheats": 0,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 10,
+          "tack_peaks_C": [
+            148.96394754009287,
+            129.2835074534245,
+            114.81409248036896,
+            103.72795654242822,
+            94.96264533226474,
+            87.85840872479966,
+            81.98391822817307,
+            77.04528553770653,
+            72.83535856901183,
+            69.2039217478497
+          ],
           "crossings_by_phase": {
             "reflow-ramp": 1
           }
@@ -1653,8 +2745,23 @@
         {
           "peak_C": 249.99999999999898,
           "time_above_s": 89.99999999999673,
-          "reheat_count": 1,
-          "subsequent_reheats": 0,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 9,
+          "tack_peaks_C": [
+            162.85491692163097,
+            143.9405617545313,
+            129.44881395744133,
+            117.99083796546647,
+            108.7042113371661,
+            101.02510337835392,
+            94.56934459879858,
+            89.06614671127365,
+            84.31914858244552
+          ],
           "crossings_by_phase": {
             "reflow-ramp": 1
           }
@@ -1662,8 +2769,22 @@
         {
           "peak_C": 249.99999999999878,
           "time_above_s": 89.99999999999658,
-          "reheat_count": 1,
-          "subsequent_reheats": 0,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 8,
+          "tack_peaks_C": [
+            173.0675358799152,
+            155.17011719395663,
+            141.01942974801483,
+            129.55037527135337,
+            120.0666185707892,
+            112.09370740568767,
+            105.29721618297316,
+            99.434637410374
+          ],
           "crossings_by_phase": {
             "reflow-ramp": 1
           }
@@ -1671,8 +2792,21 @@
         {
           "peak_C": 249.99999999999864,
           "time_above_s": 89.99999999999643,
-          "reheat_count": 1,
-          "subsequent_reheats": 0,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 7,
+          "tack_peaks_C": [
+            180.89197102341592,
+            164.04851448304038,
+            150.39698544073593,
+            139.10854136791747,
+            129.61844534094493,
+            121.52863309866672,
+            114.55044980205976
+          ],
           "crossings_by_phase": {
             "reflow-ramp": 1
           }
@@ -1680,8 +2814,20 @@
         {
           "peak_C": 249.9999999999985,
           "time_above_s": 89.99999999999632,
-          "reheat_count": 1,
-          "subsequent_reheats": 0,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 6,
+          "tack_peaks_C": [
+            187.07818597568155,
+            171.24412676050585,
+            158.15094933383762,
+            147.1436297886696,
+            137.76046357432588,
+            129.66664732924534
+          ],
           "crossings_by_phase": {
             "reflow-ramp": 1
           }
@@ -1689,8 +2835,19 @@
         {
           "peak_C": 249.9999999999984,
           "time_above_s": 89.99999999999622,
-          "reheat_count": 1,
-          "subsequent_reheats": 0,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 5,
+          "tack_peaks_C": [
+            192.0918841480188,
+            177.19392003462468,
+            164.6693321347796,
+            153.9927737276068,
+            144.783291565242
+          ],
           "crossings_by_phase": {
             "reflow-ramp": 1
           }
@@ -1698,8 +2855,18 @@
         {
           "peak_C": 249.99999999999832,
           "time_above_s": 89.99999999999615,
-          "reheat_count": 1,
-          "subsequent_reheats": 0,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 4,
+          "tack_peaks_C": [
+            196.237531038646,
+            182.19562376730255,
+            170.2256296781195,
+            159.9004440851806
+          ],
           "crossings_by_phase": {
             "reflow-ramp": 1
           }
@@ -1707,8 +2874,17 @@
         {
           "peak_C": 249.99999999999824,
           "time_above_s": 89.99999999999609,
-          "reheat_count": 1,
-          "subsequent_reheats": 0,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 3,
+          "tack_peaks_C": [
+            199.72257607666634,
+            186.45909754769727,
+            175.0181664662624
+          ],
           "crossings_by_phase": {
             "reflow-ramp": 1
           }
@@ -1716,8 +2892,16 @@
         {
           "peak_C": 249.9999999999982,
           "time_above_s": 89.99999999999609,
-          "reheat_count": 1,
-          "subsequent_reheats": 0,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 2,
+          "tack_peaks_C": [
+            202.69324346066577,
+            190.1365202880097
+          ],
           "crossings_by_phase": {
             "reflow-ramp": 1
           }
@@ -1725,8 +2909,15 @@
         {
           "peak_C": 249.9999999999982,
           "time_above_s": 89.99999999999609,
-          "reheat_count": 1,
-          "subsequent_reheats": 0,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 1,
+          "tack_peaks_C": [
+            205.255567132517
+          ],
           "crossings_by_phase": {
             "reflow-ramp": 1
           }
@@ -1734,8 +2925,13 @@
         {
           "peak_C": 249.99999999999824,
           "time_above_s": 89.99999999999613,
-          "reheat_count": 1,
-          "subsequent_reheats": 0,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
           "crossings_by_phase": {
             "reflow-ramp": 1
           }
@@ -1835,8 +3031,25 @@
       "bottom": {
         "peak_C": 295.2216800245861,
         "time_above_s": 7.648242866509965,
-        "reheat_count": 1,
-        "subsequent_reheats": 0,
+        "remelt_count": 1,
+        "subsequent_remelts": 0,
+        "reheat_count": 11,
+        "reheat_peaks_C": [
+          209.99778823641316,
+          176.56881133496694,
+          158.72086552814469,
+          147.61908100282824,
+          140.04627674928628,
+          134.55034709634754,
+          130.37977707126782,
+          127.10660574957133,
+          124.4692200122093,
+          122.29868902455173,
+          120.48106015822499
+        ],
+        "reflow_count": 0,
+        "tack_exposures": 0,
+        "tack_peaks_C": [],
         "crossings_by_phase": {
           "bond-ramp": 1
         }
@@ -1851,8 +3064,25 @@
       "bottom": {
         "peak_C": 164.48460839189644,
         "time_above_s": 0,
-        "reheat_count": 0,
-        "subsequent_reheats": 0,
+        "remelt_count": 0,
+        "subsequent_remelts": 0,
+        "reheat_count": 11,
+        "reheat_peaks_C": [
+          151.34177806827003,
+          142.64783383663723,
+          136.47059223841484,
+          131.85525622556582,
+          128.27578720727874,
+          125.4185254362782,
+          123.0848359726107,
+          121.14280958454985,
+          119.50141520292838,
+          118.09580353085681,
+          116.8785256649311
+        ],
+        "reflow_count": 0,
+        "tack_exposures": 0,
+        "tack_peaks_C": [],
         "crossings_by_phase": {}
       },
       "max_warp_um": 17.497643334137408,
@@ -1865,8 +3095,25 @@
       "bottom": {
         "peak_C": 258.3607769587645,
         "time_above_s": 5.960280509143757,
-        "reheat_count": 1,
-        "subsequent_reheats": 0,
+        "remelt_count": 1,
+        "subsequent_remelts": 0,
+        "reheat_count": 11,
+        "reheat_peaks_C": [
+          189.22827961969452,
+          162.11115154177395,
+          147.63314639845495,
+          138.62753475656996,
+          132.48458294825147,
+          128.02636278240422,
+          124.64325571972296,
+          121.98810582255231,
+          119.84869619237772,
+          118.08799251085328,
+          116.6135580125991
+        ],
+        "reflow_count": 0,
+        "tack_exposures": 0,
+        "tack_peaks_C": [],
         "crossings_by_phase": {
           "bond-ramp": 1
         }
@@ -1881,8 +3128,25 @@
       "bottom": {
         "peak_C": 286.24446151886735,
         "time_above_s": 16.054985836592955,
-        "reheat_count": 3,
-        "subsequent_reheats": 2,
+        "remelt_count": 3,
+        "subsequent_remelts": 2,
+        "reheat_count": 11,
+        "reheat_peaks_C": [
+          248.2891548510914,
+          223.18153565626824,
+          205.34186915424544,
+          192.01285644516253,
+          181.67536471099092,
+          173.42357598199567,
+          166.68384831628958,
+          161.07523613875307,
+          156.33484620619797,
+          152.2753962105964,
+          148.75985506517026
+        ],
+        "reflow_count": 0,
+        "tack_exposures": 0,
+        "tack_peaks_C": [],
         "crossings_by_phase": {
           "bond-ramp": 3
         }
@@ -1897,8 +3161,25 @@
       "bottom": {
         "peak_C": 249.9999999999994,
         "time_above_s": 90.95254915726838,
-        "reheat_count": 2,
-        "subsequent_reheats": 1,
+        "remelt_count": 2,
+        "subsequent_remelts": 1,
+        "reheat_count": 0,
+        "reheat_peaks_C": [],
+        "reflow_count": 1,
+        "tack_exposures": 11,
+        "tack_peaks_C": [
+          165.74946355064213,
+          132.6560441363163,
+          111.80965560536752,
+          97.47332281504274,
+          87.00935319534145,
+          79.03546126901979,
+          72.7573015628494,
+          67.68592093781216,
+          63.503864641905245,
+          59.996047495683435,
+          57.011568436175104
+        ],
         "crossings_by_phase": {
           "tack": 1,
           "reflow-ramp": 1
@@ -1914,8 +3195,25 @@
       "bottom": {
         "peak_C": 249.9999999999994,
         "time_above_s": 89.99999999999703,
-        "reheat_count": 1,
-        "subsequent_reheats": 0,
+        "remelt_count": 1,
+        "subsequent_remelts": 0,
+        "reheat_count": 0,
+        "reheat_peaks_C": [],
+        "reflow_count": 1,
+        "tack_exposures": 11,
+        "tack_peaks_C": [
+          50.92781089591119,
+          49.11268501073841,
+          47.498698679287905,
+          46.05416819442856,
+          44.753732341178804,
+          43.57685026568219,
+          42.506708178595694,
+          41.52941070817067,
+          40.63337403450598,
+          39.80886440252865,
+          39.047642924538685
+        ],
         "crossings_by_phase": {
           "reflow-ramp": 1
         }
@@ -1930,8 +3228,25 @@
       "bottom": {
         "peak_C": 249.99999999999977,
         "time_above_s": 89.99999999999714,
-        "reheat_count": 1,
-        "subsequent_reheats": 0,
+        "remelt_count": 1,
+        "subsequent_remelts": 0,
+        "reheat_count": 0,
+        "reheat_peaks_C": [],
+        "reflow_count": 1,
+        "tack_exposures": 11,
+        "tack_peaks_C": [
+          91.49954861391174,
+          75.26506052089388,
+          65.03854960497702,
+          58.005648047824494,
+          52.87239352846383,
+          48.96068423605802,
+          45.88084173880808,
+          43.3930026184843,
+          41.34143465214888,
+          39.620624582187354,
+          38.15654564583725
+        ],
         "crossings_by_phase": {
           "reflow-ramp": 1
         }
@@ -1946,8 +3261,25 @@
       "bottom": {
         "peak_C": 249.99999999999775,
         "time_above_s": 90.86597395173577,
-        "reheat_count": 2,
-        "subsequent_reheats": 1,
+        "remelt_count": 2,
+        "subsequent_remelts": 1,
+        "reheat_count": 0,
+        "reheat_peaks_C": [],
+        "reflow_count": 1,
+        "tack_exposures": 11,
+        "tack_peaks_C": [
+          208.48563628697977,
+          197.42398920229243,
+          187.58807368403623,
+          178.78481763202356,
+          170.85967532461925,
+          163.68747439242958,
+          157.16575389658558,
+          151.209836852684,
+          145.74913227970202,
+          140.7243231229648,
+          136.08520191807926
+        ],
         "crossings_by_phase": {
           "tack": 1,
           "reflow-ramp": 1
