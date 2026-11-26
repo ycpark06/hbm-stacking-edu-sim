@@ -229,7 +229,7 @@ test('RK4 Stefan: analytic thickness/contact, doubled force halves time, time-va
   const coarse=squeezeIntegrate({...varying,dt_s:0.2}),fine=squeezeIntegrate({...varying,dt_s:0.1});
   const ec=Math.abs(coarse.remaining_thickness_m-target),ef=Math.abs(fine.remaining_thickness_m-target);
   assert.ok(ec/ef>15&&ec/ef<17);
-  const gel=squeezeIntegrate({...base,F_of_t:()=>40,mu_of_t:()=>Infinity,gel_time_s:0});
+  const gel=squeezeIntegrate({...base,F_of_t:()=>40,mu_of_t:()=>Infinity});
   assert.equal(gel.contact_time_s,null);assert.equal(gel.gel_before_contact,true);close(gel.remaining_thickness_m,base.h0_m);
   assert.throws(()=>squeezeIntegrate({...base,dt_s:0}));
 });

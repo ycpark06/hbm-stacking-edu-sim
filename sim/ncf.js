@@ -63,9 +63,11 @@ export function cureStep(alpha,T_C,dt_s,params) {
 export function squeezeIntegrate({F_of_t,mu_of_t,a_mm,h0_m,h_stop_m,dt_s,t_end_s,gel_time_s=null}) {
   if(![a_mm,h0_m,h_stop_m,dt_s].every(x=>Number.isFinite(x)&&x>0)||h_stop_m>h0_m||!Number.isFinite(t_end_s)||t_end_s<0)
     throw new RangeError('squeeze geometry/time');
+  let observedGel=gel_time_s;
   const derivative=t=>{
     const F=F_of_t(t),mu=mu_of_t(t);
     if(!(Number.isFinite(F)&&F>=0)||!(mu>0)) throw new RangeError('squeeze force/viscosity');
+    if(mu===Infinity)observedGel=observedGel===null?t:Math.min(observedGel,t);
     return -2*squeezeDhdt(1,F,a_mm,mu);
   };
   const increment=(t,dt)=>dt*(derivative(t)+4*derivative(t+dt/2)+derivative(t+dt))/6; // RK4 for y'=f(t)
@@ -84,8 +86,8 @@ export function squeezeIntegrate({F_of_t,mu_of_t,a_mm,h0_m,h_stop_m,dt_s,t_end_s
     }
     t+=dt;history.push({t_s:t,h_m:1/Math.sqrt(y)});
   }
-  return {history,contact_time_s,remaining_thickness_m:1/Math.sqrt(y),gel_time_s,
-    gel_before_contact:gel_time_s!==null&&(contact_time_s===null||gel_time_s<contact_time_s)};
+  return {history,contact_time_s,remaining_thickness_m:1/Math.sqrt(y),gel_time_s:observedGel,
+    gel_before_contact:observedGel!==null&&observedGel<=t_end_s&&(contact_time_s===null||observedGel<contact_time_s)};
 }
 
 /** Qualitative rules only: 정량 모델 아님. No defect area percentage is predicted. */
