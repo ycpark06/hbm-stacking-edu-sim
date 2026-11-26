@@ -1,0 +1,4136 @@
+[
+  {
+    "id": "ncf.squeeze_blt.F0.2_a5_t10.0",
+    "model": "ncf(squeeze, Stefan)",
+    "function": "squeeze_blt_m",
+    "source": "calc/process_physics.py:13-16",
+    "inputs": {
+      "F": {
+        "value": 0.2,
+        "unit": "N"
+      },
+      "a": {
+        "value": 5,
+        "unit": "mm"
+      },
+      "t": {
+        "value": 10.0,
+        "unit": "s"
+      },
+      "mu": {
+        "value": 20.0,
+        "unit": "Pa*s"
+      },
+      "h0": {
+        "value": 0.00015,
+        "unit": "m"
+      },
+      "h_min": {
+        "value": 1.5e-05,
+        "unit": "m"
+      }
+    },
+    "output": {
+      "h": {
+        "unit": "m"
+      }
+    }
+  },
+  {
+    "id": "ncf.squeeze_blt.F1.0_a5_t2.0",
+    "model": "ncf(squeeze, Stefan)",
+    "function": "squeeze_blt_m",
+    "source": "calc/process_physics.py:13-16",
+    "inputs": {
+      "F": {
+        "value": 1.0,
+        "unit": "N"
+      },
+      "a": {
+        "value": 5,
+        "unit": "mm"
+      },
+      "t": {
+        "value": 2.0,
+        "unit": "s"
+      },
+      "mu": {
+        "value": 20.0,
+        "unit": "Pa*s"
+      },
+      "h0": {
+        "value": 0.00015,
+        "unit": "m"
+      },
+      "h_min": {
+        "value": 1.5e-05,
+        "unit": "m"
+      }
+    },
+    "output": {
+      "h": {
+        "unit": "m"
+      }
+    }
+  },
+  {
+    "id": "ncf.squeeze_blt.F5.0_a10_t5.0",
+    "model": "ncf(squeeze, Stefan)",
+    "function": "squeeze_blt_m",
+    "source": "calc/process_physics.py:13-16",
+    "inputs": {
+      "F": {
+        "value": 5.0,
+        "unit": "N"
+      },
+      "a": {
+        "value": 10,
+        "unit": "mm"
+      },
+      "t": {
+        "value": 5.0,
+        "unit": "s"
+      },
+      "mu": {
+        "value": 20.0,
+        "unit": "Pa*s"
+      },
+      "h0": {
+        "value": 0.00015,
+        "unit": "m"
+      },
+      "h_min": {
+        "value": 1.5e-05,
+        "unit": "m"
+      }
+    },
+    "output": {
+      "h": {
+        "unit": "m"
+      }
+    }
+  },
+  {
+    "id": "ncf.squeeze_blt.F20.0_a2_t0.001",
+    "model": "ncf(squeeze, Stefan)",
+    "function": "squeeze_blt_m",
+    "source": "calc/process_physics.py:13-16",
+    "inputs": {
+      "F": {
+        "value": 20.0,
+        "unit": "N"
+      },
+      "a": {
+        "value": 2,
+        "unit": "mm"
+      },
+      "t": {
+        "value": 0.001,
+        "unit": "s"
+      },
+      "mu": {
+        "value": 20.0,
+        "unit": "Pa*s"
+      },
+      "h0": {
+        "value": 0.00015,
+        "unit": "m"
+      },
+      "h_min": {
+        "value": 1.5e-05,
+        "unit": "m"
+      }
+    },
+    "output": {
+      "h": {
+        "unit": "m"
+      }
+    }
+  },
+  {
+    "id": "ncf.squeeze_blt.F2.0_a5_t10.0",
+    "model": "ncf(squeeze, Stefan)",
+    "function": "squeeze_blt_m",
+    "source": "calc/process_physics.py:13-16",
+    "inputs": {
+      "F": {
+        "value": 2.0,
+        "unit": "N"
+      },
+      "a": {
+        "value": 5,
+        "unit": "mm"
+      },
+      "t": {
+        "value": 10.0,
+        "unit": "s"
+      },
+      "mu": {
+        "value": 20.0,
+        "unit": "Pa*s"
+      },
+      "h0": {
+        "value": 0.00015,
+        "unit": "m"
+      },
+      "h_min": {
+        "value": 1.5e-05,
+        "unit": "m"
+      }
+    },
+    "output": {
+      "h": {
+        "unit": "m"
+      }
+    }
+  },
+  {
+    "id": "ncf.squeeze_time_to.F0.2_a2",
+    "model": "ncf(squeeze, Stefan)",
+    "function": "squeeze_time_to_m",
+    "source": "calc/process_physics.py:17-19",
+    "inputs": {
+      "hT": {
+        "value": 2.5e-05,
+        "unit": "m"
+      },
+      "F": {
+        "value": 0.2,
+        "unit": "N"
+      },
+      "a": {
+        "value": 2,
+        "unit": "mm"
+      },
+      "mu": {
+        "value": 20.0,
+        "unit": "Pa*s"
+      },
+      "h0": {
+        "value": 0.00015,
+        "unit": "m"
+      }
+    },
+    "output": {
+      "t": {
+        "unit": "s"
+      }
+    }
+  },
+  {
+    "id": "ncf.squeeze_time_to.F1_a5",
+    "model": "ncf(squeeze, Stefan)",
+    "function": "squeeze_time_to_m",
+    "source": "calc/process_physics.py:17-19",
+    "inputs": {
+      "hT": {
+        "value": 2.5e-05,
+        "unit": "m"
+      },
+      "F": {
+        "value": 1,
+        "unit": "N"
+      },
+      "a": {
+        "value": 5,
+        "unit": "mm"
+      },
+      "mu": {
+        "value": 20.0,
+        "unit": "Pa*s"
+      },
+      "h0": {
+        "value": 0.00015,
+        "unit": "m"
+      }
+    },
+    "output": {
+      "t": {
+        "unit": "s"
+      }
+    }
+  },
+  {
+    "id": "ncf.squeeze_time_to.F5_a10",
+    "model": "ncf(squeeze, Stefan)",
+    "function": "squeeze_time_to_m",
+    "source": "calc/process_physics.py:17-19",
+    "inputs": {
+      "hT": {
+        "value": 2.5e-05,
+        "unit": "m"
+      },
+      "F": {
+        "value": 5,
+        "unit": "N"
+      },
+      "a": {
+        "value": 10,
+        "unit": "mm"
+      },
+      "mu": {
+        "value": 20.0,
+        "unit": "Pa*s"
+      },
+      "h0": {
+        "value": 0.00015,
+        "unit": "m"
+      }
+    },
+    "output": {
+      "t": {
+        "unit": "s"
+      }
+    }
+  },
+  {
+    "id": "ncf.squeeze_time_to.F20_a10",
+    "model": "ncf(squeeze, Stefan)",
+    "function": "squeeze_time_to_m",
+    "source": "calc/process_physics.py:17-19",
+    "inputs": {
+      "hT": {
+        "value": 2.5e-05,
+        "unit": "m"
+      },
+      "F": {
+        "value": 20,
+        "unit": "N"
+      },
+      "a": {
+        "value": 10,
+        "unit": "mm"
+      },
+      "mu": {
+        "value": 20.0,
+        "unit": "Pa*s"
+      },
+      "h0": {
+        "value": 0.00015,
+        "unit": "m"
+      }
+    },
+    "output": {
+      "t": {
+        "unit": "s"
+      }
+    }
+  },
+  {
+    "id": "ncf.squeeze_dhdt.h0.00015_F1.0_a5",
+    "model": "ncf(squeeze, Stefan)",
+    "function": "squeeze_dhdt_m_s",
+    "source": "calc/process_physics.py:8 (주석의 식, 원본 함수 없음)",
+    "inputs": {
+      "h": {
+        "value": 0.00015,
+        "unit": "m"
+      },
+      "F": {
+        "value": 1.0,
+        "unit": "N"
+      },
+      "a": {
+        "value": 5,
+        "unit": "mm"
+      },
+      "mu": {
+        "value": 20.0,
+        "unit": "Pa*s"
+      }
+    },
+    "output": {
+      "dhdt": {
+        "unit": "m/s"
+      }
+    }
+  },
+  {
+    "id": "ncf.squeeze_dhdt.h5e-05_F1.0_a5",
+    "model": "ncf(squeeze, Stefan)",
+    "function": "squeeze_dhdt_m_s",
+    "source": "calc/process_physics.py:8 (주석의 식, 원본 함수 없음)",
+    "inputs": {
+      "h": {
+        "value": 5e-05,
+        "unit": "m"
+      },
+      "F": {
+        "value": 1.0,
+        "unit": "N"
+      },
+      "a": {
+        "value": 5,
+        "unit": "mm"
+      },
+      "mu": {
+        "value": 20.0,
+        "unit": "Pa*s"
+      }
+    },
+    "output": {
+      "dhdt": {
+        "unit": "m/s"
+      }
+    }
+  },
+  {
+    "id": "ncf.squeeze_dhdt.h2.5e-05_F5.0_a10",
+    "model": "ncf(squeeze, Stefan)",
+    "function": "squeeze_dhdt_m_s",
+    "source": "calc/process_physics.py:8 (주석의 식, 원본 함수 없음)",
+    "inputs": {
+      "h": {
+        "value": 2.5e-05,
+        "unit": "m"
+      },
+      "F": {
+        "value": 5.0,
+        "unit": "N"
+      },
+      "a": {
+        "value": 10,
+        "unit": "mm"
+      },
+      "mu": {
+        "value": 20.0,
+        "unit": "Pa*s"
+      }
+    },
+    "output": {
+      "dhdt": {
+        "unit": "m/s"
+      }
+    }
+  },
+  {
+    "id": "epoxy.fillet.V0.66_a5_blt25.0",
+    "model": "epoxy(fillet, 체적 보존)",
+    "function": "fillet_height_mm / fillet_pct",
+    "source": "calc/process_physics.py:33-35, calc/education_calc.py:8-9",
+    "inputs": {
+      "V": {
+        "value": 0.66,
+        "unit": "mm^3"
+      },
+      "a": {
+        "value": 5,
+        "unit": "mm"
+      },
+      "BLT": {
+        "value": 25.0,
+        "unit": "um"
+      },
+      "t_die": {
+        "value": 0.3,
+        "unit": "mm"
+      }
+    },
+    "output": {
+      "h_f": {
+        "unit": "mm"
+      },
+      "V_f": {
+        "unit": "mm^3"
+      },
+      "fillet_pct": {
+        "unit": "%"
+      }
+    }
+  },
+  {
+    "id": "epoxy.fillet.V0.8_a5_blt24.1",
+    "model": "epoxy(fillet, 체적 보존)",
+    "function": "fillet_height_mm / fillet_pct",
+    "source": "calc/process_physics.py:33-35, calc/education_calc.py:8-9",
+    "inputs": {
+      "V": {
+        "value": 0.8,
+        "unit": "mm^3"
+      },
+      "a": {
+        "value": 5,
+        "unit": "mm"
+      },
+      "BLT": {
+        "value": 24.1,
+        "unit": "um"
+      },
+      "t_die": {
+        "value": 0.3,
+        "unit": "mm"
+      }
+    },
+    "output": {
+      "h_f": {
+        "unit": "mm"
+      },
+      "V_f": {
+        "unit": "mm^3"
+      },
+      "fillet_pct": {
+        "unit": "%"
+      }
+    }
+  },
+  {
+    "id": "epoxy.fillet.V0.66_a5_blt51.3",
+    "model": "epoxy(fillet, 체적 보존)",
+    "function": "fillet_height_mm / fillet_pct",
+    "source": "calc/process_physics.py:33-35, calc/education_calc.py:8-9",
+    "inputs": {
+      "V": {
+        "value": 0.66,
+        "unit": "mm^3"
+      },
+      "a": {
+        "value": 5,
+        "unit": "mm"
+      },
+      "BLT": {
+        "value": 51.3,
+        "unit": "um"
+      },
+      "t_die": {
+        "value": 0.3,
+        "unit": "mm"
+      }
+    },
+    "output": {
+      "h_f": {
+        "unit": "mm"
+      },
+      "V_f": {
+        "unit": "mm^3"
+      },
+      "fillet_pct": {
+        "unit": "%"
+      }
+    }
+  },
+  {
+    "id": "epoxy.fillet.V1.2_a10_blt25.0",
+    "model": "epoxy(fillet, 체적 보존)",
+    "function": "fillet_height_mm / fillet_pct",
+    "source": "calc/process_physics.py:33-35, calc/education_calc.py:8-9",
+    "inputs": {
+      "V": {
+        "value": 1.2,
+        "unit": "mm^3"
+      },
+      "a": {
+        "value": 10,
+        "unit": "mm"
+      },
+      "BLT": {
+        "value": 25.0,
+        "unit": "um"
+      },
+      "t_die": {
+        "value": 0.3,
+        "unit": "mm"
+      }
+    },
+    "output": {
+      "h_f": {
+        "unit": "mm"
+      },
+      "V_f": {
+        "unit": "mm^3"
+      },
+      "fillet_pct": {
+        "unit": "%"
+      }
+    }
+  },
+  {
+    "id": "epoxy.dispense_volume.frac0.2",
+    "model": "epoxy(fillet, 체적 보존)",
+    "function": "dispense_volume_for_fillet_mm3",
+    "source": "calc/process_physics.py:37",
+    "inputs": {
+      "a": {
+        "value": 5.0,
+        "unit": "mm"
+      },
+      "BLT": {
+        "value": 25.0,
+        "unit": "um"
+      },
+      "fillet_frac": {
+        "value": 0.2,
+        "unit": "-"
+      },
+      "t_die": {
+        "value": 0.3,
+        "unit": "mm"
+      }
+    },
+    "output": {
+      "V": {
+        "unit": "mm^3"
+      }
+    }
+  },
+  {
+    "id": "epoxy.dispense_volume.frac0.5",
+    "model": "epoxy(fillet, 체적 보존)",
+    "function": "dispense_volume_for_fillet_mm3",
+    "source": "calc/process_physics.py:37",
+    "inputs": {
+      "a": {
+        "value": 5.0,
+        "unit": "mm"
+      },
+      "BLT": {
+        "value": 25.0,
+        "unit": "um"
+      },
+      "fillet_frac": {
+        "value": 0.5,
+        "unit": "-"
+      },
+      "t_die": {
+        "value": 0.3,
+        "unit": "mm"
+      }
+    },
+    "output": {
+      "V": {
+        "unit": "mm^3"
+      }
+    }
+  },
+  {
+    "id": "cure.arrhenius.T120_Ea60",
+    "model": "cure(1차 아레니우스)",
+    "function": "cure_rate_1_s / cure_time_to_s",
+    "source": "calc/process_physics.py:42-46",
+    "inputs": {
+      "T": {
+        "value": 120,
+        "unit": "C"
+      },
+      "Ea": {
+        "value": 60000.0,
+        "unit": "J/mol"
+      },
+      "T_ref": {
+        "value": 180.0,
+        "unit": "C"
+      },
+      "t_ref": {
+        "value": 1800.0,
+        "unit": "s"
+      },
+      "alpha_ref": {
+        "value": 0.95,
+        "unit": "-"
+      }
+    },
+    "output": {
+      "k": {
+        "unit": "1/s"
+      },
+      "t95": {
+        "unit": "s"
+      }
+    }
+  },
+  {
+    "id": "cure.arrhenius.T150_Ea80",
+    "model": "cure(1차 아레니우스)",
+    "function": "cure_rate_1_s / cure_time_to_s",
+    "source": "calc/process_physics.py:42-46",
+    "inputs": {
+      "T": {
+        "value": 150,
+        "unit": "C"
+      },
+      "Ea": {
+        "value": 80000.0,
+        "unit": "J/mol"
+      },
+      "T_ref": {
+        "value": 180.0,
+        "unit": "C"
+      },
+      "t_ref": {
+        "value": 1800.0,
+        "unit": "s"
+      },
+      "alpha_ref": {
+        "value": 0.95,
+        "unit": "-"
+      }
+    },
+    "output": {
+      "k": {
+        "unit": "1/s"
+      },
+      "t95": {
+        "unit": "s"
+      }
+    }
+  },
+  {
+    "id": "cure.arrhenius.T180_Ea80",
+    "model": "cure(1차 아레니우스)",
+    "function": "cure_rate_1_s / cure_time_to_s",
+    "source": "calc/process_physics.py:42-46",
+    "inputs": {
+      "T": {
+        "value": 180,
+        "unit": "C"
+      },
+      "Ea": {
+        "value": 80000.0,
+        "unit": "J/mol"
+      },
+      "T_ref": {
+        "value": 180.0,
+        "unit": "C"
+      },
+      "t_ref": {
+        "value": 1800.0,
+        "unit": "s"
+      },
+      "alpha_ref": {
+        "value": 0.95,
+        "unit": "-"
+      }
+    },
+    "output": {
+      "k": {
+        "unit": "1/s"
+      },
+      "t95": {
+        "unit": "s"
+      }
+    }
+  },
+  {
+    "id": "cure.arrhenius.T200_Ea100",
+    "model": "cure(1차 아레니우스)",
+    "function": "cure_rate_1_s / cure_time_to_s",
+    "source": "calc/process_physics.py:42-46",
+    "inputs": {
+      "T": {
+        "value": 200,
+        "unit": "C"
+      },
+      "Ea": {
+        "value": 100000.0,
+        "unit": "J/mol"
+      },
+      "T_ref": {
+        "value": 180.0,
+        "unit": "C"
+      },
+      "t_ref": {
+        "value": 1800.0,
+        "unit": "s"
+      },
+      "alpha_ref": {
+        "value": 0.95,
+        "unit": "-"
+      }
+    },
+    "output": {
+      "k": {
+        "unit": "1/s"
+      },
+      "t95": {
+        "unit": "s"
+      }
+    }
+  },
+  {
+    "id": "cure.arrhenius.T250_Ea80",
+    "model": "cure(1차 아레니우스)",
+    "function": "cure_rate_1_s / cure_time_to_s",
+    "source": "calc/process_physics.py:42-46",
+    "inputs": {
+      "T": {
+        "value": 250,
+        "unit": "C"
+      },
+      "Ea": {
+        "value": 80000.0,
+        "unit": "J/mol"
+      },
+      "T_ref": {
+        "value": 180.0,
+        "unit": "C"
+      },
+      "t_ref": {
+        "value": 1800.0,
+        "unit": "s"
+      },
+      "alpha_ref": {
+        "value": 0.95,
+        "unit": "-"
+      }
+    },
+    "output": {
+      "k": {
+        "unit": "1/s"
+      },
+      "t95": {
+        "unit": "s"
+      }
+    }
+  },
+  {
+    "id": "cure.conversion.t60.0_T150",
+    "model": "cure(1차 아레니우스)",
+    "function": "cure_conversion",
+    "source": "calc/process_physics.py:85",
+    "inputs": {
+      "t": {
+        "value": 60.0,
+        "unit": "s"
+      },
+      "T": {
+        "value": 150,
+        "unit": "C"
+      },
+      "Ea": {
+        "value": 80000.0,
+        "unit": "J/mol"
+      }
+    },
+    "output": {
+      "alpha": {
+        "unit": "-"
+      }
+    }
+  },
+  {
+    "id": "cure.conversion.t600.0_T180",
+    "model": "cure(1차 아레니우스)",
+    "function": "cure_conversion",
+    "source": "calc/process_physics.py:85",
+    "inputs": {
+      "t": {
+        "value": 600.0,
+        "unit": "s"
+      },
+      "T": {
+        "value": 180,
+        "unit": "C"
+      },
+      "Ea": {
+        "value": 80000.0,
+        "unit": "J/mol"
+      }
+    },
+    "output": {
+      "alpha": {
+        "unit": "-"
+      }
+    }
+  },
+  {
+    "id": "cure.conversion.t1800.0_T180",
+    "model": "cure(1차 아레니우스)",
+    "function": "cure_conversion",
+    "source": "calc/process_physics.py:85",
+    "inputs": {
+      "t": {
+        "value": 1800.0,
+        "unit": "s"
+      },
+      "T": {
+        "value": 180,
+        "unit": "C"
+      },
+      "Ea": {
+        "value": 80000.0,
+        "unit": "J/mol"
+      }
+    },
+    "output": {
+      "alpha": {
+        "unit": "-"
+      }
+    }
+  },
+  {
+    "id": "warpage.timoshenko.Si300_FR4_400_dT155_L10",
+    "model": "warpage(Timoshenko 2층)",
+    "function": "timoshenko_curvature_1_m / warp_sagitta_m",
+    "source": "calc/process_physics.py:50-52,60; calc/education_calc.py:10-12,22",
+    "inputs": {
+      "h1": {
+        "value": 0.0003,
+        "unit": "m"
+      },
+      "E1": {
+        "value": 130000000000.0,
+        "unit": "Pa"
+      },
+      "a1": {
+        "value": 2.6e-06,
+        "unit": "1/K"
+      },
+      "h2": {
+        "value": 0.0004,
+        "unit": "m"
+      },
+      "E2": {
+        "value": 22000000000.0,
+        "unit": "Pa"
+      },
+      "a2": {
+        "value": 1.6e-05,
+        "unit": "1/K"
+      },
+      "dT": {
+        "value": 155,
+        "unit": "K"
+      },
+      "L": {
+        "value": 0.01,
+        "unit": "m"
+      }
+    },
+    "output": {
+      "kappa": {
+        "unit": "1/m"
+      },
+      "warp": {
+        "unit": "m"
+      }
+    }
+  },
+  {
+    "id": "warpage.timoshenko.Si100_FR4_400_dT125_L10",
+    "model": "warpage(Timoshenko 2층)",
+    "function": "timoshenko_curvature_1_m / warp_sagitta_m",
+    "source": "calc/process_physics.py:50-52,60; calc/education_calc.py:10-12,22",
+    "inputs": {
+      "h1": {
+        "value": 0.0001,
+        "unit": "m"
+      },
+      "E1": {
+        "value": 130000000000.0,
+        "unit": "Pa"
+      },
+      "a1": {
+        "value": 2.6e-06,
+        "unit": "1/K"
+      },
+      "h2": {
+        "value": 0.0004,
+        "unit": "m"
+      },
+      "E2": {
+        "value": 22000000000.0,
+        "unit": "Pa"
+      },
+      "a2": {
+        "value": 1.6e-05,
+        "unit": "1/K"
+      },
+      "dT": {
+        "value": 125,
+        "unit": "K"
+      },
+      "L": {
+        "value": 0.01,
+        "unit": "m"
+      }
+    },
+    "output": {
+      "kappa": {
+        "unit": "1/m"
+      },
+      "warp": {
+        "unit": "m"
+      }
+    }
+  },
+  {
+    "id": "warpage.timoshenko.Si725_glass_400_dT155_L10",
+    "model": "warpage(Timoshenko 2층)",
+    "function": "timoshenko_curvature_1_m / warp_sagitta_m",
+    "source": "calc/process_physics.py:50-52,60; calc/education_calc.py:10-12,22",
+    "inputs": {
+      "h1": {
+        "value": 0.000725,
+        "unit": "m"
+      },
+      "E1": {
+        "value": 130000000000.0,
+        "unit": "Pa"
+      },
+      "a1": {
+        "value": 2.6e-06,
+        "unit": "1/K"
+      },
+      "h2": {
+        "value": 0.0004,
+        "unit": "m"
+      },
+      "E2": {
+        "value": 64000000000.0,
+        "unit": "Pa"
+      },
+      "a2": {
+        "value": 3.3e-06,
+        "unit": "1/K"
+      },
+      "dT": {
+        "value": 155,
+        "unit": "K"
+      },
+      "L": {
+        "value": 0.01,
+        "unit": "m"
+      }
+    },
+    "output": {
+      "kappa": {
+        "unit": "1/m"
+      },
+      "warp": {
+        "unit": "m"
+      }
+    }
+  },
+  {
+    "id": "warpage.timoshenko.Si300_FR4_400_dT125_L5",
+    "model": "warpage(Timoshenko 2층)",
+    "function": "timoshenko_curvature_1_m / warp_sagitta_m",
+    "source": "calc/process_physics.py:50-52,60; calc/education_calc.py:10-12,22",
+    "inputs": {
+      "h1": {
+        "value": 0.0003,
+        "unit": "m"
+      },
+      "E1": {
+        "value": 130000000000.0,
+        "unit": "Pa"
+      },
+      "a1": {
+        "value": 2.6e-06,
+        "unit": "1/K"
+      },
+      "h2": {
+        "value": 0.0004,
+        "unit": "m"
+      },
+      "E2": {
+        "value": 22000000000.0,
+        "unit": "Pa"
+      },
+      "a2": {
+        "value": 1.6e-05,
+        "unit": "1/K"
+      },
+      "dT": {
+        "value": 125,
+        "unit": "K"
+      },
+      "L": {
+        "value": 0.005,
+        "unit": "m"
+      }
+    },
+    "output": {
+      "kappa": {
+        "unit": "1/m"
+      },
+      "warp": {
+        "unit": "m"
+      }
+    }
+  },
+  {
+    "id": "epoxy.tilt_blt.d2",
+    "model": "epoxy(평행도)",
+    "function": "tilt_blt_diff_um",
+    "source": "calc/process_physics.py:64",
+    "inputs": {
+      "die": {
+        "value": 2,
+        "unit": "mm"
+      },
+      "parallelism": {
+        "value": 2.0,
+        "unit": "um/10mm"
+      }
+    },
+    "output": {
+      "dBLT": {
+        "unit": "um"
+      }
+    }
+  },
+  {
+    "id": "epoxy.tilt_blt.d5",
+    "model": "epoxy(평행도)",
+    "function": "tilt_blt_diff_um",
+    "source": "calc/process_physics.py:64",
+    "inputs": {
+      "die": {
+        "value": 5,
+        "unit": "mm"
+      },
+      "parallelism": {
+        "value": 2.0,
+        "unit": "um/10mm"
+      }
+    },
+    "output": {
+      "dBLT": {
+        "unit": "um"
+      }
+    }
+  },
+  {
+    "id": "epoxy.tilt_blt.d10",
+    "model": "epoxy(평행도)",
+    "function": "tilt_blt_diff_um",
+    "source": "calc/process_physics.py:64",
+    "inputs": {
+      "die": {
+        "value": 10,
+        "unit": "mm"
+      },
+      "parallelism": {
+        "value": 2.0,
+        "unit": "um/10mm"
+      }
+    },
+    "output": {
+      "dBLT": {
+        "unit": "um"
+      }
+    }
+  },
+  {
+    "id": "muf.washburn.mu0.8_L0.005_h5e-05",
+    "model": "muf(capillary, Washburn 평행판)",
+    "function": "washburn_fill_time_s",
+    "source": "calc/education_calc.py:25-31",
+    "inputs": {
+      "mu": {
+        "value": 0.8,
+        "unit": "Pa*s"
+      },
+      "L": {
+        "value": 0.005,
+        "unit": "m"
+      },
+      "gap": {
+        "value": 5e-05,
+        "unit": "m"
+      },
+      "gamma": {
+        "value": 0.03,
+        "unit": "N/m"
+      },
+      "theta": {
+        "value": 40.0,
+        "unit": "deg"
+      }
+    },
+    "output": {
+      "t_fill": {
+        "unit": "s"
+      }
+    }
+  },
+  {
+    "id": "muf.washburn.mu0.8_L0.01_h3e-05",
+    "model": "muf(capillary, Washburn 평행판)",
+    "function": "washburn_fill_time_s",
+    "source": "calc/education_calc.py:25-31",
+    "inputs": {
+      "mu": {
+        "value": 0.8,
+        "unit": "Pa*s"
+      },
+      "L": {
+        "value": 0.01,
+        "unit": "m"
+      },
+      "gap": {
+        "value": 3e-05,
+        "unit": "m"
+      },
+      "gamma": {
+        "value": 0.03,
+        "unit": "N/m"
+      },
+      "theta": {
+        "value": 40.0,
+        "unit": "deg"
+      }
+    },
+    "output": {
+      "t_fill": {
+        "unit": "s"
+      }
+    }
+  },
+  {
+    "id": "muf.washburn.mu0.1_L0.01_h5e-05",
+    "model": "muf(capillary, Washburn 평행판)",
+    "function": "washburn_fill_time_s",
+    "source": "calc/education_calc.py:25-31",
+    "inputs": {
+      "mu": {
+        "value": 0.1,
+        "unit": "Pa*s"
+      },
+      "L": {
+        "value": 0.01,
+        "unit": "m"
+      },
+      "gap": {
+        "value": 5e-05,
+        "unit": "m"
+      },
+      "gamma": {
+        "value": 0.03,
+        "unit": "N/m"
+      },
+      "theta": {
+        "value": 40.0,
+        "unit": "deg"
+      }
+    },
+    "output": {
+      "t_fill": {
+        "unit": "s"
+      }
+    }
+  },
+  {
+    "id": "muf.washburn.mu0.1_L0.005_h3e-05",
+    "model": "muf(capillary, Washburn 평행판)",
+    "function": "washburn_fill_time_s",
+    "source": "calc/education_calc.py:25-31",
+    "inputs": {
+      "mu": {
+        "value": 0.1,
+        "unit": "Pa*s"
+      },
+      "L": {
+        "value": 0.005,
+        "unit": "m"
+      },
+      "gap": {
+        "value": 3e-05,
+        "unit": "m"
+      },
+      "gamma": {
+        "value": 0.03,
+        "unit": "N/m"
+      },
+      "theta": {
+        "value": 40.0,
+        "unit": "deg"
+      }
+    },
+    "output": {
+      "t_fill": {
+        "unit": "s"
+      }
+    }
+  },
+  {
+    "id": "muf.washburn_front.t1.0",
+    "model": "muf(capillary, Washburn 평행판)",
+    "function": "washburn_front_m",
+    "source": "calc/education_calc.py:31 의 역함수 (원본 함수 없음)",
+    "inputs": {
+      "mu": {
+        "value": 0.1,
+        "unit": "Pa*s"
+      },
+      "t": {
+        "value": 1.0,
+        "unit": "s"
+      },
+      "gap": {
+        "value": 5e-05,
+        "unit": "m"
+      },
+      "gamma": {
+        "value": 0.03,
+        "unit": "N/m"
+      },
+      "theta": {
+        "value": 40.0,
+        "unit": "deg"
+      }
+    },
+    "output": {
+      "L": {
+        "unit": "m"
+      }
+    }
+  },
+  {
+    "id": "muf.washburn_front.t10.0",
+    "model": "muf(capillary, Washburn 평행판)",
+    "function": "washburn_front_m",
+    "source": "calc/education_calc.py:31 의 역함수 (원본 함수 없음)",
+    "inputs": {
+      "mu": {
+        "value": 0.1,
+        "unit": "Pa*s"
+      },
+      "t": {
+        "value": 10.0,
+        "unit": "s"
+      },
+      "gap": {
+        "value": 5e-05,
+        "unit": "m"
+      },
+      "gamma": {
+        "value": 0.03,
+        "unit": "N/m"
+      },
+      "theta": {
+        "value": 40.0,
+        "unit": "deg"
+      }
+    },
+    "output": {
+      "L": {
+        "unit": "m"
+      }
+    }
+  },
+  {
+    "id": "muf.washburn_front.t26.1",
+    "model": "muf(capillary, Washburn 평행판)",
+    "function": "washburn_front_m",
+    "source": "calc/education_calc.py:31 의 역함수 (원본 함수 없음)",
+    "inputs": {
+      "mu": {
+        "value": 0.1,
+        "unit": "Pa*s"
+      },
+      "t": {
+        "value": 26.1,
+        "unit": "s"
+      },
+      "gap": {
+        "value": 5e-05,
+        "unit": "m"
+      },
+      "gamma": {
+        "value": 0.03,
+        "unit": "N/m"
+      },
+      "theta": {
+        "value": 40.0,
+        "unit": "deg"
+      }
+    },
+    "output": {
+      "L": {
+        "unit": "m"
+      }
+    }
+  },
+  {
+    "id": "recipe.force_limit.a2",
+    "model": "recipe(하중 상한)",
+    "function": "force_limit_N",
+    "source": "calc/education_calc.py:34-37",
+    "inputs": {
+      "a": {
+        "value": 2,
+        "unit": "mm"
+      }
+    },
+    "output": {
+      "epoxy": {
+        "unit": "N"
+      },
+      "epoxy_thin": {
+        "unit": "N"
+      },
+      "tcb": {
+        "unit": "N"
+      }
+    }
+  },
+  {
+    "id": "recipe.force_limit.a3",
+    "model": "recipe(하중 상한)",
+    "function": "force_limit_N",
+    "source": "calc/education_calc.py:34-37",
+    "inputs": {
+      "a": {
+        "value": 3,
+        "unit": "mm"
+      }
+    },
+    "output": {
+      "epoxy": {
+        "unit": "N"
+      },
+      "epoxy_thin": {
+        "unit": "N"
+      },
+      "tcb": {
+        "unit": "N"
+      }
+    }
+  },
+  {
+    "id": "recipe.force_limit.a5",
+    "model": "recipe(하중 상한)",
+    "function": "force_limit_N",
+    "source": "calc/education_calc.py:34-37",
+    "inputs": {
+      "a": {
+        "value": 5,
+        "unit": "mm"
+      }
+    },
+    "output": {
+      "epoxy": {
+        "unit": "N"
+      },
+      "epoxy_thin": {
+        "unit": "N"
+      },
+      "tcb": {
+        "unit": "N"
+      }
+    }
+  },
+  {
+    "id": "recipe.force_limit.a7",
+    "model": "recipe(하중 상한)",
+    "function": "force_limit_N",
+    "source": "calc/education_calc.py:34-37",
+    "inputs": {
+      "a": {
+        "value": 7,
+        "unit": "mm"
+      }
+    },
+    "output": {
+      "epoxy": {
+        "unit": "N"
+      },
+      "epoxy_thin": {
+        "unit": "N"
+      },
+      "tcb": {
+        "unit": "N"
+      }
+    }
+  },
+  {
+    "id": "recipe.force_limit.a10",
+    "model": "recipe(하중 상한)",
+    "function": "force_limit_N",
+    "source": "calc/education_calc.py:34-37",
+    "inputs": {
+      "a": {
+        "value": 10,
+        "unit": "mm"
+      }
+    },
+    "output": {
+      "epoxy": {
+        "unit": "N"
+      },
+      "epoxy_thin": {
+        "unit": "N"
+      },
+      "tcb": {
+        "unit": "N"
+      }
+    }
+  },
+  {
+    "id": "epoxy.doe.T150_F0.5_t2_V0.66",
+    "model": "epoxy(DoE 합성)",
+    "function": "doe_predict",
+    "source": "calc/education_calc.py:15-23",
+    "inputs": {
+      "T": {
+        "value": 150,
+        "unit": "C"
+      },
+      "F": {
+        "value": 0.5,
+        "unit": "N"
+      },
+      "t": {
+        "value": 2,
+        "unit": "s"
+      },
+      "V": {
+        "value": 0.66,
+        "unit": "mm^3"
+      },
+      "a": {
+        "value": 5.0,
+        "unit": "mm"
+      },
+      "t_die": {
+        "value": 0.3,
+        "unit": "mm"
+      }
+    },
+    "output": {
+      "BLT": {
+        "unit": "um"
+      },
+      "fillet_pct": {
+        "unit": "%"
+      },
+      "warp_5mm": {
+        "unit": "um"
+      }
+    }
+  },
+  {
+    "id": "epoxy.doe.T150_F2.0_t2_V0.8",
+    "model": "epoxy(DoE 합성)",
+    "function": "doe_predict",
+    "source": "calc/education_calc.py:15-23",
+    "inputs": {
+      "T": {
+        "value": 150,
+        "unit": "C"
+      },
+      "F": {
+        "value": 2.0,
+        "unit": "N"
+      },
+      "t": {
+        "value": 2,
+        "unit": "s"
+      },
+      "V": {
+        "value": 0.8,
+        "unit": "mm^3"
+      },
+      "a": {
+        "value": 5.0,
+        "unit": "mm"
+      },
+      "t_die": {
+        "value": 0.3,
+        "unit": "mm"
+      }
+    },
+    "output": {
+      "BLT": {
+        "unit": "um"
+      },
+      "fillet_pct": {
+        "unit": "%"
+      },
+      "warp_5mm": {
+        "unit": "um"
+      }
+    }
+  },
+  {
+    "id": "epoxy.doe.T180_F0.5_t10_V0.66",
+    "model": "epoxy(DoE 합성)",
+    "function": "doe_predict",
+    "source": "calc/education_calc.py:15-23",
+    "inputs": {
+      "T": {
+        "value": 180,
+        "unit": "C"
+      },
+      "F": {
+        "value": 0.5,
+        "unit": "N"
+      },
+      "t": {
+        "value": 10,
+        "unit": "s"
+      },
+      "V": {
+        "value": 0.66,
+        "unit": "mm^3"
+      },
+      "a": {
+        "value": 5.0,
+        "unit": "mm"
+      },
+      "t_die": {
+        "value": 0.3,
+        "unit": "mm"
+      }
+    },
+    "output": {
+      "BLT": {
+        "unit": "um"
+      },
+      "fillet_pct": {
+        "unit": "%"
+      },
+      "warp_5mm": {
+        "unit": "um"
+      }
+    }
+  },
+  {
+    "id": "epoxy.doe.T180_F2.0_t10_V0.8",
+    "model": "epoxy(DoE 합성)",
+    "function": "doe_predict",
+    "source": "calc/education_calc.py:15-23",
+    "inputs": {
+      "T": {
+        "value": 180,
+        "unit": "C"
+      },
+      "F": {
+        "value": 2.0,
+        "unit": "N"
+      },
+      "t": {
+        "value": 10,
+        "unit": "s"
+      },
+      "V": {
+        "value": 0.8,
+        "unit": "mm^3"
+      },
+      "a": {
+        "value": 5.0,
+        "unit": "mm"
+      },
+      "t_die": {
+        "value": 0.3,
+        "unit": "mm"
+      }
+    },
+    "output": {
+      "BLT": {
+        "unit": "um"
+      },
+      "fillet_pct": {
+        "unit": "%"
+      },
+      "warp_5mm": {
+        "unit": "um"
+      }
+    }
+  },
+  {
+    "id": "thermal.tip_capacity.20x20x5",
+    "model": "thermal(헤드 집중정수)",
+    "function": "heater_tip_capacity_J_K",
+    "source": "calc/thermal.py:10-13",
+    "inputs": {
+      "heater": {
+        "value": [
+          20,
+          20,
+          5
+        ],
+        "unit": "mm"
+      },
+      "collet": {
+        "value": [
+          10,
+          10,
+          10
+        ],
+        "unit": "mm"
+      }
+    },
+    "output": {
+      "C_tip": {
+        "unit": "J/K"
+      }
+    }
+  },
+  {
+    "id": "thermal.tip_capacity.30x30x12",
+    "model": "thermal(헤드 집중정수)",
+    "function": "heater_tip_capacity_J_K",
+    "source": "calc/thermal.py:10-13",
+    "inputs": {
+      "heater": {
+        "value": [
+          30,
+          30,
+          12
+        ],
+        "unit": "mm"
+      },
+      "collet": {
+        "value": [
+          10,
+          10,
+          10
+        ],
+        "unit": "mm"
+      }
+    },
+    "output": {
+      "C_tip": {
+        "unit": "J/K"
+      }
+    }
+  },
+  {
+    "id": "thermal.tip_capacity.15x15x3",
+    "model": "thermal(헤드 집중정수)",
+    "function": "heater_tip_capacity_J_K",
+    "source": "calc/thermal.py:10-13",
+    "inputs": {
+      "heater": {
+        "value": [
+          15,
+          15,
+          3
+        ],
+        "unit": "mm"
+      },
+      "collet": {
+        "value": [
+          10,
+          10,
+          10
+        ],
+        "unit": "mm"
+      }
+    },
+    "output": {
+      "C_tip": {
+        "unit": "J/K"
+      }
+    }
+  },
+  {
+    "id": "thermal.chuck_conduction.MACOR6",
+    "model": "thermal(척 1D 정상상태)",
+    "function": "conduction_Q_W",
+    "source": "calc/thermal.py:61-63",
+    "inputs": {
+      "k": {
+        "value": 1.46,
+        "unit": "W/mK"
+      },
+      "A": {
+        "value": 0.0121,
+        "unit": "m^2"
+      },
+      "t": {
+        "value": 0.006,
+        "unit": "m"
+      },
+      "dT": {
+        "value": 180.0,
+        "unit": "K"
+      }
+    },
+    "output": {
+      "Q": {
+        "unit": "W"
+      }
+    }
+  },
+  {
+    "id": "thermal.chuck_conduction.CaSi10",
+    "model": "thermal(척 1D 정상상태)",
+    "function": "conduction_Q_W",
+    "source": "calc/thermal.py:61-63",
+    "inputs": {
+      "k": {
+        "value": 0.12,
+        "unit": "W/mK"
+      },
+      "A": {
+        "value": 0.0121,
+        "unit": "m^2"
+      },
+      "t": {
+        "value": 0.01,
+        "unit": "m"
+      },
+      "dT": {
+        "value": 180.0,
+        "unit": "K"
+      }
+    },
+    "output": {
+      "Q": {
+        "unit": "W"
+      }
+    }
+  },
+  {
+    "id": "thermal.chuck_conduction.CaSi15",
+    "model": "thermal(척 1D 정상상태)",
+    "function": "conduction_Q_W",
+    "source": "calc/thermal.py:61-63",
+    "inputs": {
+      "k": {
+        "value": 0.12,
+        "unit": "W/mK"
+      },
+      "A": {
+        "value": 0.0121,
+        "unit": "m^2"
+      },
+      "t": {
+        "value": 0.015,
+        "unit": "m"
+      },
+      "dT": {
+        "value": 180.0,
+        "unit": "K"
+      }
+    },
+    "output": {
+      "Q": {
+        "unit": "W"
+      }
+    }
+  },
+  {
+    "id": "thermal.coolplate.Q26.136_f1.0",
+    "model": "thermal(수냉판)",
+    "function": "coolplate_rise",
+    "source": "calc/thermal.py:65-68",
+    "inputs": {
+      "Q": {
+        "value": 26.136,
+        "unit": "W"
+      },
+      "flow": {
+        "value": 1.0,
+        "unit": "L/min"
+      },
+      "h": {
+        "value": 3000.0,
+        "unit": "W/m2K"
+      },
+      "A": {
+        "value": 0.006,
+        "unit": "m^2"
+      },
+      "cp": {
+        "value": 4180.0,
+        "unit": "J/kgK"
+      }
+    },
+    "output": {
+      "water_rise_K": {
+        "unit": "K"
+      },
+      "film_dT_K": {
+        "unit": "K"
+      },
+      "plate_rise_open_loop_K": {
+        "unit": "K"
+      }
+    }
+  },
+  {
+    "id": "thermal.coolplate.Q55.46_f0.5",
+    "model": "thermal(수냉판)",
+    "function": "coolplate_rise",
+    "source": "calc/thermal.py:65-68",
+    "inputs": {
+      "Q": {
+        "value": 55.46,
+        "unit": "W"
+      },
+      "flow": {
+        "value": 0.5,
+        "unit": "L/min"
+      },
+      "h": {
+        "value": 3000.0,
+        "unit": "W/m2K"
+      },
+      "A": {
+        "value": 0.006,
+        "unit": "m^2"
+      },
+      "cp": {
+        "value": 4180.0,
+        "unit": "J/kgK"
+      }
+    },
+    "output": {
+      "water_rise_K": {
+        "unit": "K"
+      },
+      "film_dT_K": {
+        "unit": "K"
+      },
+      "plate_rise_open_loop_K": {
+        "unit": "K"
+      }
+    }
+  },
+  {
+    "id": "thermal.coolplate.Q10.0_f2.0",
+    "model": "thermal(수냉판)",
+    "function": "coolplate_rise",
+    "source": "calc/thermal.py:65-68",
+    "inputs": {
+      "Q": {
+        "value": 10.0,
+        "unit": "W"
+      },
+      "flow": {
+        "value": 2.0,
+        "unit": "L/min"
+      },
+      "h": {
+        "value": 3000.0,
+        "unit": "W/m2K"
+      },
+      "A": {
+        "value": 0.006,
+        "unit": "m^2"
+      },
+      "cp": {
+        "value": 4180.0,
+        "unit": "J/kgK"
+      }
+    },
+    "output": {
+      "water_rise_K": {
+        "unit": "K"
+      },
+      "film_dT_K": {
+        "unit": "K"
+      },
+      "plate_rise_open_loop_K": {
+        "unit": "K"
+      }
+    }
+  },
+  {
+    "id": "thermal.offset_per_K.Al6061",
+    "model": "thermal(광학 홀더)",
+    "function": "thermal_offset_um_per_K",
+    "source": "calc/thermal.py:70",
+    "inputs": {
+      "alpha": {
+        "value": 2.3e-05,
+        "unit": "1/K"
+      },
+      "L": {
+        "value": 0.02,
+        "unit": "m"
+      }
+    },
+    "output": {
+      "offset": {
+        "unit": "um/K"
+      }
+    }
+  },
+  {
+    "id": "thermal.offset_per_K.SUS304",
+    "model": "thermal(광학 홀더)",
+    "function": "thermal_offset_um_per_K",
+    "source": "calc/thermal.py:70",
+    "inputs": {
+      "alpha": {
+        "value": 1.7e-05,
+        "unit": "1/K"
+      },
+      "L": {
+        "value": 0.02,
+        "unit": "m"
+      }
+    },
+    "output": {
+      "offset": {
+        "unit": "um/K"
+      }
+    }
+  },
+  {
+    "id": "thermal.offset_per_K.Invar36",
+    "model": "thermal(광학 홀더)",
+    "function": "thermal_offset_um_per_K",
+    "source": "calc/thermal.py:70",
+    "inputs": {
+      "alpha": {
+        "value": 1.2e-06,
+        "unit": "1/K"
+      },
+      "L": {
+        "value": 0.02,
+        "unit": "m"
+      }
+    },
+    "output": {
+      "offset": {
+        "unit": "um/K"
+      }
+    }
+  },
+  {
+    "id": "thermal.drift_rate.0.28",
+    "model": "thermal(MACOR 드리프트)",
+    "function": "drift_um_per_s",
+    "source": "calc/thermal.py:57",
+    "inputs": {
+      "dTdt": {
+        "value": 0.28,
+        "unit": "K/s"
+      },
+      "alpha": {
+        "value": 9.3e-06,
+        "unit": "1/K"
+      },
+      "L": {
+        "value": 0.02,
+        "unit": "m"
+      }
+    },
+    "output": {
+      "drift": {
+        "unit": "um/s"
+      }
+    }
+  },
+  {
+    "id": "thermal.drift_rate.1.0",
+    "model": "thermal(MACOR 드리프트)",
+    "function": "drift_um_per_s",
+    "source": "calc/thermal.py:57",
+    "inputs": {
+      "dTdt": {
+        "value": 1.0,
+        "unit": "K/s"
+      },
+      "alpha": {
+        "value": 9.3e-06,
+        "unit": "1/K"
+      },
+      "L": {
+        "value": 0.02,
+        "unit": "m"
+      }
+    },
+    "output": {
+      "drift": {
+        "unit": "um/s"
+      }
+    }
+  },
+  {
+    "id": "thermal.drift_rate.4.87",
+    "model": "thermal(MACOR 드리프트)",
+    "function": "drift_um_per_s",
+    "source": "calc/thermal.py:57",
+    "inputs": {
+      "dTdt": {
+        "value": 4.87,
+        "unit": "K/s"
+      },
+      "alpha": {
+        "value": 9.3e-06,
+        "unit": "1/K"
+      },
+      "L": {
+        "value": 0.02,
+        "unit": "m"
+      }
+    },
+    "output": {
+      "drift": {
+        "unit": "um/s"
+      }
+    }
+  },
+  {
+    "id": "thermal.head_sim.heatup_400_bangbang",
+    "model": "thermal(헤드 집중정수 과도)",
+    "function": "head_sim + head_heatup_metrics",
+    "source": "calc/thermal.py:9-47",
+    "inputs": {
+      "heater": {
+        "value": [
+          20,
+          20,
+          5
+        ],
+        "unit": "mm"
+      },
+      "P_max": {
+        "value": 400.0,
+        "unit": "W"
+      },
+      "T_set": {
+        "value": 400.0,
+        "unit": "C"
+      },
+      "t_end": {
+        "value": 300.0,
+        "unit": "s"
+      },
+      "dt": {
+        "value": 0.005,
+        "unit": "s"
+      },
+      "Kp": {
+        "value": 1000000.0,
+        "unit": "W/K"
+      },
+      "Ki": {
+        "value": 0.0,
+        "unit": "W/(K*s)"
+      },
+      "n_macor": {
+        "value": 16,
+        "unit": "-"
+      }
+    },
+    "output": {
+      "T_at_1.0s": {
+        "unit": "C"
+      },
+      "T_at_5.0s": {
+        "unit": "C"
+      },
+      "T_at_10.0s": {
+        "unit": "C"
+      },
+      "T_at_60.0s": {
+        "unit": "C"
+      },
+      "Tm_at_10.0s": {
+        "unit": "C"
+      },
+      "Tm_at_60.0s": {
+        "unit": "C"
+      },
+      "Tm_at_300.0s": {
+        "unit": "C"
+      },
+      "t_to_400_s": {
+        "unit": "s"
+      },
+      "avg_ramp_K_per_s": {
+        "unit": "K/s"
+      },
+      "P_hold_400_W": {
+        "unit": "W"
+      },
+      "Q_jacket_steady_W": {
+        "unit": "W"
+      }
+    }
+  },
+  {
+    "id": "thermal.head_sim.drift_after_400",
+    "model": "thermal(MACOR 드리프트)",
+    "function": "macor_drift_metrics",
+    "source": "calc/thermal.py:54-59",
+    "inputs": {
+      "source_run": {
+        "value": "thermal.head_sim.heatup_400_bangbang",
+        "unit": "-"
+      },
+      "lim": {
+        "value": 0.28,
+        "unit": "K/s"
+      }
+    },
+    "output": {
+      "wait_after_setpoint": {
+        "unit": "s"
+      },
+      "drift_rate_at_0s": {
+        "unit": "um/s"
+      },
+      "drift_rate_at_10s": {
+        "unit": "um/s"
+      },
+      "drift_rate_at_30s": {
+        "unit": "um/s"
+      },
+      "drift_rate_at_60s": {
+        "unit": "um/s"
+      },
+      "drift_rate_at_120s": {
+        "unit": "um/s"
+      },
+      "macor_tau": {
+        "unit": "s"
+      }
+    }
+  },
+  {
+    "id": "thermal.head_sim.cool_400_100_h400",
+    "model": "thermal(헤드 집중정수 과도)",
+    "function": "head_sim + head_cooling_time_s",
+    "source": "calc/thermal.py:49-52",
+    "inputs": {
+      "T_set": {
+        "value": 400.0,
+        "unit": "C"
+      },
+      "cool_at": {
+        "value": 300.0,
+        "unit": "s"
+      },
+      "air_h": {
+        "value": 400,
+        "unit": "W/m2K"
+      },
+      "t_end": {
+        "value": 400,
+        "unit": "s"
+      },
+      "Kp": {
+        "value": 1000000.0,
+        "unit": "W/K"
+      },
+      "Ki": {
+        "value": 0.0,
+        "unit": "W/(K*s)"
+      }
+    },
+    "output": {
+      "t_400_to_100": {
+        "unit": "s"
+      }
+    }
+  },
+  {
+    "id": "thermal.head_sim.cool_400_100_h0",
+    "model": "thermal(헤드 집중정수 과도)",
+    "function": "head_sim + head_cooling_time_s",
+    "source": "calc/thermal.py:49-52",
+    "inputs": {
+      "T_set": {
+        "value": 400.0,
+        "unit": "C"
+      },
+      "cool_at": {
+        "value": 300.0,
+        "unit": "s"
+      },
+      "air_h": {
+        "value": 0,
+        "unit": "W/m2K"
+      },
+      "t_end": {
+        "value": 700,
+        "unit": "s"
+      },
+      "Kp": {
+        "value": 1000000.0,
+        "unit": "W/K"
+      },
+      "Ki": {
+        "value": 0.0,
+        "unit": "W/(K*s)"
+      }
+    },
+    "output": {
+      "t_400_to_100": {
+        "unit": "s"
+      }
+    }
+  },
+  {
+    "id": "thermal.head_sim.pi_ramp20_250",
+    "model": "thermal(헤드 집중정수 과도)",
+    "function": "head_sim (PI, ramp)",
+    "source": "calc/thermal.py:9-41",
+    "inputs": {
+      "T_set": {
+        "value": 250.0,
+        "unit": "C"
+      },
+      "ramp": {
+        "value": 20.0,
+        "unit": "K/s"
+      },
+      "t_end": {
+        "value": 60.0,
+        "unit": "s"
+      },
+      "Kp": {
+        "value": 40.0,
+        "unit": "W/K"
+      },
+      "Ki": {
+        "value": 8.0,
+        "unit": "W/(K*s)"
+      },
+      "dt": {
+        "value": 0.005,
+        "unit": "s"
+      }
+    },
+    "output": {
+      "T_at_5s": {
+        "unit": "C"
+      },
+      "T_at_12s": {
+        "unit": "C"
+      },
+      "T_final": {
+        "unit": "C"
+      },
+      "P_final": {
+        "unit": "W"
+      },
+      "Qj_final": {
+        "unit": "W"
+      }
+    }
+  },
+  {
+    "id": "control.force_gains.k2.0",
+    "model": "control(하중 PI)",
+    "function": "k_eff_N_mm / force_gains",
+    "source": "calc/control_sim.py:9-10,40",
+    "inputs": {
+      "k_spring": {
+        "value": 2.0,
+        "unit": "N/mm"
+      },
+      "k_contact": {
+        "value": 2000.0,
+        "unit": "N/mm"
+      },
+      "f_c": {
+        "value": 20.0,
+        "unit": "Hz"
+      },
+      "f_i": {
+        "value": 2.0,
+        "unit": "Hz"
+      }
+    },
+    "output": {
+      "k_eff": {
+        "unit": "N/mm"
+      },
+      "Kp": {
+        "unit": "(mm/s)/N"
+      },
+      "Ki": {
+        "unit": "(mm/s)/(N*s)"
+      }
+    }
+  },
+  {
+    "id": "control.force_gains.k50.0",
+    "model": "control(하중 PI)",
+    "function": "k_eff_N_mm / force_gains",
+    "source": "calc/control_sim.py:9-10,40",
+    "inputs": {
+      "k_spring": {
+        "value": 50.0,
+        "unit": "N/mm"
+      },
+      "k_contact": {
+        "value": 2000.0,
+        "unit": "N/mm"
+      },
+      "f_c": {
+        "value": 20.0,
+        "unit": "Hz"
+      },
+      "f_i": {
+        "value": 2.0,
+        "unit": "Hz"
+      }
+    },
+    "output": {
+      "k_eff": {
+        "unit": "N/mm"
+      },
+      "Kp": {
+        "unit": "(mm/s)/N"
+      },
+      "Ki": {
+        "unit": "(mm/s)/(N*s)"
+      }
+    }
+  },
+  {
+    "id": "control.force_gains.k10.0",
+    "model": "control(하중 PI)",
+    "function": "k_eff_N_mm / force_gains",
+    "source": "calc/control_sim.py:9-10,40",
+    "inputs": {
+      "k_spring": {
+        "value": 10.0,
+        "unit": "N/mm"
+      },
+      "k_contact": {
+        "value": 2000.0,
+        "unit": "N/mm"
+      },
+      "f_c": {
+        "value": 20.0,
+        "unit": "Hz"
+      },
+      "f_i": {
+        "value": 2.0,
+        "unit": "Hz"
+      }
+    },
+    "output": {
+      "k_eff": {
+        "unit": "N/mm"
+      },
+      "Kp": {
+        "unit": "(mm/s)/N"
+      },
+      "Ki": {
+        "unit": "(mm/s)/(N*s)"
+      }
+    }
+  },
+  {
+    "id": "control.force_sim.low1N_1ms.noise0",
+    "model": "control(하중 PI)",
+    "function": "force_sim (noise=0)",
+    "source": "calc/control_sim.py:6-35",
+    "inputs": {
+      "k_spring": {
+        "value": 2.0,
+        "unit": "N/mm"
+      },
+      "F_target": {
+        "value": 1.0,
+        "unit": "N"
+      },
+      "Ts": {
+        "value": 0.001,
+        "unit": "s"
+      },
+      "ramp": {
+        "value": 5.0,
+        "unit": "N/s"
+      },
+      "t_end": {
+        "value": 9.0,
+        "unit": "s"
+      },
+      "dt": {
+        "value": 1e-05,
+        "unit": "s"
+      },
+      "delay": {
+        "value": 0.0005,
+        "unit": "s"
+      },
+      "tau_servo": {
+        "value": 0.0008,
+        "unit": "s"
+      },
+      "approach": {
+        "value": 0.02,
+        "unit": "mm/s"
+      },
+      "therm": {
+        "value": 0.0,
+        "unit": "mm/s"
+      },
+      "Kp": {
+        "value": 62.89468492486765,
+        "unit": "(mm/s)/N"
+      },
+      "Ki": {
+        "value": 790.3579204392356,
+        "unit": "(mm/s)/(N*s)"
+      },
+      "noise": {
+        "value": 0.0,
+        "unit": "N"
+      }
+    },
+    "output": {
+      "t_contact": {
+        "unit": "s"
+      },
+      "overshoot": {
+        "unit": "N"
+      },
+      "ss_err": {
+        "unit": "N"
+      },
+      "F_at_t_contact_plus_1s": {
+        "unit": "N"
+      }
+    }
+  },
+  {
+    "id": "control.force_sim.high20N_1ms.noise0",
+    "model": "control(하중 PI)",
+    "function": "force_sim (noise=0)",
+    "source": "calc/control_sim.py:6-35",
+    "inputs": {
+      "k_spring": {
+        "value": 50.0,
+        "unit": "N/mm"
+      },
+      "F_target": {
+        "value": 20.0,
+        "unit": "N"
+      },
+      "Ts": {
+        "value": 0.001,
+        "unit": "s"
+      },
+      "ramp": {
+        "value": 5.0,
+        "unit": "N/s"
+      },
+      "t_end": {
+        "value": 9.0,
+        "unit": "s"
+      },
+      "dt": {
+        "value": 1e-05,
+        "unit": "s"
+      },
+      "delay": {
+        "value": 0.0005,
+        "unit": "s"
+      },
+      "tau_servo": {
+        "value": 0.0008,
+        "unit": "s"
+      },
+      "approach": {
+        "value": 0.02,
+        "unit": "mm/s"
+      },
+      "therm": {
+        "value": 0.0,
+        "unit": "mm/s"
+      },
+      "Kp": {
+        "value": 2.5761059759436304,
+        "unit": "(mm/s)/N"
+      },
+      "Ki": {
+        "value": 32.37230243557309,
+        "unit": "(mm/s)/(N*s)"
+      },
+      "noise": {
+        "value": 0.0,
+        "unit": "N"
+      }
+    },
+    "output": {
+      "t_contact": {
+        "unit": "s"
+      },
+      "overshoot": {
+        "unit": "N"
+      },
+      "ss_err": {
+        "unit": "N"
+      },
+      "F_at_t_contact_plus_1s": {
+        "unit": "N"
+      }
+    }
+  },
+  {
+    "id": "control.force_sim.high20N_10ms.noise0",
+    "model": "control(하중 PI)",
+    "function": "force_sim (noise=0)",
+    "source": "calc/control_sim.py:6-35",
+    "inputs": {
+      "k_spring": {
+        "value": 50.0,
+        "unit": "N/mm"
+      },
+      "F_target": {
+        "value": 20.0,
+        "unit": "N"
+      },
+      "Ts": {
+        "value": 0.01,
+        "unit": "s"
+      },
+      "ramp": {
+        "value": 5.0,
+        "unit": "N/s"
+      },
+      "t_end": {
+        "value": 9.0,
+        "unit": "s"
+      },
+      "dt": {
+        "value": 1e-05,
+        "unit": "s"
+      },
+      "delay": {
+        "value": 0.0005,
+        "unit": "s"
+      },
+      "tau_servo": {
+        "value": 0.0008,
+        "unit": "s"
+      },
+      "approach": {
+        "value": 0.02,
+        "unit": "mm/s"
+      },
+      "therm": {
+        "value": 0.0,
+        "unit": "mm/s"
+      },
+      "Kp": {
+        "value": 2.5761059759436304,
+        "unit": "(mm/s)/N"
+      },
+      "Ki": {
+        "value": 32.37230243557309,
+        "unit": "(mm/s)/(N*s)"
+      },
+      "noise": {
+        "value": 0.0,
+        "unit": "N"
+      }
+    },
+    "output": {
+      "t_contact": {
+        "unit": "s"
+      },
+      "overshoot": {
+        "unit": "N"
+      },
+      "ss_err": {
+        "unit": "N"
+      },
+      "F_at_t_contact_plus_1s": {
+        "unit": "N"
+      }
+    }
+  },
+  {
+    "id": "control.force_sim.high20N_1ms_therm.noise0",
+    "model": "control(하중 PI)",
+    "function": "force_sim (noise=0)",
+    "source": "calc/control_sim.py:6-35",
+    "inputs": {
+      "k_spring": {
+        "value": 50.0,
+        "unit": "N/mm"
+      },
+      "F_target": {
+        "value": 20.0,
+        "unit": "N"
+      },
+      "Ts": {
+        "value": 0.001,
+        "unit": "s"
+      },
+      "ramp": {
+        "value": 5.0,
+        "unit": "N/s"
+      },
+      "t_end": {
+        "value": 9.0,
+        "unit": "s"
+      },
+      "dt": {
+        "value": 1e-05,
+        "unit": "s"
+      },
+      "delay": {
+        "value": 0.0005,
+        "unit": "s"
+      },
+      "tau_servo": {
+        "value": 0.0008,
+        "unit": "s"
+      },
+      "approach": {
+        "value": 0.02,
+        "unit": "mm/s"
+      },
+      "therm": {
+        "value": 0.0026,
+        "unit": "mm/s"
+      },
+      "Kp": {
+        "value": 2.5761059759436304,
+        "unit": "(mm/s)/N"
+      },
+      "Ki": {
+        "value": 32.37230243557309,
+        "unit": "(mm/s)/(N*s)"
+      },
+      "noise": {
+        "value": 0.0,
+        "unit": "N"
+      }
+    },
+    "output": {
+      "t_contact": {
+        "unit": "s"
+      },
+      "overshoot": {
+        "unit": "N"
+      },
+      "ss_err": {
+        "unit": "N"
+      },
+      "F_at_t_contact_plus_1s": {
+        "unit": "N"
+      }
+    }
+  },
+  {
+    "id": "control.contact_peak.Ts0.001_ap0.02.noise0",
+    "model": "control(하중 PI, 접촉 과도)",
+    "function": "force_sim + contact_peak_N (noise=0)",
+    "source": "calc/contact_speed_study.py:3-8",
+    "inputs": {
+      "k_spring": {
+        "value": 50.0,
+        "unit": "N/mm"
+      },
+      "F_target": {
+        "value": 5.0,
+        "unit": "N"
+      },
+      "Ts": {
+        "value": 0.001,
+        "unit": "s"
+      },
+      "approach": {
+        "value": 0.02,
+        "unit": "mm/s"
+      },
+      "t_end": {
+        "value": 4.0,
+        "unit": "s"
+      },
+      "noise": {
+        "value": 0.0,
+        "unit": "N"
+      }
+    },
+    "output": {
+      "peak_over_sp_0p3s": {
+        "unit": "N"
+      },
+      "t_contact": {
+        "unit": "s"
+      }
+    }
+  },
+  {
+    "id": "control.contact_peak.Ts0.001_ap0.5.noise0",
+    "model": "control(하중 PI, 접촉 과도)",
+    "function": "force_sim + contact_peak_N (noise=0)",
+    "source": "calc/contact_speed_study.py:3-8",
+    "inputs": {
+      "k_spring": {
+        "value": 50.0,
+        "unit": "N/mm"
+      },
+      "F_target": {
+        "value": 5.0,
+        "unit": "N"
+      },
+      "Ts": {
+        "value": 0.001,
+        "unit": "s"
+      },
+      "approach": {
+        "value": 0.5,
+        "unit": "mm/s"
+      },
+      "t_end": {
+        "value": 4.0,
+        "unit": "s"
+      },
+      "noise": {
+        "value": 0.0,
+        "unit": "N"
+      }
+    },
+    "output": {
+      "peak_over_sp_0p3s": {
+        "unit": "N"
+      },
+      "t_contact": {
+        "unit": "s"
+      }
+    }
+  },
+  {
+    "id": "control.contact_peak.Ts0.01_ap0.02.noise0",
+    "model": "control(하중 PI, 접촉 과도)",
+    "function": "force_sim + contact_peak_N (noise=0)",
+    "source": "calc/contact_speed_study.py:3-8",
+    "inputs": {
+      "k_spring": {
+        "value": 50.0,
+        "unit": "N/mm"
+      },
+      "F_target": {
+        "value": 5.0,
+        "unit": "N"
+      },
+      "Ts": {
+        "value": 0.01,
+        "unit": "s"
+      },
+      "approach": {
+        "value": 0.02,
+        "unit": "mm/s"
+      },
+      "t_end": {
+        "value": 4.0,
+        "unit": "s"
+      },
+      "noise": {
+        "value": 0.0,
+        "unit": "N"
+      }
+    },
+    "output": {
+      "peak_over_sp_0p3s": {
+        "unit": "N"
+      },
+      "t_contact": {
+        "unit": "s"
+      }
+    }
+  },
+  {
+    "id": "control.contact_peak.Ts0.01_ap0.5.noise0",
+    "model": "control(하중 PI, 접촉 과도)",
+    "function": "force_sim + contact_peak_N (noise=0)",
+    "source": "calc/contact_speed_study.py:3-8",
+    "inputs": {
+      "k_spring": {
+        "value": 50.0,
+        "unit": "N/mm"
+      },
+      "F_target": {
+        "value": 5.0,
+        "unit": "N"
+      },
+      "Ts": {
+        "value": 0.01,
+        "unit": "s"
+      },
+      "approach": {
+        "value": 0.5,
+        "unit": "mm/s"
+      },
+      "t_end": {
+        "value": 4.0,
+        "unit": "s"
+      },
+      "noise": {
+        "value": 0.0,
+        "unit": "N"
+      }
+    },
+    "output": {
+      "peak_over_sp_0p3s": {
+        "unit": "N"
+      },
+      "t_contact": {
+        "unit": "s"
+      }
+    }
+  },
+  {
+    "id": "control.temp_sim.10ms.noise0",
+    "model": "control(온도 PI)",
+    "function": "temp_sim + temp_metrics (noise=0)",
+    "source": "calc/control_sim.py:45-72",
+    "inputs": {
+      "Ts": {
+        "value": 0.01,
+        "unit": "s"
+      },
+      "profile": {
+        "value": "150C(<40s) -> 20K/s -> 300C",
+        "unit": "-"
+      },
+      "t_end": {
+        "value": 120.0,
+        "unit": "s"
+      },
+      "dt": {
+        "value": 0.001,
+        "unit": "s"
+      },
+      "Kp": {
+        "value": 25.0,
+        "unit": "W/K"
+      },
+      "Ki": {
+        "value": 6.0,
+        "unit": "W/(K*s)"
+      },
+      "tc_tau": {
+        "value": 0.005,
+        "unit": "s"
+      },
+      "P_max": {
+        "value": 400.0,
+        "unit": "W"
+      },
+      "noise": {
+        "value": 0.0,
+        "unit": "C"
+      }
+    },
+    "output": {
+      "overshoot": {
+        "unit": "C"
+      },
+      "stab_150": {
+        "unit": "C"
+      },
+      "stab_300": {
+        "unit": "C"
+      },
+      "ramp": {
+        "unit": "K/s"
+      },
+      "P_hold": {
+        "unit": "W"
+      },
+      "T_at_50s": {
+        "unit": "C"
+      }
+    }
+  },
+  {
+    "id": "control.temp_sim.100ms.noise0",
+    "model": "control(온도 PI)",
+    "function": "temp_sim + temp_metrics (noise=0)",
+    "source": "calc/control_sim.py:45-72",
+    "inputs": {
+      "Ts": {
+        "value": 0.1,
+        "unit": "s"
+      },
+      "profile": {
+        "value": "150C(<40s) -> 20K/s -> 300C",
+        "unit": "-"
+      },
+      "t_end": {
+        "value": 120.0,
+        "unit": "s"
+      },
+      "dt": {
+        "value": 0.001,
+        "unit": "s"
+      },
+      "Kp": {
+        "value": 25.0,
+        "unit": "W/K"
+      },
+      "Ki": {
+        "value": 6.0,
+        "unit": "W/(K*s)"
+      },
+      "tc_tau": {
+        "value": 0.005,
+        "unit": "s"
+      },
+      "P_max": {
+        "value": 400.0,
+        "unit": "W"
+      },
+      "noise": {
+        "value": 0.0,
+        "unit": "C"
+      }
+    },
+    "output": {
+      "overshoot": {
+        "unit": "C"
+      },
+      "stab_150": {
+        "unit": "C"
+      },
+      "stab_300": {
+        "unit": "C"
+      },
+      "ramp": {
+        "unit": "K/s"
+      },
+      "P_hold": {
+        "unit": "W"
+      },
+      "T_at_50s": {
+        "unit": "C"
+      }
+    }
+  },
+  {
+    "id": "control.tcncf_profile.t0.0",
+    "model": "control(온도 프로파일)",
+    "function": "tcncf_profile_C",
+    "source": "calc/control_sim.py:65",
+    "inputs": {
+      "t": {
+        "value": 0.0,
+        "unit": "s"
+      }
+    },
+    "output": {
+      "sp": {
+        "unit": "C"
+      }
+    }
+  },
+  {
+    "id": "control.tcncf_profile.t39.999",
+    "model": "control(온도 프로파일)",
+    "function": "tcncf_profile_C",
+    "source": "calc/control_sim.py:65",
+    "inputs": {
+      "t": {
+        "value": 39.999,
+        "unit": "s"
+      }
+    },
+    "output": {
+      "sp": {
+        "unit": "C"
+      }
+    }
+  },
+  {
+    "id": "control.tcncf_profile.t40.0",
+    "model": "control(온도 프로파일)",
+    "function": "tcncf_profile_C",
+    "source": "calc/control_sim.py:65",
+    "inputs": {
+      "t": {
+        "value": 40.0,
+        "unit": "s"
+      }
+    },
+    "output": {
+      "sp": {
+        "unit": "C"
+      }
+    }
+  },
+  {
+    "id": "control.tcncf_profile.t45.0",
+    "model": "control(온도 프로파일)",
+    "function": "tcncf_profile_C",
+    "source": "calc/control_sim.py:65",
+    "inputs": {
+      "t": {
+        "value": 45.0,
+        "unit": "s"
+      }
+    },
+    "output": {
+      "sp": {
+        "unit": "C"
+      }
+    }
+  },
+  {
+    "id": "control.tcncf_profile.t47.5",
+    "model": "control(온도 프로파일)",
+    "function": "tcncf_profile_C",
+    "source": "calc/control_sim.py:65",
+    "inputs": {
+      "t": {
+        "value": 47.5,
+        "unit": "s"
+      }
+    },
+    "output": {
+      "sp": {
+        "unit": "C"
+      }
+    }
+  },
+  {
+    "id": "control.tcncf_profile.t70.0",
+    "model": "control(온도 프로파일)",
+    "function": "tcncf_profile_C",
+    "source": "calc/control_sim.py:65",
+    "inputs": {
+      "t": {
+        "value": 70.0,
+        "unit": "s"
+      }
+    },
+    "output": {
+      "sp": {
+        "unit": "C"
+      }
+    }
+  },
+  {
+    "id": "alignment.subpixel.0.9_1.0_0.95",
+    "model": "alignment(서브픽셀 보간)",
+    "function": "subpixel_peak",
+    "source": "calc/vision.py:24-26",
+    "inputs": {
+      "a": {
+        "value": 0.9,
+        "unit": "-"
+      },
+      "b": {
+        "value": 1.0,
+        "unit": "-"
+      },
+      "c": {
+        "value": 0.95,
+        "unit": "-"
+      }
+    },
+    "output": {
+      "offset_gauss": {
+        "unit": "px"
+      },
+      "offset_para": {
+        "unit": "px"
+      }
+    }
+  },
+  {
+    "id": "alignment.subpixel.0.8_0.99_0.97",
+    "model": "alignment(서브픽셀 보간)",
+    "function": "subpixel_peak",
+    "source": "calc/vision.py:24-26",
+    "inputs": {
+      "a": {
+        "value": 0.8,
+        "unit": "-"
+      },
+      "b": {
+        "value": 0.99,
+        "unit": "-"
+      },
+      "c": {
+        "value": 0.97,
+        "unit": "-"
+      }
+    },
+    "output": {
+      "offset_gauss": {
+        "unit": "px"
+      },
+      "offset_para": {
+        "unit": "px"
+      }
+    }
+  },
+  {
+    "id": "alignment.subpixel.0.5_0.6_0.5",
+    "model": "alignment(서브픽셀 보간)",
+    "function": "subpixel_peak",
+    "source": "calc/vision.py:24-26",
+    "inputs": {
+      "a": {
+        "value": 0.5,
+        "unit": "-"
+      },
+      "b": {
+        "value": 0.6,
+        "unit": "-"
+      },
+      "c": {
+        "value": 0.5,
+        "unit": "-"
+      }
+    },
+    "output": {
+      "offset_gauss": {
+        "unit": "px"
+      },
+      "offset_para": {
+        "unit": "px"
+      }
+    }
+  },
+  {
+    "id": "alignment.subpixel.-0.1_0.5_0.4",
+    "model": "alignment(서브픽셀 보간)",
+    "function": "subpixel_peak",
+    "source": "calc/vision.py:24-26",
+    "inputs": {
+      "a": {
+        "value": -0.1,
+        "unit": "-"
+      },
+      "b": {
+        "value": 0.5,
+        "unit": "-"
+      },
+      "c": {
+        "value": 0.4,
+        "unit": "-"
+      }
+    },
+    "output": {
+      "offset_gauss": {
+        "unit": "px"
+      },
+      "offset_para": {
+        "unit": "px"
+      }
+    }
+  },
+  {
+    "id": "alignment.render_noblur.0.0_0.0",
+    "model": "alignment(합성 영상)",
+    "function": "render_cross (blur=0)",
+    "source": "calc/vision.py:7-16",
+    "inputs": {
+      "dx": {
+        "value": 0.0,
+        "unit": "px"
+      },
+      "dy": {
+        "value": 0.0,
+        "unit": "px"
+      },
+      "N": {
+        "value": 128,
+        "unit": "px"
+      },
+      "arm": {
+        "value": 60,
+        "unit": "px"
+      },
+      "w": {
+        "value": 6,
+        "unit": "px"
+      },
+      "bright": {
+        "value": 220,
+        "unit": "gray"
+      },
+      "dark": {
+        "value": 30,
+        "unit": "gray"
+      }
+    },
+    "output": {
+      "sum": {
+        "unit": "gray"
+      },
+      "px_64_64": {
+        "unit": "gray"
+      },
+      "px_67_64": {
+        "unit": "gray"
+      },
+      "px_64_94": {
+        "unit": "gray"
+      },
+      "px_61_64": {
+        "unit": "gray"
+      }
+    }
+  },
+  {
+    "id": "alignment.render_noblur.0.37_-0.21",
+    "model": "alignment(합성 영상)",
+    "function": "render_cross (blur=0)",
+    "source": "calc/vision.py:7-16",
+    "inputs": {
+      "dx": {
+        "value": 0.37,
+        "unit": "px"
+      },
+      "dy": {
+        "value": -0.21,
+        "unit": "px"
+      },
+      "N": {
+        "value": 128,
+        "unit": "px"
+      },
+      "arm": {
+        "value": 60,
+        "unit": "px"
+      },
+      "w": {
+        "value": 6,
+        "unit": "px"
+      },
+      "bright": {
+        "value": 220,
+        "unit": "gray"
+      },
+      "dark": {
+        "value": 30,
+        "unit": "gray"
+      }
+    },
+    "output": {
+      "sum": {
+        "unit": "gray"
+      },
+      "px_64_64": {
+        "unit": "gray"
+      },
+      "px_67_64": {
+        "unit": "gray"
+      },
+      "px_64_94": {
+        "unit": "gray"
+      },
+      "px_61_64": {
+        "unit": "gray"
+      }
+    }
+  },
+  {
+    "id": "alignment.render_noblur.1.5_0.75",
+    "model": "alignment(합성 영상)",
+    "function": "render_cross (blur=0)",
+    "source": "calc/vision.py:7-16",
+    "inputs": {
+      "dx": {
+        "value": 1.5,
+        "unit": "px"
+      },
+      "dy": {
+        "value": 0.75,
+        "unit": "px"
+      },
+      "N": {
+        "value": 128,
+        "unit": "px"
+      },
+      "arm": {
+        "value": 60,
+        "unit": "px"
+      },
+      "w": {
+        "value": 6,
+        "unit": "px"
+      },
+      "bright": {
+        "value": 220,
+        "unit": "gray"
+      },
+      "dark": {
+        "value": 30,
+        "unit": "gray"
+      }
+    },
+    "output": {
+      "sum": {
+        "unit": "gray"
+      },
+      "px_64_64": {
+        "unit": "gray"
+      },
+      "px_67_64": {
+        "unit": "gray"
+      },
+      "px_64_94": {
+        "unit": "gray"
+      },
+      "px_61_64": {
+        "unit": "gray"
+      }
+    }
+  },
+  {
+    "id": "alignment.measure.0.0_0.0",
+    "model": "alignment(NCC + 가우시안 보간)",
+    "function": "render_cross + measure_cross",
+    "source": "calc/vision.py:7-29",
+    "inputs": {
+      "dx": {
+        "value": 0.0,
+        "unit": "px"
+      },
+      "dy": {
+        "value": 0.0,
+        "unit": "px"
+      },
+      "blur": {
+        "value": 1.0,
+        "unit": "px"
+      },
+      "noise": {
+        "value": 0.0,
+        "unit": "gray"
+      },
+      "method": {
+        "value": "gauss",
+        "unit": "-"
+      },
+      "template": {
+        "value": "render_cross(0,0,N=80)",
+        "unit": "-"
+      }
+    },
+    "output": {
+      "cx": {
+        "unit": "px"
+      },
+      "cy": {
+        "unit": "px"
+      },
+      "err_x": {
+        "unit": "px"
+      },
+      "err_y": {
+        "unit": "px"
+      }
+    }
+  },
+  {
+    "id": "alignment.measure.0.37_-0.21",
+    "model": "alignment(NCC + 가우시안 보간)",
+    "function": "render_cross + measure_cross",
+    "source": "calc/vision.py:7-29",
+    "inputs": {
+      "dx": {
+        "value": 0.37,
+        "unit": "px"
+      },
+      "dy": {
+        "value": -0.21,
+        "unit": "px"
+      },
+      "blur": {
+        "value": 1.0,
+        "unit": "px"
+      },
+      "noise": {
+        "value": 0.0,
+        "unit": "gray"
+      },
+      "method": {
+        "value": "gauss",
+        "unit": "-"
+      },
+      "template": {
+        "value": "render_cross(0,0,N=80)",
+        "unit": "-"
+      }
+    },
+    "output": {
+      "cx": {
+        "unit": "px"
+      },
+      "cy": {
+        "unit": "px"
+      },
+      "err_x": {
+        "unit": "px"
+      },
+      "err_y": {
+        "unit": "px"
+      }
+    }
+  },
+  {
+    "id": "alignment.measure.-1.3_1.8",
+    "model": "alignment(NCC + 가우시안 보간)",
+    "function": "render_cross + measure_cross",
+    "source": "calc/vision.py:7-29",
+    "inputs": {
+      "dx": {
+        "value": -1.3,
+        "unit": "px"
+      },
+      "dy": {
+        "value": 1.8,
+        "unit": "px"
+      },
+      "blur": {
+        "value": 1.0,
+        "unit": "px"
+      },
+      "noise": {
+        "value": 0.0,
+        "unit": "gray"
+      },
+      "method": {
+        "value": "gauss",
+        "unit": "-"
+      },
+      "template": {
+        "value": "render_cross(0,0,N=80)",
+        "unit": "-"
+      }
+    },
+    "output": {
+      "cx": {
+        "unit": "px"
+      },
+      "cy": {
+        "unit": "px"
+      },
+      "err_x": {
+        "unit": "px"
+      },
+      "err_y": {
+        "unit": "px"
+      }
+    }
+  },
+  {
+    "id": "alignment.measure.0.5_0.5",
+    "model": "alignment(NCC + 가우시안 보간)",
+    "function": "render_cross + measure_cross",
+    "source": "calc/vision.py:7-29",
+    "inputs": {
+      "dx": {
+        "value": 0.5,
+        "unit": "px"
+      },
+      "dy": {
+        "value": 0.5,
+        "unit": "px"
+      },
+      "blur": {
+        "value": 1.0,
+        "unit": "px"
+      },
+      "noise": {
+        "value": 0.0,
+        "unit": "gray"
+      },
+      "method": {
+        "value": "gauss",
+        "unit": "-"
+      },
+      "template": {
+        "value": "render_cross(0,0,N=80)",
+        "unit": "-"
+      }
+    },
+    "output": {
+      "cx": {
+        "unit": "px"
+      },
+      "cy": {
+        "unit": "px"
+      },
+      "err_x": {
+        "unit": "px"
+      },
+      "err_y": {
+        "unit": "px"
+      }
+    }
+  },
+  {
+    "id": "alignment.affine_fit.noisefree",
+    "model": "alignment(아핀 캘리브레이션)",
+    "function": "affine_true + affine_fit",
+    "source": "calc/vision.py:61-74",
+    "inputs": {
+      "rot": {
+        "value": 0.3,
+        "unit": "deg"
+      },
+      "scale_err": {
+        "value": 0.002,
+        "unit": "-"
+      },
+      "shear": {
+        "value": 0.0005,
+        "unit": "-"
+      },
+      "b": {
+        "value": [
+          12.0,
+          -7.0
+        ],
+        "unit": "um"
+      },
+      "grid": {
+        "value": "5x5, x ±1500, y ±1200",
+        "unit": "um"
+      },
+      "noise": {
+        "value": 0.0,
+        "unit": "-"
+      }
+    },
+    "output": {
+      "fit_rot": {
+        "unit": "deg"
+      },
+      "fit_scale": {
+        "unit": "um/px"
+      },
+      "A": {
+        "unit": "um/px"
+      },
+      "b": {
+        "unit": "um"
+      },
+      "nominal_err_at_x1000": {
+        "unit": "um"
+      }
+    }
+  },
+  {
+    "id": "alignment.angle_sigma.s0.0148376851138047_n4",
+    "model": "alignment(각도)",
+    "function": "angle_sigma_deg",
+    "source": "calc/vision.py:94-96",
+    "inputs": {
+      "per_mark_sigma": {
+        "value": 0.0148376851138047,
+        "unit": "um"
+      },
+      "L": {
+        "value": 4000.0,
+        "unit": "um"
+      },
+      "n_marks": {
+        "value": 4,
+        "unit": "-"
+      }
+    },
+    "output": {
+      "sigma": {
+        "unit": "deg"
+      }
+    }
+  },
+  {
+    "id": "alignment.angle_sigma.s0.0148376851138047_n2",
+    "model": "alignment(각도)",
+    "function": "angle_sigma_deg",
+    "source": "calc/vision.py:94-96",
+    "inputs": {
+      "per_mark_sigma": {
+        "value": 0.0148376851138047,
+        "unit": "um"
+      },
+      "L": {
+        "value": 4000.0,
+        "unit": "um"
+      },
+      "n_marks": {
+        "value": 2,
+        "unit": "-"
+      }
+    },
+    "output": {
+      "sigma": {
+        "unit": "deg"
+      }
+    }
+  },
+  {
+    "id": "alignment.angle_sigma.s0.05_n4",
+    "model": "alignment(각도)",
+    "function": "angle_sigma_deg",
+    "source": "calc/vision.py:94-96",
+    "inputs": {
+      "per_mark_sigma": {
+        "value": 0.05,
+        "unit": "um"
+      },
+      "L": {
+        "value": 4000.0,
+        "unit": "um"
+      },
+      "n_marks": {
+        "value": 4,
+        "unit": "-"
+      }
+    },
+    "output": {
+      "sigma": {
+        "unit": "deg"
+      }
+    }
+  },
+  {
+    "id": "alignment.rss.budget",
+    "model": "alignment(정합 오차 예산 RSS)",
+    "function": "sigma_of / rss_sigma",
+    "source": "calc/error_budget.py:7-23; calc/integration.py:7-24",
+    "inputs": {
+      "terms": {
+        "value": [
+          [
+            "n",
+            0.1
+          ],
+          [
+            "u",
+            0.15
+          ],
+          [
+            "n",
+            0.1
+          ],
+          [
+            "n",
+            0.02
+          ],
+          [
+            "n",
+            0.12
+          ],
+          [
+            "u",
+            0.26
+          ],
+          [
+            "u",
+            0.12
+          ],
+          [
+            "n",
+            0.12
+          ],
+          [
+            "n",
+            0.05
+          ]
+        ],
+        "unit": "um (n: sigma, u: half-width)"
+      }
+    },
+    "output": {
+      "rss_sigma": {
+        "unit": "um"
+      },
+      "rss_3s": {
+        "unit": "um"
+      }
+    }
+  },
+  {
+    "id": "alignment.rss.typical",
+    "model": "alignment(정합 오차 예산 RSS)",
+    "function": "sigma_of / rss_sigma",
+    "source": "calc/error_budget.py:7-23; calc/integration.py:7-24",
+    "inputs": {
+      "terms": {
+        "value": [
+          [
+            "n",
+            0.021
+          ],
+          [
+            "n",
+            0.03
+          ],
+          [
+            "n",
+            0.048
+          ],
+          [
+            "n",
+            0.02
+          ],
+          [
+            "n",
+            0.1
+          ],
+          [
+            "u",
+            0.25
+          ],
+          [
+            "u",
+            0.055
+          ],
+          [
+            "n",
+            0.12
+          ],
+          [
+            "n",
+            0.05
+          ]
+        ],
+        "unit": "um (n: sigma, u: half-width)"
+      }
+    },
+    "output": {
+      "rss_sigma": {
+        "unit": "um"
+      },
+      "rss_3s": {
+        "unit": "um"
+      }
+    }
+  },
+  {
+    "id": "alignment.rss.conservative",
+    "model": "alignment(정합 오차 예산 RSS)",
+    "function": "sigma_of / rss_sigma",
+    "source": "calc/error_budget.py:7-23; calc/integration.py:7-24",
+    "inputs": {
+      "terms": {
+        "value": [
+          [
+            "n",
+            0.075
+          ],
+          [
+            "u",
+            0.15
+          ],
+          [
+            "n",
+            0.1
+          ],
+          [
+            "n",
+            0.02
+          ],
+          [
+            "n",
+            0.12
+          ],
+          [
+            "u",
+            0.26
+          ],
+          [
+            "u",
+            0.2
+          ],
+          [
+            "n",
+            0.12
+          ],
+          [
+            "n",
+            0.05
+          ]
+        ],
+        "unit": "um (n: sigma, u: half-width)"
+      }
+    },
+    "output": {
+      "rss_sigma": {
+        "unit": "um"
+      },
+      "rss_3s": {
+        "unit": "um"
+      }
+    }
+  },
+  {
+    "id": "cycle.ballscrew.coarseY",
+    "model": "cycle(구동축 사양)",
+    "function": "ballscrew",
+    "source": "calc/drive_calc.py:3-30",
+    "inputs": {
+      "m": {
+        "value": 6.0,
+        "unit": "kg"
+      },
+      "lead": {
+        "value": 5,
+        "unit": "mm"
+      },
+      "d": {
+        "value": 12,
+        "unit": "mm"
+      },
+      "L": {
+        "value": 250,
+        "unit": "mm"
+      },
+      "eta": {
+        "value": 0.9,
+        "unit": "-"
+      },
+      "a": {
+        "value": 1.0,
+        "unit": "m/s^2"
+      },
+      "v": {
+        "value": 50,
+        "unit": "mm/s"
+      },
+      "mu": {
+        "value": 0.005,
+        "unit": "-"
+      },
+      "Jm": {
+        "value": 3e-06,
+        "unit": "kg*m^2"
+      },
+      "Ca": {
+        "value": 4000,
+        "unit": "N"
+      }
+    },
+    "output": {
+      "F_peak": {
+        "unit": "N"
+      },
+      "T_peak": {
+        "unit": "N*m"
+      },
+      "T_hold": {
+        "unit": "N*m"
+      },
+      "rpm_max": {
+        "unit": "rpm"
+      },
+      "n_crit": {
+        "unit": "rpm"
+      },
+      "P_buckle": {
+        "unit": "N"
+      }
+    }
+  },
+  {
+    "id": "cycle.ballscrew.coarseX",
+    "model": "cycle(구동축 사양)",
+    "function": "ballscrew",
+    "source": "calc/drive_calc.py:3-30",
+    "inputs": {
+      "m": {
+        "value": 10.0,
+        "unit": "kg"
+      },
+      "lead": {
+        "value": 5,
+        "unit": "mm"
+      },
+      "d": {
+        "value": 12,
+        "unit": "mm"
+      },
+      "L": {
+        "value": 350,
+        "unit": "mm"
+      },
+      "eta": {
+        "value": 0.9,
+        "unit": "-"
+      },
+      "a": {
+        "value": 1.0,
+        "unit": "m/s^2"
+      },
+      "v": {
+        "value": 50,
+        "unit": "mm/s"
+      },
+      "mu": {
+        "value": 0.005,
+        "unit": "-"
+      },
+      "Jm": {
+        "value": 3e-06,
+        "unit": "kg*m^2"
+      },
+      "Ca": {
+        "value": 4000,
+        "unit": "N"
+      }
+    },
+    "output": {
+      "F_peak": {
+        "unit": "N"
+      },
+      "T_peak": {
+        "unit": "N*m"
+      },
+      "T_hold": {
+        "unit": "N*m"
+      },
+      "rpm_max": {
+        "unit": "rpm"
+      },
+      "n_crit": {
+        "unit": "rpm"
+      },
+      "P_buckle": {
+        "unit": "N"
+      }
+    }
+  },
+  {
+    "id": "cycle.ballscrew.Z",
+    "model": "cycle(구동축 사양)",
+    "function": "ballscrew",
+    "source": "calc/drive_calc.py:3-30",
+    "inputs": {
+      "m": {
+        "value": 2.5,
+        "unit": "kg"
+      },
+      "lead": {
+        "value": 2,
+        "unit": "mm"
+      },
+      "d": {
+        "value": 12,
+        "unit": "mm"
+      },
+      "L": {
+        "value": 150,
+        "unit": "mm"
+      },
+      "eta": {
+        "value": 0.9,
+        "unit": "-"
+      },
+      "a": {
+        "value": 0.5,
+        "unit": "m/s^2"
+      },
+      "v": {
+        "value": 20,
+        "unit": "mm/s"
+      },
+      "mu": {
+        "value": 0.0,
+        "unit": "-"
+      },
+      "Fext": {
+        "value": 100.0,
+        "unit": "N"
+      },
+      "vertical": {
+        "value": true,
+        "unit": "bool"
+      },
+      "Jm": {
+        "value": 3e-06,
+        "unit": "kg*m^2"
+      },
+      "Ca": {
+        "value": 3000,
+        "unit": "N"
+      }
+    },
+    "output": {
+      "F_peak": {
+        "unit": "N"
+      },
+      "T_peak": {
+        "unit": "N*m"
+      },
+      "T_hold": {
+        "unit": "N*m"
+      },
+      "rpm_max": {
+        "unit": "rpm"
+      },
+      "n_crit": {
+        "unit": "rpm"
+      },
+      "P_buckle": {
+        "unit": "N"
+      }
+    }
+  },
+  {
+    "id": "control.leaf_flexure.k2.0",
+    "model": "control(판스프링 강성)",
+    "function": "leaf_flexure",
+    "source": "calc/drive_calc.py:45-50",
+    "inputs": {
+      "k": {
+        "value": 2.0,
+        "unit": "N/mm"
+      },
+      "Fmax": {
+        "value": 5.5,
+        "unit": "N"
+      },
+      "E": {
+        "value": 200000.0,
+        "unit": "MPa"
+      },
+      "b": {
+        "value": 20.0,
+        "unit": "mm"
+      },
+      "L": {
+        "value": 25.0,
+        "unit": "mm"
+      }
+    },
+    "output": {
+      "t": {
+        "unit": "mm"
+      },
+      "defl": {
+        "unit": "mm"
+      },
+      "stress": {
+        "unit": "MPa"
+      }
+    }
+  },
+  {
+    "id": "control.leaf_flexure.k50.0",
+    "model": "control(판스프링 강성)",
+    "function": "leaf_flexure",
+    "source": "calc/drive_calc.py:45-50",
+    "inputs": {
+      "k": {
+        "value": 50.0,
+        "unit": "N/mm"
+      },
+      "Fmax": {
+        "value": 55.0,
+        "unit": "N"
+      },
+      "E": {
+        "value": 200000.0,
+        "unit": "MPa"
+      },
+      "b": {
+        "value": 20.0,
+        "unit": "mm"
+      },
+      "L": {
+        "value": 25.0,
+        "unit": "mm"
+      }
+    },
+    "output": {
+      "t": {
+        "unit": "mm"
+      },
+      "defl": {
+        "unit": "mm"
+      },
+      "stress": {
+        "unit": "MPa"
+      }
+    }
+  }
+]
