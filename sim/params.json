@@ -328,10 +328,10 @@
       "source": "C1 열 기록을 선형 보간하여 경화와 유동을 결합하는 시간 간격 가정. 절반 간격 검증을 수행한다."
     },
     "film_initialization": {
-      "value": "numeric film_thickness_over_gap times gap",
+      "value": "interlayer_gap + film_thickness_over_gap (both um)",
       "unit": "model",
       "kind": "assumption",
-      "source": "단계 3-C2 사용자 명시 곱셈을 우선한다. 기존 항목은 4 um 초과 두께라는 가산 정의이지만 값을 변경하지 않고 숫자 4를 무차원 배수로 해석한다. 기본 h0=60 um이며 기존 가산 해석은 19 um이다."
+      "source": "Issue #20: 이전 곱셈 지시 오류를 수정한다. film_thickness_over_gap note와 docs/research/params_research.md:175에 따라 간격에 여유 두께(둘 다 um)를 더한다. 기본 h0=15+4=19 um이다."
     },
     "temperature_proxy": {
       "value": "new die-centre temperature for lumped filling layer",

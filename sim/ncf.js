@@ -139,8 +139,10 @@ export function stackNcf(thermal,params) {
     };
     const mu=t=>ncfViscosity(temperature(t),-Math.expm1(-hazard(t)),params);
     const gap=params.geometry.interlayer_gap.value*1e-6;
+    // Issue #20: both gap and film_thickness_over_gap are in μm; h0 = gap + excess.
+    const h0=(params.geometry.interlayer_gap.value+p.film_thickness_over_gap.value)*1e-6;
     const flow=squeezeIntegrate({F_of_t:t=>t<=forceEnd?params.tcncf_process.bond_force.value:0,mu_of_t:mu,
-      a_mm:params.geometry.die_size.value,h0_m:p.film_thickness_over_gap.value*gap,h_stop_m:gap,dt_s:dt,t_end_s:duration,gel_time_s});
+      a_mm:params.geometry.die_size.value,h0_m:h0,h_stop_m:gap,dt_s:dt,t_end_s:duration,gel_time_s});
     let low_viscosity_time_s=0;
     const limit=flow.contact_time_s??forceEnd;
     for(let k=1;k<states.length&&states[k-1].t<limit;k++) {

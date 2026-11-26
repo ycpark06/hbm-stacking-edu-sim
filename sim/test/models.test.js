@@ -204,6 +204,16 @@ import {stackOffset,stackOffsetExpected,stackOffsetMonteCarlo} from '../alignmen
 import {makeRng} from '../rng.js';
 import {trapezoidMoveTime,bondStepTimes,stackCycleTime} from '../cycle.js';
 
+test('Issue #20: NCF initial film is gap plus excess in μm (default 19 μm)',()=>{
+  assert.equal(params.geometry.interlayer_gap.unit,'um');
+  assert.equal(params.ncf.film_thickness_over_gap.unit,'um');
+  const thermal=stackSim(model(1),tcncfSchedule(1,params));
+  const [layer]=stackNcf(thermal,params);
+  close(layer.history[0].h_m*1e6,19);
+  close((layer.history[0].h_m-layer.contact_gap_m)*1e6,4);
+  close(layer.contact_gap_m,layer.bump_height_m);
+});
+
 test('NCF viscosity matches Arrhenius at zero cure, diverges monotonically; onset and gel reference',()=>{
   const p=params.ncf,g=p.gel_conversion.value;
   for(const T of [100,138,200,250]) {
