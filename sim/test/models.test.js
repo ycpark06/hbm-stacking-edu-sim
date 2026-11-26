@@ -316,5 +316,5 @@ test('C2 recorded 2/4/8/12 x 100/50 scenarios, gel/void rules, parameter sensiti
   for(const r of convergence){if(r.contact_delta_s!==null)assert.ok(Math.abs(r.contact_delta_s)<0.01);assert.ok(Math.abs(r.thickness_delta_um)<0.01);}
   const voidRule=ncfVoidTendency({gel_before_contact:true,contact_time_s:null,contact_viscosity_Pa_s:null,low_viscosity_time_s:0,ramp_rate_K_s:20},params);
   assert.equal(voidRule.quantitative,false);assert.equal(voidRule.grade,'미접합 위험');
-  writeFileSync(new URL('c2_results.json',import.meta.url),JSON.stringify({results,alignment,sensitivity,convergence},null,2)+'\n');
+  writeFileSync(new URL('c2_results.json',import.meta.url),JSON.stringify({correction_reason:'Issue #20: h0 = gap + film excess (um); separate bonder occupancy and batch post-processing.',results,alignment,sensitivity,convergence},null,2)+'\n');
 });

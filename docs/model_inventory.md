@@ -441,7 +441,7 @@ export function stackOffset({N, sigma_layer_um, reference: 'substrate'|'previous
 // sim/cycle.js  (모두 새로 작성)
 export function trapezoidMoveTime(d_mm, v_mm_s, a_mm_s2)
 export function bondStepTimes(mode /* 'TC-NCF'|'MR-MUF' */, recipe, machine)
-export function stackCycleTime(mode, N, recipe, machine)   // -> {total_s, breakdown}
+export function stackCycleTime(mode, N, recipe, machine)   // -> {bonder_s, batch_post_s, total_serial_s, breakdown} (Issue #20)
 
 // sim/rng.js
 export function makeRng(seed)  // {uniform(a,b), normal(mu,sigma)}. numpy 와 수열이 다르다
