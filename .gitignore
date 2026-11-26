@@ -8,3 +8,6 @@ node_modules/
 # 영상은 Releases/외부 링크로 둔다
 *.mp4
 *.mov
+
+# Regenerated calculation output; originals remain calc/midterm/
+calc/out/
