@@ -84,7 +84,15 @@ _(단계 4에서 작성 — 피듀셜 생성, NCC 검출, 서브픽셀 보간, �
 | MUF 모세관 충전 | 충전 시간, 미충전 |
 | 사이클 시간 | 처리량 |
 
-_(단계 3에서 수식과 가정을 작성)_
+단계 3-B에서는 중간 모델의 기존 식을 이식했다. Stefan 스퀴즈는
+`1/h² = 1/h₀² + 4Ft/(3πμR⁴)`, 경화는 `α = 1 − exp(−kt)`,
+Washburn 충전은 `t = 3μL²/(γh cosθ)`, 2층 휨은 Timoshenko 곡률과
+`w = κL²/8`을 쓴다. 원본 에폭시의 점도·경화 기준점을 새 NCF 물성으로 간주하지 않는다.
+열은 하나의 명시적 Euler 플랜트에 `ch7_16node`(적층 기본)와 `ch10_3node` 프리셋을 둔다.
+7장 재현은 원본 Kp=1e6/Ki=0 조건이고, 10장 하중·온도 제어는 wasm REFERENCE를 쓴다.
+정렬 모듈에는 서브픽셀·각도·RSS·아핀·폐루프 수치 함수만 있으며,
+영상 golden 7개의 계산은 테스트 전용이다. 다층 열·휨·자기정렬·공정 결합·전체 사이클은 단계 3-C 범위다.
+[검증 결과와 #3·#4·#5·#7 기록](docs/sim_port_report.md)에 조건과 한계를 정리했다.
 
 ### 3.4 알람과 인터락
 _(단계 4에서 작성)_
@@ -107,6 +115,20 @@ _(단계 4에서 작성)_
 ---
 
 ## 5. 실행 방법
+
+### 시뮬레이션 모델 검증
+
+```bash
+node --test sim/test          # golden 111개 + params + 시드 난수 검증
+(cd sim && npm test)          # 동일한 Node 내장 테스트
+python3 -I calc/reference/check_golden.py
+python3 calc/contact_transient.py  # JSON은 stdout, 항목별 차이는 stderr
+python3 calc/run_midterm.py       # 임시 복사본 실행 결과 표, 원본은 수정하지 않음
+```
+
+Python 원본에는 numpy·matplotlib·scipy·opencv-python이 필요하며, 없는 의존성은 래퍼가 표시한다.
+이번 환경의 기본 Python 3.15에는 numpy가 없고, 기존 Python 3.12로 원본 검증을 수행했다.
+SIL 모듈의 상대 ESM import는 브라우저에서도 같고, Node의 wasm 파일 읽기는 테스트에서만 한다.
 
 ### 웹 시뮬레이터
 ```bash
@@ -161,3 +183,8 @@ make -C firmware test-wasm  # 검증 6, Node ↔ PC 고정 입력 비교 (별도
 - 강의: MSE489 첨단패키징기술 강의자료 (0917 공정, 1001 플립칩, 1008 2.5D·3D)
 - SK하이닉스 뉴스룸, MR-MUF: https://news.skhynix.com/en/?p=1917
 - 삼성전자 반도체, HBM3E (Advanced TC-NCF): https://semiconductor.samsung.com/dram/hbm/hbm3e/
+
+| 2026-11-26 | #3 | 7·10장 열 모델 차이 | 절점·손실 면적·열용량이 다름 | 하나의 플랜트에 16/3절점 프리셋, 두 golden 재현 ([기록](docs/sim_port_report.md)) |
+| 2026-11-26 | #4 | 7장 PI 유지 설명과 계산 불일치 | 결과는 Kp=1e6/Ki=0 조건 | 원본 보존 및 40/8 비교 수치 기록, 원고 수정은 단계 6 |
+| 2026-11-26 | #5 | contact_transient_N 수기 입력 | control_sim 출력에 해당 키 없음 | 원본 contact_speed_study 재사용 스크립트, 6항목 차이 0 N |
+| 2026-11-26 | #7 | 원본 실행 폴더가 다름 | 상대 출력 경로 혼재 | 임시 작업 폴더 래퍼 추가, h=10 FEM 원본 오류 보존 ([기록](docs/sim_port_report.md)) |

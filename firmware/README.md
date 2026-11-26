@@ -133,6 +133,7 @@ ES module의 기본 export는 비동기 모듈 생성 함수다. `cwrap`/`ccall`
 | 함수 | 인자·반환 |
 |---|---|
 | `fw_init()` | 기본 FIRMWARE 레시피, 기존 래치 보존 |
+| `fw_set_temp_period_ms(period_ms)` | 정수 ms 온도 주기, 0 거부. 단계 3-B SIL의 10/100 ms 비교용으로 기존 C API를 export |
 | `fw_wasm_set_recipe(spring,target,ramp,approach,period_ms,mode)` | N/mm, N, N/s, mm/s, 정수 ms, 0=REFERENCE/1=FIRMWARE; 성공 1, 일반 오류 0, 램프 초과 -1 |
 | `fw_step_1ms(force_meas_N,temp_meas_C)` | 두 float 측정값 저장 후 공통 코어 1 ms 실행 |
 | `fw_reset_latch()` | 현재 측정값으로 수동 해제, 조건 잔존 시 재래치 |
