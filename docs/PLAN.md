@@ -262,6 +262,8 @@ repo/
 | `docs/requirements` | 1 (요구사항·설계 목표) |
 | `feat/firmware` | 2 |
 | `docs/model-inventory` | 3 준비 (중간 모델 인벤토리·golden vector) |
+| `feat/sim-params` | 3 (파라미터·요구사항) |
+| `feat/sim-port` | 3 (기존 모델 이식) |
 | `feat/thermal-history`, `feat/tcncf-mode`, `feat/mrmuf-mode` | 3 |
 | `feat/vision`, `feat/hmi`, `feat/alarm`, `feat/3d-viewer` | 4 |
 | `cad/stacking-parts` | 5 |
