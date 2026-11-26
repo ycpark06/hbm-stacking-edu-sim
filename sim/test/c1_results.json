@@ -1,0 +1,2079 @@
+{
+  "results": [
+    {
+      "mode": "TC-NCF",
+      "N": 2,
+      "thickness_um": 100,
+      "bottom": {
+        "peak_C": 199.97142143813278,
+        "time_above_s": 0,
+        "reheat_count": 0,
+        "subsequent_reheats": 0,
+        "crossings_by_phase": {}
+      },
+      "layers": [
+        {
+          "peak_C": 199.97142143813278,
+          "time_above_s": 0,
+          "reheat_count": 0,
+          "subsequent_reheats": 0,
+          "crossings_by_phase": {}
+        },
+        {
+          "peak_C": 239.56956291209656,
+          "time_above_s": 4.7564658382074,
+          "reheat_count": 1,
+          "subsequent_reheats": 0,
+          "crossings_by_phase": {
+            "bond-ramp": 1
+          }
+        }
+      ],
+      "tack_crossings": [
+        0,
+        0
+      ],
+      "max_warp_um": 6.122545112743366,
+      "warp_by_layer": [
+        {
+          "layer_count": 1,
+          "max_um": 6.122545112743366
+        },
+        {
+          "layer_count": 2,
+          "max_um": 2.7144786579575646
+        }
+      ],
+      "judgement": "주의"
+    },
+    {
+      "mode": "TC-NCF",
+      "N": 2,
+      "thickness_um": 50,
+      "bottom": {
+        "peak_C": 199.97262586365179,
+        "time_above_s": 0,
+        "reheat_count": 0,
+        "subsequent_reheats": 0,
+        "crossings_by_phase": {}
+      },
+      "layers": [
+        {
+          "peak_C": 199.97262586365179,
+          "time_above_s": 0,
+          "reheat_count": 0,
+          "subsequent_reheats": 0,
+          "crossings_by_phase": {}
+        },
+        {
+          "peak_C": 239.49981048476926,
+          "time_above_s": 4.751406260898876,
+          "reheat_count": 1,
+          "subsequent_reheats": 0,
+          "crossings_by_phase": {
+            "bond-ramp": 1
+          }
+        }
+      ],
+      "tack_crossings": [
+        0,
+        0
+      ],
+      "max_warp_um": 26.013640880597208,
+      "warp_by_layer": [
+        {
+          "layer_count": 1,
+          "max_um": 26.013640880597208
+        },
+        {
+          "layer_count": 2,
+          "max_um": 5.862988998449364
+        }
+      ],
+      "judgement": "불량"
+    },
+    {
+      "mode": "TC-NCF",
+      "N": 4,
+      "thickness_um": 100,
+      "bottom": {
+        "peak_C": 199.97142143813278,
+        "time_above_s": 0,
+        "reheat_count": 0,
+        "subsequent_reheats": 0,
+        "crossings_by_phase": {}
+      },
+      "layers": [
+        {
+          "peak_C": 199.97142143813278,
+          "time_above_s": 0,
+          "reheat_count": 0,
+          "subsequent_reheats": 0,
+          "crossings_by_phase": {}
+        },
+        {
+          "peak_C": 239.56956291209656,
+          "time_above_s": 4.7564658382074,
+          "reheat_count": 1,
+          "subsequent_reheats": 0,
+          "crossings_by_phase": {
+            "bond-ramp": 1
+          }
+        },
+        {
+          "peak_C": 256.6913708354843,
+          "time_above_s": 9.153448574017098,
+          "reheat_count": 2,
+          "subsequent_reheats": 1,
+          "crossings_by_phase": {
+            "bond-ramp": 2
+          }
+        },
+        {
+          "peak_C": 266.24225187090923,
+          "time_above_s": 6.3836620041152665,
+          "reheat_count": 1,
+          "subsequent_reheats": 0,
+          "crossings_by_phase": {
+            "bond-ramp": 1
+          }
+        }
+      ],
+      "tack_crossings": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "max_warp_um": 6.122545112743366,
+      "warp_by_layer": [
+        {
+          "layer_count": 1,
+          "max_um": 6.122545112743366
+        },
+        {
+          "layer_count": 2,
+          "max_um": 2.7144786579575646
+        },
+        {
+          "layer_count": 3,
+          "max_um": 2.1995863971057807
+        },
+        {
+          "layer_count": 4,
+          "max_um": 1.8055762612908994
+        }
+      ],
+      "judgement": "주의"
+    },
+    {
+      "mode": "TC-NCF",
+      "N": 4,
+      "thickness_um": 50,
+      "bottom": {
+        "peak_C": 199.97262586365179,
+        "time_above_s": 0,
+        "reheat_count": 0,
+        "subsequent_reheats": 0,
+        "crossings_by_phase": {}
+      },
+      "layers": [
+        {
+          "peak_C": 199.97262586365179,
+          "time_above_s": 0,
+          "reheat_count": 0,
+          "subsequent_reheats": 0,
+          "crossings_by_phase": {}
+        },
+        {
+          "peak_C": 239.49981048476926,
+          "time_above_s": 4.751406260898876,
+          "reheat_count": 1,
+          "subsequent_reheats": 0,
+          "crossings_by_phase": {
+            "bond-ramp": 1
+          }
+        },
+        {
+          "peak_C": 256.621006934632,
+          "time_above_s": 9.152881656927065,
+          "reheat_count": 2,
+          "subsequent_reheats": 1,
+          "crossings_by_phase": {
+            "bond-ramp": 2
+          }
+        },
+        {
+          "peak_C": 266.17981889127174,
+          "time_above_s": 6.380501055861231,
+          "reheat_count": 1,
+          "subsequent_reheats": 0,
+          "crossings_by_phase": {
+            "bond-ramp": 1
+          }
+        }
+      ],
+      "tack_crossings": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "max_warp_um": 26.013640880597208,
+      "warp_by_layer": [
+        {
+          "layer_count": 1,
+          "max_um": 26.013640880597208
+        },
+        {
+          "layer_count": 2,
+          "max_um": 5.862988998449364
+        },
+        {
+          "layer_count": 3,
+          "max_um": 4.604381197532011
+        },
+        {
+          "layer_count": 4,
+          "max_um": 3.7216364685338554
+        }
+      ],
+      "judgement": "불량"
+    },
+    {
+      "mode": "TC-NCF",
+      "N": 8,
+      "thickness_um": 100,
+      "bottom": {
+        "peak_C": 199.97142143813278,
+        "time_above_s": 0,
+        "reheat_count": 0,
+        "subsequent_reheats": 0,
+        "crossings_by_phase": {}
+      },
+      "layers": [
+        {
+          "peak_C": 199.97142143813278,
+          "time_above_s": 0,
+          "reheat_count": 0,
+          "subsequent_reheats": 0,
+          "crossings_by_phase": {}
+        },
+        {
+          "peak_C": 239.56956291209656,
+          "time_above_s": 4.7564658382074,
+          "reheat_count": 1,
+          "subsequent_reheats": 0,
+          "crossings_by_phase": {
+            "bond-ramp": 1
+          }
+        },
+        {
+          "peak_C": 256.6913708354843,
+          "time_above_s": 9.153448574017098,
+          "reheat_count": 2,
+          "subsequent_reheats": 1,
+          "crossings_by_phase": {
+            "bond-ramp": 2
+          }
+        },
+        {
+          "peak_C": 266.24225187090923,
+          "time_above_s": 10.883839765904831,
+          "reheat_count": 2,
+          "subsequent_reheats": 1,
+          "crossings_by_phase": {
+            "bond-ramp": 2
+          }
+        },
+        {
+          "peak_C": 272.3340136041394,
+          "time_above_s": 15.581123710014467,
+          "reheat_count": 3,
+          "subsequent_reheats": 2,
+          "crossings_by_phase": {
+            "bond-ramp": 3
+          }
+        },
+        {
+          "peak_C": 276.55734965779453,
+          "time_above_s": 16.949231357856025,
+          "reheat_count": 3,
+          "subsequent_reheats": 2,
+          "crossings_by_phase": {
+            "bond-ramp": 3
+          }
+        },
+        {
+          "peak_C": 279.6572668059105,
+          "time_above_s": 12.989912966126674,
+          "reheat_count": 2,
+          "subsequent_reheats": 1,
+          "crossings_by_phase": {
+            "bond-ramp": 2
+          }
+        },
+        {
+          "peak_C": 282.02915912178656,
+          "time_above_s": 7.122029016568545,
+          "reheat_count": 1,
+          "subsequent_reheats": 0,
+          "crossings_by_phase": {
+            "bond-ramp": 1
+          }
+        }
+      ],
+      "tack_crossings": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "max_warp_um": 6.122545112743366,
+      "warp_by_layer": [
+        {
+          "layer_count": 1,
+          "max_um": 6.122545112743366
+        },
+        {
+          "layer_count": 2,
+          "max_um": 2.7144786579575646
+        },
+        {
+          "layer_count": 3,
+          "max_um": 2.1995863971057807
+        },
+        {
+          "layer_count": 4,
+          "max_um": 1.8055762612908994
+        },
+        {
+          "layer_count": 5,
+          "max_um": 1.5360091714397859
+        },
+        {
+          "layer_count": 6,
+          "max_um": 1.3431541750543223
+        },
+        {
+          "layer_count": 7,
+          "max_um": 1.1983274744104633
+        },
+        {
+          "layer_count": 8,
+          "max_um": 1.0851721894939326
+        }
+      ],
+      "judgement": "주의"
+    },
+    {
+      "mode": "TC-NCF",
+      "N": 8,
+      "thickness_um": 50,
+      "bottom": {
+        "peak_C": 199.97262586365179,
+        "time_above_s": 0,
+        "reheat_count": 0,
+        "subsequent_reheats": 0,
+        "crossings_by_phase": {}
+      },
+      "layers": [
+        {
+          "peak_C": 199.97262586365179,
+          "time_above_s": 0,
+          "reheat_count": 0,
+          "subsequent_reheats": 0,
+          "crossings_by_phase": {}
+        },
+        {
+          "peak_C": 239.49981048476926,
+          "time_above_s": 4.751406260898876,
+          "reheat_count": 1,
+          "subsequent_reheats": 0,
+          "crossings_by_phase": {
+            "bond-ramp": 1
+          }
+        },
+        {
+          "peak_C": 256.621006934632,
+          "time_above_s": 9.152881656927065,
+          "reheat_count": 2,
+          "subsequent_reheats": 1,
+          "crossings_by_phase": {
+            "bond-ramp": 2
+          }
+        },
+        {
+          "peak_C": 266.17981889127174,
+          "time_above_s": 10.879342365479731,
+          "reheat_count": 2,
+          "subsequent_reheats": 1,
+          "crossings_by_phase": {
+            "bond-ramp": 2
+          }
+        },
+        {
+          "peak_C": 272.2799836444958,
+          "time_above_s": 15.582426937988993,
+          "reheat_count": 3,
+          "subsequent_reheats": 2,
+          "crossings_by_phase": {
+            "bond-ramp": 3
+          }
+        },
+        {
+          "peak_C": 276.510852577,
+          "time_above_s": 16.94877979348052,
+          "reheat_count": 3,
+          "subsequent_reheats": 2,
+          "crossings_by_phase": {
+            "bond-ramp": 3
+          }
+        },
+        {
+          "peak_C": 279.6173221170776,
+          "time_above_s": 12.98773228308239,
+          "reheat_count": 2,
+          "subsequent_reheats": 1,
+          "crossings_by_phase": {
+            "bond-ramp": 2
+          }
+        },
+        {
+          "peak_C": 281.9949170417038,
+          "time_above_s": 7.120654072868496,
+          "reheat_count": 1,
+          "subsequent_reheats": 0,
+          "crossings_by_phase": {
+            "bond-ramp": 1
+          }
+        }
+      ],
+      "tack_crossings": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "max_warp_um": 26.013640880597208,
+      "warp_by_layer": [
+        {
+          "layer_count": 1,
+          "max_um": 26.013640880597208
+        },
+        {
+          "layer_count": 2,
+          "max_um": 5.862988998449364
+        },
+        {
+          "layer_count": 3,
+          "max_um": 4.604381197532011
+        },
+        {
+          "layer_count": 4,
+          "max_um": 3.7216364685338554
+        },
+        {
+          "layer_count": 5,
+          "max_um": 3.1344825379852104
+        },
+        {
+          "layer_count": 6,
+          "max_um": 2.721283823843903
+        },
+        {
+          "layer_count": 7,
+          "max_um": 2.4146488330729907
+        },
+        {
+          "layer_count": 8,
+          "max_um": 2.1772953479678647
+        }
+      ],
+      "judgement": "불량"
+    },
+    {
+      "mode": "TC-NCF",
+      "N": 12,
+      "thickness_um": 100,
+      "bottom": {
+        "peak_C": 199.97142143813278,
+        "time_above_s": 0,
+        "reheat_count": 0,
+        "subsequent_reheats": 0,
+        "crossings_by_phase": {}
+      },
+      "layers": [
+        {
+          "peak_C": 199.97142143813278,
+          "time_above_s": 0,
+          "reheat_count": 0,
+          "subsequent_reheats": 0,
+          "crossings_by_phase": {}
+        },
+        {
+          "peak_C": 239.56956291209656,
+          "time_above_s": 4.7564658382074,
+          "reheat_count": 1,
+          "subsequent_reheats": 0,
+          "crossings_by_phase": {
+            "bond-ramp": 1
+          }
+        },
+        {
+          "peak_C": 256.6913708354843,
+          "time_above_s": 9.153448574017098,
+          "reheat_count": 2,
+          "subsequent_reheats": 1,
+          "crossings_by_phase": {
+            "bond-ramp": 2
+          }
+        },
+        {
+          "peak_C": 266.24225187090923,
+          "time_above_s": 10.883839765904831,
+          "reheat_count": 2,
+          "subsequent_reheats": 1,
+          "crossings_by_phase": {
+            "bond-ramp": 2
+          }
+        },
+        {
+          "peak_C": 272.3340136041394,
+          "time_above_s": 15.581123710014467,
+          "reheat_count": 3,
+          "subsequent_reheats": 2,
+          "crossings_by_phase": {
+            "bond-ramp": 3
+          }
+        },
+        {
+          "peak_C": 276.55734965779453,
+          "time_above_s": 16.949231357856025,
+          "reheat_count": 3,
+          "subsequent_reheats": 2,
+          "crossings_by_phase": {
+            "bond-ramp": 3
+          }
+        },
+        {
+          "peak_C": 279.6572668059105,
+          "time_above_s": 21.765121303825374,
+          "reheat_count": 4,
+          "subsequent_reheats": 3,
+          "crossings_by_phase": {
+            "bond-ramp": 4
+          }
+        },
+        {
+          "peak_C": 282.02915912178656,
+          "time_above_s": 26.3985035263133,
+          "reheat_count": 5,
+          "subsequent_reheats": 4,
+          "crossings_by_phase": {
+            "bond-ramp": 5
+          }
+        },
+        {
+          "peak_C": 283.9023549295841,
+          "time_above_s": 23.931523481058644,
+          "reheat_count": 4,
+          "subsequent_reheats": 3,
+          "crossings_by_phase": {
+            "bond-ramp": 4
+          }
+        },
+        {
+          "peak_C": 285.4190169312458,
+          "time_above_s": 19.60680678844854,
+          "reheat_count": 3,
+          "subsequent_reheats": 2,
+          "crossings_by_phase": {
+            "bond-ramp": 3
+          }
+        },
+        {
+          "peak_C": 286.67196204956036,
+          "time_above_s": 13.9697355746918,
+          "reheat_count": 2,
+          "subsequent_reheats": 1,
+          "crossings_by_phase": {
+            "bond-ramp": 2
+          }
+        },
+        {
+          "peak_C": 287.72436223763947,
+          "time_above_s": 7.357693583304525,
+          "reheat_count": 1,
+          "subsequent_reheats": 0,
+          "crossings_by_phase": {
+            "bond-ramp": 1
+          }
+        }
+      ],
+      "tack_crossings": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "max_warp_um": 6.122545112743366,
+      "warp_by_layer": [
+        {
+          "layer_count": 1,
+          "max_um": 6.122545112743366
+        },
+        {
+          "layer_count": 2,
+          "max_um": 2.7144786579575646
+        },
+        {
+          "layer_count": 3,
+          "max_um": 2.1995863971057807
+        },
+        {
+          "layer_count": 4,
+          "max_um": 1.8055762612908994
+        },
+        {
+          "layer_count": 5,
+          "max_um": 1.5360091714397859
+        },
+        {
+          "layer_count": 6,
+          "max_um": 1.3431541750543223
+        },
+        {
+          "layer_count": 7,
+          "max_um": 1.1983274744104633
+        },
+        {
+          "layer_count": 8,
+          "max_um": 1.0851721894939326
+        },
+        {
+          "layer_count": 9,
+          "max_um": 0.9939591018743251
+        },
+        {
+          "layer_count": 10,
+          "max_um": 0.9185962135276576
+        },
+        {
+          "layer_count": 11,
+          "max_um": 0.855085299267824
+        },
+        {
+          "layer_count": 12,
+          "max_um": 0.8006934609752401
+        }
+      ],
+      "judgement": "주의"
+    },
+    {
+      "mode": "TC-NCF",
+      "N": 12,
+      "thickness_um": 50,
+      "bottom": {
+        "peak_C": 199.97262586365179,
+        "time_above_s": 0,
+        "reheat_count": 0,
+        "subsequent_reheats": 0,
+        "crossings_by_phase": {}
+      },
+      "layers": [
+        {
+          "peak_C": 199.97262586365179,
+          "time_above_s": 0,
+          "reheat_count": 0,
+          "subsequent_reheats": 0,
+          "crossings_by_phase": {}
+        },
+        {
+          "peak_C": 239.49981048476926,
+          "time_above_s": 4.751406260898876,
+          "reheat_count": 1,
+          "subsequent_reheats": 0,
+          "crossings_by_phase": {
+            "bond-ramp": 1
+          }
+        },
+        {
+          "peak_C": 256.621006934632,
+          "time_above_s": 9.152881656927065,
+          "reheat_count": 2,
+          "subsequent_reheats": 1,
+          "crossings_by_phase": {
+            "bond-ramp": 2
+          }
+        },
+        {
+          "peak_C": 266.17981889127174,
+          "time_above_s": 10.879342365479731,
+          "reheat_count": 2,
+          "subsequent_reheats": 1,
+          "crossings_by_phase": {
+            "bond-ramp": 2
+          }
+        },
+        {
+          "peak_C": 272.2799836444958,
+          "time_above_s": 15.582426937988993,
+          "reheat_count": 3,
+          "subsequent_reheats": 2,
+          "crossings_by_phase": {
+            "bond-ramp": 3
+          }
+        },
+        {
+          "peak_C": 276.510852577,
+          "time_above_s": 16.94877979348052,
+          "reheat_count": 3,
+          "subsequent_reheats": 2,
+          "crossings_by_phase": {
+            "bond-ramp": 3
+          }
+        },
+        {
+          "peak_C": 279.6173221170776,
+          "time_above_s": 21.777533671729948,
+          "reheat_count": 4,
+          "subsequent_reheats": 3,
+          "crossings_by_phase": {
+            "bond-ramp": 4
+          }
+        },
+        {
+          "peak_C": 281.9949170417038,
+          "time_above_s": 26.44069173945832,
+          "reheat_count": 5,
+          "subsequent_reheats": 4,
+          "crossings_by_phase": {
+            "bond-ramp": 5
+          }
+        },
+        {
+          "peak_C": 283.8731219815678,
+          "time_above_s": 23.94307359353757,
+          "reheat_count": 4,
+          "subsequent_reheats": 3,
+          "crossings_by_phase": {
+            "bond-ramp": 4
+          }
+        },
+        {
+          "peak_C": 285.3942347818133,
+          "time_above_s": 19.610088498913733,
+          "reheat_count": 3,
+          "subsequent_reheats": 2,
+          "crossings_by_phase": {
+            "bond-ramp": 3
+          }
+        },
+        {
+          "peak_C": 286.65118037423406,
+          "time_above_s": 13.97015209714346,
+          "reheat_count": 2,
+          "subsequent_reheats": 1,
+          "crossings_by_phase": {
+            "bond-ramp": 2
+          }
+        },
+        {
+          "peak_C": 287.7072151541126,
+          "time_above_s": 7.357287146309465,
+          "reheat_count": 1,
+          "subsequent_reheats": 0,
+          "crossings_by_phase": {
+            "bond-ramp": 1
+          }
+        }
+      ],
+      "tack_crossings": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "max_warp_um": 26.013640880597208,
+      "warp_by_layer": [
+        {
+          "layer_count": 1,
+          "max_um": 26.013640880597208
+        },
+        {
+          "layer_count": 2,
+          "max_um": 5.862988998449364
+        },
+        {
+          "layer_count": 3,
+          "max_um": 4.604381197532011
+        },
+        {
+          "layer_count": 4,
+          "max_um": 3.7216364685338554
+        },
+        {
+          "layer_count": 5,
+          "max_um": 3.1344825379852104
+        },
+        {
+          "layer_count": 6,
+          "max_um": 2.721283823843903
+        },
+        {
+          "layer_count": 7,
+          "max_um": 2.4146488330729907
+        },
+        {
+          "layer_count": 8,
+          "max_um": 2.1772953479678647
+        },
+        {
+          "layer_count": 9,
+          "max_um": 1.9874247400605725
+        },
+        {
+          "layer_count": 10,
+          "max_um": 1.8315502821347898
+        },
+        {
+          "layer_count": 11,
+          "max_um": 1.7009036778882702
+        },
+        {
+          "layer_count": 12,
+          "max_um": 1.5895390537427898
+        }
+      ],
+      "judgement": "불량"
+    },
+    {
+      "mode": "MR-MUF",
+      "N": 2,
+      "thickness_um": 100,
+      "bottom": {
+        "peak_C": 249.99999999999997,
+        "time_above_s": 89.99999999999741,
+        "reheat_count": 1,
+        "subsequent_reheats": 0,
+        "crossings_by_phase": {
+          "reflow-ramp": 1
+        }
+      },
+      "layers": [
+        {
+          "peak_C": 249.99999999999997,
+          "time_above_s": 89.99999999999741,
+          "reheat_count": 1,
+          "subsequent_reheats": 0,
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          }
+        },
+        {
+          "peak_C": 250,
+          "time_above_s": 89.99999999999741,
+          "reheat_count": 1,
+          "subsequent_reheats": 0,
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          }
+        }
+      ],
+      "tack_crossings": [
+        0,
+        0
+      ],
+      "max_warp_um": 5.3092624897090435,
+      "warp_by_layer": [
+        {
+          "layer_count": 1,
+          "max_um": 5.3092624897090435
+        },
+        {
+          "layer_count": 2,
+          "max_um": 2.5906333928152803
+        }
+      ],
+      "judgement": "주의"
+    },
+    {
+      "mode": "MR-MUF",
+      "N": 2,
+      "thickness_um": 50,
+      "bottom": {
+        "peak_C": 250,
+        "time_above_s": 89.99999999999734,
+        "reheat_count": 1,
+        "subsequent_reheats": 0,
+        "crossings_by_phase": {
+          "reflow-ramp": 1
+        }
+      },
+      "layers": [
+        {
+          "peak_C": 250,
+          "time_above_s": 89.99999999999734,
+          "reheat_count": 1,
+          "subsequent_reheats": 0,
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          }
+        },
+        {
+          "peak_C": 250.00000000000003,
+          "time_above_s": 89.99999999999737,
+          "reheat_count": 1,
+          "subsequent_reheats": 0,
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          }
+        }
+      ],
+      "tack_crossings": [
+        0,
+        0
+      ],
+      "max_warp_um": 21.797790797629496,
+      "warp_by_layer": [
+        {
+          "layer_count": 1,
+          "max_um": 21.797790797629496
+        },
+        {
+          "layer_count": 2,
+          "max_um": 8.221257720615768
+        }
+      ],
+      "judgement": "불량"
+    },
+    {
+      "mode": "MR-MUF",
+      "N": 4,
+      "thickness_um": 100,
+      "bottom": {
+        "peak_C": 249.99999999999997,
+        "time_above_s": 89.99999999999741,
+        "reheat_count": 1,
+        "subsequent_reheats": 0,
+        "crossings_by_phase": {
+          "reflow-ramp": 1
+        }
+      },
+      "layers": [
+        {
+          "peak_C": 249.99999999999997,
+          "time_above_s": 89.99999999999741,
+          "reheat_count": 1,
+          "subsequent_reheats": 0,
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          }
+        },
+        {
+          "peak_C": 250,
+          "time_above_s": 89.99999999999741,
+          "reheat_count": 1,
+          "subsequent_reheats": 0,
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          }
+        },
+        {
+          "peak_C": 250.00000000000003,
+          "time_above_s": 89.99999999999743,
+          "reheat_count": 1,
+          "subsequent_reheats": 0,
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          }
+        },
+        {
+          "peak_C": 250.00000000000006,
+          "time_above_s": 89.99999999999746,
+          "reheat_count": 1,
+          "subsequent_reheats": 0,
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          }
+        }
+      ],
+      "tack_crossings": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "max_warp_um": 5.3092624897090435,
+      "warp_by_layer": [
+        {
+          "layer_count": 1,
+          "max_um": 5.3092624897090435
+        },
+        {
+          "layer_count": 2,
+          "max_um": 1.633531740616149
+        },
+        {
+          "layer_count": 3,
+          "max_um": 1.5105968122537627
+        },
+        {
+          "layer_count": 4,
+          "max_um": 1.4582647474981003
+        }
+      ],
+      "judgement": "주의"
+    },
+    {
+      "mode": "MR-MUF",
+      "N": 4,
+      "thickness_um": 50,
+      "bottom": {
+        "peak_C": 249.99999999999991,
+        "time_above_s": 89.99999999999727,
+        "reheat_count": 1,
+        "subsequent_reheats": 0,
+        "crossings_by_phase": {
+          "reflow-ramp": 1
+        }
+      },
+      "layers": [
+        {
+          "peak_C": 249.99999999999991,
+          "time_above_s": 89.99999999999727,
+          "reheat_count": 1,
+          "subsequent_reheats": 0,
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          }
+        },
+        {
+          "peak_C": 249.9999999999999,
+          "time_above_s": 89.99999999999724,
+          "reheat_count": 1,
+          "subsequent_reheats": 0,
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          }
+        },
+        {
+          "peak_C": 249.9999999999999,
+          "time_above_s": 89.9999999999972,
+          "reheat_count": 1,
+          "subsequent_reheats": 0,
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          }
+        },
+        {
+          "peak_C": 249.99999999999991,
+          "time_above_s": 89.99999999999719,
+          "reheat_count": 1,
+          "subsequent_reheats": 0,
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          }
+        }
+      ],
+      "tack_crossings": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "max_warp_um": 21.797790797629496,
+      "warp_by_layer": [
+        {
+          "layer_count": 1,
+          "max_um": 21.797790797629496
+        },
+        {
+          "layer_count": 2,
+          "max_um": 3.351542112493687
+        },
+        {
+          "layer_count": 3,
+          "max_um": 3.01928598687572
+        },
+        {
+          "layer_count": 4,
+          "max_um": 3.1160740200784267
+        }
+      ],
+      "judgement": "불량"
+    },
+    {
+      "mode": "MR-MUF",
+      "N": 8,
+      "thickness_um": 100,
+      "bottom": {
+        "peak_C": 249.99999999999997,
+        "time_above_s": 89.99999999999741,
+        "reheat_count": 1,
+        "subsequent_reheats": 0,
+        "crossings_by_phase": {
+          "reflow-ramp": 1
+        }
+      },
+      "layers": [
+        {
+          "peak_C": 249.99999999999997,
+          "time_above_s": 89.99999999999741,
+          "reheat_count": 1,
+          "subsequent_reheats": 0,
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          }
+        },
+        {
+          "peak_C": 250,
+          "time_above_s": 89.99999999999741,
+          "reheat_count": 1,
+          "subsequent_reheats": 0,
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          }
+        },
+        {
+          "peak_C": 250,
+          "time_above_s": 89.9999999999974,
+          "reheat_count": 1,
+          "subsequent_reheats": 0,
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          }
+        },
+        {
+          "peak_C": 250.00000000000003,
+          "time_above_s": 89.99999999999743,
+          "reheat_count": 1,
+          "subsequent_reheats": 0,
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          }
+        },
+        {
+          "peak_C": 250.00000000000003,
+          "time_above_s": 89.99999999999741,
+          "reheat_count": 1,
+          "subsequent_reheats": 0,
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          }
+        },
+        {
+          "peak_C": 250.00000000000003,
+          "time_above_s": 89.99999999999741,
+          "reheat_count": 1,
+          "subsequent_reheats": 0,
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          }
+        },
+        {
+          "peak_C": 250.00000000000003,
+          "time_above_s": 89.9999999999974,
+          "reheat_count": 1,
+          "subsequent_reheats": 0,
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          }
+        },
+        {
+          "peak_C": 250.00000000000003,
+          "time_above_s": 89.9999999999974,
+          "reheat_count": 1,
+          "subsequent_reheats": 0,
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          }
+        }
+      ],
+      "tack_crossings": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "max_warp_um": 5.3092624897090435,
+      "warp_by_layer": [
+        {
+          "layer_count": 1,
+          "max_um": 5.3092624897090435
+        },
+        {
+          "layer_count": 2,
+          "max_um": 1.633531740616149
+        },
+        {
+          "layer_count": 3,
+          "max_um": 1.5105968122537627
+        },
+        {
+          "layer_count": 4,
+          "max_um": 1.3296376591476735
+        },
+        {
+          "layer_count": 5,
+          "max_um": 1.1790835490662508
+        },
+        {
+          "layer_count": 6,
+          "max_um": 1.0594184368880677
+        },
+        {
+          "layer_count": 7,
+          "max_um": 0.9635028228273473
+        },
+        {
+          "layer_count": 8,
+          "max_um": 0.8852423855777755
+        }
+      ],
+      "judgement": "주의"
+    },
+    {
+      "mode": "MR-MUF",
+      "N": 8,
+      "thickness_um": 50,
+      "bottom": {
+        "peak_C": 249.99999999999977,
+        "time_above_s": 89.99999999999719,
+        "reheat_count": 1,
+        "subsequent_reheats": 0,
+        "crossings_by_phase": {
+          "reflow-ramp": 1
+        }
+      },
+      "layers": [
+        {
+          "peak_C": 249.99999999999977,
+          "time_above_s": 89.99999999999719,
+          "reheat_count": 1,
+          "subsequent_reheats": 0,
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          }
+        },
+        {
+          "peak_C": 249.99999999999963,
+          "time_above_s": 89.99999999999709,
+          "reheat_count": 1,
+          "subsequent_reheats": 0,
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          }
+        },
+        {
+          "peak_C": 249.99999999999955,
+          "time_above_s": 89.99999999999699,
+          "reheat_count": 1,
+          "subsequent_reheats": 0,
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          }
+        },
+        {
+          "peak_C": 249.9999999999995,
+          "time_above_s": 89.9999999999969,
+          "reheat_count": 1,
+          "subsequent_reheats": 0,
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          }
+        },
+        {
+          "peak_C": 249.99999999999943,
+          "time_above_s": 89.99999999999687,
+          "reheat_count": 1,
+          "subsequent_reheats": 0,
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          }
+        },
+        {
+          "peak_C": 249.9999999999994,
+          "time_above_s": 89.99999999999685,
+          "reheat_count": 1,
+          "subsequent_reheats": 0,
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          }
+        },
+        {
+          "peak_C": 249.9999999999994,
+          "time_above_s": 89.99999999999687,
+          "reheat_count": 1,
+          "subsequent_reheats": 0,
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          }
+        },
+        {
+          "peak_C": 249.99999999999943,
+          "time_above_s": 89.99999999999686,
+          "reheat_count": 1,
+          "subsequent_reheats": 0,
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          }
+        }
+      ],
+      "tack_crossings": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "max_warp_um": 21.797790797629496,
+      "warp_by_layer": [
+        {
+          "layer_count": 1,
+          "max_um": 21.797790797629496
+        },
+        {
+          "layer_count": 2,
+          "max_um": 3.351542112493687
+        },
+        {
+          "layer_count": 3,
+          "max_um": 3.01928598687572
+        },
+        {
+          "layer_count": 4,
+          "max_um": 2.627856466321026
+        },
+        {
+          "layer_count": 5,
+          "max_um": 2.3148254540383446
+        },
+        {
+          "layer_count": 6,
+          "max_um": 2.070361866228445
+        },
+        {
+          "layer_count": 7,
+          "max_um": 1.8764661389931094
+        },
+        {
+          "layer_count": 8,
+          "max_um": 1.719415998763098
+        }
+      ],
+      "judgement": "불량"
+    },
+    {
+      "mode": "MR-MUF",
+      "N": 12,
+      "thickness_um": 100,
+      "bottom": {
+        "peak_C": 249.99999999999997,
+        "time_above_s": 89.99999999999741,
+        "reheat_count": 1,
+        "subsequent_reheats": 0,
+        "crossings_by_phase": {
+          "reflow-ramp": 1
+        }
+      },
+      "layers": [
+        {
+          "peak_C": 249.99999999999997,
+          "time_above_s": 89.99999999999741,
+          "reheat_count": 1,
+          "subsequent_reheats": 0,
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          }
+        },
+        {
+          "peak_C": 249.99999999999994,
+          "time_above_s": 89.99999999999736,
+          "reheat_count": 1,
+          "subsequent_reheats": 0,
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          }
+        },
+        {
+          "peak_C": 249.99999999999994,
+          "time_above_s": 89.99999999999736,
+          "reheat_count": 1,
+          "subsequent_reheats": 0,
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          }
+        },
+        {
+          "peak_C": 249.99999999999994,
+          "time_above_s": 89.99999999999736,
+          "reheat_count": 1,
+          "subsequent_reheats": 0,
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          }
+        },
+        {
+          "peak_C": 249.99999999999991,
+          "time_above_s": 89.99999999999734,
+          "reheat_count": 1,
+          "subsequent_reheats": 0,
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          }
+        },
+        {
+          "peak_C": 249.9999999999999,
+          "time_above_s": 89.99999999999734,
+          "reheat_count": 1,
+          "subsequent_reheats": 0,
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          }
+        },
+        {
+          "peak_C": 249.99999999999986,
+          "time_above_s": 89.99999999999733,
+          "reheat_count": 1,
+          "subsequent_reheats": 0,
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          }
+        },
+        {
+          "peak_C": 249.9999999999998,
+          "time_above_s": 89.9999999999973,
+          "reheat_count": 1,
+          "subsequent_reheats": 0,
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          }
+        },
+        {
+          "peak_C": 249.99999999999977,
+          "time_above_s": 89.99999999999727,
+          "reheat_count": 1,
+          "subsequent_reheats": 0,
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          }
+        },
+        {
+          "peak_C": 249.99999999999974,
+          "time_above_s": 89.99999999999726,
+          "reheat_count": 1,
+          "subsequent_reheats": 0,
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          }
+        },
+        {
+          "peak_C": 249.99999999999972,
+          "time_above_s": 89.99999999999724,
+          "reheat_count": 1,
+          "subsequent_reheats": 0,
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          }
+        },
+        {
+          "peak_C": 249.99999999999974,
+          "time_above_s": 89.99999999999726,
+          "reheat_count": 1,
+          "subsequent_reheats": 0,
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          }
+        }
+      ],
+      "tack_crossings": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "max_warp_um": 5.3092624897090435,
+      "warp_by_layer": [
+        {
+          "layer_count": 1,
+          "max_um": 5.3092624897090435
+        },
+        {
+          "layer_count": 2,
+          "max_um": 1.633531740616149
+        },
+        {
+          "layer_count": 3,
+          "max_um": 1.5105968122537627
+        },
+        {
+          "layer_count": 4,
+          "max_um": 1.3296376591476735
+        },
+        {
+          "layer_count": 5,
+          "max_um": 1.1790835490662508
+        },
+        {
+          "layer_count": 6,
+          "max_um": 1.0594184368880677
+        },
+        {
+          "layer_count": 7,
+          "max_um": 0.9635028228273473
+        },
+        {
+          "layer_count": 8,
+          "max_um": 0.8852423855777755
+        },
+        {
+          "layer_count": 9,
+          "max_um": 0.8202142947328572
+        },
+        {
+          "layer_count": 10,
+          "max_um": 0.7652825384899218
+        },
+        {
+          "layer_count": 11,
+          "max_um": 0.7182049591920489
+        },
+        {
+          "layer_count": 12,
+          "max_um": 0.6773508699636002
+        }
+      ],
+      "judgement": "주의"
+    },
+    {
+      "mode": "MR-MUF",
+      "N": 12,
+      "thickness_um": 50,
+      "bottom": {
+        "peak_C": 249.9999999999996,
+        "time_above_s": 89.99999999999707,
+        "reheat_count": 1,
+        "subsequent_reheats": 0,
+        "crossings_by_phase": {
+          "reflow-ramp": 1
+        }
+      },
+      "layers": [
+        {
+          "peak_C": 249.9999999999996,
+          "time_above_s": 89.99999999999707,
+          "reheat_count": 1,
+          "subsequent_reheats": 0,
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          }
+        },
+        {
+          "peak_C": 249.99999999999937,
+          "time_above_s": 89.99999999999693,
+          "reheat_count": 1,
+          "subsequent_reheats": 0,
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          }
+        },
+        {
+          "peak_C": 249.99999999999918,
+          "time_above_s": 89.99999999999676,
+          "reheat_count": 1,
+          "subsequent_reheats": 0,
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          }
+        },
+        {
+          "peak_C": 249.99999999999903,
+          "time_above_s": 89.99999999999663,
+          "reheat_count": 1,
+          "subsequent_reheats": 0,
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          }
+        },
+        {
+          "peak_C": 249.9999999999989,
+          "time_above_s": 89.99999999999656,
+          "reheat_count": 1,
+          "subsequent_reheats": 0,
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          }
+        },
+        {
+          "peak_C": 249.99999999999878,
+          "time_above_s": 89.9999999999965,
+          "reheat_count": 1,
+          "subsequent_reheats": 0,
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          }
+        },
+        {
+          "peak_C": 249.99999999999866,
+          "time_above_s": 89.99999999999646,
+          "reheat_count": 1,
+          "subsequent_reheats": 0,
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          }
+        },
+        {
+          "peak_C": 249.9999999999986,
+          "time_above_s": 89.99999999999642,
+          "reheat_count": 1,
+          "subsequent_reheats": 0,
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          }
+        },
+        {
+          "peak_C": 249.99999999999855,
+          "time_above_s": 89.9999999999964,
+          "reheat_count": 1,
+          "subsequent_reheats": 0,
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          }
+        },
+        {
+          "peak_C": 249.99999999999852,
+          "time_above_s": 89.99999999999639,
+          "reheat_count": 1,
+          "subsequent_reheats": 0,
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          }
+        },
+        {
+          "peak_C": 249.99999999999855,
+          "time_above_s": 89.99999999999639,
+          "reheat_count": 1,
+          "subsequent_reheats": 0,
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          }
+        },
+        {
+          "peak_C": 249.99999999999858,
+          "time_above_s": 89.99999999999639,
+          "reheat_count": 1,
+          "subsequent_reheats": 0,
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          }
+        }
+      ],
+      "tack_crossings": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "max_warp_um": 21.797790797629496,
+      "warp_by_layer": [
+        {
+          "layer_count": 1,
+          "max_um": 21.797790797629496
+        },
+        {
+          "layer_count": 2,
+          "max_um": 3.351542112493687
+        },
+        {
+          "layer_count": 3,
+          "max_um": 3.01928598687572
+        },
+        {
+          "layer_count": 4,
+          "max_um": 2.627856466321026
+        },
+        {
+          "layer_count": 5,
+          "max_um": 2.3148254540383446
+        },
+        {
+          "layer_count": 6,
+          "max_um": 2.070361866228445
+        },
+        {
+          "layer_count": 7,
+          "max_um": 1.8764661389931094
+        },
+        {
+          "layer_count": 8,
+          "max_um": 1.719415998763098
+        },
+        {
+          "layer_count": 9,
+          "max_um": 1.5896476439840865
+        },
+        {
+          "layer_count": 10,
+          "max_um": 1.4805205607004512
+        },
+        {
+          "layer_count": 11,
+          "max_um": 1.3873484094477075
+        },
+        {
+          "layer_count": 12,
+          "max_um": 1.3067536412826501
+        }
+      ],
+      "judgement": "불량"
+    }
+  ],
+  "convergence": [
+    {
+      "mode": "TC-NCF",
+      "coarse_dt_s": 0.05,
+      "fine_dt_s": 0.025,
+      "bottom_peak_delta_C": 0,
+      "bottom_TAL_delta_s": 0,
+      "max_warp_delta_um": 0.33617325926947217
+    },
+    {
+      "mode": "MR-MUF",
+      "coarse_dt_s": 0.05,
+      "fine_dt_s": 0.025,
+      "bottom_peak_delta_C": -5.684341886080802e-14,
+      "bottom_TAL_delta_s": 7.702283255639486e-12,
+      "max_warp_delta_um": 0
+    }
+  ],
+  "sensitivity": [
+    {
+      "mode": "TC-NCF",
+      "contact": "tool_contact_R_area",
+      "value": 0.000001,
+      "bottom": {
+        "peak_C": 218.405418112798,
+        "time_above_s": 0,
+        "reheat_count": 0,
+        "subsequent_reheats": 0,
+        "crossings_by_phase": {}
+      },
+      "max_warp_um": 30.66779457788281,
+      "judgement": "불량"
+    },
+    {
+      "mode": "TC-NCF",
+      "contact": "tool_contact_R_area",
+      "value": 0.0001,
+      "bottom": {
+        "peak_C": 139.09148963014482,
+        "time_above_s": 0,
+        "reheat_count": 0,
+        "subsequent_reheats": 0,
+        "crossings_by_phase": {}
+      },
+      "max_warp_um": 10.738821544583711,
+      "judgement": "주의"
+    },
+    {
+      "mode": "TC-NCF",
+      "contact": "chuck_contact_R_area",
+      "value": 0.000001,
+      "bottom": {
+        "peak_C": 181.54992248812962,
+        "time_above_s": 0,
+        "reheat_count": 0,
+        "subsequent_reheats": 0,
+        "crossings_by_phase": {}
+      },
+      "max_warp_um": 21.207006489550714,
+      "judgement": "불량"
+    },
+    {
+      "mode": "TC-NCF",
+      "contact": "chuck_contact_R_area",
+      "value": 0.0001,
+      "bottom": {
+        "peak_C": 260.8204398483508,
+        "time_above_s": 9.940125765224655,
+        "reheat_count": 2,
+        "subsequent_reheats": 1,
+        "crossings_by_phase": {
+          "bond-ramp": 2
+        }
+      },
+      "max_warp_um": 41.957173322376306,
+      "judgement": "불량"
+    },
+    {
+      "mode": "MR-MUF",
+      "contact": "tool_contact_R_area",
+      "value": 0.000001,
+      "bottom": {
+        "peak_C": 249.9999999999996,
+        "time_above_s": 89.99999999999707,
+        "reheat_count": 1,
+        "subsequent_reheats": 0,
+        "crossings_by_phase": {
+          "reflow-ramp": 1
+        }
+      },
+      "max_warp_um": 32.21556104824855,
+      "judgement": "불량"
+    },
+    {
+      "mode": "MR-MUF",
+      "contact": "tool_contact_R_area",
+      "value": 0.0001,
+      "bottom": {
+        "peak_C": 249.9999999999996,
+        "time_above_s": 89.99999999999707,
+        "reheat_count": 1,
+        "subsequent_reheats": 0,
+        "crossings_by_phase": {
+          "reflow-ramp": 1
+        }
+      },
+      "max_warp_um": 5.148553835121786,
+      "judgement": "주의"
+    },
+    {
+      "mode": "MR-MUF",
+      "contact": "chuck_contact_R_area",
+      "value": 0.000001,
+      "bottom": {
+        "peak_C": 249.99999999999986,
+        "time_above_s": 89.99999999999726,
+        "reheat_count": 1,
+        "subsequent_reheats": 0,
+        "crossings_by_phase": {
+          "reflow-ramp": 1
+        }
+      },
+      "max_warp_um": 11.3815455200399,
+      "judgement": "주의"
+    },
+    {
+      "mode": "MR-MUF",
+      "contact": "chuck_contact_R_area",
+      "value": 0.0001,
+      "bottom": {
+        "peak_C": 249.9999999999962,
+        "time_above_s": 89.99999999999461,
+        "reheat_count": 1,
+        "subsequent_reheats": 0,
+        "crossings_by_phase": {
+          "reflow-ramp": 1
+        }
+      },
+      "max_warp_um": 38.44459061315489,
+      "judgement": "불량"
+    }
+  ],
+  "head": {
+    "arrival_s": 17.2,
+    "alignment_s": 107.2,
+    "fit_window_s": 10,
+    "macor_nodes": [
+      {
+        "T_C": 386.74753210936865,
+        "rate_K_s": 0.041087091916938386
+      },
+      {
+        "T_C": 360.15632989572657,
+        "rate_K_s": 0.1208386221367566
+      },
+      {
+        "T_C": 333.72998322157514,
+        "rate_K_s": 0.1959942756190898
+      },
+      {
+        "T_C": 307.57120686221396,
+        "rate_K_s": 0.26364457783490136
+      },
+      {
+        "T_C": 281.77239823079054,
+        "rate_K_s": 0.32116402006267386
+      },
+      {
+        "T_C": 256.41209601626133,
+        "rate_K_s": 0.3663269559310592
+      },
+      {
+        "T_C": 231.55195738279306,
+        "rate_K_s": 0.39739377123159786
+      },
+      {
+        "T_C": 207.2343915093444,
+        "rate_K_s": 0.4131749838939829
+      },
+      {
+        "T_C": 183.48093893993322,
+        "rate_K_s": 0.4130734454291795
+      },
+      {
+        "T_C": 160.2914569099159,
+        "rate_K_s": 0.3971041506659057
+      },
+      {
+        "T_C": 137.64413958785073,
+        "rate_K_s": 0.365891177295091
+      },
+      {
+        "T_C": 115.49636990058414,
+        "rate_K_s": 0.320641865414906
+      },
+      {
+        "T_C": 93.78636785118856,
+        "rate_K_s": 0.26309920981222773
+      },
+      {
+        "T_C": 72.4355702378276,
+        "rate_K_s": 0.19547430787985923
+      },
+      {
+        "T_C": 51.35164943145863,
+        "rate_K_s": 0.1203614676707871
+      },
+      {
+        "T_C": 30.4320552500978,
+        "rate_K_s": 0.04063920070872592
+      }
+    ],
+    "parts": [
+      {
+        "name": "Collet_Tool",
+        "length_mm": 10,
+        "length_kind": "assumption (CAD z envelope)",
+        "cte_ppm_K": 17,
+        "T_C": 400.0735009442412,
+        "rate_K_s": -0.00023924837215855702,
+        "drift_um_s": -0.000040672223266954695
+      },
+      {
+        "name": "AlN_Heater",
+        "length_mm": 5,
+        "length_kind": "assumption (CAD z envelope)",
+        "cte_ppm_K": 4.5,
+        "T_C": 400.0735009442412,
+        "rate_K_s": -0.00023924837215855702,
+        "drift_um_s": -0.000005383088373567533
+      },
+      {
+        "name": "MACOR_Insulator",
+        "length_mm": 16,
+        "length_kind": "assumption (CAD z envelope)",
+        "cte_ppm_K": 9.3,
+        "T_C": 200.63090270855824,
+        "rate_K_s": 0.2647443202189811,
+        "drift_um_s": 0.03939395484858439
+      },
+      {
+        "name": "Cooling_Jacket",
+        "length_mm": 19,
+        "length_kind": "assumption (CAD z envelope)",
+        "cte_ppm_K": 23.6,
+        "T_C": 20,
+        "rate_K_s": 0,
+        "drift_um_s": 0
+      },
+      {
+        "name": "Gimbal_Lockable",
+        "length_mm": 16,
+        "length_kind": "assumption (CAD z envelope)",
+        "cte_ppm_K": 17,
+        "T_C": 20,
+        "rate_K_s": 0,
+        "drift_um_s": 0
+      },
+      {
+        "name": "Load_Cell_100N",
+        "length_mm": 16,
+        "length_kind": "assumption (CAD z envelope)",
+        "cte_ppm_K": 17,
+        "T_C": 20,
+        "rate_K_s": 0,
+        "drift_um_s": 0
+      },
+      {
+        "name": "Flexure_Leaf_Spring",
+        "length_mm": 18,
+        "length_kind": "assumption (CAD z envelope)",
+        "cte_ppm_K": 17,
+        "T_C": 20,
+        "rate_K_s": 0,
+        "drift_um_s": 0
+      },
+      {
+        "name": "Theta_Stage",
+        "length_mm": 16,
+        "length_kind": "assumption (CAD z envelope)",
+        "cte_ppm_K": 17,
+        "T_C": 20,
+        "rate_K_s": 0,
+        "drift_um_s": 0
+      },
+      {
+        "name": "Z_Carriage",
+        "length_mm": 74,
+        "length_kind": "assumption (CAD z envelope)",
+        "cte_ppm_K": 23.6,
+        "T_C": 20,
+        "rate_K_s": 0,
+        "drift_um_s": 0
+      }
+    ],
+    "total_um_s": 0.03934789953694387,
+    "original_um_s": 2.6,
+    "ratio_to_original": 0.01513380751420918
+  }
+}
