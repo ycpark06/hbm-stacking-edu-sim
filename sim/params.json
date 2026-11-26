@@ -1079,6 +1079,102 @@
       "kind": "literature",
       "source": "https://www.microchip.com/content/dam/mchp/documents/FPGA/ProductDocuments/PackagingSpecifications/solder_reflow_leadfree.pdf",
       "note": "one batch for whole wafer/stack"
+    },
+    "xy_speed": {
+      "value": 50,
+      "unit": "mm/s",
+      "kind": "midterm",
+      "source": "calc/midterm/drive_calc.py:27-28 XY 최대 속도."
+    },
+    "xy_acceleration": {
+      "value": 1000,
+      "unit": "mm/s2",
+      "kind": "midterm",
+      "source": "calc/midterm/drive_calc.py:27-28 XY 가속도 1 m/s2의 단위 환산."
+    },
+    "z_speed": {
+      "value": 20,
+      "unit": "mm/s",
+      "kind": "midterm",
+      "source": "calc/midterm/drive_calc.py:30 Z 최대 속도."
+    },
+    "z_acceleration": {
+      "value": 500,
+      "unit": "mm/s2",
+      "kind": "midterm",
+      "source": "calc/midterm/drive_calc.py:30 Z 가속도 0.5 m/s2의 단위 환산."
+    },
+    "xy_distance": {
+      "value": 50,
+      "unit": "mm",
+      "kind": "assumption",
+      "source": "트레이에서 본딩 위치까지 대표 이송 거리를 50 mm로 가정한다. 실측 경로가 없으며 왕복 이동을 이 거리에 포함한다.",
+      "range": [
+        25,
+        100
+      ]
+    },
+    "z_distance": {
+      "value": 5,
+      "unit": "mm",
+      "kind": "assumption",
+      "source": "픽업·배치의 고속 Z 총 이동 거리를 5 mm로 가정한다. 저속 접촉 접근은 별도 항목이다.",
+      "range": [
+        2,
+        10
+      ]
+    },
+    "pickup_time": {
+      "value": 0.5,
+      "unit": "s",
+      "kind": "assumption",
+      "source": "진공 픽업·확인 시간 실측값 부재로 0.5 s를 가정한다.",
+      "range": [
+        0.2,
+        1
+      ]
+    },
+    "alignment_frame_time": {
+      "value": 0.05,
+      "unit": "s",
+      "kind": "assumption",
+      "source": "카메라 노출·전송 및 이동 정착을 포함한 반복 정렬 1회 시간을 50 ms로 가정한다.",
+      "range": [
+        0.02,
+        0.1
+      ]
+    },
+    "alignment_iterations": {
+      "value": 1.01,
+      "unit": "count",
+      "kind": "midterm",
+      "source": "calc/midterm/vision.json closed_loop 분포 1회 99.1%, 2회 0.8%, 3회 0.1%의 기대 반복 수 1.010."
+    },
+    "mrmuf_approach_time": {
+      "value": 0.5,
+      "unit": "s",
+      "kind": "assumption",
+      "source": "가접 전 저속 접근 실측값이 없어 0.5 s를 가정한다. TC-NCF는 기존 approach_time을 사용한다."
+    },
+    "mold_dispense_time": {
+      "value": 10,
+      "unit": "s",
+      "kind": "assumption",
+      "source": "몰딩 재료 공급·금형 취급에 10 s를 가정한다. 충전 및 경화와 분리한 교육용 시간이다.",
+      "range": [
+        5,
+        20
+      ]
+    },
+    "mold_fill_time": {
+      "value": 10,
+      "unit": "s",
+      "kind": "assumption",
+      "source": "C3 유동 모델 결합 전 충전 대기 10 s를 가정한다. recipe.mold_fill_s로 C3 계산값을 전달할 수 있다.",
+      "range": [
+        1,
+        60
+      ]
     }
   },
   "judgement": {
