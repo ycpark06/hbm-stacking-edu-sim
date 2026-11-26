@@ -57,6 +57,10 @@ test('thermal construction uses NCF, unfilled bump and molded MUF params',()=>{
   const muf=buildStack({params,layers:[{mode:'MR-MUF',molded:true},{mode:'MR-MUF',molded:true}]});
   assert.notEqual(ncf.C[0],bump.C[0]);assert.notEqual(muf.C[0],bump.C[0]);
   assert.ok(ncf.R[0]>muf.R[0]&&muf.R[0]>bump.R[0]);
+  // A full gap is below the Si centre; only half the Si is above it.
+  close(1/ncf.G[0],ncf.chuck.R+ncf.gapR[0]+ncf.dieR[0]/2);
+  close(1/ncf.G.at(-1),ncf.toolContact_R+ncf.dieR.at(-1)/2);
+  close(1/ncf.G[1],ncf.dieR[0]/2+ncf.gapR[1]+ncf.dieR[1]/2);
   assert.throws(()=>stackStep({T:[20,20]},{P_W:1,T_head_C:300},ncf,1));
 });
 

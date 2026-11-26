@@ -19,7 +19,7 @@ export function headDrift(params) {
       if(arrival!==null&&t>=arrival+p.alignment_wait.value+p.fit_window.value/2) break;
     }
     step++;
-    if(t>params.reflow.total_time_25_to_peak_max.value) throw new RangeError('head did not reach alignment');
+    if(t>p.max_heatup_time.value) throw new RangeError('head did not reach alignment');
   }
   const alignment=arrival+p.alignment_wait.value;
   const window=samples.filter(s=>Math.abs(s.t-alignment)<=p.fit_window.value/2+Number.EPSILON*alignment);

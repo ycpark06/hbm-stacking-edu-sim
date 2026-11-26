@@ -91,7 +91,8 @@ export const driftUmPerS=(rate,alpha=9.3e-6,L=0.020)=>rate*alpha*L*1e6;
 
 /* G1–G3: browser-safe, explicit params argument (no filesystem or hidden defaults).
  * One finite volume per die + underlying gap, ordered bottom→top. C adds both
- * volumes; series slab R is split equally at each equivalent volume centre.
+ * volumes; gap capacity is lumped at the die centre. Each full gap resistance
+ * sits BELOW its die, while Si resistance is split at the die centre.
  * Chuck is a prescribed-temperature reservoir, not a substrate mechanical layer.
  */
 export function buildStack({layers, toolContact_R, chuck={}, params}) {
@@ -101,14 +102,15 @@ export function buildStack({layers, toolContact_R, chuck={}, params}) {
   const fraction=Math.PI/4*(g.bump_diameter.value/g.bump_pitch.value)**2;
   const cu=g.cu_pillar_height.value/(g.cu_pillar_height.value+g.solder_cap_height.value);
   const bumpCv=fraction*(cu*m.cu_rho.value*m.cu_cp.value+(1-cu)*m.snag_rho.value*m.snag_cp.value);
-  const R=[],C=[],sideArea=[];
+  const R=[],dieR=[],gapR=[],C=[],sideArea=[];
   for(const layer of layers) {
     const t=(layer.thickness_um??g.die_thickness.value)*1e-6;
     if(!(t>0)) throw new RangeError('positive die thickness');
     const fill=layer.mode==='TC-NCF'?p.ncf:layer.molded?p.muf:null;
     const k=fill?.thermal_conductivity.value??m.bump_layer_k_eff.value;
     const cv=fill?fill.density.value*fill.specific_heat.value:bumpCv;
-    R.push(t/(m.si_k.value*area)+gap/(k*area));
+    dieR.push(t/(m.si_k.value*area));gapR.push(gap/(k*area));
+    R.push(dieR.at(-1)+gapR.at(-1));
     C.push(area*(t*m.si_rho.value*m.si_cp.value+gap*cv));
     sideArea.push(4*a*(t+gap));
   }
@@ -116,10 +118,10 @@ export function buildStack({layers, toolContact_R, chuck={}, params}) {
   const rc=chuck.R??p.thermal_stack.chuck_contact_R_area.value/area;
   if([rt,rc].some(r=>r<0)||C.some(c=>!(c>0))) throw new RangeError('thermal parameters');
   // G[0]=chuck, G[N]=tool. Infinity resistance gives an insulated boundary.
-  const G=[1/(rc+R[0]/2)];
-  for(let i=1;i<C.length;i++) G.push(1/((R[i-1]+R[i])/2));
-  G.push(1/(rt+R.at(-1)/2));
-  return {C,G,R,area,sideArea,layers,params:p,toolContact_R:rt,chuck:{...chuck,R:rc}};
+  const G=[1/(rc+gapR[0]+dieR[0]/2)];
+  for(let i=1;i<C.length;i++) G.push(1/(dieR[i-1]/2+gapR[i]+dieR[i]/2));
+  G.push(1/(rt+dieR.at(-1)/2));
+  return {C,G,R,dieR,gapR,area,sideArea,layers,params:p,toolContact_R:rt,chuck:{...chuck,R:rc}};
 }
 
 /* Backward Euler solves the passive tridiagonal M-matrix; no stability dt limit.
@@ -132,7 +134,7 @@ export function stackStep(state,input,model,dt) {
   const h=input.h_conv??0, ambient=input.T_amb_C??model.params.thermal_stack.ambient_temp.value;
   if(h<0) throw new RangeError('nonnegative convection');
   const gc=input.T_chuck_C==null?0:model.G[0],gh=input.T_head_C==null?0:model.G[n];
-  const H=model.sideArea.map((a,i)=>h*(a+(i===n-1?model.area:0)));
+  const H=model.sideArea.map((a,i)=>h*(a+(i===n-1&&input.T_head_C==null?model.area:0)));
   const lower=Array(n).fill(0),diag=[],upper=Array(n).fill(0),b=[];
   for(let i=0;i<n;i++) {
     const left=i>0?model.G[i]:gc,right=i<n-1?model.G[i+1]:gh;

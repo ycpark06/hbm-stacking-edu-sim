@@ -1122,6 +1122,12 @@
       "unit": "C",
       "kind": "assumption",
       "source": "리플로우 액상선 위 시간과 피크 유지 시간을 함께 지정하기 위해 SnAg 액상선 221 ℃와 피크 250 ℃의 중간 온도 235.5 ℃에 shoulder dwell을 둔다. 양산 오븐 프로파일이 아닌 교육용 구간 구성 가정이다. reflow.time_above_liquidus의 SAC217 기준 시간을 SnAg221 프로그램 경계에 적용한다."
+    },
+    "volume_model": {
+      "value": "die-centred node; full gap below; gap capacity lumped to die",
+      "unit": "model",
+      "kind": "assumption",
+      "source": "층별 온도를 Si 다이 중심 온도로 정의한다. Si 열저항은 반씩 나누고 충전층 열저항은 해당 다이 아래에 전부 둔다. 매우 얇은 간격의 별도 온도를 풀지 않고 열용량을 다이에 합친 1차원 근사이다. 툴 접촉 중 상면 대류는 제외한다."
     }
   },
   "head_drift": {
@@ -1256,6 +1262,12 @@
       "unit": "mm",
       "kind": "assumption",
       "source": "cad/midterm/spec.py: Z_Carriage의 box dz 또는 cylinder z_top−z_bottom. CAD 외형의 z 높이이며 직렬 하중 경로의 유효 열팽창 길이로 사용하는 것은 가정이다. Flexure는 실제 변형 경로 대신 외형 높이를 사용한다."
+    },
+    "max_heatup_time": {
+      "value": 400,
+      "unit": "s",
+      "kind": "midterm",
+      "source": "calc/midterm/thermal.py:43의 가열 해석 400 s 구간을 미도달 감지 상한으로 사용한다."
     }
   }
 }
