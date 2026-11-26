@@ -61,3 +61,12 @@ build/test_fixed_inputs: $(SOURCES) $(wildcard src/*.h hal/*.h) test/test_fixed_
 
 test-wasm: wasm build/test_fixed_inputs
 	$(NODE) test/test_wasm.mjs
+
+# Keep tracked delivery artifacts controller.bin/.js/.wasm and .gitkeep.
+.PHONY: clean distclean
+clean:
+	@if test -d build; then find build -type f \( -name '*.o' -o -name 'test_force' -o -name 'test_temp' -o -name 'test_safety' -o -name 'test_fixed_inputs' -o -name '*.elf' -o -name '*.map' -o -name '*.csv' \) -delete; fi
+
+# Explicitly remove delivery artifacts as well; retain directory/.gitkeep.
+distclean: clean
+	rm -f build/controller.bin build/controller.js build/controller.wasm build/golden_cases.h build/golden_temp_cases.h

@@ -88,3 +88,175 @@ export function coolplateRise(Q,{flow_L_min=1,h_W_m2K=3000,A_m2=0.006,cp=4180}={
 }
 export const thermalOffsetUmPerK=(alpha,L=0.020)=>alpha*L*1e6;
 export const driftUmPerS=(rate,alpha=9.3e-6,L=0.020)=>rate*alpha*L*1e6;
+
+/* G1–G3: browser-safe, explicit params argument (no filesystem or hidden defaults).
+ * One finite volume per die + underlying gap, ordered bottom→top. C adds both
+ * volumes; gap capacity is lumped at the die centre. Each full gap resistance
+ * sits BELOW its die, while Si resistance is split at the die centre.
+ * Chuck is a prescribed-temperature reservoir, not a substrate mechanical layer.
+ */
+export function buildStack({layers, toolContact_R, chuck={}, params}) {
+  if(!params || !layers?.length) throw new RangeError('nonempty layers and params required');
+  const p=params, g=p.geometry, m=p.materials, a=g.die_size.value/1000, area=a*a;
+  const gap=g.interlayer_gap.value*1e-6;
+  const fraction=Math.PI/4*(g.bump_diameter.value/g.bump_pitch.value)**2;
+  const cu=g.cu_pillar_height.value/(g.cu_pillar_height.value+g.solder_cap_height.value);
+  const bumpCv=fraction*(cu*m.cu_rho.value*m.cu_cp.value+(1-cu)*m.snag_rho.value*m.snag_cp.value);
+  const R=[],dieR=[],gapR=[],C=[],sideArea=[];
+  for(const layer of layers) {
+    const t=(layer.thickness_um??g.die_thickness.value)*1e-6;
+    if(!(t>0)) throw new RangeError('positive die thickness');
+    const fill=layer.mode==='TC-NCF'?p.ncf:layer.molded?p.muf:null;
+    const k=fill?.thermal_conductivity.value??m.bump_layer_k_eff.value;
+    const cv=fill?fill.density.value*fill.specific_heat.value:bumpCv;
+    dieR.push(t/(m.si_k.value*area));gapR.push(gap/(k*area));
+    R.push(dieR.at(-1)+gapR.at(-1));
+    C.push(area*(t*m.si_rho.value*m.si_cp.value+gap*cv));
+    sideArea.push(4*a*(t+gap));
+  }
+  const rt=toolContact_R??p.thermal_stack.tool_contact_R_area.value/area;
+  const rc=chuck.R??p.thermal_stack.chuck_contact_R_area.value/area;
+  if([rt,rc].some(r=>r<0)||C.some(c=>!(c>0))) throw new RangeError('thermal parameters');
+  // G[0]=chuck, G[N]=tool. Infinity resistance gives an insulated boundary.
+  const G=[1/(rc+gapR[0]+dieR[0]/2)];
+  for(let i=1;i<C.length;i++) G.push(1/(dieR[i-1]/2+gapR[i]+dieR[i]/2));
+  G.push(1/(rt+dieR.at(-1)/2));
+  return {C,G,R,dieR,gapR,area,sideArea,layers,params:p,toolContact_R:rt,chuck:{...chuck,R:rc}};
+}
+
+/* Backward Euler solves the passive tridiagonal M-matrix; no stability dt limit.
+ * Input P_W is deposited in top volume. T_head_C instead connects through G[N].
+ * loss_J and input_J use END-step fluxes, exactly as the BE storage balance. */
+export function stackStep(state,input,model,dt) {
+  const n=model.C.length,T=state.T;
+  if(!(dt>0)||T.length!==n||T.some(t=>!Number.isFinite(t))) throw new RangeError('state/dt');
+  if(input.P_W!=null&&input.T_head_C!=null) throw new RangeError('choose power OR head boundary');
+  const h=input.h_conv??0, ambient=input.T_amb_C??model.params.thermal_stack.ambient_temp.value;
+  if(h<0) throw new RangeError('nonnegative convection');
+  const gc=input.T_chuck_C==null?0:model.G[0],gh=input.T_head_C==null?0:model.G[n];
+  const H=model.sideArea.map((a,i)=>h*(a+(i===n-1&&input.T_head_C==null?model.area:0)));
+  const lower=Array(n).fill(0),diag=[],upper=Array(n).fill(0),b=[];
+  for(let i=0;i<n;i++) {
+    const left=i>0?model.G[i]:gc,right=i<n-1?model.G[i+1]:gh;
+    lower[i]=i>0?-left:0; upper[i]=i<n-1?-right:0;
+    diag[i]=model.C[i]/dt+left+right+H[i];
+    b[i]=model.C[i]/dt*T[i]+H[i]*ambient;
+  }
+  b[0]+=gc*(input.T_chuck_C??0);
+  b[n-1]+=gh*(input.T_head_C??0)+(input.P_W??0);
+  for(let i=1;i<n;i++) {const f=lower[i]/diag[i-1];diag[i]-=f*upper[i-1];b[i]-=f*b[i-1];}
+  const next=Array(n);next[n-1]=b[n-1]/diag[n-1];
+  for(let i=n-2;i>=0;i--) next[i]=(b[i]-upper[i]*next[i+1])/diag[i];
+  const input_J=dt*((input.P_W??0)+gh*((input.T_head_C??0)-next[n-1]));
+  const loss_J=dt*(gc*(next[0]-(input.T_chuck_C??0))+H.reduce((s,v,i)=>s+v*(next[i]-ambient),0));
+  return {T:next,input_J,loss_J,stored_J:model.C.reduce((s,c,i)=>s+c*(next[i]-T[i]),0)};
+}
+
+/* remelt_count counts all below→above liquidus crossings (including the first);
+ * subsequent_remelts excludes that first crossing. TAL uses linear interpolation.
+ * Schedule segments may share exposure: {id, kind: 'bond'|'tack'|'reflow', layer}.
+ * id identifies one complete cycle (ramp/hold/cool); layer is 1-based for bond/tack.
+ * Event peaks include segment start/end and cooling, so delayed peaks are retained.
+ * reheat_count/peaks count bonding events AFTER a layer's own bond; reflow bonds
+ * all present layers and is also counted separately in reflow_count. Tack peaks
+ * count only later layers' temporary fixation, excluding a layer's own tack.
+ * No temperature threshold is used for event counts. No latent/cure heat in C1. */
+export function stackSim(model,schedule) {
+  const p=model.params,tl=p.solder.liquidus_snag.value,N=model.C.length;
+  const stats=Array.from({length:N},()=>({peak_C:-Infinity,time_above_s:0,remelt_count:0,subsequent_remelts:0,reheat_count:0,reheat_peaks_C:[],reflow_count:0,tack_exposures:0,tack_peaks_C:[],crossings_by_phase:{}}));
+  let T=[],t=0;const history=[],exposures=new Map();
+  for(const segment of schedule) {
+    const n=segment.activeLayers??N;
+    if(!Number.isInteger(n)||n<T.length||n>N||!(segment.duration_s>0)) throw new RangeError('schedule');
+    const initial=p.thermal_stack.ambient_temp.value;
+    while(T.length<n) T.push(initial);
+    let exposure;
+    if(segment.exposure) {
+      const {id,kind,layer}=segment.exposure;
+      if(!id||!['bond','tack','reflow'].includes(kind)||
+        (kind!=='reflow'&&(!Number.isInteger(layer)||layer<1||layer>n))) throw new RangeError('exposure');
+      if(!exposures.has(id)) exposures.set(id,{kind,layer,peaks:Array(n).fill(-Infinity)});
+      exposure=exposures.get(id);
+      for(let i=0;i<n;i++) exposure.peaks[i]=Math.max(exposure.peaks[i],T[i]);
+    }
+    const active=buildStack({...model,layers:model.layers.slice(0,n)});
+    for(let i=0;i<n;i++) stats[i].peak_C=Math.max(stats[i].peak_C,T[i]);
+    history.push({t_s:t,T:[...T],phase:segment.phase,event:segment.startEvent??null});
+    let elapsed=0;
+    while(elapsed<segment.duration_s) {
+      const dt=Math.min(segment.dt_s??p.thermal_stack.dt.value,segment.duration_s-elapsed);
+      const input=typeof segment.input==='function'?segment.input(elapsed+dt):segment.input;
+      const next=stackStep({T},input,active,dt).T;
+      for(let i=0;i<n;i++) {
+        const s=stats[i],a=T[i],b=next[i];s.peak_C=Math.max(s.peak_C,b);
+        if(exposure) exposure.peaks[i]=Math.max(exposure.peaks[i],b);
+        if(a<=tl&&b>tl) {s.remelt_count++;s.crossings_by_phase[segment.phase]=(s.crossings_by_phase[segment.phase]??0)+1;}
+        const fraction=a>tl?(b>tl?1:(a-tl)/(a-b)):(b>tl?(b-tl)/(b-a):0);
+        s.time_above_s+=dt*fraction;
+      }
+      elapsed+=dt;t+=dt;T=next;
+      history.push({t_s:t,T:[...T],phase:segment.phase,event:elapsed>=segment.duration_s?(segment.endEvent??null):null});
+    }
+  }
+  const bonded=new Set();
+  for(const {kind,layer,peaks} of exposures.values()) {
+    for(let i=0;i<peaks.length;i++) {
+      const s=stats[i];
+      if(kind==='tack'&&i<layer-1) s.tack_peaks_C.push(peaks[i]);
+      if(kind==='reflow') s.reflow_count++;
+      if((kind==='bond'||kind==='reflow')&&bonded.has(i)) s.reheat_peaks_C.push(peaks[i]);
+    }
+    if(kind==='bond') bonded.add(layer-1);
+    if(kind==='reflow') peaks.forEach((_,i)=>bonded.add(i));
+  }
+  for(const s of stats) {
+    s.reheat_count=s.reheat_peaks_C.length;s.tack_exposures=s.tack_peaks_C.length;
+    s.subsequent_remelts=Math.max(0,s.remelt_count-1);
+    if(s.peak_C===-Infinity) s.peak_C=null;
+  }
+  return {history,layers:stats};
+}
+
+export function tcncfSchedule(N,p) {
+  const q=p.tcncf_process,s=p.thermal_stack,stage=q.stage_temp.value,head=q.head_setpoint.value;
+  const ramp=(head-stage)/q.ramp_rate.equipment_value;
+  if(!(ramp>0)) throw new RangeError('head above stage');
+  const schedule=[];
+  for(let n=1;n<=N;n++) {
+    const base={activeLayers:n,exposure:{id:`bond-${n}`,kind:'bond',layer:n}};
+    const input=T=>({T_head_C:T,T_chuck_C:stage,h_conv:s.h_conv.value,T_amb_C:s.ambient_temp.value});
+    schedule.push({...base,phase:'bond-ramp',duration_s:ramp,input:t=>input(stage+q.ramp_rate.equipment_value*t)});
+    schedule.push({...base,phase:'bond-hold',duration_s:q.hold_time.value,input:input(head),endEvent:'bond'});
+    schedule.push({...base,phase:'bond-cool',duration_s:q.cool_time.value,input:t=>input(head+(stage-head)*t/q.cool_time.value)});
+  }
+  return schedule;
+}
+export function mrmufSchedule(N,p) {
+  const q=p.mrmuf_process,s=p.thermal_stack,r=p.reflow,ambient=s.ambient_temp.value;
+  const schedule=[];
+  for(let n=1;n<=N;n++) {
+    const base={activeLayers:n,exposure:{id:`tack-${n}`,kind:'tack',layer:n}};
+    schedule.push({...base,phase:'tack',duration_s:q.tack_time.value,input:{T_head_C:q.tack_temp.value,T_chuck_C:ambient,h_conv:s.h_conv.value,T_amb_C:ambient},endEvent:'tack'});
+    const rest=p.cycle.mrmuf_tack_cycle_per_die.value-q.tack_time.value;
+    if(!(rest>0)) throw new RangeError('tack cycle must include cooling/handling');
+    schedule.push({...base,phase:'tack-cool',duration_s:rest,input:{T_chuck_C:ambient,h_conv:s.h_conv.value,T_amb_C:ambient}});
+  }
+  // Piecewise oven/chuck program: a shoulder dwell implements requested TL
+  // duration without extending the near-peak hold. Actual die TL time is measured.
+  const oven=T=>({T_chuck_C:T,T_amb_C:T,h_conv:s.h_oven.value});
+  const add=(phase,from,to,time,event)=>schedule.push({activeLayers:N,exposure:{id:'reflow-1',kind:'reflow'},phase,duration_s:time,input:t=>oven(from+(to-from)*t/time),endEvent:event});
+  add('reflow-preheat',ambient,r.preheat_start.value,(r.preheat_start.value-ambient)/r.ramp_up.value);
+  add('reflow-soak',r.preheat_start.value,r.preheat_end.value,r.soak_time.value);
+  const shoulder=s.reflow_shoulder_temp.value;
+  const dwell=r.time_above_liquidus.value-r.time_near_peak.value-
+    (r.peak_temp.value-p.solder.liquidus_snag.value)*(1/r.ramp_up.value+1/r.ramp_down.value);
+  if(!(shoulder>p.solder.liquidus_snag.value&&shoulder<r.peak_temp.value&&dwell>=0)) throw new RangeError('reflow envelope');
+  add('reflow-ramp',r.preheat_end.value,shoulder,(shoulder-r.preheat_end.value)/r.ramp_up.value);
+  if(dwell>0) add('reflow-shoulder',shoulder,shoulder,dwell);
+  add('reflow-ramp',shoulder,r.peak_temp.value,(r.peak_temp.value-shoulder)/r.ramp_up.value);
+  add('reflow-peak',r.peak_temp.value,r.peak_temp.value,r.time_near_peak.value,'reflow');
+  add('reflow-cool',r.peak_temp.value,ambient,(r.peak_temp.value-ambient)/r.ramp_down.value);
+  // Mold heat/cure is a separate mechanical stage in C1; thermal schedule can
+  // also be built with molded:true to use MUF conductivity/capacity.
+  return schedule;
+}
