@@ -1509,7 +1509,11 @@
       "value": 8,
       "unit": "count",
       "kind": "assumption",
-      "source": "requirements 3절의 2/4/8/12단 중 8단을 기본 시연 조건으로 선택한다. 문헌 15 μm MR-MUF 8단과 함께 비교하며 결과 맞춤 값이 아니다."
+      "source": "requirements 3절의 2/4/8/12단 중 8단을 기본 시연 조건으로 선택한다. 문헌 15 μm MR-MUF 8단과 함께 비교하며 결과 맞춤 값이 아니다.",
+      "range": [
+        2,
+        12
+      ]
     },
     "alignment_reference": {
       "value": "previous",
