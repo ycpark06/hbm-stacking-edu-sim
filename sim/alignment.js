@@ -78,3 +78,55 @@ export function stackOffsetMonteCarlo(options) {
   return {...expected,samples,mc_mean_um:mean,mc_sigma_um:M2.map(v=>Math.sqrt(v/(samples-1))),
     sigma_relative_standard_error:1/Math.sqrt(2*(samples-1))};
 }
+
+/** m x'' + c x' + K x = -F sign(x'); at rest |Kx|<=F sticks.
+ * Initial velocity=0. Exact linear response per slip interval; dry friction
+ * changes sign only at velocity extrema. No numerical time stepping.
+ * Mastrangeli small-displacement stiffness is supplied by the caller.
+ */
+export function selfAlign({x0_um,K_N_m,c_Ns_m,m_kg,F_resist_N,t_liquid_s}) {
+  if(![x0_um,K_N_m,c_Ns_m,m_kg,F_resist_N,t_liquid_s].every(Number.isFinite)||
+    K_N_m<=0||m_kg<=0||c_Ns_m<0||F_resist_N<0||t_liquid_s<0)throw new RangeError('self alignment inputs');
+  const a=c_Ns_m/(2*m_kg),w2=K_N_m/m_kg,delta=a*a-w2;
+  const response=t=>{
+    if(delta===0)return Math.exp(-a*t)*(1+a*t);
+    if(delta<0){const w=Math.sqrt(-delta);return Math.exp(-a*t)*(Math.cos(w*t)+a/w*Math.sin(w*t));}
+    const d=Math.sqrt(delta),r1=-w2/(a+d),r2=-a-d;
+    return (-r2*Math.exp(r1*t)+r1*Math.exp(r2*t))/(r1-r2);
+  };
+  let x=x0_um*1e-6,t=t_liquid_s;const stop=F_resist_N/K_N_m;
+  if(t===0)return {x_um:x0_um,reduction_um:0,stuck:Math.abs(x)<=stop};
+  if(F_resist_N===0)x*=response(t);
+  else if(delta>=0) {
+    if(Math.abs(x)>stop){const eq=Math.sign(x)*stop;x=eq+(x-eq)*response(t);}
+  } else {
+    const half=Math.PI/Math.sqrt(-delta),decay=Math.exp(-a*half);
+    // Each full slip ends at rest; positive friction reduces amplitude by at
+    // least 2F/K per half-cycle even at c=0. Skip cycles algebraically.
+    if(Math.abs(x)>stop) {
+      const amplitude=Math.abs(x),b=stop*(1+decay);
+      const untilStick=decay===1?Math.ceil((amplitude-stop)/b):
+        Math.ceil(Math.log((stop+b/(1-decay))/(amplitude+b/(1-decay)))/Math.log(decay));
+      const cycles=Math.min(Math.floor(t/half),Math.max(1,untilStick));
+      if(cycles>0) {
+        const amp=decay===1?amplitude-cycles*b:decay**cycles*amplitude-b*(-Math.expm1(cycles*Math.log(decay)))/(1-decay);
+        x=Math.sign(x)*(cycles%2?-1:1)*amp;t-=cycles*half;
+      }
+      if(Math.abs(x)>stop&&t>0){const eq=Math.sign(x)*stop;x=eq+(x-eq)*response(t);}
+    }
+  }
+  return {x_um:x*1e6,reduction_um:Math.abs(x0_um)-Math.abs(x)*1e6,stuck:Math.abs(x)<=stop};
+}
+
+/** Square array count=floor(side/pitch)^2, all joints act in parallel.
+ * Circular bump diameter substitutes the square-pad width in the literature
+ * formula. One die mass per joint layer; independent relative coordinates,
+ * not a coupled N-body stack mode or pad depinning/contact-line model.
+ */
+export function selfAlignCoefficients(thickness_um,params) {
+  const p=params,g=p.geometry,side=g.die_size.value*1e-3;
+  const bump_count=Math.floor(side/(g.bump_pitch.value*1e-6))**2;
+  return {bump_count,K_N_m:bump_count*2*p.solder.surface_tension.value*g.bump_diameter.value/p.solder.molten_height_for_alignment.value,
+    c_Ns_m:p.alignment.damping.value,F_resist_N:p.alignment.resist_force.value,
+    m_kg:side**2*thickness_um*1e-6*p.materials.si_rho.value};
+}
