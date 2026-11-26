@@ -11,3 +11,5 @@ node_modules/
 
 # Regenerated calculation output; originals remain calc/midterm/
 calc/out/
+
+_site/
