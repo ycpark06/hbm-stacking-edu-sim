@@ -124,7 +124,10 @@ export function stackNcf(thermal,params) {
       let left=t,right=t+d;
       if(Ta<on&&Tb>=on)left=t+d*(on-Ta)/(Tb-Ta);
       if(Ta>=on&&Tb<on)right=t+d*(on-Ta)/(Tb-Ta);
-      const delta=(right-left)*(ncfCureRate(temperature(left),params)+4*ncfCureRate(temperature((left+right)/2),params)+ncfCureRate(temperature(right),params))/6;
+      // Integrate only the active side of the onset crossing. Clamp endpoint
+      // roundoff to onset so inclusive/exclusive sampling cannot add a cure pulse.
+      const rate=t=>ncfCureRate(Math.max(on,temperature(t)),params);
+      const delta=Math.max(Ta,Tb)<on?0:(right-left)*(rate(left)+4*rate((left+right)/2)+rate(right))/6;
       if(gel_time_s===null&&H+delta>=gelHazard)gel_time_s=left+(right-left)*(gelHazard-H)/delta;
       H+=delta;t+=d;states.push({t,H});
     }

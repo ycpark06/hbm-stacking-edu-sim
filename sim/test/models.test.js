@@ -197,3 +197,106 @@ test('head drift uses CAD z lengths and all 16 MACOR rates, not original force-l
   const changed=structuredClone(params);changed.head_drift.original_drift.value*=2;
   assert.equal(headDrift(changed).total_um_s,r.total_um_s);
 });
+
+// C2: numerical consistency, statistical validation, and recorded scenarios.
+import {ncfViscosity,ncfCureRate,cureStep,squeezeIntegrate,squeezeTimeTo,squeezeBlt,stackNcf,ncfVoidTendency} from '../ncf.js';
+import {stackOffset,stackOffsetExpected,stackOffsetMonteCarlo} from '../alignment.js';
+import {makeRng} from '../rng.js';
+import {trapezoidMoveTime,bondStepTimes,stackCycleTime} from '../cycle.js';
+
+test('NCF viscosity matches Arrhenius at zero cure, diverges monotonically; onset and gel reference',()=>{
+  const p=params.ncf,g=p.gel_conversion.value;
+  for(const T of [100,138,200,250]) {
+    const expected=p.min_melt_viscosity.value*Math.exp(p.viscosity_activation_energy.value*1000/8.314*(1/(T+273.15)-1/(p.min_viscosity_temp.value+273.15)));
+    close(ncfViscosity(T,0,params),expected);
+    let previous=0;
+    for(const a of [0,g/2,g*0.9,g*0.99,g*0.999]) {const v=ncfViscosity(T,a,params);assert.ok(v>previous);previous=v;}
+    assert.equal(ncfViscosity(T,g,params),Infinity);
+  }
+  assert.equal(ncfCureRate(p.cure_onset_temp.value-1,params),0);
+  close(cureStep(0,p.gel_reference_temp.value,p.gel_time_at_250C.value,params),g);
+});
+
+test('RK4 Stefan: analytic thickness/contact, doubled force halves time, time-varying fourth-order convergence',()=>{
+  const base={a_mm:5,h0_m:60e-6,h_stop_m:15e-6,dt_s:0.1,t_end_s:100,mu_of_t:()=>1727,F_of_t:()=>40};
+  const analytic=squeezeTimeTo(base.h_stop_m,40,5,{mu:1727,h0:base.h0_m});
+  const a=squeezeIntegrate(base),b=squeezeIntegrate({...base,F_of_t:()=>80});
+  close(a.contact_time_s,analytic,1e-10);close(b.contact_time_s,a.contact_time_s/2,1e-6);
+  for(const row of a.history)close(row.h_m,squeezeBlt(40,5,row.t_s,{mu:1727,h0:base.h0_m,hmin:base.h_stop_m}),1e-10);
+  // Smooth varying fluidity with exact integral, contact outside this interval.
+  const varying={...base,h_stop_m:1e-6,t_end_s:1,mu_of_t:t=>1727*Math.exp(t)};
+  const target=1/Math.sqrt(1/base.h0_m**2+(1/base.h_stop_m**2-1/base.h0_m**2)/analytic*(1-Math.exp(-1)));
+  const coarse=squeezeIntegrate({...varying,dt_s:0.2}),fine=squeezeIntegrate({...varying,dt_s:0.1});
+  const ec=Math.abs(coarse.remaining_thickness_m-target),ef=Math.abs(fine.remaining_thickness_m-target);
+  assert.ok(ec/ef>15&&ec/ef<17);
+  const gel=squeezeIntegrate({...base,F_of_t:()=>40,mu_of_t:()=>Infinity,gel_time_s:0});
+  assert.equal(gel.contact_time_s,null);assert.equal(gel.gel_before_contact,true);close(gel.remaining_thickness_m,base.h0_m);
+  assert.throws(()=>squeezeIntegrate({...base,dt_s:0}));
+});
+
+test('seeded stack offsets: MC agrees within five sampling standard errors; reference covariance',()=>{
+  const M=params.alignment.mc_samples.value,s=params.alignment.sigma_layer_um.value;
+  for(const reference of ['previous','substrate'])for(const N of [2,4,8,12]) {
+    const opts={N,reference,params,rng:makeRng(params.alignment.mc_seed.value)},r=stackOffsetMonteCarlo(opts);
+    const expected=stackOffsetExpected(opts).cumulative_sigma_um;
+    close(expected,s*(reference==='previous'?Math.sqrt(N):1));
+    for(let j=0;j<2;j++) {
+      assert.ok(Math.abs(r.mc_sigma_um[j]/expected-1)<5/Math.sqrt(2*(M-1)));
+      assert.ok(Math.abs(r.mc_mean_um[j])<5*expected/Math.sqrt(M));
+    }
+    const one=stackOffset({...opts,rng:makeRng(123)}),two=stackOffset({...opts,rng:makeRng(123)});
+    assert.deepEqual(one,two);assert.equal(one.self_alignment,false);
+    for(let i=0;i<N;i++)for(let j=0;j<2;j++)close(one.positions_um[i][j]-(i?one.positions_um[i-1][j]:0),one.layer_errors_um[i][j]);
+  }
+});
+
+test('cycle triangular/trapezoidal continuity; TC linear, MR layer plus once; C1 oven duration',()=>{
+  const v=params.cycle.xy_speed.value,a=params.cycle.xy_acceleration.value,d=v*v/a;
+  close(trapezoidMoveTime(d,v,a),2*v/a);
+  close(trapezoidMoveTime(d*(1-1e-10),v,a),trapezoidMoveTime(d*(1+1e-10),v,a),1e-9);
+  assert.equal(trapezoidMoveTime(0,v,a),0);assert.throws(()=>trapezoidMoveTime(-1,v,a));
+  for(const mode of ['TC-NCF','MR-MUF']) {
+    const recipe={params},step=bondStepTimes(mode,recipe),r2=stackCycleTime(mode,2,recipe),r4=stackCycleTime(mode,4,recipe);
+    close(r4.total_s-r2.total_s,2*step.per_layer_s);
+    close(r4.total_s,4*step.per_layer_s+step.once_s);
+    if(mode==='TC-NCF'){assert.equal(step.once_s,0);close(r4.total_s,2*r2.total_s);close(step.per_layer.ramp_s,10);}
+    else {
+      close(step.once.reflow_s,mrmufSchedule(2,params).filter(s=>s.phase.startsWith('reflow')).reduce((v,s)=>v+s.duration_s,0));
+      close(stackCycleTime(mode,4,{params,mold_fill_s:123}).total_s-r4.total_s,123-params.cycle.mold_fill_time.value);
+      assert.equal(step.once.mold_cure_s,params.muf.cure_time.value);
+    }
+    close(Object.values(r4.breakdown.layer_totals).reduce((s,v)=>s+v,0)+Object.values(r4.breakdown.once).reduce((s,v)=>s+v,0),r4.total_s);
+  }
+});
+
+test('C2 recorded 2/4/8/12 x 100/50 scenarios, gel/void rules, parameter sensitivity and coupled dt convergence',()=>{
+  const results=[],alignment=[];
+  for(const N of [2,4,8,12]) {
+    for(const reference of ['previous','substrate'])alignment.push(stackOffsetMonteCarlo({N,reference,params,rng:makeRng(params.alignment.mc_seed.value)}));
+    for(const thickness_um of [100,50]) {
+      const thermal=stackSim(model(N,'TC-NCF',thickness_um),tcncfSchedule(N,params)),layers=stackNcf(thermal,params);
+      for(const l of layers) {
+        assert.ok(l.history.every(r=>Number.isFinite(r.h_m)&&r.h_m>=l.contact_gap_m*(1-1e-12)));
+        assert.equal(l.tendency.quantitative,false);
+        assert.ok(l.cure_history.every((r,i,arr)=>r.alpha>=0&&r.alpha<=1&&(i===0||r.alpha>=arr[i-1].alpha)));
+      }
+      results.push({N,thickness_um,layers:layers.map(({history,cure_history,...l})=>l),
+        cycles:Object.fromEntries(['TC-NCF','MR-MUF'].map(mode=>[mode,stackCycleTime(mode,N,{params})]))});
+    }
+  }
+  const sensitivity=[];
+  for(const key of ['gel_time_at_250C','cure_activation_energy','castro_A'])for(const value of params.ncf[key].range) {
+    const p=structuredClone(params);p.ncf[key].value=value;
+    const thermal=stackSim(model(12,'TC-NCF',50,p),tcncfSchedule(12,p));
+    sensitivity.push({key,value,layers:stackNcf(thermal,p).map(({history,cure_history,...l})=>l)});
+  }
+  const thermal=stackSim(model(12,'TC-NCF',50),tcncfSchedule(12,params)),coarse=stackNcf(thermal,params);
+  const fineParams=structuredClone(params);fineParams.ncf.integration_dt.value/=2;
+  const fine=stackNcf(thermal,fineParams);
+  const convergence=fine.map((l,i)=>({layer:i+1,contact_delta_s:l.contact_time_s===null||coarse[i].contact_time_s===null?null:l.contact_time_s-coarse[i].contact_time_s,
+    thickness_delta_um:(l.remaining_thickness_m-coarse[i].remaining_thickness_m)*1e6,conversion_delta:l.final_conversion-coarse[i].final_conversion}));
+  for(const r of convergence){if(r.contact_delta_s!==null)assert.ok(Math.abs(r.contact_delta_s)<0.01);assert.ok(Math.abs(r.thickness_delta_um)<0.01);}
+  const voidRule=ncfVoidTendency({gel_before_contact:true,contact_time_s:null,contact_viscosity_Pa_s:null,low_viscosity_time_s:0,ramp_rate_K_s:20},params);
+  assert.equal(voidRule.quantitative,false);assert.equal(voidRule.grade,'미접합 위험');
+  writeFileSync(new URL('c2_results.json',import.meta.url),JSON.stringify({results,alignment,sensitivity,convergence},null,2)+'\n');
+});

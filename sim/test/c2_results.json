@@ -1,0 +1,3910 @@
+{
+  "results": [
+    {
+      "N": 2,
+      "thickness_um": 100,
+      "layers": [
+        {
+          "contact_time_s": 7.740786177246143,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 9.959132595637977,
+          "gel_before_contact": false,
+          "layer": 1,
+          "contact_viscosity_Pa_s": 227.70328226062017,
+          "low_viscosity_time_s": 6.38078617724615,
+          "final_conversion": 0.9470214312139082,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 7.281012695762136,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 9.334989282131374,
+          "gel_before_contact": false,
+          "layer": 2,
+          "contact_viscosity_Pa_s": 212.94459213941744,
+          "low_viscosity_time_s": 6.026012695762141,
+          "final_conversion": 0.9695182458095305,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        }
+      ],
+      "cycles": {
+        "TC-NCF": {
+          "total_s": 39.981,
+          "breakdown": {
+            "per_layer": {
+              "pickup_s": 0.5,
+              "xy_move_s": 1.05,
+              "z_move_s": 0.29,
+              "alignment_s": 0.0505,
+              "approach_s": 3.2,
+              "ramp_s": 10,
+              "hold_s": 3.2,
+              "cooling_s": 1.7
+            },
+            "layer_totals": {
+              "pickup_s": 1,
+              "xy_move_s": 2.1,
+              "z_move_s": 0.58,
+              "alignment_s": 0.101,
+              "approach_s": 6.4,
+              "ramp_s": 20,
+              "hold_s": 6.4,
+              "cooling_s": 3.4
+            },
+            "once": {},
+            "per_layer_s": 19.9905,
+            "all_layers_s": 39.981,
+            "once_s": 0
+          },
+          "throughput": {
+            "stacks_per_hour": 90.04277031590004,
+            "placements_per_hour": 180.0855406318001
+          },
+          "literature_comparison": {
+            "tcb_thermal_cycle_min_s": 1.2,
+            "tcb_uph_current": 350,
+            "tcb_bond_time_per_layer_s": 10,
+            "mrmuf_tack_cycle_per_die_s": 3,
+            "mass_reflow_total_s": 360,
+            "note": "비교만: 업체 dual-head UPH/배치 오븐과 단일 스택 직렬 elapsed time의 범위가 다르며 수치를 맞추지 않음"
+          }
+        },
+        "MR-MUF": {
+          "total_s": 7532.531,
+          "breakdown": {
+            "per_layer": {
+              "pickup_s": 0.5,
+              "xy_move_s": 1.05,
+              "z_move_s": 0.29,
+              "alignment_s": 0.0505,
+              "approach_s": 0.5,
+              "tack_s": 1
+            },
+            "layer_totals": {
+              "pickup_s": 1,
+              "xy_move_s": 2.1,
+              "z_move_s": 0.58,
+              "alignment_s": 0.101,
+              "approach_s": 1,
+              "tack_s": 2
+            },
+            "once": {
+              "reflow_s": 305.75,
+              "mold_dispense_s": 10,
+              "mold_fill_s": 10,
+              "mold_cure_s": 7200
+            },
+            "per_layer_s": 3.3905000000000003,
+            "all_layers_s": 6.781000000000001,
+            "once_s": 7525.75
+          },
+          "throughput": {
+            "stacks_per_hour": 0.4779270075357141,
+            "placements_per_hour": 0.9558540150714282
+          },
+          "literature_comparison": {
+            "tcb_thermal_cycle_min_s": 1.2,
+            "tcb_uph_current": 350,
+            "tcb_bond_time_per_layer_s": 10,
+            "mrmuf_tack_cycle_per_die_s": 3,
+            "mass_reflow_total_s": 360,
+            "note": "비교만: 업체 dual-head UPH/배치 오븐과 단일 스택 직렬 elapsed time의 범위가 다르며 수치를 맞추지 않음"
+          }
+        }
+      }
+    },
+    {
+      "N": 2,
+      "thickness_um": 50,
+      "layers": [
+        {
+          "contact_time_s": 7.727008964051799,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 9.94067729151507,
+          "gel_before_contact": false,
+          "layer": 1,
+          "contact_viscosity_Pa_s": 227.2833652275716,
+          "low_viscosity_time_s": 6.367008964051806,
+          "final_conversion": 0.9484418419628386,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 7.2738623942648895,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 9.325714565114092,
+          "gel_before_contact": false,
+          "layer": 2,
+          "contact_viscosity_Pa_s": 212.74856639188093,
+          "low_viscosity_time_s": 6.018862394264894,
+          "final_conversion": 0.9700040603485743,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        }
+      ],
+      "cycles": {
+        "TC-NCF": {
+          "total_s": 39.981,
+          "breakdown": {
+            "per_layer": {
+              "pickup_s": 0.5,
+              "xy_move_s": 1.05,
+              "z_move_s": 0.29,
+              "alignment_s": 0.0505,
+              "approach_s": 3.2,
+              "ramp_s": 10,
+              "hold_s": 3.2,
+              "cooling_s": 1.7
+            },
+            "layer_totals": {
+              "pickup_s": 1,
+              "xy_move_s": 2.1,
+              "z_move_s": 0.58,
+              "alignment_s": 0.101,
+              "approach_s": 6.4,
+              "ramp_s": 20,
+              "hold_s": 6.4,
+              "cooling_s": 3.4
+            },
+            "once": {},
+            "per_layer_s": 19.9905,
+            "all_layers_s": 39.981,
+            "once_s": 0
+          },
+          "throughput": {
+            "stacks_per_hour": 90.04277031590004,
+            "placements_per_hour": 180.0855406318001
+          },
+          "literature_comparison": {
+            "tcb_thermal_cycle_min_s": 1.2,
+            "tcb_uph_current": 350,
+            "tcb_bond_time_per_layer_s": 10,
+            "mrmuf_tack_cycle_per_die_s": 3,
+            "mass_reflow_total_s": 360,
+            "note": "비교만: 업체 dual-head UPH/배치 오븐과 단일 스택 직렬 elapsed time의 범위가 다르며 수치를 맞추지 않음"
+          }
+        },
+        "MR-MUF": {
+          "total_s": 7532.531,
+          "breakdown": {
+            "per_layer": {
+              "pickup_s": 0.5,
+              "xy_move_s": 1.05,
+              "z_move_s": 0.29,
+              "alignment_s": 0.0505,
+              "approach_s": 0.5,
+              "tack_s": 1
+            },
+            "layer_totals": {
+              "pickup_s": 1,
+              "xy_move_s": 2.1,
+              "z_move_s": 0.58,
+              "alignment_s": 0.101,
+              "approach_s": 1,
+              "tack_s": 2
+            },
+            "once": {
+              "reflow_s": 305.75,
+              "mold_dispense_s": 10,
+              "mold_fill_s": 10,
+              "mold_cure_s": 7200
+            },
+            "per_layer_s": 3.3905000000000003,
+            "all_layers_s": 6.781000000000001,
+            "once_s": 7525.75
+          },
+          "throughput": {
+            "stacks_per_hour": 0.4779270075357141,
+            "placements_per_hour": 0.9558540150714282
+          },
+          "literature_comparison": {
+            "tcb_thermal_cycle_min_s": 1.2,
+            "tcb_uph_current": 350,
+            "tcb_bond_time_per_layer_s": 10,
+            "mrmuf_tack_cycle_per_die_s": 3,
+            "mass_reflow_total_s": 360,
+            "note": "비교만: 업체 dual-head UPH/배치 오븐과 단일 스택 직렬 elapsed time의 범위가 다르며 수치를 맞추지 않음"
+          }
+        }
+      }
+    },
+    {
+      "N": 4,
+      "thickness_um": 100,
+      "layers": [
+        {
+          "contact_time_s": 7.740786177246143,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 9.959132595637977,
+          "gel_before_contact": false,
+          "layer": 1,
+          "contact_viscosity_Pa_s": 227.70328226062017,
+          "low_viscosity_time_s": 6.38078617724615,
+          "final_conversion": 0.9584145649026179,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 7.281012695762136,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 9.334989282131374,
+          "gel_before_contact": false,
+          "layer": 2,
+          "contact_viscosity_Pa_s": 212.94459213941744,
+          "low_viscosity_time_s": 6.026012695762141,
+          "final_conversion": 0.9925869866505919,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 7.101059249958052,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 9.09169869373483,
+          "gel_before_contact": false,
+          "layer": 3,
+          "contact_viscosity_Pa_s": 207.1778159235931,
+          "low_viscosity_time_s": 5.8860592499580555,
+          "final_conversion": 0.9959429699308987,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 7.005272695747629,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 8.962358175384907,
+          "gel_before_contact": false,
+          "layer": 4,
+          "contact_viscosity_Pa_s": 204.1034940772424,
+          "low_viscosity_time_s": 5.810272695747632,
+          "final_conversion": 0.9867085985937586,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        }
+      ],
+      "cycles": {
+        "TC-NCF": {
+          "total_s": 79.962,
+          "breakdown": {
+            "per_layer": {
+              "pickup_s": 0.5,
+              "xy_move_s": 1.05,
+              "z_move_s": 0.29,
+              "alignment_s": 0.0505,
+              "approach_s": 3.2,
+              "ramp_s": 10,
+              "hold_s": 3.2,
+              "cooling_s": 1.7
+            },
+            "layer_totals": {
+              "pickup_s": 2,
+              "xy_move_s": 4.2,
+              "z_move_s": 1.16,
+              "alignment_s": 0.202,
+              "approach_s": 12.8,
+              "ramp_s": 40,
+              "hold_s": 12.8,
+              "cooling_s": 6.8
+            },
+            "once": {},
+            "per_layer_s": 19.9905,
+            "all_layers_s": 79.962,
+            "once_s": 0
+          },
+          "throughput": {
+            "stacks_per_hour": 45.02138515795002,
+            "placements_per_hour": 180.0855406318001
+          },
+          "literature_comparison": {
+            "tcb_thermal_cycle_min_s": 1.2,
+            "tcb_uph_current": 350,
+            "tcb_bond_time_per_layer_s": 10,
+            "mrmuf_tack_cycle_per_die_s": 3,
+            "mass_reflow_total_s": 360,
+            "note": "비교만: 업체 dual-head UPH/배치 오븐과 단일 스택 직렬 elapsed time의 범위가 다르며 수치를 맞추지 않음"
+          }
+        },
+        "MR-MUF": {
+          "total_s": 7539.312,
+          "breakdown": {
+            "per_layer": {
+              "pickup_s": 0.5,
+              "xy_move_s": 1.05,
+              "z_move_s": 0.29,
+              "alignment_s": 0.0505,
+              "approach_s": 0.5,
+              "tack_s": 1
+            },
+            "layer_totals": {
+              "pickup_s": 2,
+              "xy_move_s": 4.2,
+              "z_move_s": 1.16,
+              "alignment_s": 0.202,
+              "approach_s": 2,
+              "tack_s": 4
+            },
+            "once": {
+              "reflow_s": 305.75,
+              "mold_dispense_s": 10,
+              "mold_fill_s": 10,
+              "mold_cure_s": 7200
+            },
+            "per_layer_s": 3.3905000000000003,
+            "all_layers_s": 13.562000000000001,
+            "once_s": 7525.75
+          },
+          "throughput": {
+            "stacks_per_hour": 0.4774971509336661,
+            "placements_per_hour": 1.9099886037346645
+          },
+          "literature_comparison": {
+            "tcb_thermal_cycle_min_s": 1.2,
+            "tcb_uph_current": 350,
+            "tcb_bond_time_per_layer_s": 10,
+            "mrmuf_tack_cycle_per_die_s": 3,
+            "mass_reflow_total_s": 360,
+            "note": "비교만: 업체 dual-head UPH/배치 오븐과 단일 스택 직렬 elapsed time의 범위가 다르며 수치를 맞추지 않음"
+          }
+        }
+      }
+    },
+    {
+      "N": 4,
+      "thickness_um": 50,
+      "layers": [
+        {
+          "contact_time_s": 7.727008964051799,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 9.94067729151507,
+          "gel_before_contact": false,
+          "layer": 1,
+          "contact_viscosity_Pa_s": 227.2833652275716,
+          "low_viscosity_time_s": 6.367008964051806,
+          "final_conversion": 0.9596459675478233,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 7.2738623942648895,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 9.325714565114092,
+          "gel_before_contact": false,
+          "layer": 2,
+          "contact_viscosity_Pa_s": 212.74856639188093,
+          "low_viscosity_time_s": 6.018862394264894,
+          "final_conversion": 0.9927671708659705,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 7.095797520851041,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 9.085091207539781,
+          "gel_before_contact": false,
+          "layer": 3,
+          "contact_viscosity_Pa_s": 207.05198553776933,
+          "low_viscosity_time_s": 5.880797520851044,
+          "final_conversion": 0.9960170340211307,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 7.000759006965695,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 8.956859277324584,
+          "gel_before_contact": false,
+          "layer": 4,
+          "contact_viscosity_Pa_s": 204.01131183689736,
+          "low_viscosity_time_s": 5.810759006965698,
+          "final_conversion": 0.9868417073468018,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        }
+      ],
+      "cycles": {
+        "TC-NCF": {
+          "total_s": 79.962,
+          "breakdown": {
+            "per_layer": {
+              "pickup_s": 0.5,
+              "xy_move_s": 1.05,
+              "z_move_s": 0.29,
+              "alignment_s": 0.0505,
+              "approach_s": 3.2,
+              "ramp_s": 10,
+              "hold_s": 3.2,
+              "cooling_s": 1.7
+            },
+            "layer_totals": {
+              "pickup_s": 2,
+              "xy_move_s": 4.2,
+              "z_move_s": 1.16,
+              "alignment_s": 0.202,
+              "approach_s": 12.8,
+              "ramp_s": 40,
+              "hold_s": 12.8,
+              "cooling_s": 6.8
+            },
+            "once": {},
+            "per_layer_s": 19.9905,
+            "all_layers_s": 79.962,
+            "once_s": 0
+          },
+          "throughput": {
+            "stacks_per_hour": 45.02138515795002,
+            "placements_per_hour": 180.0855406318001
+          },
+          "literature_comparison": {
+            "tcb_thermal_cycle_min_s": 1.2,
+            "tcb_uph_current": 350,
+            "tcb_bond_time_per_layer_s": 10,
+            "mrmuf_tack_cycle_per_die_s": 3,
+            "mass_reflow_total_s": 360,
+            "note": "비교만: 업체 dual-head UPH/배치 오븐과 단일 스택 직렬 elapsed time의 범위가 다르며 수치를 맞추지 않음"
+          }
+        },
+        "MR-MUF": {
+          "total_s": 7539.312,
+          "breakdown": {
+            "per_layer": {
+              "pickup_s": 0.5,
+              "xy_move_s": 1.05,
+              "z_move_s": 0.29,
+              "alignment_s": 0.0505,
+              "approach_s": 0.5,
+              "tack_s": 1
+            },
+            "layer_totals": {
+              "pickup_s": 2,
+              "xy_move_s": 4.2,
+              "z_move_s": 1.16,
+              "alignment_s": 0.202,
+              "approach_s": 2,
+              "tack_s": 4
+            },
+            "once": {
+              "reflow_s": 305.75,
+              "mold_dispense_s": 10,
+              "mold_fill_s": 10,
+              "mold_cure_s": 7200
+            },
+            "per_layer_s": 3.3905000000000003,
+            "all_layers_s": 13.562000000000001,
+            "once_s": 7525.75
+          },
+          "throughput": {
+            "stacks_per_hour": 0.4774971509336661,
+            "placements_per_hour": 1.9099886037346645
+          },
+          "literature_comparison": {
+            "tcb_thermal_cycle_min_s": 1.2,
+            "tcb_uph_current": 350,
+            "tcb_bond_time_per_layer_s": 10,
+            "mrmuf_tack_cycle_per_die_s": 3,
+            "mass_reflow_total_s": 360,
+            "note": "비교만: 업체 dual-head UPH/배치 오븐과 단일 스택 직렬 elapsed time의 범위가 다르며 수치를 맞추지 않음"
+          }
+        }
+      }
+    },
+    {
+      "N": 8,
+      "thickness_um": 100,
+      "layers": [
+        {
+          "contact_time_s": 7.740786177246143,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 9.959132595637977,
+          "gel_before_contact": false,
+          "layer": 1,
+          "contact_viscosity_Pa_s": 227.70328226062017,
+          "low_viscosity_time_s": 6.38078617724615,
+          "final_conversion": 0.9600859572217666,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 7.281012695762136,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 9.334989282131374,
+          "gel_before_contact": false,
+          "layer": 2,
+          "contact_viscosity_Pa_s": 212.94459213941744,
+          "low_viscosity_time_s": 6.026012695762141,
+          "final_conversion": 0.9957523704764585,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 7.101059249958052,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 9.09169869373483,
+          "gel_before_contact": false,
+          "layer": 3,
+          "contact_viscosity_Pa_s": 207.1778159235931,
+          "low_viscosity_time_s": 5.8860592499580555,
+          "final_conversion": 0.9992218176630832,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 7.005272695747629,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 8.962358175384907,
+          "gel_before_contact": false,
+          "layer": 4,
+          "contact_viscosity_Pa_s": 204.1034940772424,
+          "low_viscosity_time_s": 5.810272695747632,
+          "final_conversion": 0.9997733394721302,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 6.945935553737956,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 8.8822459118132,
+          "gel_before_contact": false,
+          "layer": 5,
+          "contact_viscosity_Pa_s": 202.1929519653649,
+          "low_viscosity_time_s": 5.765935553737959,
+          "final_conversion": 0.999882490580214,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 6.905668674896373,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 8.827854127863763,
+          "gel_before_contact": false,
+          "layer": 6,
+          "contact_viscosity_Pa_s": 200.8902283933896,
+          "low_viscosity_time_s": 5.730668674896376,
+          "final_conversion": 0.9998654159742694,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 6.876626061982082,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 8.788587902748166,
+          "gel_before_contact": false,
+          "layer": 7,
+          "contact_viscosity_Pa_s": 199.94516935012243,
+          "low_viscosity_time_s": 5.711626061982084,
+          "final_conversion": 0.9995329998705025,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 6.854746258261214,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 8.758968704103147,
+          "gel_before_contact": false,
+          "layer": 8,
+          "contact_viscosity_Pa_s": 199.22778757367072,
+          "low_viscosity_time_s": 5.694746258261216,
+          "final_conversion": 0.9924511058779344,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        }
+      ],
+      "cycles": {
+        "TC-NCF": {
+          "total_s": 159.924,
+          "breakdown": {
+            "per_layer": {
+              "pickup_s": 0.5,
+              "xy_move_s": 1.05,
+              "z_move_s": 0.29,
+              "alignment_s": 0.0505,
+              "approach_s": 3.2,
+              "ramp_s": 10,
+              "hold_s": 3.2,
+              "cooling_s": 1.7
+            },
+            "layer_totals": {
+              "pickup_s": 4,
+              "xy_move_s": 8.4,
+              "z_move_s": 2.32,
+              "alignment_s": 0.404,
+              "approach_s": 25.6,
+              "ramp_s": 80,
+              "hold_s": 25.6,
+              "cooling_s": 13.6
+            },
+            "once": {},
+            "per_layer_s": 19.9905,
+            "all_layers_s": 159.924,
+            "once_s": 0
+          },
+          "throughput": {
+            "stacks_per_hour": 22.51069257897501,
+            "placements_per_hour": 180.0855406318001
+          },
+          "literature_comparison": {
+            "tcb_thermal_cycle_min_s": 1.2,
+            "tcb_uph_current": 350,
+            "tcb_bond_time_per_layer_s": 10,
+            "mrmuf_tack_cycle_per_die_s": 3,
+            "mass_reflow_total_s": 360,
+            "note": "비교만: 업체 dual-head UPH/배치 오븐과 단일 스택 직렬 elapsed time의 범위가 다르며 수치를 맞추지 않음"
+          }
+        },
+        "MR-MUF": {
+          "total_s": 7552.874,
+          "breakdown": {
+            "per_layer": {
+              "pickup_s": 0.5,
+              "xy_move_s": 1.05,
+              "z_move_s": 0.29,
+              "alignment_s": 0.0505,
+              "approach_s": 0.5,
+              "tack_s": 1
+            },
+            "layer_totals": {
+              "pickup_s": 4,
+              "xy_move_s": 8.4,
+              "z_move_s": 2.32,
+              "alignment_s": 0.404,
+              "approach_s": 4,
+              "tack_s": 8
+            },
+            "once": {
+              "reflow_s": 305.75,
+              "mold_dispense_s": 10,
+              "mold_fill_s": 10,
+              "mold_cure_s": 7200
+            },
+            "per_layer_s": 3.3905000000000003,
+            "all_layers_s": 27.124000000000002,
+            "once_s": 7525.75
+          },
+          "throughput": {
+            "stacks_per_hour": 0.47663975329126373,
+            "placements_per_hour": 3.81311802633011
+          },
+          "literature_comparison": {
+            "tcb_thermal_cycle_min_s": 1.2,
+            "tcb_uph_current": 350,
+            "tcb_bond_time_per_layer_s": 10,
+            "mrmuf_tack_cycle_per_die_s": 3,
+            "mass_reflow_total_s": 360,
+            "note": "비교만: 업체 dual-head UPH/배치 오븐과 단일 스택 직렬 elapsed time의 범위가 다르며 수치를 맞추지 않음"
+          }
+        }
+      }
+    },
+    {
+      "N": 8,
+      "thickness_um": 50,
+      "layers": [
+        {
+          "contact_time_s": 7.727008964051799,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 9.94067729151507,
+          "gel_before_contact": false,
+          "layer": 1,
+          "contact_viscosity_Pa_s": 227.2833652275716,
+          "low_viscosity_time_s": 6.367008964051806,
+          "final_conversion": 0.9612971009877764,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 7.2738623942648895,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 9.325714565114092,
+          "gel_before_contact": false,
+          "layer": 2,
+          "contact_viscosity_Pa_s": 212.74856639188093,
+          "low_viscosity_time_s": 6.018862394264894,
+          "final_conversion": 0.995872231742226,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 7.095797520851041,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 9.085091207539781,
+          "gel_before_contact": false,
+          "layer": 3,
+          "contact_viscosity_Pa_s": 207.05198553776933,
+          "low_viscosity_time_s": 5.880797520851044,
+          "final_conversion": 0.9992421607940766,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 7.000759006965695,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 8.956859277324584,
+          "gel_before_contact": false,
+          "layer": 4,
+          "contact_viscosity_Pa_s": 204.01131183689736,
+          "low_viscosity_time_s": 5.810759006965698,
+          "final_conversion": 0.9997788619300327,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 6.9417326614029475,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 8.877261926279733,
+          "gel_before_contact": false,
+          "layer": 5,
+          "contact_viscosity_Pa_s": 202.12028677597368,
+          "low_viscosity_time_s": 5.7617326614029505,
+          "final_conversion": 0.999885078208495,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 6.901565545453558,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 8.823098176402619,
+          "gel_before_contact": false,
+          "layer": 6,
+          "contact_viscosity_Pa_s": 200.8303775267655,
+          "low_viscosity_time_s": 5.73156554545356,
+          "final_conversion": 0.9998678921919344,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 6.872505819680717,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 8.783900497217601,
+          "gel_before_contact": false,
+          "layer": 7,
+          "contact_viscosity_Pa_s": 199.8943197943265,
+          "low_viscosity_time_s": 5.70750581968072,
+          "final_conversion": 0.9995390970140544,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 6.850538031948775,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 8.754252198635243,
+          "gel_before_contact": false,
+          "layer": 8,
+          "contact_viscosity_Pa_s": 199.1838039414935,
+          "low_viscosity_time_s": 5.690538031948778,
+          "final_conversion": 0.9924985307094647,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        }
+      ],
+      "cycles": {
+        "TC-NCF": {
+          "total_s": 159.924,
+          "breakdown": {
+            "per_layer": {
+              "pickup_s": 0.5,
+              "xy_move_s": 1.05,
+              "z_move_s": 0.29,
+              "alignment_s": 0.0505,
+              "approach_s": 3.2,
+              "ramp_s": 10,
+              "hold_s": 3.2,
+              "cooling_s": 1.7
+            },
+            "layer_totals": {
+              "pickup_s": 4,
+              "xy_move_s": 8.4,
+              "z_move_s": 2.32,
+              "alignment_s": 0.404,
+              "approach_s": 25.6,
+              "ramp_s": 80,
+              "hold_s": 25.6,
+              "cooling_s": 13.6
+            },
+            "once": {},
+            "per_layer_s": 19.9905,
+            "all_layers_s": 159.924,
+            "once_s": 0
+          },
+          "throughput": {
+            "stacks_per_hour": 22.51069257897501,
+            "placements_per_hour": 180.0855406318001
+          },
+          "literature_comparison": {
+            "tcb_thermal_cycle_min_s": 1.2,
+            "tcb_uph_current": 350,
+            "tcb_bond_time_per_layer_s": 10,
+            "mrmuf_tack_cycle_per_die_s": 3,
+            "mass_reflow_total_s": 360,
+            "note": "비교만: 업체 dual-head UPH/배치 오븐과 단일 스택 직렬 elapsed time의 범위가 다르며 수치를 맞추지 않음"
+          }
+        },
+        "MR-MUF": {
+          "total_s": 7552.874,
+          "breakdown": {
+            "per_layer": {
+              "pickup_s": 0.5,
+              "xy_move_s": 1.05,
+              "z_move_s": 0.29,
+              "alignment_s": 0.0505,
+              "approach_s": 0.5,
+              "tack_s": 1
+            },
+            "layer_totals": {
+              "pickup_s": 4,
+              "xy_move_s": 8.4,
+              "z_move_s": 2.32,
+              "alignment_s": 0.404,
+              "approach_s": 4,
+              "tack_s": 8
+            },
+            "once": {
+              "reflow_s": 305.75,
+              "mold_dispense_s": 10,
+              "mold_fill_s": 10,
+              "mold_cure_s": 7200
+            },
+            "per_layer_s": 3.3905000000000003,
+            "all_layers_s": 27.124000000000002,
+            "once_s": 7525.75
+          },
+          "throughput": {
+            "stacks_per_hour": 0.47663975329126373,
+            "placements_per_hour": 3.81311802633011
+          },
+          "literature_comparison": {
+            "tcb_thermal_cycle_min_s": 1.2,
+            "tcb_uph_current": 350,
+            "tcb_bond_time_per_layer_s": 10,
+            "mrmuf_tack_cycle_per_die_s": 3,
+            "mass_reflow_total_s": 360,
+            "note": "비교만: 업체 dual-head UPH/배치 오븐과 단일 스택 직렬 elapsed time의 범위가 다르며 수치를 맞추지 않음"
+          }
+        }
+      }
+    },
+    {
+      "N": 12,
+      "thickness_um": 100,
+      "layers": [
+        {
+          "contact_time_s": 7.740786177246143,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 9.959132595637977,
+          "gel_before_contact": false,
+          "layer": 1,
+          "contact_viscosity_Pa_s": 227.70328226062017,
+          "low_viscosity_time_s": 6.38078617724615,
+          "final_conversion": 0.9600859572217666,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 7.281012695762136,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 9.334989282131374,
+          "gel_before_contact": false,
+          "layer": 2,
+          "contact_viscosity_Pa_s": 212.94459213941744,
+          "low_viscosity_time_s": 6.026012695762141,
+          "final_conversion": 0.9960770186341258,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 7.101059249958052,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 9.09169869373483,
+          "gel_before_contact": false,
+          "layer": 3,
+          "contact_viscosity_Pa_s": 207.1778159235931,
+          "low_viscosity_time_s": 5.8860592499580555,
+          "final_conversion": 0.9994799684086024,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 7.005272695747629,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 8.962358175384907,
+          "gel_before_contact": false,
+          "layer": 4,
+          "contact_viscosity_Pa_s": 204.1034940772424,
+          "low_viscosity_time_s": 5.810272695747632,
+          "final_conversion": 0.9999041341423733,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 6.945935553737956,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 8.8822459118132,
+          "gel_before_contact": false,
+          "layer": 5,
+          "contact_viscosity_Pa_s": 202.1929519653649,
+          "low_viscosity_time_s": 5.765935553737959,
+          "final_conversion": 0.9999765369693978,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 6.905668674896373,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 8.827854127863763,
+          "gel_before_contact": false,
+          "layer": 6,
+          "contact_viscosity_Pa_s": 200.8902283933896,
+          "low_viscosity_time_s": 5.730668674896376,
+          "final_conversion": 0.9999920610849258,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 6.876626061982082,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 8.788587902748166,
+          "gel_before_contact": false,
+          "layer": 7,
+          "contact_viscosity_Pa_s": 199.94516935012243,
+          "low_viscosity_time_s": 5.711626061982084,
+          "final_conversion": 0.9999960008578593,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 6.854746258261214,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 8.758968704103147,
+          "gel_before_contact": false,
+          "layer": 8,
+          "contact_viscosity_Pa_s": 199.22778757367072,
+          "low_viscosity_time_s": 5.694746258261216,
+          "final_conversion": 0.9999966741176356,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 6.8377158926018415,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 8.735878769678436,
+          "gel_before_contact": false,
+          "layer": 9,
+          "contact_viscosity_Pa_s": 198.6650815339643,
+          "low_viscosity_time_s": 5.677715892601844,
+          "final_conversion": 0.9999947774678655,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 6.824120424985456,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 8.717412563510518,
+          "gel_before_contact": false,
+          "layer": 10,
+          "contact_viscosity_Pa_s": 198.21123375652684,
+          "low_viscosity_time_s": 5.669120424985459,
+          "final_conversion": 0.999981668367758,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 6.813046164310454,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 8.702341841835251,
+          "gel_before_contact": false,
+          "layer": 11,
+          "contact_viscosity_Pa_s": 197.83771024675232,
+          "low_viscosity_time_s": 5.6580461643104565,
+          "final_conversion": 0.9998228677725575,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 6.80387651206269,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 8.68983808129966,
+          "gel_before_contact": false,
+          "layer": 12,
+          "contact_viscosity_Pa_s": 197.52447841538063,
+          "low_viscosity_time_s": 5.648876512062692,
+          "final_conversion": 0.9939304973108437,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        }
+      ],
+      "cycles": {
+        "TC-NCF": {
+          "total_s": 239.88600000000002,
+          "breakdown": {
+            "per_layer": {
+              "pickup_s": 0.5,
+              "xy_move_s": 1.05,
+              "z_move_s": 0.29,
+              "alignment_s": 0.0505,
+              "approach_s": 3.2,
+              "ramp_s": 10,
+              "hold_s": 3.2,
+              "cooling_s": 1.7
+            },
+            "layer_totals": {
+              "pickup_s": 6,
+              "xy_move_s": 12.600000000000001,
+              "z_move_s": 3.4799999999999995,
+              "alignment_s": 0.6060000000000001,
+              "approach_s": 38.400000000000006,
+              "ramp_s": 120,
+              "hold_s": 38.400000000000006,
+              "cooling_s": 20.4
+            },
+            "once": {},
+            "per_layer_s": 19.9905,
+            "all_layers_s": 239.88600000000002,
+            "once_s": 0
+          },
+          "throughput": {
+            "stacks_per_hour": 15.007128385983341,
+            "placements_per_hour": 180.0855406318001
+          },
+          "literature_comparison": {
+            "tcb_thermal_cycle_min_s": 1.2,
+            "tcb_uph_current": 350,
+            "tcb_bond_time_per_layer_s": 10,
+            "mrmuf_tack_cycle_per_die_s": 3,
+            "mass_reflow_total_s": 360,
+            "note": "비교만: 업체 dual-head UPH/배치 오븐과 단일 스택 직렬 elapsed time의 범위가 다르며 수치를 맞추지 않음"
+          }
+        },
+        "MR-MUF": {
+          "total_s": 7566.436,
+          "breakdown": {
+            "per_layer": {
+              "pickup_s": 0.5,
+              "xy_move_s": 1.05,
+              "z_move_s": 0.29,
+              "alignment_s": 0.0505,
+              "approach_s": 0.5,
+              "tack_s": 1
+            },
+            "layer_totals": {
+              "pickup_s": 6,
+              "xy_move_s": 12.600000000000001,
+              "z_move_s": 3.4799999999999995,
+              "alignment_s": 0.6060000000000001,
+              "approach_s": 6,
+              "tack_s": 12
+            },
+            "once": {
+              "reflow_s": 305.75,
+              "mold_dispense_s": 10,
+              "mold_fill_s": 10,
+              "mold_cure_s": 7200
+            },
+            "per_layer_s": 3.3905000000000003,
+            "all_layers_s": 40.68600000000001,
+            "once_s": 7525.75
+          },
+          "throughput": {
+            "stacks_per_hour": 0.475785429229825,
+            "placements_per_hour": 5.7094251507579
+          },
+          "literature_comparison": {
+            "tcb_thermal_cycle_min_s": 1.2,
+            "tcb_uph_current": 350,
+            "tcb_bond_time_per_layer_s": 10,
+            "mrmuf_tack_cycle_per_die_s": 3,
+            "mass_reflow_total_s": 360,
+            "note": "비교만: 업체 dual-head UPH/배치 오븐과 단일 스택 직렬 elapsed time의 범위가 다르며 수치를 맞추지 않음"
+          }
+        }
+      }
+    },
+    {
+      "N": 12,
+      "thickness_um": 50,
+      "layers": [
+        {
+          "contact_time_s": 7.727008964051799,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 9.94067729151507,
+          "gel_before_contact": false,
+          "layer": 1,
+          "contact_viscosity_Pa_s": 227.2833652275716,
+          "low_viscosity_time_s": 6.367008964051806,
+          "final_conversion": 0.9612971009877764,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 7.2738623942648895,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 9.325714565114092,
+          "gel_before_contact": false,
+          "layer": 2,
+          "contact_viscosity_Pa_s": 212.74856639188093,
+          "low_viscosity_time_s": 6.018862394264894,
+          "final_conversion": 0.9961922288517912,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 7.095797520851041,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 9.085091207539781,
+          "gel_before_contact": false,
+          "layer": 3,
+          "contact_viscosity_Pa_s": 207.05198553776933,
+          "low_viscosity_time_s": 5.880797520851044,
+          "final_conversion": 0.999495067748372,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 7.000759006965695,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 8.956859277324584,
+          "gel_before_contact": false,
+          "layer": 4,
+          "contact_viscosity_Pa_s": 204.01131183689736,
+          "low_viscosity_time_s": 5.810759006965698,
+          "final_conversion": 0.9999069315924782,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 6.9417326614029475,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 8.877261926279733,
+          "gel_before_contact": false,
+          "layer": 5,
+          "contact_viscosity_Pa_s": 202.12028677597368,
+          "low_viscosity_time_s": 5.7617326614029505,
+          "final_conversion": 0.9999772394422215,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 6.901565545453558,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 8.823098176402619,
+          "gel_before_contact": false,
+          "layer": 6,
+          "contact_viscosity_Pa_s": 200.8303775267655,
+          "low_viscosity_time_s": 5.73156554545356,
+          "final_conversion": 0.9999923050127998,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 6.872505819680717,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 8.783900497217601,
+          "gel_before_contact": false,
+          "layer": 7,
+          "contact_viscosity_Pa_s": 199.8943197943265,
+          "low_viscosity_time_s": 5.70750581968072,
+          "final_conversion": 0.9999961244820614,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 6.850538031948775,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 8.754252198635243,
+          "gel_before_contact": false,
+          "layer": 8,
+          "contact_viscosity_Pa_s": 199.1838039414935,
+          "low_viscosity_time_s": 5.690538031948778,
+          "final_conversion": 0.9999967732559376,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 6.83337399581902,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 8.731068916973078,
+          "gel_before_contact": false,
+          "layer": 9,
+          "contact_viscosity_Pa_s": 198.62643787780596,
+          "low_viscosity_time_s": 5.6783739958190225,
+          "final_conversion": 0.9999949171884647,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 6.819614144821289,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 8.712465840080307,
+          "gel_before_contact": false,
+          "layer": 10,
+          "contact_viscosity_Pa_s": 198.17702947606892,
+          "low_viscosity_time_s": 5.664614144821291,
+          "final_conversion": 0.9999820595508511,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 6.808354340351336,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 8.697226545786801,
+          "gel_before_contact": false,
+          "layer": 11,
+          "contact_viscosity_Pa_s": 197.8074365340711,
+          "low_viscosity_time_s": 5.658354340351338,
+          "final_conversion": 0.9998253080258713,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 6.798984435519593,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 8.684530471894115,
+          "gel_before_contact": false,
+          "layer": 12,
+          "contact_viscosity_Pa_s": 197.4976678756397,
+          "low_viscosity_time_s": 5.648984435519595,
+          "final_conversion": 0.9939638173114227,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        }
+      ],
+      "cycles": {
+        "TC-NCF": {
+          "total_s": 239.88600000000002,
+          "breakdown": {
+            "per_layer": {
+              "pickup_s": 0.5,
+              "xy_move_s": 1.05,
+              "z_move_s": 0.29,
+              "alignment_s": 0.0505,
+              "approach_s": 3.2,
+              "ramp_s": 10,
+              "hold_s": 3.2,
+              "cooling_s": 1.7
+            },
+            "layer_totals": {
+              "pickup_s": 6,
+              "xy_move_s": 12.600000000000001,
+              "z_move_s": 3.4799999999999995,
+              "alignment_s": 0.6060000000000001,
+              "approach_s": 38.400000000000006,
+              "ramp_s": 120,
+              "hold_s": 38.400000000000006,
+              "cooling_s": 20.4
+            },
+            "once": {},
+            "per_layer_s": 19.9905,
+            "all_layers_s": 239.88600000000002,
+            "once_s": 0
+          },
+          "throughput": {
+            "stacks_per_hour": 15.007128385983341,
+            "placements_per_hour": 180.0855406318001
+          },
+          "literature_comparison": {
+            "tcb_thermal_cycle_min_s": 1.2,
+            "tcb_uph_current": 350,
+            "tcb_bond_time_per_layer_s": 10,
+            "mrmuf_tack_cycle_per_die_s": 3,
+            "mass_reflow_total_s": 360,
+            "note": "비교만: 업체 dual-head UPH/배치 오븐과 단일 스택 직렬 elapsed time의 범위가 다르며 수치를 맞추지 않음"
+          }
+        },
+        "MR-MUF": {
+          "total_s": 7566.436,
+          "breakdown": {
+            "per_layer": {
+              "pickup_s": 0.5,
+              "xy_move_s": 1.05,
+              "z_move_s": 0.29,
+              "alignment_s": 0.0505,
+              "approach_s": 0.5,
+              "tack_s": 1
+            },
+            "layer_totals": {
+              "pickup_s": 6,
+              "xy_move_s": 12.600000000000001,
+              "z_move_s": 3.4799999999999995,
+              "alignment_s": 0.6060000000000001,
+              "approach_s": 6,
+              "tack_s": 12
+            },
+            "once": {
+              "reflow_s": 305.75,
+              "mold_dispense_s": 10,
+              "mold_fill_s": 10,
+              "mold_cure_s": 7200
+            },
+            "per_layer_s": 3.3905000000000003,
+            "all_layers_s": 40.68600000000001,
+            "once_s": 7525.75
+          },
+          "throughput": {
+            "stacks_per_hour": 0.475785429229825,
+            "placements_per_hour": 5.7094251507579
+          },
+          "literature_comparison": {
+            "tcb_thermal_cycle_min_s": 1.2,
+            "tcb_uph_current": 350,
+            "tcb_bond_time_per_layer_s": 10,
+            "mrmuf_tack_cycle_per_die_s": 3,
+            "mass_reflow_total_s": 360,
+            "note": "비교만: 업체 dual-head UPH/배치 오븐과 단일 스택 직렬 elapsed time의 범위가 다르며 수치를 맞추지 않음"
+          }
+        }
+      }
+    }
+  ],
+  "alignment": [
+    {
+      "N": 2,
+      "reference": "previous",
+      "sigma_layer_um": 0.29416548630546946,
+      "mean_um": 0,
+      "cumulative_sigma_um": 0.4160128203152719,
+      "cumulative_3sigma_um": 1.2480384609458157,
+      "adjacent_sigma_um": [
+        0.29416548630546946,
+        0.29416548630546946
+      ],
+      "top_to_first_die_sigma_um": 0.29416548630546946,
+      "self_alignment": false,
+      "samples": 20000,
+      "mc_mean_um": [
+        -0.0034752342215907616,
+        0.0011053832109227757
+      ],
+      "mc_sigma_um": [
+        0.41495160186190555,
+        0.4159375649863967
+      ],
+      "sigma_relative_standard_error": 0.005000125004687695
+    },
+    {
+      "N": 2,
+      "reference": "substrate",
+      "sigma_layer_um": 0.29416548630546946,
+      "mean_um": 0,
+      "cumulative_sigma_um": 0.29416548630546946,
+      "cumulative_3sigma_um": 0.8824964589164084,
+      "adjacent_sigma_um": [
+        0.29416548630546946,
+        0.4160128203152719
+      ],
+      "top_to_first_die_sigma_um": 0.4160128203152719,
+      "self_alignment": false,
+      "samples": 20000,
+      "mc_mean_um": [
+        -0.002167143477057406,
+        -0.0016039132317451675
+      ],
+      "mc_sigma_um": [
+        0.29488783921646544,
+        0.29391799976732774
+      ],
+      "sigma_relative_standard_error": 0.005000125004687695
+    },
+    {
+      "N": 4,
+      "reference": "previous",
+      "sigma_layer_um": 0.29416548630546946,
+      "mean_um": 0,
+      "cumulative_sigma_um": 0.5883309726109389,
+      "cumulative_3sigma_um": 1.7649929178328168,
+      "adjacent_sigma_um": [
+        0.29416548630546946,
+        0.29416548630546946,
+        0.29416548630546946,
+        0.29416548630546946
+      ],
+      "top_to_first_die_sigma_um": 0.5095095681142798,
+      "self_alignment": false,
+      "samples": 20000,
+      "mc_mean_um": [
+        -0.005075667746036738,
+        -0.0007142463229398929
+      ],
+      "mc_sigma_um": [
+        0.5889142973108109,
+        0.5889801077464218
+      ],
+      "sigma_relative_standard_error": 0.005000125004687695
+    },
+    {
+      "N": 4,
+      "reference": "substrate",
+      "sigma_layer_um": 0.29416548630546946,
+      "mean_um": 0,
+      "cumulative_sigma_um": 0.29416548630546946,
+      "cumulative_3sigma_um": 0.8824964589164084,
+      "adjacent_sigma_um": [
+        0.29416548630546946,
+        0.4160128203152719,
+        0.4160128203152719,
+        0.4160128203152719
+      ],
+      "top_to_first_die_sigma_um": 0.4160128203152719,
+      "self_alignment": false,
+      "samples": 20000,
+      "mc_mean_um": [
+        -0.0030577164943539742,
+        -0.0018090471923006483
+      ],
+      "mc_sigma_um": [
+        0.2935276958543309,
+        0.2938434226661888
+      ],
+      "sigma_relative_standard_error": 0.005000125004687695
+    },
+    {
+      "N": 8,
+      "reference": "previous",
+      "sigma_layer_um": 0.29416548630546946,
+      "mean_um": 0,
+      "cumulative_sigma_um": 0.8320256406305439,
+      "cumulative_3sigma_um": 2.4960769218916314,
+      "adjacent_sigma_um": [
+        0.29416548630546946,
+        0.29416548630546946,
+        0.29416548630546946,
+        0.29416548630546946,
+        0.29416548630546946,
+        0.29416548630546946,
+        0.29416548630546946,
+        0.29416548630546946
+      ],
+      "top_to_first_die_sigma_um": 0.7782887210626487,
+      "self_alignment": false,
+      "samples": 20000,
+      "mc_mean_um": [
+        -0.011237323814461405,
+        0.002629445989742729
+      ],
+      "mc_sigma_um": [
+        0.8228302592801787,
+        0.8329834983396522
+      ],
+      "sigma_relative_standard_error": 0.005000125004687695
+    },
+    {
+      "N": 8,
+      "reference": "substrate",
+      "sigma_layer_um": 0.29416548630546946,
+      "mean_um": 0,
+      "cumulative_sigma_um": 0.29416548630546946,
+      "cumulative_3sigma_um": 0.8824964589164084,
+      "adjacent_sigma_um": [
+        0.29416548630546946,
+        0.4160128203152719,
+        0.4160128203152719,
+        0.4160128203152719,
+        0.4160128203152719,
+        0.4160128203152719,
+        0.4160128203152719,
+        0.4160128203152719
+      ],
+      "top_to_first_die_sigma_um": 0.4160128203152719,
+      "self_alignment": false,
+      "samples": 20000,
+      "mc_mean_um": [
+        -0.0011818897954343304,
+        0.001913679664315077
+      ],
+      "mc_sigma_um": [
+        0.2945803899829787,
+        0.2925804683365464
+      ],
+      "sigma_relative_standard_error": 0.005000125004687695
+    },
+    {
+      "N": 12,
+      "reference": "previous",
+      "sigma_layer_um": 0.29416548630546946,
+      "mean_um": 0,
+      "cumulative_sigma_um": 1.0190191362285597,
+      "cumulative_3sigma_um": 3.057057408685679,
+      "adjacent_sigma_um": [
+        0.29416548630546946,
+        0.29416548630546946,
+        0.29416548630546946,
+        0.29416548630546946,
+        0.29416548630546946,
+        0.29416548630546946,
+        0.29416548630546946,
+        0.29416548630546946,
+        0.29416548630546946,
+        0.29416548630546946,
+        0.29416548630546946,
+        0.29416548630546946
+      ],
+      "top_to_first_die_sigma_um": 0.9756365443476719,
+      "self_alignment": false,
+      "samples": 20000,
+      "mc_mean_um": [
+        -0.012582519713845821,
+        -0.00027459835592238
+      ],
+      "mc_sigma_um": [
+        1.0128154059711298,
+        1.0226140195279836
+      ],
+      "sigma_relative_standard_error": 0.005000125004687695
+    },
+    {
+      "N": 12,
+      "reference": "substrate",
+      "sigma_layer_um": 0.29416548630546946,
+      "mean_um": 0,
+      "cumulative_sigma_um": 0.29416548630546946,
+      "cumulative_3sigma_um": 0.8824964589164084,
+      "adjacent_sigma_um": [
+        0.29416548630546946,
+        0.4160128203152719,
+        0.4160128203152719,
+        0.4160128203152719,
+        0.4160128203152719,
+        0.4160128203152719,
+        0.4160128203152719,
+        0.4160128203152719,
+        0.4160128203152719,
+        0.4160128203152719,
+        0.4160128203152719,
+        0.4160128203152719
+      ],
+      "top_to_first_die_sigma_um": 0.4160128203152719,
+      "self_alignment": false,
+      "samples": 20000,
+      "mc_mean_um": [
+        0.00047543801328844197,
+        -0.0018408081760108632
+      ],
+      "mc_sigma_um": [
+        0.29343477230015796,
+        0.29605055795401164
+      ],
+      "sigma_relative_standard_error": 0.005000125004687695
+    }
+  ],
+  "sensitivity": [
+    {
+      "key": "gel_time_at_250C",
+      "value": 1,
+      "layers": [
+        {
+          "contact_time_s": null,
+          "remaining_thickness_m": 0.000021201506757011695,
+          "gel_time_s": 7.794882272057472,
+          "gel_before_contact": true,
+          "layer": 1,
+          "contact_viscosity_Pa_s": null,
+          "low_viscosity_time_s": 5.949999999999873,
+          "final_conversion": 0.9999420263705594,
+          "tendency": {
+            "quantitative": false,
+            "grade": "미접합 위험",
+            "reasons": [
+              "접촉 전 겔화: 미접합 위험",
+              "공정 종료까지 범프 미접촉"
+            ],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": null,
+          "remaining_thickness_m": 0.000021276551568523586,
+          "gel_time_s": 7.324782697030348,
+          "gel_before_contact": true,
+          "layer": 2,
+          "contact_viscosity_Pa_s": null,
+          "low_viscosity_time_s": 5.63499999999988,
+          "final_conversion": 0.9999999447906649,
+          "tendency": {
+            "quantitative": false,
+            "grade": "미접합 위험",
+            "reasons": [
+              "접촉 전 겔화: 미접합 위험",
+              "공정 종료까지 범프 미접촉"
+            ],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": null,
+          "remaining_thickness_m": 0.00002130574146112641,
+          "gel_time_s": 7.140623833431143,
+          "gel_before_contact": true,
+          "layer": 3,
+          "contact_viscosity_Pa_s": null,
+          "low_viscosity_time_s": 5.5099999999998825,
+          "final_conversion": 0.9999999998712642,
+          "tendency": {
+            "quantitative": false,
+            "grade": "미접합 위험",
+            "reasons": [
+              "접촉 전 겔화: 미접합 위험",
+              "공정 종료까지 범프 미접촉"
+            ],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": null,
+          "remaining_thickness_m": 0.000021321251928321874,
+          "gel_time_s": 7.042459484848704,
+          "gel_before_contact": true,
+          "layer": 4,
+          "contact_viscosity_Pa_s": null,
+          "low_viscosity_time_s": 5.444999999999884,
+          "final_conversion": 0.9999999999991939,
+          "tendency": {
+            "quantitative": false,
+            "grade": "미접합 위험",
+            "reasons": [
+              "접촉 전 겔화: 미접합 위험",
+              "공정 종료까지 범프 미접촉"
+            ],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": null,
+          "remaining_thickness_m": 0.000021330861043374588,
+          "gel_time_s": 6.9815362713289435,
+          "gel_before_contact": true,
+          "layer": 5,
+          "contact_viscosity_Pa_s": null,
+          "low_viscosity_time_s": 5.404999999999885,
+          "final_conversion": 0.9999999999999882,
+          "tendency": {
+            "quantitative": false,
+            "grade": "미접합 위험",
+            "reasons": [
+              "접촉 전 겔화: 미접합 위험",
+              "공정 종료까지 범프 미접촉"
+            ],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": null,
+          "remaining_thickness_m": 0.00002133738855225328,
+          "gel_time_s": 6.9400983280425494,
+          "gel_before_contact": true,
+          "layer": 6,
+          "contact_viscosity_Pa_s": null,
+          "low_viscosity_time_s": 5.374999999999885,
+          "final_conversion": 0.9999999999999996,
+          "tendency": {
+            "quantitative": false,
+            "grade": "미접합 위험",
+            "reasons": [
+              "접촉 전 겔화: 미접합 위험",
+              "공정 종료까지 범프 미접촉"
+            ],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": null,
+          "remaining_thickness_m": 0.000021342103820253714,
+          "gel_time_s": 6.910127691224892,
+          "gel_before_contact": true,
+          "layer": 7,
+          "contact_viscosity_Pa_s": null,
+          "low_viscosity_time_s": 5.354999999999886,
+          "final_conversion": 0.9999999999999999,
+          "tendency": {
+            "quantitative": false,
+            "grade": "미접합 위험",
+            "reasons": [
+              "접촉 전 겔화: 미접합 위험",
+              "공정 종료까지 범프 미접촉"
+            ],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": null,
+          "remaining_thickness_m": 0.000021345661986737443,
+          "gel_time_s": 6.887475220151439,
+          "gel_before_contact": true,
+          "layer": 8,
+          "contact_viscosity_Pa_s": null,
+          "low_viscosity_time_s": 5.339999999999886,
+          "final_conversion": 1,
+          "tendency": {
+            "quantitative": false,
+            "grade": "미접합 위험",
+            "reasons": [
+              "접촉 전 겔화: 미접합 위험",
+              "공정 종료까지 범프 미접촉"
+            ],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": null,
+          "remaining_thickness_m": 0.00002134843578607797,
+          "gel_time_s": 6.869782342186493,
+          "gel_before_contact": true,
+          "layer": 9,
+          "contact_viscosity_Pa_s": null,
+          "low_viscosity_time_s": 5.3249999999998865,
+          "final_conversion": 0.9999999999999999,
+          "tendency": {
+            "quantitative": false,
+            "grade": "미접합 위험",
+            "reasons": [
+              "접촉 전 겔화: 미접합 위험",
+              "공정 종료까지 범프 미접촉"
+            ],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": null,
+          "remaining_thickness_m": 0.000021350651984313313,
+          "gel_time_s": 6.8555995613929435,
+          "gel_before_contact": true,
+          "layer": 10,
+          "contact_viscosity_Pa_s": null,
+          "low_viscosity_time_s": 5.314999999999887,
+          "final_conversion": 0.9999999999999942,
+          "tendency": {
+            "quantitative": false,
+            "grade": "미접합 위험",
+            "reasons": [
+              "접촉 전 겔화: 미접합 위험",
+              "공정 종료까지 범프 미접촉"
+            ],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": null,
+          "remaining_thickness_m": 0.000021352456895651123,
+          "gel_time_s": 6.843995828225823,
+          "gel_before_contact": true,
+          "layer": 11,
+          "contact_viscosity_Pa_s": null,
+          "low_viscosity_time_s": 5.309999999999887,
+          "final_conversion": 0.9999999999946688,
+          "tendency": {
+            "quantitative": false,
+            "grade": "미접합 위험",
+            "reasons": [
+              "접촉 전 겔화: 미접합 위험",
+              "공정 종료까지 범프 미접촉"
+            ],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": null,
+          "remaining_thickness_m": 0.00002135394871626011,
+          "gel_time_s": 6.834342384649549,
+          "gel_before_contact": true,
+          "layer": 12,
+          "contact_viscosity_Pa_s": null,
+          "low_viscosity_time_s": 5.299999999999887,
+          "final_conversion": 0.9999997800686569,
+          "tendency": {
+            "quantitative": false,
+            "grade": "미접합 위험",
+            "reasons": [
+              "접촉 전 겔화: 미접합 위험",
+              "공정 종료까지 범프 미접촉"
+            ],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        }
+      ]
+    },
+    {
+      "key": "gel_time_at_250C",
+      "value": 10,
+      "layers": [
+        {
+          "contact_time_s": 7.0644677208194535,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 40.63430556540825,
+          "gel_before_contact": false,
+          "layer": 1,
+          "contact_viscosity_Pa_s": 127.43871443114674,
+          "low_viscosity_time_s": 5.70446772081946,
+          "final_conversion": 0.6230158864560121,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 6.649901233137962,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 12.827430183196256,
+          "gel_before_contact": false,
+          "layer": 2,
+          "contact_viscosity_Pa_s": 118.69230196779445,
+          "low_viscosity_time_s": 5.394901233137967,
+          "final_conversion": 0.8119812107727196,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 6.487127893638192,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 12.20964652588966,
+          "gel_before_contact": false,
+          "layer": 3,
+          "contact_viscosity_Pa_s": 115.28789325160456,
+          "low_viscosity_time_s": 5.272127893638196,
+          "final_conversion": 0.8974419078089402,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 6.4002910814203835,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 11.906861651605691,
+          "gel_before_contact": false,
+          "layer": 4,
+          "contact_viscosity_Pa_s": 113.47621723087869,
+          "low_viscosity_time_s": 5.210291081420387,
+          "final_conversion": 0.9382494706559235,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 6.346380027497094,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 11.727737007695378,
+          "gel_before_contact": false,
+          "layer": 5,
+          "contact_viscosity_Pa_s": 112.35153026531542,
+          "low_viscosity_time_s": 5.166380027497097,
+          "final_conversion": 0.9595279810032552,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 6.309708603624989,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 11.609574338241499,
+          "gel_before_contact": false,
+          "layer": 6,
+          "contact_viscosity_Pa_s": 111.58536579886575,
+          "low_viscosity_time_s": 5.1397086036249915,
+          "final_conversion": 0.9707677414965621,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 6.28318947837367,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 11.52587839049977,
+          "gel_before_contact": false,
+          "layer": 7,
+          "contact_viscosity_Pa_s": 111.0299520915044,
+          "low_viscosity_time_s": 5.118189478373672,
+          "final_conversion": 0.9762042758678816,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 6.263151997774723,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 11.463548131422082,
+          "gel_before_contact": false,
+          "layer": 8,
+          "contact_viscosity_Pa_s": 110.60885478691107,
+          "low_viscosity_time_s": 5.1031519977747255,
+          "final_conversion": 0.9774768382423717,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 6.247504678291527,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 11.415369677225906,
+          "gel_before_contact": false,
+          "layer": 9,
+          "contact_viscosity_Pa_s": 110.27865490841671,
+          "low_viscosity_time_s": 5.0925046782915295,
+          "final_conversion": 0.9741874326558808,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 6.234968409690266,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 11.377045938733493,
+          "gel_before_contact": false,
+          "layer": 10,
+          "contact_viscosity_Pa_s": 110.01279228100424,
+          "low_viscosity_time_s": 5.079968409690268,
+          "final_conversion": 0.9623166075307502,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 6.224716924187279,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 11.345858777427933,
+          "gel_before_contact": false,
+          "layer": 11,
+          "contact_viscosity_Pa_s": 109.79421267347708,
+          "low_viscosity_time_s": 5.074716924187281,
+          "final_conversion": 0.9254097803927087,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 6.216192674428421,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 11.320005250017623,
+          "gel_before_contact": false,
+          "layer": 12,
+          "contact_viscosity_Pa_s": 109.61135419221476,
+          "low_viscosity_time_s": 5.066192674428423,
+          "final_conversion": 0.7841118957946103,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        }
+      ]
+    },
+    {
+      "key": "cure_activation_energy",
+      "value": 40,
+      "layers": [
+        {
+          "contact_time_s": null,
+          "remaining_thickness_m": 0.000017151694289635755,
+          "gel_time_s": 9.379958010137628,
+          "gel_before_contact": true,
+          "layer": 1,
+          "contact_viscosity_Pa_s": null,
+          "low_viscosity_time_s": 7.509999999999994,
+          "final_conversion": 0.9843602390569836,
+          "tendency": {
+            "quantitative": false,
+            "grade": "미접합 위험",
+            "reasons": [
+              "접촉 전 겔화: 미접합 위험",
+              "공정 종료까지 범프 미접촉"
+            ],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": null,
+          "remaining_thickness_m": 0.000017003233857069187,
+          "gel_time_s": 8.859327106358286,
+          "gel_before_contact": true,
+          "layer": 2,
+          "contact_viscosity_Pa_s": null,
+          "low_viscosity_time_s": 7.149999999999919,
+          "final_conversion": 0.9991316616498539,
+          "tendency": {
+            "quantitative": false,
+            "grade": "미접합 위험",
+            "reasons": [
+              "접촉 전 겔화: 미접합 위험",
+              "공정 종료까지 범프 미접촉"
+            ],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": null,
+          "remaining_thickness_m": 0.000016940399063264178,
+          "gel_time_s": 8.654504815334708,
+          "gel_before_contact": true,
+          "layer": 3,
+          "contact_viscosity_Pa_s": null,
+          "low_viscosity_time_s": 7.004999999999889,
+          "final_conversion": 0.9999223627918232,
+          "tendency": {
+            "quantitative": false,
+            "grade": "미접합 위험",
+            "reasons": [
+              "접촉 전 겔화: 미접합 위험",
+              "공정 종료까지 범프 미접촉"
+            ],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": null,
+          "remaining_thickness_m": 0.000016905713703493194,
+          "gel_time_s": 8.545106138640413,
+          "gel_before_contact": true,
+          "layer": 4,
+          "contact_viscosity_Pa_s": null,
+          "low_viscosity_time_s": 6.9349999999998735,
+          "final_conversion": 0.9999852314507308,
+          "tendency": {
+            "quantitative": false,
+            "grade": "미접합 위험",
+            "reasons": [
+              "접촉 전 겔화: 미접합 위험",
+              "공정 종료까지 범프 미접촉"
+            ],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": null,
+          "remaining_thickness_m": 0.000016883722697304972,
+          "gel_time_s": 8.477120719175097,
+          "gel_before_contact": true,
+          "layer": 5,
+          "contact_viscosity_Pa_s": null,
+          "low_viscosity_time_s": 6.879999999999863,
+          "final_conversion": 0.9999952449785744,
+          "tendency": {
+            "quantitative": false,
+            "grade": "미접합 위험",
+            "reasons": [
+              "접촉 전 겔화: 미접합 위험",
+              "공정 종료까지 범프 미접촉"
+            ],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": null,
+          "remaining_thickness_m": 0.00001686853215480579,
+          "gel_time_s": 8.430833452119252,
+          "gel_before_contact": true,
+          "layer": 6,
+          "contact_viscosity_Pa_s": null,
+          "low_viscosity_time_s": 6.849999999999857,
+          "final_conversion": 0.9999974653780509,
+          "tendency": {
+            "quantitative": false,
+            "grade": "미접합 위험",
+            "reasons": [
+              "접촉 전 겔화: 미접합 위험",
+              "공정 종료까지 범프 미접촉"
+            ],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": null,
+          "remaining_thickness_m": 0.00001685740706394284,
+          "gel_time_s": 8.397327576939194,
+          "gel_before_contact": true,
+          "layer": 7,
+          "contact_viscosity_Pa_s": null,
+          "low_viscosity_time_s": 6.8249999999998545,
+          "final_conversion": 0.9999977265647444,
+          "tendency": {
+            "quantitative": false,
+            "grade": "미접합 위험",
+            "reasons": [
+              "접촉 전 겔화: 미접합 위험",
+              "공정 종료까지 범프 미접촉"
+            ],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": null,
+          "remaining_thickness_m": 0.000016848904928109272,
+          "gel_time_s": 8.371985388184804,
+          "gel_before_contact": true,
+          "layer": 8,
+          "contact_viscosity_Pa_s": null,
+          "low_viscosity_time_s": 6.804999999999855,
+          "final_conversion": 0.9999964440239238,
+          "tendency": {
+            "quantitative": false,
+            "grade": "미접합 위험",
+            "reasons": [
+              "접촉 전 겔화: 미접합 위험",
+              "공정 종료까지 범프 미접촉"
+            ],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": null,
+          "remaining_thickness_m": 0.00001684219321493774,
+          "gel_time_s": 8.352173631040772,
+          "gel_before_contact": true,
+          "layer": 9,
+          "contact_viscosity_Pa_s": null,
+          "low_viscosity_time_s": 6.794999999999855,
+          "final_conversion": 0.9999898237123702,
+          "tendency": {
+            "quantitative": false,
+            "grade": "미접합 위험",
+            "reasons": [
+              "접촉 전 겔화: 미접합 위험",
+              "공정 종료까지 범프 미접촉"
+            ],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": null,
+          "remaining_thickness_m": 0.00001683675728966946,
+          "gel_time_s": 8.336282135391471,
+          "gel_before_contact": true,
+          "layer": 10,
+          "contact_viscosity_Pa_s": null,
+          "low_viscosity_time_s": 6.7799999999998555,
+          "final_conversion": 0.999943586624817,
+          "tendency": {
+            "quantitative": false,
+            "grade": "미접합 위험",
+            "reasons": [
+              "접촉 전 겔화: 미접합 위험",
+              "공정 종료까지 범프 미접촉"
+            ],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": null,
+          "remaining_thickness_m": 0.00001683226216736361,
+          "gel_time_s": 8.323269773386453,
+          "gel_before_contact": true,
+          "layer": 11,
+          "contact_viscosity_Pa_s": null,
+          "low_viscosity_time_s": 6.774999999999856,
+          "final_conversion": 0.9993537750136418,
+          "tendency": {
+            "quantitative": false,
+            "grade": "미접합 위험",
+            "reasons": [
+              "접촉 전 겔화: 미접합 위험",
+              "공정 종료까지 범프 미접촉"
+            ],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": null,
+          "remaining_thickness_m": 0.00001682848018280371,
+          "gel_time_s": 8.31243477041558,
+          "gel_before_contact": true,
+          "layer": 12,
+          "contact_viscosity_Pa_s": null,
+          "low_viscosity_time_s": 6.764999999999856,
+          "final_conversion": 0.9835768561978278,
+          "tendency": {
+            "quantitative": false,
+            "grade": "미접합 위험",
+            "reasons": [
+              "접촉 전 겔화: 미접합 위험",
+              "공정 종료까지 범프 미접촉"
+            ],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        }
+      ]
+    },
+    {
+      "key": "cure_activation_energy",
+      "value": 80,
+      "layers": [
+        {
+          "contact_time_s": 7.220387844282296,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 10.162987165133917,
+          "gel_before_contact": false,
+          "layer": 1,
+          "contact_viscosity_Pa_s": 151.86080931567875,
+          "low_viscosity_time_s": 5.860387844282303,
+          "final_conversion": 0.947616939035504,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 6.804849668424668,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 9.49107917952674,
+          "gel_before_contact": false,
+          "layer": 2,
+          "contact_viscosity_Pa_s": 142.94700062028636,
+          "low_viscosity_time_s": 5.549849668424673,
+          "final_conversion": 0.9948122196074487,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 6.641623928774862,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 9.231649946056182,
+          "gel_before_contact": false,
+          "layer": 3,
+          "contact_viscosity_Pa_s": 139.47233676519016,
+          "low_viscosity_time_s": 5.426623928774866,
+          "final_conversion": 0.9992901303990666,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 6.554528132112358,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 9.093582379966987,
+          "gel_before_contact": false,
+          "layer": 4,
+          "contact_viscosity_Pa_s": 137.621970507517,
+          "low_viscosity_time_s": 5.364528132112361,
+          "final_conversion": 0.9998804023411234,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 6.50044952550735,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 9.007938103170423,
+          "gel_before_contact": false,
+          "layer": 5,
+          "contact_viscosity_Pa_s": 136.47282503706256,
+          "low_viscosity_time_s": 5.320449525507353,
+          "final_conversion": 0.9999760477419543,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 6.463660769670033,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 8.949683211908289,
+          "gel_before_contact": false,
+          "layer": 6,
+          "contact_viscosity_Pa_s": 135.6898705937758,
+          "low_viscosity_time_s": 5.293660769670035,
+          "final_conversion": 0.9999940814188163,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 6.4370547933178,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 8.90753011800009,
+          "gel_before_contact": false,
+          "layer": 7,
+          "contact_viscosity_Pa_s": 135.12210421565663,
+          "low_viscosity_time_s": 5.272054793317802,
+          "final_conversion": 0.9999980373958752,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 6.416950321235645,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 8.87565079848704,
+          "gel_before_contact": false,
+          "layer": 8,
+          "contact_viscosity_Pa_s": 134.69154574378703,
+          "low_viscosity_time_s": 5.256950321235648,
+          "final_conversion": 0.9999989997657714,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 6.401249648253095,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 8.850721938851745,
+          "gel_before_contact": false,
+          "layer": 9,
+          "contact_viscosity_Pa_s": 134.35382940966792,
+          "low_viscosity_time_s": 5.246249648253097,
+          "final_conversion": 0.999999041452848,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 6.388669777176915,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 8.83071656253106,
+          "gel_before_contact": false,
+          "layer": 10,
+          "contact_viscosity_Pa_s": 134.0819120104154,
+          "low_viscosity_time_s": 5.233669777176917,
+          "final_conversion": 0.9999976941152438,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 6.378381883401048,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 8.814325487215829,
+          "gel_before_contact": false,
+          "layer": 11,
+          "contact_viscosity_Pa_s": 133.85828116699176,
+          "low_viscosity_time_s": 5.228381883401051,
+          "final_conversion": 0.9999791501813106,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 6.36982666898729,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 8.800665834564215,
+          "gel_before_contact": false,
+          "layer": 12,
+          "contact_viscosity_Pa_s": 133.67101911244123,
+          "low_viscosity_time_s": 5.2198266689872925,
+          "final_conversion": 0.9987683035078911,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        }
+      ]
+    },
+    {
+      "key": "castro_A",
+      "value": 1,
+      "layers": [
+        {
+          "contact_time_s": 7.21188876732985,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 9.94067729151507,
+          "gel_before_contact": false,
+          "layer": 1,
+          "contact_viscosity_Pa_s": 143.64969323190454,
+          "low_viscosity_time_s": 5.851888767329857,
+          "final_conversion": 0.9612971009877764,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 6.788455070549498,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 9.325714565114092,
+          "gel_before_contact": false,
+          "layer": 2,
+          "contact_viscosity_Pa_s": 133.8645006437779,
+          "low_viscosity_time_s": 5.533455070549502,
+          "final_conversion": 0.9961922288517912,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 6.622178632124379,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 9.085091207539781,
+          "gel_before_contact": false,
+          "layer": 3,
+          "contact_viscosity_Pa_s": 130.0527797519588,
+          "low_viscosity_time_s": 5.407178632124383,
+          "final_conversion": 0.999495067748372,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 6.533465623000284,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 8.956859277324584,
+          "gel_before_contact": false,
+          "layer": 4,
+          "contact_viscosity_Pa_s": 128.0236782529419,
+          "low_viscosity_time_s": 5.343465623000287,
+          "final_conversion": 0.9999069315924782,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 6.47838541382716,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 8.877261926279733,
+          "gel_before_contact": false,
+          "layer": 5,
+          "contact_viscosity_Pa_s": 126.7637296784488,
+          "low_viscosity_time_s": 5.298385413827163,
+          "final_conversion": 0.9999772394422215,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 6.440915495755673,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 8.823098176402619,
+          "gel_before_contact": false,
+          "layer": 6,
+          "contact_viscosity_Pa_s": 125.90530816788399,
+          "low_viscosity_time_s": 5.270915495755676,
+          "final_conversion": 0.9999923050127998,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 6.413816323113612,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 8.783900497217601,
+          "gel_before_contact": false,
+          "layer": 7,
+          "contact_viscosity_Pa_s": 125.28292682219123,
+          "low_viscosity_time_s": 5.248816323113615,
+          "final_conversion": 0.9999961244820614,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 6.393338323002601,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 8.754252198635243,
+          "gel_before_contact": false,
+          "layer": 8,
+          "contact_viscosity_Pa_s": 124.81102781560897,
+          "low_viscosity_time_s": 5.233338323002603,
+          "final_conversion": 0.9999967732559376,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 6.377345015345273,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 8.731068916973078,
+          "gel_before_contact": false,
+          "layer": 9,
+          "contact_viscosity_Pa_s": 124.440950371528,
+          "low_viscosity_time_s": 5.222345015345275,
+          "final_conversion": 0.9999949171884647,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 6.364529750167785,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 8.712465840080307,
+          "gel_before_contact": false,
+          "layer": 10,
+          "contact_viscosity_Pa_s": 124.14293163569795,
+          "low_viscosity_time_s": 5.209529750167787,
+          "final_conversion": 0.9999820595508511,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 6.35404846167912,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 8.697226545786801,
+          "gel_before_contact": false,
+          "layer": 11,
+          "contact_viscosity_Pa_s": 123.89790692419729,
+          "low_viscosity_time_s": 5.204048461679123,
+          "final_conversion": 0.9998253080258713,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 6.345331585699117,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 8.684530471894115,
+          "gel_before_contact": false,
+          "layer": 12,
+          "contact_viscosity_Pa_s": 123.6928462212572,
+          "low_viscosity_time_s": 5.195331585699119,
+          "final_conversion": 0.9939638173114227,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        }
+      ]
+    },
+    {
+      "key": "castro_A",
+      "value": 3,
+      "layers": [
+        {
+          "contact_time_s": null,
+          "remaining_thickness_m": 0.000015348412797967988,
+          "gel_time_s": 9.94067729151507,
+          "gel_before_contact": true,
+          "layer": 1,
+          "contact_viscosity_Pa_s": null,
+          "low_viscosity_time_s": 7.800000000000039,
+          "final_conversion": 0.9612971009877764,
+          "tendency": {
+            "quantitative": false,
+            "grade": "미접합 위험",
+            "reasons": [
+              "접촉 전 겔화: 미접합 위험",
+              "공정 종료까지 범프 미접촉"
+            ],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": null,
+          "remaining_thickness_m": 0.000015376812801635655,
+          "gel_time_s": 9.325714565114092,
+          "gel_before_contact": true,
+          "layer": 2,
+          "contact_viscosity_Pa_s": null,
+          "low_viscosity_time_s": 7.3599999999999515,
+          "final_conversion": 0.9961922288517912,
+          "tendency": {
+            "quantitative": false,
+            "grade": "미접합 위험",
+            "reasons": [
+              "접촉 전 겔화: 미접합 위험",
+              "공정 종료까지 범프 미접촉"
+            ],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": null,
+          "remaining_thickness_m": 0.00001538782071192376,
+          "gel_time_s": 9.085091207539781,
+          "gel_before_contact": true,
+          "layer": 3,
+          "contact_viscosity_Pa_s": null,
+          "low_viscosity_time_s": 7.189999999999918,
+          "final_conversion": 0.999495067748372,
+          "tendency": {
+            "quantitative": false,
+            "grade": "미접합 위험",
+            "reasons": [
+              "접촉 전 겔화: 미접합 위험",
+              "공정 종료까지 범프 미접촉"
+            ],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": null,
+          "remaining_thickness_m": 0.000015393661122570785,
+          "gel_time_s": 8.956859277324584,
+          "gel_before_contact": true,
+          "layer": 4,
+          "contact_viscosity_Pa_s": null,
+          "low_viscosity_time_s": 7.099999999999899,
+          "final_conversion": 0.9999069315924782,
+          "tendency": {
+            "quantitative": false,
+            "grade": "미접합 위험",
+            "reasons": [
+              "접촉 전 겔화: 미접합 위험",
+              "공정 종료까지 범프 미접촉"
+            ],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": null,
+          "remaining_thickness_m": 0.00001539727634396714,
+          "gel_time_s": 8.877261926279733,
+          "gel_before_contact": true,
+          "layer": 5,
+          "contact_viscosity_Pa_s": null,
+          "low_viscosity_time_s": 7.039999999999888,
+          "final_conversion": 0.9999772394422215,
+          "tendency": {
+            "quantitative": false,
+            "grade": "미접합 위험",
+            "reasons": [
+              "접촉 전 겔화: 미접합 위험",
+              "공정 종료까지 범프 미접촉"
+            ],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": null,
+          "remaining_thickness_m": 0.000015399730865631432,
+          "gel_time_s": 8.823098176402619,
+          "gel_before_contact": true,
+          "layer": 6,
+          "contact_viscosity_Pa_s": null,
+          "low_viscosity_time_s": 6.99999999999988,
+          "final_conversion": 0.9999923050127998,
+          "tendency": {
+            "quantitative": false,
+            "grade": "미접합 위험",
+            "reasons": [
+              "접촉 전 겔화: 미접합 위험",
+              "공정 종료까지 범프 미접촉"
+            ],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": null,
+          "remaining_thickness_m": 0.000015401503250040514,
+          "gel_time_s": 8.783900497217601,
+          "gel_before_contact": true,
+          "layer": 7,
+          "contact_viscosity_Pa_s": null,
+          "low_viscosity_time_s": 6.9699999999998745,
+          "final_conversion": 0.9999961244820614,
+          "tendency": {
+            "quantitative": false,
+            "grade": "미접합 위험",
+            "reasons": [
+              "접촉 전 겔화: 미접합 위험",
+              "공정 종료까지 범프 미접촉"
+            ],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": null,
+          "remaining_thickness_m": 0.000015402840346717362,
+          "gel_time_s": 8.754252198635243,
+          "gel_before_contact": true,
+          "layer": 8,
+          "contact_viscosity_Pa_s": null,
+          "low_viscosity_time_s": 6.9499999999998705,
+          "final_conversion": 0.9999967732559376,
+          "tendency": {
+            "quantitative": false,
+            "grade": "미접합 위험",
+            "reasons": [
+              "접촉 전 겔화: 미접합 위험",
+              "공정 종료까지 범프 미접촉"
+            ],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": null,
+          "remaining_thickness_m": 0.00001540388242992862,
+          "gel_time_s": 8.731068916973078,
+          "gel_before_contact": true,
+          "layer": 9,
+          "contact_viscosity_Pa_s": null,
+          "low_viscosity_time_s": 6.934999999999867,
+          "final_conversion": 0.9999949171884647,
+          "tendency": {
+            "quantitative": false,
+            "grade": "미접합 위험",
+            "reasons": [
+              "접촉 전 겔화: 미접합 위험",
+              "공정 종료까지 범프 미접촉"
+            ],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": null,
+          "remaining_thickness_m": 0.00001540471490726733,
+          "gel_time_s": 8.712465840080307,
+          "gel_before_contact": true,
+          "layer": 10,
+          "contact_viscosity_Pa_s": null,
+          "low_viscosity_time_s": 6.919999999999865,
+          "final_conversion": 0.9999820595508511,
+          "tendency": {
+            "quantitative": false,
+            "grade": "미접합 위험",
+            "reasons": [
+              "접촉 전 겔화: 미접합 위험",
+              "공정 종료까지 범프 미접촉"
+            ],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": null,
+          "remaining_thickness_m": 0.000015405392808554126,
+          "gel_time_s": 8.697226545786801,
+          "gel_before_contact": true,
+          "layer": 11,
+          "contact_viscosity_Pa_s": null,
+          "low_viscosity_time_s": 6.9099999999998625,
+          "final_conversion": 0.9998253080258713,
+          "tendency": {
+            "quantitative": false,
+            "grade": "미접합 위험",
+            "reasons": [
+              "접촉 전 겔화: 미접합 위험",
+              "공정 종료까지 범프 미접촉"
+            ],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": null,
+          "remaining_thickness_m": 0.00001540595308322489,
+          "gel_time_s": 8.684530471894115,
+          "gel_before_contact": true,
+          "layer": 12,
+          "contact_viscosity_Pa_s": null,
+          "low_viscosity_time_s": 6.899999999999861,
+          "final_conversion": 0.9939638173114227,
+          "tendency": {
+            "quantitative": false,
+            "grade": "미접합 위험",
+            "reasons": [
+              "접촉 전 겔화: 미접합 위험",
+              "공정 종료까지 범프 미접촉"
+            ],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        }
+      ]
+    }
+  ],
+  "convergence": [
+    {
+      "layer": 1,
+      "contact_delta_s": -7.900019323159313e-7,
+      "thickness_delta_um": 0,
+      "conversion_delta": -3.241851231905457e-14
+    },
+    {
+      "layer": 2,
+      "contact_delta_s": -8.477663966388604e-7,
+      "thickness_delta_um": 0,
+      "conversion_delta": -7.105427357601002e-15
+    },
+    {
+      "layer": 3,
+      "contact_delta_s": -8.782228890780175e-7,
+      "thickness_delta_um": 0,
+      "conversion_delta": -9.992007221626409e-16
+    },
+    {
+      "layer": 4,
+      "contact_delta_s": -8.971930807177841e-7,
+      "thickness_delta_um": 0,
+      "conversion_delta": -1.1102230246251565e-16
+    },
+    {
+      "layer": 5,
+      "contact_delta_s": -9.10736248194155e-7,
+      "thickness_delta_um": 0,
+      "conversion_delta": 0
+    },
+    {
+      "layer": 6,
+      "contact_delta_s": -9.115762074074496e-7,
+      "thickness_delta_um": 0,
+      "conversion_delta": 0
+    },
+    {
+      "layer": 7,
+      "contact_delta_s": -9.175491166857341e-7,
+      "thickness_delta_um": 0,
+      "conversion_delta": 0
+    },
+    {
+      "layer": 8,
+      "contact_delta_s": -9.182106044391958e-7,
+      "thickness_delta_um": 0,
+      "conversion_delta": 0
+    },
+    {
+      "layer": 9,
+      "contact_delta_s": -9.277352193137745e-7,
+      "thickness_delta_um": 0,
+      "conversion_delta": 0
+    },
+    {
+      "layer": 10,
+      "contact_delta_s": -9.319074418812079e-7,
+      "thickness_delta_um": 0,
+      "conversion_delta": -1.1102230246251565e-16
+    },
+    {
+      "layer": 11,
+      "contact_delta_s": -9.314576923102891e-7,
+      "thickness_delta_um": 0,
+      "conversion_delta": -4.440892098500626e-16
+    },
+    {
+      "layer": 12,
+      "contact_delta_s": -9.27151907248458e-7,
+      "thickness_delta_um": 0,
+      "conversion_delta": -1.0103029524088925e-14
+    }
+  ]
+}
