@@ -9041,6 +9041,306 @@
           }
         }
       ]
+    },
+    {
+      "path": "cycle.mold_fill_time",
+      "range": [
+        1,
+        60
+      ],
+      "unit": "s",
+      "source": "C3 유동 모델 결합 전 충전 대기 10 s를 가정한다. recipe.mold_fill_s로 C3 계산값을 전달할 수 있다.",
+      "range_basis": "params의 기존 range 양끝",
+      "changed_cells": 0,
+      "rows": [
+        {
+          "case": "A",
+          "value": 1,
+          "judgements": {
+            "warpage": "불량",
+            "defect": "정량 모델 없음 (경향: 낮은 경향)",
+            "contact": "접촉",
+            "alignment": "양호"
+          },
+          "changed": [],
+          "max_warp_um": 42.51424547997232,
+          "defect_area_pct": null,
+          "max_adjacent_3sigma_um": 0.8824964589164084,
+          "contact_layers": 12,
+          "cycle": {
+            "bonder_s": 239.88600000000002,
+            "batch_post_s": 0
+          }
+        },
+        {
+          "case": "B",
+          "value": 1,
+          "judgements": {
+            "warpage": "주의",
+            "defect": "불량",
+            "contact": "정량 접촉 모델 없음 (자기정렬은 젖음·접촉 가정)",
+            "alignment": "양호"
+          },
+          "changed": [],
+          "max_warp_um": 2.7502741194365075,
+          "defect_area_pct": 95.71245081005151,
+          "max_adjacent_3sigma_um": 0.05262629234125213,
+          "contact_layers": null,
+          "cycle": {
+            "bonder_s": 27.124000000000002,
+            "batch_post_s": 7516.75
+          }
+        },
+        {
+          "case": "C",
+          "value": 1,
+          "judgements": {
+            "warpage": "주의",
+            "defect": "정량 모델 없음 (경향: 낮은 경향)",
+            "contact": "접촉",
+            "alignment": "양호"
+          },
+          "changed": [],
+          "max_warp_um": 9.927945144786719,
+          "defect_area_pct": null,
+          "max_adjacent_3sigma_um": 0.8824964589164084,
+          "contact_layers": 12,
+          "cycle": {
+            "bonder_s": 239.88600000000002,
+            "batch_post_s": 0
+          }
+        },
+        {
+          "case": "D",
+          "value": 1,
+          "judgements": {
+            "warpage": "주의",
+            "defect": "불량",
+            "contact": "정량 접촉 모델 없음 (자기정렬은 젖음·접촉 가정)",
+            "alignment": "양호"
+          },
+          "changed": [],
+          "max_warp_um": 6.723447931035687,
+          "defect_area_pct": 93.72367064913827,
+          "max_adjacent_3sigma_um": 0.05280936441860774,
+          "contact_layers": null,
+          "cycle": {
+            "bonder_s": 40.68600000000001,
+            "batch_post_s": 7516.75
+          }
+        },
+        {
+          "case": "A",
+          "value": 60,
+          "judgements": {
+            "warpage": "불량",
+            "defect": "정량 모델 없음 (경향: 낮은 경향)",
+            "contact": "접촉",
+            "alignment": "양호"
+          },
+          "changed": [],
+          "max_warp_um": 42.51424547997232,
+          "defect_area_pct": null,
+          "max_adjacent_3sigma_um": 0.8824964589164084,
+          "contact_layers": 12,
+          "cycle": {
+            "bonder_s": 239.88600000000002,
+            "batch_post_s": 0
+          }
+        },
+        {
+          "case": "B",
+          "value": 60,
+          "judgements": {
+            "warpage": "주의",
+            "defect": "불량",
+            "contact": "정량 접촉 모델 없음 (자기정렬은 젖음·접촉 가정)",
+            "alignment": "양호"
+          },
+          "changed": [],
+          "max_warp_um": 2.7502741194365075,
+          "defect_area_pct": 66.78878678256885,
+          "max_adjacent_3sigma_um": 0.05262629234125213,
+          "contact_layers": null,
+          "cycle": {
+            "bonder_s": 27.124000000000002,
+            "batch_post_s": 7575.75
+          }
+        },
+        {
+          "case": "C",
+          "value": 60,
+          "judgements": {
+            "warpage": "주의",
+            "defect": "정량 모델 없음 (경향: 낮은 경향)",
+            "contact": "접촉",
+            "alignment": "양호"
+          },
+          "changed": [],
+          "max_warp_um": 9.927945144786719,
+          "defect_area_pct": null,
+          "max_adjacent_3sigma_um": 0.8824964589164084,
+          "contact_layers": 12,
+          "cycle": {
+            "bonder_s": 239.88600000000002,
+            "batch_post_s": 0
+          }
+        },
+        {
+          "case": "D",
+          "value": 60,
+          "judgements": {
+            "warpage": "주의",
+            "defect": "불량",
+            "contact": "정량 접촉 모델 없음 (자기정렬은 젖음·접촉 가정)",
+            "alignment": "양호"
+          },
+          "changed": [],
+          "max_warp_um": 6.723447931035687,
+          "defect_area_pct": 51.38376189759948,
+          "max_adjacent_3sigma_um": 0.05280936441860774,
+          "contact_layers": null,
+          "cycle": {
+            "bonder_s": 40.68600000000001,
+            "batch_post_s": 7575.75
+          }
+        }
+      ]
     }
-  ]
+  ],
+  "mrmuf_defect_boundaries": {
+    "basis": "Analytic inverses only; no new process assumption or params changes",
+    "flow_length_m": 0.005,
+    "viscosity_Pa_s": 2,
+    "gamma": 0.04,
+    "theta_deg": 10,
+    "allowed_time_s": 10,
+    "baseline_applied_pressure_Pa": 0,
+    "pressure_range_Pa": [
+      0,
+      100000
+    ],
+    "rows": [
+      {
+        "gap_um": 7,
+        "capillary_fill_time_s": 543.9785420816492,
+        "boundaries": [
+          {
+            "transition": "fail_to_caution",
+            "unfilled_pct": 5,
+            "allowed_time_s": 490.94063422868834,
+            "applied_pressure_Pa": 541296.0746594523,
+            "pressure_range_status": "범위 밖"
+          },
+          {
+            "transition": "caution_to_good",
+            "unfilled_pct": 1,
+            "allowed_time_s": 533.1533690942243,
+            "applied_pressure_Pa": 588806.278741085,
+            "pressure_range_status": "범위 밖"
+          }
+        ],
+        "viscosity_endpoints": [
+          {
+            "mu_Pa_s": 0.5,
+            "capillary_fill_time_s": 135.9946355204123
+          },
+          {
+            "mu_Pa_s": 20,
+            "capillary_fill_time_s": 5439.785420816491
+          }
+        ]
+      },
+      {
+        "gap_um": 15,
+        "capillary_fill_time_s": 253.85665297143626,
+        "boundaries": [
+          {
+            "transition": "fail_to_caution",
+            "unfilled_pct": 5,
+            "allowed_time_s": 229.10562930672123,
+            "applied_pressure_Pa": 115081.02531726823,
+            "pressure_range_status": "범위 밖"
+          },
+          {
+            "transition": "caution_to_good",
+            "unfilled_pct": 1,
+            "allowed_time_s": 248.80490557730468,
+            "applied_pressure_Pa": 125427.6919839349,
+            "pressure_range_status": "범위 밖"
+          }
+        ],
+        "viscosity_endpoints": [
+          {
+            "mu_Pa_s": 0.5,
+            "capillary_fill_time_s": 63.464163242859065
+          },
+          {
+            "mu_Pa_s": 20,
+            "capillary_fill_time_s": 2538.5665297143623
+          }
+        ]
+      },
+      {
+        "gap_um": 20,
+        "capillary_fill_time_s": 190.39248972857723,
+        "boundaries": [
+          {
+            "transition": "fail_to_caution",
+            "unfilled_pct": 5,
+            "allowed_time_s": 171.82922198004096,
+            "applied_pressure_Pa": 63748.26898795118,
+            "pressure_range_status": "범위 내"
+          },
+          {
+            "transition": "caution_to_good",
+            "unfilled_pct": 1,
+            "allowed_time_s": 186.60367918297854,
+            "applied_pressure_Pa": 69568.26898795119,
+            "pressure_range_status": "범위 내"
+          }
+        ],
+        "viscosity_endpoints": [
+          {
+            "mu_Pa_s": 0.5,
+            "capillary_fill_time_s": 47.59812243214431
+          },
+          {
+            "mu_Pa_s": 20,
+            "capillary_fill_time_s": 1903.924897285772
+          }
+        ]
+      },
+      {
+        "gap_um": 30,
+        "capillary_fill_time_s": 126.92832648571813,
+        "boundaries": [
+          {
+            "transition": "fail_to_caution",
+            "unfilled_pct": 5,
+            "allowed_time_s": 114.55281465336061,
+            "applied_pressure_Pa": 27457.17932530078,
+            "pressure_range_status": "범위 내"
+          },
+          {
+            "transition": "caution_to_good",
+            "unfilled_pct": 1,
+            "allowed_time_s": 124.40245278865234,
+            "applied_pressure_Pa": 30043.84599196745,
+            "pressure_range_status": "범위 내"
+          }
+        ],
+        "viscosity_endpoints": [
+          {
+            "mu_Pa_s": 0.5,
+            "capillary_fill_time_s": 31.732081621429533
+          },
+          {
+            "mu_Pa_s": 20,
+            "capillary_fill_time_s": 1269.2832648571812
+          }
+        ]
+      }
+    ]
+  }
 }
