@@ -510,6 +510,16 @@
       "kind": "assumption",
       "source": "docs/research/params_research.md (기본값 제안·미확인 항목), params_draft.json: Henkel UF8830S CUF의 150 ℃ 2 h 경화를 참고하여 MUF 경화 시간을 7200 s로 가정한다. MR-MUF 양산 조건은 미공개다.",
       "note": "CUF 150 C 2 h (Henkel UF8830S) as reference"
+    },
+    "applied_pressure": {
+      "value": 0,
+      "unit": "Pa",
+      "kind": "assumption",
+      "source": "MUF 몰딩 압력은 미공개다. 기준 계산은 모세관 단독(0 Pa)으로 두며 실제 몰딩 조건을 대표하지 않는다. 인가 압력의 효과는 별도 입력으로 비교한다.",
+      "range": [
+        0,
+        100000
+      ]
     }
   },
   "solder": {
@@ -1206,6 +1216,12 @@
       "kind": "design",
       "source": "docs/requirements.md 4절 결함 면적률: 업체 기준 비공개이므로 MIL-STD-883 Method 2030 다이 부착 기준보다 엄격한 교육용 3단계 표시를 설계했다.",
       "note": "1 % 초과 ~ 5 % 이하 주의, 5 % 초과 불량."
+    },
+    "alignment_layer_3sigma_um": {
+      "value": 1,
+      "unit": "um",
+      "kind": "design",
+      "source": "docs/requirements.md 4절: 아래층 대비 축별 3σ ≤1 μm 설계 목표. 누적 오차나 단일 시드 표본은 판정 대상이 아니다."
     }
   },
   "vendor_claims": {
@@ -1466,6 +1482,40 @@
       "unit": "model",
       "kind": "assumption",
       "source": "중간 RSS 분산을 독립 정규 층 오차로 근사한다. N은 기판 위 배치 횟수이며 맨 아래 기준은 기판이다. 최상위-첫 다이 오차도 별도 제공한다. TC-NCF는 중간 4장에 따라 자기정렬을 적용하지 않는다."
+    },
+    "damping": {
+      "value": 0.01,
+      "unit": "N*s/m",
+      "kind": "assumption",
+      "source": "용융 솔더·tack의 감쇠 실측값이 없어 다이 전체의 선형 점성 감쇠를 0.01 N s/m로 가정한다. 불확실성 탐색은 한 차수 아래·위이며 특정 재료 점도에서 유도한 값이 아니다.",
+      "range": [
+        0.001,
+        0.1
+      ]
+    },
+    "resist_force": {
+      "value": 0.001,
+      "unit": "N",
+      "kind": "assumption",
+      "source": "tack 잔류 저항 실측값이 없어 축당 Coulomb 저항 1 mN을 가정한다. 접합 후 완전 보정 대신 정지 마찰 잔여를 표현하며 한 차수 아래·위로 탐색한다.",
+      "range": [
+        0.0001,
+        0.01
+      ]
+    }
+  },
+  "recipe": {
+    "layers": {
+      "value": 8,
+      "unit": "count",
+      "kind": "assumption",
+      "source": "requirements 3절의 2/4/8/12단 중 8단을 기본 시연 조건으로 선택한다. 문헌 15 μm MR-MUF 8단과 함께 비교하며 결과 맞춤 값이 아니다."
+    },
+    "alignment_reference": {
+      "value": "previous",
+      "unit": "model",
+      "kind": "assumption",
+      "source": "층마다 바로 아래 다이에 맞추는 교육용 기준을 기본으로 한다. substrate 선택 시 기판 기준의 상관된 인접 오차를 유지한다."
     }
   }
 }
