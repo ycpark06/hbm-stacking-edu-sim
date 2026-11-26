@@ -40,3 +40,41 @@ export function alignOnce(rng,sig_ch_um,{init_um=30,init_deg=0.3,tol_um=0.15,tol
   d.forEach(()=>rng.normal(0,Math.sqrt(2)*sig_ch_um));
   return {d_um:d,theta_rad:theta,iters:max_iter};
 }
+
+/** N placements above a fixed substrate (bottom datum), per Cartesian axis.
+ * Previous: e_i=e_(i-1)+epsilon_i; substrate: e_i=epsilon_i.
+ * Consequently substrate-referenced adjacent errors have sigma sqrt(2)*sigma
+ * and negative neighbour covariance; they are not independent layer increments.
+ * TC-NCF has no self-alignment (midterm chapter 4).
+ */
+export function stackOffsetExpected({N,sigma_layer_um,reference='previous',params}) {
+  const sigma=sigma_layer_um??params?.alignment.sigma_layer_um.value;
+  if(!Number.isInteger(N)||N<1||!(sigma>=0&&Number.isFinite(sigma))||!['previous','substrate'].includes(reference))
+    throw new RangeError('stack offset count/sigma/reference');
+  const cumulative_sigma_um=sigma*(reference==='previous'?Math.sqrt(N):1);
+  return {N,reference,sigma_layer_um:sigma,mean_um:0,cumulative_sigma_um,cumulative_3sigma_um:3*cumulative_sigma_um,
+    adjacent_sigma_um:Array.from({length:N},(_,i)=>sigma*(reference==='substrate'&&i>0?Math.SQRT2:1)),
+    top_to_first_die_sigma_um:N===1?0:sigma*Math.sqrt(reference==='previous'?N-1:2),self_alignment:false};
+}
+export function stackOffset(options) {
+  const expected=stackOffsetExpected(options),{N,reference,sigma_layer_um:sigma}=expected,{rng}=options;
+  if(!rng?.normal)throw new TypeError('seeded rng.normal required');
+  const positions_um=[],layer_errors_um=[];let previous=[0,0];
+  for(let i=0;i<N;i++) {
+    const noise=[rng.normal(0,sigma),rng.normal(0,sigma)],position=noise.map((v,j)=>v+(reference==='previous'?previous[j]:0));
+    positions_um.push(position);layer_errors_um.push(position.map((v,j)=>v-previous[j]));previous=position;
+  }
+  return {...expected,positions_um,layer_errors_um,cumulative_um:positions_um.at(-1),
+    top_to_first_die_um:positions_um.at(-1).map((v,j)=>v-positions_um[0][j])};
+}
+export function stackOffsetMonteCarlo(options) {
+  const samples=options.samples??options.params?.alignment.mc_samples.value;
+  if(!Number.isInteger(samples)||samples<2)throw new RangeError('MC sample count');
+  const expected=stackOffsetExpected(options),mean=[0,0],M2=[0,0];
+  for(let n=1;n<=samples;n++) {
+    const x=stackOffset(options).cumulative_um;
+    for(let j=0;j<2;j++){const d=x[j]-mean[j];mean[j]+=d/n;M2[j]+=d*(x[j]-mean[j]);}
+  }
+  return {...expected,samples,mc_mean_um:mean,mc_sigma_um:M2.map(v=>Math.sqrt(v/(samples-1))),
+    sigma_relative_standard_error:1/Math.sqrt(2*(samples-1))};
+}
