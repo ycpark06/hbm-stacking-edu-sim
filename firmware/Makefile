@@ -44,11 +44,11 @@ build/controller.bin: build/controller.elf
 
 EMCC ?= emcc
 NODE ?= node
-WASM_EXPORTS = ['_fw_init','_fw_wasm_set_recipe','_fw_step_1ms','_fw_reset_latch','_fw_set_hw_fault','_fw_get_z_velocity','_fw_get_heater_power','_fw_get_mode','_fw_get_phase','_fw_get_warning','_fw_get_latched','_fw_get_brake','_fw_get_sto','_fw_get_force_setpoint','_fw_get_force_integral','_fw_get_temp_integral']
+WASM_EXPORTS = ['_fw_set_temp_period_ms','_fw_init','_fw_wasm_set_recipe','_fw_step_1ms','_fw_reset_latch','_fw_set_hw_fault','_fw_get_z_velocity','_fw_get_heater_power','_fw_get_mode','_fw_get_phase','_fw_get_warning','_fw_get_latched','_fw_get_brake','_fw_get_sto','_fw_get_force_setpoint','_fw_get_force_integral','_fw_get_temp_integral']
 .PHONY: wasm test-wasm
 wasm: build/controller.js build/controller.wasm
 
-build/controller.js: $(CORE_SOURCES) hal/hal_wasm.c $(wildcard src/*.h hal/*.h)
+build/controller.js: Makefile $(CORE_SOURCES) hal/hal_wasm.c $(wildcard src/*.h hal/*.h)
 	@mkdir -p build
 	$(EMCC) $(CPPFLAGS) $(CFLAGS) -Dfw_step_1ms=fw_core_step_1ms $(CORE_SOURCES) hal/hal_wasm.c --no-entry -sMODULARIZE -sEXPORT_ES6 -sEXPORTED_FUNCTIONS="$(WASM_EXPORTS)" -sEXPORTED_RUNTIME_METHODS=cwrap,ccall -sALLOW_MEMORY_GROWTH=0 -sMALLOC=none -o $@
 
