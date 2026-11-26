@@ -1053,5 +1053,75 @@
       "source": "https://chipscalereview.com/wp-content/uploads/flipbook/38/files/basic-html/page47.html",
       "note": "docs/research/params_research.md 7절: Samsung ECTC 2023 인용, TC-NCF 접합부 열저항이 MR-MUF보다 35 % 낮다는 임의 단위(A.U.) 시뮬레이션 주장. 관찰 항목(표시만): 회사·출처와 함께 표시하며 판정·계산 입력에 쓰지 않는다."
     }
+  },
+  "thermal_stack": {
+    "ambient_temp": {
+      "value": 20,
+      "unit": "C",
+      "kind": "midterm",
+      "source": "calc/midterm/thermal.py:6의 주위 온도를 적층 초기 온도로도 사용한다."
+    },
+    "dt": {
+      "value": 0.05,
+      "unit": "s",
+      "kind": "assumption",
+      "source": "얇은 접합층의 빠른 응답을 기록하기 위한 후진 오일러 시간 간격. 1/2 간격 수렴 결과를 함께 보고한다."
+    },
+    "h_conv": {
+      "value": 10,
+      "unit": "W/m2/K",
+      "kind": "assumption",
+      "source": "calc/midterm/thermal.py의 자연대류 10을 다이 노출 측면과 상면에 적용하는 가정. 복사는 별도로 포함하지 않는다."
+    },
+    "h_oven": {
+      "value": 100,
+      "unit": "W/m2/K",
+      "kind": "assumption",
+      "source": "강제 순환 리플로우 오븐의 대류를 자연대류보다 큰 100으로 근사한다. 장비 측정값이 없으며 리플로우 경계는 척에도 같은 프로파일을 준다."
+    },
+    "tool_contact_R_area": {
+      "value": 1e-05,
+      "unit": "m2*K/W",
+      "kind": "assumption",
+      "source": "공개 툴 접촉 저항이 없어, params materials.bump_layer_R_unit의 8e-6 m2 K/W와 같은 차수인 1e-5를 면적 접촉 저항으로 가정한다. 결과 보정용 값이 아니다. 민감도 범위는 실측 부재에 따른 한 차수 아래·위(1e-6~1e-4)로 가정한다.",
+      "range": [
+        1e-06,
+        0.0001
+      ]
+    },
+    "chuck_contact_R_area": {
+      "value": 1e-05,
+      "unit": "m2*K/W",
+      "kind": "assumption",
+      "source": "척 접촉 실측값이 없어 툴과 같은 면적 접촉 저항을 가정한다. 척은 유한 열용량 대신 온도 경계로 둔다. 민감도 범위는 실측 부재에 따른 한 차수 아래·위(1e-6~1e-4)로 가정한다.",
+      "range": [
+        1e-06,
+        0.0001
+      ]
+    },
+    "unfilled_gap_capacity": {
+      "value": "Cu/SnAg pillars only; void capacity neglected",
+      "unit": "model",
+      "kind": "assumption",
+      "source": "MR-MUF 미충전 간격은 지름/피치에서 계산한 범프 체적률만 열용량에 반영한다. 열전도는 underfilled 문헌 대리값 bump_layer_k_eff를 사용하므로 미충전 저항의 불확실성이 있다."
+    },
+    "mechanical_model": {
+      "value": "1D strip; constant room-temperature moduli and cte1; no substrate",
+      "unit": "model",
+      "kind": "assumption",
+      "source": "독립 적층체의 열 휨만 비교한다. C2 경화·점탄성 이전 단계이므로 온도 의존 탄성률·Tg·경화 수축·소성·기판 구속을 제외한 선형 탄성 민감도 모델이다."
+    },
+    "mold_model": {
+      "value": "replace effective gap with MUF at cure_temp; retain Si reflow reference",
+      "unit": "model",
+      "kind": "assumption",
+      "source": "몰딩 후 간격을 균질 MUF로 치환한다. 수지 무응력 온도는 가정 경화 온도이고 Si는 리플로우 피크를 유지한다. 범프 기계 강성의 병렬 기여는 이 단계에서 제외한다."
+    },
+    "reflow_shoulder_temp": {
+      "value": 235.5,
+      "unit": "C",
+      "kind": "assumption",
+      "source": "리플로우 액상선 위 시간과 피크 유지 시간을 함께 지정하기 위해 SnAg 액상선 221 ℃와 피크 250 ℃의 중간 온도 235.5 ℃에 shoulder dwell을 둔다. 양산 오븐 프로파일이 아닌 교육용 구간 구성 가정이다. reflow.time_above_liquidus의 SAC217 기준 시간을 SnAg221 프로그램 경계에 적용한다."
+    }
   }
 }
