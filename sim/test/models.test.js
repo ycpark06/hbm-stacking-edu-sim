@@ -260,22 +260,30 @@ test('seeded stack offsets: MC agrees within five sampling standard errors; refe
   }
 });
 
-test('cycle triangular/trapezoidal continuity; TC linear, MR layer plus once; C1 oven duration',()=>{
+test('cycle continuity; both bonder times scale with N, batch post is independent; C1 oven duration',()=>{
   const v=params.cycle.xy_speed.value,a=params.cycle.xy_acceleration.value,d=v*v/a;
   close(trapezoidMoveTime(d,v,a),2*v/a);
   close(trapezoidMoveTime(d*(1-1e-10),v,a),trapezoidMoveTime(d*(1+1e-10),v,a),1e-9);
   assert.equal(trapezoidMoveTime(0,v,a),0);assert.throws(()=>trapezoidMoveTime(-1,v,a));
   for(const mode of ['TC-NCF','MR-MUF']) {
     const recipe={params},step=bondStepTimes(mode,recipe),r2=stackCycleTime(mode,2,recipe),r4=stackCycleTime(mode,4,recipe);
-    close(r4.total_s-r2.total_s,2*step.per_layer_s);
-    close(r4.total_s,4*step.per_layer_s+step.once_s);
-    if(mode==='TC-NCF'){assert.equal(step.once_s,0);close(r4.total_s,2*r2.total_s);close(step.per_layer.ramp_s,10);}
+    assert.deepEqual(Object.keys(r4),['bonder_s','batch_post_s','total_serial_s','breakdown']);
+    close(r4.bonder_s,2*r2.bonder_s);
+    close(r4.bonder_s,4*step.per_layer_s);
+    assert.equal(r4.batch_post_s,r2.batch_post_s);
+    close(r4.total_serial_s,r4.bonder_s+r4.batch_post_s);
+    close(r4.total_serial_s-r2.total_serial_s,2*step.per_layer_s);
+    close(r4.total_serial_s,4*step.per_layer_s+step.once_s);
+    if(mode==='TC-NCF'){assert.equal(r4.batch_post_s,0);assert.equal(step.once_s,0);close(r4.total_serial_s,2*r2.total_serial_s);close(step.per_layer.ramp_s,10);}
     else {
       close(step.once.reflow_s,mrmufSchedule(2,params).filter(s=>s.phase.startsWith('reflow')).reduce((v,s)=>v+s.duration_s,0));
-      close(stackCycleTime(mode,4,{params,mold_fill_s:123}).total_s-r4.total_s,123-params.cycle.mold_fill_time.value);
+      close(stackCycleTime(mode,4,{params,mold_fill_s:123}).total_serial_s-r4.total_serial_s,123-params.cycle.mold_fill_time.value);
+      const changed=stackCycleTime(mode,4,{params,mold_fill_s:123});
+      assert.equal(changed.bonder_s,r4.bonder_s);
+      assert.equal(r4.batch_post_s,step.once_s);
       assert.equal(step.once.mold_cure_s,params.muf.cure_time.value);
     }
-    close(Object.values(r4.breakdown.layer_totals).reduce((s,v)=>s+v,0)+Object.values(r4.breakdown.once).reduce((s,v)=>s+v,0),r4.total_s);
+    close(Object.values(r4.breakdown.layer_totals).reduce((s,v)=>s+v,0)+Object.values(r4.breakdown.once).reduce((s,v)=>s+v,0),r4.total_serial_s);
   }
 });
 

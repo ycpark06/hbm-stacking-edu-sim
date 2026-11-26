@@ -21,7 +21,8 @@ export function trapezoidMoveTime(d_mm,v_mm_s,a_mm_s2) {
 const sumTimes=o=>Object.values(o).reduce((s,x)=>s+x,0);
 /** recipe={params, xy_distance_mm?, z_distance_mm?, mold_fill_s?}.
  * machine overrides cycle parameters by their existing key, in stated units.
- * Sequential elapsed time; no batch parallelism or startup preheat is credited.
+ * Layer steps occupy the bonder; MR once steps are shared batch post-processing.
+ * No batch size or startup preheat is assumed.
  */
 export function bondStepTimes(mode,recipe,machine={}) {
   if(!['TC-NCF','MR-MUF'].includes(mode))throw new RangeError('bond mode');
@@ -50,12 +51,14 @@ export function bondStepTimes(mode,recipe,machine={}) {
 }
 export function stackCycleTime(mode,N,recipe,machine={}) {
   if(!Number.isInteger(N)||N<1)throw new RangeError('cycle layer count');
-  const steps=bondStepTimes(mode,recipe,machine),p=recipe.params,total_s=N*steps.per_layer_s+steps.once_s;
-  return {total_s,breakdown:{per_layer:steps.per_layer,layer_totals:Object.fromEntries(Object.entries(steps.per_layer).map(([k,v])=>[k,N*v])),
-    once:steps.once,per_layer_s:steps.per_layer_s,all_layers_s:N*steps.per_layer_s,once_s:steps.once_s},
-    throughput:{stacks_per_hour:3600/total_s,placements_per_hour:3600*N/total_s},
-    literature_comparison:{tcb_thermal_cycle_min_s:p.cycle.tcb_cycle_min.value,tcb_uph_current:p.cycle.tcb_uph_current.value,
-      tcb_bond_time_per_layer_s:p.tcncf_process.bond_time_per_layer.value,mrmuf_tack_cycle_per_die_s:p.cycle.mrmuf_tack_cycle_per_die.value,
-      mass_reflow_total_s:p.cycle.mass_reflow_total.value,
-      note:'비교만: 업체 dual-head UPH/배치 오븐과 단일 스택 직렬 elapsed time의 범위가 다르며 수치를 맞추지 않음'}};
+  const steps=bondStepTimes(mode,recipe,machine),p=recipe.params;
+  // Issue #20: batch oven/molding duration is separate from bonder occupancy.
+  const bonder_s=N*steps.per_layer_s,batch_post_s=steps.once_s;
+  return {bonder_s,batch_post_s,total_serial_s:bonder_s+batch_post_s,
+    breakdown:{per_layer:steps.per_layer,layer_totals:Object.fromEntries(Object.entries(steps.per_layer).map(([k,v])=>[k,N*v])),
+      once:steps.once,per_layer_s:steps.per_layer_s,all_layers_s:bonder_s,once_s:batch_post_s,
+      literature_comparison:{tcb_thermal_cycle_min_s:p.cycle.tcb_cycle_min.value,tcb_uph_current:p.cycle.tcb_uph_current.value,
+        tcb_bond_time_per_layer_s:p.tcncf_process.bond_time_per_layer.value,mrmuf_tack_cycle_per_die_s:p.cycle.mrmuf_tack_cycle_per_die.value,
+        mass_reflow_total_s:p.cycle.mass_reflow_total.value,
+        note:'비교만: 본더 점유 스택/h=3600/bonder_s, 직렬 환산=3600/total_serial_s. 배치 크기 가정 없이 라인 UPH는 산출하지 않음'}}};
 }
