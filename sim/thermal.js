@@ -77,7 +77,7 @@ export function gradientNonUniform(y,x) {
 }
 export function macorDriftMetrics(r,t400,{lim_K_s=0.28,alpha=9.3e-6,L_m=0.020,waits=[0,10,30,60,120]}={}) {
   const g=gradientNonUniform(r.Tm,r.t).map(Math.abs),i=Math.max(0,r.t.findIndex((t,i)=>t>t400&&g[i]<lim_K_s));
-  return {wait_after_setpoint_s:r.t[i]-t400,drift_um_per_s_at:Object.fromEntries(waits.map(w=>[w,interp(t400+w,r.t,g)*alpha*L_m*1e6])),macor_tau_s:2520*0.04*0.04*0.016*790/(1.46*0.04*0.04/0.016)};
+  return {wait_after_setpoint_s:r.t[i]-t400,drift_um_per_s_at:Object.fromEntries(waits.map(w=>[w,interp(t400+w,r.t,g)*alpha*L_m*1e6])),macor_tau_s:2520*0.04*0.04*0.016*790/(2*r.G_mac)};
 }
 /* 원본 thermal.py:61-70. Water density 1 kg/L. */
 export const conductionQ=(k,A,t,dT)=>k*A/t*dT;
