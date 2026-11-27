@@ -1,0 +1,442 @@
+[
+  {
+    "patch_key": "R_contact_head_die",
+    "path": "thermal_stack.tool_contact_R_area",
+    "before": {
+      "value": 1e-05,
+      "unit": "m2*K/W",
+      "kind": "assumption",
+      "source": "공개 툴 접촉 저항이 없어, params materials.bump_layer_R_unit의 8e-6 m2 K/W와 같은 차수인 1e-5를 면적 접촉 저항으로 가정한다. 결과 보정용 값이 아니다. 민감도 범위는 실측 부재에 따른 한 차수 아래·위(1e-6~1e-4)로 가정한다.",
+      "range": [
+        1e-06,
+        0.0001
+      ]
+    },
+    "after": {
+      "value": 0.0002,
+      "unit": "m2K/W",
+      "range": [
+        2e-05,
+        0.001
+      ],
+      "kind": "estimate",
+      "source": "https://dspacemainprd01.lib.uwaterloo.ca/server/api/core/bitstreams/c5245d7b-a455-48da-9f03-070fce6eab7b/content ; https://www.jcetglobal.com/uploads/pdf/20200319153130_20609.pdf ; https://imapsource.org/api/v1/articles/56216-high-productivity-thermo-compression-flip-chip-bonding.pdf",
+      "note": "Effective heater-sensor-to-die value back-calculated with a 1D model (research2.md 1.2). No direct measurement found.",
+      "source_kind": "역산+가정"
+    }
+  },
+  {
+    "patch_key": "R_contact_die_stage",
+    "path": "thermal_stack.chuck_contact_R_area",
+    "before": {
+      "value": 1e-05,
+      "unit": "m2*K/W",
+      "kind": "assumption",
+      "source": "척 접촉 실측값이 없어 툴과 같은 면적 접촉 저항을 가정한다. 척은 유한 열용량 대신 온도 경계로 둔다. 민감도 범위는 실측 부재에 따른 한 차수 아래·위(1e-6~1e-4)로 가정한다.",
+      "range": [
+        1e-06,
+        0.0001
+      ]
+    },
+    "after": {
+      "value": 0.0002,
+      "unit": "m2K/W",
+      "range": [
+        5e-05,
+        0.002
+      ],
+      "kind": "estimate",
+      "source": "https://patents.google.com/patent/US5548470A/esLanguage ; https://www.swtest.org/swtw_library/2016proc/PDF/S03_01_Armstrong_SWTW2016.pdf",
+      "note": "Air-gap estimate delta/k_air for delta 2-10 um; vacuum ESC h_c 470-1100 W/m2K as upper bound.",
+      "source_kind": "계산+가정"
+    }
+  },
+  {
+    "patch_key": "T_head_minus_T_die_check",
+    "path": "thermal_stack.T_head_minus_T_die_check",
+    "before": null,
+    "after": {
+      "value": 50,
+      "unit": "degC",
+      "range": [
+        5,
+        150
+      ],
+      "kind": "literature",
+      "source": "https://uwspace.uwaterloo.ca/handle/10012/12523 ; https://imapsource.org/api/v1/articles/56216-high-productivity-thermo-compression-flip-chip-bonding.pdf ; https://www.jcetglobal.com/uploads/pdf/20200319153130_20609.pdf",
+      "note": "Validation target: 200->147.5 C (Waterloo), <=5 C die-on-tool (K&S), >400->250 C (STATS ChipPAC).",
+      "source_kind": "문헌"
+    }
+  },
+  {
+    "patch_key": "muf_viscosity_fill",
+    "path": "muf.viscosity_at_fill",
+    "before": {
+      "value": 2,
+      "unit": "Pa*s",
+      "range": [
+        0.5,
+        20
+      ],
+      "kind": "assumption",
+      "source": "docs/research/params_research.md (기본값 제안·미확인 항목), params_draft.json: 상온 CUF 점도 13~22 Pa*s와 70~100 ℃ 예열 시 점도 감소를 참고하여 충전 시 2 Pa*s로 가정한다. MUF 실측 곡선은 미공개다. 참고: https://mdpi.com/2073-4360/17/16/2206",
+      "note": "CUF 13-22 Pa*s at 25 C (Henkel TDS); preheat 70-100 C lowers viscosity strongly"
+    },
+    "after": {
+      "value": 5,
+      "unit": "Pa.s",
+      "range": [
+        1,
+        10
+      ],
+      "kind": "assumption",
+      "source": "https://www.techscience.com/cmc/v84n1/61779/html ; https://www.electronics.org/system/files/technical_resource/E18&S31-2.pdf ; 교육용 가정 근거: LMC viscosity at molding temperature not found. Uses surrogate-oil range and granular EMC U-curve minimum of 6.5 Pa.s at 175 C.",
+      "note": "LMC viscosity at molding temperature not found. Uses surrogate-oil range and granular EMC U-curve minimum of 6.5 Pa.s at 175 C.",
+      "source_kind": "문헌(간접)+가정"
+    }
+  },
+  {
+    "patch_key": "muf_gel_time",
+    "path": "muf.gel_time",
+    "before": null,
+    "after": {
+      "value": 25,
+      "unit": "s",
+      "range": [
+        18,
+        40
+      ],
+      "kind": "literature",
+      "source": "https://www.electronics.org/system/files/technical_resource/E18&S31-2.pdf ; https://www.eesemi.com/moldcomp.htm",
+      "note": "Granular EMC at 175 C. LMC gel time not found.",
+      "source_kind": "문헌"
+    }
+  },
+  {
+    "patch_key": "mold_temperature",
+    "path": "mrmuf_process.mold_fill_temp",
+    "before": {
+      "value": 150,
+      "unit": "C",
+      "range": [
+        100,
+        175
+      ],
+      "kind": "assumption",
+      "source": "docs/research/params_research.md (기본값 제안·미확인 항목), params_draft.json: 몰딩 온도는 미공개이므로 상온보다 수지 점도를 낮추고 가정 경화 온도 175 ℃보다 낮은 충전 조건으로 초안의 150 ℃를 유지한다.",
+      "note": "undisclosed"
+    },
+    "after": {
+      "value": 175,
+      "unit": "degC",
+      "range": [
+        120,
+        185
+      ],
+      "kind": "literature",
+      "source": "course lecture ; https://imapsource.org/article/129614-low-warpage-liquid-compression-molded-underfill-for-wafer-level-packaging.pdf ; https://patents.google.com/patent/WO2012133384A1/en",
+      "note": "Transfer 175+-10 C. Liquid compression molding 120-125 C.",
+      "source_kind": "문헌"
+    }
+  },
+  {
+    "patch_key": "mold_pressure_applied",
+    "path": "mrmuf_process.mold_pressure_applied",
+    "before": null,
+    "after": {
+      "value": 3,
+      "unit": "MPa",
+      "range": [
+        1,
+        7
+      ],
+      "kind": "literature",
+      "source": "https://www.techscience.com/cmc/v84n1/61779/html ; https://patents.google.com/patent/WO2012133384A1/en",
+      "note": "3 MPa transfer (CMC 2025) and 3 MPa compression (Sumitomo Bakelite example). 6.9 MPa = spiral-flow test pressure.",
+      "source_kind": "문헌"
+    }
+  },
+  {
+    "patch_key": "gap_inlet_pressure_eff",
+    "path": "muf.applied_pressure",
+    "before": {
+      "value": 0,
+      "unit": "Pa",
+      "kind": "assumption",
+      "source": "MUF 몰딩 압력은 미공개다. 기준 계산은 모세관 단독(0 Pa)으로 두며 실제 몰딩 조건을 대표하지 않는다. 인가 압력의 효과는 별도 입력으로 비교한다. 범위 0~0.1 MPa는 압력 효과를 독립 탐색하기 위한 교육용 가정이며, 공개 양산 몰딩 압력 범위가 아니다.",
+      "range": [
+        0,
+        100000
+      ]
+    },
+    "after": {
+      "value": 1,
+      "unit": "MPa",
+      "range": [
+        0.1,
+        3
+      ],
+      "kind": "assumption",
+      "source": "사용자 확정 2026-11-26 (05 HANDOFF 1절 1번): 간격 입구 유효 압력은 공개 수치가 없어 기본 1 MPa, 범위 0.1~3 MPa로 둔다. 금형 압력 3 MPa(문헌)의 손실 후 값",
+      "note": "Effective pressure at the inter-chip gap inlet is not known. Sweep this value.",
+      "source_kind": "가정"
+    }
+  },
+  {
+    "patch_key": "transfer_time",
+    "path": "cycle.mold_fill_time",
+    "before": {
+      "value": 10,
+      "unit": "s",
+      "kind": "assumption",
+      "source": "C3 유동 모델 결합 전 충전 대기 10 s를 가정한다. recipe.mold_fill_s로 C3 계산값을 전달할 수 있다.",
+      "range": [
+        1,
+        60
+      ]
+    },
+    "after": {
+      "value": 10,
+      "unit": "s",
+      "range": [
+        5,
+        30
+      ],
+      "kind": "literature",
+      "source": "https://www.techscience.com/cmc/v84n1/61779/html ; course lecture",
+      "note": "",
+      "source_kind": "문헌"
+    }
+  },
+  {
+    "patch_key": "in_mold_cure_time",
+    "path": "mrmuf_process.in_mold_cure_time",
+    "before": null,
+    "after": {
+      "value": 100,
+      "unit": "s",
+      "range": [
+        40,
+        600
+      ],
+      "kind": "literature",
+      "source": "https://www.electronics.org/system/files/technical_resource/E18&S31-2.pdf ; https://imapsource.org/article/129614-low-warpage-liquid-compression-molded-underfill-for-wafer-level-packaging.pdf",
+      "note": "Transfer EMC 40-100 s. LCMUF 600 s at 120 C.",
+      "source_kind": "문헌"
+    }
+  },
+  {
+    "patch_key": "pmc_temperature",
+    "path": "muf.cure_temp",
+    "before": {
+      "value": 175,
+      "unit": "C",
+      "range": [
+        150,
+        180
+      ],
+      "kind": "assumption",
+      "source": "docs/research/params_research.md (기본값 제안·미확인 항목), params_draft.json: MR-MUF 경화 조건은 미공개이므로 조사 자료의 EMC 겔화 측정 온도 175 ℃를 경화 온도의 대리값으로 가정한다.",
+      "note": "MR-MUF cure undisclosed"
+    },
+    "after": {
+      "value": 175,
+      "unit": "degC",
+      "range": [
+        150,
+        175
+      ],
+      "kind": "literature",
+      "source": "course lecture ; https://patents.google.com/patent/WO2012133384A1/en ; https://imapsource.org/article/129614-low-warpage-liquid-compression-molded-underfill-for-wafer-level-packaging.pdf",
+      "note": "175 C 4 h (lecture, patent) or 150 C 1 h (Henkel LCMUF).",
+      "source_kind": "문헌"
+    }
+  },
+  {
+    "patch_key": "pmc_time",
+    "path": "muf.cure_time",
+    "before": {
+      "value": 7200,
+      "unit": "s",
+      "range": [
+        3600,
+        14400
+      ],
+      "kind": "assumption",
+      "source": "docs/research/params_research.md (기본값 제안·미확인 항목), params_draft.json: Henkel UF8830S CUF의 150 ℃ 2 h 경화를 참고하여 MUF 경화 시간을 7200 s로 가정한다. MR-MUF 양산 조건은 미공개다.",
+      "note": "CUF 150 C 2 h (Henkel UF8830S) as reference"
+    },
+    "after": {
+      "value": 4,
+      "unit": "h",
+      "range": [
+        1,
+        4
+      ],
+      "kind": "literature",
+      "source": "course lecture ; https://imapsource.org/article/129614-low-warpage-liquid-compression-molded-underfill-for-wafer-level-packaging.pdf",
+      "note": "",
+      "source_kind": "문헌"
+    }
+  },
+  {
+    "patch_key": "muf_max_filler",
+    "path": "muf.filler_max_size",
+    "before": {
+      "value": 3,
+      "unit": "um",
+      "range": [
+        3,
+        20
+      ],
+      "kind": "literature",
+      "source": "https://conferences.computer.org/ectc/pdfs/ECTC2023-1NkkviSxgDnmPjptC1ysqm/349800a878/349800a878.pdf",
+      "note": "rule: <= gap/3 (Polymers 2025 review)"
+    },
+    "after": {
+      "value": 3,
+      "unit": "um",
+      "range": [
+        3,
+        5
+      ],
+      "kind": "literature",
+      "source": "https://conferences.computer.org/ectc/pdfs/ECTC2023-1NkkviSxgDnmPjptC1ysqm/349800a878/349800a878.pdf ; https://imapsource.org/article/129614-low-warpage-liquid-compression-molded-underfill-for-wafer-level-packaging.pdf",
+      "note": "SK hynix 3 um for a 15 um gap. Henkel 5 um top cut for a 20 um gap.",
+      "source_kind": "문헌"
+    }
+  },
+  {
+    "patch_key": "gap_to_filler_min_ratio",
+    "path": "muf.gap_to_filler_min_ratio",
+    "before": null,
+    "after": {
+      "value": 4,
+      "unit": "-",
+      "range": [
+        3,
+        5
+      ],
+      "kind": "literature",
+      "source": "https://www.electronicdesign.com/boards/use-underfill-encapsulants-enhance-flip-chip-assembly-reliability ; https://conferences.computer.org/ectc/pdfs/ECTC2023-1NkkviSxgDnmPjptC1ysqm/349800a878/349800a878.pdf",
+      "note": "General rule is 3x. HBM practice is 4-5x. Warn when below the ratio.",
+      "source_kind": "문헌"
+    }
+  },
+  {
+    "patch_key": "chip_gap_height",
+    "path": "geometry.interlayer_gap",
+    "before": {
+      "value": 15,
+      "unit": "um",
+      "range": [
+        7,
+        30
+      ],
+      "kind": "literature",
+      "source": "https://conferences.computer.org/ectc/pdfs/ECTC2023-1NkkviSxgDnmPjptC1ysqm/349800a878/349800a878.pdf",
+      "note": "SK hynix MR-MUF 8Hi 15 μm 기본값. Samsung TC-NCF 12H 7 μm, 일반 범프 적층 약 30 μm. 20 μm는 \"시험 칩\" 선택지 (HANDOFF 1절 #1, 2026-11-25)."
+    },
+    "after": {
+      "value": 15,
+      "unit": "um",
+      "range": [
+        7,
+        30
+      ],
+      "kind": "literature",
+      "source": "https://conferences.computer.org/ectc/pdfs/ECTC2023-1NkkviSxgDnmPjptC1ysqm/349800a878/349800a878.pdf ; https://www.3dincites.com/2024/06/why-are-hbm-manufacturers-choosing-liquid-mold-underfill/",
+      "note": " 사용자 확정 선택 범위 7~30 um 유지 (05 HANDOFF S5); literature_range는 패치 문헌 범위.",
+      "source_kind": "문헌",
+      "literature_range": [
+        15,
+        20
+      ]
+    }
+  },
+  {
+    "patch_key": "vacuum_level_abs",
+    "path": "mrmuf_process.vacuum_level_abs",
+    "before": null,
+    "after": {
+      "value": 19,
+      "unit": "kPa",
+      "range": [
+        1,
+        100
+      ],
+      "kind": "assumption",
+      "source": "https://www.techscience.com/cmc/v84n1/61779/html ; https://patents.google.com/patent/WO2012133384A1/en ; 교육용 가정 근거: SK hynix used its minimum vacuum level but gave no number.",
+      "note": "SK hynix used its minimum vacuum level but gave no number.",
+      "source_kind": "문헌+가정"
+    }
+  },
+  {
+    "patch_key": "muf_surface_tension",
+    "path": "muf.surface_tension",
+    "before": {
+      "value": 0.04,
+      "unit": "N/m",
+      "range": [
+        0.03,
+        0.05
+      ],
+      "kind": "literature",
+      "source": "https://www.moldex3d.com/assets/2011/09/3D-Simulation-of-Fine-Pitch-Underfill-Encapsulation.pdf",
+      "note": "simulation input value, not MUF measurement"
+    },
+    "after": {
+      "value": 0.0298,
+      "unit": "N/m",
+      "range": [
+        0.025,
+        0.035
+      ],
+      "kind": "assumption",
+      "source": "https://www.techscience.com/cmc/v84n1/61779/html ; 교육용 가정 근거: Paper's estimate for EMC at 175 C.",
+      "note": "Paper's estimate for EMC at 175 C.",
+      "source_kind": "문헌(추정)+가정"
+    }
+  },
+  {
+    "patch_key": "muf_contact_angle",
+    "path": "muf.contact_angle",
+    "before": {
+      "value": 10,
+      "unit": "deg",
+      "range": [
+        5,
+        40
+      ],
+      "kind": "literature",
+      "source": "https://www.moldex3d.com/assets/2011/09/3D-Simulation-of-Fine-Pitch-Underfill-Encapsulation.pdf",
+      "note": "upper bound assumption"
+    },
+    "after": {
+      "value": 20,
+      "unit": "deg",
+      "range": [
+        19,
+        70
+      ],
+      "kind": "literature",
+      "source": "https://www.techscience.com/cmc/v84n1/61779/html",
+      "note": "Depends on queue time after plasma.",
+      "source_kind": "문헌"
+    }
+  },
+  {
+    "patch_key": "fill_model",
+    "path": "muf.fill_model",
+    "before": null,
+    "after": {
+      "value": "pressure_driven_hele_shaw_plus_capillary",
+      "unit": "-",
+      "range": null,
+      "kind": "literature",
+      "source": "https://conferences.computer.org/ectc/pdfs/ECTC2023-1NkkviSxgDnmPjptC1ysqm/349800a878/349800a878.pdf ; https://www.techscience.com/cmc/v84n1/61779/html",
+      "note": "t = 6*mu*L^2/(h^2*dP). Capillary pressure (about 1-4 kPa) is about 0.1% of mold pressure, so treat it as a correction term.",
+      "source_kind": "문헌+계산"
+    }
+  }
+]

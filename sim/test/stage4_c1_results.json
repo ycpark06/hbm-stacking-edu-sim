@@ -1,0 +1,3402 @@
+{
+  "results": [
+    {
+      "mode": "TC-NCF",
+      "N": 2,
+      "thickness_um": 100,
+      "bottom": {
+        "peak_C": 208.53952569281378,
+        "time_above_s": 0,
+        "remelt_count": 0,
+        "subsequent_remelts": 0,
+        "reheat_count": 1,
+        "reheat_peaks_C": [
+          199.82231852688062
+        ],
+        "reflow_count": 0,
+        "tack_exposures": 0,
+        "tack_peaks_C": [],
+        "crossings_by_phase": {}
+      },
+      "layers": [
+        {
+          "peak_C": 208.53952569281378,
+          "time_above_s": 0,
+          "remelt_count": 0,
+          "subsequent_remelts": 0,
+          "reheat_count": 1,
+          "reheat_peaks_C": [
+            199.82231852688062
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {}
+        },
+        {
+          "peak_C": 215.84777140033444,
+          "time_above_s": 0,
+          "remelt_count": 0,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {}
+        }
+      ],
+      "tack_crossings": [
+        0,
+        0
+      ],
+      "max_warp_um": 7.413174969357404,
+      "warp_by_layer": [
+        {
+          "layer_count": 1,
+          "max_um": 7.413174969357404
+        },
+        {
+          "layer_count": 2,
+          "max_um": 0.8923423074500108
+        }
+      ],
+      "judgement": "주의"
+    },
+    {
+      "mode": "TC-NCF",
+      "N": 2,
+      "thickness_um": 50,
+      "bottom": {
+        "peak_C": 208.55424946623376,
+        "time_above_s": 0,
+        "remelt_count": 0,
+        "subsequent_remelts": 0,
+        "reheat_count": 1,
+        "reheat_peaks_C": [
+          199.90861418229224
+        ],
+        "reflow_count": 0,
+        "tack_exposures": 0,
+        "tack_peaks_C": [],
+        "crossings_by_phase": {}
+      },
+      "layers": [
+        {
+          "peak_C": 208.55424946623376,
+          "time_above_s": 0,
+          "remelt_count": 0,
+          "subsequent_remelts": 0,
+          "reheat_count": 1,
+          "reheat_peaks_C": [
+            199.90861418229224
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {}
+        },
+        {
+          "peak_C": 215.81625976912727,
+          "time_above_s": 0,
+          "remelt_count": 0,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {}
+        }
+      ],
+      "tack_crossings": [
+        0,
+        0
+      ],
+      "max_warp_um": 30.715646567469317,
+      "warp_by_layer": [
+        {
+          "layer_count": 1,
+          "max_um": 30.715646567469317
+        },
+        {
+          "layer_count": 2,
+          "max_um": 4.0210555866476865
+        }
+      ],
+      "judgement": "불량"
+    },
+    {
+      "mode": "TC-NCF",
+      "N": 4,
+      "thickness_um": 100,
+      "bottom": {
+        "peak_C": 208.53952569281378,
+        "time_above_s": 0,
+        "remelt_count": 0,
+        "subsequent_remelts": 0,
+        "reheat_count": 3,
+        "reheat_peaks_C": [
+          199.82231852688062,
+          192.39572838572326,
+          185.99243317718393
+        ],
+        "reflow_count": 0,
+        "tack_exposures": 0,
+        "tack_peaks_C": [],
+        "crossings_by_phase": {}
+      },
+      "layers": [
+        {
+          "peak_C": 208.53952569281378,
+          "time_above_s": 0,
+          "remelt_count": 0,
+          "subsequent_remelts": 0,
+          "reheat_count": 3,
+          "reheat_peaks_C": [
+            199.82231852688062,
+            192.39572838572326,
+            185.99243317718393
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {}
+        },
+        {
+          "peak_C": 215.84777140033444,
+          "time_above_s": 0,
+          "remelt_count": 0,
+          "subsequent_remelts": 0,
+          "reheat_count": 2,
+          "reheat_peaks_C": [
+            207.2291271145049,
+            199.79802850658342
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {}
+        },
+        {
+          "peak_C": 222.06910008203667,
+          "time_above_s": 3.262535795768736,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 1,
+          "reheat_peaks_C": [
+            213.60993714409068
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {
+            "bond-ramp": 1
+          }
+        },
+        {
+          "peak_C": 227.42864407185758,
+          "time_above_s": 3.7701423315545357,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {
+            "bond-ramp": 1
+          }
+        }
+      ],
+      "tack_crossings": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "max_warp_um": 7.413174969357404,
+      "warp_by_layer": [
+        {
+          "layer_count": 1,
+          "max_um": 7.413174969357404
+        },
+        {
+          "layer_count": 2,
+          "max_um": 0.9684956614385883
+        },
+        {
+          "layer_count": 3,
+          "max_um": 0.6210883324852842
+        },
+        {
+          "layer_count": 4,
+          "max_um": 0.5958706451370942
+        }
+      ],
+      "judgement": "주의"
+    },
+    {
+      "mode": "TC-NCF",
+      "N": 4,
+      "thickness_um": 50,
+      "bottom": {
+        "peak_C": 208.55424946623376,
+        "time_above_s": 0,
+        "remelt_count": 0,
+        "subsequent_remelts": 0,
+        "reheat_count": 3,
+        "reheat_peaks_C": [
+          199.90861418229224,
+          192.53543568134754,
+          186.17279601459398
+        ],
+        "reflow_count": 0,
+        "tack_exposures": 0,
+        "tack_peaks_C": [],
+        "crossings_by_phase": {}
+      },
+      "layers": [
+        {
+          "peak_C": 208.55424946623376,
+          "time_above_s": 0,
+          "remelt_count": 0,
+          "subsequent_remelts": 0,
+          "reheat_count": 3,
+          "reheat_peaks_C": [
+            199.90861418229224,
+            192.53543568134754,
+            186.17279601459398
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {}
+        },
+        {
+          "peak_C": 215.81625976912727,
+          "time_above_s": 0,
+          "remelt_count": 0,
+          "subsequent_remelts": 0,
+          "reheat_count": 2,
+          "reheat_peaks_C": [
+            207.26922547004645,
+            199.8936140620944
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {}
+        },
+        {
+          "peak_C": 222.0066994686412,
+          "time_above_s": 3.2738790200400754,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 1,
+          "reheat_peaks_C": [
+            213.61797121662877
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {
+            "bond-ramp": 1
+          }
+        },
+        {
+          "peak_C": 227.34613748205024,
+          "time_above_s": 3.775253074300956,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {
+            "bond-ramp": 1
+          }
+        }
+      ],
+      "tack_crossings": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "max_warp_um": 30.715646567469317,
+      "warp_by_layer": [
+        {
+          "layer_count": 1,
+          "max_um": 30.715646567469317
+        },
+        {
+          "layer_count": 2,
+          "max_um": 4.226970613261689
+        },
+        {
+          "layer_count": 3,
+          "max_um": 1.2867116827347151
+        },
+        {
+          "layer_count": 4,
+          "max_um": 1.2129941623751728
+        }
+      ],
+      "judgement": "불량"
+    },
+    {
+      "mode": "TC-NCF",
+      "N": 8,
+      "thickness_um": 100,
+      "bottom": {
+        "peak_C": 208.53952569281378,
+        "time_above_s": 0,
+        "remelt_count": 0,
+        "subsequent_remelts": 0,
+        "reheat_count": 7,
+        "reheat_peaks_C": [
+          199.82231852688062,
+          192.39572838572326,
+          185.99243317718393,
+          180.41416951639457,
+          175.5107852476551,
+          171.1664805809965,
+          167.2905151505844
+        ],
+        "reflow_count": 0,
+        "tack_exposures": 0,
+        "tack_peaks_C": [],
+        "crossings_by_phase": {}
+      },
+      "layers": [
+        {
+          "peak_C": 208.53952569281378,
+          "time_above_s": 0,
+          "remelt_count": 0,
+          "subsequent_remelts": 0,
+          "reheat_count": 7,
+          "reheat_peaks_C": [
+            199.82231852688062,
+            192.39572838572326,
+            185.99243317718393,
+            180.41416951639457,
+            175.5107852476551,
+            171.1664805809965,
+            167.2905151505844
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {}
+        },
+        {
+          "peak_C": 215.84777140033444,
+          "time_above_s": 0,
+          "remelt_count": 0,
+          "subsequent_remelts": 0,
+          "reheat_count": 6,
+          "reheat_peaks_C": [
+            207.2291271145049,
+            199.79802850658342,
+            193.32438861114153,
+            187.63395410422004,
+            182.59233798399157,
+            178.09423501592747
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {}
+        },
+        {
+          "peak_C": 222.06910008203667,
+          "time_above_s": 3.262535795768736,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 5,
+          "reheat_peaks_C": [
+            213.60993714409068,
+            206.24069370292378,
+            199.76300914784494,
+            194.02390454868745,
+            188.90350612263404
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {
+            "bond-ramp": 1
+          }
+        },
+        {
+          "peak_C": 227.42864407185758,
+          "time_above_s": 3.7701423315545357,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 4,
+          "reheat_peaks_C": [
+            219.16353832626757,
+            211.8983762700891,
+            205.4615816756559,
+            199.718708022095
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {
+            "bond-ramp": 1
+          }
+        },
+        {
+          "peak_C": 232.09337624532358,
+          "time_above_s": 7.589073464546903,
+          "remelt_count": 2,
+          "subsequent_remelts": 1,
+          "reheat_count": 3,
+          "reheat_peaks_C": [
+            224.04048158414184,
+            216.90577097990266,
+            210.54022047291102
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {
+            "bond-ramp": 2
+          }
+        },
+        {
+          "peak_C": 236.18975143978437,
+          "time_above_s": 11.158463359613894,
+          "remelt_count": 3,
+          "subsequent_remelts": 2,
+          "reheat_count": 2,
+          "reheat_peaks_C": [
+            228.35687430496776,
+            221.36842345419666
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {
+            "bond-ramp": 2,
+            "bond-hold": 1
+          }
+        },
+        {
+          "peak_C": 239.81529373703995,
+          "time_above_s": 8.901371382367751,
+          "remelt_count": 2,
+          "subsequent_remelts": 1,
+          "reheat_count": 1,
+          "reheat_peaks_C": [
+            232.20369717893237
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {
+            "bond-ramp": 2
+          }
+        },
+        {
+          "peak_C": 243.04642210736512,
+          "time_above_s": 4.981220651624572,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {
+            "bond-ramp": 1
+          }
+        }
+      ],
+      "tack_crossings": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "max_warp_um": 7.413174969357404,
+      "warp_by_layer": [
+        {
+          "layer_count": 1,
+          "max_um": 7.413174969357404
+        },
+        {
+          "layer_count": 2,
+          "max_um": 0.9684956614385883
+        },
+        {
+          "layer_count": 3,
+          "max_um": 0.6210883324852842
+        },
+        {
+          "layer_count": 4,
+          "max_um": 0.5958706451370942
+        },
+        {
+          "layer_count": 5,
+          "max_um": 0.563878105652327
+        },
+        {
+          "layer_count": 6,
+          "max_um": 0.5328137237901899
+        },
+        {
+          "layer_count": 7,
+          "max_um": 0.5043296114666708
+        },
+        {
+          "layer_count": 8,
+          "max_um": 0.4786162389145027
+        }
+      ],
+      "judgement": "주의"
+    },
+    {
+      "mode": "TC-NCF",
+      "N": 8,
+      "thickness_um": 50,
+      "bottom": {
+        "peak_C": 208.55424946623376,
+        "time_above_s": 0,
+        "remelt_count": 0,
+        "subsequent_remelts": 0,
+        "reheat_count": 7,
+        "reheat_peaks_C": [
+          199.90861418229224,
+          192.53543568134754,
+          186.17279601459398,
+          180.62604497888256,
+          175.74750777017297,
+          171.4231204571936,
+          167.56338247414945
+        ],
+        "reflow_count": 0,
+        "tack_exposures": 0,
+        "tack_peaks_C": [],
+        "crossings_by_phase": {}
+      },
+      "layers": [
+        {
+          "peak_C": 208.55424946623376,
+          "time_above_s": 0,
+          "remelt_count": 0,
+          "subsequent_remelts": 0,
+          "reheat_count": 7,
+          "reheat_peaks_C": [
+            199.90861418229224,
+            192.53543568134754,
+            186.17279601459398,
+            180.62604497888256,
+            175.74750777017297,
+            171.4231204571936,
+            167.56338247414945
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {}
+        },
+        {
+          "peak_C": 215.81625976912727,
+          "time_above_s": 0,
+          "remelt_count": 0,
+          "subsequent_remelts": 0,
+          "reheat_count": 6,
+          "reheat_peaks_C": [
+            207.26922547004645,
+            199.8936140620944,
+            193.46378582117856,
+            187.8085551975282,
+            182.79569857377913,
+            178.32146633834503
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {}
+        },
+        {
+          "peak_C": 222.0066994686412,
+          "time_above_s": 3.2738790200400754,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 5,
+          "reheat_peaks_C": [
+            213.61797121662877,
+            206.3049392743543,
+            199.87290397852598,
+            194.171479424408,
+            189.0826649135229
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {
+            "bond-ramp": 1
+          }
+        },
+        {
+          "peak_C": 227.34613748205024,
+          "time_above_s": 3.775253074300956,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 4,
+          "reheat_peaks_C": [
+            219.14975796670205,
+            211.94079145912144,
+            205.55068680860882,
+            199.8471899083296
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {
+            "bond-ramp": 1
+          }
+        },
+        {
+          "peak_C": 231.99849459862156,
+          "time_above_s": 7.622305746883568,
+          "remelt_count": 2,
+          "subsequent_remelts": 1,
+          "reheat_count": 3,
+          "reheat_peaks_C": [
+            224.01245505488754,
+            216.93354459332144,
+            210.61525309685365
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {
+            "bond-ramp": 2
+          }
+        },
+        {
+          "peak_C": 236.0881322556861,
+          "time_above_s": 11.409349001518478,
+          "remelt_count": 3,
+          "subsequent_remelts": 2,
+          "reheat_count": 2,
+          "reheat_peaks_C": [
+            228.32027671730148,
+            221.38706632279158
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {
+            "bond-ramp": 2,
+            "bond-hold": 1
+          }
+        },
+        {
+          "peak_C": 239.71110719552556,
+          "time_above_s": 8.93324999988205,
+          "remelt_count": 2,
+          "subsequent_remelts": 1,
+          "reheat_count": 1,
+          "reheat_peaks_C": [
+            232.16284150361543
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {
+            "bond-ramp": 2
+          }
+        },
+        {
+          "peak_C": 242.94279063474227,
+          "time_above_s": 4.9900403975696355,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {
+            "bond-ramp": 1
+          }
+        }
+      ],
+      "tack_crossings": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "max_warp_um": 30.715646567469317,
+      "warp_by_layer": [
+        {
+          "layer_count": 1,
+          "max_um": 30.715646567469317
+        },
+        {
+          "layer_count": 2,
+          "max_um": 4.226970613261689
+        },
+        {
+          "layer_count": 3,
+          "max_um": 1.2867116827347151
+        },
+        {
+          "layer_count": 4,
+          "max_um": 1.2129941623751728
+        },
+        {
+          "layer_count": 5,
+          "max_um": 1.1370543412984604
+        },
+        {
+          "layer_count": 6,
+          "max_um": 1.0676825543493997
+        },
+        {
+          "layer_count": 7,
+          "max_um": 1.0060481874372562
+        },
+        {
+          "layer_count": 8,
+          "max_um": 0.9514873109888197
+        }
+      ],
+      "judgement": "불량"
+    },
+    {
+      "mode": "TC-NCF",
+      "N": 12,
+      "thickness_um": 100,
+      "bottom": {
+        "peak_C": 208.53952569281378,
+        "time_above_s": 0,
+        "remelt_count": 0,
+        "subsequent_remelts": 0,
+        "reheat_count": 11,
+        "reheat_peaks_C": [
+          199.82231852688062,
+          192.39572838572326,
+          185.99243317718393,
+          180.41416951639457,
+          175.5107852476551,
+          171.1664805809965,
+          167.2905151505844,
+          163.81077542092456,
+          160.66922263485887,
+          157.81860562643695,
+          155.2200428305674
+        ],
+        "reflow_count": 0,
+        "tack_exposures": 0,
+        "tack_peaks_C": [],
+        "crossings_by_phase": {}
+      },
+      "layers": [
+        {
+          "peak_C": 208.53952569281378,
+          "time_above_s": 0,
+          "remelt_count": 0,
+          "subsequent_remelts": 0,
+          "reheat_count": 11,
+          "reheat_peaks_C": [
+            199.82231852688062,
+            192.39572838572326,
+            185.99243317718393,
+            180.41416951639457,
+            175.5107852476551,
+            171.1664805809965,
+            167.2905151505844,
+            163.81077542092456,
+            160.66922263485887,
+            157.81860562643695,
+            155.2200428305674
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {}
+        },
+        {
+          "peak_C": 215.84777140033444,
+          "time_above_s": 0,
+          "remelt_count": 0,
+          "subsequent_remelts": 0,
+          "reheat_count": 10,
+          "reheat_peaks_C": [
+            207.2291271145049,
+            199.79802850658342,
+            193.32438861114153,
+            187.63395410422004,
+            182.59233798399157,
+            178.09423501592747,
+            174.05595667706544,
+            170.41014854805454,
+            167.10197565130372,
+            164.0863165139601
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {}
+        },
+        {
+          "peak_C": 222.06910008203667,
+          "time_above_s": 3.262535795768736,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 9,
+          "reheat_peaks_C": [
+            213.60993714409068,
+            206.24069370292378,
+            199.76300914784494,
+            194.02390454868745,
+            188.90350612263404,
+            184.30654750462824,
+            180.15635651372835,
+            176.39051306296534,
+            172.95765537241306
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {
+            "bond-ramp": 1
+          }
+        },
+        {
+          "peak_C": 227.42864407185758,
+          "time_above_s": 3.7701423315545357,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 8,
+          "reheat_peaks_C": [
+            219.16353832626757,
+            211.8983762700891,
+            205.4615816756559,
+            199.718708022095,
+            194.56290784841255,
+            189.90818881097996,
+            185.68454421413222,
+            181.83437148197035
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {
+            "bond-ramp": 1
+          }
+        },
+        {
+          "peak_C": 232.09337624532358,
+          "time_above_s": 7.589073464546903,
+          "remelt_count": 2,
+          "subsequent_remelts": 1,
+          "reheat_count": 7,
+          "reheat_peaks_C": [
+            224.04048158414184,
+            216.90577097990266,
+            210.54022047291102,
+            204.82539785040882,
+            199.66598789617174,
+            194.98439559099518,
+            190.71677696269322
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {
+            "bond-ramp": 2
+          }
+        },
+        {
+          "peak_C": 236.18975143978437,
+          "time_above_s": 11.158463359613894,
+          "remelt_count": 3,
+          "subsequent_remelts": 2,
+          "reheat_count": 6,
+          "reheat_peaks_C": [
+            228.35687430496776,
+            221.36842345419666,
+            215.09437786221645,
+            209.4300964138952,
+            204.2903938211002,
+            199.60518397991143
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {
+            "bond-ramp": 2,
+            "bond-hold": 1
+          }
+        },
+        {
+          "peak_C": 239.81529373703995,
+          "time_above_s": 12.40858062586571,
+          "remelt_count": 3,
+          "subsequent_remelts": 2,
+          "reheat_count": 5,
+          "reheat_peaks_C": [
+            232.20369717893237,
+            225.37020845765224,
+            219.20085720855337,
+            213.60286568282345,
+            208.49990474897294
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {
+            "bond-ramp": 3
+          }
+        },
+        {
+          "peak_C": 243.04642210736512,
+          "time_above_s": 16.393182152460728,
+          "remelt_count": 4,
+          "subsequent_remelts": 3,
+          "reheat_count": 4,
+          "reheat_peaks_C": [
+            235.65325044555178,
+            228.9786133365701,
+            222.92213811649736,
+            217.40125154363233
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {
+            "bond-ramp": 3,
+            "bond-hold": 1
+          }
+        },
+        {
+          "peak_C": 245.94386488275836,
+          "time_above_s": 17.476985522474283,
+          "remelt_count": 4,
+          "subsequent_remelts": 3,
+          "reheat_count": 3,
+          "reheat_peaks_C": [
+            238.76370807922328,
+            232.2485382371966,
+            226.30953670813707
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {
+            "bond-ramp": 4
+          }
+        },
+        {
+          "peak_C": 248.55648495607917,
+          "time_above_s": 14.53516524719201,
+          "remelt_count": 3,
+          "subsequent_remelts": 2,
+          "reheat_count": 2,
+          "reheat_peaks_C": [
+            241.58239334915203,
+            235.22507267298624
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {
+            "bond-ramp": 3
+          }
+        },
+        {
+          "peak_C": 250.92403096171802,
+          "time_above_s": 10.508911396865958,
+          "remelt_count": 2,
+          "subsequent_remelts": 1,
+          "reheat_count": 1,
+          "reheat_peaks_C": [
+            244.148171974254
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {
+            "bond-ramp": 2
+          }
+        },
+        {
+          "peak_C": 253.0791472762897,
+          "time_above_s": 5.61363040370266,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {
+            "bond-ramp": 1
+          }
+        }
+      ],
+      "tack_crossings": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "max_warp_um": 7.413174969357404,
+      "warp_by_layer": [
+        {
+          "layer_count": 1,
+          "max_um": 7.413174969357404
+        },
+        {
+          "layer_count": 2,
+          "max_um": 0.9684956614385883
+        },
+        {
+          "layer_count": 3,
+          "max_um": 0.6210883324852842
+        },
+        {
+          "layer_count": 4,
+          "max_um": 0.5958706451370942
+        },
+        {
+          "layer_count": 5,
+          "max_um": 0.563878105652327
+        },
+        {
+          "layer_count": 6,
+          "max_um": 0.5328137237901899
+        },
+        {
+          "layer_count": 7,
+          "max_um": 0.5043296114666708
+        },
+        {
+          "layer_count": 8,
+          "max_um": 0.4786162389145027
+        },
+        {
+          "layer_count": 9,
+          "max_um": 0.4554728066564328
+        },
+        {
+          "layer_count": 10,
+          "max_um": 0.43460911295485477
+        },
+        {
+          "layer_count": 11,
+          "max_um": 0.41573780707342345
+        },
+        {
+          "layer_count": 12,
+          "max_um": 0.3986013365660421
+        }
+      ],
+      "judgement": "주의"
+    },
+    {
+      "mode": "TC-NCF",
+      "N": 12,
+      "thickness_um": 50,
+      "bottom": {
+        "peak_C": 208.55424946623376,
+        "time_above_s": 0,
+        "remelt_count": 0,
+        "subsequent_remelts": 0,
+        "reheat_count": 11,
+        "reheat_peaks_C": [
+          199.90861418229224,
+          192.53543568134754,
+          186.17279601459398,
+          180.62604497888256,
+          175.74750777017297,
+          171.4231204571936,
+          167.56338247414945,
+          164.09708234368978,
+          160.96685310718448,
+          158.1259637927296,
+          155.535963606092
+        ],
+        "reflow_count": 0,
+        "tack_exposures": 0,
+        "tack_peaks_C": [],
+        "crossings_by_phase": {}
+      },
+      "layers": [
+        {
+          "peak_C": 208.55424946623376,
+          "time_above_s": 0,
+          "remelt_count": 0,
+          "subsequent_remelts": 0,
+          "reheat_count": 11,
+          "reheat_peaks_C": [
+            199.90861418229224,
+            192.53543568134754,
+            186.17279601459398,
+            180.62604497888256,
+            175.74750777017297,
+            171.4231204571936,
+            167.56338247414945,
+            164.09708234368978,
+            160.96685310718448,
+            158.1259637927296,
+            155.535963606092
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {}
+        },
+        {
+          "peak_C": 215.81625976912727,
+          "time_above_s": 0,
+          "remelt_count": 0,
+          "subsequent_remelts": 0,
+          "reheat_count": 10,
+          "reheat_peaks_C": [
+            207.26922547004645,
+            199.8936140620944,
+            193.46378582117856,
+            187.8085551975282,
+            182.79569857377913,
+            178.32146633834503,
+            174.3033097045342,
+            170.67472853780913,
+            167.38155200595935,
+            164.37920771190662
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {}
+        },
+        {
+          "peak_C": 222.0066994686412,
+          "time_above_s": 3.2738790200400754,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 9,
+          "reheat_peaks_C": [
+            213.61797121662877,
+            206.3049392743543,
+            199.87290397852598,
+            194.171479424408,
+            189.0826649135229,
+            184.512572725842,
+            180.38556824275858,
+            176.64003970669108,
+            173.2252922434953
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {
+            "bond-ramp": 1
+          }
+        },
+        {
+          "peak_C": 227.34613748205024,
+          "time_above_s": 3.775253074300956,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 8,
+          "reheat_peaks_C": [
+            219.14975796670205,
+            211.94079145912144,
+            205.55068680860882,
+            199.8471899083296,
+            194.72507225784915,
+            190.09956326663374,
+            185.90160904034204,
+            182.07439123336485
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {
+            "bond-ramp": 1
+          }
+        },
+        {
+          "peak_C": 231.99849459862156,
+          "time_above_s": 7.622305746883568,
+          "remelt_count": 2,
+          "subsequent_remelts": 1,
+          "reheat_count": 7,
+          "reheat_peaks_C": [
+            224.01245505488754,
+            216.93354459332144,
+            210.61525309685365,
+            204.94100921446375,
+            199.81690471610608,
+            195.16644221292512,
+            190.92667877319096
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {
+            "bond-ramp": 2
+          }
+        },
+        {
+          "peak_C": 236.0881322556861,
+          "time_above_s": 11.409349001518478,
+          "remelt_count": 3,
+          "subsequent_remelts": 2,
+          "reheat_count": 6,
+          "reheat_peaks_C": [
+            228.32027671730148,
+            221.38706632279158,
+            215.16058457721903,
+            209.53778376367688,
+            204.43472149463173,
+            199.78232901723388
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {
+            "bond-ramp": 2,
+            "bond-hold": 1
+          }
+        },
+        {
+          "peak_C": 239.71110719552556,
+          "time_above_s": 12.49507795240005,
+          "remelt_count": 3,
+          "subsequent_remelts": 2,
+          "reheat_count": 5,
+          "reheat_peaks_C": [
+            232.16284150361543,
+            225.38399939922726,
+            219.26239165143863,
+            213.70662922341654,
+            208.64151618575906
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {
+            "bond-ramp": 3
+          }
+        },
+        {
+          "peak_C": 242.94279063474227,
+          "time_above_s": 16.6180414639334,
+          "remelt_count": 4,
+          "subsequent_remelts": 3,
+          "reheat_count": 4,
+          "reheat_peaks_C": [
+            235.61145480913484,
+            228.99091969483672,
+            222.9823478085846,
+            217.50441456846215
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {
+            "bond-ramp": 4
+          }
+        },
+        {
+          "peak_C": 245.84315201507965,
+          "time_above_s": 17.656211730604515,
+          "remelt_count": 4,
+          "subsequent_remelts": 3,
+          "reheat_count": 3,
+          "reheat_peaks_C": [
+            238.72355928643412,
+            232.26205973438064,
+            226.37119852789883
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {
+            "bond-ramp": 4
+          }
+        },
+        {
+          "peak_C": 248.46050189967656,
+          "time_above_s": 14.637449290945849,
+          "remelt_count": 3,
+          "subsequent_remelts": 2,
+          "reheat_count": 2,
+          "reheat_peaks_C": [
+            241.54594756358037,
+            235.2420425029199
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {
+            "bond-ramp": 3
+          }
+        },
+        {
+          "peak_C": 250.8341939410848,
+          "time_above_s": 10.563563349942786,
+          "remelt_count": 2,
+          "subsequent_remelts": 1,
+          "reheat_count": 1,
+          "reheat_peaks_C": [
+            244.11712101211043
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {
+            "bond-ramp": 2
+          }
+        },
+        {
+          "peak_C": 252.99660865723428,
+          "time_above_s": 5.63609204661437,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {
+            "bond-ramp": 1
+          }
+        }
+      ],
+      "tack_crossings": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "max_warp_um": 30.715646567469317,
+      "warp_by_layer": [
+        {
+          "layer_count": 1,
+          "max_um": 30.715646567469317
+        },
+        {
+          "layer_count": 2,
+          "max_um": 4.226970613261689
+        },
+        {
+          "layer_count": 3,
+          "max_um": 1.2867116827347151
+        },
+        {
+          "layer_count": 4,
+          "max_um": 1.2129941623751728
+        },
+        {
+          "layer_count": 5,
+          "max_um": 1.1370543412984604
+        },
+        {
+          "layer_count": 6,
+          "max_um": 1.0676825543493997
+        },
+        {
+          "layer_count": 7,
+          "max_um": 1.0060481874372562
+        },
+        {
+          "layer_count": 8,
+          "max_um": 0.9514873109888197
+        },
+        {
+          "layer_count": 9,
+          "max_um": 0.9030340471389947
+        },
+        {
+          "layer_count": 10,
+          "max_um": 0.8597800343389939
+        },
+        {
+          "layer_count": 11,
+          "max_um": 0.8209488247382973
+        },
+        {
+          "layer_count": 12,
+          "max_um": 0.7858953905744382
+        }
+      ],
+      "judgement": "불량"
+    },
+    {
+      "mode": "MR-MUF",
+      "N": 2,
+      "thickness_um": 100,
+      "bottom": {
+        "peak_C": 249.99999999999991,
+        "time_above_s": 89.9999999999974,
+        "remelt_count": 1,
+        "subsequent_remelts": 0,
+        "reheat_count": 0,
+        "reheat_peaks_C": [],
+        "reflow_count": 1,
+        "tack_exposures": 1,
+        "tack_peaks_C": [
+          129.80284318333122
+        ],
+        "crossings_by_phase": {
+          "reflow-ramp": 1
+        }
+      },
+      "layers": [
+        {
+          "peak_C": 249.99999999999991,
+          "time_above_s": 89.9999999999974,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 1,
+          "tack_peaks_C": [
+            129.80284318333122
+          ],
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          }
+        },
+        {
+          "peak_C": 249.99999999999994,
+          "time_above_s": 89.99999999999743,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          }
+        }
+      ],
+      "tack_crossings": [
+        0,
+        0
+      ],
+      "max_warp_um": 5.406727729136941,
+      "warp_by_layer": [
+        {
+          "layer_count": 1,
+          "max_um": 5.406727729136941
+        },
+        {
+          "layer_count": 2,
+          "max_um": 2.308341335359323
+        }
+      ],
+      "judgement": "주의"
+    },
+    {
+      "mode": "MR-MUF",
+      "N": 2,
+      "thickness_um": 50,
+      "bottom": {
+        "peak_C": 250.00000000000134,
+        "time_above_s": 89.99999999999835,
+        "remelt_count": 1,
+        "subsequent_remelts": 0,
+        "reheat_count": 0,
+        "reheat_peaks_C": [],
+        "reflow_count": 1,
+        "tack_exposures": 1,
+        "tack_peaks_C": [
+          129.89991910258144
+        ],
+        "crossings_by_phase": {
+          "reflow-ramp": 1
+        }
+      },
+      "layers": [
+        {
+          "peak_C": 250.00000000000134,
+          "time_above_s": 89.99999999999835,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 1,
+          "tack_peaks_C": [
+            129.89991910258144
+          ],
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          }
+        },
+        {
+          "peak_C": 250.0000000000014,
+          "time_above_s": 89.99999999999838,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          }
+        }
+      ],
+      "tack_crossings": [
+        0,
+        0
+      ],
+      "max_warp_um": 22.1990976477645,
+      "warp_by_layer": [
+        {
+          "layer_count": 1,
+          "max_um": 22.1990976477645
+        },
+        {
+          "layer_count": 2,
+          "max_um": 8.21645696933246
+        }
+      ],
+      "judgement": "불량"
+    },
+    {
+      "mode": "MR-MUF",
+      "N": 4,
+      "thickness_um": 100,
+      "bottom": {
+        "peak_C": 249.99999999999983,
+        "time_above_s": 89.99999999999743,
+        "remelt_count": 1,
+        "subsequent_remelts": 0,
+        "reheat_count": 0,
+        "reheat_peaks_C": [],
+        "reflow_count": 1,
+        "tack_exposures": 3,
+        "tack_peaks_C": [
+          129.80284318333122,
+          127.67936488748411,
+          125.63363297060398
+        ],
+        "crossings_by_phase": {
+          "reflow-ramp": 1
+        }
+      },
+      "layers": [
+        {
+          "peak_C": 249.99999999999983,
+          "time_above_s": 89.99999999999743,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 3,
+          "tack_peaks_C": [
+            129.80284318333122,
+            127.67936488748411,
+            125.63363297060398
+          ],
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          }
+        },
+        {
+          "peak_C": 249.99999999999986,
+          "time_above_s": 89.99999999999743,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 2,
+          "tack_peaks_C": [
+            131.91136434618224,
+            129.7852739654492
+          ],
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          }
+        },
+        {
+          "peak_C": 249.9999999999999,
+          "time_above_s": 89.99999999999744,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 1,
+          "tack_peaks_C": [
+            133.9377877301346
+          ],
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          }
+        },
+        {
+          "peak_C": 249.99999999999991,
+          "time_above_s": 89.99999999999744,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          }
+        }
+      ],
+      "tack_crossings": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "max_warp_um": 5.406727729136941,
+      "warp_by_layer": [
+        {
+          "layer_count": 1,
+          "max_um": 5.406727729136941
+        },
+        {
+          "layer_count": 2,
+          "max_um": 1.007309085916105
+        },
+        {
+          "layer_count": 3,
+          "max_um": 0.3939308360794199
+        },
+        {
+          "layer_count": 4,
+          "max_um": 0.553898963518855
+        }
+      ],
+      "judgement": "주의"
+    },
+    {
+      "mode": "MR-MUF",
+      "N": 4,
+      "thickness_um": 50,
+      "bottom": {
+        "peak_C": 249.99999999999946,
+        "time_above_s": 89.9999999999971,
+        "remelt_count": 1,
+        "subsequent_remelts": 0,
+        "reheat_count": 0,
+        "reheat_peaks_C": [],
+        "reflow_count": 1,
+        "tack_exposures": 3,
+        "tack_peaks_C": [
+          129.89991910258144,
+          127.8609946695157,
+          125.89591992062593
+        ],
+        "crossings_by_phase": {
+          "reflow-ramp": 1
+        }
+      },
+      "layers": [
+        {
+          "peak_C": 249.99999999999946,
+          "time_above_s": 89.9999999999971,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 3,
+          "tack_peaks_C": [
+            129.89991910258144,
+            127.8609946695157,
+            125.89591992062593
+          ],
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          }
+        },
+        {
+          "peak_C": 249.99999999999943,
+          "time_above_s": 89.99999999999707,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 2,
+          "tack_peaks_C": [
+            131.93002692262033,
+            129.8908202263049
+          ],
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          }
+        },
+        {
+          "peak_C": 249.9999999999994,
+          "time_above_s": 89.99999999999707,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 1,
+          "tack_peaks_C": [
+            133.88616822201092
+          ],
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          }
+        },
+        {
+          "peak_C": 249.9999999999994,
+          "time_above_s": 89.99999999999707,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          }
+        }
+      ],
+      "tack_crossings": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "max_warp_um": 22.1990976477645,
+      "warp_by_layer": [
+        {
+          "layer_count": 1,
+          "max_um": 22.1990976477645
+        },
+        {
+          "layer_count": 2,
+          "max_um": 3.7950863679535023
+        },
+        {
+          "layer_count": 3,
+          "max_um": 1.451320884339152
+        },
+        {
+          "layer_count": 4,
+          "max_um": 1.9198064986048327
+        }
+      ],
+      "judgement": "불량"
+    },
+    {
+      "mode": "MR-MUF",
+      "N": 8,
+      "thickness_um": 100,
+      "bottom": {
+        "peak_C": 249.9999999999976,
+        "time_above_s": 89.99999999997839,
+        "remelt_count": 1,
+        "subsequent_remelts": 0,
+        "reheat_count": 0,
+        "reheat_peaks_C": [],
+        "reflow_count": 1,
+        "tack_exposures": 7,
+        "tack_peaks_C": [
+          129.80284318333122,
+          127.67936488748411,
+          125.63363297060398,
+          123.65386157361075,
+          121.72089077863986,
+          119.810483730174,
+          117.8981271269589
+        ],
+        "crossings_by_phase": {
+          "reflow-ramp": 1
+        }
+      },
+      "layers": [
+        {
+          "peak_C": 249.9999999999976,
+          "time_above_s": 89.99999999997839,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 7,
+          "tack_peaks_C": [
+            129.80284318333122,
+            127.67936488748411,
+            125.63363297060398,
+            123.65386157361075,
+            121.72089077863986,
+            119.810483730174,
+            117.8981271269589
+          ],
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          }
+        },
+        {
+          "peak_C": 249.99999999999756,
+          "time_above_s": 89.99999999997826,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 6,
+          "tack_peaks_C": [
+            131.91136434618224,
+            129.7852739654492,
+            127.72786714091036,
+            125.71935988402954,
+            123.73467357450518,
+            121.74838718732954
+          ],
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          }
+        },
+        {
+          "peak_C": 249.9999999999975,
+          "time_above_s": 89.99999999997817,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 5,
+          "tack_peaks_C": [
+            133.9377877301346,
+            131.8029074782192,
+            129.71929343180804,
+            127.66114005940213,
+            125.60217681336952
+          ],
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          }
+        },
+        {
+          "peak_C": 249.9999999999974,
+          "time_above_s": 89.99999999997806,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 4,
+          "tack_peaks_C": [
+            135.8790148344233,
+            133.72072986823818,
+            131.58993708008543,
+            129.45957781314803
+          ],
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          }
+        },
+        {
+          "peak_C": 249.99999999999736,
+          "time_above_s": 89.99999999997799,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 3,
+          "tack_peaks_C": [
+            137.72369879666303,
+            135.521101636875,
+            133.32064479039823
+          ],
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          }
+        },
+        {
+          "peak_C": 249.99999999999733,
+          "time_above_s": 89.9999999999779,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 2,
+          "tack_peaks_C": [
+            139.45465375230918,
+            137.18540489732942
+          ],
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          }
+        },
+        {
+          "peak_C": 249.99999999999733,
+          "time_above_s": 89.99999999997785,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 1,
+          "tack_peaks_C": [
+            141.05385785277898
+          ],
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          }
+        },
+        {
+          "peak_C": 249.99999999999736,
+          "time_above_s": 89.99999999997783,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          }
+        }
+      ],
+      "tack_crossings": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "max_warp_um": 5.406727729136941,
+      "warp_by_layer": [
+        {
+          "layer_count": 1,
+          "max_um": 5.406727729136941
+        },
+        {
+          "layer_count": 2,
+          "max_um": 1.007309085916105
+        },
+        {
+          "layer_count": 3,
+          "max_um": 0.3939308360794199
+        },
+        {
+          "layer_count": 4,
+          "max_um": 0.2786236958615103
+        },
+        {
+          "layer_count": 5,
+          "max_um": 0.21754041925041923
+        },
+        {
+          "layer_count": 6,
+          "max_um": 0.19305859615734694
+        },
+        {
+          "layer_count": 7,
+          "max_um": 0.17755499287707394
+        },
+        {
+          "layer_count": 8,
+          "max_um": 0.20764144371012874
+        }
+      ],
+      "judgement": "주의"
+    },
+    {
+      "mode": "MR-MUF",
+      "N": 8,
+      "thickness_um": 50,
+      "bottom": {
+        "peak_C": 249.99999999999807,
+        "time_above_s": 89.99999999999616,
+        "remelt_count": 1,
+        "subsequent_remelts": 0,
+        "reheat_count": 0,
+        "reheat_peaks_C": [],
+        "reflow_count": 1,
+        "tack_exposures": 7,
+        "tack_peaks_C": [
+          129.89991910258144,
+          127.8609946695157,
+          125.89591992062593,
+          124.0007131310718,
+          122.1715409134901,
+          120.40450235631035,
+          118.6953811821659
+        ],
+        "crossings_by_phase": {
+          "reflow-ramp": 1
+        }
+      },
+      "layers": [
+        {
+          "peak_C": 249.99999999999807,
+          "time_above_s": 89.99999999999616,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 7,
+          "tack_peaks_C": [
+            129.89991910258144,
+            127.8609946695157,
+            125.89591992062593,
+            124.0007131310718,
+            122.1715409134901,
+            120.40450235631035,
+            118.6953811821659
+          ],
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          }
+        },
+        {
+          "peak_C": 249.99999999999795,
+          "time_above_s": 89.9999999999961,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 6,
+          "tack_peaks_C": [
+            131.93002692262033,
+            129.8908202263049,
+            127.92411776698896,
+            126.02594329619241,
+            124.19225287345783,
+            122.41867820197513
+          ],
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          }
+        },
+        {
+          "peak_C": 249.99999999999787,
+          "time_above_s": 89.99999999999604,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 5,
+          "tack_peaks_C": [
+            133.88616822201092,
+            131.84796268411165,
+            129.88078116759945,
+            127.98044094193381,
+            126.14242893483747
+          ],
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          }
+        },
+        {
+          "peak_C": 249.99999999999784,
+          "time_above_s": 89.99999999999599,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 4,
+          "tack_peaks_C": [
+            135.77226387022745,
+            133.73607027316214,
+            131.76908219789254,
+            129.86664921930935
+          ],
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          }
+        },
+        {
+          "peak_C": 249.9999999999978,
+          "time_above_s": 89.99999999999598,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 3,
+          "tack_peaks_C": [
+            137.59182631436713,
+            135.55819213676196,
+            133.59135455030136
+          ],
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          }
+        },
+        {
+          "peak_C": 249.9999999999978,
+          "time_above_s": 89.99999999999598,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 2,
+          "tack_peaks_C": [
+            139.34778611263346,
+            137.31656007612287
+          ],
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          }
+        },
+        {
+          "peak_C": 249.99999999999784,
+          "time_above_s": 89.999999999996,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 1,
+          "tack_peaks_C": [
+            141.04228059876365
+          ],
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          }
+        },
+        {
+          "peak_C": 249.99999999999787,
+          "time_above_s": 89.99999999999602,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          }
+        }
+      ],
+      "tack_crossings": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "max_warp_um": 22.1990976477645,
+      "warp_by_layer": [
+        {
+          "layer_count": 1,
+          "max_um": 22.1990976477645
+        },
+        {
+          "layer_count": 2,
+          "max_um": 3.7950863679535023
+        },
+        {
+          "layer_count": 3,
+          "max_um": 1.451320884339152
+        },
+        {
+          "layer_count": 4,
+          "max_um": 0.6981710036913177
+        },
+        {
+          "layer_count": 5,
+          "max_um": 0.5492193814809436
+        },
+        {
+          "layer_count": 6,
+          "max_um": 0.45680976948094426
+        },
+        {
+          "layer_count": 7,
+          "max_um": 0.3929604034220414
+        },
+        {
+          "layer_count": 8,
+          "max_um": 0.49461289408433906
+        }
+      ],
+      "judgement": "불량"
+    },
+    {
+      "mode": "MR-MUF",
+      "N": 12,
+      "thickness_um": 100,
+      "bottom": {
+        "peak_C": 249.9999999999958,
+        "time_above_s": 89.99999994235286,
+        "remelt_count": 1,
+        "subsequent_remelts": 0,
+        "reheat_count": 0,
+        "reheat_peaks_C": [],
+        "reflow_count": 1,
+        "tack_exposures": 11,
+        "tack_peaks_C": [
+          129.80284318333122,
+          127.67936488748411,
+          125.63363297060398,
+          123.65386157361075,
+          121.72089077863986,
+          119.810483730174,
+          117.8981271269589,
+          115.96331584262357,
+          113.99199347169431,
+          111.97719512378727,
+          109.91844417219359
+        ],
+        "crossings_by_phase": {
+          "reflow-ramp": 1
+        }
+      },
+      "layers": [
+        {
+          "peak_C": 249.9999999999958,
+          "time_above_s": 89.99999994235286,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 11,
+          "tack_peaks_C": [
+            129.80284318333122,
+            127.67936488748411,
+            125.63363297060398,
+            123.65386157361075,
+            121.72089077863986,
+            119.810483730174,
+            117.8981271269589,
+            115.96331584262357,
+            113.99199347169431,
+            111.97719512378727,
+            109.91844417219359
+          ],
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          }
+        },
+        {
+          "peak_C": 249.99999999999565,
+          "time_above_s": 89.99999994197027,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 10,
+          "tack_peaks_C": [
+            131.91136434618224,
+            129.7852739654492,
+            127.72786714091036,
+            125.71935988402954,
+            123.73467357450518,
+            121.74838718732954,
+            119.7391840422358,
+            117.69240114218,
+            115.60071613958664,
+            113.46353780357636
+          ],
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          }
+        },
+        {
+          "peak_C": 249.9999999999955,
+          "time_above_s": 89.99999994170805,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 9,
+          "tack_peaks_C": [
+            133.9377877301346,
+            131.8029074782192,
+            129.71929343180804,
+            127.66114005940213,
+            125.60217681336952,
+            123.52027023029514,
+            121.40009519355802,
+            119.23388556922421,
+            117.02083643400776
+          ],
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          }
+        },
+        {
+          "peak_C": 249.9999999999954,
+          "time_above_s": 89.99999994154236,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 8,
+          "tack_peaks_C": [
+            135.8790148344233,
+            133.72072986823818,
+            131.58993708008543,
+            129.45957781314803,
+            127.30669802423606,
+            125.11525456354708,
+            122.8769493954148,
+            120.59066217932407
+          ],
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          }
+        },
+        {
+          "peak_C": 249.99999999999525,
+          "time_above_s": 89.99999994139642,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 7,
+          "tack_peaks_C": [
+            137.72369879666303,
+            135.521101636875,
+            133.32064479039823,
+            131.09855212873805,
+            128.83800708084615,
+            126.53009059862167,
+            124.1732631605118
+          ],
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          }
+        },
+        {
+          "peak_C": 249.99999999999514,
+          "time_above_s": 89.99999994124248,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 6,
+          "tack_peaks_C": [
+            139.45465375230918,
+            137.18540489732942,
+            134.8958778562091,
+            132.56842870347654,
+            130.1934280855849,
+            127.76881211587563
+          ],
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          }
+        },
+        {
+          "peak_C": 249.99999999999505,
+          "time_above_s": 89.99999994113932,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 5,
+          "tack_peaks_C": [
+            141.05385785277898,
+            138.69868098353987,
+            136.3065431530797,
+            133.86701605964677,
+            131.37740548662356
+          ],
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          }
+        },
+        {
+          "peak_C": 249.999999999995,
+          "time_above_s": 89.99999994107348,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 4,
+          "tack_peaks_C": [
+            142.50692794635313,
+            140.05232194796352,
+            137.55084383721726,
+            134.99906298161258
+          ],
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          }
+        },
+        {
+          "peak_C": 249.99999999999494,
+          "time_above_s": 89.99999994103368,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 3,
+          "tack_peaks_C": [
+            143.80568483464674,
+            141.24483611164638,
+            138.63372762398993
+          ],
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          }
+        },
+        {
+          "peak_C": 249.99999999999488,
+          "time_above_s": 89.99999994101091,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 2,
+          "tack_peaks_C": [
+            144.9488536626855,
+            142.2812662794378
+          ],
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          }
+        },
+        {
+          "peak_C": 249.99999999999483,
+          "time_above_s": 89.99999994099852,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 1,
+          "tack_peaks_C": [
+            145.94147066270597
+          ],
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          }
+        },
+        {
+          "peak_C": 249.9999999999948,
+          "time_above_s": 89.99999994099231,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          }
+        }
+      ],
+      "tack_crossings": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "max_warp_um": 5.406727729136941,
+      "warp_by_layer": [
+        {
+          "layer_count": 1,
+          "max_um": 5.406727729136941
+        },
+        {
+          "layer_count": 2,
+          "max_um": 1.007309085916105
+        },
+        {
+          "layer_count": 3,
+          "max_um": 0.3939308360794199
+        },
+        {
+          "layer_count": 4,
+          "max_um": 0.2786236958615103
+        },
+        {
+          "layer_count": 5,
+          "max_um": 0.21754041925041923
+        },
+        {
+          "layer_count": 6,
+          "max_um": 0.19305859615734694
+        },
+        {
+          "layer_count": 7,
+          "max_um": 0.17755499287707394
+        },
+        {
+          "layer_count": 8,
+          "max_um": 0.16788863450489414
+        },
+        {
+          "layer_count": 9,
+          "max_um": 0.16204604159558716
+        },
+        {
+          "layer_count": 10,
+          "max_um": 0.15818326612211786
+        },
+        {
+          "layer_count": 11,
+          "max_um": 0.15582808365442793
+        },
+        {
+          "layer_count": 12,
+          "max_um": 0.1560004785145535
+        }
+      ],
+      "judgement": "주의"
+    },
+    {
+      "mode": "MR-MUF",
+      "N": 12,
+      "thickness_um": 50,
+      "bottom": {
+        "peak_C": 249.9999999999954,
+        "time_above_s": 89.99999999999442,
+        "remelt_count": 1,
+        "subsequent_remelts": 0,
+        "reheat_count": 0,
+        "reheat_peaks_C": [],
+        "reflow_count": 1,
+        "tack_exposures": 11,
+        "tack_peaks_C": [
+          129.89991910258144,
+          127.8609946695157,
+          125.89591992062593,
+          124.0007131310718,
+          122.1715409134901,
+          120.40450235631035,
+          118.6953811821659,
+          117.03946714979885,
+          115.43151428206849,
+          113.86584030565979,
+          112.3365266226586
+        ],
+        "crossings_by_phase": {
+          "reflow-ramp": 1
+        }
+      },
+      "layers": [
+        {
+          "peak_C": 249.9999999999954,
+          "time_above_s": 89.99999999999442,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 11,
+          "tack_peaks_C": [
+            129.89991910258144,
+            127.8609946695157,
+            125.89591992062593,
+            124.0007131310718,
+            122.1715409134901,
+            120.40450235631035,
+            118.6953811821659,
+            117.03946714979885,
+            115.43151428206849,
+            113.86584030565979,
+            112.3365266226586
+          ],
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          }
+        },
+        {
+          "peak_C": 249.9999999999952,
+          "time_above_s": 89.99999999999429,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 10,
+          "tack_peaks_C": [
+            131.93002692262033,
+            129.8908202263049,
+            127.92411776698896,
+            126.02594329619241,
+            124.19225287345783,
+            122.41867820197513,
+            120.70034085057132,
+            119.03180769747391,
+            117.40719264367947,
+            115.82036281993165
+          ],
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          }
+        },
+        {
+          "peak_C": 249.99999999999503,
+          "time_above_s": 89.99999999999417,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 9,
+          "tack_peaks_C": [
+            133.88616822201092,
+            131.84796268411165,
+            129.88078116759945,
+            127.98044094193381,
+            126.14242893483747,
+            124.36170832432816,
+            122.6326699534515,
+            120.94923479004373,
+            119.30506501362366
+          ],
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          }
+        },
+        {
+          "peak_C": 249.99999999999488,
+          "time_above_s": 89.99999999999407,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 8,
+          "tack_peaks_C": [
+            135.77226387022745,
+            133.73607027316214,
+            131.76908219789254,
+            129.86664921930935,
+            128.02358619528482,
+            126.2341193810926,
+            124.49198806427587,
+            122.79065912973682
+          ],
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          }
+        },
+        {
+          "peak_C": 249.99999999999477,
+          "time_above_s": 89.999999999994,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 7,
+          "tack_peaks_C": [
+            137.59182631436713,
+            135.55819213676196,
+            133.59135455030136,
+            131.68599038970447,
+            129.83617307240948,
+            128.0354717994533,
+            126.27716815253858
+          ],
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          }
+        },
+        {
+          "peak_C": 249.99999999999469,
+          "time_above_s": 89.99999999999395,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 6,
+          "tack_peaks_C": [
+            139.34778611263346,
+            137.31656007612287,
+            135.34893612767206,
+            133.43884686262427,
+            131.57970330977088,
+            129.76461207156177
+          ],
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          }
+        },
+        {
+          "peak_C": 249.99999999999463,
+          "time_above_s": 89.99999999999389,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 5,
+          "tack_peaks_C": [
+            141.04228059876365,
+            139.01243792067876,
+            137.04215532169695,
+            135.12469787150658,
+            133.25300784671154
+          ],
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          }
+        },
+        {
+          "peak_C": 249.99999999999457,
+          "time_above_s": 89.99999999999385,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 4,
+          "tack_peaks_C": [
+            142.67650957503687,
+            140.64611175515492,
+            138.67046871751586,
+            136.74236939169037
+          ],
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          }
+        },
+        {
+          "peak_C": 249.99999999999454,
+          "time_above_s": 89.99999999999382,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 3,
+          "tack_peaks_C": [
+            144.25072821421875,
+            142.21702704529181,
+            140.23270757584146
+          ],
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          }
+        },
+        {
+          "peak_C": 249.99999999999451,
+          "time_above_s": 89.99999999999378,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 2,
+          "tack_peaks_C": [
+            145.7643820385382,
+            143.72403024440007
+          ],
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          }
+        },
+        {
+          "peak_C": 249.99999999999451,
+          "time_above_s": 89.99999999999379,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 1,
+          "tack_peaks_C": [
+            147.21634225703045
+          ],
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          }
+        },
+        {
+          "peak_C": 249.99999999999454,
+          "time_above_s": 89.99999999999379,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          }
+        }
+      ],
+      "tack_crossings": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "max_warp_um": 22.1990976477645,
+      "warp_by_layer": [
+        {
+          "layer_count": 1,
+          "max_um": 22.1990976477645
+        },
+        {
+          "layer_count": 2,
+          "max_um": 3.7950863679535023
+        },
+        {
+          "layer_count": 3,
+          "max_um": 1.451320884339152
+        },
+        {
+          "layer_count": 4,
+          "max_um": 0.6981710036913177
+        },
+        {
+          "layer_count": 5,
+          "max_um": 0.5492193814809436
+        },
+        {
+          "layer_count": 6,
+          "max_um": 0.45680976948094426
+        },
+        {
+          "layer_count": 7,
+          "max_um": 0.3929604034220414
+        },
+        {
+          "layer_count": 8,
+          "max_um": 0.3503849778696972
+        },
+        {
+          "layer_count": 9,
+          "max_um": 0.33033847371295205
+        },
+        {
+          "layer_count": 10,
+          "max_um": 0.3132617031949907
+        },
+        {
+          "layer_count": 11,
+          "max_um": 0.2982872155959522
+        },
+        {
+          "layer_count": 12,
+          "max_um": 0.348137205635016
+        }
+      ],
+      "judgement": "불량"
+    }
+  ],
+  "convergence": [
+    {
+      "mode": "TC-NCF",
+      "coarse_dt_s": 0.05,
+      "fine_dt_s": 0.025,
+      "bottom_peak_delta_C": 0,
+      "bottom_TAL_delta_s": 0,
+      "max_warp_delta_um": 1.3834930036971578
+    },
+    {
+      "mode": "MR-MUF",
+      "coarse_dt_s": 0.05,
+      "fine_dt_s": 0.025,
+      "bottom_peak_delta_C": -2.5579538487363607e-12,
+      "bottom_TAL_delta_s": 6.210143510543276e-12,
+      "max_warp_delta_um": 0
+    }
+  ],
+  "sensitivity": [
+    {
+      "mode": "TC-NCF",
+      "contact": "tool_contact_R_area",
+      "value": 0.00002,
+      "bottom": {
+        "peak_C": 284.3542642856216,
+        "time_above_s": 22.117480663389376,
+        "remelt_count": 4,
+        "subsequent_remelts": 3,
+        "reheat_count": 11,
+        "reheat_peaks_C": [
+          260.7585469929671,
+          242.51356107908418,
+          227.98403720180403,
+          216.139452205737,
+          206.29813284517581,
+          197.99115892396864,
+          190.8853694450799,
+          184.73754827743744,
+          179.3659898106522,
+          174.63220992801266,
+          170.42881620178096
+        ],
+        "reflow_count": 0,
+        "tack_exposures": 0,
+        "tack_peaks_C": [],
+        "crossings_by_phase": {
+          "bond-ramp": 4
+        }
+      },
+      "max_warp_um": 47.887272314107285,
+      "judgement": "불량"
+    },
+    {
+      "mode": "TC-NCF",
+      "contact": "tool_contact_R_area",
+      "value": 0.001,
+      "bottom": {
+        "peak_C": 138.38860883903592,
+        "time_above_s": 0,
+        "remelt_count": 0,
+        "subsequent_remelts": 0,
+        "reheat_count": 11,
+        "reheat_peaks_C": [
+          137.23783846481814,
+          136.1526227483485,
+          135.12747398882604,
+          134.15750042531474,
+          133.23832747906837,
+          132.36603113560065,
+          131.53708115227695,
+          130.74829179936165,
+          129.9967777659364,
+          129.27991333137626,
+          128.5952941311141
+        ],
+        "reflow_count": 0,
+        "tack_exposures": 0,
+        "tack_peaks_C": [],
+        "crossings_by_phase": {}
+      },
+      "max_warp_um": 14.124469337472243,
+      "judgement": "주의"
+    },
+    {
+      "mode": "TC-NCF",
+      "contact": "chuck_contact_R_area",
+      "value": 0.00005,
+      "bottom": {
+        "peak_C": 160.91041413611413,
+        "time_above_s": 0,
+        "remelt_count": 0,
+        "subsequent_remelts": 0,
+        "reheat_count": 11,
+        "reheat_peaks_C": [
+          153.82942113144549,
+          148.22160712396928,
+          143.6703759040123,
+          139.9026777372542,
+          136.73208568849725,
+          134.0269693153151,
+          131.69173989503193,
+          129.65530501491133,
+          127.86369402130676,
+          126.27519628104386,
+          124.85706701387724
+        ],
+        "reflow_count": 0,
+        "tack_exposures": 0,
+        "tack_peaks_C": [],
+        "crossings_by_phase": {}
+      },
+      "max_warp_um": 17.424147836805087,
+      "judgement": "주의"
+    },
+    {
+      "mode": "TC-NCF",
+      "contact": "chuck_contact_R_area",
+      "value": 0.002,
+      "bottom": {
+        "peak_C": 282.08583295690755,
+        "time_above_s": 76.46956028527063,
+        "remelt_count": 12,
+        "subsequent_remelts": 11,
+        "reheat_count": 11,
+        "reheat_peaks_C": [
+          279.0298957052355,
+          276.06975987403763,
+          273.20088011979135,
+          270.4189944308641,
+          267.72010237961734,
+          265.1004450783613,
+          262.556484689152,
+          260.0848762386635,
+          257.6824185565547,
+          255.34597371406986,
+          253.0723593647036
+        ],
+        "reflow_count": 0,
+        "tack_exposures": 0,
+        "tack_peaks_C": [],
+        "crossings_by_phase": {
+          "bond-ramp": 12
+        }
+      },
+      "max_warp_um": 50.804566288008964,
+      "judgement": "불량"
+    },
+    {
+      "mode": "MR-MUF",
+      "contact": "tool_contact_R_area",
+      "value": 0.00002,
+      "bottom": {
+        "peak_C": 249.9999999999954,
+        "time_above_s": 89.99999999999442,
+        "remelt_count": 1,
+        "subsequent_remelts": 0,
+        "reheat_count": 0,
+        "reheat_peaks_C": [],
+        "reflow_count": 1,
+        "tack_exposures": 11,
+        "tack_peaks_C": [
+          213.85703997438537,
+          207.6177107975865,
+          201.76676910818492,
+          196.26902327994125,
+          191.09340864358668,
+          186.21239975210509,
+          181.601520299674,
+          177.2389322301301,
+          173.105089279197,
+          169.1824427139472,
+          165.4551884509373
+        ],
+        "crossings_by_phase": {
+          "reflow-ramp": 1
+        }
+      },
+      "max_warp_um": 39.739247798667364,
+      "judgement": "불량"
+    },
+    {
+      "mode": "MR-MUF",
+      "contact": "tool_contact_R_area",
+      "value": 0.001,
+      "bottom": {
+        "peak_C": 249.9999999999954,
+        "time_above_s": 89.99999999999442,
+        "remelt_count": 1,
+        "subsequent_remelts": 0,
+        "reheat_count": 0,
+        "reheat_peaks_C": [],
+        "reflow_count": 1,
+        "tack_exposures": 11,
+        "tack_peaks_C": [
+          57.57474508676313,
+          57.3306078219078,
+          57.08921980377663,
+          56.849365904970774,
+          56.608087974597176,
+          56.36057804167332,
+          56.10089688301703,
+          55.82300837223416,
+          55.52165605312664,
+          55.1928902251213,
+          54.83426194843422
+        ],
+        "crossings_by_phase": {
+          "reflow-ramp": 1
+        }
+      },
+      "max_warp_um": 7.495406893294454,
+      "judgement": "주의"
+    },
+    {
+      "mode": "MR-MUF",
+      "contact": "chuck_contact_R_area",
+      "value": 0.00005,
+      "bottom": {
+        "peak_C": 249.99999999999883,
+        "time_above_s": 89.99999999999665,
+        "remelt_count": 1,
+        "subsequent_remelts": 0,
+        "reheat_count": 0,
+        "reheat_peaks_C": [],
+        "reflow_count": 1,
+        "tack_exposures": 11,
+        "tack_peaks_C": [
+          67.75173125946138,
+          66.38275622942149,
+          65.08990825791523,
+          63.867004313895634,
+          62.70851327481948,
+          61.60947206140579,
+          60.565413851898384,
+          59.572305412684464,
+          58.62649062500683,
+          57.72463771868091,
+          56.86368875658759
+        ],
+        "crossings_by_phase": {
+          "reflow-ramp": 1
+        }
+      },
+      "max_warp_um": 9.751017607043192,
+      "judgement": "주의"
+    },
+    {
+      "mode": "MR-MUF",
+      "contact": "chuck_contact_R_area",
+      "value": 0.002,
+      "bottom": {
+        "peak_C": 249.9999830058797,
+        "time_above_s": 89.9932682370547,
+        "remelt_count": 1,
+        "subsequent_remelts": 0,
+        "reheat_count": 0,
+        "reheat_peaks_C": [],
+        "reflow_count": 1,
+        "tack_exposures": 11,
+        "tack_peaks_C": [
+          219.30866746525527,
+          218.58621217918946,
+          217.86590112578344,
+          217.138560847049,
+          216.38465705621243,
+          215.57801584142356,
+          214.69352183950846,
+          213.7132841394184,
+          212.62906200364154,
+          211.4416183709304,
+          210.15851711051303
+        ],
+        "crossings_by_phase": {
+          "reflow-ramp": 1
+        }
+      },
+      "max_warp_um": 39.64062845659178,
+      "judgement": "불량"
+    }
+  ],
+  "head": {
+    "arrival_s": 17.2,
+    "alignment_s": 107.2,
+    "fit_window_s": 10,
+    "macor_nodes": [
+      {
+        "T_C": 386.74753210936865,
+        "rate_K_s": 0.041087091916938386
+      },
+      {
+        "T_C": 360.15632989572657,
+        "rate_K_s": 0.1208386221367566
+      },
+      {
+        "T_C": 333.72998322157514,
+        "rate_K_s": 0.1959942756190898
+      },
+      {
+        "T_C": 307.57120686221396,
+        "rate_K_s": 0.26364457783490136
+      },
+      {
+        "T_C": 281.77239823079054,
+        "rate_K_s": 0.32116402006267386
+      },
+      {
+        "T_C": 256.41209601626133,
+        "rate_K_s": 0.3663269559310592
+      },
+      {
+        "T_C": 231.55195738279306,
+        "rate_K_s": 0.39739377123159786
+      },
+      {
+        "T_C": 207.2343915093444,
+        "rate_K_s": 0.4131749838939829
+      },
+      {
+        "T_C": 183.48093893993322,
+        "rate_K_s": 0.4130734454291795
+      },
+      {
+        "T_C": 160.2914569099159,
+        "rate_K_s": 0.3971041506659057
+      },
+      {
+        "T_C": 137.64413958785073,
+        "rate_K_s": 0.365891177295091
+      },
+      {
+        "T_C": 115.49636990058414,
+        "rate_K_s": 0.320641865414906
+      },
+      {
+        "T_C": 93.78636785118856,
+        "rate_K_s": 0.26309920981222773
+      },
+      {
+        "T_C": 72.4355702378276,
+        "rate_K_s": 0.19547430787985923
+      },
+      {
+        "T_C": 51.35164943145863,
+        "rate_K_s": 0.1203614676707871
+      },
+      {
+        "T_C": 30.4320552500978,
+        "rate_K_s": 0.04063920070872592
+      }
+    ],
+    "parts": [
+      {
+        "name": "Collet_Tool",
+        "length_mm": 10,
+        "length_kind": "assumption (CAD z envelope)",
+        "cte_ppm_K": 17,
+        "T_C": 400.0735009442412,
+        "rate_K_s": -0.00023924837215855702,
+        "drift_um_s": -0.000040672223266954695
+      },
+      {
+        "name": "AlN_Heater",
+        "length_mm": 5,
+        "length_kind": "assumption (CAD z envelope)",
+        "cte_ppm_K": 4.5,
+        "T_C": 400.0735009442412,
+        "rate_K_s": -0.00023924837215855702,
+        "drift_um_s": -0.000005383088373567533
+      },
+      {
+        "name": "MACOR_Insulator",
+        "length_mm": 16,
+        "length_kind": "assumption (CAD z envelope)",
+        "cte_ppm_K": 9.3,
+        "T_C": 200.63090270855824,
+        "rate_K_s": 0.2647443202189811,
+        "drift_um_s": 0.03939395484858439
+      },
+      {
+        "name": "Cooling_Jacket",
+        "length_mm": 19,
+        "length_kind": "assumption (CAD z envelope)",
+        "cte_ppm_K": 23.6,
+        "T_C": 20,
+        "rate_K_s": 0,
+        "drift_um_s": 0
+      },
+      {
+        "name": "Gimbal_Lockable",
+        "length_mm": 16,
+        "length_kind": "assumption (CAD z envelope)",
+        "cte_ppm_K": 17,
+        "T_C": 20,
+        "rate_K_s": 0,
+        "drift_um_s": 0
+      },
+      {
+        "name": "Load_Cell_100N",
+        "length_mm": 16,
+        "length_kind": "assumption (CAD z envelope)",
+        "cte_ppm_K": 17,
+        "T_C": 20,
+        "rate_K_s": 0,
+        "drift_um_s": 0
+      },
+      {
+        "name": "Flexure_Leaf_Spring",
+        "length_mm": 18,
+        "length_kind": "assumption (CAD z envelope)",
+        "cte_ppm_K": 17,
+        "T_C": 20,
+        "rate_K_s": 0,
+        "drift_um_s": 0
+      },
+      {
+        "name": "Theta_Stage",
+        "length_mm": 16,
+        "length_kind": "assumption (CAD z envelope)",
+        "cte_ppm_K": 17,
+        "T_C": 20,
+        "rate_K_s": 0,
+        "drift_um_s": 0
+      },
+      {
+        "name": "Z_Carriage",
+        "length_mm": 74,
+        "length_kind": "assumption (CAD z envelope)",
+        "cte_ppm_K": 23.6,
+        "T_C": 20,
+        "rate_K_s": 0,
+        "drift_um_s": 0
+      }
+    ],
+    "total_um_s": 0.03934789953694387,
+    "original_um_s": 2.6,
+    "ratio_to_original": 0.01513380751420918
+  }
+}

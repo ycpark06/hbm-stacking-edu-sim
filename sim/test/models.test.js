@@ -126,7 +126,7 @@ test('2/4/8/12 layers: separate scheduled bonding/tack exposures from liquidus c
     const max_warp_um=Math.max(...stackWarpHistory(thermalWarpSteps(r,m)).map(row=>Math.abs(row.w_um)));
     sensitivity.push({mode,contact,value,bottom:r.layers[0],max_warp_um,judgement:judgeWarpage(max_warp_um,p.geometry.interlayer_gap.value,p)});
   }
-  writeFileSync(new URL('c1_results.json',import.meta.url),JSON.stringify({results,convergence,sensitivity,head:headDrift(params)},null,2)+'\n');
+  writeFileSync(new URL('stage4_c1_results.json',import.meta.url),JSON.stringify({results,convergence,sensitivity,head:headDrift(params)},null,2)+'\n');
 });
 
 test('mode schedules preserve equipment ramp and reflow envelope',()=>{
@@ -281,7 +281,8 @@ test('cycle continuity; both bonder times scale with N, batch post is independen
       const changed=stackCycleTime(mode,4,{params,mold_fill_s:123});
       assert.equal(changed.bonder_s,r4.bonder_s);
       assert.equal(r4.batch_post_s,step.once_s);
-      assert.equal(step.once.mold_cure_s,params.muf.cure_time.value);
+      assert.equal(step.once.mold_cure_s,params.mrmuf_process.in_mold_cure_time.value);
+      assert.equal(step.once.postcure_s,params.muf.cure_time.value*3600);
     }
     close(Object.values(r4.breakdown.layer_totals).reduce((s,v)=>s+v,0)+Object.values(r4.breakdown.once).reduce((s,v)=>s+v,0),r4.total_serial_s);
   }
@@ -316,7 +317,7 @@ test('C2 recorded 2/4/8/12 x 100/50 scenarios, gel/void rules, parameter sensiti
   for(const r of convergence){if(r.contact_delta_s!==null)assert.ok(Math.abs(r.contact_delta_s)<0.01);assert.ok(Math.abs(r.thickness_delta_um)<0.01);}
   const voidRule=ncfVoidTendency({gel_before_contact:true,contact_time_s:null,contact_viscosity_Pa_s:null,low_viscosity_time_s:0,ramp_rate_K_s:20},params);
   assert.equal(voidRule.quantitative,false);assert.equal(voidRule.grade,'미접합 위험');
-  writeFileSync(new URL('c2_results.json',import.meta.url),JSON.stringify({correction_reason:'Issue #20: h0 = gap + film excess (um); separate bonder occupancy and batch post-processing.',results,alignment,sensitivity,convergence},null,2)+'\n');
+  writeFileSync(new URL('stage4_c2_results.json',import.meta.url),JSON.stringify({correction_reason:'Issue #20: h0 = gap + film excess (um); separate bonder occupancy and batch post-processing.',results,alignment,sensitivity,convergence},null,2)+'\n');
 });
 
 import {pressureFillTime,unfilledFraction,stackFillTime,washburnFillTime} from '../muf.js';
@@ -375,4 +376,41 @@ test('runStack recipe validation, deterministic offsets, immutable params, desig
   for(const override of [{gap_um:6},{bond_force_N:51},{layers:0},{thickness_um:-1},{seed:NaN}])assert.throws(()=>runStack('TC-NCF',override,params));
   assert.equal(judgeDefect(params.judgement.defect_good_max_pct.value,params),'양호');
   assert.equal(judgeDefect(params.judgement.defect_fail_above_pct.value,params),'주의');
+});
+
+test('Hele-Shaw analytic pressure solution, Washburn limit and inverse pressure scaling',()=>{
+  // Given validation vector, not adopted material/process inputs (HANDOFF test).
+  const mu=5,L=0.005,h=15e-6,opts={gamma:0.0298,theta_deg:20,dP_app_Pa:1e6};
+  const total=opts.dP_app_Pa+2*opts.gamma*Math.cos(opts.theta_deg*Math.PI/180)/h;
+  close(pressureFillTime(mu,L,h,opts),6*mu*L**2/(h**2*total),1e-12);
+  close(pressureFillTime(mu,L,h,{...opts,dP_app_Pa:1e-6}),washburnFillTime(mu,L,h,opts),1e-9);
+  close(pressureFillTime(mu,L,h,{...opts,gamma:0,dP_app_Pa:2e6}),
+    pressureFillTime(mu,L,h,{...opts,gamma:0})/2,1e-12);
+});
+
+import {checkFiller} from '../muf.js';
+test('filler advisory and blocking strict edges use params, including defect override',()=>{
+  const scale=params.muf.filler_max_size.value*1e-6;
+  const advisory=params.muf.gap_to_filler_min_ratio.value,blocking=params.muf.gap_to_filler_min_ratio.range[0];
+  assert.equal(checkFiller(scale*advisory,params).warning,false);
+  assert.equal(checkFiller(scale*advisory*(1-1e-9),params).warning,true);
+  assert.equal(checkFiller(scale*blocking,params).blocked,false);
+  assert.equal(checkFiller(scale*blocking*(1-1e-9),params).blocked,true);
+  const r=runStack('MR-MUF',{layers:2,gap_um:params.geometry.interlayer_gap.range[0]},params);
+  assert.equal(r.defect_judgement,'불량(필러 막힘)');
+  const shifted=structuredClone(params);shifted.muf.gap_to_filler_min_ratio.range[0]=2;
+  assert.equal(checkFiller(scale*2.5,shifted).blocked,false);
+});
+
+test('gel warning uses fill duration and transfer allowance remains independent',()=>{
+  const h=params.geometry.interlayer_gap.value*1e-6;
+  const fill=stackFillTime([h],{params});
+  for(const [factor,expected] of [[0.5,true],[2,false]]) {
+    const p=structuredClone(params);p.muf.gel_time.value=fill.fill_time_s*factor;
+    const r=stackFillTime([h],{params:p});
+    assert.equal(r.gel_warning,expected);
+    assert.equal(r.mold_fill_time_s,params.cycle.mold_fill_time.value);
+    close(r.capillary_only.fill_time_s,washburnFillTime(p.muf.viscosity_at_fill.value,
+      p.geometry.die_size.value*1e-3,h,{gamma:p.muf.surface_tension.value,theta_deg:p.muf.contact_angle.value}));
+  }
 });
