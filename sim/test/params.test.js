@@ -3,7 +3,7 @@ import { readFileSync } from 'node:fs';
 import test from 'node:test';
 
 const params = JSON.parse(readFileSync(new URL('../params.json', import.meta.url), 'utf8'));
-const kinds = new Set(['literature', 'assumption', 'design', 'midterm', 'observation']);
+const kinds = new Set(['literature', 'assumption', 'design', 'midterm', 'observation', 'estimate']);
 const valueKeys = ['value', 'equipment_value', 'literature_value'];
 
 function checkTree(node, path = 'params') {
