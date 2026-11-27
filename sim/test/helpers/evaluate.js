@@ -1,6 +1,6 @@
 import * as n from '../../ncf.js';import * as w from '../../warpage.js';import * as m from '../../muf.js';
 import * as th from '../../thermal.js';import * as p from '../../plant.js';import * as a from '../../alignment.js';
-import * as c from '../../cycle.js';import {tcncfProfile} from '../../recipe.js';import {render,measure} from './vision-reference.js';
+import * as c from '../../cycle.js';import {tcncfProfile} from '../../recipe.js';import {render,measure,subpixelPeak,affineFit} from '../../vision.js';
 const cache=new Map();
 export async function evaluate(id,q,load) {
   const has=s=>id.startsWith(s);
@@ -40,7 +40,7 @@ export async function evaluate(id,q,load) {
   }
   if(has('control.temp_sim')) {const r=p.tempSim(await load(),q);return {...p.tempMetrics(r),T_at_50s:th.interp(50,r.t,r.T)};}
   if(has('control.tcncf_profile')) return {sp:tcncfProfile(q.t)};
-  if(has('alignment.subpixel')) return {offset_gauss:a.subpixelPeak(q.a,q.b,q.c),offset_para:a.subpixelPeak(q.a,q.b,q.c,'para')};
+  if(has('alignment.subpixel')) return {offset_gauss:subpixelPeak(q.a,q.b,q.c),offset_para:subpixelPeak(q.a,q.b,q.c,'para')};
   if(has('alignment.render')) {const im=render(q.dx,q.dy,{...q,blur:0});return {sum:im.flat().reduce((s,v)=>s+v,0),px_64_64:im[64][64],px_67_64:im[67][64],px_64_94:im[64][94],px_61_64:im[61][64]};}
   if(has('alignment.measure')) {const [cx,cy]=measure(render(q.dx,q.dy,{blur:q.blur}),q.method);return {cx,cy,err_x:cx-q.dx,err_y:cy-q.dy};}
   if(has('alignment.affine')) {
@@ -48,7 +48,7 @@ export async function evaluate(id,q,load) {
     const px=1.725,angle=q.rot*Math.PI/180,sc=px*(1+q.scale_err),A=[[sc*Math.cos(angle),-sc*Math.sin(angle)+q.shear*px],[sc*Math.sin(angle),sc*Math.cos(angle)]],det=A[0][0]*A[1][1]-A[0][1]*A[1][0];
     const solve=([x,y])=>{x-=q.b[0];y-=q.b[1];return [(A[1][1]*x-A[0][1]*y)/det,(-A[1][0]*x+A[0][0]*y)/det];};
     const S=[];for(let x=-1500;x<=1500;x+=750) for(let y=-1200;y<=1200;y+=600) S.push([x,y]);
-    const f=a.affineFit(S.map(solve),S),p1=solve([1000,0]);
+    const f=affineFit(S.map(solve),S),p1=solve([1000,0]);
     return {fit_rot:f.rot_deg,fit_scale:f.scale_um_px,A:f.A,b:f.b,nominal_err_at_x1000:Math.hypot(p1[0]*px-(1000-q.b[0]),p1[1]*px+q.b[1])};
   }
   if(has('alignment.angle')) return {sigma:a.angleSigmaDeg(q.per_mark_sigma,q.L,q.n_marks)};

@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>층별 비전 정렬</title>
+<style>
+:root{color-scheme:dark;font-family:system-ui,sans-serif;background:#101925;color:#e4edf6}body{max-width:1120px;margin:auto;padding:28px}h1{font-size:1.7rem}p{color:#b1c2d3;line-height:1.65}.badge{display:inline-block;font-size:.75rem;padding:2px 7px;border:1px solid #5c7694;border-radius:6px;margin-left:5px}label{display:inline-block;margin:8px 16px 8px 0}input,select,button{font:inherit;padding:8px;background:#21344b;color:inherit;border:1px solid #58708d;border-radius:6px}button{cursor:pointer;background:#245f76}section{margin:20px 0;background:#182637;padding:18px;border-radius:12px}.images{display:grid;grid-template-columns:1fr 1fr;gap:20px}.images canvas{width:100%;image-rendering:pixelated;background:#000}.images p{margin:5px 0}#graph{width:100%;height:240px}table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}td,th{text-align:right;padding:10px;border-bottom:1px solid #35465a}td:first-child,th:first-child{text-align:left}.tablewrap{overflow:auto}#status{color:#8bdfce}#error{color:#ffb9aa}@media(max-width:640px){body{padding:12px}.images{gap:10px}td,th{padding:8px;font-size:.8rem}}
+</style></head><body>
+<h1>층별 비전 정렬</h1><p>면적 피복 십자 → NCC → 가우시안 서브픽셀 검출 → 아핀 좌표 변환 → 재측정</p>
+<p>정합 반복정밀도 ±1 μm <span class="badge">원문 KPI</span> · 폐루프 3σ 0.09 μm <span class="badge">중간 보고서 결과</span><br>아래 값은 합성 영상의 계산 결과입니다. 실물 정밀도를 보증하지 않습니다.</p>
+<section><label>층 번호 <select id="layer" aria-label="층 번호"></select></label><label>시드 <input id="seed" type="number" min="0" max="4294967295" step="1" value="489"></label><button id="run">정렬 실행</button><p id="status" role="status">입력값 불러오는 중…</p><p id="error" role="alert"></p><div id="settings"></div></section>
+<section><label>보정 단계 <select id="iteration"></select></label><label>모서리 마크 <select id="mark"><option value="0">좌하</option><option value="1">우하</option><option value="2">우상</option><option value="3">좌상</option></select></label><div class="images"><div><h2>상부 · 다이</h2><canvas id="upper" width="128" height="128" aria-label="상부 피듀셜 영상과 검출 십자선"></canvas><p id="upper-info"></p></div><div><h2>하부 · 기준</h2><canvas id="lower" width="128" height="128" aria-label="하부 피듀셜 영상과 검출 십자선"></canvas><p id="lower-info"></p></div></div><p>십자선: 검출 중심. 각도는 네 모서리 마크 중심에서 계산합니다. 각 ROI의 십자는 축에 평행한 근사입니다. 빈 영역의 테두리에서 조명 평면을 추정해 평탄화합니다.</p></section>
+<section><h2>보정 반복</h2><p>측정 Δ와 합성 참값 잔여를 함께 표시합니다. 마지막 행은 보정 후 재측정입니다.</p><div class="tablewrap"><table><thead><tr><th>단계</th><th>Δx (μm)</th><th>Δy (μm)</th><th>Δθ (mrad)</th><th>참값 잔여 X / Y (μm)</th><th>판정</th></tr></thead><tbody id="history"></tbody></table></div><canvas id="graph" width="1000" height="240" aria-label="반복에 따른 X Y 및 각도 잔여와 수렴 기준 비율"></canvas><p>그래프: 측정 절댓값 ÷ 각 수렴 기준 <span class="badge">계산 결과</span>. 1 이하가 수렴 영역입니다.</p></section>
+<p>층별 초기 오차는 같은 시드에서 독립 생성합니다 <span class="badge">가정값</span>. 이 페이지는 적층 누적 오차·열변형을 합산하지 않습니다. 광학 왜곡·픽셀 감도 차이·마크 거칠기는 생략했습니다. <a href="../docs/report/midterm/09_비전정렬.md">중간 보고서 9장 근거</a></p>
+<script type="module">
+import {alignLayer,visionOptions} from '../sim/vision.js';
+import {initVisionView} from './js/vision_view.js';
+initVisionView({alignLayer,visionOptions});
+</script></body></html>
