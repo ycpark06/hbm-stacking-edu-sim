@@ -44,7 +44,8 @@ export function bondStepTimes(mode,recipe,machine={}) {
       (r.peak_temp.value-r.preheat_end.value)/r.ramp_up.value+r.time_above_liquidus.value-r.time_near_peak.value-
       (r.peak_temp.value-p.solder.liquidus_snag.value)*(1/r.ramp_up.value+1/r.ramp_down.value)+
       r.time_near_peak.value+(r.peak_temp.value-ambient)/r.ramp_down.value;
-    once.mold_dispense_s=get('mold_dispense_time');once.mold_fill_s=recipe.mold_fill_s??get('mold_fill_time');once.mold_cure_s=p.muf.cure_time.value;
+    once.mold_dispense_s=get('mold_dispense_time');once.mold_fill_s=recipe.mold_fill_s??get('mold_fill_time');once.mold_cure_s=p.mrmuf_process.in_mold_cure_time.value;
+    once.postcure_s=p.muf.cure_time.value*3600; // PMC h → s (params_patch units)
   }
   if(![...Object.values(per_layer),...Object.values(once)].every(x=>Number.isFinite(x)&&x>=0))throw new RangeError('nonnegative finite cycle times required');
   return {per_layer,once,per_layer_s:sumTimes(per_layer),once_s:sumTimes(once)};

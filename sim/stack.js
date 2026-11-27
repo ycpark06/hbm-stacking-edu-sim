@@ -13,21 +13,26 @@ export function judgeDefect(pct,params) {
   return pct>j.defect_fail_above_pct.value?'불량':pct>j.defect_good_max_pct.value?'주의':'양호';
 }
 /** Browser-safe, synchronous, pure calculation. recipe={mode?,layers?,
- * thickness_um?,gap_um?,bond_force_N?,seed?,alignment_reference?}.
+ * thickness_um?,gap_um?,inlet_pressure_MPa? (0 enables capillary comparison),
+ * bond_force_N?,seed?,alignment_reference?}.
  * Full thermal/warp histories returned; tests store compact summaries only.
  */
 export function runStack(mode,recipe={},params) {
   if(!['TC-NCF','MR-MUF'].includes(mode)||recipe.mode&&recipe.mode!==mode)throw new RangeError('stack mode');
   const p=structuredClone(params),g=p.geometry;
   const r={mode,layers:recipe.layers??p.recipe.layers.value,thickness_um:recipe.thickness_um??g.die_thickness.value,
-    gap_um:recipe.gap_um??g.interlayer_gap.value,bond_force_N:recipe.bond_force_N??p.tcncf_process.bond_force.value,
+    gap_um:recipe.gap_um??g.interlayer_gap.value,inlet_pressure_MPa:recipe.inlet_pressure_MPa??p.muf.applied_pressure.value,bond_force_N:recipe.bond_force_N??p.tcncf_process.bond_force.value,
     seed:recipe.seed??p.alignment.mc_seed.value,alignment_reference:recipe.alignment_reference??p.recipe.alignment_reference.value};
   if(!Number.isInteger(r.layers)||!inRange(r.layers,p.recipe.layers)||!inRange(r.thickness_um,g.die_thickness)||
     !inRange(r.gap_um,g.interlayer_gap)||!inRange(r.bond_force_N,p.tcncf_process.bond_force)||!Number.isInteger(r.seed))throw new RangeError('stack recipe');
+  if(!Number.isFinite(r.inlet_pressure_MPa)||r.inlet_pressure_MPa<0)throw new RangeError('inlet pressure');
+  p.muf.applied_pressure.value=r.inlet_pressure_MPa;
   g.interlayer_gap.value=r.gap_um;g.die_thickness.value=r.thickness_um;p.tcncf_process.bond_force.value=r.bond_force_N;
   const model=buildStack({layers:Array.from({length:r.layers},()=>({mode,thickness_um:r.thickness_um})),params:p});
   const thermal=stackSim(model,mode==='TC-NCF'?tcncfSchedule(r.layers,p):mrmufSchedule(r.layers,p));
-  const warpHistory=stackWarpHistory(thermalWarpSteps(thermal,model));
+  // Existing mechanical-stage API consumes seconds. params retains PMC hours.
+  const mechanicalParams={...p,muf:{...p.muf,cure_time:{...p.muf.cure_time,value:p.muf.cure_time.value*3600}}};
+  const warpHistory=stackWarpHistory(thermalWarpSteps(thermal,{...model,params:mechanicalParams}));
   const max_um=warpHistory.reduce((v,row)=>Math.max(v,Math.abs(row.w_um)),0);
   const ncf=mode==='TC-NCF'?stackNcf(thermal,p):null;
   const muf=mode==='MR-MUF'?stackFillTime(Array(r.layers).fill(r.gap_um*1e-6),{params:p}):null;
@@ -58,7 +63,7 @@ export function runStack(mode,recipe={},params) {
   const defect_area_pct=muf?100*muf.unfilled_fraction:null;
   const tendencies=ncf?[...new Set(ncf.map(l=>l.tendency.grade))]:[];
   return {recipe:r,thermal,warpage:{max_um,judgement:judgeWarpage(max_um,r.gap_um,p),history:warpHistory},ncf,muf,alignment,
-    defect_area_pct,defect_judgement:muf?judgeDefect(defect_area_pct,p):`정량 모델 없음 (경향: ${tendencies.join(', ')})`,
+    defect_area_pct,defect_judgement:muf?(muf.filler_blocked?'불량(필러 막힘)':judgeDefect(defect_area_pct,p)):`정량 모델 없음 (경향: ${tendencies.join(', ')})`,
     contact_judgement:ncf?(ncf.every(l=>l.contact_time_s!==null&&!l.gel_before_contact)?'접촉':'미접촉/접촉 전 겔화'):'정량 접촉 모델 없음 (자기정렬은 젖음·접촉 가정)',
     cycle:stackCycleTime(mode,r.layers,{params:p}),
     observations:{layers:thermal.layers,vendor_claims:p.vendor_claims,
