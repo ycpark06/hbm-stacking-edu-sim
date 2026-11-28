@@ -4,7 +4,7 @@
 > 중간 과제의 교육용 다이본더를 다단 적층 본더로 고도화한 디지털 트윈
 
 **데모 사이트:** https://ycpark06.github.io/hbm-stacking-edu-sim/
-**시뮬레이션 영상:** _(단계 7에서 기입)_
+**시뮬레이션 영상:** [시연 영상 5분 59초 (MP4, 한국어 자막)](https://github.com/ycpark06/hbm-stacking-edu-sim/releases/download/demo-video/MSE489_HBM_stacker_demo.mp4) · [자막 SRT](https://github.com/ycpark06/hbm-stacking-edu-sim/releases/download/demo-video/MSE489_HBM_stacker_demo.ko.srt) · [Release](https://github.com/ycpark06/hbm-stacking-edu-sim/releases/tag/demo-video)
 
 **기말 보고서:** [원고·그림·PDF 빌드](docs/report/final/)
 **실습 매뉴얼:** [적층 공정 비교 실습](docs/manual/실습매뉴얼.md)
