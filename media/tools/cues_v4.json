@@ -247,7 +247,7 @@
       "evidence": [
         {
           "file": "web/js/cad_page.js",
-          "text": "window.cadPage={select,setViewOnly"
+          "text": "window.cadPage={select,showAll,setViewOnly"
         },
         {
           "file": "web/js/cad_page.js",
