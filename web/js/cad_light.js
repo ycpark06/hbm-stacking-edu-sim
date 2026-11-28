@@ -23,9 +23,9 @@ export function createLightPresentation(scene,camera,container,nodes){
   const labels=[['stack_chuck','적층 척'],['reflow_chuck','리플로우 척'],['mold_jig','가압 충전 지그·플런저'],['dispenser','디스펜서'],['ncf_tray','NCF 트레이']].map(([id,name])=>{
     const label=document.createElement('span');label.className='light-all-label';label.textContent=name;label.style.borderColor=LIGHT_COLORS[id];label.hidden=true;container.append(label);return {id,label};
   });
-  function focus(id){
+  function focus(id,{label}={}){
     if(id!==null&&id!=='all'&&!nodes[id])throw RangeError('unknown part group');focused=id;
-    if(id&&id!=='all'){overlay.replaceChildren();const title=document.createElement('strong'),role=document.createElement('span');title.textContent=GROUPS[id].name;role.textContent=LIGHT_ROLES[id];overlay.append(title,role);}
+    if(id&&id!=='all'){overlay.replaceChildren();const title=document.createElement('strong'),role=document.createElement('span');title.textContent=label??GROUPS[id].name;role.textContent=label?'':LIGHT_ROLES[id];role.hidden=!!label;overlay.append(title,role);}
     apply();
   }
   function apply(){for(const [id,node] of Object.entries(nodes))node.traverse(mesh=>{
