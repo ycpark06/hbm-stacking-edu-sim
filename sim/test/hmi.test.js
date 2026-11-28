@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
+import {runInNewContext} from 'node:vm';
 import {validateRecipe,recipeParams} from '../../web/js/recipe_limits.js';
 import {VISION_DEFAULTS,visionOptions} from '../vision.js';
 import {createAlarmDemo} from '../../web/js/alarms.js';
@@ -61,11 +62,22 @@ test('S5 cards expose each condition and computed warnings; matrix retains all 1
   assert.match(table,/0 MPa\(모세관 단독\)/);
 });
 
-test('chart legend uses named swatches matching 12 distinct plotted layer colors and clears old entries',()=>{
+test('HMI query enables only explicit light, using the same bootstrap as factory and CAD',()=>{
+  const html=readFileSync(new URL('../../web/index.html',import.meta.url),'utf8');
+  const script=html.match(/<script>(.*?)<\/script>/s)[1];
+  for(const page of ['factory','cad'])assert.ok(readFileSync(new URL(`../../web/${page}.html`,import.meta.url),'utf8').includes(`<script>${script}</script>`));
+  for(const search of ['', '?theme=dark', '?theme=LIGHT', '?theme=', '?other=light', '?theme=light', '?scenario=S1&theme=light']){
+    const document={documentElement:{dataset:{}}};
+    runInNewContext(script,{document,location:{search},URLSearchParams});
+    assert.equal(document.documentElement.dataset.theme,new URLSearchParams(search).get('theme')==='light'?'light':undefined);
+  }
+});
+
+for(const theme of [undefined,'light'])test(`chart ${theme??'default'} legend matches 12 distinct layer colors and clears old entries`,()=>{
   const element=()=>({children:[],style:{},setAttribute(){},append(...nodes){this.children.push(...nodes);},replaceChildren(...nodes){this.children=nodes;}});
   const legend=element(),strokes=[];
   const ctx={clearRect(){},fillText(){},beginPath(){},moveTo(){},lineTo(){},setLineDash(){},stroke(){strokes.push(this.strokeStyle);}};
-  const canvas={getContext:()=>ctx,ownerDocument:{createElement:element,createTextNode:text=>({textContent:text})},nextElementSibling:legend,setAttribute(){}};
+  const canvas={getContext:()=>ctx,ownerDocument:{documentElement:{dataset:{theme}},createElement:element,createTextNode:text=>({textContent:text})},nextElementSibling:legend,setAttribute(){}};
   const series=Array.from({length:12},(_,i)=>({name:`층 ${i+1}`,points:[[0,0],[1,i+1]]}));
   chart(canvas,series);
   assert.equal(legend.children.length,12);
@@ -75,6 +87,17 @@ test('chart legend uses named swatches matching 12 distinct plotted layer colors
     assert.equal(color,strokes[i+1]);return color;
   });
   assert.equal(new Set(colors).size,12);
+  if(theme==='light'){
+    // Every series needs visible contrast against the white chart surface.
+    for(const color of colors){
+      const rgb=color.slice(1).match(/../g).map(c=>parseInt(c,16)/255).map(c=>c<=.04045?c/12.92:((c+.055)/1.055)**2.4);
+      const luminance=rgb[0]*.2126+rgb[1]*.7152+rgb[2]*.0722;
+      assert.ok(1.05/(luminance+.05)>=4.5,color);
+    }
+    assert.equal(ctx.fillStyle,'#44505F');assert.match(ctx.font,/Pretendard/);
+  }else{
+    assert.equal(colors[0],'#5ce0c2');assert.equal(ctx.fillStyle,'#adbed1');assert.equal(ctx.font,'14px system-ui');
+  }
   chart(canvas,series.slice(0,2));assert.equal(legend.children.length,2);
   chart(canvas,[]);assert.equal(legend.textContent,'해당 이력 없음');
 });
