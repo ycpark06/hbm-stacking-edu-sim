@@ -1,0 +1,652 @@
+[
+  {
+    "slide": 1,
+    "text": "단일 다이 설계를 두 적층 공정 비교로 넓혔다",
+    "x": 0.8,
+    "y": 0.55,
+    "w": 11.75,
+    "h": 0.72,
+    "size": 32,
+    "bold": true
+  },
+  {
+    "slide": 1,
+    "text": "교육용 HBM 다단 적층 본더",
+    "x": 0.96,
+    "y": 6.6,
+    "w": 11.4,
+    "h": 0.45,
+    "size": 22,
+    "bold": false
+  },
+  {
+    "slide": 2,
+    "text": "같은 조건에서 두 공정을 비교할 도구가 필요했다",
+    "x": 0.8,
+    "y": 0.55,
+    "w": 11.75,
+    "h": 0.72,
+    "size": 32,
+    "bold": true
+  },
+  {
+    "slide": 2,
+    "text": "공정 차이와 실패 조건을 직접 바꿔 본다",
+    "x": 0.96,
+    "y": 6.6,
+    "w": 11.4,
+    "h": 0.45,
+    "size": 22,
+    "bold": false
+  },
+  {
+    "slide": 3,
+    "text": "장비 설계를 웹에서 살펴볼 수 있다",
+    "x": 0.8,
+    "y": 0.55,
+    "w": 11.75,
+    "h": 0.72,
+    "size": 32,
+    "bold": true
+  },
+  {
+    "slide": 3,
+    "text": "실물 제작 전 설계 모델",
+    "x": 0.96,
+    "y": 6.6,
+    "w": 11.4,
+    "h": 0.45,
+    "size": 22,
+    "bold": false
+  },
+  {
+    "slide": 4,
+    "text": "같은 C 제어기를 MCU와 웹으로 빌드했다",
+    "x": 0.8,
+    "y": 0.55,
+    "w": 11.75,
+    "h": 0.72,
+    "size": 32,
+    "bold": true
+  },
+  {
+    "slide": 4,
+    "text": "공통 C 제어기",
+    "x": 3.75,
+    "y": 2,
+    "w": 5.8,
+    "h": 0.65,
+    "size": 36,
+    "bold": true
+  },
+  {
+    "slide": 4,
+    "text": "MCU HAL",
+    "x": 1,
+    "y": 4,
+    "w": 4.4,
+    "h": 0.6,
+    "size": 30,
+    "bold": true
+  },
+  {
+    "slide": 4,
+    "text": "wasm HAL",
+    "x": 8,
+    "y": 4,
+    "w": 4.4,
+    "h": 0.6,
+    "size": 30,
+    "bold": true
+  },
+  {
+    "slide": 4,
+    "text": "MCU 제어 보드",
+    "x": 1,
+    "y": 4.85,
+    "w": 4.4,
+    "h": 0.5,
+    "size": 24,
+    "bold": false
+  },
+  {
+    "slide": 4,
+    "text": "브라우저",
+    "x": 8,
+    "y": 4.85,
+    "w": 4.4,
+    "h": 0.5,
+    "size": 24,
+    "bold": false
+  },
+  {
+    "slide": 4,
+    "text": "MCU는 제어 보드, wasm은 브라우저 실행 파일",
+    "x": 0.96,
+    "y": 6.6,
+    "w": 11.4,
+    "h": 0.45,
+    "size": 22,
+    "bold": false
+  },
+  {
+    "slide": 5,
+    "text": "영상에서 본 저장소에 계산과 변경 근거를 남겼다",
+    "x": 0.8,
+    "y": 0.55,
+    "w": 11.75,
+    "h": 0.72,
+    "size": 32,
+    "bold": true
+  },
+  {
+    "slide": 5,
+    "text": "영상에서 본 저장소",
+    "x": 5.4,
+    "y": 2.65,
+    "w": 6.9,
+    "h": 0.75,
+    "size": 38,
+    "bold": true
+  },
+  {
+    "slide": 5,
+    "text": "계산 입력과 검증 기록",
+    "x": 5.4,
+    "y": 3.6,
+    "w": 6.9,
+    "h": 0.5,
+    "size": 26,
+    "bold": false
+  },
+  {
+    "slide": 5,
+    "text": [
+      {
+        "text": "github.com/ycpark06/hbm-stacking-edu-sim",
+        "options": {
+          "hyperlink": {
+            "url": "https://github.com/ycpark06/hbm-stacking-edu-sim",
+            "_rId": 2
+          },
+          "color": "44505F",
+          "objectName": "Text 3",
+          "line": {},
+          "lineSpacing": null,
+          "lineSpacingMultiple": null,
+          "_bodyProp": {
+            "autoFit": false,
+            "anchor": "ctr",
+            "vert": null,
+            "wrap": true
+          },
+          "_lineIdx": 0,
+          "x": 0.8,
+          "y": 6.65,
+          "w": 11.75,
+          "h": 0.4,
+          "fontFace": "Pretendard",
+          "fontSize": 17,
+          "margin": 0,
+          "fit": "none",
+          "valign": "mid",
+          "paraSpaceAfterPt": 0
+        }
+      },
+      {
+        "text": "   /   ",
+        "options": {
+          "color": "44505F",
+          "objectName": "Text 3",
+          "line": {},
+          "lineSpacing": null,
+          "lineSpacingMultiple": null,
+          "_bodyProp": {
+            "autoFit": false,
+            "anchor": "ctr",
+            "vert": null,
+            "wrap": true
+          },
+          "_lineIdx": 1,
+          "x": 0.8,
+          "y": 6.65,
+          "w": 11.75,
+          "h": 0.4,
+          "fontFace": "Pretendard",
+          "fontSize": 17,
+          "margin": 0,
+          "fit": "none",
+          "valign": "mid",
+          "paraSpaceAfterPt": 0
+        }
+      },
+      {
+        "text": "ycpark06.github.io/hbm-stacking-edu-sim/web/",
+        "options": {
+          "hyperlink": {
+            "url": "https://ycpark06.github.io/hbm-stacking-edu-sim/web/",
+            "_rId": 3
+          },
+          "color": "44505F",
+          "objectName": "Text 3",
+          "line": {},
+          "lineSpacing": null,
+          "lineSpacingMultiple": null,
+          "_bodyProp": {
+            "autoFit": false,
+            "anchor": "ctr",
+            "vert": null,
+            "wrap": true
+          },
+          "_lineIdx": 2,
+          "x": 0.8,
+          "y": 6.65,
+          "w": 11.75,
+          "h": 0.4,
+          "fontFace": "Pretendard",
+          "fontSize": 17,
+          "margin": 0,
+          "fit": "none",
+          "valign": "mid",
+          "paraSpaceAfterPt": 0
+        }
+      }
+    ],
+    "x": 0.8,
+    "y": 6.65,
+    "w": 11.75,
+    "h": 0.4,
+    "size": 17,
+    "bold": false
+  },
+  {
+    "slide": 6,
+    "text": "두 공정의 원리와 장비 동작은 영상으로 본다",
+    "x": 0.8,
+    "y": 0.55,
+    "w": 11.75,
+    "h": 0.72,
+    "size": 32,
+    "bold": true
+  },
+  {
+    "slide": 6,
+    "text": "영상 재생",
+    "x": 0.96,
+    "y": 6.6,
+    "w": 11.4,
+    "h": 0.45,
+    "size": 22,
+    "bold": false
+  },
+  {
+    "slide": 7,
+    "text": "계산 결과와 고장 복구를 직접 확인하겠다",
+    "x": 0.8,
+    "y": 0.55,
+    "w": 11.75,
+    "h": 0.72,
+    "size": 32,
+    "bold": true
+  },
+  {
+    "slide": 7,
+    "text": "라이브 데모",
+    "x": 0.96,
+    "y": 6.6,
+    "w": 11.4,
+    "h": 0.45,
+    "size": 22,
+    "bold": false
+  },
+  {
+    "slide": 8,
+    "text": "결과를 맞추기보다 미달 원인을 남겼다",
+    "x": 0.8,
+    "y": 0.55,
+    "w": 11.75,
+    "h": 0.72,
+    "size": 32,
+    "bold": true
+  },
+  {
+    "slide": 8,
+    "text": "기본 입력과 실패 결과를 보존했다",
+    "x": 0.96,
+    "y": 6.6,
+    "w": 11.4,
+    "h": 0.45,
+    "size": 22,
+    "bold": false
+  },
+  {
+    "slide": 9,
+    "text": "기본 레시피에서는 아래 두 층이 액상선에 못 미쳤다",
+    "x": 0.8,
+    "y": 0.55,
+    "w": 11.75,
+    "h": 0.72,
+    "size": 32,
+    "bold": true
+  },
+  {
+    "slide": 9,
+    "text": "접촉 열저항을 반영하자 차가운 척 쪽 하부층 온도 미달이 드러났다",
+    "x": 0.96,
+    "y": 6.6,
+    "w": 11.4,
+    "h": 0.45,
+    "size": 22,
+    "bold": false
+  },
+  {
+    "slide": 10,
+    "text": "열저항을 되돌리면 온도 미달의 원인이 가려진다",
+    "x": 0.8,
+    "y": 0.55,
+    "w": 11.75,
+    "h": 0.72,
+    "size": 32,
+    "bold": true
+  },
+  {
+    "slide": 10,
+    "text": "결과를 맞추려고\n열저항을 바꾸지 않았다",
+    "x": 0.96,
+    "y": 2.13,
+    "w": 11.3,
+    "h": 1.85,
+    "size": 48,
+    "bold": true
+  },
+  {
+    "slide": 10,
+    "text": "미달은 알람으로, 헤드 보정은 선택",
+    "x": 0.98,
+    "y": 5.22,
+    "w": 11.2,
+    "h": 0.55,
+    "size": 26,
+    "bold": false
+  },
+  {
+    "slide": 11,
+    "text": "선택 보정으로 전 층이 계산상 목표 온도에 도달했다",
+    "x": 0.8,
+    "y": 0.55,
+    "w": 11.75,
+    "h": 0.72,
+    "size": 32,
+    "bold": true
+  },
+  {
+    "slide": 11,
+    "text": "약 231 ℃",
+    "x": 0.93,
+    "y": 1.46,
+    "w": 5.9,
+    "h": 1.1,
+    "size": 66,
+    "bold": true
+  },
+  {
+    "slide": 11,
+    "text": "전 층 자기 접합 최고 온도",
+    "x": 7.05,
+    "y": 1.87,
+    "w": 5.25,
+    "h": 0.45,
+    "size": 24,
+    "bold": false
+  },
+  {
+    "slide": 11,
+    "text": "층별 최고 온도 (℃)",
+    "x": 0.96,
+    "y": 2.92,
+    "w": 6,
+    "h": 0.32,
+    "size": 20,
+    "bold": false
+  },
+  {
+    "slide": 12,
+    "text": "얇은 칩에서는 두 모드 모두 휨 불량이 남았다",
+    "x": 0.8,
+    "y": 0.55,
+    "w": 11.75,
+    "h": 0.72,
+    "size": 32,
+    "bold": true
+  },
+  {
+    "slide": 12,
+    "text": "두께를 절반으로 줄이자 휨이 약 4.1배 커졌다",
+    "x": 0.96,
+    "y": 6.6,
+    "w": 11.4,
+    "h": 0.45,
+    "size": 22,
+    "bold": false
+  },
+  {
+    "slide": 13,
+    "text": "본더 점유가 짧아도 라인 생산성은 아직 모른다",
+    "x": 0.8,
+    "y": 0.55,
+    "w": 11.75,
+    "h": 0.72,
+    "size": 32,
+    "bold": true
+  },
+  {
+    "slide": 13,
+    "text": "배치 후공정과 병렬 설비를 따로 봐야 한다",
+    "x": 0.96,
+    "y": 6.6,
+    "w": 11.4,
+    "h": 0.45,
+    "size": 22,
+    "bold": false
+  },
+  {
+    "slide": 14,
+    "text": "가정한 입구 압력에서는 충전 시간이 줄었다",
+    "x": 0.8,
+    "y": 0.55,
+    "w": 11.75,
+    "h": 0.72,
+    "size": 32,
+    "bold": true
+  },
+  {
+    "slide": 14,
+    "text": "입구 유효 압력은 가정값이다",
+    "x": 0.96,
+    "y": 6.6,
+    "w": 11.4,
+    "h": 0.45,
+    "size": 22,
+    "bold": false
+  },
+  {
+    "slide": 15,
+    "text": "충전이 끝나도 좁은 간격의 필러 불량은 남는다",
+    "x": 0.8,
+    "y": 0.55,
+    "w": 11.75,
+    "h": 0.72,
+    "size": 32,
+    "bold": true
+  },
+  {
+    "slide": 15,
+    "text": "불량",
+    "x": 0.95,
+    "y": 2.25,
+    "w": 11.4,
+    "h": 1.65,
+    "size": 92,
+    "bold": true
+  },
+  {
+    "slide": 15,
+    "text": "미충전 0 %가 전체 보이드 0 %는 아니다",
+    "x": 0.98,
+    "y": 4.95,
+    "w": 11.25,
+    "h": 1.05,
+    "size": 28,
+    "bold": false
+  },
+  {
+    "slide": 16,
+    "text": "적분 누적을 막자 고착 뒤 하중 초과가 줄었다",
+    "x": 0.8,
+    "y": 0.55,
+    "w": 11.75,
+    "h": 0.72,
+    "size": 32,
+    "bold": true
+  },
+  {
+    "slide": 16,
+    "text": "장비가 멈춰 있을 때 적분도 제한했다",
+    "x": 0.96,
+    "y": 6.6,
+    "w": 11.4,
+    "h": 0.45,
+    "size": 22,
+    "bold": false
+  },
+  {
+    "slide": 17,
+    "text": "불가능한 램프는 실행 전에 거부한다",
+    "x": 0.8,
+    "y": 0.55,
+    "w": 11.75,
+    "h": 0.72,
+    "size": 32,
+    "bold": true
+  },
+  {
+    "slide": 17,
+    "text": "1 N/s",
+    "x": 0.95,
+    "y": 2.25,
+    "w": 11.4,
+    "h": 1.65,
+    "size": 92,
+    "bold": true
+  },
+  {
+    "slide": 17,
+    "text": "저레인지 기본 하중 상승률",
+    "x": 0.98,
+    "y": 4.95,
+    "w": 11.25,
+    "h": 1.05,
+    "size": 28,
+    "bold": false
+  },
+  {
+    "slide": 18,
+    "text": "PC와 웹 제어기의 출력 일치를 확인했다",
+    "x": 0.8,
+    "y": 0.55,
+    "w": 11.75,
+    "h": 0.72,
+    "size": 32,
+    "bold": true
+  },
+  {
+    "slide": 18,
+    "text": "14,400",
+    "x": 0.95,
+    "y": 2.25,
+    "w": 11.4,
+    "h": 1.65,
+    "size": 92,
+    "bold": true
+  },
+  {
+    "slide": 18,
+    "text": "비교한 출력값 수",
+    "x": 0.98,
+    "y": 4.95,
+    "w": 11.25,
+    "h": 1.05,
+    "size": 28,
+    "bold": false
+  },
+  {
+    "slide": 19,
+    "text": "중간의 설계 계산을 조작 가능한 실습으로 바꿨다",
+    "x": 0.8,
+    "y": 0.55,
+    "w": 11.75,
+    "h": 0.72,
+    "size": 32,
+    "bold": true
+  },
+  {
+    "slide": 19,
+    "text": "레시피를 바꾸고 실패 원인을 확인한다",
+    "x": 0.96,
+    "y": 6.6,
+    "w": 11.4,
+    "h": 0.45,
+    "size": 22,
+    "bold": false
+  },
+  {
+    "slide": 20,
+    "text": "냉각 계산은 아직 설계 목표에 못 미쳤다",
+    "x": 0.8,
+    "y": 0.55,
+    "w": 11.75,
+    "h": 0.72,
+    "size": 32,
+    "bold": true
+  },
+  {
+    "slide": 20,
+    "text": "FAIL / REVIEW",
+    "x": 0.95,
+    "y": 2.25,
+    "w": 11.4,
+    "h": 1.65,
+    "size": 68,
+    "bold": true
+  },
+  {
+    "slide": 20,
+    "text": "평균값으로 미달 구간을 가리지 않았다",
+    "x": 0.98,
+    "y": 4.95,
+    "w": 11.25,
+    "h": 1.05,
+    "size": 28,
+    "bold": false
+  },
+  {
+    "slide": 21,
+    "text": "다음은 추정 입력과 보정 조건을 실물로 확인할 차례다",
+    "x": 0.8,
+    "y": 0.55,
+    "w": 11.75,
+    "h": 0.72,
+    "size": 32,
+    "bold": true
+  },
+  {
+    "slide": 21,
+    "text": "두 공정의 차이와 실패 원인을 배우는 교육용 도구",
+    "x": 0.96,
+    "y": 6.6,
+    "w": 11.4,
+    "h": 0.45,
+    "size": 22,
+    "bold": false
+  }
+]

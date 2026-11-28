@@ -1,0 +1,77 @@
+[
+  {
+    "asset": "factory.png",
+    "source": "media/stills/light/factory_light_mr_fill.png",
+    "crop": [
+      280,
+      140,
+      980,
+      800
+    ]
+  },
+  {
+    "asset": "video.png",
+    "source": "media/stills/light/factory_light_tc.png",
+    "crop": [
+      280,
+      140,
+      980,
+      800
+    ]
+  },
+  {
+    "asset": "exploded.png",
+    "source": "media/stills/light/cad_light_exploded.png",
+    "crop": [
+      0,
+      100,
+      1030,
+      850
+    ]
+  },
+  {
+    "asset": "cad.png",
+    "source": "media/stills/light/cad_light_all.png",
+    "crop": [
+      0,
+      100,
+      1030,
+      850
+    ]
+  },
+  {
+    "asset": "github.png",
+    "source": "media/stills/light/github_repo.png",
+    "crop": [
+      190,
+      365,
+      535,
+      895
+    ]
+  },
+  {
+    "asset": "modes.png",
+    "source": "media/stills/light/factory_light_tc.png",
+    "crop": null
+  },
+  {
+    "asset": "pr.png",
+    "source": "design_review/assets/pr31_title.png",
+    "crop": [
+      0,
+      0,
+      830,
+      44
+    ]
+  },
+  {
+    "asset": "alarms.png",
+    "source": "design_review/assets/hmi_alarms.png",
+    "crop": null
+  },
+  {
+    "asset": "results.png",
+    "source": "design_review/assets/hmi_s1_card1_layers1to4.png",
+    "crop": null
+  }
+]
