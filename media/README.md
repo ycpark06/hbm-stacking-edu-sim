@@ -125,3 +125,20 @@ Playwright Chromium에 `--use-angle=swiftshader --enable-unsafe-swiftshader`를 
 `--plan`은 브라우저 없이 6장면·42문장의 자막/시작 시각 대응, 시간 범위·순서, 실제 단계 ID/재생 길이, 대상의 파일·문자열 근거를 검사하고 표를 출력한다. DOM 생성 코드의 정적 계약 검사이며 실제 배포본·WebGL·레이아웃 검증은 Claude가 한다. 장면 제목(`--captions`)은 왼쪽 위(위 18px·왼쪽 24px, 24px 글꼴)에 둔다. 하단 중앙에 두면 공장 페이지 하단 고정 개념 애니메이션 문구를 가리기 때문이다. 별도 burn-in 자막은 바닥 110px 위에 둔다.
 
 비교 카드 API: `window.card.showRow(1..3)`는 이전 행을 유지하며 페이드인, `focus(r, 0)`은 행 전체, `focus(r, 1)`은 TC-NCF, `focus(r, 2)`는 MR-MUF를 강조한다. `reset()`은 제목과 근거 문구만 남긴다. 카드의 색과 SVG는 단일 HTML 안에 있으며 외부 자원을 사용하지 않는다. CAD cue는 실제 목록 버튼 이름·`#explode` 입력 이벤트·`#comparison`/`#drawings` 스크롤·캔버스 드래그를 사용한다. targets에 근거 파일과 문자열을 함께 보관한다.
+
+## 영상 v3 — light · 대본 v4
+
+장면 길이 29/56/37/42/48/13초, 6장면·42문장·총 225초다. 아래 `--plan`은 Chromium 없이 검증하며, 실제 녹화는 Claude가 같은 명령에서 `--plan`을 빼고 실행한다.
+
+```bash
+python3 media/tools/record_v2.py --theme light \
+  --timing "$HOME/Desktop/MSE489/기말보고서/영상/v2/tts/timing_v4.json" \
+  --cues media/tools/cues_v3.json --card media/tools/compare_card_light.html \
+  --out media/out/v3 --plan
+```
+
+light는 페이지 URL에 `?theme=light`를 붙이고 `factory.setTitle`·`cadPage.setTitle` 및 카드 자체 남색 제목 띠를 사용한다. `--captions`를 함께 줘도 light에서는 기존 제목 오버레이를 만들지 않는다. 테마를 생략한 v2 동작과 기존 카드는 보존한다. 카드 하단 230px은 자막 자리다.
+
+28번은 `L12-hold`·카메라 1에서 1·2층 주황 막대와 위층 막대를 유지하고, 29번은 카메라 4에서 필름 가압 전후 단면도를 보인다. 35번은 리플로우 승온→피크와 프로파일·액상선 음영, 36번은 피크 유지·카메라 3에서 어긋남 감소를 보인다. 잔여 비율 `DISPLAY.alignmentResidual`은 **표시 설정, 모델 계산값 아님**이며 기본·light에 동일하게 적용한다. 29·31번 scrub도 편집용 표시 설정이다. 40번은 금형 내 경화→후경화를 순서대로 보이고 모든 재생은 `compare` 전에 멈춘다. CAD의 20·21번은 문장 중 보조 cue로 지그→플런저, 디스펜서→NCF 트레이를 순차 강조한다.
+
+정적 검증 후 Claude가 실제 녹화에서 글꼴·자막 여백·그래프·강조 라벨의 가독성을 확인한다. 트리밍은 `python3 media/tools/trim_v2.py media/out/v3`를 사용한다.

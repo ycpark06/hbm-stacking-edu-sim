@@ -15,7 +15,7 @@ def ffmpeg_path():
     return str(preferred) if preferred.is_file() else shutil.which('ffmpeg')
 
 
-def detect_clock0(ffmpeg, source, preparation_end_s=None):
+def detect_clock0(ffmpeg, source, preparation_end_s=None, color='#ffffff'):
     # signalstats uses limited-range luma: white is 235. Requiring YMIN too
     # excludes ordinary mostly-white slides. These are detection settings only.
     command = [ffmpeg, '-hide_banner', '-loglevel', 'error', '-i', str(source),
@@ -30,9 +30,13 @@ def detect_clock0(ffmpeg, source, preparation_end_s=None):
             frames[-1]['avg'] = float(line.split('=', 1)[1])
         elif line.startswith('lavfi.signalstats.YMIN='):
             frames[-1]['min'] = float(line.split('=', 1)[1])
+        elif line.startswith('lavfi.signalstats.YMAX='):
+            frames[-1]['max'] = float(line.split('=', 1)[1])
     candidates, start = [], None
     for index, frame in enumerate(frames):
-        white = frame.get('avg', 0) >= 232 and frame.get('min', 0) >= 230
+        # Black flash (theme=light): limited-range black is luma 16.
+        white = (frame.get('avg', 255) <= 20 and frame.get('max', 255) <= 24) if color == '#000000' \
+            else (frame.get('avg', 0) >= 232 and frame.get('min', 0) >= 230)
         if white and start is None:
             start = index
         elif not white and start is not None:
@@ -81,7 +85,7 @@ def main():
     manifest = json.loads((args.directory / 'scenes.json').read_text(encoding='utf-8'))
     out = args.directory / 'trim'
     out.mkdir(exist_ok=True)
-    report = {'method': 'decoded full-white flash end; next frame is clock0', 'scenes': []}
+    report = {'method': 'decoded full-screen flash end (white, or black for theme=light); next frame is clock0', 'scenes': []}
     report_path = out / 'sync_report.json'
     try:
         for scene in manifest['scenes']:
@@ -94,7 +98,7 @@ def main():
             target = out / f"scene{scene['scene']:02d}.mp4"
             if target.exists():
                 raise FileExistsError(target)
-            detected = detect_clock0(args.ffmpeg, source, scene['clock0_video_s'])
+            detected = detect_clock0(args.ffmpeg, source, scene['clock0_video_s'], scene['sync_flash'].get('color', '#ffffff'))
             row = {'scene': scene['scene'], **detected, 'duration_s': duration,
                    'manifest_clock0_s': scene['clock0_video_s'],
                    'delta_s': detected['clock0_s'] - scene['clock0_video_s'],

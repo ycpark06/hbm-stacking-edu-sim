@@ -1,7 +1,8 @@
+import {createLightPresentation} from './cad_light.js';
 import * as THREE from '../vendor/three/build/three.module.js';
 import {OrbitControls} from '../vendor/three/examples/jsm/controls/OrbitControls.js';
 import {GLTFLoader} from '../vendor/three/examples/jsm/loaders/GLTFLoader.js';
-import {DISPLAY,CAMERA_IDS,filmSectionFrame,cameraFitDistance,explodedAmount,filmSqueezeAt,layerHeat} from './factory_sequence.js';
+import {DISPLAY,CAMERA_IDS,filmSectionFrame,cameraFitDistance,explodedAmount,filmSqueezeAt,layerHeat,alignmentOffsetRatio} from './factory_sequence.js';
 // Scene dimensions here are display coordinates, never manufacturing dimensions.
 export function createFactoryViewer(container,data,onStatus) {
   const p=data.params,scene=new THREE.Scene();scene.background=new THREE.Color('#101c25');
@@ -13,24 +14,26 @@ export function createFactoryViewer(container,data,onStatus) {
   const light=new THREE.DirectionalLight(0xffffff,3);light.position.set(5,12,8);scene.add(light);
   const nodes={},bases={},anchors={},stack=new THREE.Group();scene.add(stack);
   const names=['frame','head','z_carriage','stack_chuck','reflow_chuck','mold_jig','plunger','dispenser','ncf_tray','camera_bottom'];
+  let lightPresentation=null;
+  const isLight=document.documentElement.dataset.theme==='light';
   let headFloor=0,glb,scale=1,ready=false,cam=1,latest=null,simple=false;
   let fitNeeded=true,wasExploded=false;
   const overviewBounds=new THREE.Box3(),explodedBounds=new THREE.Box3(),headBounds=new THREE.Box3();
   // Display offsets in normalized scene space, unrelated to hardware dimensions.
   const explodeOffsets=Object.fromEntries(Object.entries({head:[0,6,-3],z_carriage:[4,4,-2],stack_chuck:[0,3,5],reflow_chuck:[6,2,-4],mold_jig:[-6,2,4],plunger:[-6,6,4],dispenser:[-7,4,-2],ncf_tray:[6,2,4],camera_bottom:[0,-2,5]}).map(([n,v])=>[n,new THREE.Vector3(...v)]));
   const origin=new THREE.Vector3(),dies=[],films=[],resins=[],solderBands=[];
-  const heat=DISPLAY.heat,orange=new THREE.Color(heat.orange),red=new THREE.Color(heat.red);
+  const heat=DISPLAY.heat,orange=new THREE.Color(isLight?0xe08a3c:heat.orange),red=new THREE.Color(isLight?0xb8322a:heat.red);
   function box(color,transparent=false){const m=new THREE.Mesh(new THREE.BoxGeometry(1,1,1),new THREE.MeshStandardMaterial({color,metalness:.25,roughness:.42,transparent,opacity:transparent?.65:1}));stack.add(m);return m;}
   for(let i=0;i<data.layers;i++){
-    dies.push(box(0x72c8ed));films.push(box(0xc5f17b));resins.push(box(0xf4b16e,true));
-    const band=box(heat.solderColor);band.visible=false;
-    band.material.emissive.set(heat.solderColor);band.material.emissiveIntensity=heat.solderEmissive;
+    dies.push(box(isLight?0x14365a:0x72c8ed));films.push(box(isLight?0xf2a66e:0xc5f17b));resins.push(box(isLight?0xf2a66e:0xf4b16e,true));
+    const band=box(isLight?0x7a8899:heat.solderColor);band.visible=false;
+    band.material.emissive.set(isLight?0x7a8899:heat.solderColor);band.material.emissiveIntensity=heat.solderEmissive;
     solderBands.push(band);
   }
-  const carried=box(0x9de0ef),film=box(0xc5f17b,true),tempGauge=box(0xf4b16e),forceGauge=box(0xc5f17b);
-  const beam=new THREE.Line(new THREE.BufferGeometry().setFromPoints([origin,origin]),new THREE.LineBasicMaterial({color:0xc5f17b}));scene.add(beam);
+  const carried=box(isLight?0x14365a:0x9de0ef),film=box(isLight?0xf2a66e:0xc5f17b,true),tempGauge=box(isLight?0x14365a:0xf4b16e),forceGauge=box(isLight?0x7a8899:0xc5f17b);
+  const beam=new THREE.Line(new THREE.BufferGeometry().setFromPoints([origin,origin]),new THREE.LineBasicMaterial({color:isLight?0x14365a:0xc5f17b}));scene.add(beam);
   const labels=[];
-  function label(text,pos){const canvas=document.createElement('canvas');canvas.width=512;canvas.height=64;const ctx=canvas.getContext('2d');ctx.fillStyle='#10202ddd';ctx.fillRect(0,0,512,64);ctx.font='24px system-ui';ctx.fillStyle='#e7eee9';ctx.fillText(text,12,41);const sprite=new THREE.Sprite(new THREE.SpriteMaterial({map:new THREE.CanvasTexture(canvas),depthTest:false}));sprite.position.copy(pos);sprite.position.y+=.4;sprite.scale.set(2.5,.32,1);scene.add(sprite);labels.push(sprite);}
+  function label(text,pos){const canvas=document.createElement('canvas');canvas.width=512;canvas.height=64;const ctx=canvas.getContext('2d');ctx.fillStyle='#10202ddd';ctx.fillRect(0,0,512,64);ctx.font=isLight?'24px "Pretendard", "Malgun Gothic", "맑은 고딕", "Apple SD Gothic Neo", sans-serif':'24px system-ui';ctx.fillStyle='#e7eee9';ctx.fillText(text,12,41);const sprite=new THREE.Sprite(new THREE.SpriteMaterial({map:new THREE.CanvasTexture(canvas),depthTest:false}));sprite.position.copy(pos);sprite.position.y+=.4;sprite.scale.set(2.5,.32,1);scene.add(sprite);labels.push(sprite);}
   const modelReady=new Promise((resolve,reject)=>new GLTFLoader().load('../cad/web/hbm_stacker.glb',g=>{
     glb=g.scene;glb.updateMatrixWorld(true);
     const bounds=new THREE.Box3().setFromObject(glb),extent=bounds.getSize(new THREE.Vector3());
@@ -46,7 +49,8 @@ export function createFactoryViewer(container,data,onStatus) {
       if(['head','z_carriage','stack_chuck'].includes(name))headBounds.union(bounds);
       if(explodeOffsets[name])explodedBounds.union(bounds.translate(explodeOffsets[name]));
     }
-    [['stack_chuck','적층'],['reflow_chuck','리플로우'],['mold_jig','가압 충전'],['ncf_tray','공급']].forEach(([n,t])=>label(t,anchors[n]));
+    if(isLight)lightPresentation=createLightPresentation(scene,camera,container,nodes);
+    if(!isLight)[['stack_chuck','적층'],['reflow_chuck','리플로우'],['mold_jig','가압 충전'],['ncf_tray','공급']].forEach(([n,t])=>label(t,anchors[n]));
     ready=true;onStatus('GLB · 기능 노드 10개 연결 · 그림자 OFF');setCamera(cam);if(latest)update(...latest);resolve();
   },undefined,()=>reject(Error('GLB 로드 실패: ../cad/web/hbm_stacker.glb를 확인하세요.'))));
   function fitBounds(bounds,direction){
@@ -92,7 +96,7 @@ export function createFactoryViewer(container,data,onStatus) {
     for(let i=0;i<data.layers;i++){
       const y=at.y+i*(h+g)+h/2;dies[i].visible=i<n;films[i].visible=i<n&&s.mode==='TC-NCF';resins[i].visible=i<n&&['fill','mold-cure','postcure','compare'].includes(s.kind)&&s.mode==='MR-MUF';
       // Offset is illustrative only; no invented numeric alignment prediction.
-      const offset=s.mode==='TC-NCF'?i*w*.009: s.kind==='reflow'?i*w*.009*(1-(s.segment+v.u)/data.profile.length):i*w*.009;
+      const offset=i*w*.009*alignmentOffsetRatio(s,v.u,data.profile.length);
       dies[i].position.set(at.x+offset,y,at.z);dies[i].scale.set(w,h,w);
       // Keep the film inside the open interlayer gap, away from die/chuck faces.
       // Previously bonded layers retain the final display squeeze even on stage jumps.
@@ -120,6 +124,7 @@ export function createFactoryViewer(container,data,onStatus) {
     tempGauge.scale.set(.06,th,.06);tempGauge.position.copy(at).add(new THREE.Vector3(-w,th/2,0));forceGauge.scale.set(.06,fh,.06);forceGauge.position.copy(at).add(new THREE.Vector3(-w-.15,fh/2,0));
     const active={align:'camera_bottom',supply:'ncf_tray',ncf:'ncf_tray',approach:'head',ramp:'head',hold:'head',tack:'head',reflow:'reflow_chuck',fill:'plunger',dispense:'dispenser','mold-cure':'mold_jig',postcure:'mold_jig'}[s.kind];
     for(const name of names)nodes[name].traverse(mesh=>{if(mesh.isMesh){mesh.material.opacity=cam>=3?.12:mesh.material.userData.originalOpacity;if(mesh.material.emissive){mesh.material.emissive.set(name===active?0x396924:0);mesh.material.emissiveIntensity=.45;}}});
+    lightPresentation?.apply();
     labels.forEach(l=>l.visible=cam===1&&!simple);
     const stackBounds=new THREE.Box3().setFromCenterAndSize(at.clone().add(new THREE.Vector3(0,data.layers*(h+g)/2,0)),new THREE.Vector3(w*4,Math.max(2,data.layers*(h+g)+1),w*3));
     const layerIndex=Math.max(1,s.layer)-1;
@@ -134,6 +139,6 @@ export function createFactoryViewer(container,data,onStatus) {
   }
   const resize=new ResizeObserver(()=>{const w=container.clientWidth,h=container.clientHeight;if(!w||!h)return;renderer.setSize(w,h);camera.aspect=w/h;camera.updateProjectionMatrix();fitNeeded=true;if(latest)update(...latest);});resize.observe(container);
   let slow=0,last=performance.now();
-  function render(now){const dt=now-last;last=now;if(dt>40&&dt<1000)slow++;else slow=Math.max(0,slow-1);if(slow>90&&!simple){simple=true;renderer.setPixelRatio(1);labels.forEach(l=>l.visible=false);onStatus('GLB · 성능 단순화: 픽셀 비율 1 / 라벨 숨김');}controls.update();renderer.render(scene,camera);}
-  return {ready:modelReady,update,setCamera,render};
+  function render(now){const dt=now-last;last=now;if(dt>40&&dt<1000)slow++;else slow=Math.max(0,slow-1);if(slow>90&&!simple){simple=true;renderer.setPixelRatio(1);labels.forEach(l=>l.visible=false);onStatus('GLB · 성능 단순화: 픽셀 비율 1 / 라벨 숨김');}controls.update();lightPresentation?.render();renderer.render(scene,camera);}
+  return {ready:modelReady,update,setCamera,render,focus(id){lightPresentation?.focus(id);}};
 }
