@@ -230,6 +230,12 @@
         "kind": "문헌값",
         "source": "sim/params.json reflow.time_above_liquidus.note"
       },
+      "cooling_criterion_lower_temp": {
+        "value": 180,
+        "unit": "C",
+        "kind": "design",
+        "source": "사용자 확정 2026-11-28: 판정 구간 하한 180 ℃(액상선 221 ℃보다 아래)"
+      },
       "cool_to": {
         "value": 100,
         "unit": "C",
@@ -1742,8 +1748,13 @@
           30
         ],
         "kind": "literature",
-        "source": "https://conferences.computer.org/ectc/pdfs/ECTC2023-1NkkviSxgDnmPjptC1ysqm/349800a878/349800a878.pdf",
-        "note": "SK hynix MR-MUF 8Hi 15 μm 기본값. Samsung TC-NCF 12H 7 μm, 일반 범프 적층 약 30 μm. 20 μm는 \"시험 칩\" 선택지 (HANDOFF 1절 #1, 2026-11-25)."
+        "source": "https://conferences.computer.org/ectc/pdfs/ECTC2023-1NkkviSxgDnmPjptC1ysqm/349800a878/349800a878.pdf ; https://www.3dincites.com/2024/06/why-are-hbm-manufacturers-choosing-liquid-mold-underfill/",
+        "note": " 사용자 확정 선택 범위 7~30 um 유지 (05 HANDOFF S5); literature_range는 패치 문헌 범위.",
+        "source_kind": "문헌",
+        "literature_range": [
+          15,
+          20
+        ]
       },
       "bump_diameter": {
         "value": 25,
@@ -1848,6 +1859,43 @@
     "heater_W": 150,
     "heater_ohm": 15.36,
     "heater_A": 3.125,
+    "forced_cooling_design_segment": {
+      "kind": "design",
+      "start_C": 250,
+      "end_C": 180,
+      "time_s": 17.07233588031998,
+      "min_cool_K_s": 3.3931509463912066,
+      "max_cool_K_s": 4.901870524272919,
+      "average_cool_K_s": 4.1002004934012595,
+      "mode": "최대 강제 냉각 (기본 냉각 속도 상한 제어 없음)",
+      "required_min_K_s": 4,
+      "rate_source": "sim/params.json reflow.ramp_down.value",
+      "maintains_required_rate": false
+    },
+    "forced_cooling_observation_segment": {
+      "kind": "관찰 항목 (판정 없음)",
+      "start_C": 180,
+      "end_C": 100,
+      "time_s": 32.764682100007825,
+      "min_cool_K_s": 1.6891287242594342,
+      "max_cool_K_s": 3.3931509463912066,
+      "average_cool_K_s": 2.441653477845918,
+      "mode": "최대 강제 냉각 (기본 냉각 속도 상한 제어 없음)"
+    },
+    "cooling_assumptions": {
+      "coolant_flow": {
+        "value": 100,
+        "unit": "L/min",
+        "kind": "가정값",
+        "source": "총 노즐 실제 체적유량, ambient에서 평가. 압축공기/상온 N₂ 공급, 병입 N₂ 기화냉각은 미포함. h와 독립 가정; 측정으로 확정."
+      },
+      "h_forced": {
+        "value": 400,
+        "unit": "W/m2/K",
+        "kind": "가정값",
+        "source": "유효 면적평균 h=400 가정: 소형 충돌 제트를 척 상면·측면에 분산, 유입 공기/N₂는 ambient. 유량으로 h를 산출한 값이 아니며 노즐 거리/유량별 실측 필요. 유동 열용량을 직렬 열저항으로 별도 반영."
+      }
+    },
     "natural_cool_to_100_s": 646.4657291236103,
     "forced_cool_to_100_s": 49.83701774649552,
     "cooling_dt_half_difference_s": 0.002663449582996691,
@@ -1891,12 +1939,12 @@
       "power48_sequenced": true,
       "power24": true,
       "profile_heat_time": true,
-      "forced_cooling_tracks_default_4K_s": false,
+      "forced_cooling_peak_to_lower_maintains_required_rate": false,
       "controlled_cooling_under_profile_max": true
     },
     "status": "FAIL/REVIEW",
     "remaining_FAIL_REVIEW": [
-      "forced_cooling_tracks_default_4K_s"
+      "forced_cooling_peak_to_lower_maintains_required_rate"
     ],
     "post_fabrication_tests": [
       "노즐 유량/h 및 탑재 상태 열프로파일 실측"
@@ -1904,7 +1952,7 @@
   },
   "limitations": [
     "Al plate + heater only; fixture/payload heat capacity and bolt thermal bridges omitted.",
-    "공기/N₂ 유량100 L/min 및 h=400은 독립 가정. 유한 유량 열저항 포함; 기본4 K/s는 전 구간 추종 불가, 최대6 K/s와 기본4 K/s를 구분.",
+    "강제 냉각 유량과 h는 cooling_assumptions의 독립 가정값. 판정은 피크→설계 하한의 최소 속도이며 하한 미만은 관찰 항목(판정 없음).",
     "집중정수는 면내 온도 균일성, 실제 프로파일 제어와 재료 인증을 검증하지 않음."
   ]
 }

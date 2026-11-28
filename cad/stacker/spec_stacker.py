@@ -13,7 +13,7 @@ def load_module(path, name):
     spec.loader.exec_module(module)
     return module
 MID = load_module(ROOT/'cad/midterm/spec.py', 'midterm_geometry')
-SIM = json.loads((ROOT/'sim/params.json').read_text())
+SIM = json.loads((ROOT/'sim/params.json').read_text(encoding='utf-8'))
 # Metadata accompanies every new scalar; SI conversion only happens in calculations.
 VALUES = {}
 def v(key, value, unit='mm', source='설계값; 06 HANDOFF §3; 검산 calc/hardware/*.json'):
