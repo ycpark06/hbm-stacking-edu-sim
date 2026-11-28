@@ -125,3 +125,11 @@
 [data-theme=light] .hmi .legend-swatch{border-color:#7A8899}
 [data-theme=light] .hmi footer{font-size:.85rem;line-height:inherit;padding:24px 32px}
 @media(max-width:540px){[data-theme=light] .hmi h1{font-size:1.6rem}[data-theme=light] .hmi footer{padding:16px}}
+
+/* CAD figures keep the navy caption band from cad.css; light-mode text must stay readable on it. */
+[data-theme=light] figure figcaption{color:#FFFFFF}
+[data-theme=light] figure figcaption h3{color:#FFFFFF}
+[data-theme=light] figure figcaption p{color:#E6ECF3}
+[data-theme=light] figure figcaption a{color:#F2A66E}
+[data-theme=light] .module-grid article,[data-theme=light] .module-grid article p{color:#E6ECF3}
+[data-theme=light] .module-grid article h3{color:#F2A66E}
