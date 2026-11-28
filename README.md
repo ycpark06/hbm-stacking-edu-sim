@@ -6,6 +6,9 @@
 **데모 사이트:** https://ycpark06.github.io/hbm-stacking-edu-sim/
 **시뮬레이션 영상:** _(단계 7에서 기입)_
 
+**기말 보고서:** [원고·그림·PDF 빌드](docs/report/final/)
+**실습 매뉴얼:** [적층 공정 비교 실습](docs/manual/실습매뉴얼.md)
+
 ---
 
 ## 1. 장비 개요
