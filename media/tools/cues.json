@@ -1,0 +1,761 @@
+{
+  "schema_version": 1,
+  "timing_source": "영상/tts/timing.json (읽기 전용, 문장 시작 시각). 0은 시작 화면; 13.5/15는 원인 해제·리셋 편집 큐.",
+  "targets": {
+    "viewer": {
+      "selector": "#viewer canvas",
+      "label": "GLB 뷰",
+      "source": "web/js/viewer.js",
+      "evidence": "renderer.domElement",
+      "count": 1
+    },
+    "mode": {
+      "selector": "#fields select[name=\"mode\"]",
+      "label": "모드 선택",
+      "source": "web/js/hmi.js",
+      "evidence": "['mode','모드'",
+      "count": 1
+    },
+    "results": {
+      "selector": "#results",
+      "label": "결과 상단",
+      "source": "web/index.html",
+      "evidence": "id=\"results\"",
+      "count": 1
+    },
+    "alarms": {
+      "selector": "#model-alarms",
+      "label": "알람 패널",
+      "source": "web/index.html",
+      "evidence": "id=\"model-alarms\"",
+      "count": 1
+    },
+    "matrix": {
+      "selector": "#s5",
+      "label": "간격 × 압력 표",
+      "source": "web/index.html",
+      "evidence": "id=\"s5\"",
+      "count": 1
+    },
+    "firmware": {
+      "selector": "#firmware-status",
+      "label": "펌웨어 상태",
+      "source": "web/index.html",
+      "evidence": "id=\"firmware-status\"",
+      "count": 1
+    },
+    "sources": {
+      "selector": "#sources",
+      "label": "파라미터 표",
+      "source": "web/index.html",
+      "evidence": "id=\"sources\"",
+      "count": 1
+    },
+    "search": {
+      "selector": "#search",
+      "label": "검색창",
+      "source": "web/index.html",
+      "evidence": "id=\"search\"",
+      "count": 1
+    },
+    "claims": {
+      "selector": "#claims",
+      "label": "업체 주장",
+      "source": "web/index.html",
+      "evidence": "id=\"claims\"",
+      "count": 1
+    },
+    "claims_panel": {
+      "selector": "#claims >> xpath=..",
+      "label": "업체 주장 패널",
+      "source": "web/index.html",
+      "evidence": "업체 주장",
+      "count": 1
+    },
+    "upper": {
+      "selector": "#upper",
+      "label": "1층 영상·십자선",
+      "source": "web/vision.html",
+      "evidence": "upper",
+      "count": 1
+    },
+    "iteration": {
+      "selector": "#iteration",
+      "label": "보정 단계",
+      "source": "web/vision.html",
+      "evidence": "iteration",
+      "count": 1
+    },
+    "history": {
+      "selector": "#history",
+      "label": "보정 반복 표",
+      "source": "web/vision.html",
+      "evidence": "history",
+      "count": 1
+    },
+    "s1_base": {
+      "selector": "#results > article:nth-child(1)",
+      "label": "TC-NCF 기본",
+      "source": "web/js/hmi.js",
+      "evidence": "<article class=\"result\">",
+      "count": 1
+    },
+    "s1_comp": {
+      "selector": "#results > article:nth-child(2)",
+      "label": "TC-NCF 헤드 보정",
+      "source": "web/js/hmi.js",
+      "evidence": "<article class=\"result\">",
+      "count": 1
+    },
+    "s1_mr": {
+      "selector": "#results > article:nth-child(3)",
+      "label": "MR-MUF",
+      "source": "web/js/hmi.js",
+      "evidence": "<article class=\"result\">",
+      "count": 1
+    },
+    "tc": {
+      "selector": "#results > article:nth-child(1)",
+      "label": "TC-NCF",
+      "source": "web/js/hmi.js",
+      "evidence": "<article class=\"result\">",
+      "count": 1
+    },
+    "mr": {
+      "selector": "#results > article:nth-child(2)",
+      "label": "MR-MUF",
+      "source": "web/js/hmi.js",
+      "evidence": "<article class=\"result\">",
+      "count": 1
+    },
+    "base_table": {
+      "selector": "#results > article:nth-child(1) > details:first-of-type",
+      "label": "층별 접합·재가열·재용융",
+      "source": "web/js/hmi.js",
+      "evidence": "층별 접합·재가열·재용융",
+      "count": 1
+    },
+    "base_rows12": {
+      "selector": "#results > article:nth-child(1) > details:first-of-type tbody > tr:nth-child(-n+2)",
+      "label": "1·2층 행",
+      "source": "web/js/hmi.js",
+      "evidence": "layers.map((l,j)",
+      "count": 2
+    },
+    "base_remelt": {
+      "selector": "#results > article:nth-child(1) > details:first-of-type tbody > tr:nth-child(n+5):nth-child(-n+9) > td:nth-child(4)",
+      "label": "5~9층 재가열 / 액상선 교차 / 후속 재용융",
+      "source": "web/js/hmi.js",
+      "evidence": "재가열 / 액상선 교차 / 후속 재용융",
+      "count": 5
+    },
+    "comp_table": {
+      "selector": "#results > article:nth-child(2) > details:first-of-type",
+      "label": "층별 접합·재가열·재용융",
+      "source": "web/js/hmi.js",
+      "evidence": "층별 접합·재가열·재용융",
+      "count": 1
+    },
+    "comp_peak": {
+      "selector": "#results > article:nth-child(2) > details:first-of-type tr > :nth-child(2)",
+      "label": "자기 접합 최고 열",
+      "source": "web/js/hmi.js",
+      "evidence": "자기 접합 최고 ℃",
+      "count": 13
+    },
+    "comp_head": {
+      "selector": "#results > article:nth-child(2) > details:first-of-type tr > :nth-child(3)",
+      "label": "헤드 설정 열 (1층 포함)",
+      "source": "web/js/hmi.js",
+      "evidence": "헤드 설정 ℃",
+      "count": 13
+    },
+    "bond_alarms": {
+      "selector": "#model-alarms > p:has-text(\"BOND_TEMP_LOW\")",
+      "label": "BOND_TEMP_LOW 두 줄",
+      "source": "web/js/hmi.js",
+      "evidence": "BOND_TEMP_LOW",
+      "count": 2
+    },
+    "alignment": {
+      "selector": "#results dt:has-text(\"누적 정렬 X / Y\"), #results dt:has-text(\"누적 정렬 X / Y\") + dd",
+      "label": "누적 정렬 X / Y",
+      "source": "web/js/hmi.js",
+      "evidence": "누적 정렬 X / Y",
+      "count": 4
+    },
+    "ratio": {
+      "selector": "#results > article:nth-child(even) dt:has-text(\"두께 절반의 휨 증가 배율\"), #results > article:nth-child(even) dt:has-text(\"두께 절반의 휨 증가 배율\") + dd",
+      "label": "두께 절반의 휨 증가 배율",
+      "source": "web/js/hmi.js",
+      "evidence": "두께 절반의 휨 증가 배율",
+      "count": 4
+    },
+    "occupancy": {
+      "selector": "#results dt:has-text(\"본더 점유\"), #results dt:has-text(\"본더 점유\") + dd",
+      "label": "본더 점유",
+      "source": "web/js/hmi.js",
+      "evidence": "본더 점유",
+      "count": 4
+    },
+    "thin_warp": {
+      "selector": "#results > article:nth-child(even) dt:has-text(\"최대 절대 휨\") + dd, #results > article:nth-child(even) dt:has-text(\"휨 / 결함 / 정렬 판정\") + dd",
+      "label": "50 μm 두 카드 최대 휨·판정",
+      "source": "web/js/hmi.js",
+      "evidence": "최대 절대 휨",
+      "count": 4
+    },
+    "limits": {
+      "selector": "#results > article:nth-child(even) > p:has-text(\"모델 한계\")",
+      "label": "모델 한계",
+      "source": "web/js/hmi.js",
+      "evidence": "r.model_limit",
+      "count": 2
+    },
+    "gap15_0": {
+      "selector": "#s5 tbody > tr:nth-child(2) > td:nth-child(2)",
+      "label": "15 μm × 0 MPa",
+      "source": "web/js/hmi_display.js",
+      "evidence": "pressures.map(pressure",
+      "count": 1
+    },
+    "gap15_1": {
+      "selector": "#s5 tbody > tr:nth-child(2) > td:nth-child(4)",
+      "label": "15 μm × 1 MPa",
+      "source": "web/js/hmi_display.js",
+      "evidence": "pressures.map(pressure",
+      "count": 1
+    },
+    "gap7": {
+      "selector": "#s5 tbody > tr:first-child",
+      "label": "7 μm 행 전체",
+      "source": "web/js/hmi_display.js",
+      "evidence": "gaps.map(gap",
+      "count": 1
+    },
+    "fill15": {
+      "selector": "#results > article:nth-child(5) dt:has-text(\"충전 시간\") + dd",
+      "label": "15 μm × 0 MPa 충전 시간",
+      "source": "web/js/hmi_display.js",
+      "evidence": "충전 시간",
+      "count": 1
+    },
+    "filler7": {
+      "selector": "#results > article:nth-child(2) dt:has-text(\"필러 경고\") + dd",
+      "label": "7 μm × 1 MPa 필러 경고",
+      "source": "web/js/hmi_display.js",
+      "evidence": "필러 경고",
+      "count": 1
+    },
+    "post": {
+      "selector": "#results > article:nth-child(2) dt:has-text(\"배치 후공정\") + dd",
+      "label": "MR-MUF 배치 후공정",
+      "source": "web/js/hmi.js",
+      "evidence": "배치 후공정",
+      "count": 1
+    },
+    "cycle": {
+      "selector": "#results > article:nth-child(2) > details:nth-of-type(2)",
+      "label": "사이클 시간 분해",
+      "source": "web/js/hmi.js",
+      "evidence": "사이클 시간 분해",
+      "count": 1
+    }
+  },
+  "scenes": [
+    {
+      "scene": 1,
+      "duration_s": 40,
+      "prepare": {
+        "scroll": "viewer"
+      },
+      "cues": [
+        {
+          "t": 0,
+          "action": "scroll_to",
+          "args": {
+            "target": "viewer"
+          }
+        },
+        {
+          "t": 15.996,
+          "action": "drag_rotate",
+          "args": {
+            "target": "viewer",
+            "duration_s": 7
+          }
+        },
+        {
+          "t": 23.305,
+          "action": "highlight",
+          "args": {
+            "targets": [
+              "mode"
+            ],
+            "scroll": "mode"
+          }
+        }
+      ]
+    },
+    {
+      "scene": 2,
+      "duration_s": 60,
+      "prepare": {
+        "preset": "S1",
+        "scroll": "results"
+      },
+      "cues": [
+        {
+          "t": 0,
+          "action": "scroll_to",
+          "args": {
+            "target": "results"
+          }
+        },
+        {
+          "t": 8.61,
+          "action": "open_details",
+          "args": {
+            "target": "base_table"
+          }
+        },
+        {
+          "t": 8.61,
+          "action": "highlight",
+          "args": {
+            "targets": [
+              "base_rows12"
+            ],
+            "scroll": "base_rows12"
+          }
+        },
+        {
+          "t": 19.071,
+          "action": "highlight",
+          "args": {
+            "targets": [
+              "bond_alarms"
+            ],
+            "scroll": "alarms"
+          }
+        },
+        {
+          "t": 23.417,
+          "action": "open_details",
+          "args": {
+            "target": "comp_table"
+          }
+        },
+        {
+          "t": 23.417,
+          "action": "highlight",
+          "args": {
+            "targets": [
+              "comp_peak"
+            ],
+            "scroll": "comp_table"
+          }
+        },
+        {
+          "t": 28.294,
+          "action": "highlight",
+          "args": {
+            "targets": [
+              "comp_head"
+            ],
+            "scroll": "comp_table"
+          }
+        },
+        {
+          "t": 35.179,
+          "action": "highlight",
+          "args": {
+            "targets": [
+              "base_remelt"
+            ],
+            "scroll": "base_remelt"
+          }
+        },
+        {
+          "t": 41.83,
+          "action": "highlight",
+          "args": {
+            "targets": [
+              "s1_mr"
+            ],
+            "scroll": "s1_mr"
+          }
+        }
+      ]
+    },
+    {
+      "scene": 3,
+      "duration_s": 55,
+      "prepare": {
+        "preset": "S2",
+        "scroll": "results"
+      },
+      "cues": [
+        {
+          "t": 0,
+          "action": "scroll_to",
+          "args": {
+            "target": "results"
+          }
+        },
+        {
+          "t": 2.307,
+          "action": "highlight",
+          "args": {
+            "targets": [
+              "alignment"
+            ],
+            "scroll": "results"
+          }
+        },
+        {
+          "t": 11.886,
+          "action": "highlight",
+          "args": {
+            "targets": [
+              "mr"
+            ],
+            "scroll": "mr"
+          }
+        },
+        {
+          "t": 20.305,
+          "action": "highlight",
+          "args": {
+            "targets": [
+              "tc"
+            ],
+            "scroll": "tc"
+          }
+        },
+        {
+          "t": 28.588,
+          "action": "goto",
+          "args": {
+            "url": "vision.html?layer=1",
+            "vision": true
+          }
+        },
+        {
+          "t": 28.588,
+          "action": "select",
+          "args": {
+            "target": "iteration",
+            "value": "0"
+          }
+        },
+        {
+          "t": 28.588,
+          "action": "scroll_to",
+          "args": {
+            "target": "upper"
+          }
+        },
+        {
+          "t": 37.011,
+          "action": "select",
+          "args": {
+            "target": "iteration",
+            "value": "1"
+          }
+        },
+        {
+          "t": 37.011,
+          "action": "highlight",
+          "args": {
+            "targets": [
+              "history"
+            ],
+            "scroll": "history"
+          }
+        }
+      ]
+    },
+    {
+      "scene": 4,
+      "duration_s": 45,
+      "prepare": {
+        "preset": "S3",
+        "scroll": "results"
+      },
+      "cues": [
+        {
+          "t": 0,
+          "action": "scroll_to",
+          "args": {
+            "target": "results"
+          }
+        },
+        {
+          "t": 2.985,
+          "action": "highlight",
+          "args": {
+            "targets": [
+              "ratio"
+            ],
+            "scroll": "results"
+          }
+        },
+        {
+          "t": 10.574,
+          "action": "highlight",
+          "args": {
+            "targets": [
+              "thin_warp"
+            ],
+            "scroll": "thin_warp"
+          }
+        },
+        {
+          "t": 20.552,
+          "action": "highlight",
+          "args": {
+            "targets": [
+              "limits"
+            ],
+            "scroll": "limits"
+          }
+        }
+      ]
+    },
+    {
+      "scene": 5,
+      "duration_s": 45,
+      "prepare": {
+        "preset": "S5",
+        "scroll": "matrix"
+      },
+      "cues": [
+        {
+          "t": 0,
+          "action": "scroll_to",
+          "args": {
+            "target": "matrix"
+          }
+        },
+        {
+          "t": 3.833,
+          "action": "highlight",
+          "args": {
+            "targets": [
+              "gap15_0",
+              "fill15"
+            ],
+            "scroll": "matrix",
+            "inset": [
+              "fill15"
+            ]
+          }
+        },
+        {
+          "t": 13.655,
+          "action": "highlight",
+          "args": {
+            "targets": [
+              "gap15_1"
+            ],
+            "scroll": "matrix"
+          }
+        },
+        {
+          "t": 21.405,
+          "action": "highlight",
+          "args": {
+            "targets": [
+              "gap7"
+            ],
+            "scroll": "matrix"
+          }
+        },
+        {
+          "t": 27.164,
+          "action": "highlight",
+          "args": {
+            "targets": [
+              "filler7"
+            ],
+            "scroll": "filler7"
+          }
+        }
+      ]
+    },
+    {
+      "scene": 6,
+      "duration_s": 40,
+      "prepare": {
+        "preset": "S4",
+        "scroll": "results"
+      },
+      "cues": [
+        {
+          "t": 0,
+          "action": "scroll_to",
+          "args": {
+            "target": "results"
+          }
+        },
+        {
+          "t": 2.61,
+          "action": "highlight",
+          "args": {
+            "targets": [
+              "occupancy"
+            ],
+            "scroll": "results"
+          }
+        },
+        {
+          "t": 10.704,
+          "action": "highlight",
+          "args": {
+            "targets": [
+              "mr"
+            ],
+            "scroll": "mr"
+          }
+        },
+        {
+          "t": 16.023,
+          "action": "open_details",
+          "args": {
+            "target": "cycle"
+          }
+        },
+        {
+          "t": 16.023,
+          "action": "highlight",
+          "args": {
+            "targets": [
+              "post",
+              "cycle"
+            ],
+            "scroll": "cycle"
+          }
+        },
+        {
+          "t": 21.079,
+          "action": "wait",
+          "args": {}
+        }
+      ]
+    },
+    {
+      "scene": 7,
+      "duration_s": 55,
+      "prepare": {
+        "reset_faults": true,
+        "scroll": "firmware"
+      },
+      "cues": [
+        {
+          "t": 3.032,
+          "action": "click",
+          "args": {
+            "name": "하드웨어 고장",
+            "expect_latch": 1
+          }
+        },
+        {
+          "t": 3.032,
+          "action": "highlight",
+          "args": {
+            "targets": [
+              "firmware"
+            ],
+            "scroll": "firmware"
+          }
+        },
+        {
+          "t": 9.639,
+          "action": "click",
+          "args": {
+            "name": "수동 래치 리셋",
+            "expect_latch": 1
+          }
+        },
+        {
+          "t": 13.5,
+          "action": "click",
+          "args": {
+            "name": "고장 원인 해제",
+            "expect_latch": 1
+          }
+        },
+        {
+          "t": 15,
+          "action": "click",
+          "args": {
+            "name": "수동 래치 리셋",
+            "expect_latch": 0
+          }
+        },
+        {
+          "t": 17.315,
+          "action": "click",
+          "args": {
+            "name": "헤드 통전 중 척 히터 요청"
+          }
+        },
+        {
+          "t": 17.315,
+          "action": "highlight",
+          "args": {
+            "targets": [
+              "firmware"
+            ],
+            "scroll": "firmware"
+          }
+        },
+        {
+          "t": 22.887,
+          "action": "wait",
+          "args": {}
+        },
+        {
+          "t": 30.566,
+          "action": "wait",
+          "args": {}
+        }
+      ]
+    },
+    {
+      "scene": 8,
+      "duration_s": 20,
+      "prepare": {
+        "scroll": "sources"
+      },
+      "cues": [
+        {
+          "t": 0,
+          "action": "scroll_to",
+          "args": {
+            "target": "sources"
+          }
+        },
+        {
+          "t": 0,
+          "action": "type",
+          "args": {
+            "target": "search",
+            "text": "assumption"
+          }
+        },
+        {
+          "t": 10.939,
+          "action": "highlight",
+          "args": {
+            "targets": [
+              "claims_panel"
+            ],
+            "scroll": "claims_panel"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -6,7 +6,7 @@ from pathlib import Path
 import re
 import sys
 
-from record_demo import ACTIONS, PRESETS, ROOT, SCENES, SELECTORS
+from record_demo import ACTIONS, PRESETS, ROOT, SCENES, SELECTORS, load_cues
 
 
 class Elements(HTMLParser):
@@ -65,6 +65,36 @@ def check(root: Path):
     for token in ("$('layer').add", "$('iteration').replaceChildren", "$('history').replaceChildren",
                   "$('run').disabled=false", "$('layer').addEventListener('change',run)"):
         require(token in vision, f'비전 동적 DOM/동작 변경: {token}')
+    # CSS는 브라우저에서 실행하지 않는다. 정적 id·문구와 동적 생성 근거를 대조한다.
+    try:
+        cues = load_cues(Path(__file__).with_name('cues.json'))
+    except (ValueError, KeyError, TypeError) as exc:
+        require(False, f'큐 계획 구조 오류: {exc}')
+        cues = {'targets': {}, 'scenes': []}
+    combined = '\n'.join(sources.values())
+    for key, spec in cues['targets'].items():
+        selector = spec['selector']
+        require(bool(selector), f'큐 {key}: 빈 선택자')
+        require(spec['source'] in sources, f'큐 {key}: 소스 파일 없음')
+        require(spec['evidence'] in sources.get(spec['source'], ''), f'큐 {key}: 생성 근거 변경')
+        for ident in re.findall(r'#([\w-]+)', selector):
+            require(ident in ids, f'큐 {key}: id 없음 #{ident}')
+        for text in re.findall(r':has-text\("([^"]+)"\)', selector):
+            require(text in combined, f'큐 {key}: 텍스트 없음 {text}')
+    buttons = set(ACTIONS.values()) | {f'{k} {v}' for k, v in PRESETS.items()}
+    for row in cues['scenes']:
+        for cue in row['cues']:
+            if cue['action'] == 'click':
+                require(cue['args']['name'] in buttons, f"큐 버튼 이름 없음: {cue['args']['name']}")
+            if cue['action'] == 'goto':
+                require(cue['args']['url'].split('?')[0] == 'vision.html', '큐 이동 URL 변경')
+    # nth-child 행/열의 근거: 카드 순서와 S5 정렬된 압력 순서도 함께 검사한다.
+    scenarios = (root/'sim/scenarios.js').read_text(encoding='utf-8')
+    for token in ("recipes:[{mode:'TC-NCF',layers:12},{mode:'TC-NCF',layers:12,head_temp_compensation:true},{mode:'MR-MUF',layers:12}]",
+                  "modes.flatMap(mode=>[100,50]", "recipes:[7,15,20].flatMap", "['capillary','default','lower','upper']"):
+        require(token in scenarios, f'큐 카드 순서 생성 근거 변경: {token}')
+    display = sources['web/js/hmi_display.js']
+    require('inlet_pressure_MPa))].sort((a,b)=>a-b)' in display, 'S5 압력 열 정렬 변경')
     require(list(s.number for s in SCENES) == list(range(1, 9)), '장면 번호·개수 오류')
     require([s.slug for s in SCENES] == ['3d','s1','s2_vision','s3','s5','s4','faults','closing'], '시연 순서 오류')
     require(all(0 < s.seconds <= 60 for s in SCENES), '장면 고정 길이 범위 오류')
