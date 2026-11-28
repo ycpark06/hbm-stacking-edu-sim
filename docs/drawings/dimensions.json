@@ -1,0 +1,71 @@
+{
+  "source": "cad/stacker/spec_stacker.py",
+  "stack": {
+    "w": 100,
+    "d": 100,
+    "t": 18,
+    "window": 15,
+    "pitch": 80,
+    "bolt": 4.5,
+    "pin": 3,
+    "pin_pitch": 60,
+    "pilot": 6,
+    "flat": 0.002,
+    "groove_w": 1,
+    "groove_depth": 0.5,
+    "groove_span": 40
+  },
+  "reflow": {
+    "w": 40,
+    "d": 40,
+    "t": 8,
+    "pitch": 30,
+    "bolt": 4.5,
+    "heater_w": 30,
+    "heater_t": 2,
+    "ins_t": 10,
+    "tc_d": 1.6,
+    "tc_depth": 4,
+    "flat": 0.002,
+    "power_W": 150,
+    "forced_cooling": "공기 또는 N₂ 강제 냉각",
+    "heater_interlock": "두 히터 동시 통전 금지(SW 인터락)",
+    "alignment_wait_s": 90
+  },
+  "mold": {
+    "w": 30,
+    "d": 30,
+    "t": 10,
+    "cavity_w": 6,
+    "cavity_d": 2,
+    "bore": 4,
+    "plunger_l": 20,
+    "stroke": 8,
+    "gate_w": 1,
+    "gate_d": 0.5,
+    "gate_l": 6,
+    "vent_w": 0.5,
+    "vent_d": 0.02,
+    "pitch": 22,
+    "bolt": 3.4,
+    "clamp_count": 4,
+    "clamp_thread": "M3",
+    "clamp_preload_N": 216,
+    "sealing_status": "제작 후 시험"
+  },
+  "fit": {
+    "hole_min": 0,
+    "hole_max": 0.012,
+    "shaft_min": -0.012,
+    "shaft_max": -0.004
+  },
+  "tolerances": {
+    "outline": 0.05,
+    "thickness": 0.01,
+    "parallel": 0.005,
+    "perpendicular": 0.01,
+    "ra_top": 0.4,
+    "ra_slide": 0.2,
+    "ra_other": 1.6
+  }
+}
