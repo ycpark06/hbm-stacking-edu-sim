@@ -1,0 +1,88 @@
+/* Display settings for recording at 1920 × 1080. No process inputs. */
+:root[data-theme=light]{color-scheme:light;--bg:#FFFFFF;--panel:#F5F7FA;--line:#E6ECF3;--ink:#44505F;--muted:#7A8899;--accent:#14365A;--blue:#14365A}
+[data-theme=light] body{background:#FFFFFF;color:#44505F;font-family:"Pretendard", "Malgun Gothic", "맑은 고딕", "Apple SD Gothic Neo", sans-serif;font-size:24px;line-height:1.4}
+[data-theme=light] h1{font-size:44px;color:#14365A}
+[data-theme=light] h2{font-size:40px;color:#14365A;line-height:1.2}
+[data-theme=light] h3{font-size:30px;color:#14365A}
+[data-theme=light] button,[data-theme=light] select{color:#14365A;background:#FFFFFF;font-size:24px;border-color:#C9D0D8}
+[data-theme=light] .badge{font-size:18px;color:#44505F;border-color:#C9D0D8;background:#FFFFFF}
+[data-theme=light] .eyebrow,[data-theme=light] .small,[data-theme=light] .source,[data-theme=light] details,[data-theme=light] .part-table{display:none}
+[data-theme=light] footer{font-size:20px;line-height:1.4;background:#F5F7FA;color:#44505F;border-color:#E6ECF3;padding:12px 20px}
+[data-theme=light] main{max-width:none}
+[data-theme=light] .workspace{grid-template-columns:minmax(0,65fr) minmax(0,35fr);gap:0;background:#FFFFFF}
+[data-theme=light] .workspace>aside,[data-theme=light] .evidence,[data-theme=light] #comparison,[data-theme=light] .scene-meta,[data-theme=light] .legend,[data-theme=light] #timing{display:none}
+[data-theme=light] .scene-panel{border:0;border-radius:0;background:#FFFFFF;min-width:0}
+[data-theme=light] #viewer{height:790px;background:#FFFFFF}
+[data-theme=light] #viewer,[data-theme=light] #cad-viewer{position:relative;isolation:isolate}
+[data-theme=light] .light-graphs{min-width:0;padding:24px 22px 230px;background:#F5F7FA;border-left:1px solid #E6ECF3}
+[data-theme=light] .light-graphs h2{margin:0 0 12px}
+[data-theme=light] .light-graphs h3{margin:12px 0 8px}
+[data-theme=light] .light-graphs p{font-size:24px;margin:8px 0}
+[data-theme=light] .light-graphs svg{display:block;width:100%;height:auto;overflow:visible}
+[data-theme=light] .light-graphs svg text{font:24px "Pretendard", "Malgun Gothic", "맑은 고딕", "Apple SD Gothic Neo", sans-serif;fill:#44505F}
+[data-theme=light] .light-graphs .grid{fill:none;stroke:#E6ECF3;stroke-width:1}
+[data-theme=light] .light-key{display:flex;gap:20px;color:#14365A}
+[data-theme=light] .force-key{color:#7A8899}
+[data-theme=light] .temp-key{color:#C2622A}
+[data-theme=light] .light-graphs .light-note{font-size:24px;color:#44505F}
+[data-theme=light] .light-fill{font-size:64px;color:#14365A;display:block;margin:24px 0}
+[data-theme=light] .light-graphs progress{height:18px;accent-color:#14365A}
+[data-theme=light] body.view-only .workspace{display:grid;grid-template-columns:minmax(0,65fr) minmax(0,35fr)}
+[data-theme=light] body.view-only .scene-panel{padding-bottom:230px}
+[data-theme=light] body.view-only #viewer{height:100%}
+[data-theme=light] body.view-only .light-graphs{padding-bottom:230px;overflow:hidden}
+[data-theme=light] .light-callout{position:absolute;z-index:3;padding:16px 20px;background:#FFFFFF;border:2px solid #E6ECF3;border-left:6px solid #14365A;box-shadow:0 6px 24px #14365A14;color:#14365A;max-width:calc(100% - 32px);pointer-events:none;white-space:nowrap}
+[data-theme=light] .light-callout strong,[data-theme=light] .light-callout span{display:block;font-size:28px;line-height:1.5}
+[data-theme=light] .light-leader{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:2}
+[data-theme=light] [hidden]{display:none!important}
+[data-theme=light] .light-scene-title{position:absolute;left:24px;top:24px;z-index:6;background:#14365A;color:#FFFFFF;padding:12px 24px;font-size:34px;font-weight:700;max-width:calc(100% - 48px)}
+[data-theme=light] .light-film{position:absolute;inset:0;background:#FFFFFF;z-index:4;display:flex;align-items:center;justify-content:center;pointer-events:none}
+[data-theme=light] .light-film svg{width:100%;max-height:100%}
+[data-theme=light] .light-film text{font:28px "Pretendard", "Malgun Gothic", "맑은 고딕", "Apple SD Gothic Neo", sans-serif;fill:#14365A}
+/* CAD presentation: remove long prose and preserve group selection controls. */
+[data-theme=light] .cad-layout{grid-template-columns:minmax(0,65fr) minmax(0,35fr);gap:24px}
+[data-theme=light] #cad-viewer{height:740px;background:#FFFFFF;border:0}
+[data-theme=light] .wide>p,[data-theme=light] #part-info>code,[data-theme=light] #part-info>p{display:none}
+[data-theme=light] #part-list{grid-template-columns:1fr;gap:6px}
+[data-theme=light] .part-row button{font-size:24px;padding:6px 10px}
+[data-theme=light] .part-row button[aria-pressed=true]{background:#E6ECF3;border-color:#14365A}
+[data-theme=light] #cad-status,[data-theme=light] .cad-controls{font-size:24px}
+[data-theme=light] #drawings,[data-theme=light] #workflow{display:none}
+[data-theme=light] #cad-viewer~.legend{display:none}
+@media(max-width:1100px){[data-theme=light] .workspace,[data-theme=light] body.view-only .workspace,[data-theme=light] .cad-layout{grid-template-columns:minmax(0,65fr) minmax(0,35fr)}[data-theme=light] .light-callout{white-space:normal}[data-theme=light] .light-key{gap:6px;flex-wrap:wrap}}
+
+[data-theme=light] .light-graphs{padding-top:20px}
+[data-theme=light] .light-graphs h2{margin-bottom:8px}
+[data-theme=light] .light-graphs h3{font-size:40px;line-height:1.2;margin:8px 0 4px}
+[data-theme=light] .light-graphs p{margin:4px 0}
+[data-theme=light] .light-key{gap:16px}
+[data-theme=light] .light-key small{font-size:18px;border:1px solid #C9D0D8;border-radius:4px;padding:1px 4px;color:#44505F}
+
+:root[data-theme=light]{background:#FFFFFF}
+[data-theme=light] .wide,[data-theme=light] .cad-layout aside{background:#F5F7FA}
+[data-theme=light] p,[data-theme=light] label{color:#44505F}
+[data-theme=light] a{color:#14365A}
+[data-theme=light] .section-head .badge{font-size:18px}
+[data-theme=light] .cad-controls label{font-size:24px}
+[data-theme=light] body.cad-view-only{overflow:hidden}
+[data-theme=light] .cad-view-only>header,[data-theme=light] .cad-view-only .section-head,[data-theme=light] .cad-view-only .cad-controls,[data-theme=light] .cad-view-only #cad-status{display:none}
+[data-theme=light] .cad-view-only main,[data-theme=light] .cad-view-only .wide{padding:0;margin:0;border:0;border-radius:0;background:#FFFFFF}
+[data-theme=light] .cad-view-only .cad-layout{height:calc(100dvh - 52px);gap:0}
+[data-theme=light] .cad-view-only .cad-layout>div:first-child{padding-bottom:230px}
+[data-theme=light] .cad-view-only #cad-viewer{height:100%;min-height:0}
+[data-theme=light] .cad-view-only aside{padding:20px}
+[data-theme=light] .cad-view-only footer{position:fixed;bottom:0;max-width:none;width:100%;height:52px;text-align:center}
+
+/* Fill the recording panel above the 230 px caption reserve. */
+[data-theme=light] .light-graphs .badge,
+[data-theme=light] .light-key small{font-size:24px}
+[data-theme=light] .light-key{flex-wrap:wrap;column-gap:16px;row-gap:0}
+[data-theme=light] body.view-only .light-graphs.light-tc{
+  display:grid;
+  grid-template-rows:auto auto minmax(220px,1fr) auto auto minmax(215px,1fr) auto;
+  align-content:stretch;
+  padding:20px 22px 230px;
+}
+[data-theme=light] body.view-only .light-tc svg{height:100%;min-height:0}
+
+[data-theme=light] button,[data-theme=light] select,[data-theme=light] input,[data-theme=light] textarea,[data-theme=light] code,[data-theme=light] pre,[data-theme=light] svg text{font-family:"Pretendard", "Malgun Gothic", "맑은 고딕", "Apple SD Gothic Neo", sans-serif}

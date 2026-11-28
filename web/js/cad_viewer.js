@@ -1,6 +1,7 @@
 import * as THREE from '../vendor/three/build/three.module.js';
 import {OrbitControls} from '../vendor/three/examples/jsm/controls/OrbitControls.js';
 import {GLTFLoader} from '../vendor/three/examples/jsm/loaders/GLTFLoader.js';
+import {createLightPresentation} from './cad_light.js';
 import {GROUPS} from './cad_parts.js';
 // Display settings only: Y-up directions and offset as fractions of model extent.
 // They do not represent hardware dimensions, motion limits or assembly sequence.
@@ -30,7 +31,8 @@ export async function createCADViewer(container,onSelect,onStatus){
     const center=box.getCenter(new THREE.Vector3());model.position.sub(center);
     const bases=new Map([...nodes].map(([id,node])=>[id,node.position.clone()]));
     const originals=new Map();model.traverse(node=>{if(node.isMesh){node.material=Array.isArray(node.material)?node.material.map(m=>m.clone()):node.material.clone();for(const material of [].concat(node.material))originals.set(material,material.emissive.clone());}});
-    function select(id){for(const [key,node] of nodes)node.traverse(child=>{if(child.isMesh)for(const material of [].concat(child.material))material.emissive.copy(key===id?new THREE.Color('#245c57'):originals.get(material));});}
+    const light=document.documentElement.dataset.theme==='light'?createLightPresentation(scene,camera,container,Object.fromEntries(nodes)):null;
+    function select(id){if(light){light.focus(id);return;}for(const [key,node] of nodes)node.traverse(child=>{if(child.isMesh)for(const material of [].concat(child.material))material.emissive.copy(key===id?new THREE.Color('#245c57'):originals.get(material));});}
     function fit(){
       const bounds=new THREE.Box3().setFromObject(wrapper),size=bounds.getSize(new THREE.Vector3()),target=bounds.getCenter(new THREE.Vector3());
       // Reserve space for exploded groups; camera values are display settings.
@@ -52,7 +54,7 @@ export async function createCADViewer(container,onSelect,onStatus){
       }
     });
     renderer.domElement.addEventListener('webglcontextlost',event=>{event.preventDefault();renderer.setAnimationLoop(null);onStatus('WebGL 연결이 끊겼습니다. 새로고침하거나 부품 목록·도면을 이용하세요.');});
-    renderer.setAnimationLoop(()=>{controls.update();renderer.render(scene,camera);});
+    renderer.setAnimationLoop(()=>{controls.update();light?.render();renderer.render(scene,camera);});
     onStatus(`GLB 연결 · ${nodes.size}개 그룹 · 회전/확대 가능`);
     return {
       select,

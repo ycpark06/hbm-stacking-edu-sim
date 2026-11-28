@@ -1,3 +1,4 @@
+import {setLightTitle} from './cad_light.js';
 import {FOOTPRINT_LIMIT} from './cad_data.js';
 import {GROUPS,groupParts,materialText,dimensionText} from './cad_parts.js';
 const byId=id=>document.getElementById(id);
@@ -62,3 +63,5 @@ try{
   for(const [id,visible] of visibility)viewer.setVisible(id,visible);
   viewer.explode(Number(byId('explode').value)/100);viewer.select(selected);
 }catch(error){byId('cad-status').textContent=`3D를 표시할 수 없습니다 (${error.message}). 아래 부품 목록·비교 이미지·도면을 이용하세요.`;}
+
+window.cadPage={select,setViewOnly(value){if(typeof value!=='boolean')throw TypeError('viewOnly: boolean');if(document.documentElement.dataset.theme==='light')document.body.classList.toggle('cad-view-only',value);},setTitle(text){if(document.documentElement.dataset.theme==='light')setLightTitle(byId('cad-viewer'),text);}};
