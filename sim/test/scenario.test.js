@@ -90,11 +90,25 @@ function existingFields(actual,baseline) {
     .map(([k,v])=>[k,existingFields(actual[k],v)]));
   return actual;
 }
-test('all 16 default recipes exactly preserve PR #28 results; explicit false equals omitted',()=>{
+// Numbers: |a−b| ≤ 1e-15 + 1e-12·|b| (golden 규칙과 같은 형식). Math.log/sin/cos의
+// 마지막 ulp가 V8 버전마다 달라 몬테카를로 정렬 값이 마지막 자리에서 다를 수 있다 (#37).
+// 문자열·판정·불리언·배열 길이·키 집합은 정확히 같아야 한다.
+function assertClose(actual,expected,path='result') {
+  if(typeof expected==='number'&&typeof actual==='number') {
+    assert.ok(Math.abs(actual-expected)<=1e-15+1e-12*Math.abs(expected),`${path}: ${actual} vs ${expected}`);
+  } else if(Array.isArray(expected)) {
+    assert.ok(Array.isArray(actual),`${path}: array`);assert.equal(actual.length,expected.length,`${path}: length`);
+    expected.forEach((v,i)=>assertClose(actual[i],v,`${path}[${i}]`));
+  } else if(expected&&typeof expected==='object') {
+    assert.deepEqual(Object.keys(actual).sort(),Object.keys(expected).sort(),`${path}: keys`);
+    for(const [k,v] of Object.entries(expected))assertClose(actual[k],v,`${path}.${k}`);
+  } else assert.equal(actual,expected,path);
+}
+test('all 16 default recipes preserve PR #28 results (numbers within 1e-12 rel); explicit false equals omitted',()=>{
   const baseline=JSON.parse(readFileSync(new URL('stage4_bond_baseline_results.json',import.meta.url),'utf8'));
   for(const old of baseline.results) {
     const actual=run(old.recipe.mode,old.recipe);
-    assert.deepEqual(existingFields(actual,old),old);
+    assertClose(existingFields(actual,old),old);
     assert.deepEqual(actual,run(old.recipe.mode,{...old.recipe,head_temp_compensation:false}));
   }
 });
