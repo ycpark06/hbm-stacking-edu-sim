@@ -4,6 +4,9 @@ import {readFileSync} from 'node:fs';
 import {validateRecipe,recipeParams} from '../../web/js/recipe_limits.js';
 import {VISION_DEFAULTS,visionOptions} from '../vision.js';
 import {createAlarmDemo} from '../../web/js/alarms.js';
+import {chart} from '../../web/js/charts.js';
+import {labels,value,resultTitle,mufRows,s5Table,displaySettings} from '../../web/js/hmi_display.js';
+import {runScenario} from '../scenarios.js';
 const p=JSON.parse(readFileSync(new URL('../params.json',import.meta.url)));
 const recipe={mode:'TC-NCF',layers:12,thickness_um:100,gap_um:p.geometry.interlayer_gap.value,
   bond_force_N:p.tcncf_process.bond_force.value,head_temp_C:p.tcncf_process.head_setpoint.value,
@@ -38,4 +41,51 @@ test('HMI uses real wasm warning, latch persistence, manual reset and mutual hea
   assert.equal(d.act('temp-warning').warning,1);assert.equal(d.act('temp-latch').latched,1);
   d.act('clear');d.act('reset');assert.equal(d.act('hardware').latched,1);
   d.act('clear');d.act('reset');const s=d.act('heaters');assert.ok(s.head_W>0);assert.equal(s.reflow_W,0);assert.equal(s.dual_heater_blocked,1);
+});
+
+test('S5 cards expose each condition and computed warnings; matrix retains all 12 results',()=>{
+  const results=runScenario('S5',p).results;
+  assert.equal(new Set(results.map(resultTitle)).size,12);
+  assert.match(resultTitle(results[0]),/간격 7 μm · 입구 0 MPa\(모세관 단독\)/);
+  for(const r of results){
+    const rows=mufRows(r);
+    assert.ok(rows.includes(value(r.muf.fill_time_s,'s')));
+    assert.match(rows,/필러 경고/);assert.match(rows,/겔 경고/);
+    assert.equal(rows.includes('필러 막힘 위험'),r.muf.filler_warning);
+    assert.equal(rows.includes('충전 시간 > 겔 시간'),r.muf.gel_warning);
+  }
+  const table=s5Table(results);
+  assert.equal((table.match(/scope="row"/g)??[]).length,3);
+  assert.equal((table.match(/<td>/g)??[]).length,12);
+  for(const r of results)assert.ok(table.includes(`${value(r.defect_area_pct,'%')}<br>${r.defect_judgement}`));
+  assert.match(table,/0 MPa\(모세관 단독\)/);
+});
+
+test('chart legend uses named swatches matching 12 distinct plotted layer colors and clears old entries',()=>{
+  const element=()=>({children:[],style:{},setAttribute(){},append(...nodes){this.children.push(...nodes);},replaceChildren(...nodes){this.children=nodes;}});
+  const legend=element(),strokes=[];
+  const ctx={clearRect(){},fillText(){},beginPath(){},moveTo(){},lineTo(){},setLineDash(){},stroke(){strokes.push(this.strokeStyle);}};
+  const canvas={getContext:()=>ctx,ownerDocument:{createElement:element,createTextNode:text=>({textContent:text})},nextElementSibling:legend,setAttribute(){}};
+  const series=Array.from({length:12},(_,i)=>({name:`층 ${i+1}`,points:[[0,0],[1,i+1]]}));
+  chart(canvas,series);
+  assert.equal(legend.children.length,12);
+  const colors=legend.children.map((item,i)=>{
+    assert.equal(item.children[1].textContent,`층 ${i+1}`);
+    const color=item.children[0].style.backgroundColor;
+    assert.equal(color,strokes[i+1]);return color;
+  });
+  assert.equal(new Set(colors).size,12);
+  chart(canvas,series.slice(0,2));assert.equal(legend.children.length,2);
+  chart(canvas,[]);assert.equal(legend.textContent,'해당 이력 없음');
+});
+
+test('display settings remove the classification badge and legend explains demo inputs',()=>{
+  const setting={className:'badge',textContent:'관찰 항목'};
+  let legend;
+  const doc={getElementById:id=>id==='warp-scale'?{closest:()=>({querySelector:()=>setting})}:{querySelector:()=>({after:node=>{legend=node;}})},createElement:()=>({})};
+  displaySettings(doc);
+  assert.equal(setting.textContent,'표시 설정');assert.equal(setting.className,'display-setting');
+  for(const label of Object.values(labels))assert.ok(legend.innerHTML.includes(label));
+  assert.match(value(0,'N','demo'),/시연 입력/);
+  assert.match(value(100,'℃','demo'),/시연 입력/);
 });

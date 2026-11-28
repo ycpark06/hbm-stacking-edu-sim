@@ -1,12 +1,8 @@
 import {validateRecipe} from './recipe_limits.js';
 import {chart} from './charts.js';
 import {createAlarmDemo} from './alarms.js';
+import {esc,labels,badge,fmt,value,resultTitle,mufRows,s5Table,displaySettings} from './hmi_display.js';
 const $=id=>document.getElementById(id);
-const esc=v=>String(v??'—').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const labels={kpi:'원문 KPI',design:'설계 목표·설계값',literature:'문헌값',estimate:'역산 추정값',assumption:'가정값',midterm:'중간 보고서',observation:'관찰 항목',result:'계산 결과'};
-const badge=kind=>`<span class="badge">${labels[kind]??esc(kind)}</span>`;
-const fmt=v=>typeof v==='number'?(Number.isFinite(v)?Number(v.toPrecision(6)).toString():'—'):esc(v);
-const value=(v,unit='',kind='result')=>`${fmt(v)} ${esc(unit)} ${badge(kind)}`;
 let p,worker,viewer,results=[],currentId=0,sil=null,demo;
 let getRecipe=()=>({});
 const showError=message=>{$('recipe-error').textContent=message;};
@@ -58,14 +54,14 @@ function start(payload){
 }
 function renderResults(){
   $('results').innerHTML=results.map((r,i)=>{
-    const title=`${r.recipe.mode}${r.recipe.head_temp_compensation?' · 헤드 보정':''}`;
-    if(r.accepted===false)return `<article class="result"><h3>${esc(title)}</h3><p class="alarm">HEAD_TEMP_LIMIT · ${esc(r.rejection.reason)}<br>층 ${value(r.rejection.layer)} · 필요 ${value(r.rejection.required_head_C,'℃')} · 한계 ${value(r.rejection.limit_C,'℃','kpi')}</p></article>`;
+    const title=resultTitle(r);
+    if(r.accepted===false)return `<article class="result"><h3>${esc(title)} ${badge('demo')}</h3><p class="alarm">HEAD_TEMP_LIMIT · ${esc(r.rejection.reason)}<br>층 ${value(r.rejection.layer)} · 필요 ${value(r.rejection.required_head_C,'℃')} · 한계 ${value(r.rejection.limit_C,'℃','kpi')}</p></article>`;
     const layers=r.thermal?.layers??r.thermal_layers;
     const row=(name,v,unit='')=>`<dt>${esc(name)}</dt><dd>${value(v,unit)}</dd>`;
-    return `<article class="result"><h3>${esc(title)}</h3><dl>${row('최대 절대 휨',r.warpage.max_um,'μm')}<dt>휨 / 결함 / 정렬 판정</dt><dd>${esc(r.warpage.judgement)} / ${esc(r.defect_judgement)} / ${esc(r.alignment.judgement)}</dd>${row('미충전 면적률',r.defect_area_pct,'%')}${row('본더 점유',r.cycle.bonder_s,'s')}${row('배치 후공정',r.cycle.batch_post_s,'s')}${row('누적 정렬 X / Y',r.alignment.cumulative_um.map(fmt).join(' / '),'μm')}${r.warpage.thickness_half_ratio?row('두께 절반의 휨 증가 배율',r.warpage.thickness_half_ratio,'배'):''}</dl><details><summary>층별 접합·재가열·재용융</summary><table><thead><tr><th>층</th><th>자기 접합 최고 ℃</th><th>헤드 설정 ℃</th><th>재가열 / 액상선 교차 / 후속 재용융</th></tr></thead><tbody>${layers.map((l,j)=>`<tr><td>${value(j+1)}</td><td>${value(l.bond_peak_C,'℃')} ${l.bond_temp_ok?'접합 온도 충족':'BOND_TEMP_LOW · 접합 온도 미달'}</td><td>${value(l.head_setpoint_C,'℃')}</td><td>${value(`${l.reheat_count} / ${l.remelt_count} / ${l.subsequent_remelts}`)}</td></tr>`).join('')}</tbody></table></details><details><summary>사이클 시간 분해</summary>${Object.entries(r.cycle.breakdown.layer_totals).map(([k,v])=>`<p>${esc(k)} ${value(v,'s')}</p>`).join('')}${Object.entries(r.cycle.breakdown.once).map(([k,v])=>`<p>${esc(k)} ${value(v,'s')}</p>`).join('')}</details>${r.model_limit?`<p>${esc(r.model_limit)}</p>`:''}</article>`;
+    return `<article class="result"><h3>${esc(title)} ${badge('demo')}</h3><dl>${row('최대 절대 휨',r.warpage.max_um,'μm')}<dt>휨 / 결함 / 정렬 판정</dt><dd>${esc(r.warpage.judgement)} / ${esc(r.defect_judgement)} / ${esc(r.alignment.judgement)}</dd>${row('미충전 면적률',r.defect_area_pct,'%')}${mufRows(r)}${row('본더 점유',r.cycle.bonder_s,'s')}${row('배치 후공정',r.cycle.batch_post_s,'s')}${row('누적 정렬 X / Y',r.alignment.cumulative_um.map(fmt).join(' / '),'μm')}${r.warpage.thickness_half_ratio?row('두께 절반의 휨 증가 배율',r.warpage.thickness_half_ratio,'배'):''}</dl><details><summary>층별 접합·재가열·재용융</summary><table><thead><tr><th>층</th><th>자기 접합 최고 ℃</th><th>헤드 설정 ℃</th><th>재가열 / 액상선 교차 / 후속 재용융</th></tr></thead><tbody>${layers.map((l,j)=>`<tr><td>${value(j+1)}</td><td>${value(l.bond_peak_C,'℃')} ${l.bond_temp_ok?'접합 온도 충족':'BOND_TEMP_LOW · 접합 온도 미달'}</td><td>${value(l.head_setpoint_C,'℃')}</td><td>${value(`${l.reheat_count} / ${l.remelt_count} / ${l.subsequent_remelts}`)}</td></tr>`).join('')}</tbody></table></details><details><summary>사이클 시간 분해</summary>${Object.entries(r.cycle.breakdown.layer_totals).map(([k,v])=>`<p>${esc(k)} ${value(v,'s')}</p>`).join('')}${Object.entries(r.cycle.breakdown.once).map(([k,v])=>`<p>${esc(k)} ${value(v,'s')}</p>`).join('')}</details>${r.model_limit?`<p>${esc(r.model_limit)}</p>`:''}</article>`;
   }).join('');
   $('result-choice').innerHTML=results.map((r,i)=>`<option value="${i}">${esc(r.recipe.mode)} ${r.recipe.head_temp_compensation?'보정':''} · ${r.recipe.thickness_um} μm · ${r.recipe.gap_um} μm · ${r.recipe.inlet_pressure_MPa} MPa (입력값)</option>`).join('');
-  $('s5').innerHTML=results.length>4?`<table><caption>간격 × 입구 압력 ${badge('result')}</caption><thead><tr><th>간격</th><th>입구 압력</th><th>충전 시간</th><th>미충전률</th><th>판정·경고</th></tr></thead><tbody>${results.map(r=>`<tr><td>${value(r.recipe.gap_um,'μm','literature')}</td><td>${value(r.recipe.inlet_pressure_MPa,'MPa','assumption')}</td><td>${value(r.muf.fill_time_s,'s')}</td><td>${value(r.defect_area_pct,'%')}</td><td>${esc(r.defect_judgement)} ${r.muf.filler_warning?'필러 막힘 위험':''} ${r.muf.gel_warning?'겔 경고':''}</td></tr>`).join('')}</tbody></table>`:'';
+  $('s5').innerHTML=results.length>4?s5Table(results):'';
   $('model-alarms').innerHTML=results.flatMap(r=>[
     ...(r.alarms??[]).map(a=>`<p class="alarm">${esc(r.recipe.mode)} · ${esc(a.code)} ${esc(a.message)} · 층 ${value(a.layer)} · 접합 ${value(a.peak_C,'℃')} · 부족 ${value(a.shortfall_C,'℃')}</p>`),
     ...(r.accepted===false?[`<p class="alarm">HEAD_TEMP_LIMIT · 층 ${value(r.rejection.layer)} · 필요 ${value(r.rejection.required_head_C,'℃')}</p>`]:[
@@ -93,6 +89,7 @@ function drawCharts(){
   viewer?.warp(r.warpage.max_um,Number($('warp-scale').value));
 }
 async function boot(){
+  displaySettings(document);
   const response=await fetch('../sim/params.json');if(!response.ok)throw Error(`params HTTP ${response.status}`);p=await response.json();
   setUpForm();renderParams();initCharts();$('search').addEventListener('input',renderParams);$('result-choice').addEventListener('change',drawCharts);$('warp-scale').addEventListener('change',drawCharts);
   $('claims').innerHTML=Object.values(p.vendor_claims).map(c=>`<article><h3>${esc(c.company)}</h3><p>${value(c.value,c.unit,c.kind)} · 판정 없음</p><p>${esc(c.note)}</p><p>${source(c.source)}</p></article>`).join('');
@@ -111,8 +108,9 @@ async function boot(){
   try {
     demo=await createAlarmDemo(p);const e=p.equipment_limits;
     const buttons=[['force-warning',`과하중 경고 ${e.force_warning_N.value} N`],['force-latch',`과하중 래치 ${e.force_latch_N.value} N`],['temp-warning',`과온 경고 ${e.temp_warning_C.value} ℃`],['temp-latch',`과온 래치 ${e.temp_latch_C.value} ℃`],['hardware','하드웨어 고장'],['heaters','헤드 통전 중 척 히터 요청'],['clear','고장 원인 해제'],['reset','수동 래치 리셋']];
-    $('fault-buttons').innerHTML=buttons.map(([action,label])=>`<button data-action="${action}">${esc(label)} ${badge('design')}</button>`).join('');
-    const display=s=>$('firmware-status').innerHTML=`경고 ${value(s.warning)} · 래치 ${value(s.latched)} · ${s.dual_heater_blocked?'두 히터 동시 통전 금지 · 차단':'히터 충돌 없음'} ${badge('result')}<br>헤드 ${value(s.head_W,'W')} · 척 ${value(s.reflow_W,'W')} · 측정 하중 ${value(s.force_N,'N','design')} · 측정 온도 ${value(s.temp_C,'℃','design')}`;
+    // Threshold provenance: equipment_limits.*.source and firmware/README.md §7 cite ch10 safety layers.
+    $('fault-buttons').innerHTML=buttons.map(([action,label])=>`<button data-action="${action}">${esc(label)} ${badge(['force-warning','force-latch','temp-warning','temp-latch'].includes(action)?'midterm':'design')}</button>`).join('');
+    const display=s=>$('firmware-status').innerHTML=`경고 ${value(s.warning)} · 래치 ${value(s.latched)} · ${s.dual_heater_blocked?'두 히터 동시 통전 금지 · 차단':'히터 충돌 없음'} ${badge('result')}<br>헤드 ${value(s.head_W,'W')} · 척 ${value(s.reflow_W,'W')} · 측정 하중 ${value(s.force_N,'N','demo')} · 측정 온도 ${value(s.temp_C,'℃','demo')}`;
     $('fault-buttons').addEventListener('click',event=>{const action=event.target.closest('button')?.dataset.action;if(action)display(demo.act(action));});display(demo.state());
   }catch(error){$('firmware-status').textContent=`wasm 알람 시연 사용 불가: ${error.message}`;}
   document.body.dataset.hmiReady='true';

@@ -91132,6 +91132,18 @@
       "reason": "수치 range 없음; 새 범위를 가정하지 않음"
     },
     {
+      "path": "alignment.theta_resolution_mrad",
+      "reason": "수치 range 없음; 새 범위를 가정하지 않음"
+    },
+    {
+      "path": "alignment.gradient_x",
+      "reason": "수치 range 없음; 새 범위를 가정하지 않음"
+    },
+    {
+      "path": "alignment.gradient_y",
+      "reason": "수치 range 없음; 새 범위를 가정하지 않음"
+    },
+    {
       "path": "recipe.alignment_reference",
       "reason": "수치 range 없음; 새 범위를 가정하지 않음"
     }
