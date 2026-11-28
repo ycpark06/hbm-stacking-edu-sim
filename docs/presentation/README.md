@@ -51,11 +51,11 @@ HANDOFF 지정 장별 합은 **4분 20초 + 데모 6분 = 10분 20초**입니다
 
 | 슬라이드 | 표시 수치·구분 | 출처 파일·키 또는 절 |
 |---|---|---|
-| 3 | STM32H743, .bin / .wasm (대상·산출물) | `firmware/README.md`; `docs/report/final/16_디지털트윈.md` 16.1~16.2절 |
+| 3 | STM32H743, .bin / .wasm (대상·산출물) | `firmware/README.md`; `docs/report/archive_v1/16_디지털트윈.md` 16.1~16.2절 |
 | 4·5·7 | S1 기본 208.5 / 215.8 ℃ (계산 결과) | `sim/test/bond_temp_results.json:S1[0].thermal_layers[0,1].bond_peak_C` |
 | 4·5·7 | 액상선 221 ℃ (문헌값) | `sim/params.json:solder.liquidus_snag.value`; `bond_temp_results.json:S1[0].alarms[].liquidus_C` |
 | 4·5·7 | 보정 시 전 층 약 231 ℃ (계산 결과), 목표 231 ℃ (설계값) | `sim/test/bond_temp_results.json:S1[1].thermal_layers[].bond_peak_C`, `S1[1].head_compensation.target_C` |
-| 4·7 | 필요 헤드 최대 약 341 ℃, KPI까지 약 59 ℃ (계산 결과) | `sim/test/bond_temp_results.json:S1[1].head_compensation.layers[].required_head_C`, `.headroom_C`; `docs/report/final/15_적층공정모드.md` 15.2절, `17_트러블슈팅_개선성과.md` 17.2.1절의 반올림 값·여유 |
+| 4·7 | 필요 헤드 최대 약 341 ℃, KPI까지 약 59 ℃ (계산 결과) | `sim/test/bond_temp_results.json:S1[1].head_compensation.layers[].required_head_C`, `.headroom_C`; `docs/report/archive_v1/15_적층공정모드.md` 15.2절, `17_트러블슈팅_개선성과.md` 17.2.1절의 반올림 값·여유 |
 | 4·7 | 400 ℃ (원문 KPI) | `docs/requirements.md` 1절; `sim/test/bond_temp_results.json:S1[1].head_compensation.limit_C` |
 | 4·7 | S2 TC (0.24, −1.16), MR (0.04, 0.01) μm (단일 표본 관찰값) | `sim/test/stage4_results.json:representative[id=S2].results[0,1].alignment.cumulative_um` |
 | 4·7 | S3 100→50 μm, TC / MR 4.1배, 50 μm 둘 다 불량 (계산 결과·설계 목표 판정) | `sim/test/stage4_results.json:representative[id=S3].results[].recipe.thickness_um`, `.warpage.thickness_half_ratio`, `.warpage.judgement`; 보고서 15.3절 |
@@ -64,8 +64,8 @@ HANDOFF 지정 장별 합은 **4분 20초 + 데모 6분 = 10분 20초**입니다
 | 4·5·7 | S5 15 μm, 압력 0에서 893 s·미충전 89 %, 1 MPa에서 3.3 s (계산 결과) | `sim/test/stage4_results.json:representative[id=S5].results[recipe.gap_um=15,recipe.inlet_pressure_MPa=0 또는 1].muf.fill_time_s`, `.muf.unfilled_fraction` (비율×100, 정수 반올림) |
 | 4·5·7 | 입구 1 MPa (가정값), 간격 15 / 7 μm (문헌값 조건), 7 μm 필러 불량 | `sim/params.json:muf.applied_pressure`; `geometry.interlayer_gap`; `sim/test/stage4_results.json:representative[id=S5].results[].recipe`, `.muf.filler_blocked`, `.defect_judgement`; 보고서 15.5절 |
 | 5 | 접촉 열저항 estimate (역산 추정값) | `sim/params.json:thermal_stack.tool_contact_R_area`, `thermal_stack.chuck_contact_R_area`; 보고서 17.2.1절 |
-| 5 | anti-windup 고착 초과량 3.58→0.057 N (동일 시험 조건 계산 결과) | `firmware/README.md` Validation 3/검증 결과; `docs/report/final/17_트러블슈팅_개선성과.md` 17.2.3절 |
-| 6 | 중간 대비 7개 항목 (정성 비교) | `docs/report/final/17_트러블슈팅_개선성과.md` 17.3절 |
+| 5 | anti-windup 고착 초과량 3.58→0.057 N (동일 시험 조건 계산 결과) | `firmware/README.md` Validation 3/검증 결과; `docs/report/archive_v1/17_트러블슈팅_개선성과.md` 17.2.3절 |
+| 6 | 중간 대비 7개 항목 (정성 비교) | `docs/report/archive_v1/17_트러블슈팅_개선성과.md` 17.3절 |
 | 7 노트 | MR 약 250 ℃ (계산 결과), 기본 8단 / S1 12단 (입력 조건) | `sim/test/bond_temp_results.json:S1[2].thermal_layers[].bond_peak_C`; `sim/params.json:recipe.layers`; `stage4_results.json:representative[id=S1].recipes` |
 | 7 노트 | 과하중 래치 55 N (안전 설계값) | `sim/params.json:equipment_limits.force_latch_N`; `web/js/hmi.js` 알람 버튼; `firmware/README.md` |
 | 8 | 냉각 피크→180 ℃, 전 구간 4 K/s 설계 목표 FAIL/REVIEW | `calc/hardware/reflow_heater.json:results.forced_cooling_design_segment.end_C`, `.required_min_K_s`, `.maintains_required_rate`; `verdict.status`; 보고서 15.9절 |

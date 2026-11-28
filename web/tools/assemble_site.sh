@@ -48,7 +48,7 @@ cad_patterns = (
     'cad/midterm/DieBonderModel/out/view_iso.png',
     'docs/drawings/*.png',
     'docs/drawings/*.pdf',
-    'docs/report/final/fig/dwg/*.png',
+    'docs/report/archive_v1/fig/dwg/*.png',
     'docs/report/midterm/fig/dwg/*.png',
     'wiring/hbm_wiring.svg',
     'wiring/pinmap.csv',
