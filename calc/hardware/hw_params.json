@@ -227,6 +227,12 @@
     "kind": "문헌값",
     "source": "sim/params.json reflow.time_above_liquidus.note"
   },
+  "cooling_criterion_lower_temp": {
+    "value": 180,
+    "unit": "C",
+    "kind": "design",
+    "source": "사용자 확정 2026-11-28: 판정 구간 하한 180 ℃(액상선 221 ℃보다 아래)"
+  },
   "cool_to": {
     "value": 100,
     "unit": "C",

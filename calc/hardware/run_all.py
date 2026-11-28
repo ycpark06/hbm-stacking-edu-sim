@@ -29,14 +29,16 @@ def reflow():
         # Stefan-Boltzmann constant, Kelvin offset are physical/unit constants.
         return (forced_G if forced else h('h_natural')*A)*(T-amb)+h('emissivity')*5.670374419e-8*A*((T+273.15)**4-(amb+273.15)**4)+h('calsil_k')*w*d/(r['ins_t']*1e-3)*(T-amb)
     ramps=[dict(ramp_K_s=x,required_W=C*x+loss(peak),feasible=C*x+loss(peak)<=h('heater_power')) for x in SIM['reflow']['ramp_up']['range']+[SIM['reflow']['ramp_up']['value']]]
-    def cool(forced,dt,target=None,controlled=False):
+    def cool(forced,dt,target=None,controlled=False,start=None):
         target=h('cool_to') if target is None else target
-        T=peak; elapsed=0
+        T=peak if start is None else start; elapsed=0
         while T>target and elapsed<h('max_cool_time'):
             rate=loss(T,forced)/C
             if controlled: rate=min(rate,SIM['reflow']['ramp_down']['value'])
             step=min(dt,(T-target)/rate)
             T-=rate*step; elapsed+=step
+        if T>target:
+            raise RuntimeError(f'냉각 적분 상한 내 {target} C 미도달')
         return elapsed
     natural=cool(False,h('dt')); forced=cool(True,h('dt')); fine=cool(True,h('dt')/2)
     controlled=cool(True,h('dt'),controlled=True)
@@ -44,16 +46,37 @@ def reflow():
     end_rate=loss(h('cool_to'),True)/C
     # Program peak plateau plus shoulder at TL+5 C ensures nominal TAL including ramps.
     ramp=SIM['reflow']['ramp_up']['value']; down=SIM['reflow']['ramp_down']['value']; tl=h('liquidus')
+    lower=h('cooling_criterion_lower_temp')
+    assert amb<h('cool_to')<lower<peak
+    def cooling_segment(start,end,kind):
+        elapsed=cool(True,h('dt'),target=end,start=start)
+        # loss(T) increases monotonically for T > ambient with these positive inputs;
+        # include both endpoints so the last integration step cannot hide the minimum.
+        rates=[loss(end,True)/C,loss(start,True)/C]
+        return dict(kind=kind,start_C=start,end_C=end,time_s=elapsed,
+                    min_cool_K_s=min(rates),max_cool_K_s=max(rates),
+                    average_cool_K_s=(start-end)/elapsed,
+                    mode='최대 강제 냉각 (기본 냉각 속도 상한 제어 없음)')
+    design_cooling=cooling_segment(peak,lower,'design')
+    design_cooling.update(required_min_K_s=down,rate_source='sim/params.json reflow.ramp_down.value',
+                          maintains_required_rate=design_cooling['min_cool_K_s']>=down)
+    observed_cooling=cooling_segment(lower,h('cool_to'),'관찰 항목 (판정 없음)')
     near=SIM['reflow']['time_near_peak']['value']; tal=SIM['reflow']['time_above_liquidus']['value']
     shoulder=tal-near-(peak-tl)/ramp-(peak-tl)/down
     heat_time=(peak-amb)/ramp+SIM['reflow']['soak_time']['value']+max(0,shoulder)
     simultaneous=h('head_power')+h('heater_power')+h('aux_48'); sequenced=h('heater_power')+h('aux_48')
-    return save('reflow_heater',dict(thermal_capacity_J_K=C,peak_C=peak,hold_W=loss(peak),ramps=ramps,heater_W=h('heater_power'),heater_ohm=h('voltage_48')**2/h('heater_power'),heater_A=h('heater_power')/h('voltage_48'),
+    payload=save('reflow_heater',dict(thermal_capacity_J_K=C,peak_C=peak,hold_W=loss(peak),ramps=ramps,heater_W=h('heater_power'),heater_ohm=h('voltage_48')**2/h('heater_power'),heater_A=h('heater_power')/h('voltage_48'),
+      forced_cooling_design_segment=design_cooling,forced_cooling_observation_segment=observed_cooling,
+      cooling_assumptions={k:H[k] for k in ('coolant_flow','h_forced')},
       natural_cool_to_100_s=natural,forced_cool_to_100_s=forced,cooling_dt_half_difference_s=abs(fine-forced),natural_initial_cool_K_s=loss(peak)/C,forced_initial_cool_K_s=loss(peak,True)/C,
       forced_control_cool_W=C*down,forced_end_cool_K_s=end_rate,forced_cool_to_liquidus_s=cool(True,h('dt'),tl),controlled_cool_to_100_s=controlled,ideal_4K_s_cool_to_100_s=(peak-h('cool_to'))/down,coolant_flow_L_min=h('coolant_flow'),coolant_capacity_W_K=flow_capacity,forced_effective_conductance_W_K=forced_G,heater_margin_3K_s_W=h('heater_power')-max(x['required_W'] for x in ramps),heater_margin_3K_s_percent=(h('heater_power')/max(x['required_W'] for x in ramps)-1)*100,peak_hold_s=near,shoulder_hold_s=shoulder,TAL_target_s=tal,TAL_estimated_controlled_s=near+max(0,shoulder)+(peak-tl)/ramp+controlled_tl,heat_time_s=heat_time,Biot_upper=h('h_forced')*t/h('al_k'),power_48_simultaneous_W=simultaneous,power_48_sequenced_W=sequenced,power_48_head_phase_W=h('head_power')+h('aux_48'),power_48_max_sequenced_W=max(sequenced,h('head_power')+h('aux_48')),power_24_W=h('aux_24'),
       power_action='순차 운전 채택: 헤드400 W와 척150 W 두 히터 동시 통전 금지(SW 인터락, 펌웨어 PR #30에서 구현·시험). 동시650 W는 금지 상태 참고값.'),
-      dict(default_2K_s=next(x['feasible'] for x in ramps if x['ramp_K_s']==ramp),all_1_to_3K_s=all(x['feasible'] for x in ramps),peak_hold=loss(peak)<h('heater_power'),power48_head_phase=h('head_power')+h('aux_48')<=h('power_48'),power48_sequenced=sequenced<=h('power_48'),power24=h('aux_24')<=h('power_24'),profile_heat_time=heat_time<=SIM['reflow']['total_time_25_to_peak_max']['value'],forced_cooling_tracks_default_4K_s=end_rate>=down,controlled_cooling_under_profile_max=min(loss(peak,True)/C,down)<=max(SIM['reflow']['ramp_down']['range'])),
-      ['Al plate + heater only; fixture/payload heat capacity and bolt thermal bridges omitted.','공기/N₂ 유량100 L/min 및 h=400은 독립 가정. 유한 유량 열저항 포함; 기본4 K/s는 전 구간 추종 불가, 최대6 K/s와 기본4 K/s를 구분.','집중정수는 면내 온도 균일성, 실제 프로파일 제어와 재료 인증을 검증하지 않음.'],post_tests=['노즐 유량/h 및 탑재 상태 열프로파일 실측'],reviews=[])
+      dict(default_2K_s=next(x['feasible'] for x in ramps if x['ramp_K_s']==ramp),all_1_to_3K_s=all(x['feasible'] for x in ramps),peak_hold=loss(peak)<h('heater_power'),power48_head_phase=h('head_power')+h('aux_48')<=h('power_48'),power48_sequenced=sequenced<=h('power_48'),power24=h('aux_24')<=h('power_24'),profile_heat_time=heat_time<=SIM['reflow']['total_time_25_to_peak_max']['value'],forced_cooling_peak_to_lower_maintains_required_rate=design_cooling['maintains_required_rate'],controlled_cooling_under_profile_max=min(loss(peak,True)/C,down)<=max(SIM['reflow']['ramp_down']['range'])),
+      ['Al plate + heater only; fixture/payload heat capacity and bolt thermal bridges omitted.','강제 냉각 유량과 h는 cooling_assumptions의 독립 가정값. 판정은 피크→설계 하한의 최소 속도이며 하한 미만은 관찰 항목(판정 없음).','집중정수는 면내 온도 균일성, 실제 프로파일 제어와 재료 인증을 검증하지 않음.'],post_tests=['노즐 유량/h 및 탑재 상태 열프로파일 실측'],reviews=[])
+    print(f"  냉각 가정값: 유량 {h('coolant_flow'):g} L/min, h {h('h_forced'):g} W/m²K")
+    print(f"  설계 목표 {peak:g}→{lower:g} ℃: 최소 {design_cooling['min_cool_K_s']:.6f}, 평균 {design_cooling['average_cool_K_s']:.6f} K/s, {design_cooling['time_s']:.6f} s; {down:g} K/s 이상 유지={design_cooling['maintains_required_rate']}")
+    print(f"  관찰 항목 {lower:g}→{h('cool_to'):g} ℃: {observed_cooling['time_s']:.6f} s, 속도 {observed_cooling['min_cool_K_s']:.6f}~{observed_cooling['max_cool_K_s']:.6f} K/s (판정 없음)")
+    return payload
 
 def mold():
     m=G.MOLD; p=h('mold_pressure'); selected=m['bore']; area=math.pi*selected**2/4
