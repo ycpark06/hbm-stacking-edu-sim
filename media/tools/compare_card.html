@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="ko"><meta charset="utf-8"><title>TC-NCF와 MR-MUF, 세 가지 차이</title>
+<style>
+/* web/hmi.css palette copied locally; no external resources. */
+*{box-sizing:border-box}body{margin:0;width:1920px;height:1080px;overflow:hidden;background:#0b1420;color:#e1eaf5;font:32px/1.5 system-ui,sans-serif;padding:58px 90px}h1{font-size:54px;margin:0 0 30px;letter-spacing:-.04em}table{border-collapse:separate;border-spacing:12px;width:100%;table-layout:fixed}th{font-size:30px;color:#60e0c0}th:first-child{width:240px}td{height:192px;background:#121f30;border:3px solid #30445b;border-radius:12px;padding:18px 24px;transition:opacity .35s,border-color .35s,background .35s}tbody th{color:#aec0d3;text-align:left}tbody tr{opacity:0;visibility:hidden;transition:opacity .45s}tbody tr.shown{opacity:1;visibility:visible}td.dim{opacity:.45}td.active{border-color:#60e0c0;background:#192b40}svg{float:left;width:90px;height:100px;margin:16px 24px 8px 0;fill:none;stroke:#60e0c0;stroke-width:5}p{margin:0}small{font-size:27px;color:#aec0d3}footer{position:absolute;bottom:150px;font-size:20px;color:#aec0d3}
+</style>
+<h1>TC-NCF와 MR-MUF, 세 가지 차이</h1>
+<table aria-label="공정 원리 비교"><thead hidden><tr><th>차이</th><th>TC-NCF (삼성전자 방식)</th><th>MR-MUF (SK하이닉스 방식)</th></tr></thead><tbody>
+<tr><th>열 받는 횟수</th><td><svg viewBox="0 0 100 100"><path d="M10 25h80M10 50h80M10 75h80M50 90V10m-12 15 12-15 12 15"/></svg><p>층마다 접합 → 아래층 재가열<br><small>12단이면 맨 아래 칩 11번 더</small></p></td><td><svg viewBox="0 0 100 100"><path d="M15 25h70M15 50h70M15 75h70M5 10v80h90V10"/></svg><p>리플로우 한 번에<br>모든 층 함께 접합</p></td></tr>
+<tr><th>빈틈 채우기</th><td><svg viewBox="0 0 100 100"><path d="M15 30h70M5 60h90M15 80h70M50 0v20m-10-10 10 10 10-10"/></svg><p>미리 붙인 NCF 필름이<br>눌리며 채움</p></td><td><svg viewBox="0 0 100 100"><path d="M20 30h70M20 75h70M0 52h75m-15-12 15 12-15 12"/></svg><p>접합 후<br>액체 수지(MUF) 주입</p></td></tr>
+<tr><th>위치 맞추기</th><td><svg viewBox="0 0 100 100"><path d="M10 65h65V40H10zM25 90h65M40 0v30m-10-10 10 10 10-10"/></svg><p>내려놓은 자리 그대로 굳음<br><small>자기정렬 없음</small></p></td><td><svg viewBox="0 0 100 100"><path d="M25 35h50v30H25zM15 90h70M0 50h20m-10-10 10 10-10 10M100 50H80m10-10L80 50l10 10"/></svg><p>녹은 솔더가 끌어당겨<br>스스로 정렬</p></td></tr>
+</tbody></table>
+<footer>개념 비교 · 수치 근거는 저장소 sim/params.json, stage4_results.json</footer>
+<script>
+const rows=[...document.querySelectorAll('tbody tr')];
+function row(r){if(!Number.isInteger(r)||r<1||r>3)throw RangeError('row 1..3');return rows[r-1];}
+window.card={showRow(r){document.querySelector('thead').hidden=false;row(r).classList.add('shown');},focus(r,c){row(r);if(![0,1,2].includes(c))throw RangeError('column 0..2');rows.forEach((tr,i)=>[...tr.querySelectorAll('td')].forEach((td,j)=>{const active=i===r-1&&(c===0||j===c-1);td.classList.toggle('active',active);td.classList.toggle('dim',!active);}));},reset(){document.querySelector('thead').hidden=true;rows.forEach(tr=>{tr.classList.remove('shown');tr.querySelectorAll('td').forEach(td=>td.classList.remove('active','dim'));});}};
+window.card.reset();
+</script></html>

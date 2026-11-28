@@ -101,3 +101,27 @@ ffmpeg -ss <clock0_video_s> -i media/out/scene_02_s1.webm -t <duration_s> \
 이 처리를 8개 장면에 적용한 후 순서대로 연결하고, 큐 시계 0에 해당 장면의 TTS 시작을 맞춘다. 큐 모드는 준비 영상을 그대로 연결하지 않도록 `--concat` 조합을 거부한다. `clock0_video_s`는 지정한 단조 시계 기준의 준비 길이이며, 인코더 첫 프레임의 PTS를 실측한 값은 아니다. Claude는 완성 영상에서 프레임 경계·표 가독성·실제 선택자·WebGL·큐 지연을 확인해야 한다. Codex는 Chromium을 실행하지 않는다.
 
 커밋 단위 제안: `feat: 내레이션 큐 기반 녹화 모드`. 커밋과 영상 파일 추가는 수행하지 않는다.
+
+## 영상 v2 — 원리와 장비 동작 (6장면, 217초)
+
+`record_demo.py`는 v1 그대로 유지한다. v2는 승인된 저장소 밖 대본과 `tts/timing.json`을 읽기만 하며, 문장 시작 시각에 맞춘 `tools/cues_v2.json`을 사용한다. 공정·결과 입력은 바꾸지 않는다. 장면 29의 필름 눌림과 31의 여러 층 반복은 문장 길이에 맞춘 진행률 편집 표시이며 실제 공정 시간이 아니다. 나머지 재생은 기존 지원 속도에서 종점을 지키고 정지한다. 35번은 `reflow-4` 승온부터 `reflow-5` 피크 진입까지 보인다.
+
+```bash
+python3 -m py_compile media/tools/record_v2.py
+python3 media/tools/record_v2.py --plan \
+  --timing "$HOME/Desktop/MSE489/기말보고서/영상/v2/tts/timing.json"
+# Chromium 실행 가능 환경에서 Claude가 실행. 로컬 서버는 저장소 루트 자산 제공 필요.
+python3 media/tools/record_v2.py --url http://localhost:8000/web/ \
+  --card media/tools/compare_card.html \
+  --timing "$HOME/Desktop/MSE489/기말보고서/영상/v2/tts/timing.json" \
+  --cues media/tools/cues_v2.json --out media/out/v2 --captions
+# 부분 재녹화: 새 출력 폴더에 --scene 4 --scene 5 (반복 지정 가능)
+```
+
+Playwright Chromium에 `--use-angle=swiftshader --enable-unsafe-swiftshader`를 전달하고, 장면마다 새 context에서 viewport·video 모두 1920×1080으로 녹화한다. 비교 카드는 `file://`로 연다. 로드·GLB 성공·factory ready·view-only·모드/초기 단계/카메라·CAD 비교 이미지·두 프레임 반영까지 **준비 구간**으로 분리한다. 이후 clock0부터 `timing.json`의 `video_s`만큼 유지한다. 출력 폴더는 비어 있어야 하며 실패 시 중단하고 부분 영상과 실패 매니페스트를 남긴다.
+
+`scene01.webm`~`scene06.webm`은 준비 구간을 포함한다. `scenes.json`의 `clock0_video_s`는 비디오 핸들을 받은 직후 단조 시계 기준으로 추정한 준비 길이이고, `duration_s`는 원본 `video_s`다. 준비 끝에 순백 동기 플래시를 0.3 s 표시하고 제거 후 rAF 두 번을 거쳐 clock0을 잡는다. `sync_flash.shown_s`/`removed_s`는 started 기준이며, 트리밍은 영상에서 마지막 플래시 다음 프레임을 clock0으로 쓴다. `python3 media/tools/trim_v2.py media/out/v2`는 디코드 후 플래시 끝을 검출해 `duration_s` 길이의 `trim/sceneNN.mp4`(30 fps, H.264, yuv420p, 1920×1080, 무음)를 만들고, 마지막 한 프레임 부족은 복제로 채우며 검출 시각과 매니페스트 추정값 차이를 `trim/sync_report.json`에 저장한다. cue별 `t`/`actual_s`/`late_s`/`status`와 `ended_s`를 기록한다. `actual_s`는 clock0 기준 실행 시작이며 `late_s`는 계획보다 늦은 시간이다. 실패 cue는 `error`도 기록한다. 준비 시간이 본편 길이를 소모하지 않는다.
+
+`--plan`은 브라우저 없이 6장면·42문장의 자막/시작 시각 대응, 시간 범위·순서, 실제 단계 ID/재생 길이, 대상의 파일·문자열 근거를 검사하고 표를 출력한다. DOM 생성 코드의 정적 계약 검사이며 실제 배포본·WebGL·레이아웃 검증은 Claude가 한다. 장면 제목(`--captions`)은 왼쪽 위(위 18px·왼쪽 24px, 24px 글꼴)에 둔다. 하단 중앙에 두면 공장 페이지 하단 고정 개념 애니메이션 문구를 가리기 때문이다. 별도 burn-in 자막은 바닥 110px 위에 둔다.
+
+비교 카드 API: `window.card.showRow(1..3)`는 이전 행을 유지하며 페이드인, `focus(r, 0)`은 행 전체, `focus(r, 1)`은 TC-NCF, `focus(r, 2)`는 MR-MUF를 강조한다. `reset()`은 제목과 근거 문구만 남긴다. 카드의 색과 SVG는 단일 HTML 안에 있으며 외부 자원을 사용하지 않는다. CAD cue는 실제 목록 버튼 이름·`#explode` 입력 이벤트·`#comparison`/`#drawings` 스크롤·캔버스 드래그를 사용한다. targets에 근거 파일과 문자열을 함께 보관한다.
