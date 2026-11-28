@@ -81,6 +81,16 @@
 
 출처 URL·range·한국어 원구분은 `sim/params.json`, 변경 내역은 [단계 4 모델 보정 결과](stage4_model_update.md)에 기록했다. 금형 압력과 간격 입구 압력은 서로 다른 물리량이며, 충전 모델에는 간격 입구 유효 압력을 쓴다.
 
+### 하드웨어 운전 조건 (단계 5)
+
+층간 정렬은 **적층 중 상온 또는 고정 정렬 온도에서 완료**한다. 리플로우 시 기준점 **108.6 μm** 이동은 완성 스택이 척과 함께 강체 이동한다는 해석에서 **±1 μm 원문 KPI(층간 정합)에 영향 없음**이다. **적층 척 = 리플로우 척** 구성은 **정렬 온도 고정 + 온도 도달 후 90 s 안정화**한 뒤 정렬한다(중간 보고서 7장). 열 휨·미끄러짐·층간 CTE 차이는 별도 제작 후 확인 대상이다. 근거: [열팽창 계산](../calc/hardware/thermal_expansion.json)의 `results.datum_shift_um`, `results.alignment_wait_s`, `results.interlayer_KPI_effect`.
+
+헤드 **400 W**와 리플로우 척 **150 W**(설계값)는 순차 사용하며 **두 히터 동시 통전 금지(SW 인터락, PR #30)**를 지킨다. 보조 포함 척 단계 **250 W** / 헤드 단계 **500 W**는 **48 V 600 W** 이내다. 리플로우 척 **250 ℃·승온 1~3 K/s**는 문헌 프로파일 기반 **공정 목표**이고, 헤드 **400 ℃ 원문 KPI**와 구분한다. [펌웨어 인터락 계약](../firmware/README.md#두-히터-동시-통전-금지-w7-2026-11-28)과 [히터 계산](../calc/hardware/reflow_heater.json)을 따른다.
+
+리플로우 척 공기·N₂ 강제 냉각의 **설계 목표**는 **피크→180 ℃에서 4 K/s 이상 유지**다. 현재 최소 **3.39 / 평균 4.10 K/s**로 **FAIL/REVIEW**이며, **180 ℃ 아래는 관찰 항목(판정 없음)**이다. 풍량 **100 L/min**·**h = 400 W/m²K**는 실측 전 **가정값**이다. 판정은 `reflow_heater.json`의 `results.forced_cooling_design_segment`, 관찰은 `results.forced_cooling_observation_segment`, 가정은 `results.cooling_assumptions`에 기록한다. 노즐 유량·h 및 탑재 상태 열프로파일은 제작 후 시험한다.
+
+가압 지그의 **기밀·내압은 제작 후 시험**한다. 손계산 PASS는 실물 시험 완료를 뜻하지 않는다. [하드웨어 계산 근거·판정·시험 항목](../calc/hardware/README.md)을 따른다.
+
 ## 7. 시연에서 보여 줄 대표 시나리오
 이번 재실행 결과를 그대로 기록했다. 층별 T(t) 전체 표본과 민감도·단계 3 비교는 [단계 4 모델 보정 결과](stage4_model_update.md)와 `sim/test/stage4_results.json`에 있다.
 
