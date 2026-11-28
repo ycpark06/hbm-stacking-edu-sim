@@ -1,7 +1,7 @@
 import * as THREE from '../vendor/three/build/three.module.js';
 import {GROUPS} from './cad_parts.js';
 // All values in this module are display settings, not material properties.
-export const LIGHT_COLORS=Object.freeze({frame:'#C9D0D8',head:'#14365A',z_carriage:'#14365A',stack_chuck:'#E08A3C',reflow_chuck:'#B8322A',mold_jig:'#3E8E5A',plunger:'#3E8E5A',dispenser:'#7A5BA6',ncf_tray:'#7A5BA6',camera_bottom:'#7A8899'});
+export const LIGHT_COLORS=Object.freeze({frame:'#C9D0D8',head:'#14365A',z_carriage:'#14365A',stack_chuck:'#E08A3C',reflow_chuck:'#B8322A',mold_jig:'#3E8E5A',plunger:'#3E8E5A',dispenser:'#7A5BA6',ncf_tray:'#14365A',camera_bottom:'#C9D0D8'});
 export const LIGHT_ROLES=Object.freeze({frame:'하중 지지 · 기판 XY 이동',head:'하중 전달 · 가열 · 접합',z_carriage:'헤드 하중과 위치 전달',stack_chuck:'층별 지지 · 진공 고정',reflow_chuck:'스택 일괄 가열 · 냉각',mold_jig:'캐비티·게이트·벤트로 수지 안내',plunger:'수지를 가압 이송',dispenser:'충전 전 액상 수지 공급',ncf_tray:'필름 부착 다이 공급 준비',camera_bottom:'하부 광로로 충전 선단 관찰'});
 export function createLightPresentation(scene,camera,container,nodes){
   scene.background=new THREE.Color('#FFFFFF');
@@ -20,16 +20,33 @@ export function createLightPresentation(scene,camera,container,nodes){
   const overlay=document.createElement('div');overlay.className='light-callout';overlay.hidden=true;
   const line=document.createElementNS('http://www.w3.org/2000/svg','svg');line.classList.add('light-leader');line.innerHTML='<path fill="none" stroke="#14365A" stroke-width="2"/>';container.append(line,overlay);
   let focused=null;
+  const labels=[['stack_chuck','적층 척'],['reflow_chuck','리플로우 척'],['mold_jig','가압 충전 지그·플런저'],['dispenser','디스펜서'],['ncf_tray','NCF 트레이']].map(([id,name])=>{
+    const label=document.createElement('span');label.className='light-all-label';label.textContent=name;label.style.borderColor=LIGHT_COLORS[id];label.hidden=true;container.append(label);return {id,label};
+  });
   function focus(id){
-    if(id!==null&&!nodes[id])throw RangeError('unknown part group');focused=id;
-    if(id){overlay.replaceChildren();const title=document.createElement('strong'),role=document.createElement('span');title.textContent=GROUPS[id].name;role.textContent=LIGHT_ROLES[id];overlay.append(title,role);}
+    if(id!==null&&id!=='all'&&!nodes[id])throw RangeError('unknown part group');focused=id;
+    if(id&&id!=='all'){overlay.replaceChildren();const title=document.createElement('strong'),role=document.createElement('span');title.textContent=GROUPS[id].name;role.textContent=LIGHT_ROLES[id];overlay.append(title,role);}
     apply();
   }
   function apply(){for(const [id,node] of Object.entries(nodes))node.traverse(mesh=>{
-    if(mesh.isMesh)for(const m of [].concat(mesh.material)){m.color.set(focused&&focused!==id?'#C9D0D8':LIGHT_COLORS[id]);m.opacity=focused&&focused!==id?.25:1;m.transparent=m.opacity<1;m.depthWrite=m.opacity===1;m.emissive?.set(0);}
-    if(mesh.userData.lightEdge)mesh.material.opacity=focused&&focused!==id?.08:.35;
+    const dim=focused&&focused!=='all'&&focused!==id;
+    if(mesh.isMesh)for(const m of [].concat(mesh.material)){m.color.set(dim?'#C9D0D8':LIGHT_COLORS[id]);m.opacity=dim?.25:1;m.transparent=m.opacity<1;m.depthWrite=m.opacity===1;m.emissive?.set(0);}
+    if(mesh.userData.lightEdge)mesh.material.opacity=dim?.08:.35;
   });}
   function render(){
+    scene.updateMatrixWorld(true);
+    const occupied=[];
+    for(const {id,label} of labels){
+      const p=new THREE.Box3().setFromObject(nodes[id]).getCenter(new THREE.Vector3()).project(camera);
+      label.hidden=focused!=='all'||!nodes[id].visible||p.z < -1||p.z>1;
+      if(label.hidden)continue;
+      const w=container.clientWidth,h=container.clientHeight;
+      const left=Math.max(8,Math.min(w-label.offsetWidth-8,(p.x+1)*w/2+12));
+      let top=Math.max(8,Math.min(h-label.offsetHeight-8,(1-p.y)*h/2));
+      for(const box of occupied)if(left<box.right&&left+label.offsetWidth>box.left&&top<box.bottom&&top+label.offsetHeight>box.top)top=box.bottom+4;
+      top=Math.min(h-label.offsetHeight-8,top);label.style.left=`${left}px`;label.style.top=`${top}px`;
+      occupied.push({left,right:left+label.offsetWidth,top,bottom:top+label.offsetHeight});
+    }
     const node=focused&&nodes[focused];overlay.hidden=line.hidden=!node||!node.visible;if(!node||!node.visible)return;
     scene.updateMatrixWorld(true);const p=new THREE.Box3().setFromObject(node).getCenter(new THREE.Vector3()).project(camera);
     if(p.z < -1||p.z>1){overlay.hidden=line.hidden=true;return;}
