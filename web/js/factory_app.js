@@ -1,3 +1,5 @@
+import {createLightPanel} from './factory_light.js';
+import {setLightTitle} from './cad_light.js';
 import {MODES,DISPLAY,CAMERA_IDS,readFactoryData,buildStages,sampleStage} from './factory_sequence.js';
 import {createFactoryViewer} from './factory_viewer.js';
 const $=id=>document.getElementById(id),fmt=(v,d=1)=>Number(v).toLocaleString('ko-KR',{maximumFractionDigits:d});
@@ -10,6 +12,7 @@ try {
   let mode=MODES[0],seconds=DISPLAY.totalSeconds,stages=buildStages(data,mode,seconds),index=0,elapsed=0,playing=false,speed=1,camera=1,viewOnly=false;
   const listeners=new Set();
   const viewer=createFactoryViewer($('viewer'),data,status=>$('model-status').textContent=status);
+  const light=document.documentElement.dataset.theme==='light'?createLightPanel(document.querySelector('.workspace'),$('viewer'),data,results):null;
   const refs=['tcncf_process.bond_force','tcncf_process.head_setpoint','tcncf_process.ramp_rate','tcncf_process.hold_time','tcncf_process.cool_time','mrmuf_process.tack_force','mrmuf_process.tack_temp','mrmuf_process.tack_time','muf.applied_pressure','mrmuf_process.mold_pressure_applied','muf.cure_temp','muf.cure_time'];
   $('sources').innerHTML=refs.map(key=>{const entry=key.split('.').reduce((a,k)=>a[k],p);return `<p><code>${key}</code><br>${entry.value??entry.equipment_value} ${entry.unit} ${badge(entry)}</p>`;}).join('');
   $('temp-meter').max=p.equipment_limits.head_max_temp_C.value;$('force-meter').max=p.equipment_limits.bond_force_max_N.value;
@@ -29,7 +32,7 @@ try {
   function state(){const stage=stages[index];return {ready:true,mode,stage:index,id:stage.id,title:stage.title,elapsed_s:elapsed,stage_progress:elapsed/stage.duration_s,playing,speed,camera,viewOnly,screen_duration_s:seconds,complete:index===stages.length-1&&elapsed===stage.duration_s};}
   function notify(){const snapshot=Object.freeze(state());for(const cb of listeners){try{cb(snapshot);}catch(error){console.error('factory.onStage callback',error);}}}
   function draw(){const s=stages[index],v=sampleStage(data,s,elapsed/s.duration_s);
-    viewer.update(s,v);$('stage').value=index;$('caption').textContent=s.title;$('stage-number').textContent=`${mode} / ${index+1} of ${stages.length}`;
+    viewer.update(s,v);light?.update(stages,s,v.u,camera);$('stage').value=index;$('caption').textContent=s.title;$('stage-number').textContent=`${mode} / ${index+1} of ${stages.length}`;
     const before=stages.slice(0,index).reduce((a,s)=>a+s.duration_s,0);$('progress').value=(before+elapsed)/seconds;$('clock').textContent=`화면 ${fmt(before+elapsed)} / ${seconds} s · ${speed}×${playing?' 재생 중':' 일시정지'}`;
     $('timing').textContent=s.real_duration_s>0?`실제 ${fmt(s.real_duration_s,3)} s → 화면 ${fmt(s.duration_s,2)} s (${fmt(s.real_duration_s/s.duration_s,2)}:1, ${speed}×에서 ${fmt(s.duration_s/speed,2)} s) · 실제 시간이 아닌 압축·확대 표시`:`표시 연출 ${fmt(s.duration_s,2)} s · 이 장면의 별도 실제 공정 시간은 산정하지 않음`;
     $('station').textContent=['reflow','to-reflow'].includes(s.kind)?'리플로우 척':['to-mold','dispense','fill','mold-cure','postcure'].includes(s.kind)?'가압 충전 지그':'적층 스테이션';
@@ -54,7 +57,7 @@ try {
   function setCamera(k){if(!CAMERA_IDS.includes(Number(k)))throw RangeError('camera');camera=Number(k);viewer.setCamera(camera);$('camera').value=camera;draw();return state();}
   function setViewOnly(value){if(typeof value!=='boolean')throw TypeError('viewOnly: boolean');viewOnly=value;document.body.classList.toggle('view-only',value);return state();}
   await viewer.ready;
-  window.factory={setMode,setStage,play,pause,setSpeed,setCamera,setViewOnly,stages:()=>stages.map(s=>({...s})),onStage(cb){if(typeof cb!=='function')throw TypeError('callback');listeners.add(cb);return ()=>listeners.delete(cb);},state};
+  window.factory={setMode,setStage,play,pause,setSpeed,setCamera,setViewOnly,focus:group=>viewer.focus(group),setTitle(text){if(light)setLightTitle($('viewer'),text);},stages:()=>stages.map(s=>({...s})),onStage(cb){if(typeof cb!=='function')throw TypeError('callback');listeners.add(cb);return ()=>listeners.delete(cb);},state};
   choices();draw();['play','pause','stage'].forEach(id=>$(id).disabled=false);
   $('play').onclick=play;$('pause').onclick=pause;$('mode').onchange=e=>setMode(e.target.value);$('stage').onchange=e=>setStage(Number(e.target.value));$('speed').onchange=e=>setSpeed(Number(e.target.value));$('camera').onchange=e=>setCamera(e.target.value);
   $('length').onchange=e=>{seconds=Number(e.target.value);stages=buildStages(data,mode,seconds);elapsed=0;choices();draw();notify();};
