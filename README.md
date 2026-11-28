@@ -166,18 +166,36 @@ NCF 보이드 정량 모델은 없고, MUF 미충전 모델에는 범프 투과�
 모델 알람은 접합 온도 미달 `BOND_TEMP_LOW`, 휨·결함 판정, 필러·겔 경고를
 펌웨어 보호 상태와 함께 표시한다.
 
+### 3.5 하드웨어(적층 부품)
+
+[Fusion 요약](cad/stacker/out/summary.json)의 외곽은 **590 × 480 mm**로 가로·세로 ≤ 600 mm **원문 KPI를 통과**하며, 간섭은 **0**이다. 높이 **630 mm**와 질량 **101.88 kg**은 판정 대상이 아닌 **참고값**이다.
+
+헤드 **400 W**와 리플로우 척 **150 W**는 **설계값**이며 **순차 사용**한다. **두 히터 동시 통전 금지**는 [펌웨어 SW 인터락](firmware/README.md#두-히터-동시-통전-금지-w7-2026-11-28)(PR #30)으로 구현·시험했다. 보조 전력을 포함한 척 단계 **250 W** / 헤드 단계 **500 W**는 중간 전원 **48 V 600 W** 이내다. 척 히터는 **3 K/s** 승온에 필요한 **120.7 W** 대비 여유가 있다. 리플로우 척 **250 ℃·승온 1~3 K/s**는 문헌 프로파일에 근거한 **공정 목표**이며 헤드 **400 ℃ 원문 KPI**와 구분한다.
+
+공기·N₂ 강제 냉각의 **설계 목표**는 **피크→180 ℃에서 4 K/s 이상 유지**다. 현재 계산은 최소 **3.39 / 평균 4.10 K/s**로 **FAIL/REVIEW**이며, **180 ℃ 아래는 관찰 항목(판정 없음)**이다. 풍량 **100 L/min**과 대류 열전달계수 **h = 400 W/m²K**는 실측 전 **가정값**이다. 평균 속도가 목표를 넘어도 전 구간 유지 조건을 통과하지 못한다.
+
+가압 지그는 **Ø4 mm 플런저**(설계값)에 마찰 가정을 포함한 **42.7 N**에서 금형 압력 **3 MPa**(문헌값)에 도달하는 계산이다. 독립 **M3 나사 4개 합계 예압 ≥ 216 N**은 설계값이며, **기밀·내압은 제작 후 시험**한다. 범프 접촉 응력 손계산은 **40 / 50 N**에서 **9.9 / 12.3 MPa**, 비교 문헌 Si 굽힘 파괴강도는 **261 MPa**(**51 μm 시험편**)다. 전면 석영 지지·균일 범프 하중을 전제로 **조건부 PASS**이며 실제 다이의 최소강도나 수명 보증은 아니다.
+
+층간 정렬은 적층 중 상온 또는 고정 정렬 온도에서 완료한다. 리플로우 시 기준점 **108.6 μm** 이동은 완성 스택이 척과 함께 강체 이동한다는 해석에서 **층간 정합 ±1 μm 원문 KPI에 영향 없음**이다. **적층 척 = 리플로우 척**이면 정렬 온도를 고정하고 **온도 도달 후 90 s 안정화**한 뒤 정렬한다(중간 보고서 7장). 열 휨·미끄러짐은 제작 후 별도 확인한다.
+
+숫자·판정·문헌 출처는 [하드웨어 계산 4종](calc/hardware/README.md)에 있다. 산출물: 제작 도면 3장([적층 척](docs/drawings/stack_chuck.pdf), [리플로우 척](docs/drawings/reflow_chuck.pdf), [가압 지그](docs/drawings/mold_jig.pdf)), [배선도](wiring/hbm_wiring.svg)·[핀 배정표](wiring/pinmap.csv), [장비 GLB](cad/web/hbm_stacker.glb), [Fusion 실행 방법](cad/stacker/README.md#실행-방법).
+
 ---
 
 ## 4. 저장소 구조
 
 ```
 ├─ docs/        계획서, 요구사항, 보고서, 실습 매뉴얼, 발표 자료
+│  └─ drawings/ 적층 척·리플로우 척·가압 지그 제작 도면
 ├─ calc/        Python 계산 모델
+│  └─ hardware/ 신규 하드웨어 계산 4종·결과 JSON
 ├─ firmware/    제어 C 코드, HAL, 빌드 결과 (.bin, .wasm)
 ├─ sim/         시뮬레이션 엔진 (JS), params.json, 테스트
 ├─ web/         웹 시뮬레이터 (GitHub Pages)
-├─ cad/         Fusion 스크립트, STEP, GLB, 2D 도면
-├─ wiring/      배선도
+├─ cad/         Fusion 스크립트, STEP, GLB
+│  ├─ stacker/  적층 장비 Fusion 스크립트·STEP·요약
+│  └─ web/      웹용 장비 GLB
+├─ wiring/      배선도·STM32H743 핀 배정표
 └─ media/       영상, 캡처
 ```
 
@@ -241,6 +259,8 @@ make -C firmware test-wasm  # 검증 6, Node ↔ PC 고정 입력 비교 (별도
 
 | 날짜 | Issue | 문제 | 원인 | 해결 |
 |---|---|---|---|---|
+| 2026-11-28 | [#37](https://github.com/ycpark06/hbm-stacking-edu-sim/issues/37) | CI Node 24에서 시나리오 기준값 정확 일치 테스트 실패 | Box–Muller `Math.log/cos/sin` 마지막 ulp가 V8 버전마다 다름 | 숫자 상대 1e-12 허용 비교 ([PR #38](https://github.com/ycpark06/hbm-stacking-edu-sim/pull/38)) |
+| 2026-11-28 | [#33](https://github.com/ycpark06/hbm-stacking-edu-sim/issues/33) | Fusion 내장 Python 기본 인코딩 ASCII에서 `read_text`/`open` 실패 | 인코딩 미지정 | cad 스크립트 입출력 UTF-8 명시 + ASCII 환경 검사 `cad/tools/check_encoding.py` ([PR #34](https://github.com/ycpark06/hbm-stacking-edu-sim/pull/34)) |
 | 2026-11-28 | [#23](https://github.com/ycpark06/hbm-stacking-edu-sim/issues/23) | worktree index.lock 생성 실패 | Codex 샌드박스의 git 메타데이터 보호 | Codex는 코드 작성, Claude가 커밋 |
 | 2026-11-28 | [#25](https://github.com/ycpark06/hbm-stacking-edu-sim/issues/25) | Node 24에서 node --test 폴더 인자 실패 | 폴더를 모듈 경로로 해석 | `node --test 'sim/test/*.test.js'` glob 사용 |
 | 2026-11-28 | [#29](https://github.com/ycpark06/hbm-stacking-edu-sim/issues/29) | TC-NCF 1·2층 접합 온도 미달 | 역산 접촉 열저항 입력으로 다이 온도 하강 | 파라미터 유지, 알람·헤드 보정 옵션·KPI 초과 거부 |
