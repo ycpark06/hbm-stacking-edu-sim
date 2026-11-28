@@ -272,7 +272,7 @@ make -C firmware test-wasm  # 검증 6, Node ↔ PC 고정 입력 비교 (별도
 | 2026-11-26 | #5 | contact_transient_N 수기 입력 | control_sim 출력에 해당 키 없음 | 원본 contact_speed_study 재사용 스크립트, 6항목 차이 0 N |
 | 2026-11-26 | #7 | 원본 실행 폴더가 다름 | 상대 출력 경로 혼재 | 임시 작업 폴더 래퍼 추가, h=10 FEM 원본 오류 보존 ([기록](docs/sim_port_report.md)) |
 | 2026-11-26 | #20 | NCF 초기 두께·MR 사이클 비교 왜곡 | 지시문의 곱셈 오류·배치 후공정 직렬 합산 | h0=15+4=19 μm 복구, 본더 점유/배치 후공정 분리 및 [C2 결과 재계산](docs/tcncf_mode_report.md) |
-| 2026-11-26 | #2 | 헤드 열팽창 2.6 μm/s 출처 없음 | 하중 모델에 상수만 존재 | ch7_16node·CAD z 높이로 정렬 시점 약 0.03935 μm/s 계산. 상부 고정 온도·유효 길이 가정을 [기록](docs/thermal_history_report.md)에 명시, Issue 반영은 리뷰 후 처리 |
+| 2026-11-26 | #2 | 헤드 열팽창 2.6 μm/s 출처 없음 | 하중 모델에 상수만 존재 | ch7_16node·CAD z 높이로 정렬 시점 약 0.03935 μm/s 계산. 상부 고정 온도·유효 길이 가정을 [기록](docs/thermal_history_report.md)에 명시 |
 | 2026-11-25 | #6 | 하중 적분 누적·초과량 | 출력·적분 한계와 anti-windup 없음 | FIRMWARE에 ±0.5 mm/s·I_max=v_max/Ki·포화 시 이번 적분 차감, 포화 3조건 검증 통과 |
 | 2026-11-25 | #13 | 저레인지 원본 유지 구간 오차 초과 | 속도 제한으로 유지 구간 시작 전 목표 미도달 | 두 모드의 판정 시작=max(원본 시작, 98% 목표 도달+0.5 s), 원본 오차·도달 시각 관찰값 보존, 검증 2 통과 |
 | 2026-11-25 | #8 | Codex 샌드박스에서 브랜치 생성 실패 | workspace-write가 `.git` 쓰기를 막음 | 브랜치는 Claude가 만들고 `.git`만 writable_roots에 추가 |
