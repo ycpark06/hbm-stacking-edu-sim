@@ -287,6 +287,194 @@ class Recorder:
         self.page.wait_for_timeout(max(0, self.deadline-time.monotonic())*1000)
 
 
+def load_cues(path):
+    """브라우저 import 없이 계획 구조와 대상 참조를 검증한다."""
+    data = json.loads(Path(path).read_text(encoding='utf-8'))
+    allowed = {'scroll_to', 'highlight', 'open_details', 'click', 'drag_rotate',
+               'goto', 'select', 'type', 'wait'}
+    if [r['scene'] for r in data['scenes']] != [s.number for s in SCENES]:
+        raise ValueError('큐 장면 번호·순서 불일치')
+    for scene, row in zip(SCENES, data['scenes']):
+        if row['duration_s'] != scene.seconds:
+            raise ValueError(f'장면 {scene.number}: 길이 불일치')
+        previous = -1
+        for cue in row['cues']:
+            if cue['action'] not in allowed or not previous <= cue['t'] < row['duration_s']:
+                raise ValueError(f'장면 {scene.number}: 큐 동작·시각 오류 {cue}')
+            previous = cue['t']
+            args = cue['args']
+            if cue['action'] == 'drag_rotate' and not 0 < args.get('duration_s', 0) <= row['duration_s']-cue['t']:
+                raise ValueError('드래그 지속 시간 오류')
+            required = {'scroll_to': ('target',), 'highlight': ('targets',),
+                        'open_details': ('target',), 'click': ('name',),
+                        'drag_rotate': ('target', 'duration_s'), 'goto': ('url',),
+                        'select': ('target', 'value'), 'type': ('target', 'text')}
+            if any(k not in args for k in required.get(cue['action'], ())):
+                raise ValueError(f'큐 인자 누락: {cue}')
+            refs = args.get('targets', []) + args.get('inset', []) + [args[k] for k in ('target', 'scroll') if k in args]
+            if any(k not in data['targets'] for k in refs):
+                raise ValueError(f'큐 대상 참조 오류: {cue}')
+        if row['prepare']['scroll'] not in data['targets']:
+            raise ValueError('준비 스크롤 대상 없음')
+        if row['prepare'].get('preset') not in (None, *PRESETS):
+            raise ValueError('준비 프리셋 오류')
+    return data
+
+
+def print_cue_plan(data):
+    print('| 장면 | 시각 (s) | 동작 | 대상 |')
+    print('|---|---:|---|---|')
+    for row in data['scenes']:
+        print(f"| {row['scene']} 준비 | — | load / GLB / preset / scroll | {json.dumps(row['prepare'], ensure_ascii=False)} |")
+        for cue in row['cues']:
+            a = cue['args']
+            keys = a.get('targets', []) + ([a['target']] if 'target' in a else [])
+            label = ', '.join(data['targets'][k]['label'] for k in keys)
+            label = label or a.get('name') or a.get('url') or '유지'
+            extra = {k: v for k, v in a.items() if k not in ('targets', 'target', 'name', 'url')}
+            print(f"| {row['scene']} | {cue['t']:.3f} | {cue['action']} | {label.replace('|', '/')} {json.dumps(extra, ensure_ascii=False) if extra else ''} |")
+    print(f"총 {sum(r['duration_s'] for r in data['scenes'])} s (준비 구간 제외)")
+
+
+class CueRecorder(Recorder):
+    def __init__(self, page, scene, captions, started, data, plan, row, save):
+        super().__init__(page, scene, captions, started)
+        self.targets, self.plan, self.row, self.save = data['targets'], plan, row, save
+        # 준비는 본편 길이를 쓰지 않는다. 무한 대기 대신 별도 로드 제한을 둔다.
+        self.deadline = time.monotonic() + 180
+        self.clock0 = None
+        row['cues'] = []
+
+    def target(self, key):
+        self.budget()
+        spec = self.targets[key]
+        loc = self.page.locator(spec['selector'])
+        loc.first.wait_for(state='attached')
+        if 'count' in spec and loc.count() != spec['count']:
+            raise RuntimeError(f"{key}: 요소 {loc.count()}개, 예상 {spec['count']}개")
+        return loc
+
+    def scroll(self, key, smooth=True):
+        self.target(key).evaluate_all('''(els, smooth) => {
+            const rects = els.map(e=>e.getBoundingClientRect());
+            const top = Math.min(...rects.map(r=>r.top));
+            const bottom = Math.max(...rects.map(r=>r.bottom));
+            scrollTo({top:scrollY+(top+bottom)/2-innerHeight/2,
+                      behavior:smooth?'smooth':'instant'});
+        }''', smooth)
+
+    def highlight(self, args):
+        self.page.locator('[data-demo-inset]').evaluate_all('els=>els.forEach(el=>el.remove())')
+        self.page.evaluate('''() => document.querySelectorAll('[data-demo-focus]').forEach(el=>{
+            el.style.outline=el.dataset.demoOutline;
+            delete el.dataset.demoFocus; delete el.dataset.demoOutline;
+        })''')
+        for key in args['targets']:
+            self.target(key).evaluate_all('''els => els.forEach(el=>{
+                el.dataset.demoOutline=el.style.outline;
+                el.dataset.demoFocus='true'; el.style.outline='3px solid #ffe084';
+            })''')
+        if args.get('scroll'):
+            self.scroll(args['scroll'])
+        # S5 표와 결과 카드는 멀리 떨어져 있다. 모델을 재계산하거나 수치를 쓰지 않고,
+        # 지정 카드의 DOM 값/배지를 복제해 표를 읽는 동안 함께 보여 준다.
+        for key in args.get('inset', []):
+            self.target(key).evaluate_all('''(els, label) => {
+                const panel=document.createElement('aside');
+                panel.dataset.demoInset='true';
+                panel.style.cssText='position:fixed;right:24px;top:24px;z-index:2147483646;background:#07111ff5;color:white;padding:16px;border:3px solid #ffe084;border-radius:8px;font:20px system-ui;max-width:500px';
+                const title=document.createElement('div');title.textContent=label;
+                panel.append(title);
+                els.forEach(el=>panel.append(el.cloneNode(true)));
+                document.body.append(panel);
+            }''', self.targets[key]['label'])
+
+    def execute(self, cue, base):
+        action, args = cue['action'], cue['args']
+        if action == 'scroll_to':
+            self.scroll(args['target'])
+        elif action == 'highlight':
+            self.highlight(args)
+        elif action == 'open_details':
+            self.target(args['target']).evaluate_all('els=>els.forEach(el=>el.open=true)')
+        elif action == 'click':
+            self.page.get_by_role('button', name=re.compile(r'^'+re.escape(args['name'])+r'(?:\s|$)')).click()
+            if 'expect_latch' in args and self.firmware_state()[0] != args['expect_latch']:
+                raise RuntimeError(f"래치 확인 실패: {args['name']}")
+            if args['name'] == ACTIONS['heaters']:
+                _, head, chuck = self.firmware_state()
+                if head <= 0 or chuck != 0 or '두 히터 동시 통전 금지 · 차단' not in self.loc('firmware').inner_text():
+                    raise RuntimeError('두 히터 동시 통전 차단 확인 실패')
+        elif action == 'goto':
+            self.visit(urljoin(base, args['url']), vision=args.get('vision', False))
+        elif action == 'select':
+            self.target(args['target']).select_option(args['value'])
+            if args['target'] == 'layer':
+                self.wait_vision()
+        elif action == 'type':
+            self.target(args['target']).fill(args['text'])
+        elif action == 'drag_rotate':
+            self.scroll(args['target'], smooth=False)
+            box = self.target(args['target']).bounding_box()
+            if not box:
+                raise RuntimeError('3D 캔버스 없음')
+            x, y = box['x']+box['width']/2, box['y']+box['height']/2
+            self.page.mouse.move(x, y); self.page.mouse.down()
+            end = min(time.monotonic()+args['duration_s'], self.deadline)
+            began = time.monotonic()
+            try:
+                while time.monotonic() < end:
+                    elapsed = time.monotonic()-began
+                    self.page.mouse.move(x+box['width']*.25*elapsed/args['duration_s'],
+                                         y+20*math.sin(elapsed))
+                    self.page.wait_for_timeout(min(.05, max(0, end-time.monotonic()))*1000)
+            finally:
+                self.page.mouse.up()
+        elif action == 'wait':
+            # 다음 큐까지의 대기는 스케줄러가 담당한다.
+            pass
+
+    def perform(self, base):
+        self.visit(base)
+        self.loc('model').filter(has_text='GLB 모델').wait_for()
+        prep = self.plan['prepare']
+        if prep.get('preset'):
+            self.preset(prep['preset'])
+        if prep.get('reset_faults'):
+            for name in (ACTIONS['clear'], ACTIONS['reset']):
+                self.page.get_by_role('button', name=re.compile(r'^'+re.escape(name)+r'(?:\s|$)')).click()
+            if self.firmware_state()[0]:
+                raise RuntimeError('준비 단계 래치 초기화 실패')
+        self.scroll(prep['scroll'], smooth=False)
+        # 스크롤·캔버스 표시가 두 프레임 반영된 뒤 본편 시계를 시작한다.
+        self.page.evaluate('() => new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)))')
+        self.clock0 = time.monotonic()
+        self.deadline = self.clock0 + self.plan['duration_s']
+        self.row['clock0_video_s'] = self.clock0-self.started
+        self.row['duration_s'] = self.plan['duration_s']
+        self.save()
+        for cue in self.plan['cues']:
+            delay = self.clock0 + cue['t'] - time.monotonic()
+            if delay > 0:
+                self.page.wait_for_timeout(delay*1000)
+            now = time.monotonic()
+            event = {**cue, 'actual_s': now-self.clock0, 'video_s': now-self.started,
+                     'late_s': max(0, now-self.clock0-cue['t']), 'status': 'running'}
+            self.row['cues'].append(event)
+            try:
+                self.budget()
+                self.execute(cue, base)
+                event['status'] = 'complete'
+            except Exception as exc:
+                event['status'] = 'failed'; event['error'] = str(exc)
+                raise
+            finally:
+                event['ended_s'] = time.monotonic()-self.clock0
+                self.save()
+        self.page.wait_for_timeout(max(0, self.deadline-time.monotonic())*1000)
+        self.row['cue_elapsed_s'] = time.monotonic()-self.clock0
+
+
 def concatenate(out):
     ffmpeg = shutil.which('ffmpeg')
     if not ffmpeg:
@@ -305,21 +493,28 @@ def main(argv=None):
     parser.add_argument('--captions', action='store_true', help='하단 장면 제목 표시')
     parser.add_argument('--headed', action='store_true', help='브라우저 창 표시')
     parser.add_argument('--concat', action='store_true', help='ffmpeg가 있으면 무음 MP4 연결')
-    parser.add_argument('--plan', action='store_true', help='브라우저 없이 계획 JSON 출력')
+    parser.add_argument('--plan', action='store_true', help='브라우저 없이 계획 표 출력')
+    parser.add_argument('--cues', type=Path, help='내레이션 큐 JSON (준비 구간을 본편에서 분리)')
     args = parser.parse_args(argv)
+    cue_data = load_cues(args.cues) if args.cues else None
+    if args.concat and cue_data:
+        parser.error('큐 모드는 준비 구간을 먼저 잘라야 합니다. --concat 없이 녹화 후 README에 따라 연결하세요.')
     if args.plan:
-        print(json.dumps({'total_s': sum(s.seconds for s in SCENES), 'scenes': [asdict(s) for s in SCENES]}, ensure_ascii=False, indent=2))
+        print_cue_plan(cue_data or load_cues(Path(__file__).with_name('cues.json')))
         return 0
     # import만으로 브라우저가 열리지 않는다. 정적 검사·--plan에는 Playwright도 불필요하다.
     from playwright.sync_api import sync_playwright
     OUT.mkdir(parents=True, exist_ok=True)
     if any(OUT.iterdir()):
         parser.error('media/out/이 비어 있지 않습니다. 기존 녹화물을 다른 곳으로 옮긴 뒤 실행하세요.')
-    manifest = {'schema_version': 1, 'url': args.url, 'silent': True, 'captions': args.captions,
+    manifest = {'schema_version': 2, 'mode': 'cues' if cue_data else 'legacy', 'url': args.url, 'silent': True, 'captions': args.captions,
                 'viewport': {'width': 1920, 'height': 1080}, 'planned_total_s': sum(s.seconds for s in SCENES),
                 'timing': 'monotonic wall clock; scene bounds include page creation/navigation and exclude encoder finalization; media duration may differ slightly',
                 'value_provenance': '화면 뷰포트의 DOM 텍스트 관측. 계산 결과·가정값 등의 화면 배지를 함께 보관. 숨긴 결과나 모델 내부 값은 읽지 않음.',
                 'scenes': [], 'status': 'recording'}
+    if cue_data:
+        manifest['cue_file'] = str(args.cues)
+        manifest['timing'] = 'video reference: time.monotonic immediately after page.video; clock0_video_s excludes preparation; cue actual_s/late_s use absolute clock0 deadlines'
     def save():
         (OUT / 'scenes.json').write_text(json.dumps(manifest, ensure_ascii=False, indent=2)+'\n', encoding='utf-8')
     save()
@@ -342,15 +537,22 @@ def main(argv=None):
                     error = None
                     try:
                         page = context.new_page(); video = page.video
-                        recorder = Recorder(page, scene, args.captions, started)
+                        if cue_data:
+                            started = time.monotonic()
+                        if cue_data:
+                            recorder = CueRecorder(page, scene, args.captions, started, cue_data,
+                                                   cue_data['scenes'][scene.number-1], row, save)
+                        else:
+                            recorder = Recorder(page, scene, args.captions, started)
                         recorder.perform(args.url.rstrip('/') + '/')
                         row['status'] = 'complete'
                     except Exception as exc:
                         row['status'] = 'failed'; row['error'] = str(exc); error = exc
                     finally:
                         ended = time.monotonic()
-                        row.update(duration_s=round(ended-started, 3),
-                                   end_s=round(timeline+ended-started, 3),
+                        row.update(video_elapsed_s=ended-started,
+                                   duration_s=scene.seconds if cue_data else round(ended-started, 3),
+                                   end_s=round(timeline+(scene.seconds if cue_data else ended-started), 3),
                                    ended_utc=datetime.now(timezone.utc).isoformat(),
                                    samples=recorder.samples if recorder else [])
                         context.close()  # 비디오 flush 이후 save_as 가능

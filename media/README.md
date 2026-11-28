@@ -67,3 +67,37 @@ S3의 선형 탄성·상온 물성·기판/점탄성/경화 수축 미포함 한
 2. `docs: 영상 녹화 방법과 장면 표` — `media/README.md`.
 
 Codex는 커밋·push·PR·Issue 생성 없이 파일과 정적 검사 결과만 전달한다.
+
+## 내레이션 큐 모드 (녹화 담당: Claude)
+
+```bash
+/Library/Frameworks/Python.framework/Versions/3.12/bin/python3 -m py_compile media/tools/record_demo.py media/tools/check_selectors.py
+/Library/Frameworks/Python.framework/Versions/3.12/bin/python3 media/tools/check_selectors.py
+/Library/Frameworks/Python.framework/Versions/3.12/bin/python3 media/tools/record_demo.py --cues media/tools/cues.json --plan
+# 아래 녹화 명령은 Chromium 실행이 가능한 담당 환경에서만 실행한다.
+/Library/Frameworks/Python.framework/Versions/3.12/bin/python3 media/tools/record_demo.py --cues media/tools/cues.json --captions --headed
+```
+
+`--cues`를 생략하면 기존 동작 순서와 고정 유지 시간 모드를 사용한다. 큐 모드는 각 장면의 페이지·GLB 로드, S1~S5 해당 계산 완료, 시작 스크롤을 **준비 구간**에서 처리한다. 고장 장면은 원인 해제·수동 리셋까지 준비한다. 준비 구간도 녹화되지만 본편 길이에는 포함하지 않는다. 준비 대기는 장면마다 별도 180초 상한이며 실패하면 오류를 기록하고 중단한다. 준비 완료 후 두 번의 화면 갱신을 기다리고 큐 시계 0을 잡는다. 모든 장면에서 GLB 성공 표시를 확인하므로 배포본에 GLB가 필요하다.
+
+`cues.json`의 `targets`는 실제 HTML/JS 생성 근거, 선택자, 예상 요소 개수를 함께 보관한다. 런타임 개수가 다르면 다른 카드를 잘못 보여 주는 대신 중단한다. S1 카드 순서는 기본·헤드 보정·MR-MUF, S5 카드 순서는 간격별 모세관·기본·하한·상한이다. S5 표의 압력 열은 정렬된 0 / 0.1 / 1 / 3 MPa 순서를 따른다. 재용융은 기존 표의 통합 열(재가열 / 액상선 교차 / 후속 재용융)을 강조한다. S5의 15 μm × 0 MPa 충전 시간은 표와 카드가 멀리 떨어져 있어, 해당 카드의 **DOM 값과 구분 배지를 복제한 작은 표시창**을 표와 함께 보여 준다. 숫자를 별도로 입력하거나 모델 내부에서 읽지 않는다. 다음 강조에서 이 표시창과 이전 테두리를 해제한다. `--captions`는 여전히 장면 제목만 표시한다.
+
+큐 시각은 읽기 전용 `영상/tts/timing.json`의 문장 시작값을 소수 셋째 자리까지 옮겼다. 시작 화면의 0초와 고장 복구 동작 13.5/15초는 지정된 편집 큐다. 장면 길이는 40/60/55/45/45/40/55/20초, 합계 360초다. `--plan` 표에 각 큐의 장면·시각·동작·대상이 출력된다. `goto` 로드 대기와 드래그도 동일한 절대 시계를 쓴다. 로드가 늦으면 다음 큐의 남은 대기가 줄고, 이미 지난 큐는 즉시 실행한다. 동시각 큐는 파일 순서대로 실행하며 실제 지연량을 기록한다. 장면 끝에서 진행 중인 동작은 남은 장면 시간으로 제한되며, 완료하지 못하면 실패로 기록한다.
+
+큐 모드 `scenes.json` 필드:
+
+- `clock0_video_s`: `page.video`를 받은 직후의 `time.monotonic()` 기준으로 측정한 준비 완료 시각. 반올림하지 않은 초 단위 값이다.
+- `duration_s`: 잘라낼 본편의 계획 길이. `video_elapsed_s`는 준비를 포함한 실제 벽시계 경과 시간이다. `cue_elapsed_s`는 본편의 실제 경과 시간이다.
+- `cues[]`: 계획 `t`/`action`/`args`, 실제 시작 `actual_s`(큐 시계), `video_s`(영상 기준), `late_s`(지연), `ended_s`(큐 시계 종료), `status`와 오류. 실패한 큐도 저장한다.
+- `start_s`/`end_s`: 준비를 제외한 편집 타임라인. `actual_total_s`는 장면 본편 길이의 합계다. 기존 모드의 `samples`와 달리 큐 모드는 `cues`가 동기화 기준이다.
+
+장면별 준비 구간을 먼저 잘라낸다. 예를 들어 `scenes.json`에서 해당 장면의 `clock0_video_s`와 `duration_s`를 가져와 다음과 같이 실행한다. 정확한 재인코딩을 위해 `-c copy`를 쓰지 않는다.
+
+```bash
+ffmpeg -ss <clock0_video_s> -i media/out/scene_02_s1.webm -t <duration_s> \
+  -an -c:v libx264 -pix_fmt yuv420p scene_02_trimmed.mp4
+```
+
+이 처리를 8개 장면에 적용한 후 순서대로 연결하고, 큐 시계 0에 해당 장면의 TTS 시작을 맞춘다. 큐 모드는 준비 영상을 그대로 연결하지 않도록 `--concat` 조합을 거부한다. `clock0_video_s`는 지정한 단조 시계 기준의 준비 길이이며, 인코더 첫 프레임의 PTS를 실측한 값은 아니다. Claude는 완성 영상에서 프레임 경계·표 가독성·실제 선택자·WebGL·큐 지연을 확인해야 한다. Codex는 Chromium을 실행하지 않는다.
+
+커밋 단위 제안: `feat: 내레이션 큐 기반 녹화 모드`. 커밋과 영상 파일 추가는 수행하지 않는다.
