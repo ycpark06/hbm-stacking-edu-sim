@@ -1,0 +1,927 @@
+{
+  "schema_version": 1,
+  "notes": "문장 시작 시각 기준. 29 ramp → hold, 31 여러 층 반복은 문장 길이에 맞춘 진행률 편집 표시; 실제 공정 시간 아님. 나머지는 지원 속도 재생 후 종점 고정.",
+  "targets": {
+    "factory": {
+      "label": "window.factory",
+      "actions": [
+        "factory"
+      ],
+      "evidence": [
+        {
+          "file": "web/js/factory_app.js",
+          "text": "window.factory={setMode,setStage,play,pause,setSpeed,setCamera,setViewOnly"
+        },
+        {
+          "file": "web/js/factory_sequence.js",
+          "text": "add(`${prefix}-hold`"
+        }
+      ]
+    },
+    "card": {
+      "label": "window.card",
+      "actions": [
+        "card"
+      ],
+      "evidence": [
+        {
+          "file": "media/tools/compare_card.html",
+          "text": "window.card={showRow(r)"
+        }
+      ]
+    },
+    "stack_chuck": {
+      "label": "적층 척",
+      "actions": [
+        "cad_click"
+      ],
+      "evidence": [
+        {
+          "file": "web/cad.html",
+          "text": "id=\"part-list\""
+        },
+        {
+          "file": "web/js/cad_page.js",
+          "text": "button=el('button',group.name)"
+        },
+        {
+          "file": "web/js/cad_parts.js",
+          "text": "stack_chuck: {name:'적층 척'"
+        }
+      ],
+      "selector": "#part-list",
+      "name": "적층 척"
+    },
+    "reflow_chuck": {
+      "label": "리플로우 척",
+      "actions": [
+        "cad_click"
+      ],
+      "evidence": [
+        {
+          "file": "web/cad.html",
+          "text": "id=\"part-list\""
+        },
+        {
+          "file": "web/js/cad_page.js",
+          "text": "button=el('button',group.name)"
+        },
+        {
+          "file": "web/js/cad_parts.js",
+          "text": "reflow_chuck: {name:'리플로우 척'"
+        }
+      ],
+      "selector": "#part-list",
+      "name": "리플로우 척"
+    },
+    "mold_jig": {
+      "label": "가압 충전 지그",
+      "actions": [
+        "cad_click"
+      ],
+      "evidence": [
+        {
+          "file": "web/cad.html",
+          "text": "id=\"part-list\""
+        },
+        {
+          "file": "web/js/cad_page.js",
+          "text": "button=el('button',group.name)"
+        },
+        {
+          "file": "web/js/cad_parts.js",
+          "text": "mold_jig: {name:'가압 충전 지그'"
+        }
+      ],
+      "selector": "#part-list",
+      "name": "가압 충전 지그"
+    },
+    "plunger": {
+      "label": "플런저",
+      "actions": [
+        "cad_click"
+      ],
+      "evidence": [
+        {
+          "file": "web/cad.html",
+          "text": "id=\"part-list\""
+        },
+        {
+          "file": "web/js/cad_page.js",
+          "text": "button=el('button',group.name)"
+        },
+        {
+          "file": "web/js/cad_parts.js",
+          "text": "plunger: {name:'플런저'"
+        }
+      ],
+      "selector": "#part-list",
+      "name": "플런저"
+    },
+    "dispenser": {
+      "label": "수지 공급부",
+      "actions": [
+        "cad_click"
+      ],
+      "evidence": [
+        {
+          "file": "web/cad.html",
+          "text": "id=\"part-list\""
+        },
+        {
+          "file": "web/js/cad_page.js",
+          "text": "button=el('button',group.name)"
+        },
+        {
+          "file": "web/js/cad_parts.js",
+          "text": "dispenser: {name:'수지 공급부'"
+        }
+      ],
+      "selector": "#part-list",
+      "name": "수지 공급부"
+    },
+    "ncf_tray": {
+      "label": "NCF 트레이",
+      "actions": [
+        "cad_click"
+      ],
+      "evidence": [
+        {
+          "file": "web/cad.html",
+          "text": "id=\"part-list\""
+        },
+        {
+          "file": "web/js/cad_page.js",
+          "text": "button=el('button',group.name)"
+        },
+        {
+          "file": "web/js/cad_parts.js",
+          "text": "ncf_tray: {name:'NCF 트레이'"
+        }
+      ],
+      "selector": "#part-list",
+      "name": "NCF 트레이"
+    },
+    "cad_canvas": {
+      "label": "#cad-viewer canvas",
+      "actions": [
+        "drag_rotate"
+      ],
+      "evidence": [
+        {
+          "file": "web/js/cad_viewer.js",
+          "text": "container.append(renderer.domElement)"
+        }
+      ],
+      "selector": "#cad-viewer canvas"
+    },
+    "comparison": {
+      "label": "#comparison",
+      "actions": [
+        "cad_scroll"
+      ],
+      "evidence": [
+        {
+          "file": "web/cad.html",
+          "text": "id=\"comparison\""
+        }
+      ],
+      "selector": "#comparison"
+    },
+    "drawings": {
+      "label": "#drawings",
+      "actions": [
+        "cad_scroll"
+      ],
+      "evidence": [
+        {
+          "file": "web/cad.html",
+          "text": "id=\"drawings\""
+        }
+      ],
+      "selector": "#drawings"
+    },
+    "cad_view": {
+      "label": "#cad-viewer",
+      "actions": [
+        "cad_scroll"
+      ],
+      "evidence": [
+        {
+          "file": "web/cad.html",
+          "text": "id=\"cad-viewer\""
+        }
+      ],
+      "selector": "#cad-viewer"
+    },
+    "explode": {
+      "label": "#explode",
+      "actions": [
+        "cad_explode"
+      ],
+      "evidence": [
+        {
+          "file": "web/cad.html",
+          "text": "id=\"explode\" type=\"range\" min=\"0\" max=\"100\""
+        }
+      ],
+      "selector": "#explode"
+    },
+    "wait": {
+      "label": "현재 화면 유지",
+      "actions": [
+        "wait"
+      ],
+      "evidence": [
+        {
+          "file": "media/tools/record_v2.py",
+          "text": "elif action != 'wait':"
+        }
+      ]
+    }
+  },
+  "scenes": [
+    {
+      "scene": 1,
+      "prepare": {
+        "page": "factory",
+        "mode": "TC-NCF",
+        "stage": "overview",
+        "camera": 1
+      },
+      "cues": [
+        {
+          "sentence": 1,
+          "t": 0.5,
+          "action": "factory",
+          "args": {
+            "target": "factory",
+            "js": "f.setViewOnly(true);f.pause();f.setStage('overview',0);f.setCamera(1);"
+          },
+          "sub": "HBM은 메모리 칩을 아파트처럼 위로 쌓아 만든 메모리입니다."
+        },
+        {
+          "sentence": 2,
+          "t": 6.03,
+          "action": "factory",
+          "args": {
+            "target": "factory",
+            "js": "f.setViewOnly(true);f.pause();f.setStage('L12-hold',0.5);f.setCamera(1);"
+          },
+          "sub": "칩 사이의 아주 작은 접점들을 붙이는 것이 핵심 공정입니다."
+        },
+        {
+          "sentence": 3,
+          "t": 11.56,
+          "action": "factory",
+          "args": {
+            "target": "factory",
+            "js": "f.setMode('TC-NCF');f.setViewOnly(true);f.pause();f.setStage('L1-hold',0.5);f.setCamera(1);"
+          },
+          "sub": "삼성전자의 TC-NCF는 한 층을 올릴 때마다 바로 붙입니다."
+        },
+        {
+          "sentence": 4,
+          "t": 17.26,
+          "action": "factory",
+          "args": {
+            "target": "factory",
+            "js": "f.setMode('MR-MUF');f.setViewOnly(true);f.pause();f.setStage('reflow-5',0.5);f.setCamera(1);"
+          },
+          "sub": "SK하이닉스의 MR-MUF는 전부 쌓은 뒤 한꺼번에 붙입니다."
+        },
+        {
+          "sentence": 5,
+          "t": 22.91,
+          "action": "factory",
+          "args": {
+            "target": "factory",
+            "js": "f.setViewOnly(true);f.pause();f.setStage('overview',0);f.setCamera(1);"
+          },
+          "sub": "이 차이가 장비에서 어떻게 나타나는지 보여 드리겠습니다."
+        }
+      ]
+    },
+    {
+      "scene": 2,
+      "prepare": {
+        "page": "card"
+      },
+      "cues": [
+        {
+          "sentence": 6,
+          "t": 0.5,
+          "action": "card",
+          "args": {
+            "target": "card",
+            "js": "c.showRow(1);c.focus(1,0);"
+          },
+          "sub": "첫 번째 차이는 열을 받는 횟수입니다."
+        },
+        {
+          "sentence": 7,
+          "t": 4.57,
+          "action": "card",
+          "args": {
+            "target": "card",
+            "js": "c.focus(1,1);"
+          },
+          "sub": "TC-NCF는 위층을 붙일 때마다 아래층도 다시 뜨거워집니다."
+        },
+        {
+          "sentence": 8,
+          "t": 10.22,
+          "action": "card",
+          "args": {
+            "target": "card",
+            "js": "c.focus(1,1);"
+          },
+          "sub": "12단을 쌓으면 맨 아래 칩은 열한 번 더 열을 받습니다."
+        },
+        {
+          "sentence": 9,
+          "t": 15.73,
+          "action": "card",
+          "args": {
+            "target": "card",
+            "js": "c.focus(1,2);"
+          },
+          "sub": "MR-MUF는 리플로우 한 번으로 모든 층을 함께 붙입니다."
+        },
+        {
+          "sentence": 10,
+          "t": 21.05,
+          "action": "card",
+          "args": {
+            "target": "card",
+            "js": "c.showRow(2);c.focus(2,0);"
+          },
+          "sub": "두 번째는 칩 사이 빈틈을 메우는 방법입니다."
+        },
+        {
+          "sentence": 11,
+          "t": 25.79,
+          "action": "card",
+          "args": {
+            "target": "card",
+            "js": "c.focus(2,1);"
+          },
+          "sub": "TC-NCF는 미리 붙인 얇은 필름이 눌리면서 틈을 채웁니다."
+        },
+        {
+          "sentence": 12,
+          "t": 31.44,
+          "action": "card",
+          "args": {
+            "target": "card",
+            "js": "c.focus(2,2);"
+          },
+          "sub": "MR-MUF는 접합이 끝난 뒤 액체 수지를 흘려 넣습니다."
+        },
+        {
+          "sentence": 13,
+          "t": 36.64,
+          "action": "card",
+          "args": {
+            "target": "card",
+            "js": "c.showRow(3);c.focus(3,0);"
+          },
+          "sub": "세 번째는 칩의 위치를 맞추는 방식입니다."
+        },
+        {
+          "sentence": 14,
+          "t": 41.02,
+          "action": "card",
+          "args": {
+            "target": "card",
+            "js": "c.focus(3,1);"
+          },
+          "sub": "TC-NCF는 장비가 내려놓은 자리에서 그대로 굳습니다."
+        },
+        {
+          "sentence": 15,
+          "t": 46.19,
+          "action": "card",
+          "args": {
+            "target": "card",
+            "js": "c.focus(3,2);"
+          },
+          "sub": "MR-MUF는 녹은 솔더가 칩을 끌어당겨 스스로 자리를 잡습니다."
+        }
+      ]
+    },
+    {
+      "scene": 3,
+      "prepare": {
+        "page": "cad"
+      },
+      "cues": [
+        {
+          "sentence": 16,
+          "t": 0.5,
+          "action": "cad_scroll",
+          "args": {
+            "target": "comparison"
+          },
+          "sub": "이 차이를 담기 위해 중간 과제 장비에 부품을 더했습니다."
+        },
+        {
+          "sentence": 17,
+          "t": 5.77,
+          "action": "cad_scroll",
+          "args": {
+            "target": "cad_view"
+          },
+          "sub": "새로 들어간 부품은 모두 다섯 가지입니다."
+        },
+        {
+          "t": 6.47,
+          "action": "cad_click",
+          "args": {
+            "target": "stack_chuck"
+          }
+        },
+        {
+          "t": 6.77,
+          "action": "drag_rotate",
+          "args": {
+            "target": "cad_canvas",
+            "duration_s": 2.2
+          }
+        },
+        {
+          "sentence": 18,
+          "t": 10.06,
+          "action": "cad_click",
+          "args": {
+            "target": "stack_chuck"
+          },
+          "sub": "적층 척은 쌓이는 칩을 진공으로 붙잡습니다."
+        },
+        {
+          "t": 10.21,
+          "action": "drag_rotate",
+          "args": {
+            "target": "cad_canvas",
+            "duration_s": 2.8
+          }
+        },
+        {
+          "sentence": 19,
+          "t": 14.51,
+          "action": "cad_click",
+          "args": {
+            "target": "reflow_chuck"
+          },
+          "sub": "리플로우 척은 다 쌓은 스택을 아래에서 데웁니다."
+        },
+        {
+          "sentence": 20,
+          "t": 19.11,
+          "action": "cad_click",
+          "args": {
+            "target": "mold_jig"
+          },
+          "sub": "가압 충전 지그는 수지를 칩 사이로 밀어 넣는 작은 틀입니다."
+        },
+        {
+          "t": 21.71,
+          "action": "cad_click",
+          "args": {
+            "target": "plunger"
+          }
+        },
+        {
+          "sentence": 21,
+          "t": 24.67,
+          "action": "cad_click",
+          "args": {
+            "target": "dispenser"
+          },
+          "sub": "여기에 수지를 공급하는 디스펜서와 필름 칩을 담는 트레이가 더해집니다."
+        },
+        {
+          "t": 27.57,
+          "action": "cad_click",
+          "args": {
+            "target": "ncf_tray"
+          }
+        },
+        {
+          "sentence": 22,
+          "t": 30.88,
+          "action": "cad_explode",
+          "args": {
+            "target": "explode",
+            "from": 0,
+            "to": 100,
+            "duration_s": 4.7
+          },
+          "sub": "부품을 벌려 놓으면 각자 어디에 놓이는지 한눈에 보입니다."
+        }
+      ]
+    },
+    {
+      "scene": 4,
+      "prepare": {
+        "page": "factory",
+        "mode": "TC-NCF",
+        "stage": "overview",
+        "camera": 1
+      },
+      "cues": [
+        {
+          "sentence": 23,
+          "t": 0.5,
+          "action": "factory",
+          "args": {
+            "target": "factory",
+            "js": "f.setViewOnly(true);f.pause();f.setStage('overview',0);f.setCamera(1);"
+          },
+          "sub": "먼저 TC-NCF로 한 층을 붙이는 과정입니다."
+        },
+        {
+          "sentence": 24,
+          "t": 5.05,
+          "action": "factory",
+          "args": {
+            "target": "factory",
+            "js": "f.setViewOnly(true);f.pause();f.setStage('L1-supply',0);f.setCamera(1);",
+            "motion": {
+              "start": [
+                "L1-supply",
+                0
+              ],
+              "end": [
+                "L1-align",
+                1
+              ],
+              "duration_s": 4.18,
+              "speed": 0.5,
+              "scrub": false
+            }
+          },
+          "sub": "트레이에서 꺼낸 칩은 카메라로 위치를 확인합니다."
+        },
+        {
+          "sentence": 25,
+          "t": 9.7,
+          "action": "factory",
+          "args": {
+            "target": "factory",
+            "js": "f.setViewOnly(true);f.pause();f.setStage('L1-pickup',0);f.setCamera(2);",
+            "motion": {
+              "start": [
+                "L1-pickup",
+                0
+              ],
+              "end": [
+                "L1-pickup",
+                1
+              ],
+              "duration_s": 3.6,
+              "speed": 0.5,
+              "scrub": false
+            }
+          },
+          "sub": "헤드가 칩을 집어 쌓을 자리 위로 옮깁니다."
+        },
+        {
+          "sentence": 26,
+          "t": 13.77,
+          "action": "factory",
+          "args": {
+            "target": "factory",
+            "js": "f.setViewOnly(true);f.pause();f.setStage('L1-approach',0);f.setCamera(2);",
+            "motion": {
+              "start": [
+                "L1-approach",
+                0
+              ],
+              "end": [
+                "L1-ramp",
+                0
+              ],
+              "duration_s": 3.67,
+              "speed": 0.5,
+              "scrub": false
+            }
+          },
+          "sub": "헤드가 내려와 40 N의 힘으로 누릅니다. (설계값)"
+        },
+        {
+          "sentence": 27,
+          "t": 17.91,
+          "action": "factory",
+          "args": {
+            "target": "factory",
+            "js": "f.setViewOnly(true);f.pause();f.setStage('L1-ramp',0);f.setCamera(2);",
+            "motion": {
+              "start": [
+                "L1-ramp",
+                0
+              ],
+              "end": [
+                "L1-ramp",
+                1
+              ],
+              "duration_s": 3.14,
+              "speed": 0.5,
+              "scrub": false
+            }
+          },
+          "sub": "동시에 헤드를 300 ℃로 데웁니다. (문헌값)"
+        },
+        {
+          "sentence": 28,
+          "t": 21.52,
+          "action": "factory",
+          "args": {
+            "target": "factory",
+            "js": "f.setViewOnly(true);f.pause();f.setStage('L1-hold',0);f.setCamera(2);"
+          },
+          "sub": "이 온도는 헤드 설정값이고, 칩 속은 이보다 낮습니다."
+        },
+        {
+          "sentence": 29,
+          "t": 26.93,
+          "action": "factory",
+          "args": {
+            "target": "factory",
+            "js": "f.setViewOnly(true);f.pause();f.setStage('L1-ramp',0);f.setCamera(4);",
+            "motion": {
+              "start": [
+                "L1-ramp",
+                0
+              ],
+              "end": [
+                "L1-hold",
+                1
+              ],
+              "duration_s": 4.1,
+              "speed": 0.5,
+              "scrub": true
+            }
+          },
+          "sub": "열과 힘을 받은 필름이 퍼지면서 틈을 채웁니다."
+        },
+        {
+          "sentence": 30,
+          "t": 31.5,
+          "action": "factory",
+          "args": {
+            "target": "factory",
+            "js": "f.setViewOnly(true);f.pause();f.setStage('L1-cool',0);f.setCamera(2);",
+            "motion": {
+              "start": [
+                "L1-cool",
+                0
+              ],
+              "end": [
+                "L1-rise",
+                1
+              ],
+              "duration_s": 3.77,
+              "speed": 0.5,
+              "scrub": false
+            }
+          },
+          "sub": "식힌 뒤 헤드가 올라가면 한 층이 끝납니다."
+        },
+        {
+          "sentence": 31,
+          "t": 35.74,
+          "action": "factory",
+          "args": {
+            "target": "factory",
+            "js": "f.setViewOnly(true);f.pause();f.setStage('L2-supply',0);f.setCamera(1);",
+            "motion": {
+              "start": [
+                "L2-supply",
+                0
+              ],
+              "end": [
+                "L12-hold",
+                0.5
+              ],
+              "duration_s": 3.41,
+              "speed": 2,
+              "scrub": true
+            }
+          },
+          "sub": "이 과정을 층 수만큼 되풀이합니다."
+        }
+      ]
+    },
+    {
+      "scene": 5,
+      "prepare": {
+        "page": "factory",
+        "mode": "MR-MUF",
+        "stage": "overview",
+        "camera": 1
+      },
+      "cues": [
+        {
+          "sentence": 32,
+          "t": 0.5,
+          "action": "factory",
+          "args": {
+            "target": "factory",
+            "js": "f.setMode('MR-MUF');f.setViewOnly(true);f.pause();f.setStage('overview',0);f.setCamera(1);"
+          },
+          "sub": "이번에는 MR-MUF입니다."
+        },
+        {
+          "sentence": 33,
+          "t": 3.68,
+          "action": "factory",
+          "args": {
+            "target": "factory",
+            "js": "f.setViewOnly(true);f.pause();f.setStage('L1-tack',0);f.setCamera(2);",
+            "motion": {
+              "start": [
+                "L1-tack",
+                0
+              ],
+              "end": [
+                "L1-tack",
+                1
+              ],
+              "duration_s": 4.46,
+              "speed": 0.5,
+              "scrub": false
+            }
+          },
+          "sub": "칩은 작은 힘과 짧은 가열로 살짝만 붙여 둡니다."
+        },
+        {
+          "sentence": 34,
+          "t": 8.61,
+          "action": "factory",
+          "args": {
+            "target": "factory",
+            "js": "f.setViewOnly(true);f.pause();f.setStage('to-reflow',0);f.setCamera(1);",
+            "motion": {
+              "start": [
+                "to-reflow",
+                0
+              ],
+              "end": [
+                "to-reflow",
+                1
+              ],
+              "duration_s": 3.94,
+              "speed": 1,
+              "scrub": false
+            }
+          },
+          "sub": "다 쌓은 스택은 리플로우 척으로 옮겨집니다."
+        },
+        {
+          "sentence": 35,
+          "t": 13.02,
+          "action": "factory",
+          "args": {
+            "target": "factory",
+            "js": "f.setViewOnly(true);f.pause();f.setStage('reflow-4',0);f.setCamera(3);",
+            "motion": {
+              "start": [
+                "reflow-4",
+                0
+              ],
+              "end": [
+                "reflow-5",
+                0
+              ],
+              "duration_s": 4.85,
+              "speed": 0.5,
+              "scrub": false
+            }
+          },
+          "sub": "250 ℃까지 올라가면 모든 층의 솔더가 함께 녹습니다. (문헌값)"
+        },
+        {
+          "sentence": 36,
+          "t": 18.34,
+          "action": "factory",
+          "args": {
+            "target": "factory",
+            "js": "f.setViewOnly(true);f.pause();f.setStage('reflow-5',0);f.setCamera(3);",
+            "motion": {
+              "start": [
+                "reflow-5",
+                0
+              ],
+              "end": [
+                "reflow-5",
+                1
+              ],
+              "duration_s": 4.9,
+              "speed": 0.5,
+              "scrub": false
+            }
+          },
+          "sub": "이때 솔더가 당기는 힘으로 어긋난 칩이 제자리를 찾습니다."
+        },
+        {
+          "sentence": 37,
+          "t": 23.71,
+          "action": "factory",
+          "args": {
+            "target": "factory",
+            "js": "f.setViewOnly(true);f.pause();f.setStage('to-mold',0);f.setCamera(1);",
+            "motion": {
+              "start": [
+                "to-mold",
+                0
+              ],
+              "end": [
+                "to-mold",
+                1
+              ],
+              "duration_s": 3.17,
+              "speed": 1,
+              "scrub": false
+            }
+          },
+          "sub": "다음은 빈틈을 채울 차례입니다."
+        },
+        {
+          "sentence": 38,
+          "t": 27.35,
+          "action": "factory",
+          "args": {
+            "target": "factory",
+            "js": "f.setViewOnly(true);f.pause();f.setStage('dispense',0);f.setCamera(1);",
+            "motion": {
+              "start": [
+                "dispense",
+                0
+              ],
+              "end": [
+                "fill",
+                0.6
+              ],
+              "duration_s": 5.16,
+              "speed": 2,
+              "scrub": false
+            }
+          },
+          "sub": "디스펜서가 수지를 넣고 플런저가 눌러 칩 사이로 밀어 넣습니다."
+        },
+        {
+          "sentence": 39,
+          "t": 32.98,
+          "action": "factory",
+          "args": {
+            "target": "factory",
+            "js": "f.setViewOnly(true);f.pause();f.setStage('fill',0.8);f.setCamera(3);"
+          },
+          "sub": "입구 압력은 1 MPa로 가정했습니다."
+        },
+        {
+          "sentence": 40,
+          "t": 37.43,
+          "action": "factory",
+          "args": {
+            "target": "factory",
+            "js": "f.setViewOnly(true);f.pause();f.setStage('postcure',0.5);f.setCamera(1);"
+          },
+          "sub": "마지막으로 175 ℃에서 네 시간 동안 수지를 굳힙니다. (문헌값)"
+        }
+      ]
+    },
+    {
+      "scene": 6,
+      "prepare": {
+        "page": "factory",
+        "mode": "TC-NCF",
+        "stage": "overview",
+        "camera": 1
+      },
+      "cues": [
+        {
+          "sentence": 41,
+          "t": 0.5,
+          "action": "factory",
+          "args": {
+            "target": "factory",
+            "js": "f.setViewOnly(true);f.pause();f.setStage('overview',0);f.setCamera(1);"
+          },
+          "sub": "화면의 움직임은 실제 시간을 줄여서 보여 드린 것입니다."
+        },
+        {
+          "sentence": 42,
+          "t": 5.72,
+          "action": "factory",
+          "args": {
+            "target": "factory",
+            "js": "f.pause();f.setViewOnly(true);"
+          },
+          "sub": "실제 결과는 시뮬레이터로 직접 보여 드리겠습니다."
+        }
+      ]
+    }
+  ]
+}

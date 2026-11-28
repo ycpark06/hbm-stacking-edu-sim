@@ -1,4 +1,4 @@
-import {MODES,DISPLAY,readFactoryData,buildStages,sampleStage} from './factory_sequence.js';
+import {MODES,DISPLAY,CAMERA_IDS,readFactoryData,buildStages,sampleStage} from './factory_sequence.js';
 import {createFactoryViewer} from './factory_viewer.js';
 const $=id=>document.getElementById(id),fmt=(v,d=1)=>Number(v).toLocaleString('ko-KR',{maximumFractionDigits:d});
 const kinds={design:'설계값',literature:'문헌값',assumption:'가정값',midterm:'중간 보고서값',kpi:'원문 KPI',inferred:'역산 추정값'};
@@ -36,7 +36,7 @@ try {
     $('temperature').textContent=`${fmt(v.temp)} ℃`;$('temp-meter').value=v.temp;$('force').textContent=`${fmt(v.force)} N`;$('force-meter').value=v.force;
     const thermal=s.kind==='reflow'?p.reflow.peak_temp:s.kind==='postcure'?p.muf.cure_temp:['dispense','fill','mold-cure'].includes(s.kind)?p.mrmuf_process.mold_fill_temp:mode===MODES[0]?q.head_setpoint:p.mrmuf_process.tack_temp;
     $('temp-label').textContent=s.kind==='reflow'?'척 프로파일 설정':['dispense','fill','mold-cure','postcure'].includes(s.kind)?'경화·금형 설정':'헤드 설정';$('temp-source').innerHTML=badge(thermal);$('force-source').innerHTML=badge(mode===MODES[0]?q.bond_force:p.mrmuf_process.tack_force);
-    $('layer-label').textContent=`완료 ${v.count}/${data.layers}층 · 스택 ${camera===3?DISPLAY.stackMagnification:7}× / 간격 추가 ${DISPLAY.gapMagnification}× 확대`;
+    $('layer-label').textContent=`완료 ${v.count}/${data.layers}층 · 스택 ${camera>=3?DISPLAY.stackMagnification:7}× / 간격 추가 ${DISPLAY.gapMagnification}× 확대`;
     $('reheats').textContent=mode===MODES[0]?`최하부 층 후속 재가열 ${v.reheats}/${data.layers-1}회 (N−1). 재용융 횟수와 다름.`:'가접은 작은 하중·순간 가열(가정값). 리플로우 중 자기정렬은 개념 표시.';
     const fillTime=s.kind==='fill'?v.u*pressure:['mold-cure','postcure','compare'].includes(s.kind)&&mode===MODES[1]?pressure:0;
     $('capillary').value=Math.min(1,Math.sqrt(fillTime/cap));$('pressured').value=Math.min(1,Math.sqrt(fillTime/pressure));
@@ -51,14 +51,14 @@ try {
   function play(){if(state().complete)setStage(0);playing=true;draw();return state();}
   function pause(){playing=false;draw();return state();}
   function setSpeed(x){if(![.5,1,2].includes(x))throw RangeError('speed');speed=x;$('speed').value=x;draw();return state();}
-  function setCamera(k){if(![1,2,3].includes(Number(k)))throw RangeError('camera');camera=Number(k);viewer.setCamera(camera);$('camera').value=camera;draw();return state();}
+  function setCamera(k){if(!CAMERA_IDS.includes(Number(k)))throw RangeError('camera');camera=Number(k);viewer.setCamera(camera);$('camera').value=camera;draw();return state();}
   function setViewOnly(value){if(typeof value!=='boolean')throw TypeError('viewOnly: boolean');viewOnly=value;document.body.classList.toggle('view-only',value);return state();}
   await viewer.ready;
   window.factory={setMode,setStage,play,pause,setSpeed,setCamera,setViewOnly,stages:()=>stages.map(s=>({...s})),onStage(cb){if(typeof cb!=='function')throw TypeError('callback');listeners.add(cb);return ()=>listeners.delete(cb);},state};
   choices();draw();['play','pause','stage'].forEach(id=>$(id).disabled=false);
   $('play').onclick=play;$('pause').onclick=pause;$('mode').onchange=e=>setMode(e.target.value);$('stage').onchange=e=>setStage(Number(e.target.value));$('speed').onchange=e=>setSpeed(Number(e.target.value));$('camera').onchange=e=>setCamera(e.target.value);
   $('length').onchange=e=>{seconds=Number(e.target.value);stages=buildStages(data,mode,seconds);elapsed=0;choices();draw();notify();};
-  document.addEventListener('keydown',e=>{if(e.target.closest('input,select,textarea,button,summary')||e.ctrlKey||e.metaKey||e.altKey)return;if(['1','2','3'].includes(e.key))setCamera(e.key);if(e.code==='Space'){e.preventDefault();playing?pause():play();}});
+  document.addEventListener('keydown',e=>{if(e.target.closest('input,select,textarea,button,summary')||e.ctrlKey||e.metaKey||e.altKey)return;if(CAMERA_IDS.includes(Number(e.key)))setCamera(e.key);if(e.code==='Space'){e.preventDefault();playing?pause():play();}});
   let last=performance.now();
   function frame(now){const dt=Math.min((now-last)/1000,.1);last=now;if(playing){elapsed+=dt*speed;while(elapsed>=stages[index].duration_s){if(index===stages.length-1){elapsed=stages[index].duration_s;playing=false;break;}elapsed-=stages[index].duration_s;index++;notify();}draw();}viewer.render(now);requestAnimationFrame(frame);}
   requestAnimationFrame(frame);window.dispatchEvent(new Event('factory-ready'));

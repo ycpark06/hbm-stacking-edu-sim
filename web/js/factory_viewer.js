@@ -1,7 +1,7 @@
 import * as THREE from '../vendor/three/build/three.module.js';
 import {OrbitControls} from '../vendor/three/examples/jsm/controls/OrbitControls.js';
 import {GLTFLoader} from '../vendor/three/examples/jsm/loaders/GLTFLoader.js';
-import {DISPLAY,cameraFitDistance,explodedAmount} from './factory_sequence.js';
+import {DISPLAY,CAMERA_IDS,filmSectionFrame,cameraFitDistance,explodedAmount,filmSqueezeAt,layerHeat} from './factory_sequence.js';
 // Scene dimensions here are display coordinates, never manufacturing dimensions.
 export function createFactoryViewer(container,data,onStatus) {
   const p=data.params,scene=new THREE.Scene();scene.background=new THREE.Color('#101c25');
@@ -18,9 +18,15 @@ export function createFactoryViewer(container,data,onStatus) {
   const overviewBounds=new THREE.Box3(),explodedBounds=new THREE.Box3(),headBounds=new THREE.Box3();
   // Display offsets in normalized scene space, unrelated to hardware dimensions.
   const explodeOffsets=Object.fromEntries(Object.entries({head:[0,6,-3],z_carriage:[4,4,-2],stack_chuck:[0,3,5],reflow_chuck:[6,2,-4],mold_jig:[-6,2,4],plunger:[-6,6,4],dispenser:[-7,4,-2],ncf_tray:[6,2,4],camera_bottom:[0,-2,5]}).map(([n,v])=>[n,new THREE.Vector3(...v)]));
-  const origin=new THREE.Vector3(),dies=[],films=[],resins=[];
+  const origin=new THREE.Vector3(),dies=[],films=[],resins=[],solderBands=[];
+  const heat=DISPLAY.heat,orange=new THREE.Color(heat.orange),red=new THREE.Color(heat.red);
   function box(color,transparent=false){const m=new THREE.Mesh(new THREE.BoxGeometry(1,1,1),new THREE.MeshStandardMaterial({color,metalness:.25,roughness:.42,transparent,opacity:transparent?.65:1}));stack.add(m);return m;}
-  for(let i=0;i<data.layers;i++){dies.push(box(0x72c8ed));films.push(box(0xc5f17b));resins.push(box(0xf4b16e,true));}
+  for(let i=0;i<data.layers;i++){
+    dies.push(box(0x72c8ed));films.push(box(0xc5f17b));resins.push(box(0xf4b16e,true));
+    const band=box(heat.solderColor);band.visible=false;
+    band.material.emissive.set(heat.solderColor);band.material.emissiveIntensity=heat.solderEmissive;
+    solderBands.push(band);
+  }
   const carried=box(0x9de0ef),film=box(0xc5f17b,true),tempGauge=box(0xf4b16e),forceGauge=box(0xc5f17b);
   const beam=new THREE.Line(new THREE.BufferGeometry().setFromPoints([origin,origin]),new THREE.LineBasicMaterial({color:0xc5f17b}));scene.add(beam);
   const labels=[];
@@ -54,7 +60,7 @@ export function createFactoryViewer(container,data,onStatus) {
     camera.updateProjectionMatrix();controls.target.copy(center);
     controls.update();controls.enableDamping=damping;
   }
-  function setCamera(k){const next=Number(k);if(![1,2,3].includes(next))throw RangeError('camera 1/2/3');cam=next;fitNeeded=true;
+  function setCamera(k){const next=Number(k);if(!CAMERA_IDS.includes(next))throw RangeError('camera 1/2/3/4');cam=next;fitNeeded=true;
     if(latest)update(...latest);else if(ready)fitBounds(overviewBounds,new THREE.Vector3(14,7,17));
   }
   function moveNode(name,delta){const n=nodes[name];if(n)n.position.copy(bases[name]).add(delta.clone().divideScalar(scale));}
@@ -74,7 +80,7 @@ export function createFactoryViewer(container,data,onStatus) {
     if(s.kind==='supply')moveNode('ncf_tray',new THREE.Vector3(-.3*Math.sin(Math.PI*v.u),0,0));
     if(s.kind==='fill'||s.kind==='mold-cure')moveNode('plunger',new THREE.Vector3(0,-.15*(s.kind==='fill'?v.u:1),0));
     if(s.kind==='dispense')moveNode('dispenser',new THREE.Vector3(0,-.15*Math.sin(Math.PI*v.u),0));
-    const zoom=cam===3?DISPLAY.stackMagnification:7;
+    const zoom=cam>=3?DISPLAY.stackMagnification:7;
     const w=p.geometry.die_size.value/1000*scale*zoom,h=p.geometry.die_thickness.value/1e6*scale*zoom,g=p.geometry.interlayer_gap.value/1e6*scale*zoom*DISPLAY.gapMagnification;
     // Parked GLB tool travel is fitted to the displayed stack surface; this is
     // a display trajectory, not a claim that the hardware has this Z stroke.
@@ -88,26 +94,42 @@ export function createFactoryViewer(container,data,onStatus) {
       // Offset is illustrative only; no invented numeric alignment prediction.
       const offset=s.mode==='TC-NCF'?i*w*.009: s.kind==='reflow'?i*w*.009*(1-(s.segment+v.u)/data.profile.length):i*w*.009;
       dies[i].position.set(at.x+offset,y,at.z);dies[i].scale.set(w,h,w);
-      films[i].position.set(at.x+offset,y-h/2-g/2,at.z);films[i].scale.set(w,g*.65,w);
+      // Keep the film inside the open interlayer gap, away from die/chuck faces.
+      // Previously bonded layers retain the final display squeeze even on stage jumps.
+      const squeeze=filmSqueezeAt(i<s.layer-1?'rise':s.kind,v.u);
+      films[i].position.set(at.x+offset,y-h/2-g/2,at.z);
+      films[i].scale.set(w*squeeze.spread,g*.65*squeeze.thickness,w*squeeze.spread);
+      const heating=layerHeat(data,s,v,i);
+      for(const mesh of [dies[i],films[i]]){
+        mesh.material.emissive.copy(orange).lerp(red,heating.glow);
+        mesh.material.emissiveIntensity=heat.maxEmissive*heating.glow;
+      }
+      const band=solderBands[i];band.visible=dies[i].visible&&heating.molten;
+      band.position.copy(films[i].position);
+      band.scale.set(w*squeeze.spread*heat.bandSpread,g*heat.bandThickness,w*squeeze.spread*heat.bandSpread);
       const f=s.kind==='fill'?Math.sqrt(v.u):1;resins[i].position.set(at.x-w*(1-f)/2,y-h/2-g/2,at.z);resins[i].scale.set(Math.max(.001,w*f),g*.7,w);
     }
     const carryKinds=['supply','align','pickup','ncf','approach'];carried.visible=carryKinds.includes(s.kind);
     let pos=t.clone();if(s.kind==='align')pos=anchors.camera_bottom.clone().add(new THREE.Vector3(0,.7,0));
     if(['pickup','ncf','approach'].includes(s.kind))pos=lerp(t,a,s.kind==='pickup'?v.u:1).add(new THREE.Vector3(0,s.kind==='approach'?(1-v.u)*.7:.7,0));
     carried.position.copy(pos);carried.scale.set(w,h,w);
-    film.visible=s.kind==='ncf';film.position.copy(pos).add(new THREE.Vector3(0,-h-(1-v.u)*.25,0));film.scale.set(w,g,w);
+    film.visible=s.mode==='TC-NCF'&&['ncf','approach'].includes(s.kind);film.position.copy(pos).add(new THREE.Vector3(0,-h-(1-v.u)*.25,0));film.scale.set(w,g,w);
     beam.visible=s.kind==='align';beam.geometry.setFromPoints([anchors.camera_bottom,pos]);
     tempGauge.visible=forceGauge.visible=!['overview','exploded'].includes(s.kind);
     const th=Math.max(.02,v.temp/p.equipment_limits.head_max_temp_C.value),fh=Math.max(.02,v.force/p.equipment_limits.bond_force_max_N.value);
     tempGauge.scale.set(.06,th,.06);tempGauge.position.copy(at).add(new THREE.Vector3(-w,th/2,0));forceGauge.scale.set(.06,fh,.06);forceGauge.position.copy(at).add(new THREE.Vector3(-w-.15,fh/2,0));
     const active={align:'camera_bottom',supply:'ncf_tray',ncf:'ncf_tray',approach:'head',ramp:'head',hold:'head',tack:'head',reflow:'reflow_chuck',fill:'plunger',dispense:'dispenser','mold-cure':'mold_jig',postcure:'mold_jig'}[s.kind];
-    for(const name of names)nodes[name].traverse(mesh=>{if(mesh.isMesh){mesh.material.opacity=cam===3?.12:mesh.material.userData.originalOpacity;if(mesh.material.emissive){mesh.material.emissive.set(name===active?0x396924:0);mesh.material.emissiveIntensity=.45;}}});
+    for(const name of names)nodes[name].traverse(mesh=>{if(mesh.isMesh){mesh.material.opacity=cam>=3?.12:mesh.material.userData.originalOpacity;if(mesh.material.emissive){mesh.material.emissive.set(name===active?0x396924:0);mesh.material.emissiveIntensity=.45;}}});
     labels.forEach(l=>l.visible=cam===1&&!simple);
     const stackBounds=new THREE.Box3().setFromCenterAndSize(at.clone().add(new THREE.Vector3(0,data.layers*(h+g)/2,0)),new THREE.Vector3(w*4,Math.max(2,data.layers*(h+g)+1),w*3));
+    const layerIndex=Math.max(1,s.layer)-1;
+    const edgeOffset=s.mode==='TC-NCF'?layerIndex*w*.009:dies[layerIndex].position.x-at.x;
+    const section=filmSectionFrame(w,h,g,s.layer,edgeOffset);
+    const sectionBounds=new THREE.Box3().setFromCenterAndSize(at.clone().add(new THREE.Vector3(...section.center)),new THREE.Vector3(...section.size));
     if(fitNeeded){
-      const bounds=exploding?explodedBounds:cam===1?overviewBounds:cam===2?headBounds:stackBounds;
-      fitBounds(bounds,new THREE.Vector3(...(cam===1?[14,7,17]:cam===2?[3,2.3,5]:[4,1.5,5])));fitNeeded=false;
-    }else if(cam===3&&!exploding){const center=stackBounds.getCenter(new THREE.Vector3()),delta=center.clone().sub(controls.target);camera.position.add(delta);controls.target.copy(center);}
+      const bounds=exploding?explodedBounds:cam===1?overviewBounds:cam===2?headBounds:cam===4?sectionBounds:stackBounds;
+      fitBounds(bounds,new THREE.Vector3(...(cam===1?[14,7,17]:cam===2?[3,2.3,5]:cam===4?DISPLAY.filmSection.direction:[4,1.5,5])));fitNeeded=false;
+    }else if(cam>=3&&!exploding){const center=(cam===4?sectionBounds:stackBounds).getCenter(new THREE.Vector3()),delta=center.clone().sub(controls.target);camera.position.add(delta);controls.target.copy(center);}
 
   }
   const resize=new ResizeObserver(()=>{const w=container.clientWidth,h=container.clientHeight;if(!w||!h)return;renderer.setSize(w,h);camera.aspect=w/h;camera.updateProjectionMatrix();fitNeeded=true;if(latest)update(...latest);});resize.observe(container);

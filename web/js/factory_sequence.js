@@ -2,7 +2,34 @@
 // Screen weights, exploded spacing, and camera positions are display settings only.
 import {mrmufSchedule} from '../../sim/thermal.js';
 export const MODES = Object.freeze(['TC-NCF', 'MR-MUF']);
-export const DISPLAY = Object.freeze({totalSeconds:90, pixelRatio:2, stackMagnification:45, gapMagnification:8});
+export const CAMERA_IDS = Object.freeze([1,2,3,4]);
+export const DISPLAY = Object.freeze({totalSeconds:90, pixelRatio:2, stackMagnification:45, gapMagnification:8,
+  // DISPLAY 표시 설정: 가장자리 프레임 크기(다이 두께+표시 간격 배수), 낮은 시선.
+  filmSection:Object.freeze({size:Object.freeze([5,5,5]),direction:Object.freeze([.6,.03,1])}),
+  // 표시 설정(치수·물성 아님): 필름 눌림을 구분하기 위한 상대 배율.
+  filmSqueeze:Object.freeze({thickness:.45,spread:1.08}),
+  // 표시 설정: 온도 색 매핑·최대 발광과 용융 솔더 띠의 상대 크기 (물성·실측 아님).
+  heat:Object.freeze({orange:0xff7800,red:0xff1800,maxEmissive:1.5,
+    solderColor:0xffedb0,solderEmissive:2,bandThickness:.18,bandSpread:1.02})});
+
+// Display temperature normalization only; no additional thermal prediction.
+export function heatGlow(temp,ambient,peak) {
+  return Math.max(0,Math.min(1,(temp-ambient)/(peak-ambient)));
+}
+export function layerHeat(data,s,v,index) {
+  const active=(s.mode==='MR-MUF'&&s.kind==='reflow')||
+    (s.mode==='TC-NCF'&&['ramp','hold'].includes(s.kind)&&
+      (index===s.layer-1||index===s.layer-2));
+  return {glow:active?heatGlow(v.temp,data.params.thermal_stack.ambient_temp.value,
+    data.params.reflow.peak_temp.value):0,
+    molten:active&&index>0&&v.temp>=data.params.solder.liquidus_snag.value};
+}
+// DISPLAY: follow the current die's front edge; layer 0 uses the first layer.
+export function filmSectionFrame(w,h,g,layer,offset=0) {
+  const pitch=h+g;
+  return {center:[offset,(Math.max(1,layer)-1)*pitch-g/2,w/2],
+    size:DISPLAY.filmSection.size.map(n=>n*pitch)};
+}
 // Fit a bounding sphere in both perspective axes; margin is a display setting.
 export function cameraFitDistance(radius, verticalFovDegrees, aspect, margin=1.12) {
   const halfVertical=verticalFovDegrees*Math.PI/360;
@@ -76,4 +103,14 @@ export function sampleStage(data,s,fraction) {
   const count=s.layer?Math.max(0,s.layer-(complete?0:1)):0;
   const exposure=tc&&['ramp','hold','cool','rise','compare'].includes(s.kind);
   return {u,temp,force,down,count,reheats:tc?Math.max(0,s.layer-1-(exposure?0:1)):0};
+}
+
+// Stateless display interpolation: ramp and hold join continuously; cooling retains it.
+export function filmSqueezeAt(kind,u) {
+  const t=Math.max(0,Math.min(1,u));
+  const amount=kind==='ramp'?t/2:kind==='hold'?(1+t)/2:
+    ['cool','rise','compare'].includes(kind)?1:0;
+  if(amount===1)return {...DISPLAY.filmSqueeze};
+  return {thickness:1+(DISPLAY.filmSqueeze.thickness-1)*amount,
+    spread:1+(DISPLAY.filmSqueeze.spread-1)*amount};
 }
