@@ -26,7 +26,11 @@
     "ins_t": 10,
     "tc_d": 1.6,
     "tc_depth": 4,
-    "flat": 0.002
+    "flat": 0.002,
+    "power_W": 150,
+    "forced_cooling": "공기 또는 N₂ 강제 냉각",
+    "heater_interlock": "두 히터 동시 통전 금지(SW 인터락)",
+    "alignment_wait_s": 90
   },
   "mold": {
     "w": 30,
@@ -43,7 +47,11 @@
     "vent_w": 0.5,
     "vent_d": 0.02,
     "pitch": 22,
-    "bolt": 3.4
+    "bolt": 3.4,
+    "clamp_count": 4,
+    "clamp_thread": "M3",
+    "clamp_preload_N": 216,
+    "sealing_status": "제작 후 시험"
   },
   "fit": {
     "hole_min": 0,
