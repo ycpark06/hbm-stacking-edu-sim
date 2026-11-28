@@ -120,7 +120,10 @@ export function createLightPanel(container,viewerContainer,data,results){
   const panel=document.createElement('section');panel.className='light-graphs';panel.setAttribute('aria-label','실시간 공정 그래프');container.append(panel);
   const film=document.createElement('div');film.className='light-film';film.hidden=true;viewerContainer.append(film);
   let cacheKey='',cached=null;
-  return {update(stages,s,u,camera){
+  return {showPanel(value){
+    if(typeof value!=='boolean')throw TypeError('panel: boolean');
+    panel.hidden=!value;container.classList.toggle('light-panel-hidden',!value);
+  },update(stages,s,u,camera){
     const tc=s.mode==='TC-NCF',key=`${s.mode}-${s.layer}-${stages[0].duration_s}`;
     if(key!==cacheKey){cached=tc?tcPlot(data,recipe,stages,s,u):null;cacheKey=key;}
     let body;

@@ -20,9 +20,9 @@ export function createLightPresentation(scene,camera,container,nodes){
   const overlay=document.createElement('div');overlay.className='light-callout';overlay.hidden=true;
   const line=document.createElementNS('http://www.w3.org/2000/svg','svg');line.classList.add('light-leader');line.innerHTML='<path fill="none" stroke="#14365A" stroke-width="2"/>';container.append(line,overlay);
   let focused=null;
-  function focus(id){
+  function focus(id,{label}={}){
     if(id!==null&&!nodes[id])throw RangeError('unknown part group');focused=id;
-    if(id){overlay.replaceChildren();const title=document.createElement('strong'),role=document.createElement('span');title.textContent=GROUPS[id].name;role.textContent=LIGHT_ROLES[id];overlay.append(title,role);}
+    if(id){overlay.replaceChildren();const title=document.createElement('strong'),role=document.createElement('span');title.textContent=label??GROUPS[id].name;role.textContent=label?'':LIGHT_ROLES[id];role.hidden=!!label;overlay.append(title,role);}
     apply();
   }
   function apply(){for(const [id,node] of Object.entries(nodes))node.traverse(mesh=>{

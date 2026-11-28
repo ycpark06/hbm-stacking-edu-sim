@@ -57,7 +57,7 @@ try {
   function setCamera(k){if(!CAMERA_IDS.includes(Number(k)))throw RangeError('camera');camera=Number(k);viewer.setCamera(camera);$('camera').value=camera;draw();return state();}
   function setViewOnly(value){if(typeof value!=='boolean')throw TypeError('viewOnly: boolean');viewOnly=value;document.body.classList.toggle('view-only',value);return state();}
   await viewer.ready;
-  window.factory={setMode,setStage,play,pause,setSpeed,setCamera,setViewOnly,focus:group=>viewer.focus(group),setTitle(text){if(light)setLightTitle($('viewer'),text);},stages:()=>stages.map(s=>({...s})),onStage(cb){if(typeof cb!=='function')throw TypeError('callback');listeners.add(cb);return ()=>listeners.delete(cb);},state};
+  window.factory={setMode,setStage,play,pause,setSpeed,setCamera,setViewOnly,showPanel(value){if(typeof value!=='boolean')throw TypeError('panel: boolean');light?.showPanel(value);return state();},focus:(group,options)=>viewer.focus(group,options),setTitle(text){if(light)setLightTitle($('viewer'),text);},stages:()=>stages.map(s=>({...s})),onStage(cb){if(typeof cb!=='function')throw TypeError('callback');listeners.add(cb);return ()=>listeners.delete(cb);},state};
   choices();draw();['play','pause','stage'].forEach(id=>$(id).disabled=false);
   $('play').onclick=play;$('pause').onclick=pause;$('mode').onchange=e=>setMode(e.target.value);$('stage').onchange=e=>setStage(Number(e.target.value));$('speed').onchange=e=>setSpeed(Number(e.target.value));$('camera').onchange=e=>setCamera(e.target.value);
   $('length').onchange=e=>{seconds=Number(e.target.value);stages=buildStages(data,mode,seconds);elapsed=0;choices();draw();notify();};

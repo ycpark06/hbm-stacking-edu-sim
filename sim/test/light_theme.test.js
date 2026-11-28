@@ -128,3 +128,18 @@ test('rendered bars leave the heating layer empty and delay reheat numbers until
     assert.ok(html.includes('위층을 붙이며 더 받은 열 횟수'));
   }
 });
+
+test('light panel is visible by default and toggles layout without hiding film cross-section',()=>{
+  const previous=globalThis.document,children=[],films=[],classes=new Set();
+  globalThis.document={createElement:()=>({hidden:false,setAttribute(){},classList:{toggle(){}}})};
+  try{
+    const panel=createLightPanel({append:n=>children.push(n),classList:{toggle(name,on){on?classes.add(name):classes.delete(name);}}},{append:n=>films.push(n)},data,results);
+    assert.equal(children[0].hidden,false);
+    panel.showPanel(false);assert.equal(children[0].hidden,true);assert.ok(classes.has('light-panel-hidden'));
+    const stages=buildStages(data,'TC-NCF'),hold=stages.find(s=>s.kind==='hold');
+    panel.update(stages,hold,.5,4);
+    assert.equal(children[0].hidden,true);assert.equal(films[0].hidden,false);
+    panel.showPanel(true);assert.equal(children[0].hidden,false);assert.ok(!classes.has('light-panel-hidden'));
+    assert.throws(()=>panel.showPanel(0),TypeError);
+  }finally{globalThis.document=previous;}
+});

@@ -140,5 +140,5 @@ export function createFactoryViewer(container,data,onStatus) {
   const resize=new ResizeObserver(()=>{const w=container.clientWidth,h=container.clientHeight;if(!w||!h)return;renderer.setSize(w,h);camera.aspect=w/h;camera.updateProjectionMatrix();fitNeeded=true;if(latest)update(...latest);});resize.observe(container);
   let slow=0,last=performance.now();
   function render(now){const dt=now-last;last=now;if(dt>40&&dt<1000)slow++;else slow=Math.max(0,slow-1);if(slow>90&&!simple){simple=true;renderer.setPixelRatio(1);labels.forEach(l=>l.visible=false);onStatus('GLB · 성능 단순화: 픽셀 비율 1 / 라벨 숨김');}controls.update();lightPresentation?.render();renderer.render(scene,camera);}
-  return {ready:modelReady,update,setCamera,render,focus(id){lightPresentation?.focus(id);}};
+  return {ready:modelReady,update,setCamera,render,focus(id,options){lightPresentation?.focus(id,options);}};
 }
