@@ -22,7 +22,7 @@ CAD 페이지에서 10개 GLB 그룹 선택·분해·숨기기, 중간/기말 �
 | MR-MUF 충전 | `media/stills/factory_mr_fill.png` |
 | 점유 시간 비교 | `media/stills/factory_comparison.png` |
 
-**시뮬레이션 영상:** [시연 영상 4분 15초 — 원리와 장비 동작 (MP4, 한국어 자막 burn-in)](https://github.com/ycpark06/hbm-stacking-edu-sim/releases/download/demo-video/MSE489_HBM_stacker_demo.mp4) · [자막 SRT](https://github.com/ycpark06/hbm-stacking-edu-sim/releases/download/demo-video/MSE489_HBM_stacker_demo.ko.srt) · [Release](https://github.com/ycpark06/hbm-stacking-edu-sim/releases/tag/demo-video)
+**시뮬레이션 영상:** [시연 영상 4분 52초 — 원리·장비 동작·시뮬레이터 실행 (MP4, 한국어 자막 burn-in)](https://github.com/ycpark06/hbm-stacking-edu-sim/releases/download/demo-video/MSE489_HBM_stacker_demo.mp4) · [자막 SRT](https://github.com/ycpark06/hbm-stacking-edu-sim/releases/download/demo-video/MSE489_HBM_stacker_demo.ko.srt) · [Release](https://github.com/ycpark06/hbm-stacking-edu-sim/releases/tag/demo-video)
 
 **기말 보고서:** [v2 본보고서·요약본 원고·PDF 빌드](docs/report/v2/) · [기존 96쪽 판 이력](docs/report/archive_v1/)
 **실습 매뉴얼:** [적층 공정 비교 실습](docs/manual/실습매뉴얼.md)
