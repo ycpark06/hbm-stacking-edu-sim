@@ -4,11 +4,14 @@
  * The JS export below supplies measurements before executing that same core. */
 #undef fw_step_1ms
 static float force_N, temp_C, velocity_mm_s, heater_W;
+/* Output sink, like a hardware register; public getter uses core accepted state. */
+static volatile float reflow_heater_W;
 static int hardware_fault;
 float hal_read_force_N(void) { return force_N; }
 float hal_read_temp_C(void) { return temp_C; }
 void hal_write_z_velocity_mm_s(float v) { velocity_mm_s = v; }
 void hal_write_heater_W(float p) { heater_W = p; }
+void hal_write_reflow_heater_W(float p) { reflow_heater_W = p; }
 int hal_hw_fault(void) { return hardware_fault; }
 void hal_write_safety(int brake, int sto) { (void)brake; (void)sto; }
 void fw_step_1ms(float force_meas_N, float temp_meas_C)

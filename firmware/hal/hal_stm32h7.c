@@ -66,6 +66,12 @@ void hal_write_heater_W(float p)
     /* TODO(board bring-up): 20 kHz PWM, duty=P/400 (HANDOFF §3.2). */
     (void)p;
 }
+void hal_write_reflow_heater_W(float p)
+{
+    /* 배선 설계값 PE11 TIM1 CH2, HAL 미구현.
+     * TODO(board bring-up): PWM duty=P/FW_REFLOW_HEATER_MAX_W. */
+    (void)p;
+}
 void hal_write_safety(int brake, int sto)
 {
     /* TODO(board bring-up): status outputs; not the independent hardware cutoff. */

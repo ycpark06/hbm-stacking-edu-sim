@@ -6,6 +6,7 @@ void hal_host_set_force_N(float force);
 float hal_host_get_z_velocity_mm_s(void);
 void hal_host_set_temp_C(float temp);
 float hal_host_get_heater_W(void);
+float hal_host_get_reflow_heater_W(void);
 void hal_host_set_hw_fault(int fault);
 int hal_host_get_brake(void);
 int hal_host_get_sto(void);
