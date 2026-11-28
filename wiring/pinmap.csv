@@ -9,8 +9,8 @@ hal_read_temp_C,PA0,ADC 입력,헤드 AD8495,배선 설계값 (HAL 미구현),3.
 reflow_temp,PA1,ADC 입력,리플로우 AD8495,배선 설계값 (HAL 미구현),별도 온도 PI/HAL 필요
 jig_pressure,PA2,ADC 입력,지그 압력 센서,배선 설계값 (HAL 미구현),선택 입력; 0-3.3 V 조정
 jig_position,PG1,입력,플런저 원점 스위치,배선 설계값 (HAL 미구현),24 V 절연 입력
-hal_write_heater_W,PE9,TIM1 CH1 PWM,헤드 게이트 드라이버,배선 설계값 (HAL 미구현),20 kHz 설계값
-reflow_heater_pwm,PE11,TIM1 CH2 PWM,리플로우 게이트 드라이버,배선 설계값 (HAL 미구현),별도 출력 제어 필요
+hal_write_heater_W,PE9,TIM1 CH1 PWM,헤드 게이트 드라이버,배선 설계값 (HAL 미구현),"20 kHz 설계값; PE9/PE11 두 히터 동시 통전 금지(SW 인터락), 타 브랜치 구현 대기"
+reflow_heater_pwm,PE11,TIM1 CH2 PWM,리플로우 게이트 드라이버,배선 설계값 (HAL 미구현),"150 W 설계값; PE9/PE11 두 히터 동시 통전 금지(SW 인터락), 펌웨어/HMI 타 브랜치 구현 대기"
 hal_write_z_velocity_mm_s,PD8/PD9,USART3 TX/RX,서보 속도 명령,배선 설계값 (HAL 미구현),드라이버 프로토콜 미확정
 hal_write_safety.brake,PG2,출력,브레이크 상태 요청,배선 설계값 (HAL 미구현),독립 HW 차단과 별개
 hal_write_safety.sto,PG3,출력,STO 상태 요청,배선 설계값 (HAL 미구현),독립 HW 차단과 별개

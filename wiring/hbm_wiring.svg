@@ -6,7 +6,7 @@
   <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
    <cc:Work>
     <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-    <dc:date>2026-11-28T08:44:31.892273</dc:date>
+    <dc:date>2026-11-28T09:04:20.934307</dc:date>
     <dc:format>image/svg+xml</dc:format>
     <dc:creator>
      <cc:Agent>
@@ -21,20 +21,20 @@
  </defs>
  <g id="figure_1">
   <g id="patch_1">
-   <path d="M 0 841.68 
-L 1190.88 841.68 
-L 1190.88 0 
-L 0 0 
+   <path d="M 0 841.68
+L 1190.88 841.68
+L 1190.88 0
+L 0 0
 z
 " style="fill: #ffffff"/>
   </g>
   <g id="axes_1">
    <g id="table_1">
     <g id="patch_2">
-     <path d="M 179.57288 499.579164 
-L 438.024752 499.579164 
-L 438.024752 486.617292 
-L 179.57288 486.617292 
+     <path d="M 179.57288 499.579164
+L 438.024752 499.579164
+L 438.024752 486.617292
+L 179.57288 486.617292
 z
 " style="fill: #dde5ec; stroke: #000000; stroke-width: 0.35; stroke-linejoin: miter"/>
     </g>
@@ -42,10 +42,10 @@ z
      <text style="font-weight: 700; font-size: 6.7px; font-family: 'Apple SD Gothic Neo'; text-anchor: start" x="205.418067" y="495.108228" transform="rotate(-0 205.418067 495.108228)">신호명 (함수명은 HAL 그대로)</text>
     </g>
     <g id="patch_3">
-     <path d="M 438.024752 499.579164 
-L 524.175376 499.579164 
-L 524.175376 486.617292 
-L 438.024752 486.617292 
+     <path d="M 438.024752 499.579164
+L 524.175376 499.579164
+L 524.175376 486.617292
+L 438.024752 486.617292
 z
 " style="fill: #dde5ec; stroke: #000000; stroke-width: 0.35; stroke-linejoin: miter"/>
     </g>
@@ -53,10 +53,10 @@ z
      <text style="font-weight: 700; font-size: 6.7px; font-family: 'Apple SD Gothic Neo'; text-anchor: start" x="446.639814" y="495.108228" transform="rotate(-0 446.639814 495.108228)">핀</text>
     </g>
     <g id="patch_4">
-     <path d="M 524.175376 499.579164 
-L 679.246499 499.579164 
-L 679.246499 486.617292 
-L 524.175376 486.617292 
+     <path d="M 524.175376 499.579164
+L 679.246499 499.579164
+L 679.246499 486.617292
+L 524.175376 486.617292
 z
 " style="fill: #dde5ec; stroke: #000000; stroke-width: 0.35; stroke-linejoin: miter"/>
     </g>
@@ -64,10 +64,10 @@ z
      <text style="font-weight: 700; font-size: 6.7px; font-family: 'Apple SD Gothic Neo'; text-anchor: start" x="539.682488" y="495.108228" transform="rotate(-0 539.682488 495.108228)">인터페이스</text>
     </g>
     <g id="patch_5">
-     <path d="M 679.246499 499.579164 
-L 1041.07912 499.579164 
-L 1041.07912 486.617292 
-L 679.246499 486.617292 
+     <path d="M 679.246499 499.579164
+L 1041.07912 499.579164
+L 1041.07912 486.617292
+L 679.246499 486.617292
 z
 " style="fill: #dde5ec; stroke: #000000; stroke-width: 0.35; stroke-linejoin: miter"/>
     </g>
@@ -75,10 +75,10 @@ z
      <text style="font-weight: 700; font-size: 6.7px; font-family: 'Apple SD Gothic Neo'; text-anchor: start" x="715.429761" y="495.108228" transform="rotate(-0 715.429761 495.108228)">연결 / 구현 상태</text>
     </g>
     <g id="patch_6">
-     <path d="M 179.57288 512.541036 
-L 438.024752 512.541036 
-L 438.024752 499.579164 
-L 179.57288 499.579164 
+     <path d="M 179.57288 512.541036
+L 438.024752 512.541036
+L 438.024752 499.579164
+L 179.57288 499.579164
 z
 " style="fill: #fce7e6; stroke: #000000; stroke-width: 0.35; stroke-linejoin: miter"/>
     </g>
@@ -86,10 +86,10 @@ z
      <text style="font-size: 6.7px; font-family: 'Apple SD Gothic Neo'; text-anchor: start" x="205.418067" y="508.0701" transform="rotate(-0 205.418067 508.0701)">hal_hw_fault</text>
     </g>
     <g id="patch_7">
-     <path d="M 438.024752 512.541036 
-L 524.175376 512.541036 
-L 524.175376 499.579164 
-L 438.024752 499.579164 
+     <path d="M 438.024752 512.541036
+L 524.175376 512.541036
+L 524.175376 499.579164
+L 438.024752 499.579164
 z
 " style="fill: #fce7e6; stroke: #000000; stroke-width: 0.35; stroke-linejoin: miter"/>
     </g>
@@ -97,10 +97,10 @@ z
      <text style="font-size: 6.7px; font-family: 'Apple SD Gothic Neo'; text-anchor: start" x="446.639814" y="508.0701" transform="rotate(-0 446.639814 508.0701)">PG0</text>
     </g>
     <g id="patch_8">
-     <path d="M 524.175376 512.541036 
-L 679.246499 512.541036 
-L 679.246499 499.579164 
-L 524.175376 499.579164 
+     <path d="M 524.175376 512.541036
+L 679.246499 512.541036
+L 679.246499 499.579164
+L 524.175376 499.579164
 z
 " style="fill: #fce7e6; stroke: #000000; stroke-width: 0.35; stroke-linejoin: miter"/>
     </g>
@@ -108,10 +108,10 @@ z
      <text style="font-size: 6.7px; font-family: 'Apple SD Gothic Neo'; text-anchor: start" x="539.682488" y="508.0701" transform="rotate(-0 539.682488 508.0701)">입력 active-high pull-down</text>
     </g>
     <g id="patch_9">
-     <path d="M 679.246499 512.541036 
-L 1041.07912 512.541036 
-L 1041.07912 499.579164 
-L 679.246499 499.579164 
+     <path d="M 679.246499 512.541036
+L 1041.07912 512.541036
+L 1041.07912 499.579164
+L 679.246499 499.579164
 z
 " style="fill: #fce7e6; stroke: #000000; stroke-width: 0.35; stroke-linejoin: miter"/>
     </g>
@@ -119,10 +119,10 @@ z
      <text style="font-size: 6.7px; font-family: 'Apple SD Gothic Neo'; text-anchor: start" x="715.429761" y="508.0701" transform="rotate(-0 715.429761 508.0701)">외부 고장 래치 / HAL 구현</text>
     </g>
     <g id="patch_10">
-     <path d="M 179.57288 525.502908 
-L 438.024752 525.502908 
-L 438.024752 512.541036 
-L 179.57288 512.541036 
+     <path d="M 179.57288 525.502908
+L 438.024752 525.502908
+L 438.024752 512.541036
+L 179.57288 512.541036
 z
 " style="fill: #ffffff; stroke: #000000; stroke-width: 0.35; stroke-linejoin: miter"/>
     </g>
@@ -130,10 +130,10 @@ z
      <text style="font-size: 6.7px; font-family: 'Apple SD Gothic Neo'; text-anchor: start" x="205.418067" y="521.031972" transform="rotate(-0 205.418067 521.031972)">ADS1256_SCK</text>
     </g>
     <g id="patch_11">
-     <path d="M 438.024752 525.502908 
-L 524.175376 525.502908 
-L 524.175376 512.541036 
-L 438.024752 512.541036 
+     <path d="M 438.024752 525.502908
+L 524.175376 525.502908
+L 524.175376 512.541036
+L 438.024752 512.541036
 z
 " style="fill: #ffffff; stroke: #000000; stroke-width: 0.35; stroke-linejoin: miter"/>
     </g>
@@ -141,10 +141,10 @@ z
      <text style="font-size: 6.7px; font-family: 'Apple SD Gothic Neo'; text-anchor: start" x="446.639814" y="521.031972" transform="rotate(-0 446.639814 521.031972)">PA5</text>
     </g>
     <g id="patch_12">
-     <path d="M 524.175376 525.502908 
-L 679.246499 525.502908 
-L 679.246499 512.541036 
-L 524.175376 512.541036 
+     <path d="M 524.175376 525.502908
+L 679.246499 525.502908
+L 679.246499 512.541036
+L 524.175376 512.541036
 z
 " style="fill: #ffffff; stroke: #000000; stroke-width: 0.35; stroke-linejoin: miter"/>
     </g>
@@ -152,10 +152,10 @@ z
      <text style="font-size: 6.7px; font-family: 'Apple SD Gothic Neo'; text-anchor: start" x="539.682488" y="521.031972" transform="rotate(-0 539.682488 521.031972)">SPI1 SCK</text>
     </g>
     <g id="patch_13">
-     <path d="M 679.246499 525.502908 
-L 1041.07912 525.502908 
-L 1041.07912 512.541036 
-L 679.246499 512.541036 
+     <path d="M 679.246499 525.502908
+L 1041.07912 525.502908
+L 1041.07912 512.541036
+L 679.246499 512.541036
 z
 " style="fill: #ffffff; stroke: #000000; stroke-width: 0.35; stroke-linejoin: miter"/>
     </g>
@@ -163,10 +163,10 @@ z
      <text style="font-size: 6.7px; font-family: 'Apple SD Gothic Neo'; text-anchor: start" x="715.429761" y="521.031972" transform="rotate(-0 715.429761 521.031972)">로드셀 ADS1256 / 배선 설계값 · HAL 미구현</text>
     </g>
     <g id="patch_14">
-     <path d="M 179.57288 538.46478 
-L 438.024752 538.46478 
-L 438.024752 525.502908 
-L 179.57288 525.502908 
+     <path d="M 179.57288 538.46478
+L 438.024752 538.46478
+L 438.024752 525.502908
+L 179.57288 525.502908
 z
 " style="fill: #ffffff; stroke: #000000; stroke-width: 0.35; stroke-linejoin: miter"/>
     </g>
@@ -174,10 +174,10 @@ z
      <text style="font-size: 6.7px; font-family: 'Apple SD Gothic Neo'; text-anchor: start" x="205.418067" y="533.993844" transform="rotate(-0 205.418067 533.993844)">ADS1256_MISO</text>
     </g>
     <g id="patch_15">
-     <path d="M 438.024752 538.46478 
-L 524.175376 538.46478 
-L 524.175376 525.502908 
-L 438.024752 525.502908 
+     <path d="M 438.024752 538.46478
+L 524.175376 538.46478
+L 524.175376 525.502908
+L 438.024752 525.502908
 z
 " style="fill: #ffffff; stroke: #000000; stroke-width: 0.35; stroke-linejoin: miter"/>
     </g>
@@ -185,10 +185,10 @@ z
      <text style="font-size: 6.7px; font-family: 'Apple SD Gothic Neo'; text-anchor: start" x="446.639814" y="533.993844" transform="rotate(-0 446.639814 533.993844)">PA6</text>
     </g>
     <g id="patch_16">
-     <path d="M 524.175376 538.46478 
-L 679.246499 538.46478 
-L 679.246499 525.502908 
-L 524.175376 525.502908 
+     <path d="M 524.175376 538.46478
+L 679.246499 538.46478
+L 679.246499 525.502908
+L 524.175376 525.502908
 z
 " style="fill: #ffffff; stroke: #000000; stroke-width: 0.35; stroke-linejoin: miter"/>
     </g>
@@ -196,10 +196,10 @@ z
      <text style="font-size: 6.7px; font-family: 'Apple SD Gothic Neo'; text-anchor: start" x="539.682488" y="533.993844" transform="rotate(-0 539.682488 533.993844)">SPI1 MISO</text>
     </g>
     <g id="patch_17">
-     <path d="M 679.246499 538.46478 
-L 1041.07912 538.46478 
-L 1041.07912 525.502908 
-L 679.246499 525.502908 
+     <path d="M 679.246499 538.46478
+L 1041.07912 538.46478
+L 1041.07912 525.502908
+L 679.246499 525.502908
 z
 " style="fill: #ffffff; stroke: #000000; stroke-width: 0.35; stroke-linejoin: miter"/>
     </g>
@@ -207,10 +207,10 @@ z
      <text style="font-size: 6.7px; font-family: 'Apple SD Gothic Neo'; text-anchor: start" x="715.429761" y="533.993844" transform="rotate(-0 715.429761 533.993844)">로드셀 ADS1256 / 배선 설계값 · HAL 미구현</text>
     </g>
     <g id="patch_18">
-     <path d="M 179.57288 551.426652 
-L 438.024752 551.426652 
-L 438.024752 538.46478 
-L 179.57288 538.46478 
+     <path d="M 179.57288 551.426652
+L 438.024752 551.426652
+L 438.024752 538.46478
+L 179.57288 538.46478
 z
 " style="fill: #ffffff; stroke: #000000; stroke-width: 0.35; stroke-linejoin: miter"/>
     </g>
@@ -218,10 +218,10 @@ z
      <text style="font-size: 6.7px; font-family: 'Apple SD Gothic Neo'; text-anchor: start" x="205.418067" y="546.955716" transform="rotate(-0 205.418067 546.955716)">ADS1256_MOSI</text>
     </g>
     <g id="patch_19">
-     <path d="M 438.024752 551.426652 
-L 524.175376 551.426652 
-L 524.175376 538.46478 
-L 438.024752 538.46478 
+     <path d="M 438.024752 551.426652
+L 524.175376 551.426652
+L 524.175376 538.46478
+L 438.024752 538.46478
 z
 " style="fill: #ffffff; stroke: #000000; stroke-width: 0.35; stroke-linejoin: miter"/>
     </g>
@@ -229,10 +229,10 @@ z
      <text style="font-size: 6.7px; font-family: 'Apple SD Gothic Neo'; text-anchor: start" x="446.639814" y="546.955716" transform="rotate(-0 446.639814 546.955716)">PA7</text>
     </g>
     <g id="patch_20">
-     <path d="M 524.175376 551.426652 
-L 679.246499 551.426652 
-L 679.246499 538.46478 
-L 524.175376 538.46478 
+     <path d="M 524.175376 551.426652
+L 679.246499 551.426652
+L 679.246499 538.46478
+L 524.175376 538.46478
 z
 " style="fill: #ffffff; stroke: #000000; stroke-width: 0.35; stroke-linejoin: miter"/>
     </g>
@@ -240,10 +240,10 @@ z
      <text style="font-size: 6.7px; font-family: 'Apple SD Gothic Neo'; text-anchor: start" x="539.682488" y="546.955716" transform="rotate(-0 539.682488 546.955716)">SPI1 MOSI</text>
     </g>
     <g id="patch_21">
-     <path d="M 679.246499 551.426652 
-L 1041.07912 551.426652 
-L 1041.07912 538.46478 
-L 679.246499 538.46478 
+     <path d="M 679.246499 551.426652
+L 1041.07912 551.426652
+L 1041.07912 538.46478
+L 679.246499 538.46478
 z
 " style="fill: #ffffff; stroke: #000000; stroke-width: 0.35; stroke-linejoin: miter"/>
     </g>
@@ -251,10 +251,10 @@ z
      <text style="font-size: 6.7px; font-family: 'Apple SD Gothic Neo'; text-anchor: start" x="715.429761" y="546.955716" transform="rotate(-0 715.429761 546.955716)">로드셀 ADS1256 / 배선 설계값 · HAL 미구현</text>
     </g>
     <g id="patch_22">
-     <path d="M 179.57288 564.388524 
-L 438.024752 564.388524 
-L 438.024752 551.426652 
-L 179.57288 551.426652 
+     <path d="M 179.57288 564.388524
+L 438.024752 564.388524
+L 438.024752 551.426652
+L 179.57288 551.426652
 z
 " style="fill: #ffffff; stroke: #000000; stroke-width: 0.35; stroke-linejoin: miter"/>
     </g>
@@ -262,10 +262,10 @@ z
      <text style="font-size: 6.7px; font-family: 'Apple SD Gothic Neo'; text-anchor: start" x="205.418067" y="559.917588" transform="rotate(-0 205.418067 559.917588)">ADS1256_CS</text>
     </g>
     <g id="patch_23">
-     <path d="M 438.024752 564.388524 
-L 524.175376 564.388524 
-L 524.175376 551.426652 
-L 438.024752 551.426652 
+     <path d="M 438.024752 564.388524
+L 524.175376 564.388524
+L 524.175376 551.426652
+L 438.024752 551.426652
 z
 " style="fill: #ffffff; stroke: #000000; stroke-width: 0.35; stroke-linejoin: miter"/>
     </g>
@@ -273,10 +273,10 @@ z
      <text style="font-size: 6.7px; font-family: 'Apple SD Gothic Neo'; text-anchor: start" x="446.639814" y="559.917588" transform="rotate(-0 446.639814 559.917588)">PB0</text>
     </g>
     <g id="patch_24">
-     <path d="M 524.175376 564.388524 
-L 679.246499 564.388524 
-L 679.246499 551.426652 
-L 524.175376 551.426652 
+     <path d="M 524.175376 564.388524
+L 679.246499 564.388524
+L 679.246499 551.426652
+L 524.175376 551.426652
 z
 " style="fill: #ffffff; stroke: #000000; stroke-width: 0.35; stroke-linejoin: miter"/>
     </g>
@@ -284,10 +284,10 @@ z
      <text style="font-size: 6.7px; font-family: 'Apple SD Gothic Neo'; text-anchor: start" x="539.682488" y="559.917588" transform="rotate(-0 539.682488 559.917588)">출력 CS</text>
     </g>
     <g id="patch_25">
-     <path d="M 679.246499 564.388524 
-L 1041.07912 564.388524 
-L 1041.07912 551.426652 
-L 679.246499 551.426652 
+     <path d="M 679.246499 564.388524
+L 1041.07912 564.388524
+L 1041.07912 551.426652
+L 679.246499 551.426652
 z
 " style="fill: #ffffff; stroke: #000000; stroke-width: 0.35; stroke-linejoin: miter"/>
     </g>
@@ -295,10 +295,10 @@ z
      <text style="font-size: 6.7px; font-family: 'Apple SD Gothic Neo'; text-anchor: start" x="715.429761" y="559.917588" transform="rotate(-0 715.429761 559.917588)">로드셀 ADS1256 / 배선 설계값 · HAL 미구현</text>
     </g>
     <g id="patch_26">
-     <path d="M 179.57288 577.350396 
-L 438.024752 577.350396 
-L 438.024752 564.388524 
-L 179.57288 564.388524 
+     <path d="M 179.57288 577.350396
+L 438.024752 577.350396
+L 438.024752 564.388524
+L 179.57288 564.388524
 z
 " style="fill: #ffffff; stroke: #000000; stroke-width: 0.35; stroke-linejoin: miter"/>
     </g>
@@ -306,10 +306,10 @@ z
      <text style="font-size: 6.7px; font-family: 'Apple SD Gothic Neo'; text-anchor: start" x="205.418067" y="572.87946" transform="rotate(-0 205.418067 572.87946)">ADS1256_DRDY</text>
     </g>
     <g id="patch_27">
-     <path d="M 438.024752 577.350396 
-L 524.175376 577.350396 
-L 524.175376 564.388524 
-L 438.024752 564.388524 
+     <path d="M 438.024752 577.350396
+L 524.175376 577.350396
+L 524.175376 564.388524
+L 438.024752 564.388524
 z
 " style="fill: #ffffff; stroke: #000000; stroke-width: 0.35; stroke-linejoin: miter"/>
     </g>
@@ -317,10 +317,10 @@ z
      <text style="font-size: 6.7px; font-family: 'Apple SD Gothic Neo'; text-anchor: start" x="446.639814" y="572.87946" transform="rotate(-0 446.639814 572.87946)">PB1</text>
     </g>
     <g id="patch_28">
-     <path d="M 524.175376 577.350396 
-L 679.246499 577.350396 
-L 679.246499 564.388524 
-L 524.175376 564.388524 
+     <path d="M 524.175376 577.350396
+L 679.246499 577.350396
+L 679.246499 564.388524
+L 524.175376 564.388524
 z
 " style="fill: #ffffff; stroke: #000000; stroke-width: 0.35; stroke-linejoin: miter"/>
     </g>
@@ -328,10 +328,10 @@ z
      <text style="font-size: 6.7px; font-family: 'Apple SD Gothic Neo'; text-anchor: start" x="539.682488" y="572.87946" transform="rotate(-0 539.682488 572.87946)">입력 DRDY</text>
     </g>
     <g id="patch_29">
-     <path d="M 679.246499 577.350396 
-L 1041.07912 577.350396 
-L 1041.07912 564.388524 
-L 679.246499 564.388524 
+     <path d="M 679.246499 577.350396
+L 1041.07912 577.350396
+L 1041.07912 564.388524
+L 679.246499 564.388524
 z
 " style="fill: #ffffff; stroke: #000000; stroke-width: 0.35; stroke-linejoin: miter"/>
     </g>
@@ -339,10 +339,10 @@ z
      <text style="font-size: 6.7px; font-family: 'Apple SD Gothic Neo'; text-anchor: start" x="715.429761" y="572.87946" transform="rotate(-0 715.429761 572.87946)">로드셀 ADS1256 / 배선 설계값 · HAL 미구현</text>
     </g>
     <g id="patch_30">
-     <path d="M 179.57288 590.312268 
-L 438.024752 590.312268 
-L 438.024752 577.350396 
-L 179.57288 577.350396 
+     <path d="M 179.57288 590.312268
+L 438.024752 590.312268
+L 438.024752 577.350396
+L 179.57288 577.350396
 z
 " style="fill: #ffffff; stroke: #000000; stroke-width: 0.35; stroke-linejoin: miter"/>
     </g>
@@ -350,10 +350,10 @@ z
      <text style="font-size: 6.7px; font-family: 'Apple SD Gothic Neo'; text-anchor: start" x="205.418067" y="585.841332" transform="rotate(-0 205.418067 585.841332)">hal_read_temp_C</text>
     </g>
     <g id="patch_31">
-     <path d="M 438.024752 590.312268 
-L 524.175376 590.312268 
-L 524.175376 577.350396 
-L 438.024752 577.350396 
+     <path d="M 438.024752 590.312268
+L 524.175376 590.312268
+L 524.175376 577.350396
+L 438.024752 577.350396
 z
 " style="fill: #ffffff; stroke: #000000; stroke-width: 0.35; stroke-linejoin: miter"/>
     </g>
@@ -361,10 +361,10 @@ z
      <text style="font-size: 6.7px; font-family: 'Apple SD Gothic Neo'; text-anchor: start" x="446.639814" y="585.841332" transform="rotate(-0 446.639814 585.841332)">PA0</text>
     </g>
     <g id="patch_32">
-     <path d="M 524.175376 590.312268 
-L 679.246499 590.312268 
-L 679.246499 577.350396 
-L 524.175376 577.350396 
+     <path d="M 524.175376 590.312268
+L 679.246499 590.312268
+L 679.246499 577.350396
+L 524.175376 577.350396
 z
 " style="fill: #ffffff; stroke: #000000; stroke-width: 0.35; stroke-linejoin: miter"/>
     </g>
@@ -372,10 +372,10 @@ z
      <text style="font-size: 6.7px; font-family: 'Apple SD Gothic Neo'; text-anchor: start" x="539.682488" y="585.841332" transform="rotate(-0 539.682488 585.841332)">ADC 입력</text>
     </g>
     <g id="patch_33">
-     <path d="M 679.246499 590.312268 
-L 1041.07912 590.312268 
-L 1041.07912 577.350396 
-L 679.246499 577.350396 
+     <path d="M 679.246499 590.312268
+L 1041.07912 590.312268
+L 1041.07912 577.350396
+L 679.246499 577.350396
 z
 " style="fill: #ffffff; stroke: #000000; stroke-width: 0.35; stroke-linejoin: miter"/>
     </g>
@@ -383,10 +383,10 @@ z
      <text style="font-size: 6.7px; font-family: 'Apple SD Gothic Neo'; text-anchor: start" x="715.429761" y="585.841332" transform="rotate(-0 715.429761 585.841332)">헤드 AD8495 / 배선 설계값 · HAL 미구현</text>
     </g>
     <g id="patch_34">
-     <path d="M 179.57288 603.27414 
-L 438.024752 603.27414 
-L 438.024752 590.312268 
-L 179.57288 590.312268 
+     <path d="M 179.57288 603.27414
+L 438.024752 603.27414
+L 438.024752 590.312268
+L 179.57288 590.312268
 z
 " style="fill: #ffffff; stroke: #000000; stroke-width: 0.35; stroke-linejoin: miter"/>
     </g>
@@ -394,10 +394,10 @@ z
      <text style="font-size: 6.7px; font-family: 'Apple SD Gothic Neo'; text-anchor: start" x="205.418067" y="598.803204" transform="rotate(-0 205.418067 598.803204)">reflow_temp</text>
     </g>
     <g id="patch_35">
-     <path d="M 438.024752 603.27414 
-L 524.175376 603.27414 
-L 524.175376 590.312268 
-L 438.024752 590.312268 
+     <path d="M 438.024752 603.27414
+L 524.175376 603.27414
+L 524.175376 590.312268
+L 438.024752 590.312268
 z
 " style="fill: #ffffff; stroke: #000000; stroke-width: 0.35; stroke-linejoin: miter"/>
     </g>
@@ -405,10 +405,10 @@ z
      <text style="font-size: 6.7px; font-family: 'Apple SD Gothic Neo'; text-anchor: start" x="446.639814" y="598.803204" transform="rotate(-0 446.639814 598.803204)">PA1</text>
     </g>
     <g id="patch_36">
-     <path d="M 524.175376 603.27414 
-L 679.246499 603.27414 
-L 679.246499 590.312268 
-L 524.175376 590.312268 
+     <path d="M 524.175376 603.27414
+L 679.246499 603.27414
+L 679.246499 590.312268
+L 524.175376 590.312268
 z
 " style="fill: #ffffff; stroke: #000000; stroke-width: 0.35; stroke-linejoin: miter"/>
     </g>
@@ -416,10 +416,10 @@ z
      <text style="font-size: 6.7px; font-family: 'Apple SD Gothic Neo'; text-anchor: start" x="539.682488" y="598.803204" transform="rotate(-0 539.682488 598.803204)">ADC 입력</text>
     </g>
     <g id="patch_37">
-     <path d="M 679.246499 603.27414 
-L 1041.07912 603.27414 
-L 1041.07912 590.312268 
-L 679.246499 590.312268 
+     <path d="M 679.246499 603.27414
+L 1041.07912 603.27414
+L 1041.07912 590.312268
+L 679.246499 590.312268
 z
 " style="fill: #ffffff; stroke: #000000; stroke-width: 0.35; stroke-linejoin: miter"/>
     </g>
@@ -427,10 +427,10 @@ z
      <text style="font-size: 6.7px; font-family: 'Apple SD Gothic Neo'; text-anchor: start" x="715.429761" y="598.803204" transform="rotate(-0 715.429761 598.803204)">리플로우 AD8495 / 배선 설계값 · HAL 미구현</text>
     </g>
     <g id="patch_38">
-     <path d="M 179.57288 616.236012 
-L 438.024752 616.236012 
-L 438.024752 603.27414 
-L 179.57288 603.27414 
+     <path d="M 179.57288 616.236012
+L 438.024752 616.236012
+L 438.024752 603.27414
+L 179.57288 603.27414
 z
 " style="fill: #ffffff; stroke: #000000; stroke-width: 0.35; stroke-linejoin: miter"/>
     </g>
@@ -438,10 +438,10 @@ z
      <text style="font-size: 6.7px; font-family: 'Apple SD Gothic Neo'; text-anchor: start" x="205.418067" y="611.765076" transform="rotate(-0 205.418067 611.765076)">jig_pressure</text>
     </g>
     <g id="patch_39">
-     <path d="M 438.024752 616.236012 
-L 524.175376 616.236012 
-L 524.175376 603.27414 
-L 438.024752 603.27414 
+     <path d="M 438.024752 616.236012
+L 524.175376 616.236012
+L 524.175376 603.27414
+L 438.024752 603.27414
 z
 " style="fill: #ffffff; stroke: #000000; stroke-width: 0.35; stroke-linejoin: miter"/>
     </g>
@@ -449,10 +449,10 @@ z
      <text style="font-size: 6.7px; font-family: 'Apple SD Gothic Neo'; text-anchor: start" x="446.639814" y="611.765076" transform="rotate(-0 446.639814 611.765076)">PA2</text>
     </g>
     <g id="patch_40">
-     <path d="M 524.175376 616.236012 
-L 679.246499 616.236012 
-L 679.246499 603.27414 
-L 524.175376 603.27414 
+     <path d="M 524.175376 616.236012
+L 679.246499 616.236012
+L 679.246499 603.27414
+L 524.175376 603.27414
 z
 " style="fill: #ffffff; stroke: #000000; stroke-width: 0.35; stroke-linejoin: miter"/>
     </g>
@@ -460,10 +460,10 @@ z
      <text style="font-size: 6.7px; font-family: 'Apple SD Gothic Neo'; text-anchor: start" x="539.682488" y="611.765076" transform="rotate(-0 539.682488 611.765076)">ADC 입력</text>
     </g>
     <g id="patch_41">
-     <path d="M 679.246499 616.236012 
-L 1041.07912 616.236012 
-L 1041.07912 603.27414 
-L 679.246499 603.27414 
+     <path d="M 679.246499 616.236012
+L 1041.07912 616.236012
+L 1041.07912 603.27414
+L 679.246499 603.27414
 z
 " style="fill: #ffffff; stroke: #000000; stroke-width: 0.35; stroke-linejoin: miter"/>
     </g>
@@ -471,10 +471,10 @@ z
      <text style="font-size: 6.7px; font-family: 'Apple SD Gothic Neo'; text-anchor: start" x="715.429761" y="611.765076" transform="rotate(-0 715.429761 611.765076)">지그 압력 센서 / 배선 설계값 · HAL 미구현</text>
     </g>
     <g id="patch_42">
-     <path d="M 179.57288 629.197884 
-L 438.024752 629.197884 
-L 438.024752 616.236012 
-L 179.57288 616.236012 
+     <path d="M 179.57288 629.197884
+L 438.024752 629.197884
+L 438.024752 616.236012
+L 179.57288 616.236012
 z
 " style="fill: #ffffff; stroke: #000000; stroke-width: 0.35; stroke-linejoin: miter"/>
     </g>
@@ -482,10 +482,10 @@ z
      <text style="font-size: 6.7px; font-family: 'Apple SD Gothic Neo'; text-anchor: start" x="205.418067" y="624.726948" transform="rotate(-0 205.418067 624.726948)">jig_position</text>
     </g>
     <g id="patch_43">
-     <path d="M 438.024752 629.197884 
-L 524.175376 629.197884 
-L 524.175376 616.236012 
-L 438.024752 616.236012 
+     <path d="M 438.024752 629.197884
+L 524.175376 629.197884
+L 524.175376 616.236012
+L 438.024752 616.236012
 z
 " style="fill: #ffffff; stroke: #000000; stroke-width: 0.35; stroke-linejoin: miter"/>
     </g>
@@ -493,10 +493,10 @@ z
      <text style="font-size: 6.7px; font-family: 'Apple SD Gothic Neo'; text-anchor: start" x="446.639814" y="624.726948" transform="rotate(-0 446.639814 624.726948)">PG1</text>
     </g>
     <g id="patch_44">
-     <path d="M 524.175376 629.197884 
-L 679.246499 629.197884 
-L 679.246499 616.236012 
-L 524.175376 616.236012 
+     <path d="M 524.175376 629.197884
+L 679.246499 629.197884
+L 679.246499 616.236012
+L 524.175376 616.236012
 z
 " style="fill: #ffffff; stroke: #000000; stroke-width: 0.35; stroke-linejoin: miter"/>
     </g>
@@ -504,10 +504,10 @@ z
      <text style="font-size: 6.7px; font-family: 'Apple SD Gothic Neo'; text-anchor: start" x="539.682488" y="624.726948" transform="rotate(-0 539.682488 624.726948)">입력</text>
     </g>
     <g id="patch_45">
-     <path d="M 679.246499 629.197884 
-L 1041.07912 629.197884 
-L 1041.07912 616.236012 
-L 679.246499 616.236012 
+     <path d="M 679.246499 629.197884
+L 1041.07912 629.197884
+L 1041.07912 616.236012
+L 679.246499 616.236012
 z
 " style="fill: #ffffff; stroke: #000000; stroke-width: 0.35; stroke-linejoin: miter"/>
     </g>
@@ -515,10 +515,10 @@ z
      <text style="font-size: 6.7px; font-family: 'Apple SD Gothic Neo'; text-anchor: start" x="715.429761" y="624.726948" transform="rotate(-0 715.429761 624.726948)">플런저 원점 스위치 / 배선 설계값 · HAL 미구현</text>
     </g>
     <g id="patch_46">
-     <path d="M 179.57288 642.159756 
-L 438.024752 642.159756 
-L 438.024752 629.197884 
-L 179.57288 629.197884 
+     <path d="M 179.57288 642.159756
+L 438.024752 642.159756
+L 438.024752 629.197884
+L 179.57288 629.197884
 z
 " style="fill: #ffffff; stroke: #000000; stroke-width: 0.35; stroke-linejoin: miter"/>
     </g>
@@ -526,10 +526,10 @@ z
      <text style="font-size: 6.7px; font-family: 'Apple SD Gothic Neo'; text-anchor: start" x="205.418067" y="637.68882" transform="rotate(-0 205.418067 637.68882)">hal_write_heater_W</text>
     </g>
     <g id="patch_47">
-     <path d="M 438.024752 642.159756 
-L 524.175376 642.159756 
-L 524.175376 629.197884 
-L 438.024752 629.197884 
+     <path d="M 438.024752 642.159756
+L 524.175376 642.159756
+L 524.175376 629.197884
+L 438.024752 629.197884
 z
 " style="fill: #ffffff; stroke: #000000; stroke-width: 0.35; stroke-linejoin: miter"/>
     </g>
@@ -537,10 +537,10 @@ z
      <text style="font-size: 6.7px; font-family: 'Apple SD Gothic Neo'; text-anchor: start" x="446.639814" y="637.68882" transform="rotate(-0 446.639814 637.68882)">PE9</text>
     </g>
     <g id="patch_48">
-     <path d="M 524.175376 642.159756 
-L 679.246499 642.159756 
-L 679.246499 629.197884 
-L 524.175376 629.197884 
+     <path d="M 524.175376 642.159756
+L 679.246499 642.159756
+L 679.246499 629.197884
+L 524.175376 629.197884
 z
 " style="fill: #ffffff; stroke: #000000; stroke-width: 0.35; stroke-linejoin: miter"/>
     </g>
@@ -548,21 +548,21 @@ z
      <text style="font-size: 6.7px; font-family: 'Apple SD Gothic Neo'; text-anchor: start" x="539.682488" y="637.68882" transform="rotate(-0 539.682488 637.68882)">TIM1 CH1 PWM</text>
     </g>
     <g id="patch_49">
-     <path d="M 679.246499 642.159756 
-L 1041.07912 642.159756 
-L 1041.07912 629.197884 
-L 679.246499 629.197884 
+     <path d="M 679.246499 642.159756
+L 1041.07912 642.159756
+L 1041.07912 629.197884
+L 679.246499 629.197884
 z
 " style="fill: #ffffff; stroke: #000000; stroke-width: 0.35; stroke-linejoin: miter"/>
     </g>
     <g id="text_48">
-     <text style="font-size: 6.7px; font-family: 'Apple SD Gothic Neo'; text-anchor: start" x="715.429761" y="637.68882" transform="rotate(-0 715.429761 637.68882)">헤드 게이트 드라이버 / 배선 설계값 · HAL 미구현</text>
+     <text style="font-size: 6.7px; font-family: 'Apple SD Gothic Neo'; text-anchor: start" x="715.429761" y="637.68882" transform="rotate(-0 715.429761 637.68882)">헤드 게이트 드라이버 · 두 히터 동시 통전 금지(SW 인터락) / 배선 설계값 · HAL 미구현</text>
     </g>
     <g id="patch_50">
-     <path d="M 179.57288 655.121628 
-L 438.024752 655.121628 
-L 438.024752 642.159756 
-L 179.57288 642.159756 
+     <path d="M 179.57288 655.121628
+L 438.024752 655.121628
+L 438.024752 642.159756
+L 179.57288 642.159756
 z
 " style="fill: #ffffff; stroke: #000000; stroke-width: 0.35; stroke-linejoin: miter"/>
     </g>
@@ -570,10 +570,10 @@ z
      <text style="font-size: 6.7px; font-family: 'Apple SD Gothic Neo'; text-anchor: start" x="205.418067" y="650.650692" transform="rotate(-0 205.418067 650.650692)">reflow_heater_pwm</text>
     </g>
     <g id="patch_51">
-     <path d="M 438.024752 655.121628 
-L 524.175376 655.121628 
-L 524.175376 642.159756 
-L 438.024752 642.159756 
+     <path d="M 438.024752 655.121628
+L 524.175376 655.121628
+L 524.175376 642.159756
+L 438.024752 642.159756
 z
 " style="fill: #ffffff; stroke: #000000; stroke-width: 0.35; stroke-linejoin: miter"/>
     </g>
@@ -581,10 +581,10 @@ z
      <text style="font-size: 6.7px; font-family: 'Apple SD Gothic Neo'; text-anchor: start" x="446.639814" y="650.650692" transform="rotate(-0 446.639814 650.650692)">PE11</text>
     </g>
     <g id="patch_52">
-     <path d="M 524.175376 655.121628 
-L 679.246499 655.121628 
-L 679.246499 642.159756 
-L 524.175376 642.159756 
+     <path d="M 524.175376 655.121628
+L 679.246499 655.121628
+L 679.246499 642.159756
+L 524.175376 642.159756
 z
 " style="fill: #ffffff; stroke: #000000; stroke-width: 0.35; stroke-linejoin: miter"/>
     </g>
@@ -592,21 +592,21 @@ z
      <text style="font-size: 6.7px; font-family: 'Apple SD Gothic Neo'; text-anchor: start" x="539.682488" y="650.650692" transform="rotate(-0 539.682488 650.650692)">TIM1 CH2 PWM</text>
     </g>
     <g id="patch_53">
-     <path d="M 679.246499 655.121628 
-L 1041.07912 655.121628 
-L 1041.07912 642.159756 
-L 679.246499 642.159756 
+     <path d="M 679.246499 655.121628
+L 1041.07912 655.121628
+L 1041.07912 642.159756
+L 679.246499 642.159756
 z
 " style="fill: #ffffff; stroke: #000000; stroke-width: 0.35; stroke-linejoin: miter"/>
     </g>
     <g id="text_52">
-     <text style="font-size: 6.7px; font-family: 'Apple SD Gothic Neo'; text-anchor: start" x="715.429761" y="650.650692" transform="rotate(-0 715.429761 650.650692)">리플로우 게이트 드라이버 / 배선 설계값 · HAL 미구현</text>
+     <text style="font-size: 6.7px; font-family: 'Apple SD Gothic Neo'; text-anchor: start" x="715.429761" y="650.650692" transform="rotate(-0 715.429761 650.650692)">리플로우 게이트 드라이버 · 두 히터 동시 통전 금지(SW 인터락) / 배선 설계값 · HAL 미구현</text>
     </g>
     <g id="patch_54">
-     <path d="M 179.57288 668.0835 
-L 438.024752 668.0835 
-L 438.024752 655.121628 
-L 179.57288 655.121628 
+     <path d="M 179.57288 668.0835
+L 438.024752 668.0835
+L 438.024752 655.121628
+L 179.57288 655.121628
 z
 " style="fill: #ffffff; stroke: #000000; stroke-width: 0.35; stroke-linejoin: miter"/>
     </g>
@@ -614,10 +614,10 @@ z
      <text style="font-size: 6.7px; font-family: 'Apple SD Gothic Neo'; text-anchor: start" x="205.418067" y="663.612564" transform="rotate(-0 205.418067 663.612564)">hal_write_z_velocity_mm_s</text>
     </g>
     <g id="patch_55">
-     <path d="M 438.024752 668.0835 
-L 524.175376 668.0835 
-L 524.175376 655.121628 
-L 438.024752 655.121628 
+     <path d="M 438.024752 668.0835
+L 524.175376 668.0835
+L 524.175376 655.121628
+L 438.024752 655.121628
 z
 " style="fill: #ffffff; stroke: #000000; stroke-width: 0.35; stroke-linejoin: miter"/>
     </g>
@@ -625,10 +625,10 @@ z
      <text style="font-size: 6.7px; font-family: 'Apple SD Gothic Neo'; text-anchor: start" x="446.639814" y="663.612564" transform="rotate(-0 446.639814 663.612564)">PD8/PD9</text>
     </g>
     <g id="patch_56">
-     <path d="M 524.175376 668.0835 
-L 679.246499 668.0835 
-L 679.246499 655.121628 
-L 524.175376 655.121628 
+     <path d="M 524.175376 668.0835
+L 679.246499 668.0835
+L 679.246499 655.121628
+L 524.175376 655.121628
 z
 " style="fill: #ffffff; stroke: #000000; stroke-width: 0.35; stroke-linejoin: miter"/>
     </g>
@@ -636,10 +636,10 @@ z
      <text style="font-size: 6.7px; font-family: 'Apple SD Gothic Neo'; text-anchor: start" x="539.682488" y="663.612564" transform="rotate(-0 539.682488 663.612564)">USART3 TX/RX</text>
     </g>
     <g id="patch_57">
-     <path d="M 679.246499 668.0835 
-L 1041.07912 668.0835 
-L 1041.07912 655.121628 
-L 679.246499 655.121628 
+     <path d="M 679.246499 668.0835
+L 1041.07912 668.0835
+L 1041.07912 655.121628
+L 679.246499 655.121628
 z
 " style="fill: #ffffff; stroke: #000000; stroke-width: 0.35; stroke-linejoin: miter"/>
     </g>
@@ -647,10 +647,10 @@ z
      <text style="font-size: 6.7px; font-family: 'Apple SD Gothic Neo'; text-anchor: start" x="715.429761" y="663.612564" transform="rotate(-0 715.429761 663.612564)">서보 속도 명령 / 배선 설계값 · HAL 미구현</text>
     </g>
     <g id="patch_58">
-     <path d="M 179.57288 681.045372 
-L 438.024752 681.045372 
-L 438.024752 668.0835 
-L 179.57288 668.0835 
+     <path d="M 179.57288 681.045372
+L 438.024752 681.045372
+L 438.024752 668.0835
+L 179.57288 668.0835
 z
 " style="fill: #ffffff; stroke: #000000; stroke-width: 0.35; stroke-linejoin: miter"/>
     </g>
@@ -658,10 +658,10 @@ z
      <text style="font-size: 6.7px; font-family: 'Apple SD Gothic Neo'; text-anchor: start" x="205.418067" y="676.574436" transform="rotate(-0 205.418067 676.574436)">hal_write_safety.brake</text>
     </g>
     <g id="patch_59">
-     <path d="M 438.024752 681.045372 
-L 524.175376 681.045372 
-L 524.175376 668.0835 
-L 438.024752 668.0835 
+     <path d="M 438.024752 681.045372
+L 524.175376 681.045372
+L 524.175376 668.0835
+L 438.024752 668.0835
 z
 " style="fill: #ffffff; stroke: #000000; stroke-width: 0.35; stroke-linejoin: miter"/>
     </g>
@@ -669,10 +669,10 @@ z
      <text style="font-size: 6.7px; font-family: 'Apple SD Gothic Neo'; text-anchor: start" x="446.639814" y="676.574436" transform="rotate(-0 446.639814 676.574436)">PG2</text>
     </g>
     <g id="patch_60">
-     <path d="M 524.175376 681.045372 
-L 679.246499 681.045372 
-L 679.246499 668.0835 
-L 524.175376 668.0835 
+     <path d="M 524.175376 681.045372
+L 679.246499 681.045372
+L 679.246499 668.0835
+L 524.175376 668.0835
 z
 " style="fill: #ffffff; stroke: #000000; stroke-width: 0.35; stroke-linejoin: miter"/>
     </g>
@@ -680,10 +680,10 @@ z
      <text style="font-size: 6.7px; font-family: 'Apple SD Gothic Neo'; text-anchor: start" x="539.682488" y="676.574436" transform="rotate(-0 539.682488 676.574436)">출력</text>
     </g>
     <g id="patch_61">
-     <path d="M 679.246499 681.045372 
-L 1041.07912 681.045372 
-L 1041.07912 668.0835 
-L 679.246499 668.0835 
+     <path d="M 679.246499 681.045372
+L 1041.07912 681.045372
+L 1041.07912 668.0835
+L 679.246499 668.0835
 z
 " style="fill: #ffffff; stroke: #000000; stroke-width: 0.35; stroke-linejoin: miter"/>
     </g>
@@ -691,10 +691,10 @@ z
      <text style="font-size: 6.7px; font-family: 'Apple SD Gothic Neo'; text-anchor: start" x="715.429761" y="676.574436" transform="rotate(-0 715.429761 676.574436)">브레이크 상태 요청 / 배선 설계값 · HAL 미구현</text>
     </g>
     <g id="patch_62">
-     <path d="M 179.57288 694.007244 
-L 438.024752 694.007244 
-L 438.024752 681.045372 
-L 179.57288 681.045372 
+     <path d="M 179.57288 694.007244
+L 438.024752 694.007244
+L 438.024752 681.045372
+L 179.57288 681.045372
 z
 " style="fill: #ffffff; stroke: #000000; stroke-width: 0.35; stroke-linejoin: miter"/>
     </g>
@@ -702,10 +702,10 @@ z
      <text style="font-size: 6.7px; font-family: 'Apple SD Gothic Neo'; text-anchor: start" x="205.418067" y="689.536308" transform="rotate(-0 205.418067 689.536308)">hal_write_safety.sto</text>
     </g>
     <g id="patch_63">
-     <path d="M 438.024752 694.007244 
-L 524.175376 694.007244 
-L 524.175376 681.045372 
-L 438.024752 681.045372 
+     <path d="M 438.024752 694.007244
+L 524.175376 694.007244
+L 524.175376 681.045372
+L 438.024752 681.045372
 z
 " style="fill: #ffffff; stroke: #000000; stroke-width: 0.35; stroke-linejoin: miter"/>
     </g>
@@ -713,10 +713,10 @@ z
      <text style="font-size: 6.7px; font-family: 'Apple SD Gothic Neo'; text-anchor: start" x="446.639814" y="689.536308" transform="rotate(-0 446.639814 689.536308)">PG3</text>
     </g>
     <g id="patch_64">
-     <path d="M 524.175376 694.007244 
-L 679.246499 694.007244 
-L 679.246499 681.045372 
-L 524.175376 681.045372 
+     <path d="M 524.175376 694.007244
+L 679.246499 694.007244
+L 679.246499 681.045372
+L 524.175376 681.045372
 z
 " style="fill: #ffffff; stroke: #000000; stroke-width: 0.35; stroke-linejoin: miter"/>
     </g>
@@ -724,10 +724,10 @@ z
      <text style="font-size: 6.7px; font-family: 'Apple SD Gothic Neo'; text-anchor: start" x="539.682488" y="689.536308" transform="rotate(-0 539.682488 689.536308)">출력</text>
     </g>
     <g id="patch_65">
-     <path d="M 679.246499 694.007244 
-L 1041.07912 694.007244 
-L 1041.07912 681.045372 
-L 679.246499 681.045372 
+     <path d="M 679.246499 694.007244
+L 1041.07912 694.007244
+L 1041.07912 681.045372
+L 679.246499 681.045372
 z
 " style="fill: #ffffff; stroke: #000000; stroke-width: 0.35; stroke-linejoin: miter"/>
     </g>
@@ -735,10 +735,10 @@ z
      <text style="font-size: 6.7px; font-family: 'Apple SD Gothic Neo'; text-anchor: start" x="715.429761" y="689.536308" transform="rotate(-0 715.429761 689.536308)">STO 상태 요청 / 배선 설계값 · HAL 미구현</text>
     </g>
     <g id="patch_66">
-     <path d="M 179.57288 706.969116 
-L 438.024752 706.969116 
-L 438.024752 694.007244 
-L 179.57288 694.007244 
+     <path d="M 179.57288 706.969116
+L 438.024752 706.969116
+L 438.024752 694.007244
+L 179.57288 694.007244
 z
 " style="fill: #ffffff; stroke: #000000; stroke-width: 0.35; stroke-linejoin: miter"/>
     </g>
@@ -746,10 +746,10 @@ z
      <text style="font-size: 6.7px; font-family: 'Apple SD Gothic Neo'; text-anchor: start" x="205.418067" y="702.49818" transform="rotate(-0 205.418067 702.49818)">fw_reset_latch</text>
     </g>
     <g id="patch_67">
-     <path d="M 438.024752 706.969116 
-L 524.175376 706.969116 
-L 524.175376 694.007244 
-L 438.024752 694.007244 
+     <path d="M 438.024752 706.969116
+L 524.175376 706.969116
+L 524.175376 694.007244
+L 438.024752 694.007244
 z
 " style="fill: #ffffff; stroke: #000000; stroke-width: 0.35; stroke-linejoin: miter"/>
     </g>
@@ -757,10 +757,10 @@ z
      <text style="font-size: 6.7px; font-family: 'Apple SD Gothic Neo'; text-anchor: start" x="446.639814" y="702.49818" transform="rotate(-0 446.639814 702.49818)">PC13</text>
     </g>
     <g id="patch_68">
-     <path d="M 524.175376 706.969116 
-L 679.246499 706.969116 
-L 679.246499 694.007244 
-L 524.175376 694.007244 
+     <path d="M 524.175376 706.969116
+L 679.246499 706.969116
+L 679.246499 694.007244
+L 524.175376 694.007244
 z
 " style="fill: #ffffff; stroke: #000000; stroke-width: 0.35; stroke-linejoin: miter"/>
     </g>
@@ -768,10 +768,10 @@ z
      <text style="font-size: 6.7px; font-family: 'Apple SD Gothic Neo'; text-anchor: start" x="539.682488" y="702.49818" transform="rotate(-0 539.682488 702.49818)">입력</text>
     </g>
     <g id="patch_69">
-     <path d="M 679.246499 706.969116 
-L 1041.07912 706.969116 
-L 1041.07912 694.007244 
-L 679.246499 694.007244 
+     <path d="M 679.246499 706.969116
+L 1041.07912 706.969116
+L 1041.07912 694.007244
+L 679.246499 694.007244
 z
 " style="fill: #ffffff; stroke: #000000; stroke-width: 0.35; stroke-linejoin: miter"/>
     </g>
@@ -780,219 +780,282 @@ z
     </g>
    </g>
    <g id="patch_70">
-    <path d="M 167.352933 733.820267 
-L 1053.299067 733.820267 
-L 1053.299067 116.276533 
-L 167.352933 116.276533 
-L 167.352933 733.820267 
+    <path d="M 167.352933 733.820267
+L 1053.299067 733.820267
+L 1053.299067 116.276533
+L 167.352933 116.276533
+L 167.352933 733.820267
 z
-" clip-path="url(#p5f3dc01806)" style="fill: none; stroke: #000000; stroke-width: 1.3; stroke-linejoin: miter"/>
+" clip-path="url(#p997028e214)" style="fill: none; stroke: #000000; stroke-width: 1.3; stroke-linejoin: miter"/>
    </g>
    <g id="patch_71">
-    <path d="M 180.445733 229.747467 
-L 315.738 229.747467 
-L 315.738 170.829867 
-L 180.445733 170.829867 
+    <path d="M 180.445733 229.747467
+L 315.738 229.747467
+L 315.738 170.829867
+L 180.445733 170.829867
 z
-" clip-path="url(#p5f3dc01806)" style="fill: #eff3f5; stroke: #34495e; stroke-width: 0.8; stroke-linejoin: miter"/>
+" clip-path="url(#p997028e214)" style="fill: #eff3f5; stroke: #34495e; stroke-width: 0.8; stroke-linejoin: miter"/>
    </g>
    <g id="patch_72">
-    <path d="M 352.834267 229.747467 
-L 547.044133 229.747467 
-L 547.044133 170.829867 
-L 352.834267 170.829867 
+    <path d="M 352.834267 229.747467
+L 547.044133 229.747467
+L 547.044133 170.829867
+L 352.834267 170.829867
 z
-" clip-path="url(#p5f3dc01806)" style="fill: #fdecec; stroke: #34495e; stroke-width: 0.8; stroke-linejoin: miter"/>
+" clip-path="url(#p997028e214)" style="fill: #fdecec; stroke: #34495e; stroke-width: 0.8; stroke-linejoin: miter"/>
    </g>
    <g id="patch_73">
-    <path d="M 317.735004 199.1976 
-Q 334.284186 199.1976 348.038284 199.1976 
-" clip-path="url(#p5f3dc01806)" style="fill: none; stroke: #b32624; stroke-width: 2.5; stroke-linecap: round"/>
-    <path d="M 344.038284 197.1976 
-L 348.038284 199.1976 
-L 344.038284 201.1976 
-" clip-path="url(#p5f3dc01806)" style="fill: none; stroke: #b32624; stroke-width: 2.5; stroke-linecap: round"/>
+    <path d="M 317.735004 199.1976
+Q 334.284186 199.1976 348.038284 199.1976
+" clip-path="url(#p997028e214)" style="fill: none; stroke: #b32624; stroke-width: 2.5; stroke-linecap: round"/>
+    <path d="M 344.038284 197.1976
+L 348.038284 199.1976
+L 344.038284 201.1976
+" clip-path="url(#p997028e214)" style="fill: none; stroke: #b32624; stroke-width: 2.5; stroke-linecap: round"/>
    </g>
    <g id="patch_74">
-    <path d="M 586.322533 229.747467 
-L 791.443067 229.747467 
-L 791.443067 170.829867 
-L 586.322533 170.829867 
+    <path d="M 586.322533 229.747467
+L 791.443067 229.747467
+L 791.443067 170.829867
+L 586.322533 170.829867
 z
-" clip-path="url(#p5f3dc01806)" style="fill: #fdecec; stroke: #34495e; stroke-width: 0.8; stroke-linejoin: miter"/>
+" clip-path="url(#p997028e214)" style="fill: #fdecec; stroke: #34495e; stroke-width: 0.8; stroke-linejoin: miter"/>
    </g>
    <g id="patch_75">
-    <path d="M 549.043534 201.379733 
-Q 566.684164 201.379733 581.529709 201.379733 
-" clip-path="url(#p5f3dc01806)" style="fill: none; stroke: #b32624; stroke-width: 2.5; stroke-linecap: round"/>
-    <path d="M 577.529709 199.379733 
-L 581.529709 201.379733 
-L 577.529709 203.379733 
-" clip-path="url(#p5f3dc01806)" style="fill: none; stroke: #b32624; stroke-width: 2.5; stroke-linecap: round"/>
+    <path d="M 549.043534 201.379733
+Q 566.684164 201.379733 581.529709 201.379733
+" clip-path="url(#p997028e214)" style="fill: none; stroke: #b32624; stroke-width: 2.5; stroke-linecap: round"/>
+    <path d="M 577.529709 199.379733
+L 581.529709 201.379733
+L 577.529709 203.379733
+" clip-path="url(#p997028e214)" style="fill: none; stroke: #b32624; stroke-width: 2.5; stroke-linecap: round"/>
    </g>
    <g id="patch_76">
-    <path d="M 832.9036 229.747467 
-L 1031.477733 229.747467 
-L 1031.477733 170.829867 
-L 832.9036 170.829867 
+    <path d="M 832.9036 229.747467
+L 1031.477733 229.747467
+L 1031.477733 170.829867
+L 832.9036 170.829867
 z
-" clip-path="url(#p5f3dc01806)" style="fill: #fdecec; stroke: #34495e; stroke-width: 0.8; stroke-linejoin: miter"/>
+" clip-path="url(#p997028e214)" style="fill: #fdecec; stroke: #34495e; stroke-width: 0.8; stroke-linejoin: miter"/>
    </g>
    <g id="patch_77">
-    <path d="M 793.444732 201.379733 
-Q 812.174689 201.379733 828.109561 201.379733 
-" clip-path="url(#p5f3dc01806)" style="fill: none; stroke: #b32624; stroke-width: 2.5; stroke-linecap: round"/>
-    <path d="M 824.109561 199.379733 
-L 828.109561 201.379733 
-L 824.109561 203.379733 
-" clip-path="url(#p5f3dc01806)" style="fill: none; stroke: #b32624; stroke-width: 2.5; stroke-linecap: round"/>
+    <path d="M 793.444732 201.379733
+Q 812.174689 201.379733 828.109561 201.379733
+" clip-path="url(#p997028e214)" style="fill: none; stroke: #b32624; stroke-width: 2.5; stroke-linecap: round"/>
+    <path d="M 824.109561 199.379733
+L 828.109561 201.379733
+L 824.109561 203.379733
+" clip-path="url(#p997028e214)" style="fill: none; stroke: #b32624; stroke-width: 2.5; stroke-linecap: round"/>
    </g>
    <g id="patch_78">
-    <path d="M 180.445733 332.307733 
-L 365.927067 332.307733 
-L 365.927067 266.843733 
-L 180.445733 266.843733 
+    <path d="M 180.445733 332.307733
+L 365.927067 332.307733
+L 365.927067 266.843733
+L 180.445733 266.843733
 z
-" clip-path="url(#p5f3dc01806)" style="fill: #eff3f5; stroke: #34495e; stroke-width: 0.8; stroke-linejoin: miter"/>
+" clip-path="url(#p997028e214)" style="fill: #eff3f5; stroke: #34495e; stroke-width: 0.8; stroke-linejoin: miter"/>
    </g>
    <g id="patch_79">
-    <path d="M 396.476933 332.307733 
-L 581.958267 332.307733 
-L 581.958267 266.843733 
-L 396.476933 266.843733 
+    <path d="M 396.476933 332.307733
+L 581.958267 332.307733
+L 581.958267 266.843733
+L 396.476933 266.843733
 z
-" clip-path="url(#p5f3dc01806)" style="fill: #eff3f5; stroke: #34495e; stroke-width: 0.8; stroke-linejoin: miter"/>
+" clip-path="url(#p997028e214)" style="fill: #eff3f5; stroke: #34495e; stroke-width: 0.8; stroke-linejoin: miter"/>
    </g>
    <g id="patch_80">
-    <path d="M 245.909733 231.74447 
-Q 245.909733 248.293653 245.909733 262.04775 
-" clip-path="url(#p5f3dc01806)" style="fill: none; stroke: #b32624; stroke-width: 2.5; stroke-linecap: round"/>
-    <path d="M 247.909733 258.04775 
-L 245.909733 262.04775 
-L 243.909733 258.04775 
-" clip-path="url(#p5f3dc01806)" style="fill: none; stroke: #b32624; stroke-width: 2.5; stroke-linecap: round"/>
+    <path d="M 245.909733 231.74447
+Q 245.909733 248.293653 245.909733 262.04775
+" clip-path="url(#p997028e214)" style="fill: none; stroke: #b32624; stroke-width: 2.5; stroke-linecap: round"/>
+    <path d="M 247.909733 258.04775
+L 245.909733 262.04775
+L 243.909733 258.04775
+" clip-path="url(#p997028e214)" style="fill: none; stroke: #b32624; stroke-width: 2.5; stroke-linecap: round"/>
    </g>
    <g id="patch_81">
-    <path d="M 490.308667 231.74447 
-Q 490.308667 248.293653 490.308667 262.04775 
-" clip-path="url(#p5f3dc01806)" style="fill: none; stroke: #b32624; stroke-width: 2.5; stroke-linecap: round"/>
-    <path d="M 492.308667 258.04775 
-L 490.308667 262.04775 
-L 488.308667 258.04775 
-" clip-path="url(#p5f3dc01806)" style="fill: none; stroke: #b32624; stroke-width: 2.5; stroke-linecap: round"/>
+    <path d="M 490.308667 231.74447
+Q 490.308667 248.293653 490.308667 262.04775
+" clip-path="url(#p997028e214)" style="fill: none; stroke: #b32624; stroke-width: 2.5; stroke-linecap: round"/>
+    <path d="M 492.308667 258.04775
+L 490.308667 262.04775
+L 488.308667 258.04775
+" clip-path="url(#p997028e214)" style="fill: none; stroke: #b32624; stroke-width: 2.5; stroke-linecap: round"/>
    </g>
    <g id="patch_82">
-    <path d="M 612.508133 332.307733 
-L 817.628667 332.307733 
-L 817.628667 266.843733 
-L 612.508133 266.843733 
+    <path d="M 612.508133 332.307733
+L 817.628667 332.307733
+L 817.628667 266.843733
+L 612.508133 266.843733
 z
-" clip-path="url(#p5f3dc01806)" style="fill: #eff3f5; stroke: #34495e; stroke-width: 0.8; stroke-linejoin: miter"/>
+" clip-path="url(#p997028e214)" style="fill: #eff3f5; stroke: #34495e; stroke-width: 0.8; stroke-linejoin: miter"/>
    </g>
    <g id="patch_83">
-    <path d="M 850.360667 332.307733 
-L 1031.477733 332.307733 
-L 1031.477733 266.843733 
-L 850.360667 266.843733 
+    <path d="M 850.360667 332.307733
+L 1031.477733 332.307733
+L 1031.477733 266.843733
+L 850.360667 266.843733
 z
-" clip-path="url(#p5f3dc01806)" style="fill: #eff3f5; stroke: #34495e; stroke-width: 0.8; stroke-linejoin: miter"/>
+" clip-path="url(#p997028e214)" style="fill: #eff3f5; stroke: #34495e; stroke-width: 0.8; stroke-linejoin: miter"/>
    </g>
    <g id="patch_84">
-    <path d="M 350.652133 441.4144 
-L 671.425733 441.4144 
-L 671.425733 371.586133 
-L 350.652133 371.586133 
+    <path d="M 350.652133 450.142933
+L 671.425733 450.142933
+L 671.425733 371.586133
+L 350.652133 371.586133
 z
-" clip-path="url(#p5f3dc01806)" style="fill: #f1e9f8; stroke: #34495e; stroke-width: 0.8; stroke-linejoin: miter"/>
+" clip-path="url(#p997028e214)" style="fill: #f1e9f8; stroke: #34495e; stroke-width: 0.8; stroke-linejoin: miter"/>
    </g>
    <g id="patch_85">
-    <path d="M 702.512876 333.446481 
-Q 675.789694 351.947145 649.801903 369.938693 
-" clip-path="url(#p5f3dc01806)" style="fill: none; stroke: #36536b; stroke-width: 0.8; stroke-linecap: round"/>
-    <path d="M 654.229091 369.306238 
-L 649.801903 369.938693 
-L 651.952251 366.017469 
-" clip-path="url(#p5f3dc01806)" style="fill: none; stroke: #36536b; stroke-width: 0.8; stroke-linecap: round"/>
+    <path d="M 702.512876 333.446481
+Q 675.789694 351.947145 649.801903 369.938693
+" clip-path="url(#p997028e214)" style="fill: none; stroke: #36536b; stroke-width: 0.8; stroke-linecap: round"/>
+    <path d="M 654.229091 369.306238
+L 649.801903 369.938693
+L 651.952251 366.017469
+" clip-path="url(#p997028e214)" style="fill: none; stroke: #36536b; stroke-width: 0.8; stroke-linecap: round"/>
    </g>
    <g id="patch_86">
-    <path d="M 911.724343 332.878006 
-Q 792.533871 368.313011 674.200741 403.493131 
-" clip-path="url(#p5f3dc01806)" style="fill: none; stroke: #36536b; stroke-width: 0.8; stroke-linecap: round"/>
-    <path d="M 678.604826 404.270323 
-L 674.200741 403.493131 
-L 677.464945 400.436177 
-" clip-path="url(#p5f3dc01806)" style="fill: none; stroke: #36536b; stroke-width: 0.8; stroke-linecap: round"/>
+    <path d="M 911.679992 332.696706
+Q 792.533515 356.311323 674.264398 379.752048
+" clip-path="url(#p997028e214)" style="fill: none; stroke: #36536b; stroke-width: 0.8; stroke-linecap: round"/>
+    <path d="M 678.576907 380.936221
+L 674.264398 379.752048
+L 677.799242 377.012545
+" clip-path="url(#p997028e214)" style="fill: none; stroke: #36536b; stroke-width: 0.8; stroke-linecap: round"/>
    </g>
    <g id="patch_87">
-    <path d="M 379.320736 370.908878 
-Q 326.648809 351.946985 274.818438 333.288051 
-" clip-path="url(#p5f3dc01806)" style="fill: none; stroke: #36536b; stroke-width: 0.8; stroke-linecap: round"/>
-    <path d="M 277.904549 336.524704 
-L 274.818438 333.288051 
-L 279.259426 332.761154 
-" clip-path="url(#p5f3dc01806)" style="fill: none; stroke: #36536b; stroke-width: 0.8; stroke-linecap: round"/>
+    <path d="M 379.320736 370.908878
+Q 326.648809 351.946985 276.606743 333.931841
+" clip-path="url(#p997028e214)" style="fill: none; stroke: #773399; stroke-width: 2.5; stroke-linecap: round"/>
+    <path d="M 279.692854 337.168493
+L 276.606743 333.931841
+L 281.047731 333.404944
+" clip-path="url(#p997028e214)" style="fill: none; stroke: #773399; stroke-width: 2.5; stroke-linecap: round"/>
    </g>
    <g id="patch_88">
-    <path d="M 492.4908 369.586732 
-Q 492.4908 351.946103 492.4908 335.1999 
-" clip-path="url(#p5f3dc01806)" style="fill: none; stroke: #36536b; stroke-width: 0.8; stroke-linecap: round"/>
-    <path d="M 490.4908 339.1999 
-L 492.4908 335.1999 
-L 494.4908 339.1999 
-" clip-path="url(#p5f3dc01806)" style="fill: none; stroke: #36536b; stroke-width: 0.8; stroke-linecap: round"/>
+    <path d="M 492.4908 369.586732
+Q 492.4908 351.946103 492.4908 337.100558
+" clip-path="url(#p997028e214)" style="fill: none; stroke: #773399; stroke-width: 2.5; stroke-linecap: round"/>
+    <path d="M 490.4908 341.100558
+L 492.4908 337.100558
+L 494.4908 341.100558
+" clip-path="url(#p997028e214)" style="fill: none; stroke: #773399; stroke-width: 2.5; stroke-linecap: round"/>
    </g>
    <g id="patch_89">
-    <path d="M 732.525467 441.4144 
-L 1031.477733 441.4144 
-L 1031.477733 371.586133 
-L 732.525467 371.586133 
+    <path d="M 732.525467 441.4144
+L 1031.477733 441.4144
+L 1031.477733 371.586133
+L 732.525467 371.586133
 z
-" clip-path="url(#p5f3dc01806)" style="fill: #eff3f5; stroke: #34495e; stroke-width: 0.8; stroke-linejoin: miter"/>
+" clip-path="url(#p997028e214)" style="fill: #eff3f5; stroke: #34495e; stroke-width: 0.8; stroke-linejoin: miter"/>
    </g>
    <g id="patch_90">
-    <path d="M 673.428331 408.6824 
-Q 701.975955 408.6824 729.629153 408.6824 
-" clip-path="url(#p5f3dc01806)" style="fill: none; stroke: #36536b; stroke-width: 0.8; stroke-linecap: round"/>
-    <path d="M 725.629153 406.6824 
-L 729.629153 408.6824 
-L 725.629153 410.6824 
-" clip-path="url(#p5f3dc01806)" style="fill: none; stroke: #36536b; stroke-width: 0.8; stroke-linecap: round"/>
+    <path d="M 673.428331 408.6824
+Q 701.975955 408.6824 729.629153 408.6824
+" clip-path="url(#p997028e214)" style="fill: none; stroke: #36536b; stroke-width: 0.8; stroke-linecap: round"/>
+    <path d="M 725.629153 406.6824
+L 729.629153 408.6824
+L 725.629153 410.6824
+" clip-path="url(#p997028e214)" style="fill: none; stroke: #36536b; stroke-width: 0.8; stroke-linecap: round"/>
    </g>
    <g id="patch_91">
-    <path d="M 791.873327 229.518052 
-Q 805.626786 291.937598 818.778806 351.627533 
-" clip-path="url(#p5f3dc01806)" style="fill: none; stroke: #b32624; stroke-width: 2.5; stroke-linecap: round"/>
-    <path d="M 819.871245 347.290878 
-L 818.778806 351.627533 
-L 815.964946 348.151588 
-" clip-path="url(#p5f3dc01806)" style="fill: none; stroke: #b32624; stroke-width: 2.5; stroke-linecap: round"/>
+    <path d="M 688.8828 231.746868
+Q 688.8828 239.565485 688.8828 244.589017
+" clip-path="url(#p997028e214)" style="fill: none; stroke: #b32624; stroke-width: 2.5; stroke-linecap: round"/>
+    <path d="M 690.8828 240.589017
+L 688.8828 244.589017
+L 686.8828 240.589017
+" clip-path="url(#p997028e214)" style="fill: none; stroke: #b32624; stroke-width: 2.5; stroke-linecap: round"/>
    </g>
    <g id="patch_92">
-    <path d="M 817.817692 356.458838 
-Q 731.433829 362.857642 647.837414 369.049969 
-" clip-path="url(#p5f3dc01806)" style="fill: none; stroke: #b32624; stroke-width: 2.5; stroke-linecap: round"/>
-    <path d="M 651.974229 370.749018 
-L 647.837414 369.049969 
-L 651.678742 366.759947 
-" clip-path="url(#p5f3dc01806)" style="fill: none; stroke: #b32624; stroke-width: 2.5; stroke-linecap: round"/>
+    <path d="M 686.882999 249.386667
+Q 643.058069 249.386667 602.028224 249.386667
+" clip-path="url(#p997028e214)" style="fill: none; stroke: #b32624; stroke-width: 2.5; stroke-linecap: round"/>
+    <path d="M 606.028224 251.386667
+L 602.028224 249.386667
+L 606.028224 247.386667
+" clip-path="url(#p997028e214)" style="fill: none; stroke: #b32624; stroke-width: 2.5; stroke-linecap: round"/>
    </g>
    <g id="patch_93">
-    <path d="M 610.326 367.4036 
-Q 610.326 307.212053 610.326 249.815591 
-" clip-path="url(#p5f3dc01806)" style="fill: none; stroke: #773399; stroke-width: 2.5; stroke-linecap: round"/>
-    <path d="M 608.326 253.815591 
-L 610.326 249.815591 
-L 612.326 253.815591 
-" clip-path="url(#p5f3dc01806)" style="fill: none; stroke: #773399; stroke-width: 2.5; stroke-linecap: round"/>
+    <path d="M 597.2332 251.387067
+Q 597.2332 305.032369 597.2332 355.882587
+" clip-path="url(#p997028e214)" style="fill: none; stroke: #b32624; stroke-width: 2.5; stroke-linecap: round"/>
+    <path d="M 599.2332 351.882587
+L 597.2332 355.882587
+L 595.2332 351.882587
+" clip-path="url(#p997028e214)" style="fill: none; stroke: #b32624; stroke-width: 2.5; stroke-linecap: round"/>
    </g>
    <g id="patch_94">
-    <path d="M 932.057546 231.49914 
-Q 969.286036 299.574093 1005.17341 365.196719 
-" clip-path="url(#p5f3dc01806)" style="fill: none; stroke: #b32624; stroke-width: 2.5; stroke-linecap: round"/>
-    <path d="M 1005.008903 360.72761 
-L 1005.17341 365.196719 
-L 1001.499418 362.646859 
-" clip-path="url(#p5f3dc01806)" style="fill: none; stroke: #b32624; stroke-width: 2.5; stroke-linecap: round"/>
+    <path d="M 599.116462 361.34806
+Q 612.506692 366.130285 623.264673 369.972421
+" clip-path="url(#p997028e214)" style="fill: none; stroke: #b32624; stroke-width: 2.5; stroke-linecap: round"/>
+    <path d="M 620.170378 366.743592
+L 623.264673 369.972421
+L 618.825033 370.51056
+" clip-path="url(#p997028e214)" style="fill: none; stroke: #b32624; stroke-width: 2.5; stroke-linecap: round"/>
+   </g>
+   <g id="patch_95">
+    <path d="M 348.650801 426.139467
+Q 261.184274 426.139467 176.512831 426.139467
+" clip-path="url(#p997028e214)" style="fill: none; stroke: #773399; stroke-width: 2.5; stroke-linecap: round"/>
+    <path d="M 180.512831 428.139467
+L 176.512831 426.139467
+L 180.512831 424.139467
+" clip-path="url(#p997028e214)" style="fill: none; stroke: #773399; stroke-width: 2.5; stroke-linecap: round"/>
+   </g>
+   <g id="patch_96">
+    <path d="M 171.7172 424.139666
+Q 171.7172 334.490023 171.7172 247.635466
+" clip-path="url(#p997028e214)" style="fill: none; stroke: #773399; stroke-width: 2.5; stroke-linecap: round"/>
+    <path d="M 169.7172 251.635466
+L 171.7172 247.635466
+L 173.7172 251.635466
+" clip-path="url(#p997028e214)" style="fill: none; stroke: #773399; stroke-width: 2.5; stroke-linecap: round"/>
+   </g>
+   <g id="patch_97">
+    <path d="M 173.715985 242.840267
+Q 401.933108 242.840267 627.355145 242.840267
+" clip-path="url(#p997028e214)" style="fill: none; stroke: #773399; stroke-width: 2.5; stroke-linecap: round"/>
+    <path d="M 623.355145 240.840267
+L 627.355145 242.840267
+L 623.355145 244.840267
+" clip-path="url(#p997028e214)" style="fill: none; stroke: #773399; stroke-width: 2.5; stroke-linecap: round"/>
+   </g>
+   <g id="patch_98">
+    <path d="M 632.147333 240.842464
+Q 632.147333 236.295845 632.147333 234.54431
+" clip-path="url(#p997028e214)" style="fill: none; stroke: #773399; stroke-width: 2.5; stroke-linecap: round"/>
+    <path d="M 630.147333 238.54431
+L 632.147333 234.54431
+L 634.147333 238.54431
+" clip-path="url(#p997028e214)" style="fill: none; stroke: #773399; stroke-width: 2.5; stroke-linecap: round"/>
+   </g>
+   <g id="patch_99">
+    <path d="M 1033.475536 201.379733
+Q 1038.022155 201.379733 1039.77369 201.379733
+" clip-path="url(#p997028e214)" style="fill: none; stroke: #b32624; stroke-width: 2.5; stroke-linecap: round"/>
+    <path d="M 1035.77369 199.379733
+L 1039.77369 201.379733
+L 1035.77369 203.379733
+" clip-path="url(#p997028e214)" style="fill: none; stroke: #b32624; stroke-width: 2.5; stroke-linecap: round"/>
+   </g>
+   <g id="patch_100">
+    <path d="M 1044.570533 203.379734
+Q 1044.570533 303.940452 1044.570533 401.706086
+" clip-path="url(#p997028e214)" style="fill: none; stroke: #b32624; stroke-width: 2.5; stroke-linecap: round"/>
+    <path d="M 1046.570533 397.706086
+L 1044.570533 401.706086
+L 1042.570533 397.706086
+" clip-path="url(#p997028e214)" style="fill: none; stroke: #b32624; stroke-width: 2.5; stroke-linecap: round"/>
+   </g>
+   <g id="patch_101">
+    <path d="M 1042.572731 406.500267
+Q 1038.026111 406.500267 1036.274577 406.500267
+" clip-path="url(#p997028e214)" style="fill: none; stroke: #b32624; stroke-width: 2.5; stroke-linecap: round"/>
+    <path d="M 1040.274577 408.500267
+L 1036.274577 406.500267
+L 1040.274577 404.500267
+" clip-path="url(#p997028e214)" style="fill: none; stroke: #b32624; stroke-width: 2.5; stroke-linecap: round"/>
    </g>
    <g id="text_69">
     <text style="font-weight: 700; font-size: 14px; font-family: 'Apple SD Gothic Neo'; text-anchor: start" x="180.445733" y="135.915733" transform="rotate(-0 180.445733 135.915733)">HBM 적층 본더 - 전원·제어 배선 / STM32H743 핀 배정</text>
@@ -1024,12 +1087,12 @@ L 1001.499418 362.646859
     <text style="font-size: 8px; font-family: 'Apple SD Gothic Neo'" transform="translate(228.747025 311.575733)">게이트 드라이버 + 션트 감시</text>
    </g>
    <g id="text_76">
-    <text style="font-size: 8px; font-family: 'Apple SD Gothic Neo'" transform="translate(447.8626 292.375733)">⑤ 리플로우 48 V / 120 W</text>
+    <text style="font-size: 8px; font-family: 'Apple SD Gothic Neo'" transform="translate(447.978225 292.375733)">⑤ 리플로우 48 V / 150 W</text>
     <text style="font-size: 8px; font-family: 'Apple SD Gothic Neo'" transform="translate(426.805725 301.975733)">분기 퓨즈(선정대기) → 히터 → MOSFET</text>
     <text style="font-size: 8px; font-family: 'Apple SD Gothic Neo'" transform="translate(438.630725 311.575733)">독립 게이트 EN / 중복 과온 감시</text>
    </g>
    <g id="text_77">
-    <text style="font-size: 7px; font-family: 'Apple SD Gothic Neo'; text-anchor: middle; fill: #b32624" x="245.909733" y="243.931333" transform="rotate(-0 245.909733 243.931333)">K1 후 48 V</text>
+    <text style="font-size: 7px; font-family: 'Apple SD Gothic Neo'; text-anchor: start; fill: #b32624" x="259.002533" y="251.5688" transform="rotate(-0 259.002533 251.5688)">K1 후 48 V</text>
    </g>
    <g id="text_78">
     <text style="font-size: 8px; font-family: 'Apple SD Gothic Neo'" transform="translate(666.704025 292.375733)">③ 로드셀 INA826 → ADS1256</text>
@@ -1042,21 +1105,54 @@ L 1001.499418 362.646859
     <text style="font-size: 8px; font-family: 'Apple SD Gothic Neo'" transform="translate(901.15545 311.575733)">플런저 원점 → 절연 GPIO</text>
    </g>
    <g id="text_80">
-    <text style="font-size: 8px; font-family: 'Apple SD Gothic Neo'" transform="translate(466.032683 399.300267)">④ STM32H743 / 3.3 V 로직</text>
-    <text style="font-size: 8px; font-family: 'Apple SD Gothic Neo'" transform="translate(447.475808 408.900267)">하중 PI 1 ms · 온도 PI 10 ms (설계 목표)</text>
-    <text style="font-size: 8px; font-family: 'Apple SD Gothic Neo'" transform="translate(446.916433 418.500267)">SW 경고52 N/410 ℃ → 래치55 N/420 ℃</text>
+    <text style="font-size: 8px; font-family: 'Apple SD Gothic Neo'" transform="translate(466.032683 398.864533)">④ STM32H743 / 3.3 V 로직</text>
+    <text style="font-size: 8px; font-family: 'Apple SD Gothic Neo'" transform="translate(447.475808 408.464533)">하중 PI 1 ms · 온도 PI 10 ms (설계 목표)</text>
+    <text style="font-size: 8px; font-family: 'Apple SD Gothic Neo'" transform="translate(446.916433 418.064533)">SW 경고52 N/410 ℃ → 래치55 N/420 ℃</text>
+    <text style="font-size: 8px; font-family: 'Apple SD Gothic Neo'" transform="translate(456.295183 427.664533)">두 히터 동시 통전 금지(SW 인터락)</text>
    </g>
    <g id="text_81">
+    <g id="patch_102">
+     <path d="M 661.3525 350.102667
+L 690.2275 350.102667
+L 690.2275 340.862667
+L 661.3525 340.862667
+z
+" style="fill: #ffffff"/>
+    </g>
     <text style="font-size: 7px; font-family: 'Apple SD Gothic Neo'; text-anchor: middle; fill: #36536b" x="675.79" y="347.582667" transform="rotate(-0 675.79 347.582667)">SPI / ADC</text>
    </g>
    <g id="text_82">
-    <text style="font-size: 7px; font-family: 'Apple SD Gothic Neo'; text-anchor: middle; fill: #36536b" x="792.534133" y="363.948667" transform="rotate(-0 792.534133 363.948667)">ADC / GPIO</text>
+    <g id="patch_103">
+     <path d="M 769.795909 347.920533
+L 804.361691 347.920533
+L 804.361691 338.680533
+L 769.795909 338.680533
+z
+" style="fill: #ffffff"/>
+    </g>
+    <text style="font-size: 7px; font-family: 'Apple SD Gothic Neo'; text-anchor: middle; fill: #36536b" x="787.0788" y="345.400533" transform="rotate(-0 787.0788 345.400533)">ADC / GPIO</text>
    </g>
    <g id="text_83">
-    <text style="font-size: 7px; font-family: 'Apple SD Gothic Neo'; text-anchor: middle; fill: #36536b" x="326.648667" y="347.582667" transform="rotate(-0 326.648667 347.582667)">PWM PE9</text>
+    <g id="patch_104">
+     <path d="M 278.733842 358.8312
+L 335.285092 358.8312
+L 335.285092 349.5912
+L 278.733842 349.5912
+z
+" style="fill: #ffffff"/>
+    </g>
+    <text style="font-size: 7px; font-family: 'Apple SD Gothic Neo'; text-anchor: middle; fill: #773399" x="307.009467" y="356.3112" transform="rotate(-0 307.009467 356.3112)">인터락 → PWM PE9</text>
    </g>
    <g id="text_84">
-    <text style="font-size: 7px; font-family: 'Apple SD Gothic Neo'; text-anchor: middle; fill: #36536b" x="492.4908" y="347.582667" transform="rotate(-0 492.4908 347.582667)">PWM PE11</text>
+    <g id="patch_105">
+     <path d="M 520.688623 358.8312
+L 551.57831 358.8312
+L 551.57831 349.5912
+L 520.688623 349.5912
+z
+" style="fill: #ffffff"/>
+    </g>
+    <text style="font-size: 7px; font-family: 'Apple SD Gothic Neo'; text-anchor: middle; fill: #773399" x="536.133467" y="356.3112" transform="rotate(-0 536.133467 356.3112)">PWM PE11</text>
    </g>
    <g id="text_85">
     <text style="font-size: 8px; font-family: 'Apple SD Gothic Neo'" transform="translate(836.2141 399.300267)">서보 드라이버 / Z축 브레이크</text>
@@ -1064,22 +1160,31 @@ L 1001.499418 362.646859
     <text style="font-size: 8px; font-family: 'Apple SD Gothic Neo'" transform="translate(827.98285 418.500267)">독립 HW 차단은 MCU 출력과 무관</text>
    </g>
    <g id="text_86">
+    <g id="patch_106">
+     <path d="M 682.239428 406.838133
+L 721.711772 406.838133
+L 721.711772 397.598133
+L 682.239428 397.598133
+z
+" style="fill: #ffffff"/>
+    </g>
     <text style="font-size: 7px; font-family: 'Apple SD Gothic Neo'; text-anchor: middle; fill: #36536b" x="701.9756" y="404.318133" transform="rotate(-0 701.9756 404.318133)">PD8/9 설계값</text>
    </g>
    <g id="text_87">
-    <text style="font-size: 7px; font-family: 'Apple SD Gothic Neo'; text-anchor: middle; fill: #b32624" x="731.4344" y="358.493333" transform="rotate(-0 731.4344 358.493333)">PG0 HW fault</text>
+    <text style="font-size: 7px; font-family: 'Apple SD Gothic Neo'; fill: #b32624" transform="translate(610.0796 311.456906) rotate(-90)">PG0 HW fault</text>
    </g>
    <g id="text_88">
-    <text style="font-size: 7px; font-family: 'Apple SD Gothic Neo'; text-anchor: middle; fill: #773399" x="610.326" y="302.848933" transform="rotate(-0 610.326 302.848933)">SW 래치 → 차단 요청(출력 미구현)</text>
+    <text style="font-size: 7px; font-family: 'Apple SD Gothic Neo'; fill: #773399" transform="translate(186.992133 384.761067)">SW 래치 → 차단 요청</text>
+    <text style="font-size: 7px; font-family: 'Apple SD Gothic Neo'; fill: #773399" transform="translate(186.992133 393.161067)">(출력 미구현)</text>
    </g>
    <g id="text_89">
-    <text style="font-size: 7px; font-family: 'Apple SD Gothic Neo'; text-anchor: middle; fill: #b32624" x="969.286933" y="295.211467" transform="rotate(-0 969.286933 295.211467)">HW STO / BRAKE</text>
+    <text style="font-size: 7px; font-family: 'Apple SD Gothic Neo'; fill: #b32624" transform="translate(1038.106267 317.824515) rotate(-90)">HW STO / BRAKE</text>
    </g>
    <g id="text_90">
-    <text style="font-size: 8px; font-family: 'Apple SD Gothic Neo'; text-anchor: start; fill: #aa2222" x="180.445733" y="461.0536" transform="rotate(-0 180.445733 461.0536)">전력 검토: 동시 정격 400+120+보조100=620 W &gt;600 W. 헤드 OFF 순차운전 또는 전원 변경안 검토 필요.</text>
+    <text style="font-size: 8px; font-family: 'Apple SD Gothic Neo'; text-anchor: start; fill: #aa2222" x="180.445733" y="461.0536" transform="rotate(-0 180.445733 461.0536)">순차 전력: 척250 W / 헤드500 W ≤600 W. 24 V측80≤150 W (보조는 가정값).</text>
    </g>
    <g id="text_91">
-    <text style="font-size: 8px; font-family: 'Apple SD Gothic Neo'; text-anchor: start" x="180.445733" y="474.1464" transform="rotate(-0 180.445733 474.1464)">독립 HW 래치는 두 히터 게이트·K1·STO·브레이크를 차단. SW 리셋과 HW 수동 복귀는 분리. 지그 내압/씰 미검증.</text>
+    <text style="font-size: 8px; font-family: 'Apple SD Gothic Neo'; text-anchor: start" x="180.445733" y="474.1464" transform="rotate(-0 180.445733 474.1464)">두 히터 동시 통전 금지(SW 인터락): 펌웨어/HMI 타 브랜치 구현 대기. 동시650 W 금지. 지그 기밀·내압: 제작 후 시험.</text>
    </g>
    <g id="text_92">
     <text style="font-size: 7px; font-family: 'Apple SD Gothic Neo'; text-anchor: start" x="180.445733" y="718.545333" transform="rotate(-0 180.445733 718.545333)">출처: 중간 10.4절 · firmware/hal/hal_stm32h7.c · calc/hardware/reflow_heater.json. 핀 AF/회로 BOM/절연·배선 굵기 상세 검증 대기.</text>
@@ -1087,7 +1192,7 @@ L 1001.499418 362.646859
   </g>
  </g>
  <defs>
-  <clipPath id="p5f3dc01806">
+  <clipPath id="p997028e214">
    <rect x="152.078" y="101.0016" width="916.496" height="648.0936"/>
   </clipPath>
  </defs>
