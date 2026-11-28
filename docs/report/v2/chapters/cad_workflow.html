@@ -1,0 +1,11 @@
+<h1>5.5 Fusion에서 웹 CAD까지<br>형상 근거를 연결했다</h1>
+<p class="meta">제작 흐름 · 치수는 원본 설계값, 변환·색상은 표시 설정</p>
+<figure class="cad-workflow"><svg viewBox="0 0 680 640" role="img" aria-label="Fusion Python, STEP, 그룹별 STL, GLB, 웹 CAD 제작 흐름" xmlns="http://www.w3.org/2000/svg">
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6" fill="#14365A"/></marker></defs>
+<g fill="#F5F7FA" stroke="#14365A" stroke-width="2"><rect x="20" y="10" width="640" height="105" rx="10"/><rect x="20" y="160" width="640" height="80" rx="10"/><rect x="20" y="285" width="640" height="100" rx="10"/><rect x="20" y="430" width="640" height="90" rx="10"/><rect x="20" y="565" width="640" height="65" rx="10"/></g>
+<g stroke="#14365A" stroke-width="2" marker-end="url(#arrow)"><path d="M340 115V153"/><path d="M340 240V278"/><path d="M340 385V423"/><path d="M340 520V558"/></g>
+<g fill="#14365A" font-family="Pretendard, sans-serif" font-size="21" font-weight="700"><text x="42" y="40">Fusion Python · 바디 생성과 형상 가공</text><text x="42" y="190">STEP · 전체 조립체 보존</text><text x="42" y="315">STL · 부품 바디를 그룹별 메시로 내보내기</text><text x="42" y="460">GLB · 웹 표시용 변환</text><text x="42" y="594">웹 CAD · 색 구분 / 선택 / 분해 표시</text></g>
+<g fill="#44505F" font-family="Pretendard, sans-serif" font-size="16"><text x="42" y="70">cad/stacker/spec_stacker.py → HBMStackerModel.py</text><text x="42" y="96">단일 치수 원본 → 부품별 BRep · 천공 · 홈 · 캐비티</text><text x="42" y="221">cad/stacker/out/HBMStacker.step</text><text x="42" y="345">cad/stacker/out/mesh/{group}.stl</text><text x="42" y="370">stack_chuck.stl · reflow_chuck.stl · mold_jig.stl 등</text><text x="42" y="488">cad/tools/to_glb.py → cad/web/hbm_stacker.glb</text><text x="42" y="511">mm → m · Z-up → Y-up · 그룹명 = GLB 노드명</text><text x="42" y="620">web/cad.html?theme=light · web/js/cad_viewer.js</text></g></svg>
+<figcaption>STEP과 STL은 같은 Fusion 조립체에서 각각 출력한다. 화살표는 산출물 제작 순서이며 STEP을 STL 입력으로 다시 읽는 변환은 아니다.</figcaption></figure>
+<p>개별 부품 바디의 이름은 Fusion 하위 컴포넌트와 <code>summary.json parts</code>에 남긴다. 현재 STL은 바디를 그룹별로 묶은 파일이다. GLB는 이 그룹을 유지해 선택·숨김·분해 표시를 연결한다.</p>
+<p class="source">근거: <a href="../../../cad/stacker/HBMStackerModel.py">cad/stacker/HBMStackerModel.py</a> · <a href="../../../cad/tools/to_glb.py">cad/tools/to_glb.py</a></p>

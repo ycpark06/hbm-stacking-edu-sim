@@ -1,12 +1,12 @@
-# 보고서 v2
+# 보고서
 
-승인된 시안의 본문 35쪽 + 표지 1쪽, 요약본 9쪽 + 표지 1쪽을 고정 A4 HTML로 구성했다. 본문 번호는 표지를 제외한다. 부록은 별도이며 기본 빌드에 합치지 않는다. PDF·페이지 PNG의 최종 조판 확인은 Claude가 수행한다.
+승인된 시안의 본문 38쪽 + 표지 1쪽, 요약본 9쪽 + 표지 1쪽을 고정 A4 HTML로 구성했다. 본문 번호는 표지를 제외한다. 부록은 별도이며 기본 빌드에 합치지 않는다. PDF·페이지 PNG의 최종 조판 확인은 Claude가 수행한다.
 
 ## 파일
 
 | 경로 | 내용 |
 |---|---|
-| `chapters/01.html` ~ `35.html` | 본보고서 원고. 장별 배치는 아래 표 |
+| `chapters/01.html` ~ `35.html`, `chapters/cad_*.html` | 본보고서 원고. 장별 배치는 아래 표 |
 | `summary/01.html` ~ `09.html` | 본보고서 장 번호로 연결하는 요약본 |
 | `appendix/A_트러블슈팅.md` | 범위에 맞는 전체 15건, 작업 단계·증상·원인·선택 이유·결과 |
 | `appendix/B_파라미터.md` | params의 전표 207개 전체, kind/source/note 포함 |
@@ -24,16 +24,18 @@
 
 | 장 | 쪽 | 분량 |
 |---|---|---:|
-| 1 요약 / 목차 | 1 / 2 | 2 |
+| 1 요약 | 1 | 1 |
 | 2 과제 목표와 요구사항 | 3–4 | 2 |
 | 3 중간 설계 요약 | 5–7 | 3 |
 | 4 왜 HBM 적층인가 | 8–9 | 2 |
-| 5 장비 고도화 | 10–13 | 4 |
-| 6 디지털 트윈 | 14–16 | 3 |
-| 7 S1·S2·S3·S5·S4 | 17–21 | 5 |
-| 8 트러블슈팅과 개선 성과 | 22–29 | 8 |
-| 9 한계와 향후 시험 | 30–32 | 3 |
-| 10 결론 / 참고문헌 | 33 / 34–35 | 3 |
+| 5 장비 고도화 | 10–16 | 7 |
+| 6 디지털 트윈 | 17–19 | 3 |
+| 7 시뮬레이션 결과 | 20–24 | 5 |
+| 8 트러블슈팅과 개선 성과 | 25–32 | 8 |
+| 9 한계와 향후 시험 | 33–35 | 3 |
+| 10 결론 | 36 | 1 |
+| 11 참고문헌 | 37–38 | 2 |
+| 목차 | 2 | 1 |
 
 중간 내용은 뒤 장에서 쓰는 요구·정합 결론을 표 A, 구조·구동·열 사양을 표 B로 남겼다. 상세 유도·에폭시 실습·프레임 반복·중간 도면 전문은 [중간 판](../midterm/)을 참조한다. 승인 계획의 생략/유지 판단을 따랐으며 기존 판의 기말 추가 내용은 4–9장에 재배치했다.
 
@@ -44,6 +46,8 @@ Python에 matplotlib·numpy·playwright가 필요하다. HTML→PDF는 기존 bu
 ```sh
 python3 docs/report/v2/make_figs.py
 python3 docs/report/v2/check_numbers.py
+python3 docs/report/v2/check_toc.py --text-dir /tmp/report-cad-text
+python3 docs/report/v2/check_static.py
 python3 docs/report/v2/build_v2.py --pages-png /tmp/report-v2-pages --check-overflow
 ```
 
@@ -57,7 +61,7 @@ python3 docs/report/v2/build_v2.py --kind appendix --out /tmp/부록.pdf --pages
 
 쪽 PNG는 종류별 폴더에 저장한다. footer의 시작선 아래로 본문 요소가 내려가거나 페이지 좌우를 벗어나면 검사 실패다. 이미지 로드 실패와 예상 sheet 수/PDF 페이지 수도 검사한다. `--check-overflow`를 생략해도 넘침 검사는 수행한다. 실패하면 PDF 저장을 중단하며 `render_check.json`과 PNG를 보고 원고를 수정한다. 자동 높이 축소로 본문을 숨기지 않는다.
 
-HTML만 볼 때도 이미지·링크의 기준은 v2 폴더다. 배포용 완성 PDF·PNG는 아직 생성하지 않았다.
+HTML만 볼 때도 이미지·링크의 기준은 이 폴더다. 배포용 완성 PDF·PNG는 아직 생성하지 않았다.
 
 ## 제출판: 로컬 전용
 
@@ -78,3 +82,19 @@ HTML·그래프 순서는 Pretendard → Malgun Gothic → Apple SD Gothic Neo�
 원고의 `data-number` span은 source/key의 현재 저장값, 등록 정밀값, 표시 반올림을 실제 대조한다. 나머지 숫자 문맥도 모두 추출해 수동 목록에 낸다. 수동 목록은 JSON 대조 통과로 집계하지 않는다. 그림 데이터는 sidecar에 전체 정밀값과 JSON 해시를 남긴다. 재사용한 도면·화면 내부 치수·눈금은 원본 및 최종 PNG에서 따로 확인한다.
 
 기존 판을 [archive_v1](../archive_v1/)로 mv해 보존했다. 원본 내부의 과거 경로 문자열은 바이트 보존 때문에 그대로다. 실제 사용 경로는 갱신했으며 예외와 검사 명령은 검증인계에 적었다. 커밋·push·PR은 수행하지 않았다.
+
+## CAD 원고와 검사 인계
+
+장비 고도화는 10–16쪽이다. 기존 10–13쪽 뒤에 제작 흐름(14), 전체 색·분해 표시(15), 기말 도면 3종·배선도·풋프린트(16)를 추가했다. 디지털 트윈 17–19, 결과 20–24, 개선 사례 25–32, 한계 33–35, 결론 36, 참고문헌 37–38이다. 본문 38쪽+표지=39쪽, 요약본 9쪽+표지=10쪽이다. 파일명과 본문 번호는 별개이며 순서는 pages.json을 따른다.
+
+check_toc.py는 연속 장·절 번호, 목차 제목·쪽, 본문 h1·머리말·꼬리말, 요약본 연결 범위를 HTML에서 대조한다. `--text-dir`는 style/script와 명시적 예외인 파일명·저장소 경로를 제외한 표시 텍스트를 추출한다. 다음 검색의 출력이 없고 종료 코드가 1이면 버전 문구 0건이다.
+
+```sh
+python3 docs/report/v2/build_v2.py --html-only
+python3 docs/report/v2/check_toc.py --text-dir /tmp/report-cad-text
+grep -Ein '\bv2\b' /tmp/report-cad-text/*.txt
+```
+
+원본 파일명·경로의 `v2`는 유지한다. 생성 HTML 단순 전체 grep은 경로·CSS 클래스도 찾으므로 표시 문구 검사와 구분한다. PDF 생성 후에는 Claude가 PDF 텍스트 추출과 PNG 시각 확인을 추가한다. 현재 저장 PDF는 재생성하지 않았으므로 수정 원고와 쪽수가 다를 수 있다.
+
+light 캡처는 `media/stills/light/`를 참조한다. `cad_light_all.png`는 아직 미제공이며 이를 참조하는 본문 15·19쪽의 이미지 검사 실패를 숨기지 않는다. Chromium 실행·캡처·PDF는 Claude 담당이다. 상세 절차는 [검증인계](검증인계.md)를 따른다.
