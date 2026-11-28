@@ -4,7 +4,8 @@ import {GLTFLoader} from '../vendor/three/examples/jsm/loaders/GLTFLoader.js';
 // Fixture proportions, colours, camera, timing and scale below are schematic
 // display settings, not dimensions of the hardware or process inputs. Dies use params.
 export function createViewer(container,p,onStatus) {
-  const scene=new THREE.Scene();scene.background=new THREE.Color('#101b2a');
+  const lightTheme=document.documentElement.dataset.theme==='light';
+  const scene=new THREE.Scene();scene.background=new THREE.Color(lightTheme?'#FFFFFF':'#101b2a');
   const camera=new THREE.PerspectiveCamera(40,1,.01,1000);camera.position.set(14,12,17);
   const renderer=new THREE.WebGLRenderer({antialias:true});renderer.setPixelRatio(Math.min(devicePixelRatio,2));container.append(renderer.domElement);
   const controls=new OrbitControls(camera,renderer.domElement);controls.target.set(0,2,0);controls.enableDamping=true;
