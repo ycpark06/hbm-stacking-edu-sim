@@ -1,0 +1,32 @@
+<h1>1.2 주제 선정 배경</h1>
+<p>첨단패키징기술 수업에서 삼성전자의 TC-NCF와 SK하이닉스의 MR-MUF를 배웠다. 두 기술 모두 HBM에 쓰이지만, 칩을 쌓고 접합하는 순서가 다르다는 점에 관심을 가졌다. 같은 층수와 칩 조건에서 공정 방식만 바꾸면 어떤 차이가 나타나는지 직접 살펴보고자 교육용 HBM 적층 본더 시뮬레이터를 주제로 선정했다.</p>
+<p>수업에서 다룬 열압착의 온도·하중 제어와 리플로우의 솔더 표면장력에 의한 자기정렬을 비교의 출발점으로 삼았다. 기존 보고서에 인용된 강의 내용은 이 개념을 장비의 가열·가압·정렬 기능과 연결한다. 이를 바탕으로 다음 질문을 정하고 결과 장에서 확인했다.</p>
+<figure class="background-map">
+<svg viewBox="0 0 690 355" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="background-title background-desc">
+<title id="background-title">수업에서 나온 비교 질문과 결과 장의 연결</title>
+<desc id="background-desc">가열 횟수는 S1 열 노출, 빈틈 채우기는 S5 가압 충전, 위치 맞추기는 S2 정렬로 연결한다. 아래 보조 연결은 S3 휨과 S4 시간의 해석 범위를 설명한다.</desc>
+<defs><marker id="background-arrow" markerWidth="7" markerHeight="7" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6" fill="none" stroke="#14365A"/></marker></defs>
+<text x="12" y="20" class="map-heading">비교 질문</text><text x="300" y="20" class="map-heading">확인한 결과 · 본보고서 7장</text>
+<g class="map-box"><rect x="1" y="36" width="235" height="66"/><rect x="285" y="36" width="384" height="66"/>
+<rect x="1" y="120" width="235" height="66"/><rect x="285" y="120" width="384" height="66"/>
+<rect x="1" y="204" width="235" height="66"/><rect x="285" y="204" width="384" height="66"/></g>
+<g class="map-line" marker-end="url(#background-arrow)"><path d="M236 69 H279"/><path d="M236 153 H279"/><path d="M236 237 H279"/></g>
+<g class="map-label">
+<text x="13" y="62">아래 칩은</text><text x="13" y="87" class="map-detail">몇 번 가열되는가?</text>
+<text x="299" y="62">S1 열 노출 · 7.1절 / 21쪽</text><text x="299" y="87" class="map-detail">후속 재가열과 가접 노출을 따로 집계했다</text>
+<text x="13" y="146">칩 사이 빈틈은</text><text x="13" y="171" class="map-detail">어떻게 채우는가?</text>
+<text x="299" y="146">S5 가압 충전 · 7.4절 / 24쪽</text><text x="299" y="171" class="map-detail">입구 압력·간격에 따른 충전 차이를 확인했다</text>
+<text x="13" y="230">쌓은 칩의 위치는</text><text x="13" y="255" class="map-detail">어떻게 맞추는가?</text>
+<text x="299" y="230">S2 정렬 · 7.2절 / 22쪽</text><text x="299" y="255" class="map-detail">자기정렬 후에도 잔여 오차가 남았다</text>
+</g>
+<path class="map-support-line" d="M118 270 V291 H299"/>
+<text x="310" y="297" class="map-detail">보조: S3 휨 · 7.3절 / 23쪽</text>
+<path class="map-support-line" d="M669 69 H682 V328 H670"/>
+<text x="310" y="334" class="map-detail">보조: S4 시간 · 7.5절 / 25쪽</text>
+</svg>
+<figcaption>실선은 질문에 직접 답하는 결과, 점선은 보조 검토다. S3는 박형 다이의 휨에 따른 정렬·접촉 조건을, S4는 가열 순서에 따른 본더 점유와 후공정 시간을 살펴본다.</figcaption>
+</figure>
+<p class="smallnote">S1에서 MR-MUF의 가접 노출도 별도로 센다. S5는 MUF 충전 비교이며 NCF 보이드까지 정량 비교한 결과는 아니다. S2는 TC 자기정렬 미적용이라는 모델 전제에서 해석한다.</p>
+<h2>교육용 시뮬레이터를 택한 이유</h2>
+<p>같은 입력 조건을 유지한 채 공정 방식을 바꾸어 차이를 비교할 수 있다. 고온·가압 작업의 위험 없이 조건 변경과 실패 원인 관찰을 반복 실습할 수 있어 시뮬레이터를 택했다. 계산으로 확인한 경향과 실물 접합 품질은 구분했다.</p>
+<p class="source">강의 연결: <a href="../../../docs/report/archive_v1/01_문제정의.md">기존 판 1장 문제 정의</a> · <a href="../../../docs/report/archive_v1/04_공정물리.md">기존 판 4장 4.9절: 열압착·리플로우 자기정렬</a>. 요구·결과: <a href="../../../docs/requirements.md">docs/requirements.md</a> · <a href="../../../sim/test/stage4_results.json">sim/test/stage4_results.json</a></p>

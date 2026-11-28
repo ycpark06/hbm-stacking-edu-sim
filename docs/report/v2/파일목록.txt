@@ -100,8 +100,13 @@ chapters/32.html
 chapters/33.html
 chapters/34.html
 chapters/35.html
+chapters/background.html
+chapters/cad_colors.html
+chapters/cad_review.html
+chapters/cad_workflow.html
 check_numbers.py
 check_static.py
+check_toc.py
 fig/extra_sources.json
 fig/fig_result.png
 fig/fig_trouble_v2.png
@@ -126,6 +131,7 @@ summary/06.html
 summary/07.html
 summary/08.html
 summary/09.html
+toc_check.json
 검증인계.md
 수치대조표.md
 파일목록.txt

@@ -93,3 +93,15 @@ figure.tall img { max-height:148mm; }
 .toc-grid h2 { font-size:10pt; margin:1mm 0; display:flex; justify-content:space-between; gap:2mm; }
 .toc-grid p { display:flex; justify-content:space-between; gap:2mm; font-size:8.2pt; line-height:1.35; margin:1mm 0; }
 .toc-grid b { white-space:nowrap; color:var(--navy); }
+
+/* Topic background: questions connect directly to the existing result sections. */
+.background-map svg { display:block; width:100%; height:auto; font-family:inherit; }
+.background-map .map-box rect { fill:var(--pale); stroke:var(--navy); stroke-width:1; }
+.background-map .map-heading { fill:var(--orange); font-size:13px; font-weight:700; }
+.background-map .map-label { fill:var(--navy); font-size:14px; font-weight:700; }
+.background-map .map-detail { fill:var(--ink); font-size:13px; font-weight:400; }
+.background-map .map-line { fill:none; stroke:var(--navy); stroke-width:1.5; }
+.background-map .map-support-line { fill:none; stroke:var(--muted); stroke-width:1; stroke-dasharray:4 3; }
+.background-summary { margin-top:6mm; padding-top:3mm; border-top:1pt solid var(--navy); }
+.background-summary p { font-size:10.5pt; margin-top:2mm; }
+.background-summary .smallnote { font-size:8.5pt; }

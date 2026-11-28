@@ -5,7 +5,7 @@ from build_v2 import HERE,REPO,document
 
 def main():
     manifest=json.loads((HERE/'pages.json').read_text())
-    assert len(manifest['report'])==38 and len(manifest['summary'])==9
+    assert len(manifest['report'])==39 and len(manifest['summary'])==9
     failures=[]
     for kind,items in manifest.items():
         for x in items:
@@ -32,7 +32,7 @@ def main():
     for kind in ['report','summary']:
         public=document(kind)
         assert '공개판' in public and len(re.findall(r'<main class="sheet',public))==len(manifest[kind])+1
-    result={'report_pages_with_cover':len(manifest['report'])+1,'summary_pages_with_cover':10,'appendix_pages':len(manifest['appendix']),'archive_files_unchanged':len(hashes),'failures':failures,'PDF_render':'미실행: Claude 담당'}
+    result={'report_pages_with_cover':len(manifest['report'])+1,'summary_pages_with_cover':len(manifest['summary'])+1,'appendix_pages':len(manifest['appendix']),'archive_files_unchanged':len(hashes),'failures':failures,'PDF_render':'미실행: Claude 담당'}
     (HERE/'static_check.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n')
     print(json.dumps(result,ensure_ascii=False,indent=2))
     if failures:raise SystemExit(1)
