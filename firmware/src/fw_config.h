@@ -19,6 +19,8 @@
 /* Kd=0: PI만 계산 (control_sim.py:45). */
 #define FW_TEMP_I_LIMIT_C_S 30.0f
 #define FW_HEATER_MAX_W 400.0f
+/* 설계값: 사용자 결정 2026-11-28, 리플로우 척 히터 정격. KPI 아님. */
+#define FW_REFLOW_HEATER_MAX_W 150.0f
 /* control_sim.py:65 프로파일 가정값. 원문 최고 온도 KPI와 구분. */
 #define FW_TEMP_INITIAL_C 150.0f
 #define FW_TEMP_FINAL_C 300.0f
