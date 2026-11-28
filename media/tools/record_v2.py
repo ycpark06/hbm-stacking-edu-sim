@@ -10,10 +10,11 @@ import subprocess
 import sys
 import time
 from urllib.parse import urljoin
+from hmi_recording import prepare_hmi, execute_hmi
 
 ROOT = Path(__file__).resolve().parents[2]
 TIMING = Path.home() / 'Desktop/MSE489/기말보고서/영상/v2/tts/timing.json'
-ACTIONS = {'factory', 'card', 'cad', 'cad_click', 'cad_explode', 'cad_scroll', 'drag_rotate', 'wait', 'external'}
+ACTIONS = {'factory', 'card', 'cad', 'cad_click', 'cad_explode', 'cad_scroll', 'drag_rotate', 'wait', 'external', 'hmi'}
 
 
 def load_plan(cues_path, timing_path, card_path):
@@ -56,12 +57,15 @@ console.log(JSON.stringify(Object.fromEntries(MODES.map(m=>[m,buildStages(d,m)])
                 raise ValueError('문장 시작 시각·자막 대응 오류')
         previous = -1
         prep = scene['prepare']
-        if prep['page'] not in ('factory', 'cad', 'card', 'external'):
+        if prep['page'] not in ('factory', 'cad', 'card', 'external', 'hmi'):
             raise ValueError('준비 페이지 오류')
         if prep['page'] == 'external':
             pages = prep['pages']
             if len({p['id'] for p in pages}) != len(pages) or any(not p['url'].startswith('https://') for p in pages):
                 raise ValueError('외부 페이지 ID·URL 오류')
+        if prep['page'] == 'hmi':
+            if prep['url'] != 'https://ycpark06.github.io/hbm-stacking-edu-sim/web/index.html?theme=light' or prep['cache_modes'] != ['TC-NCF', 'MR-MUF'] or prep['layers'] != 12:
+                raise ValueError('HMI 실제 Pages URL·12단 캐시 조건 오류')
         mode = prep.get('mode')
         if prep['page'] == 'factory' and (mode not in stages or
                 prep['stage'] not in {s['id'] for s in stages[mode]} or prep['camera'] not in (1, 2, 3, 4)):
@@ -76,7 +80,7 @@ console.log(JSON.stringify(Object.fromEntries(MODES.map(m=>[m,buildStages(d,m)])
             if any(k not in a for k in required.get(cue['action'], ())):
                 raise ValueError('cue 인자 누락')
             page_for = {'factory':'factory', 'card':'card', 'cad':'cad', 'cad_click':'cad',
-                        'cad_explode':'cad', 'cad_scroll':'cad', 'drag_rotate':'cad', 'external':'external'}
+                        'cad_explode':'cad', 'cad_scroll':'cad', 'drag_rotate':'cad', 'external':'external', 'hmi':'hmi'}
             if cue['action'] in page_for and prep['page'] != page_for[cue['action']]:
                 raise ValueError('cue 페이지 불일치')
             if a.get('target') not in data['targets']:
@@ -87,6 +91,8 @@ console.log(JSON.stringify(Object.fromEntries(MODES.map(m=>[m,buildStages(d,m)])
                 raise ValueError('JS 문자열 필요')
             if cue['action'] == 'external' and a.get('page') not in {p['id'] for p in prep['pages']}:
                 raise ValueError('사전 로드 페이지 참조 없음')
+            if cue['action'] == 'hmi' and a.get('step') not in ('home','run','charts','alarms','compare','fault','normal'):
+                raise ValueError('HMI 단계 오류')
             if cue['action'] == 'factory':
                 found = re.search(r"setMode\('([^']+)'\)", a['js'])
                 if found:
@@ -159,9 +165,11 @@ MOTION = """m => {
 }"""
 
 
-def execute(page, cue, targets):
+def execute(page, cue, targets, samples=None):
     a, action = cue['args'], cue['action']
-    if action == 'external':
+    if action == 'hmi':
+        execute_hmi(page, cue, targets, samples)
+    elif action == 'external':
         page.evaluate("id=>document.querySelectorAll('[data-page]').forEach(el=>el.hidden=el.dataset.page!==id)", a['page'])
     elif action == 'factory':
         page.evaluate('() => {window.v2Token=(window.v2Token||0)+1;window.factory.pause();}')
@@ -283,10 +291,12 @@ def prepare_external(page, prep):
     page.wait_for_function('() => [...document.images].every(i=>i.complete&&i.naturalWidth>0)')
 
 
-def prepare(page, scene, args):
+def prepare(page, scene, args, samples=None):
     suffix = '?theme=light' if args.theme == 'light' else ''
     prep = scene['prepare']
-    if prep['page'] == 'external':
+    if prep['page'] == 'hmi':
+        prepare_hmi(page, prep, samples)
+    elif prep['page'] == 'external':
         prepare_external(page, prep)
     elif prep['page'] == 'card':
         page.goto(args.card.resolve().as_uri()+suffix)
@@ -332,7 +342,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--url', default='http://localhost:8000/web/')
     parser.add_argument('--card', type=Path, default=Path(__file__).with_name('compare_card.html'))
-    parser.add_argument('--timing', type=Path, default=TIMING)
+    parser.add_argument('--timing', type=Path, help='실측 timing JSON (cues_v5 기본: 영상/v5/tts/timing_v6.json)')
     parser.add_argument('--cues', type=Path, default=Path(__file__).with_name('cues_v2.json'))
     parser.add_argument('--out', type=Path, default=ROOT/'media/out/v2')
     parser.add_argument('--scene', type=int, action='append')
@@ -340,6 +350,8 @@ def main():
     parser.add_argument('--theme', choices=['light'])
     parser.add_argument('--captions', action='store_true')
     args = parser.parse_args()
+    if args.timing is None:
+        args.timing = (ROOT.parent/'영상/v5/tts/timing_v6.json') if args.cues.name == 'cues_v5.json' else TIMING
     data = load_plan(args.cues, args.timing, args.card)
     available = {s['scene'] for s in data['scenes']}
     selected = set(args.scene or available)
@@ -367,7 +379,7 @@ def main():
                         continue
                     context = browser.new_context(viewport=manifest['viewport'],device_scale_factor=1,
                         record_video_dir=str(args.out/'raw'),record_video_size=manifest['viewport'],locale='ko-KR')
-                    row={'scene':scene['scene'],'title':scene.get('title', f"장면 {scene['scene']}"), 'duration_s':scene['duration_s'],'status':'preparing','cues':[]}
+                    row={'scene':scene['scene'],'title':scene.get('title', f"장면 {scene['scene']}"), 'duration_s':scene['duration_s'],'status':'preparing','cues':[],'samples':[]}
                     manifest['scenes'].append(row);save()
                     video=None
                     try:
@@ -375,7 +387,7 @@ def main():
                         page_errors=[]
                         page.on('pageerror', lambda error: page_errors.append(str(error)))
                         page.set_default_timeout(180000);page.set_default_navigation_timeout(180000)
-                        prepare(page,scene,args)
+                        prepare(page,scene,args,row['samples'])
                         # Fast pages (file:// card) can reach this point while the
                         # screencast still paints a partial surface; let it settle so
                         # the flash covers the whole 1920x1080 frame.
@@ -414,7 +426,7 @@ def main():
                                 if remaining<=0:
                                     raise TimeoutError('장면 길이 초과')
                                 page.set_default_timeout(remaining*1000)
-                                execute(page,cue,data['targets'])
+                                execute(page,cue,data['targets'],row['samples'])
                                 if page_errors:
                                     raise RuntimeError('페이지 JS 오류: '+ '; '.join(page_errors))
                                 event['status']='complete'
