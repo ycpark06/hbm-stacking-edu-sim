@@ -1,0 +1,1868 @@
+{
+  "model": "thermal_expansion",
+  "inputs": {
+    "hardware": {
+      "al_rho": {
+        "value": 2700,
+        "unit": "kg/m3",
+        "kind": "가정값",
+        "source": "cad/midterm/spec.py D.al; A6061 대리"
+      },
+      "al_cp": {
+        "value": 900,
+        "unit": "J/kg/K",
+        "kind": "가정값",
+        "source": "A6061 대표 상온 비열 대리; 온도의존 미반영"
+      },
+      "al_E": {
+        "value": 69,
+        "unit": "GPa",
+        "kind": "가정값",
+        "source": "중간 calc/fea_struct.py A6061 모델 대리; 250 C 강성 감소 미반영"
+      },
+      "al_yield": {
+        "value": 55,
+        "unit": "MPa",
+        "kind": "가정값",
+        "source": "고온 사용 보수적 허용응력 설계 가정; 재료 인증값 아님"
+      },
+      "al_cte": {
+        "value": 23.6,
+        "unit": "ppm/K",
+        "kind": "가정값",
+        "source": "sim/params.json head_drift.al_cte; 20-100 C 대표값을 250 C까지 외삽"
+      },
+      "al_k": {
+        "value": 167,
+        "unit": "W/m/K",
+        "kind": "가정값",
+        "source": "A6061 대표값 대리, 집중정수 Bi 검산용"
+      },
+      "steel_E": {
+        "value": 193,
+        "unit": "GPa",
+        "kind": "가정값",
+        "source": "SUS304 상온 대표값 대리; 고온/재료성적서 확인 필요"
+      },
+      "steel_cte": {
+        "value": 17,
+        "unit": "ppm/K",
+        "kind": "중간값",
+        "source": "calc/midterm/thermal.py ST.a"
+      },
+      "quartz_E": {
+        "value": 72,
+        "unit": "GPa",
+        "kind": "가정값",
+        "source": "fused silica 상온 대표값 대리; 창 지지 예비 검산"
+      },
+      "quartz_cte": {
+        "value": 0.55,
+        "unit": "ppm/K",
+        "kind": "가정값",
+        "source": "fused silica 대표값 대리"
+      },
+      "aln_rho": {
+        "value": 3260,
+        "unit": "kg/m3",
+        "kind": "중간값",
+        "source": "calc/midterm/thermal.py AlN.rho"
+      },
+      "aln_cp": {
+        "value": 740,
+        "unit": "J/kg/K",
+        "kind": "중간값",
+        "source": "calc/midterm/thermal.py AlN.c"
+      },
+      "calsil_k": {
+        "value": 0.12,
+        "unit": "W/m/K",
+        "kind": "중간값",
+        "source": "중간 7.5절; calc/midterm/thermal.py"
+      },
+      "ambient": {
+        "value": 20,
+        "unit": "C",
+        "kind": "중간값",
+        "source": "calc/midterm/thermal.py Tamb"
+      },
+      "h_natural": {
+        "value": 10,
+        "unit": "W/m2/K",
+        "kind": "가정값",
+        "source": "중간 7장 자연대류 대리"
+      },
+      "h_forced": {
+        "value": 400,
+        "unit": "W/m2/K",
+        "kind": "가정값",
+        "source": "유효 면적평균 h=400 가정: 소형 충돌 제트를 척 상면·측면에 분산, 유입 공기/N₂는 ambient. 유량으로 h를 산출한 값이 아니며 노즐 거리/유량별 실측 필요. 유동 열용량을 직렬 열저항으로 별도 반영."
+      },
+      "emissivity": {
+        "value": 0.3,
+        "unit": "1",
+        "kind": "가정값",
+        "source": "calc/midterm/thermal.py eps 대리"
+      },
+      "heater_power": {
+        "value": 150,
+        "unit": "W",
+        "kind": "설계값",
+        "source": "사용자 확정 2026-11-28; spec_stacker.REFLOW.power_W와 일치; 3 K/s 필요전력 대비 검산"
+      },
+      "power_48": {
+        "value": 600,
+        "unit": "W",
+        "kind": "중간값",
+        "source": "중간 10.4절 48 V 전원"
+      },
+      "voltage_48": {
+        "value": 48,
+        "unit": "V",
+        "kind": "중간값",
+        "source": "중간 10.4절"
+      },
+      "power_24": {
+        "value": 150,
+        "unit": "W",
+        "kind": "중간값",
+        "source": "중간 10.4절 24 V 전원"
+      },
+      "head_power": {
+        "value": 400,
+        "unit": "W",
+        "kind": "중간값",
+        "source": "중간 7장 AlN 히터"
+      },
+      "aux_48": {
+        "value": 100,
+        "unit": "W",
+        "kind": "가정값",
+        "source": "서보 및 기타 동력 예약; BOM 정격 미확정"
+      },
+      "aux_24": {
+        "value": 80,
+        "unit": "W",
+        "kind": "가정값",
+        "source": "제어기 센서 릴레이 예약; BOM 정격 미확정"
+      },
+      "mold_pressure": {
+        "value": 3,
+        "unit": "MPa",
+        "kind": "문헌값",
+        "source": "inbox/05_web/params_patch.json mold_pressure_applied; 06 HANDOFF §3 사용자 확정"
+      },
+      "force": {
+        "value": 40,
+        "unit": "N",
+        "kind": "가정값",
+        "source": "06 HANDOFF §4 TC-NCF 기본 하중"
+      },
+      "friction_reserve": {
+        "value": 5,
+        "unit": "N",
+        "kind": "가정값",
+        "source": "플런저 마찰 하중 예약; 실측 부재 민감도"
+      },
+      "diameters": {
+        "value": [
+          3,
+          4,
+          4.5,
+          5,
+          6
+        ],
+        "unit": "mm",
+        "kind": "설계값",
+        "source": "플런저 후보 스윕; 선택 직경은 spec_stacker.MOLD.bore"
+      },
+      "resin_overfill": {
+        "value": 1.2,
+        "unit": "1",
+        "kind": "가정값",
+        "source": "충전 체적 20% 여유; 범프 체적을 빼지 않는 상한"
+      },
+      "clamp_safety": {
+        "value": 2,
+        "unit": "1",
+        "kind": "설계값",
+        "source": "지그 나사 체결 예압 안전율; proof test 필요"
+      },
+      "support_span": {
+        "value": 80,
+        "unit": "mm",
+        "kind": "가정값",
+        "source": "중간 ST-004 MACOR 4점 지지 피치 대리; 단순지지 보 모델"
+      },
+      "die_thin": {
+        "value": 0.05,
+        "unit": "mm",
+        "kind": "설계값",
+        "source": "HANDOFF 박형 50 um 선택지"
+      },
+      "datum_offset": {
+        "value": 20,
+        "unit": "mm",
+        "kind": "설계값",
+        "source": "척 중심에서 한쪽 정렬 기준까지 거리"
+      },
+      "mount_length": {
+        "value": 40,
+        "unit": "mm",
+        "kind": "가정값",
+        "source": "고정부 유효 길이 대리; 전 길이 동일 온도 상승 최악 조건"
+      },
+      "drift_budget": {
+        "value": 0.26,
+        "unit": "um",
+        "kind": "중간값",
+        "source": "중간 5장 열드리프트 균일분포 반폭"
+      },
+      "alignment_limit": {
+        "value": 1,
+        "unit": "um",
+        "kind": "원문 KPI",
+        "source": "PBL p7; 중간 5장 RSS 3sigma 해석"
+      },
+      "liquidus": {
+        "value": 217,
+        "unit": "C",
+        "kind": "문헌값",
+        "source": "sim/params.json reflow.time_above_liquidus.note"
+      },
+      "cool_to": {
+        "value": 100,
+        "unit": "C",
+        "kind": "설계값",
+        "source": "냉각시간 비교 종료 온도"
+      },
+      "dt": {
+        "value": 0.01,
+        "unit": "s",
+        "kind": "설계값",
+        "source": "집중정수 냉각 explicit Euler; dt/2 수렴 검사"
+      },
+      "max_cool_time": {
+        "value": 7200,
+        "unit": "s",
+        "kind": "설계값",
+        "source": "냉각 미도달 판별 적분 상한"
+      },
+      "coolant_flow": {
+        "value": 100,
+        "unit": "L/min",
+        "kind": "가정값",
+        "source": "총 노즐 실제 체적유량, ambient에서 평가. 압축공기/상온 N₂ 공급, 병입 N₂ 기화냉각은 미포함. h와 독립 가정; 측정으로 확정."
+      },
+      "coolant_rho": {
+        "value": 1.16,
+        "unit": "kg/m3",
+        "kind": "가정값",
+        "source": "20 ℃·약1 atm 공기/N₂ 공통 보수 대리, 공급 가스 온도·압력 실측 필요."
+      },
+      "coolant_cp": {
+        "value": 1000,
+        "unit": "J/kg/K",
+        "kind": "가정값",
+        "source": "상온 공기/N₂ 공통 대리; 온도의존 생략. 유한 유량 열용량을 보수적으로 반영."
+      },
+      "die_strength_reference": {
+        "value": 261,
+        "unit": "MPa",
+        "kind": "문헌값",
+        "source": "Gupta et al. 2024 J. Micromech. Microeng. 34 105012, Table 3, 45° angled design: 평균 굽힘 파괴강도261 MPa, 표준편차39 MPa, 두께51 μm, 40개; Si MOSFET 유사시험편(6×3 mm). HBM 허용응력이나 최소보증값 아님. https://pure.tudelft.nl/ws/portalfiles/portal/222055008/Gupta_2024_J._Micromech._Microeng._34_105012.pdf ; https://doi.org/10.1088/1361-6439/ad76b4"
+      }
+    },
+    "dimensions": {
+      "stack.width": {
+        "value": 100,
+        "unit": "mm",
+        "kind": "설계값",
+        "source": "중간 11장 ST-004"
+      },
+      "stack.depth": {
+        "value": 100,
+        "unit": "mm",
+        "kind": "설계값",
+        "source": "중간 11장 ST-004"
+      },
+      "stack.thickness": {
+        "value": 18,
+        "unit": "mm",
+        "kind": "설계값",
+        "source": "중간 11장 ST-004"
+      },
+      "stack.window_d": {
+        "value": 15,
+        "unit": "mm",
+        "kind": "설계값",
+        "source": "중간 11장 ST-004; H7/g6"
+      },
+      "stack.bolt_pitch": {
+        "value": 80,
+        "unit": "mm",
+        "kind": "설계값",
+        "source": "설계값; 06 HANDOFF §3; 검산 calc/hardware/*.json"
+      },
+      "stack.bolt_d": {
+        "value": 4.5,
+        "unit": "mm",
+        "kind": "설계값",
+        "source": "설계값; 06 HANDOFF §3; 검산 calc/hardware/*.json"
+      },
+      "stack.dowel_d": {
+        "value": 3,
+        "unit": "mm",
+        "kind": "설계값",
+        "source": "설계값; 06 HANDOFF §3; 검산 calc/hardware/*.json"
+      },
+      "stack.dowel_pitch": {
+        "value": 60,
+        "unit": "mm",
+        "kind": "설계값",
+        "source": "설계값; 06 HANDOFF §3; 검산 calc/hardware/*.json"
+      },
+      "stack.pilot_d": {
+        "value": 6,
+        "unit": "mm",
+        "kind": "설계값",
+        "source": "설계값; 06 HANDOFF §3; 검산 calc/hardware/*.json"
+      },
+      "stack.flatness": {
+        "value": 0.002,
+        "unit": "mm",
+        "kind": "설계값",
+        "source": "중간 11장 ST-004; 설계 목표"
+      },
+      "stack.groove_width": {
+        "value": 1,
+        "unit": "mm",
+        "kind": "설계값",
+        "source": "설계값; 06 HANDOFF §3; 검산 calc/hardware/*.json"
+      },
+      "stack.groove_depth": {
+        "value": 0.5,
+        "unit": "mm",
+        "kind": "설계값",
+        "source": "설계값; 06 HANDOFF §3; 검산 calc/hardware/*.json"
+      },
+      "stack.groove_span": {
+        "value": 40,
+        "unit": "mm",
+        "kind": "설계값",
+        "source": "설계값; 06 HANDOFF §3; 검산 calc/hardware/*.json"
+      },
+      "reflow.width": {
+        "value": 40,
+        "unit": "mm",
+        "kind": "설계값",
+        "source": "설계값; 06 HANDOFF §3; 검산 calc/hardware/*.json"
+      },
+      "reflow.depth": {
+        "value": 40,
+        "unit": "mm",
+        "kind": "설계값",
+        "source": "설계값; 06 HANDOFF §3; 검산 calc/hardware/*.json"
+      },
+      "reflow.thickness": {
+        "value": 8,
+        "unit": "mm",
+        "kind": "설계값",
+        "source": "설계값; 06 HANDOFF §3; 검산 calc/hardware/*.json"
+      },
+      "reflow.bolt_pitch": {
+        "value": 30,
+        "unit": "mm",
+        "kind": "설계값",
+        "source": "설계값; 06 HANDOFF §3; 검산 calc/hardware/*.json"
+      },
+      "reflow.bolt_d": {
+        "value": 4.5,
+        "unit": "mm",
+        "kind": "설계값",
+        "source": "설계값; 06 HANDOFF §3; 검산 calc/hardware/*.json"
+      },
+      "reflow.heater_width": {
+        "value": 30,
+        "unit": "mm",
+        "kind": "설계값",
+        "source": "설계값; 06 HANDOFF §3; 검산 calc/hardware/*.json"
+      },
+      "reflow.heater_thickness": {
+        "value": 2,
+        "unit": "mm",
+        "kind": "설계값",
+        "source": "설계값; 06 HANDOFF §3; 검산 calc/hardware/*.json"
+      },
+      "reflow.insulation_thickness": {
+        "value": 10,
+        "unit": "mm",
+        "kind": "설계값",
+        "source": "중간 7.5절 규산칼슘 방식"
+      },
+      "reflow.tc_d": {
+        "value": 1.6,
+        "unit": "mm",
+        "kind": "설계값",
+        "source": "설계값; 06 HANDOFF §3; 검산 calc/hardware/*.json"
+      },
+      "reflow.tc_depth": {
+        "value": 4,
+        "unit": "mm",
+        "kind": "설계값",
+        "source": "설계값; 06 HANDOFF §3; 검산 calc/hardware/*.json"
+      },
+      "mold.width": {
+        "value": 30,
+        "unit": "mm",
+        "kind": "설계값",
+        "source": "설계값; 06 HANDOFF §3; 검산 calc/hardware/*.json"
+      },
+      "mold.depth": {
+        "value": 30,
+        "unit": "mm",
+        "kind": "설계값",
+        "source": "설계값; 06 HANDOFF §3; 검산 calc/hardware/*.json"
+      },
+      "mold.thickness": {
+        "value": 10,
+        "unit": "mm",
+        "kind": "설계값",
+        "source": "설계값; 06 HANDOFF §3; 검산 calc/hardware/*.json"
+      },
+      "mold.cavity_width": {
+        "value": 6,
+        "unit": "mm",
+        "kind": "설계값",
+        "source": "설계값; 06 HANDOFF §3; 검산 calc/hardware/*.json"
+      },
+      "mold.cavity_depth": {
+        "value": 2,
+        "unit": "mm",
+        "kind": "설계값",
+        "source": "설계값; 06 HANDOFF §3; 검산 calc/hardware/*.json"
+      },
+      "mold.plunger_d": {
+        "value": 4,
+        "unit": "mm",
+        "kind": "설계값",
+        "source": "설계값; 06 HANDOFF §3; 검산 calc/hardware/*.json"
+      },
+      "mold.plunger_length": {
+        "value": 20,
+        "unit": "mm",
+        "kind": "설계값",
+        "source": "설계값; 06 HANDOFF §3; 검산 calc/hardware/*.json"
+      },
+      "mold.stroke": {
+        "value": 8,
+        "unit": "mm",
+        "kind": "설계값",
+        "source": "설계값; 06 HANDOFF §3; 검산 calc/hardware/*.json"
+      },
+      "mold.gate_width": {
+        "value": 1,
+        "unit": "mm",
+        "kind": "설계값",
+        "source": "설계값; 06 HANDOFF §3; 검산 calc/hardware/*.json"
+      },
+      "mold.gate_depth": {
+        "value": 0.5,
+        "unit": "mm",
+        "kind": "설계값",
+        "source": "설계값; 06 HANDOFF §3; 검산 calc/hardware/*.json"
+      },
+      "mold.gate_length": {
+        "value": 6,
+        "unit": "mm",
+        "kind": "설계값",
+        "source": "설계값; 06 HANDOFF §3; 검산 calc/hardware/*.json"
+      },
+      "mold.vent_width": {
+        "value": 0.5,
+        "unit": "mm",
+        "kind": "설계값",
+        "source": "설계값; 06 HANDOFF §3; 검산 calc/hardware/*.json"
+      },
+      "mold.vent_depth": {
+        "value": 0.02,
+        "unit": "mm",
+        "kind": "설계값",
+        "source": "설계값; 06 HANDOFF §3; 검산 calc/hardware/*.json"
+      },
+      "mold.clamp_pitch": {
+        "value": 22,
+        "unit": "mm",
+        "kind": "설계값",
+        "source": "설계값; 06 HANDOFF §3; 검산 calc/hardware/*.json"
+      },
+      "mold.clamp_d": {
+        "value": 3.4,
+        "unit": "mm",
+        "kind": "설계값",
+        "source": "설계값; 06 HANDOFF §3; 검산 calc/hardware/*.json"
+      },
+      "reflow.power": {
+        "value": 150,
+        "unit": "W",
+        "kind": "설계값",
+        "source": "사용자 확정 2026-11-28; 설계값; calc/hardware/reflow_heater.json"
+      },
+      "reflow.alignment_wait": {
+        "value": 90,
+        "unit": "s",
+        "kind": "설계값",
+        "source": "사용자 확정 2026-11-28; 중간 보고서 7장 온도 도달 후 안정화"
+      },
+      "mold.clamp_count": {
+        "value": 4,
+        "unit": "개",
+        "kind": "설계값",
+        "source": "사용자 확정 2026-11-28; M3 나사"
+      },
+      "mold.clamp_preload": {
+        "value": 216,
+        "unit": "N",
+        "kind": "설계값",
+        "source": "사용자 확정 2026-11-28; 합계 최소 예압, 개방력108 N × 안전율2"
+      },
+      "fit.H7_min": {
+        "value": 0,
+        "unit": "mm",
+        "kind": "설계값",
+        "source": "설계값; 06 HANDOFF §3; 검산 calc/hardware/*.json"
+      },
+      "fit.H7_max": {
+        "value": 0.012,
+        "unit": "mm",
+        "kind": "설계값",
+        "source": "설계값; 06 HANDOFF §3; 검산 calc/hardware/*.json"
+      },
+      "fit.g6_min": {
+        "value": -0.012,
+        "unit": "mm",
+        "kind": "설계값",
+        "source": "설계값; 06 HANDOFF §3; 검산 calc/hardware/*.json"
+      },
+      "fit.g6_max": {
+        "value": -0.004,
+        "unit": "mm",
+        "kind": "설계값",
+        "source": "설계값; 06 HANDOFF §3; 검산 calc/hardware/*.json"
+      },
+      "stack.layers": {
+        "value": 12,
+        "unit": "count",
+        "kind": "설계값",
+        "source": "설계값; requirements §3 / recipe.layers.range"
+      },
+      "position.stack": {
+        "value": [
+          0,
+          0,
+          165
+        ],
+        "unit": "mm",
+        "kind": "설계값",
+        "source": "설계값; 06 HANDOFF §3; 검산 calc/hardware/*.json"
+      },
+      "position.reflow": {
+        "value": [
+          140,
+          -100,
+          165
+        ],
+        "unit": "mm",
+        "kind": "설계값",
+        "source": "설계값; 06 HANDOFF §3; 검산 calc/hardware/*.json"
+      },
+      "position.mold": {
+        "value": [
+          -140,
+          100,
+          179
+        ],
+        "unit": "mm",
+        "kind": "설계값",
+        "source": "설계값; 06 HANDOFF §3; 검산 calc/hardware/*.json"
+      },
+      "position.dispenser": {
+        "value": [
+          -140,
+          100,
+          240
+        ],
+        "unit": "mm",
+        "kind": "설계값",
+        "source": "설계값; 06 HANDOFF §3; 검산 calc/hardware/*.json"
+      },
+      "position.ncf": {
+        "value": [
+          85,
+          0,
+          171
+        ],
+        "unit": "mm",
+        "kind": "설계값",
+        "source": "설계값; 06 HANDOFF §3; 검산 calc/hardware/*.json"
+      },
+      "position.camera": {
+        "value": [
+          40,
+          0,
+          70
+        ],
+        "unit": "mm",
+        "kind": "설계값",
+        "source": "설계값; 06 HANDOFF §3; 검산 calc/hardware/*.json"
+      },
+      "tol.outline": {
+        "value": 0.05,
+        "unit": "mm",
+        "kind": "설계값",
+        "source": "설계값; 06 HANDOFF §3; 검산 calc/hardware/*.json"
+      },
+      "tol.thickness": {
+        "value": 0.01,
+        "unit": "mm",
+        "kind": "설계값",
+        "source": "설계값; 06 HANDOFF §3; 검산 calc/hardware/*.json"
+      },
+      "tol.parallel": {
+        "value": 0.005,
+        "unit": "mm",
+        "kind": "설계값",
+        "source": "설계값; 06 HANDOFF §3; 검산 calc/hardware/*.json"
+      },
+      "tol.perpendicular": {
+        "value": 0.01,
+        "unit": "mm",
+        "kind": "설계값",
+        "source": "설계값; 06 HANDOFF §3; 검산 calc/hardware/*.json"
+      },
+      "finish.top": {
+        "value": 0.4,
+        "unit": "um",
+        "kind": "설계값",
+        "source": "설계값; 06 HANDOFF §3; 검산 calc/hardware/*.json"
+      },
+      "finish.plunger": {
+        "value": 0.2,
+        "unit": "um",
+        "kind": "설계값",
+        "source": "설계값; 06 HANDOFF §3; 검산 calc/hardware/*.json"
+      },
+      "finish.other": {
+        "value": 1.6,
+        "unit": "um",
+        "kind": "설계값",
+        "source": "설계값; 06 HANDOFF §3; 검산 calc/hardware/*.json"
+      },
+      "limit.force": {
+        "value": 50,
+        "unit": "N",
+        "kind": "설계값",
+        "source": "원문 KPI PBL p7"
+      },
+      "limit.footprint": {
+        "value": 600,
+        "unit": "mm",
+        "kind": "설계값",
+        "source": "원문 KPI PBL p7"
+      },
+      "limit.head_temp": {
+        "value": 400,
+        "unit": "C",
+        "kind": "설계값",
+        "source": "원문 KPI PBL p7"
+      },
+      "limit.warn_force": {
+        "value": 52,
+        "unit": "N",
+        "kind": "설계값",
+        "source": "중간 10장 소프트웨어 경고"
+      },
+      "limit.latch_force": {
+        "value": 55,
+        "unit": "N",
+        "kind": "설계값",
+        "source": "중간 10장 래치"
+      },
+      "limit.warn_temp": {
+        "value": 410,
+        "unit": "C",
+        "kind": "설계값",
+        "source": "중간 10장 경고"
+      },
+      "limit.latch_temp": {
+        "value": 420,
+        "unit": "C",
+        "kind": "설계값",
+        "source": "중간 10장 래치"
+      }
+    },
+    "parts": {
+      "Base_Granite": {
+        "kind": "중간값",
+        "source": "중간 3·7·11장, cad/midterm/spec.py; 신규 치수 spec_stacker.py; calc/hardware 결과로 검산",
+        "dimensions_mm": [
+          0,
+          0,
+          25,
+          590,
+          480,
+          50
+        ],
+        "material": "granite",
+        "group": "frame"
+      },
+      "Bridge_Column_L": {
+        "kind": "중간값",
+        "source": "중간 3·7·11장, cad/midterm/spec.py; 신규 치수 spec_stacker.py; calc/hardware 결과로 검산",
+        "dimensions_mm": [
+          -255,
+          0,
+          280,
+          80,
+          160,
+          460
+        ],
+        "material": "al",
+        "group": "frame"
+      },
+      "Bridge_Column_R": {
+        "kind": "중간값",
+        "source": "중간 3·7·11장, cad/midterm/spec.py; 신규 치수 spec_stacker.py; calc/hardware 결과로 검산",
+        "dimensions_mm": [
+          255,
+          0,
+          280,
+          80,
+          160,
+          460
+        ],
+        "material": "al",
+        "group": "frame"
+      },
+      "Bridge_Beam": {
+        "kind": "중간값",
+        "source": "중간 3·7·11장, cad/midterm/spec.py; 신규 치수 spec_stacker.py; calc/hardware 결과로 검산",
+        "dimensions_mm": [
+          0,
+          0,
+          540,
+          590,
+          100,
+          60
+        ],
+        "material": "al",
+        "group": "frame"
+      },
+      "Gusset_L": {
+        "kind": "중간값",
+        "source": "중간 3·7·11장, cad/midterm/spec.py; 신규 치수 spec_stacker.py; calc/hardware 결과로 검산",
+        "dimensions_mm": [
+          -185,
+          0,
+          480,
+          60,
+          100,
+          60
+        ],
+        "material": "al",
+        "group": "frame"
+      },
+      "Gusset_R": {
+        "kind": "중간값",
+        "source": "중간 3·7·11장, cad/midterm/spec.py; 신규 치수 spec_stacker.py; calc/hardware 결과로 검산",
+        "dimensions_mm": [
+          185,
+          0,
+          480,
+          60,
+          100,
+          60
+        ],
+        "material": "al",
+        "group": "frame"
+      },
+      "Z_Rail_L": {
+        "kind": "중간값",
+        "source": "중간 3·7·11장, cad/midterm/spec.py; 신규 치수 spec_stacker.py; calc/hardware 결과로 검산",
+        "dimensions_mm": [
+          -45,
+          0,
+          400,
+          20,
+          80,
+          220
+        ],
+        "material": "steel",
+        "group": "head"
+      },
+      "Z_Rail_R": {
+        "kind": "중간값",
+        "source": "중간 3·7·11장, cad/midterm/spec.py; 신규 치수 spec_stacker.py; calc/hardware 결과로 검산",
+        "dimensions_mm": [
+          45,
+          0,
+          400,
+          20,
+          80,
+          220
+        ],
+        "material": "steel",
+        "group": "head"
+      },
+      "Z_Motor_Brake": {
+        "kind": "중간값",
+        "source": "중간 3·7·11장, cad/midterm/spec.py; 신규 치수 spec_stacker.py; calc/hardware 결과로 검산",
+        "dimensions_mm": [
+          0,
+          0,
+          600,
+          60,
+          60,
+          60
+        ],
+        "material": "al",
+        "group": "head"
+      },
+      "Z_Carriage": {
+        "kind": "중간값",
+        "source": "중간 3·7·11장, cad/midterm/spec.py; 신규 치수 spec_stacker.py; calc/hardware 결과로 검산",
+        "dimensions_mm": [
+          0,
+          0,
+          363,
+          70,
+          40,
+          74
+        ],
+        "material": "al",
+        "group": "z_carriage"
+      },
+      "Theta_Stage": {
+        "kind": "중간값",
+        "source": "중간 3·7·11장, cad/midterm/spec.py; 신규 치수 spec_stacker.py; calc/hardware 결과로 검산",
+        "dimensions_mm": [
+          0,
+          0,
+          310,
+          326,
+          30
+        ],
+        "material": "steel",
+        "group": "head"
+      },
+      "Flexure_Leaf_Spring": {
+        "kind": "중간값",
+        "source": "중간 3·7·11장, cad/midterm/spec.py; 신규 치수 spec_stacker.py; calc/hardware 결과로 검산",
+        "dimensions_mm": [
+          0,
+          0,
+          301,
+          50,
+          50,
+          18
+        ],
+        "material": "steel",
+        "group": "head"
+      },
+      "Load_Cell_100N": {
+        "kind": "중간값",
+        "source": "중간 3·7·11장, cad/midterm/spec.py; 신규 치수 spec_stacker.py; calc/hardware 결과로 검산",
+        "dimensions_mm": [
+          0,
+          0,
+          276,
+          292,
+          20
+        ],
+        "material": "steel",
+        "group": "head"
+      },
+      "Gimbal_Lockable": {
+        "kind": "중간값",
+        "source": "중간 3·7·11장, cad/midterm/spec.py; 신규 치수 spec_stacker.py; calc/hardware 결과로 검산",
+        "dimensions_mm": [
+          0,
+          0,
+          260,
+          276,
+          25
+        ],
+        "material": "steel",
+        "group": "head"
+      },
+      "Cooling_Jacket": {
+        "kind": "중간값",
+        "source": "중간 3·7·11장, cad/midterm/spec.py; 신규 치수 spec_stacker.py; calc/hardware 결과로 검산",
+        "dimensions_mm": [
+          0,
+          0,
+          250.5,
+          44,
+          44,
+          19
+        ],
+        "material": "al",
+        "group": "head"
+      },
+      "MACOR_Insulator": {
+        "kind": "중간값",
+        "source": "중간 3·7·11장, cad/midterm/spec.py; 신규 치수 spec_stacker.py; calc/hardware 결과로 검산",
+        "dimensions_mm": [
+          0,
+          0,
+          233,
+          40,
+          40,
+          16
+        ],
+        "material": "macor",
+        "group": "head"
+      },
+      "AlN_Heater": {
+        "kind": "중간값",
+        "source": "중간 3·7·11장, cad/midterm/spec.py; 신규 치수 spec_stacker.py; calc/hardware 결과로 검산",
+        "dimensions_mm": [
+          0,
+          0,
+          222.5,
+          20,
+          20,
+          5
+        ],
+        "material": "aln",
+        "group": "head"
+      },
+      "Collet_Tool": {
+        "kind": "중간값",
+        "source": "중간 3·7·11장, cad/midterm/spec.py; 신규 치수 spec_stacker.py; calc/hardware 결과로 검산",
+        "dimensions_mm": [
+          0,
+          0,
+          215,
+          10,
+          10,
+          10
+        ],
+        "material": "steel",
+        "group": "head"
+      },
+      "Coarse_X_Stage": {
+        "kind": "중간값",
+        "source": "중간 3·7·11장, cad/midterm/spec.py; 신규 치수 spec_stacker.py; calc/hardware 결과로 검산",
+        "dimensions_mm": [
+          0,
+          0,
+          65,
+          220,
+          200,
+          30
+        ],
+        "material": "al",
+        "group": "frame"
+      },
+      "Coarse_Y_Stage": {
+        "kind": "중간값",
+        "source": "중간 3·7·11장, cad/midterm/spec.py; 신규 치수 spec_stacker.py; calc/hardware 결과로 검산",
+        "dimensions_mm": [
+          0,
+          0,
+          95,
+          220,
+          200,
+          30
+        ],
+        "material": "al",
+        "group": "frame"
+      },
+      "Fine_XY_Piezo_Stage": {
+        "kind": "중간값",
+        "source": "중간 3·7·11장, cad/midterm/spec.py; 신규 치수 spec_stacker.py; calc/hardware 결과로 검산",
+        "dimensions_mm": [
+          0,
+          0,
+          125,
+          120,
+          120,
+          30
+        ],
+        "material": "al",
+        "group": "frame"
+      },
+      "Cooling_Plate": {
+        "kind": "중간값",
+        "source": "중간 3·7·11장, cad/midterm/spec.py; 신규 치수 spec_stacker.py; calc/hardware 결과로 검산",
+        "dimensions_mm": [
+          0,
+          0,
+          143,
+          110,
+          110,
+          6
+        ],
+        "material": "al",
+        "group": "frame"
+      },
+      "CalSil_Insulation": {
+        "kind": "중간값",
+        "source": "중간 3·7·11장, cad/midterm/spec.py; 신규 치수 spec_stacker.py; calc/hardware 결과로 검산",
+        "dimensions_mm": [
+          0,
+          0,
+          151,
+          110,
+          110,
+          10
+        ],
+        "material": "calsil",
+        "group": "frame"
+      },
+      "Vacuum_Chuck_200C": {
+        "kind": "중간값",
+        "source": "중간 3·7·11장, cad/midterm/spec.py; 신규 치수 spec_stacker.py; calc/hardware 결과로 검산",
+        "dimensions_mm": [
+          0,
+          0,
+          165,
+          100,
+          100,
+          18
+        ],
+        "material": "al",
+        "group": "stack_chuck"
+      },
+      "Quartz_Window": {
+        "kind": "중간값",
+        "source": "중간 3·7·11장, cad/midterm/spec.py; 신규 치수 spec_stacker.py; calc/hardware 결과로 검산",
+        "dimensions_mm": [
+          0,
+          0,
+          156,
+          174,
+          7.5
+        ],
+        "material": "quartz",
+        "group": "stack_chuck"
+      },
+      "Quartz_Gas_Shield": {
+        "kind": "중간값",
+        "source": "중간 3·7·11장, cad/midterm/spec.py; 신규 치수 spec_stacker.py; calc/hardware 결과로 검산",
+        "dimensions_mm": [
+          0,
+          0,
+          174,
+          184,
+          54,
+          50
+        ],
+        "material": "quartz",
+        "group": "frame"
+      },
+      "Bottom_Camera": {
+        "kind": "중간값",
+        "source": "중간 3·7·11장, cad/midterm/spec.py; 신규 치수 spec_stacker.py; calc/hardware 결과로 검산",
+        "dimensions_mm": [
+          40,
+          0,
+          70,
+          50,
+          22,
+          22
+        ],
+        "material": "cam",
+        "group": "camera_bottom"
+      },
+      "GelPak_Riser": {
+        "kind": "중간값",
+        "source": "중간 3·7·11장, cad/midterm/spec.py; 신규 치수 spec_stacker.py; calc/hardware 결과로 검산",
+        "dimensions_mm": [
+          85,
+          0,
+          139,
+          50,
+          50,
+          58
+        ],
+        "material": "al",
+        "group": "frame"
+      },
+      "GelPak_Tray": {
+        "kind": "중간값",
+        "source": "중간 3·7·11장, cad/midterm/spec.py; 신규 치수 spec_stacker.py; calc/hardware 결과로 검산",
+        "dimensions_mm": [
+          85,
+          0,
+          171,
+          50,
+          50,
+          6
+        ],
+        "material": "plastic",
+        "group": "ncf_tray"
+      },
+      "RefDie_Riser": {
+        "kind": "중간값",
+        "source": "중간 3·7·11장, cad/midterm/spec.py; 신규 치수 spec_stacker.py; calc/hardware 결과로 검산",
+        "dimensions_mm": [
+          -80,
+          -80,
+          142,
+          30,
+          30,
+          64
+        ],
+        "material": "al",
+        "group": "frame"
+      },
+      "Prism_BeamSplitter": {
+        "kind": "중간값",
+        "source": "중간 3·7·11장, cad/midterm/spec.py; 신규 치수 spec_stacker.py; calc/hardware 결과로 검산",
+        "dimensions_mm": [
+          0,
+          0,
+          192,
+          30,
+          30,
+          14
+        ],
+        "material": "quartz",
+        "group": "frame"
+      },
+      "Prism_Slide_Rail": {
+        "kind": "중간값",
+        "source": "중간 3·7·11장, cad/midterm/spec.py; 신규 치수 spec_stacker.py; calc/hardware 결과로 검산",
+        "dimensions_mm": [
+          0,
+          -115,
+          189,
+          20,
+          150,
+          10
+        ],
+        "material": "al",
+        "group": "frame"
+      },
+      "Dual_Camera_Telecentric": {
+        "kind": "중간값",
+        "source": "중간 3·7·11장, cad/midterm/spec.py; 신규 치수 spec_stacker.py; calc/hardware 결과로 검산",
+        "dimensions_mm": [
+          0,
+          -215,
+          187,
+          40,
+          50,
+          34
+        ],
+        "material": "cam",
+        "group": "frame"
+      },
+      "Dual_Camera_Post": {
+        "kind": "중간값",
+        "source": "중간 3·7·11장, cad/midterm/spec.py; 신규 치수 spec_stacker.py; calc/hardware 결과로 검산",
+        "dimensions_mm": [
+          20,
+          -215,
+          347,
+          20,
+          20,
+          286
+        ],
+        "material": "al",
+        "group": "frame"
+      },
+      "Dual_Camera_Bracket": {
+        "kind": "중간값",
+        "source": "중간 3·7·11장, cad/midterm/spec.py; 신규 치수 spec_stacker.py; calc/hardware 결과로 검산",
+        "dimensions_mm": [
+          20,
+          -132.5,
+          500,
+          20,
+          165,
+          20
+        ],
+        "material": "al",
+        "group": "frame"
+      },
+      "Side_Camera": {
+        "kind": "중간값",
+        "source": "중간 3·7·11장, cad/midterm/spec.py; 신규 치수 spec_stacker.py; calc/hardware 결과로 검산",
+        "dimensions_mm": [
+          -185,
+          0,
+          190,
+          50,
+          26,
+          26
+        ],
+        "material": "cam",
+        "group": "frame"
+      },
+      "Side_Camera_Arm": {
+        "kind": "중간값",
+        "source": "중간 3·7·11장, cad/midterm/spec.py; 신규 치수 spec_stacker.py; calc/hardware 결과로 검산",
+        "dimensions_mm": [
+          -187.5,
+          0,
+          208,
+          55,
+          10,
+          10
+        ],
+        "material": "al",
+        "group": "frame"
+      },
+      "Dispenser_Barrel": {
+        "kind": "중간값",
+        "source": "중간 3·7·11장, cad/midterm/spec.py; 신규 치수 spec_stacker.py; calc/hardware 결과로 검산",
+        "dimensions_mm": [
+          -140,
+          100,
+          240,
+          330,
+          8
+        ],
+        "material": "plastic",
+        "group": "dispenser"
+      },
+      "Dispenser_Needle": {
+        "kind": "중간값",
+        "source": "중간 3·7·11장, cad/midterm/spec.py; 신규 치수 spec_stacker.py; calc/hardware 결과로 검산",
+        "dimensions_mm": [
+          -140,
+          100,
+          205,
+          240,
+          0.6
+        ],
+        "material": "steel",
+        "group": "dispenser"
+      },
+      "Dispenser_Post": {
+        "kind": "중간값",
+        "source": "중간 3·7·11장, cad/midterm/spec.py; 신규 치수 spec_stacker.py; calc/hardware 결과로 검산",
+        "dimensions_mm": [
+          -140,
+          100,
+          420,
+          12,
+          12,
+          180
+        ],
+        "material": "al",
+        "group": "dispenser"
+      },
+      "Laser_Displacement": {
+        "kind": "중간값",
+        "source": "중간 3·7·11장, cad/midterm/spec.py; 신규 치수 spec_stacker.py; calc/hardware 결과로 검산",
+        "dimensions_mm": [
+          0,
+          -55,
+          260,
+          20,
+          30,
+          60
+        ],
+        "material": "cam",
+        "group": "frame"
+      },
+      "Laser_Post": {
+        "kind": "중간값",
+        "source": "중간 3·7·11장, cad/midterm/spec.py; 신규 치수 spec_stacker.py; calc/hardware 결과로 검산",
+        "dimensions_mm": [
+          0,
+          -55,
+          400,
+          12,
+          12,
+          220
+        ],
+        "material": "al",
+        "group": "frame"
+      },
+      "Electrical_Box": {
+        "kind": "중간값",
+        "source": "중간 3·7·11장, cad/midterm/spec.py; 신규 치수 spec_stacker.py; calc/hardware 결과로 검산",
+        "dimensions_mm": [
+          0,
+          200,
+          135,
+          300,
+          80,
+          170
+        ],
+        "material": "elec",
+        "group": "frame"
+      },
+      "Reflow_Plate": {
+        "kind": "설계값",
+        "source": "중간 3·7·11장, cad/midterm/spec.py; 신규 치수 spec_stacker.py; calc/hardware 결과로 검산",
+        "dimensions_mm": [
+          140,
+          -100,
+          165,
+          40,
+          40,
+          8
+        ],
+        "material": "al",
+        "group": "reflow_chuck"
+      },
+      "Reflow_Heater": {
+        "kind": "설계값",
+        "source": "중간 3·7·11장, cad/midterm/spec.py; 신규 치수 spec_stacker.py; calc/hardware 결과로 검산",
+        "dimensions_mm": [
+          140,
+          -100,
+          160.0,
+          30,
+          30,
+          2
+        ],
+        "material": "aln",
+        "group": "reflow_chuck"
+      },
+      "Reflow_Insulator": {
+        "kind": "설계값",
+        "source": "중간 3·7·11장, cad/midterm/spec.py; 신규 치수 spec_stacker.py; calc/hardware 결과로 검산",
+        "dimensions_mm": [
+          140,
+          -100,
+          154.0,
+          40,
+          40,
+          10
+        ],
+        "material": "calsil",
+        "group": "reflow_chuck"
+      },
+      "Reflow_Pedestal": {
+        "kind": "설계값",
+        "source": "중간 3·7·11장, cad/midterm/spec.py; 신규 치수 spec_stacker.py; calc/hardware 결과로 검산",
+        "dimensions_mm": [
+          140,
+          -100,
+          99.5,
+          50,
+          50,
+          99
+        ],
+        "material": "al",
+        "group": "frame"
+      },
+      "Mold_Block": {
+        "kind": "설계값",
+        "source": "중간 3·7·11장, cad/midterm/spec.py; 신규 치수 spec_stacker.py; calc/hardware 결과로 검산",
+        "dimensions_mm": [
+          -140,
+          100,
+          179,
+          30,
+          30,
+          10
+        ],
+        "material": "steel",
+        "group": "mold_jig"
+      },
+      "Plunger": {
+        "kind": "설계값",
+        "source": "중간 3·7·11장, cad/midterm/spec.py; 신규 치수 spec_stacker.py; calc/hardware 결과로 검산",
+        "dimensions_mm": [
+          -131.0,
+          100,
+          186.0,
+          206.0,
+          2.0
+        ],
+        "material": "steel",
+        "group": "plunger"
+      },
+      "Mold_Pedestal": {
+        "kind": "설계값",
+        "source": "중간 3·7·11장, cad/midterm/spec.py; 신규 치수 spec_stacker.py; calc/hardware 결과로 검산",
+        "dimensions_mm": [
+          -140,
+          100,
+          107,
+          40,
+          40,
+          114
+        ],
+        "material": "al",
+        "group": "frame"
+      },
+      "Mold_Glass_Substrate": {
+        "kind": "설계값",
+        "source": "중간 3·7·11장, cad/midterm/spec.py; 신규 치수 spec_stacker.py; calc/hardware 결과로 검산",
+        "dimensions_mm": [
+          -140,
+          100,
+          169,
+          30,
+          30,
+          10
+        ],
+        "material": "quartz",
+        "group": "mold_jig"
+      }
+    },
+    "materials": {
+      "si_cte": {
+        "value": 2.6,
+        "unit": "ppm/K",
+        "range": [
+          2.5,
+          2.6
+        ],
+        "kind": "literature",
+        "source": "https://ssd-rd.web.cern.ch/Data/Si-General.html",
+        "note": ""
+      },
+      "si_E": {
+        "value": 130,
+        "unit": "GPa",
+        "range": [
+          130,
+          185
+        ],
+        "kind": "literature",
+        "source": "https://www.ioffe.ru/SVA/NSM/Semicond/Si/mechanic.html",
+        "note": "[100]130, [110]170, [111]185"
+      },
+      "si_nu": {
+        "value": 0.28,
+        "unit": "-",
+        "range": [
+          0.26,
+          0.28
+        ],
+        "kind": "literature",
+        "source": "https://www.ioffe.ru/SVA/NSM/Semicond/Si/mechanic.html",
+        "note": ""
+      },
+      "si_k": {
+        "value": 150,
+        "unit": "W/m/K",
+        "range": [
+          140,
+          163
+        ],
+        "kind": "literature",
+        "source": "https://ssd-rd.web.cern.ch/Data/Si-General.html",
+        "note": ""
+      },
+      "si_rho": {
+        "value": 2329,
+        "unit": "kg/m3",
+        "range": [
+          2328,
+          2330
+        ],
+        "kind": "literature",
+        "source": "https://www.ioffe.ru/SVA/NSM/Semicond/Si/mechanic.html",
+        "note": ""
+      },
+      "si_cp": {
+        "value": 703,
+        "unit": "J/kg/K",
+        "range": [
+          678,
+          703
+        ],
+        "kind": "literature",
+        "source": "https://www.tf.uni-kiel.de/matwis/amat/semi_en/kap_3/backbone/r3_1_3.html",
+        "note": ""
+      },
+      "cu_cte": {
+        "value": 17,
+        "unit": "ppm/K",
+        "range": [
+          16.5,
+          17
+        ],
+        "kind": "literature",
+        "source": "https://hyperphysics.gsu.edu/hbase/Tables/thexp.html",
+        "note": ""
+      },
+      "cu_E": {
+        "value": 130,
+        "unit": "GPa",
+        "range": [
+          110,
+          130
+        ],
+        "kind": "literature",
+        "source": "https://www.mit.edu/~6.777/matprops/copper.htm",
+        "note": ""
+      },
+      "cu_nu": {
+        "value": 0.34,
+        "unit": "-",
+        "range": [
+          0.34,
+          0.34
+        ],
+        "kind": "literature",
+        "source": "https://www.mit.edu/~6.777/matprops/copper.htm",
+        "note": ""
+      },
+      "cu_k": {
+        "value": 401,
+        "unit": "W/m/K",
+        "range": [
+          385,
+          401
+        ],
+        "kind": "literature",
+        "source": "https://www.mit.edu/~6.777/matprops/copper.htm",
+        "note": ""
+      },
+      "cu_rho": {
+        "value": 8960,
+        "unit": "kg/m3",
+        "range": [
+          8960,
+          8960
+        ],
+        "kind": "literature",
+        "source": "https://www.mit.edu/~6.777/matprops/copper.htm",
+        "note": ""
+      },
+      "cu_cp": {
+        "value": 385,
+        "unit": "J/kg/K",
+        "range": [
+          385,
+          385
+        ],
+        "kind": "literature",
+        "source": "https://www.mit.edu/~6.777/matprops/copper.htm",
+        "note": ""
+      },
+      "snag_cte": {
+        "value": 21.5,
+        "unit": "ppm/K",
+        "range": [
+          21.5,
+          26.9
+        ],
+        "kind": "literature",
+        "source": "https://www.msed.nist.gov/solder/clech/Sn-Ag_Other.htm",
+        "note": ""
+      },
+      "snag_E": {
+        "value": 50,
+        "unit": "GPa",
+        "range": [
+          40,
+          55
+        ],
+        "kind": "assumption",
+        "source": "docs/research/params_research.md (기본값 제안·미확인 항목), params_draft.json: NIST는 그래프만 제공하므로 초안의 대표 영률 50 GPa(40~55)를 수치 가정으로 둔다. 참고: https://www.msed.nist.gov/solder/clech/Sn-Ag_Other.htm",
+        "note": "NIST shows plot only"
+      },
+      "snag_nu": {
+        "value": 0.4,
+        "unit": "-",
+        "range": [
+          0.35,
+          0.4
+        ],
+        "kind": "literature",
+        "source": "https://www.msed.nist.gov/solder/clech/Sn-Ag_Other.htm",
+        "note": ""
+      },
+      "snag_k": {
+        "value": 57,
+        "unit": "W/m/K",
+        "range": [
+          35,
+          57
+        ],
+        "kind": "literature",
+        "source": "https://www.msed.nist.gov/solder/clech/Sn-Ag-Cu_Other.htm",
+        "note": "Castin SAC 57.26; IBM model used 35"
+      },
+      "snag_rho": {
+        "value": 7500,
+        "unit": "kg/m3",
+        "range": [
+          7370,
+          7500
+        ],
+        "kind": "literature",
+        "source": "https://www.msed.nist.gov/solder/clech/Sn-Ag_Other.htm",
+        "note": ""
+      },
+      "snag_cp": {
+        "value": 232,
+        "unit": "J/kg/K",
+        "range": [
+          220,
+          240
+        ],
+        "kind": "literature",
+        "source": "https://www.kappalloy.com/pub/media/pdf/TDS%20280%20SAC305%20Tin%20Silver%20Copper.pdf",
+        "note": "SAC305 value"
+      },
+      "bump_layer_R_unit": {
+        "value": 8.0,
+        "unit": "K*mm2/W",
+        "range": [
+          8,
+          19
+        ],
+        "kind": "literature",
+        "source": "https://www.electronics-cooling.com/2013/03/measured-thermal-resistance-of-microbumps-in-3d-chip-stacks/",
+        "note": "50/71/100 um pitch: 8.0/15.5/19.0, underfilled"
+      },
+      "bump_layer_k_eff": {
+        "value": 2.0,
+        "unit": "W/m/K",
+        "range": [
+          1,
+          3
+        ],
+        "kind": "literature",
+        "source": "https://www.electronics-cooling.com/2013/03/measured-thermal-resistance-of-microbumps-in-3d-chip-stacks/",
+        "note": "derived: 16 um / 8 K*mm2/W"
+      }
+    },
+    "reflow": {
+      "preheat_start": {
+        "value": 150,
+        "unit": "C",
+        "range": [
+          150,
+          150
+        ],
+        "kind": "literature",
+        "source": "https://www.microchip.com/content/dam/mchp/documents/FPGA/ProductDocuments/PackagingSpecifications/solder_reflow_leadfree.pdf",
+        "note": ""
+      },
+      "preheat_end": {
+        "value": 200,
+        "unit": "C",
+        "range": [
+          200,
+          200
+        ],
+        "kind": "literature",
+        "source": "https://www.microchip.com/content/dam/mchp/documents/FPGA/ProductDocuments/PackagingSpecifications/solder_reflow_leadfree.pdf",
+        "note": ""
+      },
+      "soak_time": {
+        "value": 90,
+        "unit": "s",
+        "range": [
+          60,
+          120
+        ],
+        "kind": "literature",
+        "source": "https://www.microchip.com/content/dam/mchp/documents/FPGA/ProductDocuments/PackagingSpecifications/solder_reflow_leadfree.pdf",
+        "note": ""
+      },
+      "ramp_up": {
+        "value": 2,
+        "unit": "C/s",
+        "range": [
+          1,
+          3
+        ],
+        "kind": "literature",
+        "source": "https://www.microchip.com/content/dam/mchp/documents/FPGA/ProductDocuments/PackagingSpecifications/solder_reflow_leadfree.pdf",
+        "note": "max 3"
+      },
+      "peak_temp": {
+        "value": 250,
+        "unit": "C",
+        "range": [
+          245,
+          260
+        ],
+        "kind": "literature",
+        "source": "https://www.microchip.com/content/dam/mchp/documents/FPGA/ProductDocuments/PackagingSpecifications/solder_reflow_leadfree.pdf",
+        "note": "course lecture 240-260"
+      },
+      "time_above_liquidus": {
+        "value": 90,
+        "unit": "s",
+        "range": [
+          60,
+          150
+        ],
+        "kind": "literature",
+        "source": "https://www.microchip.com/content/dam/mchp/documents/FPGA/ProductDocuments/PackagingSpecifications/solder_reflow_leadfree.pdf",
+        "note": "TL=217 C"
+      },
+      "time_near_peak": {
+        "value": 20,
+        "unit": "s",
+        "range": [
+          10,
+          30
+        ],
+        "kind": "literature",
+        "source": "https://www.microchip.com/content/dam/mchp/documents/FPGA/ProductDocuments/PackagingSpecifications/solder_reflow_leadfree.pdf",
+        "note": "within 5 C of peak, max ~30 s"
+      },
+      "ramp_down": {
+        "value": 4,
+        "unit": "C/s",
+        "range": [
+          1,
+          6
+        ],
+        "kind": "literature",
+        "source": "https://www.microchip.com/content/dam/mchp/documents/FPGA/ProductDocuments/PackagingSpecifications/solder_reflow_leadfree.pdf",
+        "note": "max 6"
+      },
+      "total_time_25_to_peak_max": {
+        "value": 480,
+        "unit": "s",
+        "range": [
+          240,
+          480
+        ],
+        "kind": "literature",
+        "source": "https://www.microchip.com/content/dam/mchp/documents/FPGA/ProductDocuments/PackagingSpecifications/solder_reflow_leadfree.pdf",
+        "note": "max 8 min"
+      }
+    },
+    "geometry": {
+      "interlayer_gap": {
+        "value": 15,
+        "unit": "um",
+        "range": [
+          7,
+          30
+        ],
+        "kind": "literature",
+        "source": "https://conferences.computer.org/ectc/pdfs/ECTC2023-1NkkviSxgDnmPjptC1ysqm/349800a878/349800a878.pdf",
+        "note": "SK hynix MR-MUF 8Hi 15 μm 기본값. Samsung TC-NCF 12H 7 μm, 일반 범프 적층 약 30 μm. 20 μm는 \"시험 칩\" 선택지 (HANDOFF 1절 #1, 2026-11-25)."
+      },
+      "bump_diameter": {
+        "value": 25,
+        "unit": "um",
+        "range": [
+          15,
+          50
+        ],
+        "kind": "literature",
+        "source": "https://imapsource.org/article/67660.pdf",
+        "note": "Dow TV-II Cu pillar 25 um; IBM ubump ~25 um"
+      },
+      "bump_pitch": {
+        "value": 55,
+        "unit": "um",
+        "range": [
+          40,
+          80
+        ],
+        "kind": "literature",
+        "source": "https://imapsource.org/article/67660.pdf",
+        "note": "Dow TV-II 55 um; industry ~40 um historically (semiengineering)"
+      },
+      "cu_pillar_height": {
+        "value": 9,
+        "unit": "um",
+        "range": [
+          5,
+          25
+        ],
+        "kind": "assumption",
+        "source": "docs/research/params_research.md (기본값 제안·미확인 항목), params_draft.json: 기본 간격 15 μm에서 가정 솔더 높이 6 μm를 빼 9 μm로 둔다. 양산 치수는 미공개이며 Dow 시험 칩의 기둥 25 μm를 직접 적용하지 않는다.",
+        "note": "gap 15 minus solder 6; Dow TV-II pillar 25 um for larger gap"
+      },
+      "solder_cap_height": {
+        "value": 6,
+        "unit": "um",
+        "range": [
+          3,
+          15
+        ],
+        "kind": "assumption",
+        "source": "docs/research/params_research.md (기본값 제안·미확인 항목), params_draft.json: Dow TV-II 5 μm와 TV-I 15 μm를 참고하여 접합 후 솔더 캡을 6 μm로 가정한다. 양산 HBM 측정값이 아니다. 참고: https://imapsource.org/article/67660.pdf",
+        "note": "Dow TV-II 5 um, TV-I 15 um"
+      },
+      "die_thickness": {
+        "value": 100,
+        "unit": "um",
+        "range": [
+          30,
+          100
+        ],
+        "kind": "literature",
+        "source": "https://imapsource.org/article/67660.pdf",
+        "note": "test die 100 um; production 30-60 um (semiengineering, semiwiki, TrendForce). 50 um option."
+      },
+      "die_size": {
+        "value": 5,
+        "unit": "mm",
+        "range": [
+          5,
+          5
+        ],
+        "kind": "assumption",
+        "source": "docs/research/params_research.md (기본값 제안·미확인 항목), params_draft.json: docs/requirements.md 3절: 중간 과제 DoE와 같은 5 × 5 mm 더미 다이를 사용한다.",
+        "note": "fixed design decision"
+      },
+      "stack_height_limit": {
+        "value": 775,
+        "unit": "um",
+        "range": [
+          720,
+          775
+        ],
+        "kind": "literature",
+        "source": "https://semiengineering.com/hbm4-sticks-with-microbumps-postponing-hybrid-bonding/",
+        "note": "JEDEC limit raised 720->775 um; for context only"
+      }
+    }
+  },
+  "results": {
+    "delta_T_K": 230,
+    "reflow_width_growth_um": 217.12,
+    "reflow_z_growth_um": 43.42400000000001,
+    "stack_chuck_width_growth_um": 542.8000000000001,
+    "mount_growth_um": 156.4,
+    "datum_shift_um": 108.56,
+    "relative_Si_datum_shift_um": 96.60000000000001,
+    "stack_Si_growth_um": 0.7176000000000001,
+    "baseline_RSS3sigma_um": 0.8824964589164084,
+    "baseline_remaining_linear_margin_um": 0.11750354108359162,
+    "thermal_drift_budget_um": 0.26,
+    "max_temperature_change_after_alignment_K": 0.5508474576271186,
+    "uncorrected_total_bound_um": 97.48249645891642,
+    "action": "층간 정렬은 적층 중 상온 또는 고정 정렬 온도에서 완료. 리플로우 시 스택 전체가 척과 함께 이동하므로 기준점108.56 μm 이동은 층간 정합 ±1 μm KPI에 영향 없음. 적층 척=리플로우 척 구성은 정렬 온도 고정 + 온도 도달 후90 s 안정화 대기(중간 보고서7장).",
+    "alignment_wait_s": 90,
+    "interlayer_KPI_effect": "영향 없음: 완성 스택 강체 동반 이동 해석; 열 휨/미끄러짐 별도",
+    "uncorrected_total_bound_note": "기존 수치 보존용 냉간→고온 좌표 오용 상한; 층간 정합 판정에 사용하지 않음"
+  },
+  "verdict": {
+    "original_KPI": {
+      "force_max_N": 50,
+      "head_max_C": 400,
+      "footprint_max_mm": 600,
+      "note": "400 C는 헤드 KPI; 리플로우 척 목표는 별도"
+    },
+    "design_checks": {
+      "interlayer_alignment_rigid_stack": true,
+      "baseline_alignment": true
+    },
+    "status": "PASS",
+    "remaining_FAIL_REVIEW": [],
+    "post_fabrication_tests": [
+      "정렬 온도 고정/90 s 대기 후 실제 열안정·고온 평면도 확인"
+    ]
+  },
+  "limitations": [
+    "Uniform 20→250 C worst-case; fixed mount at same temperature is upper-bound assumption.",
+    "Systematic shift is not independent Gaussian noise: do not add to RSS in quadrature.",
+    "고온 평면도·층간 CTE차·열 휨·미끄러짐을 강체 이동과 구분; 본 판정은 기준점 이동의 KPI 해석에 한정."
+  ]
+}
