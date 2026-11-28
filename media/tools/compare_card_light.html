@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="ko"><meta charset="utf-8"><meta name="viewport" content="width=1920"><title>원리 비교</title>
+<style>
+/* 1920×1080 및 색·간격·글꼴은 표시 설정, 공정 입력 아님. */
+*{box-sizing:border-box}
+body{margin:0;width:1920px;height:1080px;overflow:hidden;background:#FFFFFF;color:#44505F;font:32px/1.5 "Pretendard","Malgun Gothic","맑은 고딕","Apple SD Gothic Neo",sans-serif;padding:116px 48px 230px}
+h1{position:absolute;top:24px;left:24px;margin:0;padding:12px 24px;background:#14365A;color:#FFFFFF;font-size:34px}
+table{border-collapse:separate;border-spacing:12px;width:100%;table-layout:fixed}
+th{font-size:30px;color:#14365A}th:first-child{width:270px}tbody th{text-align:left}
+td{height:172px;border:3px solid #E6ECF3;padding:18px 24px;transition:opacity .35s,border-color .35s}
+tbody tr{opacity:0;visibility:hidden;transition:opacity .45s}tbody tr.shown{opacity:1;visibility:visible}
+td.dim{opacity:.5}td.active{border-color:#C2622A;background:#E6ECF3}p{margin:0}
+footer{position:absolute;left:60px;bottom:242px;font-size:24px;color:#44505F}
+</style>
+<h1>원리 비교 · TC-NCF와 MR-MUF</h1>
+<table aria-label="공정 원리 비교"><thead hidden><tr><th>차이</th><th>TC-NCF</th><th>MR-MUF</th></tr></thead><tbody>
+<tr><th>본접합 가열 순서</th><td><p>층마다 접합 · 12단이면 맨 아래 칩 11번 더 가열</p></td><td><p>가접 때도 열을 받음 · 본접합은 일괄 리플로우 1번</p></td></tr>
+<tr><th>빈틈 채우기</th><td><p>미리 붙인 NCF 필름이 눌리며 채움</p></td><td><p>접합 후 액체 수지(MUF) 주입</p></td></tr>
+<tr><th>위치 맞추기</th><td><p>이 모델에서는 자기정렬 미적용</p></td><td><p>녹은 솔더가 작은 위치 오차를 줄임 · 완전히 없애지는 못함</p></td></tr>
+</tbody></table>
+<footer>개념 비교 · 계산 근거 sim/params.json, stage4_results.json</footer>
+<script>
+const rows=[...document.querySelectorAll('tbody tr')];
+function row(r){if(!Number.isInteger(r)||r<1||r>3)throw RangeError('row 1..3');return rows[r-1];}
+window.card={showRow(r){document.querySelector('thead').hidden=false;row(r).classList.add('shown');},focus(r,c){row(r);if(![0,1,2].includes(c))throw RangeError('column 0..2');rows.forEach((tr,i)=>[...tr.querySelectorAll('td')].forEach((td,j)=>{const active=i===r-1&&(c===0||j===c-1);td.classList.toggle('active',active);td.classList.toggle('dim',!active);}));},reset(){document.querySelector('thead').hidden=true;rows.forEach(tr=>{tr.classList.remove('shown');tr.querySelectorAll('td').forEach(td=>td.classList.remove('active','dim'));});}};
+window.card.reset();
+</script></html>

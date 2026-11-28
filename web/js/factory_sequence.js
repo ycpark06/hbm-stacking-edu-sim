@@ -4,6 +4,8 @@ import {mrmufSchedule} from '../../sim/thermal.js';
 export const MODES = Object.freeze(['TC-NCF', 'MR-MUF']);
 export const CAMERA_IDS = Object.freeze([1,2,3,4]);
 export const DISPLAY = Object.freeze({totalSeconds:90, pixelRatio:2, stackMagnification:45, gapMagnification:8,
+  // 표시 설정, 모델 계산값 아님: 리플로우 뒤에도 남기는 상대 어긋남.
+  alignmentResidual:.25,
   // DISPLAY 표시 설정: 가장자리 프레임 크기(다이 두께+표시 간격 배수), 낮은 시선.
   filmSection:Object.freeze({size:Object.freeze([5,5,5]),direction:Object.freeze([.6,.03,1])}),
   // 표시 설정(치수·물성 아님): 필름 눌림을 구분하기 위한 상대 배율.
@@ -23,6 +25,14 @@ export function layerHeat(data,s,v,index) {
   return {glow:active?heatGlow(v.temp,data.params.thermal_stack.ambient_temp.value,
     data.params.reflow.peak_temp.value):0,
     molten:active&&index>0&&v.temp>=data.params.solder.liquidus_snag.value};
+}
+// Stateless display rule shared by both themes, including direct/reverse seeks.
+export function alignmentOffsetRatio(stage,u,profileLength) {
+  if(stage.mode!=='MR-MUF')return 1;
+  if(['to-mold','dispense','fill','mold-cure','postcure','compare'].includes(stage.kind))return DISPLAY.alignmentResidual;
+  if(stage.kind!=='reflow')return 1;
+  const progress=Math.max(0,Math.min(1,(stage.segment+Math.max(0,Math.min(1,u)))/profileLength));
+  return 1-(1-DISPLAY.alignmentResidual)*progress;
 }
 // DISPLAY: follow the current die's front edge; layer 0 uses the first layer.
 export function filmSectionFrame(w,h,g,layer,offset=0) {

@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
-import {MODES,CAMERA_IDS,filmSectionFrame,readFactoryData,buildStages,sampleStage,cameraFitDistance,explodedAmount,filmSqueezeAt,heatGlow,layerHeat,DISPLAY} from '../../web/js/factory_sequence.js';
+import {MODES,CAMERA_IDS,filmSectionFrame,readFactoryData,buildStages,sampleStage,cameraFitDistance,explodedAmount,filmSqueezeAt,heatGlow,layerHeat,alignmentOffsetRatio,DISPLAY} from '../../web/js/factory_sequence.js';
 const read=path=>JSON.parse(readFileSync(new URL(path,import.meta.url),'utf8'));
 const p=read('../params.json'),r=read('./stage4_results.json'),data=readFactoryData(p,r);
 const close=(a,b)=>assert.ok(Math.abs(a-b)<1e-8,`${a} != ${b}`);
@@ -153,4 +153,28 @@ test('camera 4 follows current front edge with a thickness-based display frame',
   const viewer=readFileSync(new URL('../../web/js/factory_viewer.js',import.meta.url),'utf8');
   assert.match(app,/CAMERA_IDS.includes\(Number\(k\)\)/);
   assert.match(viewer,/CAMERA_IDS.includes\(next\)/);
+});
+
+
+test('alignment display decreases without reaching zero and retains residual on direct/reverse seeks',()=>{
+  const stages=buildStages(data,'MR-MUF'),profile=stages.filter(s=>s.kind==='reflow');
+  let previous=1;
+  for(const stage of profile){
+    for(const u of [0,.25,.5,.75,1]){
+      const ratio=alignmentOffsetRatio(stage,u,profile.length);
+      assert.ok(ratio<=previous&&ratio>=DISPLAY.alignmentResidual&&ratio>0);
+      previous=ratio;
+    }
+    if(stage.segment>0)close(alignmentOffsetRatio(stage,0,profile.length),alignmentOffsetRatio(profile[stage.segment-1],1,profile.length));
+  }
+  close(alignmentOffsetRatio(profile[0],0,profile.length),1);
+  close(previous,DISPLAY.alignmentResidual);
+  for(const stage of [...stages].reverse())for(const u of [0,.5,1]){
+    const ratio=alignmentOffsetRatio(stage,u,profile.length);
+    if(['to-mold','dispense','fill','mold-cure','postcure','compare'].includes(stage.kind))close(ratio,DISPLAY.alignmentResidual);
+    else if(stage.kind!=='reflow')close(ratio,1);
+  }
+  for(const stage of buildStages(data,'TC-NCF'))close(alignmentOffsetRatio(stage,.5,profile.length),1);
+  close(alignmentOffsetRatio(profile[0],-1,profile.length),1);
+  close(alignmentOffsetRatio(profile.at(-1),2,profile.length),DISPLAY.alignmentResidual);
 });

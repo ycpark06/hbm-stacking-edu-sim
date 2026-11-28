@@ -13,7 +13,7 @@ from urllib.parse import urljoin
 ROOT = Path(__file__).resolve().parents[2]
 TIMING = Path.home() / 'Desktop/MSE489/기말보고서/영상/v2/tts/timing.json'
 TITLES = ['도입', '원리 비교', '장비 구성(CAD)', '공장 동작 · TC-NCF', '공장 동작 · MR-MUF', '정리']
-ACTIONS = {'factory', 'card', 'cad_click', 'cad_explode', 'cad_scroll', 'drag_rotate', 'wait'}
+ACTIONS = {'factory', 'card', 'cad', 'cad_click', 'cad_explode', 'cad_scroll', 'drag_rotate', 'wait'}
 
 
 def load_plan(cues_path, timing_path, card_path):
@@ -67,7 +67,7 @@ console.log(JSON.stringify(Object.fromEntries(MODES.map(m=>[m,buildStages(d,m)])
                         'drag_rotate': ('duration_s',)}
             if any(k not in a for k in required.get(cue['action'], ())):
                 raise ValueError('cue 인자 누락')
-            page_for = {'factory':'factory', 'card':'card', 'cad_click':'cad',
+            page_for = {'factory':'factory', 'card':'card', 'cad':'cad', 'cad_click':'cad',
                         'cad_explode':'cad', 'cad_scroll':'cad', 'drag_rotate':'cad'}
             if cue['action'] in page_for and prep['page'] != page_for[cue['action']]:
                 raise ValueError('cue 페이지 불일치')
@@ -75,7 +75,7 @@ console.log(JSON.stringify(Object.fromEntries(MODES.map(m=>[m,buildStages(d,m)])
                 raise ValueError('대상 참조 없음')
             if cue['action'] not in data['targets'][a['target']]['actions']:
                 raise ValueError('대상·동작 불일치')
-            if cue['action'] in ('factory', 'card') and not isinstance(a.get('js'), str):
+            if cue['action'] in ('factory', 'card', 'cad') and not isinstance(a.get('js'), str):
                 raise ValueError('JS 문자열 필요')
             if cue['action'] == 'factory':
                 found = re.search(r"setMode\('([^']+)'\)", a['js'])
@@ -130,7 +130,7 @@ def print_plan(data, selected):
 
 
 # Per-frame guard clamps at the specified endpoint, including after a slow frame.
-# Scrubbing is explicitly an editing display setting for sentence 29 / 31 only.
+# Scrubbing is explicitly an editing display setting, never process time.
 MOTION = """m => {
  const f=window.factory; const token=window.v2Token=(window.v2Token||0)+1;
  f.pause();f.setStage(...m.start);f.setSpeed(m.speed);
@@ -158,6 +158,8 @@ def execute(page, cue, targets):
             page.evaluate(MOTION, a['motion'])
     elif action == 'card':
         page.evaluate('() => {const c=window.card;'+a['js']+'}')
+    elif action == 'cad':
+        page.evaluate('() => {const c=window.cadPage;'+a['js']+'}')
     elif action == 'cad_click':
         spec = targets[a['target']]
         page.locator(spec['selector']).get_by_role('button', name=spec['name'], exact=True).click()
@@ -191,24 +193,43 @@ def execute(page, cue, targets):
 
 
 def prepare(page, scene, args):
+    suffix = '?theme=light' if args.theme == 'light' else ''
     prep = scene['prepare']
     if prep['page'] == 'card':
-        page.goto(args.card.resolve().as_uri())
+        page.goto(args.card.resolve().as_uri()+suffix)
         page.wait_for_function('() => !!window.card')
         page.evaluate('window.card.reset()')
     elif prep['page'] == 'cad':
-        page.goto(urljoin(args.url.rstrip('/')+'/', 'cad.html'))
+        page.goto(urljoin(args.url.rstrip('/')+'/', 'cad.html')+suffix)
         page.wait_for_function("() => document.querySelector('#cad-status').textContent.startsWith('GLB 연결')")
         page.locator('#explode').evaluate("el=>{el.value='0';el.dispatchEvent(new Event('input',{bubbles:true}));}")
-        # Load the comparison images before clock0, even though they are lazy images.
-        page.locator('#comparison').evaluate('el=>el.scrollIntoView()')
+        if args.theme == 'light':
+            page.wait_for_function('() => !!window.cadPage')
+            page.evaluate("() => {window.cadPage.setViewOnly(true);document.querySelectorAll('#comparison img').forEach(i=>i.loading='eager');}")
+            # Keep the existing composition comparison above the subtitle reserve.
+            page.add_style_tag(content="""
+              body.cad-comparison #comparison{display:block;position:fixed;inset:100px 24px 230px;z-index:5;overflow:hidden;background:white;padding:16px}
+              body.cad-comparison #comparison>:not(.comparison){display:none}
+              body.cad-comparison .comparison{display:grid;grid-template-columns:1fr 1fr;height:100%;gap:24px}
+              body.cad-comparison figure{margin:0;min-height:0}
+              body.cad-comparison figure img{width:100%;height:450px;object-fit:contain}
+              body.cad-comparison figcaption{font-size:28px}
+              body.cad-comparison figcaption p{font-size:24px}
+            """)
+        else:
+            # Load lazy comparison images before clock0, preserving v2 framing.
+            page.locator('#comparison').evaluate('el=>el.scrollIntoView()')
         page.wait_for_function("() => [...document.querySelectorAll('#comparison img')].every(i=>i.complete&&i.naturalWidth>0)")
-        page.locator('#comparison').evaluate("el=>el.scrollIntoView({block:'center'})")
+        if args.theme != 'light':
+            page.locator('#comparison').evaluate("el=>el.scrollIntoView({block:'center'})")
     else:
-        page.goto(urljoin(args.url.rstrip('/')+'/', 'factory.html'))
+        page.goto(urljoin(args.url.rstrip('/')+'/', 'factory.html')+suffix)
         page.wait_for_function('() => window.factory?.state().ready === true')
         page.evaluate('p=>{const f=window.factory;f.setViewOnly(true);f.setMode(p.mode);f.pause();f.setSpeed(1);f.setStage(p.stage,0);f.setCamera(p.camera);}', prep)
-    if args.captions:
+    if args.theme == 'light' and prep['page'] in ('factory', 'cad'):
+        api = 'factory' if prep['page'] == 'factory' else 'cadPage'
+        page.evaluate('(a)=>window[a.api].setTitle(a.title)', {'api':api,'title':TITLES[scene['scene']-1]})
+    if args.captions and args.theme != 'light':
         page.evaluate('''title=>{const el=document.createElement('div');el.textContent=title;
         el.style.cssText='position:fixed;top:18px;left:24px;z-index:2147483647;background:#07111feb;color:white;padding:12px 28px;border:1px solid #60e0c0;border-radius:10px;font:24px system-ui;pointer-events:none;max-width:90vw';document.body.append(el);}''', TITLES[scene['scene']-1])
     page.evaluate('() => new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))')
@@ -223,6 +244,7 @@ def main():
     parser.add_argument('--out', type=Path, default=ROOT/'media/out/v2')
     parser.add_argument('--scene', type=int, choices=range(1,7), action='append')
     parser.add_argument('--plan', action='store_true')
+    parser.add_argument('--theme', choices=['light'])
     parser.add_argument('--captions', action='store_true')
     args = parser.parse_args()
     data = load_plan(args.cues, args.timing, args.card)
@@ -264,9 +286,11 @@ def main():
                         page.wait_for_timeout(1000)
                         # Editing sync marker. Browser timestamps keep the 0.3 s
                         # interval independent of Python/Playwright round trips.
-                        marker=page.evaluate("""() => new Promise(resolve=>{
+                        # A white page (theme=light) hides a white flash; use black there.
+                        flash_color='#000000' if args.theme=='light' else '#ffffff'
+                        marker=page.evaluate("""(color) => new Promise(resolve=>{
                           const el=document.createElement('div');el.id='v2-sync-flash';
-                          el.style.cssText='position:fixed;inset:0;background:#ffffff;z-index:2147483647;pointer-events:none';
+                          el.style.cssText='position:fixed;inset:0;background:'+color+';z-index:2147483647;pointer-events:none';
                           requestAnimationFrame(()=>{
                             document.documentElement.append(el);
                             const shown=performance.now();
@@ -276,12 +300,13 @@ def main():
                                 resolve({shown,removed,clock0:performance.now()})));
                             },300);
                           });
-                        })""")
+                        })""", flash_color)
                         clock0=time.monotonic();deadline=clock0+scene['duration_s']
                         # Map browser intervals onto the started-relative monotonic
                         # clock; video timestamps are measured later by trim_v2.py.
                         row['sync_flash']={key+'_s':clock0-started-(marker['clock0']-marker[key])/1000
                                            for key in ('shown','removed')}
+                        row['sync_flash']['color']=flash_color
                         row.update(clock0_video_s=clock0-started,status='recording');save()
                         for cue in scene['cues']:
                             page.wait_for_timeout(max(0,clock0+cue['t']-time.monotonic())*1000)

@@ -2,7 +2,7 @@ import {createLightPresentation} from './cad_light.js';
 import * as THREE from '../vendor/three/build/three.module.js';
 import {OrbitControls} from '../vendor/three/examples/jsm/controls/OrbitControls.js';
 import {GLTFLoader} from '../vendor/three/examples/jsm/loaders/GLTFLoader.js';
-import {DISPLAY,CAMERA_IDS,filmSectionFrame,cameraFitDistance,explodedAmount,filmSqueezeAt,layerHeat} from './factory_sequence.js';
+import {DISPLAY,CAMERA_IDS,filmSectionFrame,cameraFitDistance,explodedAmount,filmSqueezeAt,layerHeat,alignmentOffsetRatio} from './factory_sequence.js';
 // Scene dimensions here are display coordinates, never manufacturing dimensions.
 export function createFactoryViewer(container,data,onStatus) {
   const p=data.params,scene=new THREE.Scene();scene.background=new THREE.Color('#101c25');
@@ -96,7 +96,7 @@ export function createFactoryViewer(container,data,onStatus) {
     for(let i=0;i<data.layers;i++){
       const y=at.y+i*(h+g)+h/2;dies[i].visible=i<n;films[i].visible=i<n&&s.mode==='TC-NCF';resins[i].visible=i<n&&['fill','mold-cure','postcure','compare'].includes(s.kind)&&s.mode==='MR-MUF';
       // Offset is illustrative only; no invented numeric alignment prediction.
-      const offset=s.mode==='TC-NCF'?i*w*.009: s.kind==='reflow'?i*w*.009*(1-(s.segment+v.u)/data.profile.length):i*w*.009;
+      const offset=i*w*.009*alignmentOffsetRatio(s,v.u,data.profile.length);
       dies[i].position.set(at.x+offset,y,at.z);dies[i].scale.set(w,h,w);
       // Keep the film inside the open interlayer gap, away from die/chuck faces.
       // Previously bonded layers retain the final display squeeze even on stage jumps.
