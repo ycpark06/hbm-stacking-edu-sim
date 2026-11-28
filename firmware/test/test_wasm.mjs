@@ -1,4 +1,5 @@
 import fs from 'node:fs';
+import assert from 'node:assert/strict';
 import {execFileSync} from 'node:child_process';
 import {fileURLToPath} from 'node:url';
 import createController from '../build/controller.js';
@@ -41,6 +42,69 @@ try {
     worst=Math.max(worst,err);
   }
   console.log(`Validation 6: PASS (${wasm.length} rows, ${wasm.length*pc[0].length} values, max_abs_error=${worst.toExponential(6)}; rel=1e-3/abs=1e-4)`);
+  for (let mode = 0; mode < 2; ++mode) {
+    const m = await createController({wasmBinary: fs.readFileSync(root + 'build/controller.wasm')});
+    const step = () => {
+      m._fw_step_1ms(0, 149); // Test input: existing initial profile minus 1 C.
+      assert.ok(m._fw_get_heater_power() === 0 || m._fw_get_reflow_heater_power() === 0);
+    };
+    const init = () => {
+      m._fw_init();
+      assert.equal(m._fw_wasm_set_recipe(50, 20, 5, 0.02, 1, mode), 1);
+    };
+    init();
+    step();
+    assert.ok(m._fw_get_heater_power() > 0);
+    m._fw_request_reflow_heater_W(150); // Design rating, user decision 2026-11-28.
+    step();
+    assert.equal(m._fw_get_reflow_heater_power(), 0);
+    assert.equal(m._fw_get_dual_heater_blocked(), 1);
+    assert.equal(m._fw_get_warning(), 0);
+    assert.equal(m._fw_get_latched(), 0);
+    m._fw_set_head_heater_enabled(0);
+    step(); assert.equal(m._fw_get_reflow_heater_power(), 0);
+    step(); assert.equal(m._fw_get_reflow_heater_power(), 150);
+    assert.equal(m._fw_get_dual_heater_blocked(), 0);
+    m._fw_set_head_heater_enabled(1);
+    step(); assert.equal(m._fw_get_heater_power(), 0);
+    assert.equal(m._fw_get_dual_heater_blocked(), 1);
+    m._fw_request_reflow_heater_W(0);
+    step(); assert.equal(m._fw_get_heater_power(), 0);
+    step(); assert.ok(m._fw_get_heater_power() > 0);
+    for (const reverse of [false, true]) {
+      init();
+      if (reverse) m._fw_request_reflow_heater_W(150);
+      m._fw_set_head_heater_enabled(1);
+      if (!reverse) m._fw_request_reflow_heater_W(150);
+      step();
+      assert.ok(m._fw_get_heater_power() > 0);
+      assert.equal(m._fw_get_reflow_heater_power(), 0);
+      assert.equal(m._fw_get_dual_heater_blocked(), 1);
+    }
+    init(); m._fw_set_head_heater_enabled(0);
+    m._fw_request_reflow_heater_W(300); step();
+    assert.equal(m._fw_get_reflow_heater_power(), 150);
+    for (const invalid of [-1, NaN]) {
+      m._fw_request_reflow_heater_W(invalid); step();
+      assert.equal(m._fw_get_reflow_heater_power(), 0);
+    }
+    for (const [f, t, hw] of [[55, 149, 0], [0, 420, 0], [0, 149, 1]]) {
+      for (const headOwner of [false, true]) {
+        m._fw_set_hw_fault(0); m._fw_step_1ms(0, 149); m._fw_reset_latch(); init();
+        m._fw_set_head_heater_enabled(headOwner ? 1 : 0);
+        m._fw_request_reflow_heater_W(headOwner ? 0 : 150); step();
+        assert.ok(m._fw_get_heater_power() > 0 || m._fw_get_reflow_heater_power() > 0);
+        m._fw_set_hw_fault(hw); m._fw_step_1ms(f, t);
+        assert.equal(m._fw_get_latched(), 1);
+        assert.equal(m._fw_get_heater_power(), 0);
+        assert.equal(m._fw_get_reflow_heater_power(), 0);
+        assert.equal(m._fw_get_dual_heater_blocked(), 0);
+        m._fw_reset_latch();
+        assert.equal(m._fw_get_latched(), 1);
+      }
+    }
+  }
+  console.log('Dual heater wasm interlock: PASS (both modes, orders, idle tie, off tick, clamp, latches)');
   console.log('Recorded build/fixed_pc.csv and build/fixed_wasm.csv (no JS plant).');
 } catch (err) {
   console.error('Validation 6: FAIL', err.message);
