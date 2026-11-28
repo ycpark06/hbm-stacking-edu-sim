@@ -228,7 +228,7 @@ HANDOFF와 다르게 처리한 점은 간격의 기존 선택 range를 유지하
 
 ## 접합 온도 미달과 헤드 온도 보정 (Issue #29)
 
-2026-11-28 사용자 확정 사항을 반영했다. 이 절의 S1·S3 정의가 앞의 초기 단계 4 장면 정의를 대체한다. 접촉 열저항, 기본 헤드 300 ℃, 기존 물성·공정 파라미터는 변경하지 않았다. 새 params 키는 `judgement.bond_temp_margin_C`(10 ℃, `design`, 사용자 확정 설계값)와 `equipment_limits.head_max_temp_C`(400 ℃, `literature`, source_kind=`원문 KPI`, 출처 PBL 7쪽)뿐이다. 기존 400 ℃ 키 `head_drift.target_temp`는 중간 보고서의 가열 실험 조건이므로 장비 한계와 별도 키로 구분했다.
+2026-11-28 사용자 확정 사항을 반영했다. 이 절의 S1·S3 정의가 앞의 초기 단계 4 장면 정의를 대체한다. 접촉 열저항, 기본 헤드 300 ℃, 기존 물성·공정 파라미터는 변경하지 않았다. 새 params 키는 `judgement.bond_temp_margin_C`(10 ℃, `design`, 사용자 확정 설계값)와 `equipment_limits.head_max_temp_C`(400 ℃, 새 kind `kpi` = 원문 KPI, 출처 PBL 7쪽)뿐이다. 기존 400 ℃ 키 `head_drift.target_temp`는 중간 보고서의 가열 실험 조건이므로 장비 한계와 별도 키로 구분했다.
 
 ### 판정과 웹 호출 계약
 
