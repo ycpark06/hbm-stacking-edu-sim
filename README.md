@@ -8,6 +8,7 @@
 
 **기말 보고서:** [원고·그림·PDF 빌드](docs/report/final/)
 **실습 매뉴얼:** [적층 공정 비교 실습](docs/manual/실습매뉴얼.md)
+**발표 자료:** [docs/presentation/](docs/presentation/) (PowerPoint, 데모 체크리스트)
 
 ---
 
