@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CAD · 교육용 HBM 적층 본더</title><link rel="stylesheet" href="hmi.css"><link rel="stylesheet" href="cad.css">
+<script type="importmap">{"imports":{"three":"./vendor/three/build/three.module.js"}}</script></head>
+<body><header><div><p class="eyebrow">MSE489 · CAD EXPLORER</p><h1>다이본더에서 적층 본더로</h1><p>형상과 도면, 그리고 설계 근거를 함께 살펴봅니다.</p></div><nav aria-label="상단 메뉴"><a href="index.html">시뮬레이터</a><a href="factory.html">공장 동작</a><a href="#comparison">구성 변화</a><a href="#drawings">도면</a><a href="#workflow">만든 과정</a></nav></header>
+<main>
+<section class="wide" aria-labelledby="model-title"><div class="section-head"><h2 id="model-title">01 · 조립체 탐색</h2><span class="badge">개념 조립체 · 표시용 GLB</span></div>
+<p>마우스 드래그로 회전 · 휠/핀치로 확대 · 부품을 클릭하면 상세 정보가 열립니다. 목록 버튼으로도 선택할 수 있습니다.</p>
+<div class="cad-layout"><div><div id="cad-viewer" aria-label="10개 그룹으로 구성된 적층 본더 3D 뷰어"></div><p id="cad-status" role="status">3D 모델 초기화 중…</p>
+<div class="cad-controls"><label for="explode">분해 정도 <output id="explode-value" for="explode">0%</output> <span class="badge">표시 설정</span></label><input id="explode" type="range" min="0" max="100" value="0"><button id="reset-view" type="button">조립 · 전체 보기</button></div>
+<p class="legend">분해 방향·이동 거리와 카메라 배율은 이해를 돕는 표시 설정입니다. 실제 치수·구동 행정·조립 순서를 나타내지 않습니다.</p></div>
+<aside aria-label="부품 선택과 상세 정보"><h3>부품 그룹 · 보이기/숨기기</h3><div id="part-list"></div><div id="part-info" aria-live="polite"><p>목록에서 그룹을 선택하세요. 3D를 사용할 수 없어도 부품 정보와 도면을 읽을 수 있습니다.</p></div></aside></div>
+<p>GLB는 개별 부품을 묶은 10개 그룹입니다. 재질·치수는 형상에서 측정하지 않고 <code>spec_stacker.py → PART_SOURCES</code>의 원본 값을 표시합니다.</p>
+</section>
+<section id="comparison" class="wide"><h2>02 · 무엇이 달라졌나</h2><div class="comparison">
+<figure><a href="../cad/midterm/DieBonderModel/out/view_iso.png"><img src="../cad/midterm/DieBonderModel/out/view_iso.png" alt="중간 교육용 다이본더 등각 조립도" loading="lazy"></a><figcaption>중간 · 43부품 <span class="badge">모델 구성값</span><p>프레임·고정 헤드·이동 기판·조동/미동 정렬·듀얼 비전을 계승합니다.</p></figcaption></figure>
+<figure><a href="../cad/stacker/out/view_iso.png"><img src="../cad/stacker/out/view_iso.png" alt="기말 적층 본더 등각 조립도, 척과 지그의 대기 배치" loading="lazy"></a><figcaption>기말 · 51부품 (신규 8개) <span class="badge">모델 구성값</span><p>적층·리플로우·충전 기능을 구성합니다. 두 척과 지그는 교환 장착 설명용 대기 위치입니다.</p></figcaption></figure></div>
+<p>아래 5종은 기말에 추가·고도화한 기능입니다. 적층 척·디스펜서·트레이의 중간 형상을 재사용하므로 5종 모두가 신규 바디라는 뜻은 아닙니다.</p>
+<div class="module-grid">
+<article><h3>적층 척</h3><p>층마다 쌓이는 다이의 하중을 지지하고 진공으로 고정하기 위해.</p></article>
+<article><h3>리플로우 척</h3><p>MR-MUF에서 완성 스택 전체를 가열하고 단열·강제 냉각하기 위해.</p></article>
+<article><h3>가압 충전 지그 · 플런저</h3><p>독립 체결한 금형에 수지를 가압 이송하고 벤트로 배출하기 위해.</p></article>
+<article><h3>수지 공급부</h3><p>MR-MUF 충전 전에 액상 수지를 공급하기 위해.</p></article>
+<article><h3>NCF 트레이</h3><p>필름을 부착한 다이를 뒤집힌 공급 상태로 준비하기 위해.</p></article></div>
+<p class="source">근거: <a href="https://github.com/ycpark06/hbm-stacking-edu-sim/blob/main/docs/report/final/03_시스템구성.md">보고서 3.2·3.3절</a> · <a href="https://github.com/ycpark06/hbm-stacking-edu-sim/blob/main/docs/report/final/11_CAD도면.md">11.1~11.3절</a> · <code>summary.json parts</code></p>
+</section>
+<section id="drawings" class="wide"><div class="section-head"><h2>03 · 도면 갤러리</h2><span class="badge">제작 설계값 · 실측 아님</span></div><p>이미지를 누르면 원본을 엽니다. 기말 도면은 A3 · 3각법 · ISO 2768-mK입니다. 치수·공차 단위는 mm, 조도 Ra는 μm입니다.</p>
+<div class="drawing-grid">
+<figure><a href="../docs/drawings/stack_chuck.png"><img src="../docs/drawings/stack_chuck.png" alt="HBM-ST-001 적층 진공 척 제작 도면" loading="lazy"></a><figcaption><h3>적층 척 · HBM-ST-001</h3><p>진공 고정면·석영 창·체결공을 보는 도면입니다.</p><p>100 × 100 × 18, 윗면 평면도 0.002, 창 Ø15 H7/g6; 위치 기준 H7/h6·다웰 H7/m6를 구분합니다.</p><a href="../docs/drawings/stack_chuck.pdf">PDF 열기</a></figcaption></figure>
+<figure><a href="../docs/drawings/reflow_chuck.png"><img src="../docs/drawings/reflow_chuck.png" alt="HBM-RF-001 리플로우 척 제작 도면" loading="lazy"></a><figcaption><h3>리플로우 척 · HBM-RF-001</h3><p>히터 플레이트와 온도 센서공의 배치를 보는 도면입니다.</p><p>40 × 40 × 8, 평면도 0.002·평행도 0.005 A, Ø4.5 볼트 여유공; 상부 Ra 0.4입니다.</p><a href="../docs/drawings/reflow_chuck.pdf">PDF 열기</a></figcaption></figure>
+<figure><a href="../docs/drawings/mold_jig.png"><img src="../docs/drawings/mold_jig.png" alt="HBM-MJ-001 가압 지그와 플런저 제작 도면" loading="lazy"></a><figcaption><h3>가압 충전 지그 · HBM-MJ-001</h3><p>캐비티·게이트·벤트와 플런저 단면을 보는 도면입니다.</p><p>30 × 30 × 10, 벤트 깊이 0.02 ±0.005, Ø4 H7/g6; 보어/축 Ra 0.2입니다. 끼워맞춤은 수지 씰이 아닙니다.</p><a href="../docs/drawings/mold_jig.pdf">PDF 열기</a></figcaption></figure>
+<figure><a href="../docs/report/final/fig/dwg/dwg1_chuck.png"><img src="../docs/report/final/fig/dwg/dwg1_chuck.png" alt="중간 진공 척 상세 도면" loading="lazy"></a><figcaption><h3>중간 · 진공 척</h3><p>기말 적층 척이 계승한 진공 지지면과 관찰 창 구조입니다.</p><p>윗면 평면도·윗면/바닥면 평행도와 열팽창 여유를 둔 볼트 여유공이 핵심입니다.</p></figcaption></figure>
+<figure><a href="../docs/report/final/fig/dwg/dwg2_carriage.png"><img src="../docs/report/final/fig/dwg/dwg2_carriage.png" alt="중간 Z 캐리지 상세 도면" loading="lazy"></a><figcaption><h3>중간 · Z 캐리지</h3><p>헤드 하중을 전달하는 캐리지와 체결 위치를 보는 도면입니다.</p><p>레일 장착 좌우 측면의 평행도·상하면 직각도·θ 파일럿 위치도가 핵심입니다.</p></figcaption></figure>
+<figure><a href="../docs/report/final/fig/dwg/dwg3_flexure.png"><img src="../docs/report/final/fig/dwg/dwg3_flexure.png" alt="중간 판스프링 상세 도면" loading="lazy"></a><figcaption><h3>중간 · 판스프링</h3><p>헤드의 하중 제어용 탄성 요소 형상을 보는 도면입니다.</p><p>두께 공차·유효 길이·와이어 컷 후 버 제거가 핵심이며, 조립 후 세트별 강성을 실측합니다.</p></figcaption></figure>
+<figure class="wiring"><a href="../wiring/hbm_wiring.svg"><img src="../wiring/hbm_wiring.svg" alt="전원, 독립 안전 체인, 두 히터, 센서와 STM32H743 배선도" loading="lazy"></a><figcaption><h3>배선 · 전원과 안전 체인</h3><p>전원·안전 릴레이·독립 비교기·MCU와 두 히터의 연결을 보는 설계도입니다.</p><p>두 히터 동시 통전 금지(SW 인터락). PG0 외 핀은 배선 설계값이며 HAL 미구현입니다.</p><a href="../wiring/pinmap.csv" download>pinmap.csv 다운로드</a></figcaption></figure>
+</div><p class="source">설명·공차 근거: 보고서 11.4·11.5절, 중간 보고서 11.3·11.4절 및 도면 원본 · <code>spec_stacker.py CHUCK / REFLOW / MOLD / TOL</code>. 고온 평면도·기밀·나사와 유리 내압·배선 굵기는 제작 후 확인합니다.</p>
+</section>
+<section id="workflow" class="wide"><h2>04 · 만든 과정과 산출물</h2>
+<ol class="pipeline" aria-label="CAD 제작 흐름"><li><strong>Fusion Python</strong><span>spec_stacker.py → HBMStackerModel.py</span></li><li><strong>STEP</strong><span>원형상 · Git LFS</span></li><li><strong>STL</strong><span>바디 형상 → 그룹별 통합 메시 · mm</span></li><li><strong>GLB</strong><span>to_glb.py · m · Z-up → Y-up</span></li></ol>
+<p>형상 원본을 Fusion에서 생성한 뒤 그룹별 STL을 웹 표시용 GLB로 변환합니다. GLB 그룹명은 STL 파일명과 같습니다.</p>
+<div class="presets"><a href="https://github.com/ycpark06/hbm-stacking-edu-sim/blob/main/cad/stacker/out/HBMStacker.step">STEP · GitHub 파일</a><a href="../cad/web/hbm_stacker.glb" download>GLB 다운로드</a><a href="../cad/stacker/out/summary.json">summary.json</a><a href="../wiring/pinmap.csv" download>pinmap.csv</a></div><p>STEP은 Git LFS 파일이므로 GitHub 파일 화면에서 다운로드하세요. Pages 직접 다운로드는 지원하지 않을 수 있습니다.</p>
+<details><summary>그룹별 STL 다운로드 · 10개</summary><div id="stl-links" class="presets"></div></details>
+<h3>Fusion 실행 결과</h3><div id="summary" class="summary-grid" aria-live="polite"><p>summary.json을 읽는 중…</p></div>
+<p>간섭 0은 저장 자세에서의 형상 검사 결과입니다. 전체 스트로크·배관·케이블·볼트 접근성은 별도 검토 대상입니다. 높이·질량에는 원문 판정 기준이 없습니다.</p>
+<p class="alarm">제작 검토: 리플로우 척의 냉각 설계 목표는 FAIL/REVIEW입니다. 금형 기밀·예압·유리/나사 내압은 제작 후 시험으로 남아 있습니다. 현재 형상은 제작 승인본이 아닙니다.</p>
+<p class="source">출처: <code>summary.json model_state / design_review</code> · <code>calc/hardware/reflow_heater.json verdict.remaining_FAIL_REVIEW</code> · <code>calc/hardware/mold_jig.json verdict.post_fabrication_tests</code> · <a href="https://github.com/ycpark06/hbm-stacking-edu-sim/blob/main/calc/hardware/README.md">하드웨어 계산·남은 검토</a> · <a href="https://github.com/ycpark06/hbm-stacking-edu-sim/blob/main/cad/stacker/spec_stacker.py">치수 원본</a></p>
+</section></main><footer>교육용 개념 모델 · 원문 KPI / 설계값 / 관찰 항목 / 참고값을 구분합니다. 분해·카메라는 표시 설정입니다.</footer>
+<script type="module" src="js/cad_page.js"></script></body></html>
