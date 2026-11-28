@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
-"""Record six narration-aligned v2 scenes. --plan never imports Playwright."""
+"""Record narration-aligned scenes from the timing file. --plan never imports Playwright."""
 import argparse
+import base64
 import json
 import math
 from pathlib import Path
@@ -12,15 +13,14 @@ from urllib.parse import urljoin
 
 ROOT = Path(__file__).resolve().parents[2]
 TIMING = Path.home() / 'Desktop/MSE489/기말보고서/영상/v2/tts/timing.json'
-TITLES = ['도입', '원리 비교', '장비 구성(CAD)', '공장 동작 · TC-NCF', '공장 동작 · MR-MUF', '정리']
-ACTIONS = {'factory', 'card', 'cad', 'cad_click', 'cad_explode', 'cad_scroll', 'drag_rotate', 'wait'}
+ACTIONS = {'factory', 'card', 'cad', 'cad_click', 'cad_explode', 'cad_scroll', 'drag_rotate', 'wait', 'external'}
 
 
 def load_plan(cues_path, timing_path, card_path):
     data = json.loads(cues_path.read_text(encoding='utf-8'))
     timing = json.loads(timing_path.read_text(encoding='utf-8'))
-    if [s['scene'] for s in data['scenes']] != list(range(1, 7)) or [s['scene'] for s in timing] != list(range(1, 7)):
-        raise ValueError('장면 번호·순서: 1..6 필요')
+    if not timing or [s['scene'] for s in data['scenes']] != [s['scene'] for s in timing] or [s['scene'] for s in timing] != list(range(1, len(timing)+1)):
+        raise ValueError('장면 번호·순서: timing 파일과 일치해야 함')
     # Build actual stage IDs/durations from repository JS and original params/results.
     code = """import fs from 'node:fs';
 import {readFactoryData,buildStages,MODES} from './web/js/factory_sequence.js';
@@ -47,13 +47,21 @@ console.log(JSON.stringify(Object.fromEntries(MODES.map(m=>[m,buildStages(d,m)])
         expected = list(range(sentence+1, sentence+ts['sentences']+1))
         if [c['sentence'] for c in main] != expected:
             raise ValueError('문장별 cue 1:1 대응 오류')
-        for cue, (start, _) in zip(main, ts['timing']):
+        for ordinal, (cue, (start, _)) in enumerate(zip(main, ts['timing']), 1):
+            if 'at_sentence' in cue:
+                if cue['at_sentence'] != ordinal or 't' in cue:
+                    raise ValueError('상대 문장 순번 오류')
+                cue['t'] = start
             if not 0 <= start-cue['t'] <= .201 or cue['sub'] != ts['subs'][cue['sentence']-sentence-1]:
                 raise ValueError('문장 시작 시각·자막 대응 오류')
         previous = -1
         prep = scene['prepare']
-        if prep['page'] not in ('factory', 'cad', 'card'):
+        if prep['page'] not in ('factory', 'cad', 'card', 'external'):
             raise ValueError('준비 페이지 오류')
+        if prep['page'] == 'external':
+            pages = prep['pages']
+            if len({p['id'] for p in pages}) != len(pages) or any(not p['url'].startswith('https://') for p in pages):
+                raise ValueError('외부 페이지 ID·URL 오류')
         mode = prep.get('mode')
         if prep['page'] == 'factory' and (mode not in stages or
                 prep['stage'] not in {s['id'] for s in stages[mode]} or prep['camera'] not in (1, 2, 3, 4)):
@@ -68,7 +76,7 @@ console.log(JSON.stringify(Object.fromEntries(MODES.map(m=>[m,buildStages(d,m)])
             if any(k not in a for k in required.get(cue['action'], ())):
                 raise ValueError('cue 인자 누락')
             page_for = {'factory':'factory', 'card':'card', 'cad':'cad', 'cad_click':'cad',
-                        'cad_explode':'cad', 'cad_scroll':'cad', 'drag_rotate':'cad'}
+                        'cad_explode':'cad', 'cad_scroll':'cad', 'drag_rotate':'cad', 'external':'external'}
             if cue['action'] in page_for and prep['page'] != page_for[cue['action']]:
                 raise ValueError('cue 페이지 불일치')
             if a.get('target') not in data['targets']:
@@ -77,6 +85,8 @@ console.log(JSON.stringify(Object.fromEntries(MODES.map(m=>[m,buildStages(d,m)])
                 raise ValueError('대상·동작 불일치')
             if cue['action'] in ('factory', 'card', 'cad') and not isinstance(a.get('js'), str):
                 raise ValueError('JS 문자열 필요')
+            if cue['action'] == 'external' and a.get('page') not in {p['id'] for p in prep['pages']}:
+                raise ValueError('사전 로드 페이지 참조 없음')
             if cue['action'] == 'factory':
                 found = re.search(r"setMode\('([^']+)'\)", a['js'])
                 if found:
@@ -108,8 +118,6 @@ console.log(JSON.stringify(Object.fromEntries(MODES.map(m=>[m,buildStages(d,m)])
             if cue['action'] == 'card' and not all(1 <= int(r) <= 3 for r in re.findall(r'(?:showRow|focus)\((\d)', a['js'])):
                 raise ValueError('카드 행 오류')
         sentence += ts['sentences']
-    if sentence != 42:
-        raise ValueError('전체 문장 수 42 필요')
     return data
 
 
@@ -122,11 +130,13 @@ def print_plan(data, selected):
         print(f"| {s['scene']} 준비 | — | load / ready / GLB / 2 frames | {s['prepare']} |")
         for c in s['cues']:
             a = c['args']
-            detail = a.get('js', data['targets'][a['target']]['label'])
+            detail = a.get('js', a.get('page', data['targets'][a['target']]['label']))
+            if 'panel_reason' in c:
+                detail += ' · 패널 근거: '+c['panel_reason']
             if 'motion' in a:
                 detail += ' ' + json.dumps(a['motion'], ensure_ascii=False)
             print(f"| {s['scene']} · 문장 {c.get('sentence', '보조')} | {c['t']:.3f} | {c['action']} | {detail.replace('|', '/')} |")
-    print(f"검증 통과: 6장면 / 42문장 / 전체 {sum(s['duration_s'] for s in data['scenes'])} s (준비 제외)")
+    print(f"검증 통과: {len(data['scenes'])}장면 / {sum('sentence' in c for s in data['scenes'] for c in s['cues'])}문장 / 전체 {sum(s['duration_s'] for s in data['scenes'])} s (준비 제외)")
 
 
 # Per-frame guard clamps at the specified endpoint, including after a slow frame.
@@ -151,7 +161,9 @@ MOTION = """m => {
 
 def execute(page, cue, targets):
     a, action = cue['args'], cue['action']
-    if action == 'factory':
+    if action == 'external':
+        page.evaluate("id=>document.querySelectorAll('[data-page]').forEach(el=>el.hidden=el.dataset.page!==id)", a['page'])
+    elif action == 'factory':
         page.evaluate('() => {window.v2Token=(window.v2Token||0)+1;window.factory.pause();}')
         page.evaluate('() => {const f=window.factory;'+a['js']+'}')
         if 'motion' in a:
@@ -192,10 +204,91 @@ def execute(page, cue, targets):
         raise ValueError(action)
 
 
+def prepare_external(page, prep):
+    """Preload actual external pages, mask, then cache frames on ONE video surface.
+
+    Playwright records each tab separately: switching tabs alone cannot produce
+    one scene video. Screenshots captured before clock0 avoid that discontinuity
+    and all network waits during narration. The Pages frame stays unchanged.
+    """
+    mask = Path(__file__).with_name('github_mask.js').read_text(encoding='utf-8')
+    frames = []
+    for spec in prep['pages']:
+        tab = page.context.new_page()
+        try:
+            tab.set_default_timeout(180000)
+            tab.set_default_navigation_timeout(180000)
+            tab.add_init_script(script=mask)
+            failure = None
+            for attempt in range(3):
+                try:
+                    response = tab.goto(spec['url'], wait_until='load')
+                    if not response or not response.ok:
+                        raise RuntimeError(f"외부 페이지 HTTP 오류: {spec['url']}")
+                    tab.locator('main').wait_for(state='visible')
+                    if spec['id'] == 'issue':
+                        tab.locator('.markdown-body').first.wait_for(state='visible')
+                        # The new GitHub issue UI shows the closed state as an icon/aria label,
+                        # not visible text; the loaded issue body is the readiness signal.
+                    elif spec['id'] == 'pages':
+                        tab.wait_for_function("() => document.querySelector('#fields')?.children.length > 0 && document.querySelector('#viewer canvas') && !document.querySelector('#model-state').textContent.includes('초기화 중')")
+                    elif spec['id'] in ('repo', 'folders'):
+                        # The first /tree/ link can be a hidden branch-menu item; wait for a visible folder row.
+                        tab.locator('a:visible', has_text='firmware').first.wait_for(state='visible')
+                    elif spec['id'] == 'prs':
+                        tab.locator('a[href*="/pull/"]').first.wait_for(state='visible')
+                    break
+                except Exception as exc:
+                    failure = exc
+                    if attempt == 2:
+                        raise RuntimeError(f"사전 로드 실패: {spec['id']}") from failure
+            tab.evaluate('() => document.fonts.ready')
+            tab.add_style_tag(content='html{color-scheme:light!important} body{background:white!important} footer{display:none!important}')
+            if spec.get('folders'):
+                tab.evaluate('''folders=>{
+                  const rows=folders.map(name=>{
+                    const link=[...document.querySelectorAll('a[href*="/tree/"]')].find(a=>a.textContent.trim()===name);
+                    if(!link)throw Error('폴더 행 없음: '+name);
+                    const row=link.closest('tr,[role="row"]')||link.parentElement;
+                    row.style.outline='4px solid #14365A';row.style.outlineOffset='-4px';return row;
+                  });
+                  const bounds=rows.map(row=>row.getBoundingClientRect());
+                  const top=Math.min(...bounds.map(b=>b.top)),bottom=Math.max(...bounds.map(b=>b.bottom));
+                  if(bottom-top>734)throw Error('폴더 행이 자막 제외 영역을 넘음');
+                  window.scrollTo(0,Math.max(0,scrollY+top-40));
+                }''', spec['folders'])
+            elif spec['id'] == 'issue':
+                tab.locator('.markdown-body').first.evaluate("el=>window.scrollTo(0,Math.max(0,el.getBoundingClientRect().top+scrollY-260))")
+            else:
+                tab.evaluate('window.scrollTo(0,0)')
+            tab.evaluate('() => {window.recordingMask.maskDates();document.activeElement?.blur();}')
+            tab.mouse.move(1910, 1070)
+            tab.evaluate('() => new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))')
+            # CSS crops the captured viewport below the subtitle-safe content area.
+            encoded = base64.b64encode(tab.screenshot()).decode('ascii')
+            frames.append({'id':spec['id'], 'src':'data:image/png;base64,'+encoded})
+        finally:
+            video = tab.video
+            tab.close()
+            if video:
+                video.delete()
+    page.set_content('''<!doctype html><html lang="ko"><meta charset="utf-8">
+      <style>*{box-sizing:border-box}body{margin:0;background:white;overflow:hidden}
+      img{position:absolute;top:76px;left:0;width:100%;height:calc(100vh - 306px);object-fit:cover;object-position:top center}
+      img[hidden]{display:none}header{position:fixed;top:18px;left:24px;background:#14365A;color:white;padding:12px 28px;font:32px system-ui;z-index:5}
+      </style><header>GitHub 저장소</header><main></main></html>''')
+    page.evaluate('''frames=>{for(const frame of frames){const img=document.createElement('img');
+      img.dataset.page=frame.id;img.src=frame.src;img.hidden=frame.id!==frames[0].id;
+      document.querySelector('main').append(img);}}''', frames)
+    page.wait_for_function('() => [...document.images].every(i=>i.complete&&i.naturalWidth>0)')
+
+
 def prepare(page, scene, args):
     suffix = '?theme=light' if args.theme == 'light' else ''
     prep = scene['prepare']
-    if prep['page'] == 'card':
+    if prep['page'] == 'external':
+        prepare_external(page, prep)
+    elif prep['page'] == 'card':
         page.goto(args.card.resolve().as_uri()+suffix)
         page.wait_for_function('() => !!window.card')
         page.evaluate('window.card.reset()')
@@ -225,13 +318,13 @@ def prepare(page, scene, args):
     else:
         page.goto(urljoin(args.url.rstrip('/')+'/', 'factory.html')+suffix)
         page.wait_for_function('() => window.factory?.state().ready === true')
-        page.evaluate('p=>{const f=window.factory;f.setViewOnly(true);f.setMode(p.mode);f.pause();f.setSpeed(1);f.setStage(p.stage,0);f.setCamera(p.camera);}', prep)
+        page.evaluate('p=>{const f=window.factory;f.setViewOnly(true);f.setMode(p.mode);f.pause();f.setSpeed(1);f.setStage(p.stage,0);f.setCamera(p.camera);if("panel" in p)f.showPanel(p.panel);}', prep)
     if args.theme == 'light' and prep['page'] in ('factory', 'cad'):
         api = 'factory' if prep['page'] == 'factory' else 'cadPage'
-        page.evaluate('(a)=>window[a.api].setTitle(a.title)', {'api':api,'title':TITLES[scene['scene']-1]})
-    if args.captions and args.theme != 'light':
+        page.evaluate('(a)=>window[a.api].setTitle(a.title)', {'api':api,'title':scene.get('title', f"장면 {scene['scene']}")})
+    if args.captions and args.theme != 'light' and prep['page'] != 'external':
         page.evaluate('''title=>{const el=document.createElement('div');el.textContent=title;
-        el.style.cssText='position:fixed;top:18px;left:24px;z-index:2147483647;background:#07111feb;color:white;padding:12px 28px;border:1px solid #60e0c0;border-radius:10px;font:24px system-ui;pointer-events:none;max-width:90vw';document.body.append(el);}''', TITLES[scene['scene']-1])
+        el.style.cssText='position:fixed;top:18px;left:24px;z-index:2147483647;background:#07111feb;color:white;padding:12px 28px;border:1px solid #60e0c0;border-radius:10px;font:24px system-ui;pointer-events:none;max-width:90vw';document.body.append(el);}''', scene.get('title', f"장면 {scene['scene']}"))
     page.evaluate('() => new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))')
 
 
@@ -242,13 +335,16 @@ def main():
     parser.add_argument('--timing', type=Path, default=TIMING)
     parser.add_argument('--cues', type=Path, default=Path(__file__).with_name('cues_v2.json'))
     parser.add_argument('--out', type=Path, default=ROOT/'media/out/v2')
-    parser.add_argument('--scene', type=int, choices=range(1,7), action='append')
+    parser.add_argument('--scene', type=int, action='append')
     parser.add_argument('--plan', action='store_true')
     parser.add_argument('--theme', choices=['light'])
     parser.add_argument('--captions', action='store_true')
     args = parser.parse_args()
     data = load_plan(args.cues, args.timing, args.card)
-    selected = set(args.scene or range(1,7))
+    available = {s['scene'] for s in data['scenes']}
+    selected = set(args.scene or available)
+    if not selected <= available:
+        parser.error('timing 파일에 없는 장면 번호')
     if args.plan:
         print_plan(data, selected)
         return 0
@@ -271,7 +367,7 @@ def main():
                         continue
                     context = browser.new_context(viewport=manifest['viewport'],device_scale_factor=1,
                         record_video_dir=str(args.out/'raw'),record_video_size=manifest['viewport'],locale='ko-KR')
-                    row={'scene':scene['scene'],'title':TITLES[scene['scene']-1], 'duration_s':scene['duration_s'],'status':'preparing','cues':[]}
+                    row={'scene':scene['scene'],'title':scene.get('title', f"장면 {scene['scene']}"), 'duration_s':scene['duration_s'],'status':'preparing','cues':[]}
                     manifest['scenes'].append(row);save()
                     video=None
                     try:
