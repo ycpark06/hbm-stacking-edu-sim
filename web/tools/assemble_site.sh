@@ -26,6 +26,10 @@ def ignored(directory, names):
 
 for folder in ('web', 'sim'):
     shutil.copytree(root / folder, site / folder, ignore=ignored)
+# Factory animation reads the stage-4 representative results (S4/S5 numbers).
+results = site / 'sim' / 'test'
+results.mkdir(parents=True, exist_ok=True)
+shutil.copy2(root / 'sim' / 'test' / 'stage4_results.json', results / 'stage4_results.json')
 build = site / 'firmware' / 'build'
 build.mkdir(parents=True)
 for name in ('controller.js', 'controller.wasm'):
