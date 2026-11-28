@@ -68,9 +68,9 @@ def load_chapters():
             continue
         source_text = source.read_text(encoding='utf-8')
         rendered = markdown.markdown(source_text, extensions=['tables', 'sane_lists', 'fenced_code'])
-        # 중간 원고와 같은 fig/dwg 이미지+캡션 블록을 가로 페이지로 인쇄한다.
+        # 제작 도면(중간 fig/dwg, 기말 11장 도면·배선도) 이미지+캡션 블록을 가로 페이지로 인쇄한다.
         rendered = re.sub(
-            r'(<p><img\b[^>]*src="fig/dwg/[^"]+"[^>]*></p>\s*<p><em>.*?</em></p>)',
+            r'(<p><img\b[^>]*src="fig/(?:dwg/|ch11_(?:stack_chuck|reflow_chuck|mold_jig|wiring)\.png)[^"]*"[^>]*></p>\s*<p><em>.*?</em></p>)',
             r'<div class="dwg">\1</div>', rendered, flags=re.S)
         def check_image(match):
             src = html.unescape(match.group(1))
@@ -80,7 +80,7 @@ def load_chapters():
             return match.group(0)
         rendered = re.sub(r'<img\b[^>]*src="([^"]+)"[^>]*>', check_image, rendered)
         title = re.search(r'<h1>(.*?)</h1>', rendered, re.S)
-        title = re.sub('<.*?>', '', title.group(1)) if title else source.stem
+        title = html.unescape(re.sub('<.*?>', '', title.group(1))) if title else source.stem
         chapters.append((name, title, '<section>'+rendered+'</section>'))
     if not chapters:
         raise ValueError('인쇄할 장이 없습니다')
