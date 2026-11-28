@@ -286,9 +286,11 @@ def main():
                         page.wait_for_timeout(1000)
                         # Editing sync marker. Browser timestamps keep the 0.3 s
                         # interval independent of Python/Playwright round trips.
-                        marker=page.evaluate("""() => new Promise(resolve=>{
+                        # A white page (theme=light) hides a white flash; use black there.
+                        flash_color='#000000' if args.theme=='light' else '#ffffff'
+                        marker=page.evaluate("""(color) => new Promise(resolve=>{
                           const el=document.createElement('div');el.id='v2-sync-flash';
-                          el.style.cssText='position:fixed;inset:0;background:#ffffff;z-index:2147483647;pointer-events:none';
+                          el.style.cssText='position:fixed;inset:0;background:'+color+';z-index:2147483647;pointer-events:none';
                           requestAnimationFrame(()=>{
                             document.documentElement.append(el);
                             const shown=performance.now();
@@ -298,12 +300,13 @@ def main():
                                 resolve({shown,removed,clock0:performance.now()})));
                             },300);
                           });
-                        })""")
+                        })""", flash_color)
                         clock0=time.monotonic();deadline=clock0+scene['duration_s']
                         # Map browser intervals onto the started-relative monotonic
                         # clock; video timestamps are measured later by trim_v2.py.
                         row['sync_flash']={key+'_s':clock0-started-(marker['clock0']-marker[key])/1000
                                            for key in ('shown','removed')}
+                        row['sync_flash']['color']=flash_color
                         row.update(clock0_video_s=clock0-started,status='recording');save()
                         for cue in scene['cues']:
                             page.wait_for_timeout(max(0,clock0+cue['t']-time.monotonic())*1000)
