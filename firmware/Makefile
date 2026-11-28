@@ -44,7 +44,7 @@ build/controller.bin: build/controller.elf
 
 EMCC ?= emcc
 NODE ?= node
-WASM_EXPORTS = ['_fw_set_temp_period_ms','_fw_init','_fw_wasm_set_recipe','_fw_step_1ms','_fw_reset_latch','_fw_set_hw_fault','_fw_get_z_velocity','_fw_get_heater_power','_fw_get_mode','_fw_get_phase','_fw_get_warning','_fw_get_latched','_fw_get_brake','_fw_get_sto','_fw_get_force_setpoint','_fw_get_force_integral','_fw_get_temp_integral']
+WASM_EXPORTS = ['_fw_set_head_heater_enabled','_fw_request_reflow_heater_W','_fw_get_reflow_heater_power','_fw_get_dual_heater_blocked','_fw_set_temp_period_ms','_fw_init','_fw_wasm_set_recipe','_fw_step_1ms','_fw_reset_latch','_fw_set_hw_fault','_fw_get_z_velocity','_fw_get_heater_power','_fw_get_mode','_fw_get_phase','_fw_get_warning','_fw_get_latched','_fw_get_brake','_fw_get_sto','_fw_get_force_setpoint','_fw_get_force_integral','_fw_get_temp_integral']
 .PHONY: wasm test-wasm
 wasm: build/controller.js build/controller.wasm
 
