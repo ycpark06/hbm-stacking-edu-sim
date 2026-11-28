@@ -75,3 +75,21 @@ figure.tall img { max-height:148mm; }
 .content:has(.flow) .flow p { font-size:10.5pt; line-height:1.4; margin:1.5mm 0; }
 .content:has(.flow) > * + * { margin-top:2.5mm; }
 .content:has(.flow) figure img { max-height:84mm; }
+
+/* Fixed A4 additions: diagrams retain source aspect ratios. */
+.cad-workflow svg { display:block; width:100%; max-height:170mm; }
+.cad-key { display:flex; flex-wrap:wrap; gap:2mm 4mm; font-size:9pt; }
+.cad-key span { border-left:3pt solid; padding-left:2mm; }
+.cad-key .stack { border-color:#E08A3C; }
+.cad-key .reflow { border-color:#B8322A; }
+.cad-key .mold { border-color:#3E8E5A; }
+.cad-key .dispenser { border-color:#7A5BA6; }
+.cad-key .tray { border-color:#14365A; }
+.cad-drawings { display:grid; grid-template-columns:1fr 1fr; gap:2mm 4mm; }
+.cad-drawings figure { margin:0; }
+.cad-drawings figure img { width:100%; height:54mm; object-fit:contain; }
+.cad-drawings figcaption { font-size:8pt; }
+.toc-grid { display:grid; grid-template-columns:1fr 1fr; grid-auto-flow:column; grid-template-rows:repeat(6,auto); gap:2mm 5mm; }
+.toc-grid h2 { font-size:10pt; margin:1mm 0; display:flex; justify-content:space-between; gap:2mm; }
+.toc-grid p { display:flex; justify-content:space-between; gap:2mm; font-size:8.2pt; line-height:1.35; margin:1mm 0; }
+.toc-grid b { white-space:nowrap; color:var(--navy); }

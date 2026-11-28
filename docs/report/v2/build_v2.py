@@ -25,7 +25,7 @@ def document(kind, cover=None):
             if not isinstance(rows,list) or not rows or any(not isinstance(r,dict) or not isinstance(r.get('name'),str) or not isinstance(r.get('id'),str) for r in rows):
                 raise ValueError('표지 JSON은 members[].name/id 문자열이 필요합니다')
             members='<p>'+ '<br>'.join(html.escape(r['name'])+'　'+html.escape(r['id']) for r in rows)+'</p>'
-        title='본보고서 v2' if kind=='report' else '요약본'
+        title='본보고서' if kind=='report' else '요약본'
         sheets.append('<main class="sheet cover"><header class="running"><b>MSE489</b><span>첨단패키징기술</span></header><div class="content"><h1>교육용 HBM<br>다단 적층 본더</h1><h2>TC-NCF / MR-MUF 비교 디지털 트윈</h2><div class="cover-meta"><p>'+title+'</p><p>설계·계산·모의 검증</p>'+members+'</div></div><footer><span>UNIST · MSE489</span><span>'+('제출판' if cover else '공개판')+'</span></footer></main>')
     for item in manifest[kind]:
         content=(HERE/item['file']).read_text(encoding='utf-8')

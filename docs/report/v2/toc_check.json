@@ -1,0 +1,12 @@
+{
+  "report_body_pages": 38,
+  "report_with_cover": 39,
+  "summary_with_cover": 10,
+  "chapters": 11,
+  "sections": 37,
+  "toc_pass": true,
+  "visible_version_mentions": 0,
+  "path_filename_exception": "파일명·저장소 경로 유지",
+  "errors": [],
+  "render_status": "HTML 정적 대조; PDF·넘침·폰트 시각 확인은 Claude 담당"
+}

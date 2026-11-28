@@ -7,6 +7,8 @@ let viewer=null,selected='stack_chuck';
 const visibility=new Map(Object.keys(GROUPS).map(id=>[id,true]));
 const buttons=new Map(),checks=new Map();
 function select(id){
+  if(id==='all'){showAll();return;}
+  if(!GROUPS[id])throw RangeError('unknown part group');
   selected=id;
   for(const [key,button] of buttons)button.setAttribute('aria-pressed',String(key===id));
   const panel=byId('part-info');panel.replaceChildren(el('h3',GROUPS[id].name),el('code',id),el('p',GROUPS[id].role));
@@ -23,6 +25,14 @@ function select(id){
     row.append(name,dimensions);body.append(row);
   }
   table.append(body);wrap.append(table);panel.append(wrap);viewer?.select(id);
+}
+function showAll(){
+  if(document.documentElement.dataset.theme!=='light')return;
+  selected='all';
+  for(const button of buttons.values())button.setAttribute('aria-pressed','false');
+  for(const id of visibility.keys()){visibility.set(id,true);checks.get(id).checked=true;viewer?.setVisible(id,true);}
+  byId('part-info').replaceChildren(el('h3','전체 색 보기'),el('p','색은 기능 구분용 표시 설정입니다. 치수·재질·운전 상태를 뜻하지 않습니다.'));
+  viewer?.select('all');
 }
 for(const [id,group] of Object.entries(GROUPS)){
   const row=el('div',undefined,'part-row'),label=el('label'),check=el('input');check.type='checkbox';check.checked=true;check.setAttribute('aria-label',`${group.name} 보이기`);
@@ -64,4 +74,4 @@ try{
   viewer.explode(Number(byId('explode').value)/100);viewer.select(selected);
 }catch(error){byId('cad-status').textContent=`3D를 표시할 수 없습니다 (${error.message}). 아래 부품 목록·비교 이미지·도면을 이용하세요.`;}
 
-window.cadPage={select,setViewOnly(value){if(typeof value!=='boolean')throw TypeError('viewOnly: boolean');if(document.documentElement.dataset.theme==='light')document.body.classList.toggle('cad-view-only',value);},setTitle(text){if(document.documentElement.dataset.theme==='light')setLightTitle(byId('cad-viewer'),text);}};
+window.cadPage={select,showAll,setViewOnly(value){if(typeof value!=='boolean')throw TypeError('viewOnly: boolean');if(document.documentElement.dataset.theme==='light')document.body.classList.toggle('cad-view-only',value);},setTitle(text){if(document.documentElement.dataset.theme==='light')setLightTitle(byId('cad-viewer'),text);}};

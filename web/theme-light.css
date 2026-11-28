@@ -91,3 +91,5 @@
 [data-theme=light] .workspace.light-panel-hidden,
 [data-theme=light] body.view-only .workspace.light-panel-hidden{grid-template-columns:minmax(0,1fr)}
 [data-theme=light] .light-graphs[hidden]{display:none}
+/* Compact names for the explicit all-colors capture state. */
+[data-theme=light] .light-all-label{position:absolute;z-index:3;font-family:Pretendard,sans-serif;font-size:13px;line-height:1.3;padding:3px 6px;background:#FFFFFF;color:#14365A;border-left:3px solid;pointer-events:none;white-space:nowrap}

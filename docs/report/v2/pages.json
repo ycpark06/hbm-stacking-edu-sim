@@ -2,14 +2,15 @@
   "report": [
     {
       "page": 1,
-      "chapter": "01　요약",
-      "label": "01　요약",
-      "title": "층별 접합과 일괄 접합을<br>같은 장비 모델에서 비교했다",
+      "chapter": "1 요약",
+      "label": "1 요약",
+      "title": "층별 접합과 일괄 접합을 같은 장비 모델에서 비교했다",
       "file": "chapters/01.html",
       "sources": [
         "sim/test/stage4_results.json",
         "docs/report/archive_v1/00_요약.md"
-      ]
+      ],
+      "section": "1.1"
     },
     {
       "page": 2,
@@ -23,375 +24,445 @@
     },
     {
       "page": 3,
-      "chapter": "02　과제 목표와 요구사항",
-      "label": "02　과제 목표와 요구사항",
+      "chapter": "2 과제 목표와 요구사항",
+      "label": "2 과제 목표와 요구사항",
       "title": "요구한 개선을 산출물로 연결했다",
       "file": "chapters/03.html",
       "sources": [
         "docs/PLAN.md"
-      ]
+      ],
+      "section": "2.1"
     },
     {
       "page": 4,
-      "chapter": "02　과제 목표와 요구사항",
-      "label": "02　과제 목표와 요구사항",
+      "chapter": "2 과제 목표와 요구사항",
+      "label": "2 과제 목표와 요구사항",
       "title": "원문 KPI와 공정 판정을 분리했다",
       "file": "chapters/04.html",
       "sources": [
         "docs/requirements.md",
         "sim/params.json"
-      ]
+      ],
+      "section": "2.2"
     },
     {
       "page": 5,
-      "chapter": "03　중간 설계 요약",
-      "label": "03　중간 설계 요약",
-      "title": "표 A　정합의 기준은 계승하되<br>실물 오차는 남겨 두었다",
+      "chapter": "3 중간 설계 요약",
+      "label": "3 중간 설계 요약",
+      "title": "표 A　정합의 기준은 계승하되 실물 오차는 남겨 두었다",
       "file": "chapters/05.html",
       "sources": [
         "docs/report/archive_v1/05_정합오차예산.md",
         "docs/report/archive_v1/12_통합검증.md",
         "docs/thermal_history_report.md"
-      ]
+      ],
+      "section": "3.1"
     },
     {
       "page": 6,
-      "chapter": "03　중간 설계 요약",
-      "label": "03　중간 설계 요약",
-      "title": "표 B　하중 경로와 열 설계가<br>신규 척의 출발점이다",
+      "chapter": "3 중간 설계 요약",
+      "label": "3 중간 설계 요약",
+      "title": "표 B　하중 경로와 열 설계가 신규 척의 출발점이다",
       "file": "chapters/06.html",
       "sources": [
         "docs/report/archive_v1/06_구동부설계.md",
         "docs/report/archive_v1/07_열설계.md",
         "docs/report/archive_v1/08_구조진동해석.md"
-      ]
+      ],
+      "section": "3.2"
     },
     {
       "page": 7,
-      "chapter": "03　중간 설계 요약",
-      "label": "03　중간 설계 요약",
+      "chapter": "3 중간 설계 요약",
+      "label": "3 중간 설계 요약",
       "title": "계승한 것은 절차와 경계 조건이다",
       "file": "chapters/07.html",
       "sources": [
         "docs/report/midterm/README.md",
         "docs/report/archive_v1/07_열설계.md",
         "docs/report/archive_v1/13_교육안전.md"
-      ]
+      ],
+      "section": "3.3"
     },
     {
       "page": 8,
-      "chapter": "04　왜 HBM 적층인가",
-      "label": "04　왜 HBM 적층인가",
-      "title": "차이는 본접합을 위해<br>가열하는 순서에 있다",
+      "chapter": "4 왜 HBM 적층인가",
+      "label": "4 왜 HBM 적층인가",
+      "title": "차이는 본접합을 위해 가열하는 순서에 있다",
       "file": "chapters/08.html",
       "sources": [
         "docs/report/archive_v1/15_적층공정모드.md",
         "web/js/factory_sequence.js"
-      ]
+      ],
+      "section": "4.1"
     },
     {
       "page": 9,
-      "chapter": "04　왜 HBM 적층인가",
-      "label": "04　왜 HBM 적층인가",
-      "title": "입력의 출처와 모델 전제가<br>비교 결과를 제한한다",
+      "chapter": "4 왜 HBM 적층인가",
+      "label": "4 왜 HBM 적층인가",
+      "title": "입력의 출처와 모델 전제가 비교 결과를 제한한다",
       "file": "chapters/09.html",
       "sources": [
         "sim/params.json",
         "sim/alignment.js",
         "sim/thermal.js"
-      ]
+      ],
+      "section": "4.2"
     },
     {
       "page": 10,
-      "chapter": "05　장비 고도화",
-      "label": "05　장비 고도화",
+      "chapter": "5 장비 고도화",
+      "label": "5 장비 고도화",
       "title": "기능별로 다섯 종류를 추가했다",
       "file": "chapters/10.html",
       "sources": [
         "cad/stacker/out/summary.json",
         "docs/report/archive_v1/11_CAD도면.md"
-      ]
+      ],
+      "section": "5.1"
     },
     {
       "page": 11,
-      "chapter": "05　장비 고도화",
-      "label": "05　장비 고도화",
+      "chapter": "5 장비 고도화",
+      "label": "5 장비 고도화",
       "title": "척 도면은 지지와 관찰을 구체화한다",
       "file": "chapters/11.html",
       "sources": [
         "docs/drawings/dimensions.json",
         "calc/hardware/README.md"
-      ]
+      ],
+      "section": "5.2"
     },
     {
       "page": 12,
-      "chapter": "05　장비 고도화",
-      "label": "05　장비 고도화",
+      "chapter": "5 장비 고도화",
+      "label": "5 장비 고도화",
       "title": "압력 전달과 밀봉을 따로 검토했다",
       "file": "chapters/12.html",
       "sources": [
         "calc/hardware/README.md",
         "docs/drawings/dimensions.json"
-      ]
+      ],
+      "section": "5.3"
     },
     {
       "page": 13,
-      "chapter": "05　장비 고도화",
-      "label": "05　장비 고도화",
+      "chapter": "5 장비 고도화",
+      "label": "5 장비 고도화",
       "title": "전원과 안전 체인을 분리했다",
       "file": "chapters/13.html",
       "sources": [
         "wiring/pinmap.csv",
         "firmware/README.md"
-      ]
+      ],
+      "section": "5.4"
     },
     {
       "page": 14,
-      "chapter": "06　디지털 트윈",
-      "label": "06　디지털 트윈",
-      "title": "같은 C 제어기를<br>PC·MCU·wasm에 연결했다",
+      "chapter": "5 장비 고도화",
+      "label": "5 장비 고도화",
+      "title": "Fusion에서 웹 CAD까지 형상 근거를 연결했다",
+      "file": "chapters/cad_workflow.html",
+      "sources": [
+        "cad/stacker/HBMStackerModel.py",
+        "cad/tools/to_glb.py"
+      ],
+      "section": "5.5"
+    },
+    {
+      "page": 15,
+      "chapter": "5 장비 고도화",
+      "label": "5 장비 고도화",
+      "title": "색으로 기능을 나누고 분해도로 구성을 읽는다",
+      "file": "chapters/cad_colors.html",
+      "sources": [
+        "web/js/cad_light.js",
+        "web/js/cad_viewer.js"
+      ],
+      "section": "5.6"
+    },
+    {
+      "page": 16,
+      "chapter": "5 장비 고도화",
+      "label": "5 장비 고도화",
+      "title": "도면과 저장 결과로 설계 범위를 확인한다",
+      "file": "chapters/cad_review.html",
+      "sources": [
+        "docs/drawings/dimensions.json",
+        "cad/stacker/out/summary.json",
+        "wiring/pinmap.csv"
+      ],
+      "section": "5.7"
+    },
+    {
+      "page": 17,
+      "chapter": "6 디지털 트윈",
+      "label": "6 디지털 트윈",
+      "title": "같은 C 제어기를 PC·MCU·wasm에 연결했다",
       "file": "chapters/14.html",
       "sources": [
         "firmware/README.md",
         "docs/report/archive_v1/16_디지털트윈.md"
-      ]
+      ],
+      "section": "6.1"
     },
     {
-      "page": 15,
-      "chapter": "06　디지털 트윈",
-      "label": "06　디지털 트윈",
+      "page": 18,
+      "chapter": "6 디지털 트윈",
+      "label": "6 디지털 트윈",
       "title": "HMI는 입력·알람·복구를 연결한다",
       "file": "chapters/15.html",
       "sources": [
         "web/js/hmi.js",
         "sim/vision.js",
         "docs/report/archive_v1/09_비전정렬.md"
-      ]
+      ],
+      "section": "6.2"
     },
     {
-      "page": 16,
-      "chapter": "06　디지털 트윈",
-      "label": "06　디지털 트윈",
-      "title": "CAD와 공장 화면은<br>계산 이력을 설명한다",
+      "page": 19,
+      "chapter": "6 디지털 트윈",
+      "label": "6 디지털 트윈",
+      "title": "CAD와 공장 화면은 계산 이력을 설명한다",
       "file": "chapters/16.html",
       "sources": [
         "web/cad.html",
         "web/js/factory_sequence.js",
         "web/tools/assemble_site.sh"
-      ]
+      ],
+      "section": "6.3"
     },
     {
-      "page": 17,
-      "chapter": "07　시뮬레이션 결과",
-      "label": "07　시뮬레이션 결과",
-      "title": "S1　후속 재가열과 가접 노출은<br>별도 집계다",
+      "page": 20,
+      "chapter": "7 시뮬레이션 결과",
+      "label": "7 시뮬레이션 결과",
+      "title": "S1　후속 재가열과 가접 노출은 별도 집계다",
       "file": "chapters/17.html",
       "sources": [
         "sim/test/stage4_results.json",
         "sim/params.json"
-      ]
+      ],
+      "section": "7.1"
     },
     {
-      "page": 18,
-      "chapter": "07　시뮬레이션 결과",
-      "label": "07　시뮬레이션 결과",
+      "page": 21,
+      "chapter": "7 시뮬레이션 결과",
+      "label": "7 시뮬레이션 결과",
       "title": "S2　자기정렬은 작은 오차를 줄인다",
       "file": "chapters/18.html",
       "sources": [
         "sim/test/stage4_results.json",
         "sim/alignment.js"
-      ]
+      ],
+      "section": "7.2"
     },
     {
-      "page": 19,
-      "chapter": "07　시뮬레이션 결과",
-      "label": "07　시뮬레이션 결과",
-      "title": "S3　다이가 얇아지면<br>두 모드 모두 휨이 커졌다",
+      "page": 22,
+      "chapter": "7 시뮬레이션 결과",
+      "label": "7 시뮬레이션 결과",
+      "title": "S3　다이가 얇아지면 두 모드 모두 휨이 커졌다",
       "file": "chapters/19.html",
       "sources": [
         "sim/test/stage4_results.json",
         "sim/warpage.js"
-      ]
+      ],
+      "section": "7.3"
     },
     {
-      "page": 20,
-      "chapter": "07　시뮬레이션 결과",
-      "label": "07　시뮬레이션 결과",
-      "title": "S5　같은 간격에서도<br>입구 압력이 충전 시간을 바꾼다",
+      "page": 23,
+      "chapter": "7 시뮬레이션 결과",
+      "label": "7 시뮬레이션 결과",
+      "title": "S5　같은 간격에서도 입구 압력이 충전 시간을 바꾼다",
       "file": "chapters/20.html",
       "sources": [
         "sim/test/stage4_results.json",
         "sim/params.json"
-      ]
+      ],
+      "section": "7.4"
     },
     {
-      "page": 21,
-      "chapter": "07　시뮬레이션 결과",
-      "label": "07　시뮬레이션 결과",
-      "title": "S4　본더 점유와 배치 후공정을<br>나눠 계산했다",
+      "page": 24,
+      "chapter": "7 시뮬레이션 결과",
+      "label": "7 시뮬레이션 결과",
+      "title": "S4　본더 점유와 배치 후공정을 나눠 계산했다",
       "file": "chapters/21.html",
       "sources": [
         "sim/test/stage4_results.json",
         "sim/cycle.js"
-      ]
+      ],
+      "section": "7.5"
     },
     {
-      "page": 22,
-      "chapter": "08　트러블슈팅과 개선 성과",
-      "label": "08　트러블슈팅과 개선 성과",
-      "title": "아래층 온도 미달을 숨기지 않고<br>알람과 보정으로 다뤘다",
+      "page": 25,
+      "chapter": "8 트러블슈팅과 개선 성과",
+      "label": "8 트러블슈팅과 개선 성과",
+      "title": "아래층 온도 미달을 숨기지 않고 알람과 보정으로 다뤘다",
       "file": "chapters/22.html",
       "sources": [
         "sim/test/stage4_results.json",
         "sim/test/bond_temp_results.json",
         "docs/stage4_model_update.md"
-      ]
+      ],
+      "section": "8.1"
     },
     {
-      "page": 23,
-      "chapter": "08　트러블슈팅과 개선 성과",
-      "label": "08　트러블슈팅과 개선 성과",
-      "title": "모세관만으로는<br>몰딩의 압력 구동이 빠졌다",
+      "page": 26,
+      "chapter": "8 트러블슈팅과 개선 성과",
+      "label": "8 트러블슈팅과 개선 성과",
+      "title": "모세관만으로는 몰딩의 압력 구동이 빠졌다",
       "file": "chapters/23.html",
       "sources": [
         "docs/report/archive_v1/17_트러블슈팅_개선성과.md",
         "sim/muf.js",
         "sim/test/stage4_results.json"
-      ]
+      ],
+      "section": "8.2"
     },
     {
-      "page": 24,
-      "chapter": "08　트러블슈팅과 개선 성과",
-      "label": "08　트러블슈팅과 개선 성과",
-      "title": "채워지는 시간과<br>필러 통과는 다른 조건이다",
+      "page": 27,
+      "chapter": "8 트러블슈팅과 개선 성과",
+      "label": "8 트러블슈팅과 개선 성과",
+      "title": "채워지는 시간과 필러 통과는 다른 조건이다",
       "file": "chapters/24.html",
       "sources": [
         "sim/muf.js",
         "docs/stage4_model_update.md",
         "sim/test/stage4_results.json"
-      ]
+      ],
+      "section": "8.3"
     },
     {
-      "page": 25,
-      "chapter": "08　트러블슈팅과 개선 성과",
-      "label": "08　트러블슈팅과 개선 성과",
-      "title": "적분 포화 대응과<br>능력 초과 거부를 함께 넣었다",
+      "page": 28,
+      "chapter": "8 트러블슈팅과 개선 성과",
+      "label": "8 트러블슈팅과 개선 성과",
+      "title": "적분 포화 대응과 능력 초과 거부를 함께 넣었다",
       "file": "chapters/25.html",
       "sources": [
         "firmware/README.md",
         "docs/report/archive_v1/17_트러블슈팅_개선성과.md"
-      ]
+      ],
+      "section": "8.4"
     },
     {
-      "page": 26,
-      "chapter": "08　트러블슈팅과 개선 성과",
-      "label": "08　트러블슈팅과 개선 성과",
-      "title": "초기 두께와 시간의<br>정의를 복구했다",
+      "page": 29,
+      "chapter": "8 트러블슈팅과 개선 성과",
+      "label": "8 트러블슈팅과 개선 성과",
+      "title": "초기 두께와 시간의 정의를 복구했다",
       "file": "chapters/26.html",
       "sources": [
         "docs/tcncf_mode_report.md",
         "docs/report/archive_v1/17_트러블슈팅_개선성과.md"
-      ]
+      ],
+      "section": "8.5"
     },
     {
-      "page": 27,
-      "chapter": "08　트러블슈팅과 개선 성과",
-      "label": "08　트러블슈팅과 개선 성과",
-      "title": "“PI 유지” 설명을<br>실제 생성 조건에 맞췄다",
+      "page": 30,
+      "chapter": "8 트러블슈팅과 개선 성과",
+      "label": "8 트러블슈팅과 개선 성과",
+      "title": "“PI 유지” 설명을 실제 생성 조건에 맞췄다",
       "file": "chapters/27.html",
       "sources": [
         "docs/sim_port_report.md",
         "docs/report/archive_v1/07_열설계.md"
-      ]
+      ],
+      "section": "8.6"
     },
     {
-      "page": 28,
-      "chapter": "08　트러블슈팅과 개선 성과",
-      "label": "08　트러블슈팅과 개선 성과",
-      "title": "실행 환경의 차이를<br>모델 변경과 분리했다",
+      "page": 31,
+      "chapter": "8 트러블슈팅과 개선 성과",
+      "label": "8 트러블슈팅과 개선 성과",
+      "title": "실행 환경의 차이를 모델 변경과 분리했다",
       "file": "chapters/28.html",
       "sources": [
         "cad/tools/check_encoding.py",
         "sim/test/scenario.test.js",
         "docs/report/archive_v1/16_디지털트윈.md"
-      ]
+      ],
+      "section": "8.7"
     },
     {
-      "page": 29,
-      "chapter": "08　트러블슈팅과 개선 성과",
-      "label": "08　트러블슈팅과 개선 성과",
-      "title": "중간 대비 개선은<br>기능과 검증 범위로 정리했다",
+      "page": 32,
+      "chapter": "8 트러블슈팅과 개선 성과",
+      "label": "8 트러블슈팅과 개선 성과",
+      "title": "중간 대비 개선은 기능과 검증 범위로 정리했다",
       "file": "chapters/29.html",
       "sources": [
         "docs/report/archive_v1/17_트러블슈팅_개선성과.md"
-      ]
+      ],
+      "section": "8.8"
     },
     {
-      "page": 30,
-      "chapter": "09　한계와 향후 시험",
-      "label": "09　한계와 향후 시험",
-      "title": "냉각은 아직 목표를<br>전 구간 유지하지 못했다",
+      "page": 33,
+      "chapter": "9 한계와 향후 시험",
+      "label": "9 한계와 향후 시험",
+      "title": "냉각은 아직 목표를 전 구간 유지하지 못했다",
       "file": "chapters/30.html",
       "sources": [
         "calc/hardware/reflow_heater.json",
         "calc/hardware/README.md"
-      ]
+      ],
+      "section": "9.1"
     },
     {
-      "page": 31,
-      "chapter": "09　한계와 향후 시험",
-      "label": "09　한계와 향후 시험",
-      "title": "모델에서 빠진 현상이<br>품질 판단을 제한한다",
+      "page": 34,
+      "chapter": "9 한계와 향후 시험",
+      "label": "9 한계와 향후 시험",
+      "title": "모델에서 빠진 현상이 품질 판단을 제한한다",
       "file": "chapters/31.html",
       "sources": [
         "docs/report/archive_v1/14_결론.md",
         "sim/thermal.js",
         "sim/warpage.js"
-      ]
+      ],
+      "section": "9.2"
     },
     {
-      "page": 32,
-      "chapter": "09　한계와 향후 시험",
-      "label": "09　한계와 향후 시험",
-      "title": "제작 후에는 열·기밀·안전을<br>먼저 확인해야 한다",
+      "page": 35,
+      "chapter": "9 한계와 향후 시험",
+      "label": "9 한계와 향후 시험",
+      "title": "제작 후에는 열·기밀·안전을 먼저 확인해야 한다",
       "file": "chapters/32.html",
       "sources": [
         "docs/manual/실습매뉴얼.md",
         "firmware/README.md",
         "calc/hardware/README.md"
-      ]
+      ],
+      "section": "9.3"
     },
     {
-      "page": 33,
-      "chapter": "10　결론",
-      "label": "10　결론",
-      "title": "다음 판단에 필요한<br>실패 조건을 남겼다",
+      "page": 36,
+      "chapter": "10 결론",
+      "label": "10 결론",
+      "title": "다음 판단에 필요한 실패 조건을 남겼다",
       "file": "chapters/33.html",
       "sources": [
         "docs/report/archive_v1/14_결론.md"
-      ]
+      ],
+      "section": "10.1"
     },
     {
-      "page": 34,
-      "chapter": "참고문헌",
-      "label": "참고문헌",
+      "page": 37,
+      "chapter": "11 참고문헌",
+      "label": "11 참고문헌",
       "title": "요구·공정 입력의 출처",
       "file": "chapters/34.html",
       "sources": [
         "docs/research/params_research.md",
         "sim/params.json"
-      ]
+      ],
+      "section": "11.1"
     },
     {
-      "page": 35,
-      "chapter": "참고문헌",
-      "label": "참고문헌",
+      "page": 38,
+      "chapter": "11 참고문헌",
+      "label": "11 참고문헌",
       "title": "계산과 검증의 추적 경로",
       "file": "chapters/35.html",
       "sources": [
         "docs/report/archive_v1/14_결론.md",
         "sim/test/golden_vectors.json"
-      ]
+      ],
+      "section": "11.2"
     }
   ],
   "summary": [
@@ -403,7 +474,13 @@
       "file": "summary/01.html",
       "sources": [
         "sim/test/stage4_results.json"
-      ]
+      ],
+      "report_pages": [
+        1,
+        3,
+        4
+      ],
+      "report_page_label": "1・3–4"
     },
     {
       "page": 2,
@@ -414,7 +491,15 @@
       "sources": [
         "docs/requirements.md",
         "docs/report/archive_v1/12_통합검증.md"
-      ]
+      ],
+      "report_pages": [
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "report_page_label": "3–7"
     },
     {
       "page": 3,
@@ -425,7 +510,19 @@
       "sources": [
         "sim/params.json",
         "docs/report/archive_v1/11_CAD도면.md"
-      ]
+      ],
+      "report_pages": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "report_page_label": "8–16"
     },
     {
       "page": 4,
@@ -436,7 +533,13 @@
       "sources": [
         "firmware/README.md",
         "docs/report/archive_v1/16_디지털트윈.md"
-      ]
+      ],
+      "report_pages": [
+        17,
+        18,
+        19
+      ],
+      "report_page_label": "17–19"
     },
     {
       "page": 5,
@@ -446,7 +549,12 @@
       "file": "summary/05.html",
       "sources": [
         "sim/test/stage4_results.json"
-      ]
+      ],
+      "report_pages": [
+        20,
+        21
+      ],
+      "report_page_label": "20–21"
     },
     {
       "page": 6,
@@ -457,7 +565,13 @@
       "sources": [
         "sim/test/stage4_results.json",
         "sim/params.json"
-      ]
+      ],
+      "report_pages": [
+        22,
+        23,
+        24
+      ],
+      "report_page_label": "22–24"
     },
     {
       "page": 7,
@@ -468,7 +582,11 @@
       "sources": [
         "sim/test/stage4_results.json",
         "sim/test/bond_temp_results.json"
-      ]
+      ],
+      "report_pages": [
+        25
+      ],
+      "report_page_label": "25"
     },
     {
       "page": 8,
@@ -479,7 +597,17 @@
       "sources": [
         "docs/report/archive_v1/17_트러블슈팅_개선성과.md",
         "firmware/README.md"
-      ]
+      ],
+      "report_pages": [
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32
+      ],
+      "report_page_label": "26–32"
     },
     {
       "page": 9,
@@ -491,7 +619,16 @@
         "calc/hardware/reflow_heater.json",
         "calc/hardware/README.md",
         "firmware/README.md"
-      ]
+      ],
+      "report_pages": [
+        33,
+        34,
+        35,
+        36,
+        37,
+        38
+      ],
+      "report_page_label": "33–38"
     }
   ],
   "appendix": [

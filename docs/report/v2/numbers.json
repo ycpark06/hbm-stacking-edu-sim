@@ -791,5 +791,74 @@
     "scale": 1,
     "display": "0.012",
     "kind": "계산 결과"
+  },
+  "cad_width": {
+    "source": "cad/stacker/out/summary.json",
+    "key": [
+      "bbox_mm",
+      0
+    ],
+    "stored": 590.0,
+    "digits": 0,
+    "scale": 1,
+    "display": "590",
+    "kind": "모델 구성값"
+  },
+  "cad_depth": {
+    "source": "cad/stacker/out/summary.json",
+    "key": [
+      "bbox_mm",
+      1
+    ],
+    "stored": 480.0,
+    "digits": 0,
+    "scale": 1,
+    "display": "480",
+    "kind": "모델 구성값"
+  },
+  "cad_height": {
+    "source": "cad/stacker/out/summary.json",
+    "key": [
+      "bbox_mm",
+      2
+    ],
+    "stored": 630.0,
+    "digits": 0,
+    "scale": 1,
+    "display": "630",
+    "kind": "참고값"
+  },
+  "cad_interference": {
+    "source": "cad/stacker/out/summary.json",
+    "key": [
+      "interference_count"
+    ],
+    "stored": 0,
+    "digits": 0,
+    "scale": 1,
+    "display": "0",
+    "kind": "관찰 항목 · 저장 자세"
+  },
+  "cad_mass": {
+    "source": "cad/stacker/out/summary.json",
+    "key": [
+      "mass_kg"
+    ],
+    "stored": 101.88,
+    "digits": 2,
+    "scale": 1,
+    "display": "101.88",
+    "kind": "참고값"
+  },
+  "cad_fusion_mass": {
+    "source": "cad/stacker/out/summary.json",
+    "key": [
+      "fusion_mass_kg"
+    ],
+    "stored": 135.14,
+    "digits": 2,
+    "scale": 1,
+    "display": "135.14",
+    "kind": "참고값 · 대체 재질 영향"
   }
 }
