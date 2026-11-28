@@ -1,0 +1,50 @@
+flowchart LR
+  subgraph SEN["센서"]
+    direction TB
+    LC["로드셀 100 N<br/>24 bit ADC 2 kSPS"]
+    TC["열전대 툴 팁 · 척<br/>AD8495 아날로그"]
+    ENC["조동 엔코더 1 μm<br/>미동 정전용량 10 nm"]
+    LZ["레이저 변위센서<br/>높이 · 휨 · BLT"]
+    VS["진공 · 냉각수 유량 센서"]
+    CAMS["듀얼 비전 · 측면 · 하부 카메라"]
+    MPG["MPG 핸드휠<br/>0.1 / 1 / 10 μm"]
+  end
+  subgraph PC["상위 PC (Python · OpenCV)"]
+    direction TB
+    V["피듀셜 NCC 검출<br/>아핀 보정 · Δx Δy Δθ"]
+    IMG["보이드 면적 · 필렛 · 언더필 유동 분석"]
+    G["레시피(구간 프로파일) · GUI · 로깅"]
+  end
+  subgraph MCU["실시간 제어기 STM32H7"]
+    direction TB
+    SM["시퀀스 상태기계 · 모드 전환<br/>수동 / 자동 / 관찰 / 검증"]
+    FPID["하중 PID 1 ms"]
+    TPID["온도 PID 10 ms"]
+    MC["모션 제어<br/>조동 → 미동 2단 위치결정"]
+  end
+  subgraph ACT["구동기"]
+    direction TB
+    MXY["조동 XY 서보"]
+    PZ["미동 XY 피에조 플렉셔"]
+    MZ["Z 서보 + 판스프링"]
+    MT["θ 스테이지"]
+    HT["AlN 히터 PWM · 공랭 밸브"]
+    HB["척 히터 · 수냉 펌프"]
+    GAS["N2 유량 제어 · 짐벌 클램프"]
+    DSP["디스펜서 · 스탬핑 · 진공 밸브"]
+  end
+  subgraph SAFE["독립 안전 회로"]
+    S1["비상정지 · 도어 인터록<br/>과하중 55 N · 과온 420 ℃<br/>냉각수 끊김"]
+  end
+  CAMS --> V & IMG
+  V -- 보정량 --> SM
+  G <--> SM
+  IMG --> G
+  MPG --> MC
+  LC --> FPID --> MZ
+  TC --> TPID --> HT & HB
+  ENC --> MC --> MXY & PZ & MT
+  LZ --> G
+  VS --> SM
+  SM --> FPID & TPID & MC & GAS & DSP
+  S1 -. 전원 차단 .-> ACT
