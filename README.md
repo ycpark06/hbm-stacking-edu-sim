@@ -26,7 +26,7 @@ CAD 페이지에서 10개 GLB 그룹 선택·분해·숨기기, 중간/기말 �
 
 **기말 보고서:** [v2 본보고서·요약본 원고·PDF 빌드](docs/report/v2/) · [기존 96쪽 판 이력](docs/report/archive_v1/)
 **실습 매뉴얼:** [적층 공정 비교 실습](docs/manual/실습매뉴얼.md)
-**발표 자료:** [docs/presentation/](docs/presentation/) (PowerPoint, 데모 체크리스트)
+**발표 자료:** [최종 발표 PowerPoint (21장)](docs/presentation/v4/MSE489_기말발표_최종.pptx) · [이전 판·데모 체크리스트](docs/presentation/)
 
 ---
 
