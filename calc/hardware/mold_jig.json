@@ -230,6 +230,12 @@
         "kind": "문헌값",
         "source": "sim/params.json reflow.time_above_liquidus.note"
       },
+      "cooling_criterion_lower_temp": {
+        "value": 180,
+        "unit": "C",
+        "kind": "design",
+        "source": "사용자 확정 2026-11-28: 판정 구간 하한 180 ℃(액상선 221 ℃보다 아래)"
+      },
       "cool_to": {
         "value": 100,
         "unit": "C",
@@ -1742,8 +1748,13 @@
           30
         ],
         "kind": "literature",
-        "source": "https://conferences.computer.org/ectc/pdfs/ECTC2023-1NkkviSxgDnmPjptC1ysqm/349800a878/349800a878.pdf",
-        "note": "SK hynix MR-MUF 8Hi 15 μm 기본값. Samsung TC-NCF 12H 7 μm, 일반 범프 적층 약 30 μm. 20 μm는 \"시험 칩\" 선택지 (HANDOFF 1절 #1, 2026-11-25)."
+        "source": "https://conferences.computer.org/ectc/pdfs/ECTC2023-1NkkviSxgDnmPjptC1ysqm/349800a878/349800a878.pdf ; https://www.3dincites.com/2024/06/why-are-hbm-manufacturers-choosing-liquid-mold-underfill/",
+        "note": " 사용자 확정 선택 범위 7~30 um 유지 (05 HANDOFF S5); literature_range는 패치 문헌 범위.",
+        "source_kind": "문헌",
+        "literature_range": [
+          15,
+          20
+        ]
       },
       "bump_diameter": {
         "value": 25,
