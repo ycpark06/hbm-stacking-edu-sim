@@ -4,6 +4,24 @@
 > 중간 과제의 교육용 다이본더를 다단 적층 본더로 고도화한 디지털 트윈
 
 **데모 사이트:** https://ycpark06.github.io/hbm-stacking-edu-sim/
+
+**CAD 탐색:** https://ycpark06.github.io/hbm-stacking-edu-sim/web/cad.html
+
+**공장 동작:** https://ycpark06.github.io/hbm-stacking-edu-sim/web/factory.html
+
+CAD 페이지에서 10개 GLB 그룹 선택·분해·숨기기, 중간/기말 구성 비교, 제작 도면·배선도와 STEP/STL/GLB 산출물을 확인한다. 분해 이동은 표시 설정이며 높이·질량은 참고값이다.
+
+스크린샷 자리 (Claude 브라우저 검증 후 추가):
+
+| 화면 | 저장 예정 경로 |
+|---|---|
+| CAD 전체 | `media/stills/cad_overview.png` |
+| CAD 분해 | `media/stills/cad_exploded.png` |
+| TC-NCF 가압 | `media/stills/factory_tc_bond.png` |
+| MR-MUF 리플로우 | `media/stills/factory_mr_reflow.png` |
+| MR-MUF 충전 | `media/stills/factory_mr_fill.png` |
+| 점유 시간 비교 | `media/stills/factory_comparison.png` |
+
 **시뮬레이션 영상:** [시연 영상 5분 59초 (MP4, 한국어 자막)](https://github.com/ycpark06/hbm-stacking-edu-sim/releases/download/demo-video/MSE489_HBM_stacker_demo.mp4) · [자막 SRT](https://github.com/ycpark06/hbm-stacking-edu-sim/releases/download/demo-video/MSE489_HBM_stacker_demo.ko.srt) · [Release](https://github.com/ycpark06/hbm-stacking-edu-sim/releases/tag/demo-video)
 
 **기말 보고서:** [원고·그림·PDF 빌드](docs/report/final/)
