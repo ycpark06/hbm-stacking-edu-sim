@@ -1,0 +1,115 @@
+{
+  "source": "sim/test/stage4_results.json",
+  "sha256": "efd9833bf04de3df6973b6b8198eac6885ad17e76a12e4f3d31dd0fd8f83119c",
+  "font": "Pretendard",
+  "S1": {
+    "selector": "representative[id=S1].results[0:2]",
+    "recipe": {
+      "mode": "TC-NCF",
+      "layers": 12,
+      "thickness_um": 100,
+      "gap_um": 15,
+      "inlet_pressure_MPa": 1,
+      "bond_force_N": 40,
+      "head_temp_compensation": false,
+      "seed": 489,
+      "alignment_reference": "previous"
+    },
+    "base_bond_peak_C": [
+      208.53952569281378,
+      215.84777140033444,
+      222.06910008203667,
+      227.42864407185758,
+      232.09337624532358,
+      236.18975143978437,
+      239.81529373703995,
+      243.04642210736512,
+      245.94386488275836,
+      248.55648495607917,
+      250.92403096171802,
+      253.0791472762897
+    ],
+    "comp_bond_peak_C": [
+      231.00231829801086,
+      230.99901166826444,
+      230.99281553060217,
+      231.0033465595901,
+      231.00866989714288,
+      231.00521074687046,
+      231.00940660228727,
+      230.9969746486111,
+      231.00297017643652,
+      231.00693454934756,
+      230.9926037180911,
+      231.01118869829833
+    ],
+    "liquidus_C": 221,
+    "comp_required_head_C": [
+      341.387939453125,
+      326.153564453125,
+      314.617919921875,
+      305.609130859375,
+      298.358154296875,
+      292.388916015625,
+      287.408447265625,
+      283.160400390625,
+      279.534912109375,
+      276.385498046875,
+      273.602294921875,
+      271.185302734375
+    ]
+  },
+  "S5": {
+    "selector": "representative[id=S5].results; inlet_pressure_MPa in [0,1]",
+    "rows": [
+      {
+        "gap_um": 7,
+        "inlet_pressure_MPa": 0,
+        "fill_time_s": 1913.0712592448085,
+        "unfilled_fraction": 0.9277006444111814,
+        "judgement": "불량(필러 막힘)"
+      },
+      {
+        "gap_um": 15,
+        "inlet_pressure_MPa": 0,
+        "fill_time_s": 892.7665876475774,
+        "unfilled_fraction": 0.8941645804101098,
+        "judgement": "불량"
+      },
+      {
+        "gap_um": 20,
+        "inlet_pressure_MPa": 0,
+        "fill_time_s": 669.5749407356831,
+        "unfilled_fraction": 0.87779178401996,
+        "judgement": "불량"
+      },
+      {
+        "gap_um": 7,
+        "inlet_pressure_MPa": 1,
+        "fill_time_s": 15.18463306280074,
+        "unfilled_fraction": 0.18848257557099135,
+        "judgement": "불량(필러 막힘)"
+      },
+      {
+        "gap_um": 15,
+        "inlet_pressure_MPa": 1,
+        "fill_time_s": 3.320933922451846,
+        "unfilled_fraction": 0,
+        "judgement": "양호"
+      },
+      {
+        "gap_um": 20,
+        "inlet_pressure_MPa": 1,
+        "fill_time_s": 1.8697641294060616,
+        "unfilled_fraction": 0,
+        "judgement": "양호"
+      }
+    ]
+  },
+  "cross_check": {
+    "source": "sim/test/bond_temp_results.json",
+    "sha256": "411fb23011d54e41b2b9e6865ba0c8fa004def39cf8865fd87fe143d9453f38b",
+    "S1_values_equal": true
+  },
+  "note": "저장값 재도식화. 표시 반올림 외 수치 생성·모델 재실행 없음. 두 그림 축·눈금 최소 14 pt. 문제 그림 세로축 제목은 가로 표시."
+}

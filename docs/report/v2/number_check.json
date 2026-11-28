@@ -1,0 +1,21 @@
+{
+  "automatic_occurrences": 87,
+  "unique_ids": 47,
+  "automatic_pass": true,
+  "manual_contexts": 189,
+  "manual_status": "별도 검토 필요",
+  "S1_cross_check_count": 24,
+  "figures": [
+    {
+      "sidecar": "fig/figure_sources.json",
+      "source": "sim/test/stage4_results.json",
+      "source_hash_pass": true
+    },
+    {
+      "sidecar": "fig/extra_sources.json",
+      "source": "sim/test/stage4_results.json",
+      "source_hash_pass": true
+    }
+  ],
+  "errors": []
+}

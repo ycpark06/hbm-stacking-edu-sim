@@ -1,0 +1,795 @@
+{
+  "base1": {
+    "source": "sim/test/stage4_results.json",
+    "key": [
+      "representative",
+      0,
+      "results",
+      0,
+      "thermal_layers",
+      0,
+      "bond_peak_C"
+    ],
+    "stored": 208.53952569281378,
+    "digits": 1,
+    "scale": 1,
+    "display": "208.5",
+    "kind": "계산 결과"
+  },
+  "base2": {
+    "source": "sim/test/stage4_results.json",
+    "key": [
+      "representative",
+      0,
+      "results",
+      0,
+      "thermal_layers",
+      1,
+      "bond_peak_C"
+    ],
+    "stored": 215.84777140033444,
+    "digits": 1,
+    "scale": 1,
+    "display": "215.8",
+    "kind": "계산 결과"
+  },
+  "comp1": {
+    "source": "sim/test/stage4_results.json",
+    "key": [
+      "representative",
+      0,
+      "results",
+      1,
+      "thermal_layers",
+      0,
+      "bond_peak_C"
+    ],
+    "stored": 231.00231829801086,
+    "digits": 0,
+    "scale": 1,
+    "display": "231",
+    "kind": "계산 결과"
+  },
+  "headmax": {
+    "source": "sim/test/stage4_results.json",
+    "key": [
+      "representative",
+      0,
+      "results",
+      1,
+      "head_compensation",
+      "layers",
+      0,
+      "required_head_C"
+    ],
+    "stored": 341.387939453125,
+    "digits": 0,
+    "scale": 1,
+    "display": "341",
+    "kind": "계산 결과"
+  },
+  "liquidus": {
+    "source": "sim/params.json",
+    "key": [
+      "solder",
+      "liquidus_snag",
+      "value"
+    ],
+    "stored": 221,
+    "digits": 0,
+    "scale": 1,
+    "display": "221",
+    "kind": "문헌값"
+  },
+  "margin": {
+    "source": "sim/params.json",
+    "key": [
+      "judgement",
+      "bond_temp_margin_C",
+      "value"
+    ],
+    "stored": 10,
+    "digits": 0,
+    "scale": 1,
+    "display": "10",
+    "kind": "설계값"
+  },
+  "headlimit": {
+    "source": "sim/params.json",
+    "key": [
+      "equipment_limits",
+      "head_max_temp_C",
+      "value"
+    ],
+    "stored": 400,
+    "digits": 0,
+    "scale": 1,
+    "display": "400",
+    "kind": "원문 KPI"
+  },
+  "tc_cycle": {
+    "source": "sim/test/stage4_results.json",
+    "key": [
+      "representative",
+      3,
+      "results",
+      0,
+      "cycle",
+      "bonder_s"
+    ],
+    "stored": 239.88600000000002,
+    "digits": 0,
+    "scale": 1,
+    "display": "240",
+    "kind": "계산 결과"
+  },
+  "mr_cycle": {
+    "source": "sim/test/stage4_results.json",
+    "key": [
+      "representative",
+      3,
+      "results",
+      1,
+      "cycle",
+      "bonder_s"
+    ],
+    "stored": 40.68600000000001,
+    "digits": 0,
+    "scale": 1,
+    "display": "41",
+    "kind": "계산 결과"
+  },
+  "batch_cycle": {
+    "source": "sim/test/stage4_results.json",
+    "key": [
+      "representative",
+      3,
+      "results",
+      1,
+      "cycle",
+      "batch_post_s"
+    ],
+    "stored": 14825.75,
+    "digits": 0,
+    "scale": 1,
+    "display": "14,826",
+    "kind": "계산 결과"
+  },
+  "fill0": {
+    "source": "sim/test/stage4_results.json",
+    "key": [
+      "representative",
+      4,
+      "results",
+      4,
+      "muf",
+      "fill_time_s"
+    ],
+    "stored": 892.7665876475774,
+    "digits": 0,
+    "scale": 1,
+    "display": "893",
+    "kind": "계산 결과"
+  },
+  "fill1": {
+    "source": "sim/test/stage4_results.json",
+    "key": [
+      "representative",
+      4,
+      "results",
+      5,
+      "muf",
+      "fill_time_s"
+    ],
+    "stored": 3.320933922451846,
+    "digits": 1,
+    "scale": 1,
+    "display": "3.3",
+    "kind": "계산 결과"
+  },
+  "target": {
+    "source": "sim/test/stage4_results.json",
+    "key": [
+      "representative",
+      0,
+      "results",
+      1,
+      "head_compensation",
+      "target_C"
+    ],
+    "stored": 231,
+    "digits": 0,
+    "scale": 1,
+    "display": "231",
+    "kind": "계산 결과"
+  },
+  "tc_head": {
+    "source": "sim/params.json",
+    "key": [
+      "tcncf_process",
+      "head_setpoint",
+      "value"
+    ],
+    "stored": 300,
+    "digits": 0,
+    "scale": 1,
+    "display": "300",
+    "kind": "문헌값"
+  },
+  "tc_force": {
+    "source": "sim/params.json",
+    "key": [
+      "tcncf_process",
+      "bond_force",
+      "value"
+    ],
+    "stored": 40,
+    "digits": 0,
+    "scale": 1,
+    "display": "40",
+    "kind": "설계값"
+  },
+  "tacktemp": {
+    "source": "sim/params.json",
+    "key": [
+      "mrmuf_process",
+      "tack_temp",
+      "value"
+    ],
+    "stored": 240,
+    "digits": 0,
+    "scale": 1,
+    "display": "240",
+    "kind": "가정값"
+  },
+  "tacktime": {
+    "source": "sim/params.json",
+    "key": [
+      "mrmuf_process",
+      "tack_time",
+      "value"
+    ],
+    "stored": 1,
+    "digits": 0,
+    "scale": 1,
+    "display": "1",
+    "kind": "가정값"
+  },
+  "tackforce": {
+    "source": "sim/params.json",
+    "key": [
+      "mrmuf_process",
+      "tack_force",
+      "value"
+    ],
+    "stored": 2,
+    "digits": 0,
+    "scale": 1,
+    "display": "2",
+    "kind": "가정값"
+  },
+  "reflow": {
+    "source": "sim/params.json",
+    "key": [
+      "reflow",
+      "peak_temp",
+      "value"
+    ],
+    "stored": 250,
+    "digits": 0,
+    "scale": 1,
+    "display": "250",
+    "kind": "문헌값"
+  },
+  "moldcure": {
+    "source": "sim/params.json",
+    "key": [
+      "mrmuf_process",
+      "in_mold_cure_time",
+      "value"
+    ],
+    "stored": 100,
+    "digits": 0,
+    "scale": 1,
+    "display": "100",
+    "kind": "문헌값"
+  },
+  "curetemp": {
+    "source": "sim/params.json",
+    "key": [
+      "muf",
+      "cure_temp",
+      "value"
+    ],
+    "stored": 175,
+    "digits": 0,
+    "scale": 1,
+    "display": "175",
+    "kind": "문헌값"
+  },
+  "curehour": {
+    "source": "sim/params.json",
+    "key": [
+      "muf",
+      "cure_time",
+      "value"
+    ],
+    "stored": 4,
+    "digits": 0,
+    "scale": 1,
+    "display": "4",
+    "kind": "문헌값"
+  },
+  "reheat": {
+    "source": "sim/test/stage4_results.json",
+    "key": [
+      "representative",
+      0,
+      "results",
+      0,
+      "thermal_layers",
+      0,
+      "reheat_count"
+    ],
+    "stored": 11,
+    "digits": 0,
+    "scale": 1,
+    "display": "11",
+    "kind": "계산 결과"
+  },
+  "tackexp": {
+    "source": "sim/test/stage4_results.json",
+    "key": [
+      "representative",
+      0,
+      "results",
+      2,
+      "thermal_layers",
+      0,
+      "tack_exposures"
+    ],
+    "stored": 11,
+    "digits": 0,
+    "scale": 1,
+    "display": "11",
+    "kind": "계산 결과"
+  },
+  "tcx": {
+    "source": "sim/test/stage4_results.json",
+    "key": [
+      "representative",
+      1,
+      "results",
+      0,
+      "alignment",
+      "cumulative_um",
+      0
+    ],
+    "stored": 0.24377063387585574,
+    "digits": 2,
+    "scale": 1,
+    "display": "0.24",
+    "kind": "계산 결과"
+  },
+  "tcy": {
+    "source": "sim/test/stage4_results.json",
+    "key": [
+      "representative",
+      1,
+      "results",
+      0,
+      "alignment",
+      "cumulative_um",
+      1
+    ],
+    "stored": -1.1564789944823815,
+    "digits": 2,
+    "scale": 1,
+    "display": "-1.16",
+    "kind": "계산 결과"
+  },
+  "mrx": {
+    "source": "sim/test/stage4_results.json",
+    "key": [
+      "representative",
+      1,
+      "results",
+      1,
+      "alignment",
+      "cumulative_um",
+      0
+    ],
+    "stored": 0.041466768224123006,
+    "digits": 3,
+    "scale": 1,
+    "display": "0.041",
+    "kind": "계산 결과"
+  },
+  "mry": {
+    "source": "sim/test/stage4_results.json",
+    "key": [
+      "representative",
+      1,
+      "results",
+      1,
+      "alignment",
+      "cumulative_um",
+      1
+    ],
+    "stored": 0.011817520746281517,
+    "digits": 3,
+    "scale": 1,
+    "display": "0.012",
+    "kind": "계산 결과"
+  },
+  "w0": {
+    "source": "sim/test/stage4_results.json",
+    "key": [
+      "representative",
+      2,
+      "results",
+      0,
+      "warpage",
+      "max_um"
+    ],
+    "stored": 7.413174969357404,
+    "digits": 1,
+    "scale": 1,
+    "display": "7.4",
+    "kind": "계산 결과"
+  },
+  "w1": {
+    "source": "sim/test/stage4_results.json",
+    "key": [
+      "representative",
+      2,
+      "results",
+      1,
+      "warpage",
+      "max_um"
+    ],
+    "stored": 30.715646567469317,
+    "digits": 1,
+    "scale": 1,
+    "display": "30.7",
+    "kind": "계산 결과"
+  },
+  "ratio0": {
+    "source": "sim/test/stage4_results.json",
+    "key": [
+      "representative",
+      2,
+      "results",
+      0,
+      "warpage",
+      "thickness_half_ratio"
+    ],
+    "stored": 4.143386159699916,
+    "digits": 1,
+    "scale": 1,
+    "display": "4.1",
+    "kind": "계산 결과"
+  },
+  "w2": {
+    "source": "sim/test/stage4_results.json",
+    "key": [
+      "representative",
+      2,
+      "results",
+      2,
+      "warpage",
+      "max_um"
+    ],
+    "stored": 5.406727729136941,
+    "digits": 1,
+    "scale": 1,
+    "display": "5.4",
+    "kind": "계산 결과"
+  },
+  "w3": {
+    "source": "sim/test/stage4_results.json",
+    "key": [
+      "representative",
+      2,
+      "results",
+      3,
+      "warpage",
+      "max_um"
+    ],
+    "stored": 22.1990976477645,
+    "digits": 1,
+    "scale": 1,
+    "display": "22.2",
+    "kind": "계산 결과"
+  },
+  "ratio1": {
+    "source": "sim/test/stage4_results.json",
+    "key": [
+      "representative",
+      2,
+      "results",
+      2,
+      "warpage",
+      "thickness_half_ratio"
+    ],
+    "stored": 4.1058286564224815,
+    "digits": 1,
+    "scale": 1,
+    "display": "4.1",
+    "kind": "계산 결과"
+  },
+  "f70": {
+    "source": "sim/test/stage4_results.json",
+    "key": [
+      "representative",
+      4,
+      "results",
+      0,
+      "muf",
+      "fill_time_s"
+    ],
+    "stored": 1913.0712592448085,
+    "digits": 0,
+    "scale": 1,
+    "display": "1,913",
+    "kind": "계산 결과"
+  },
+  "f71": {
+    "source": "sim/test/stage4_results.json",
+    "key": [
+      "representative",
+      4,
+      "results",
+      1,
+      "muf",
+      "fill_time_s"
+    ],
+    "stored": 15.18463306280074,
+    "digits": 1,
+    "scale": 1,
+    "display": "15.2",
+    "kind": "계산 결과"
+  },
+  "f150": {
+    "source": "sim/test/stage4_results.json",
+    "key": [
+      "representative",
+      4,
+      "results",
+      4,
+      "muf",
+      "fill_time_s"
+    ],
+    "stored": 892.7665876475774,
+    "digits": 0,
+    "scale": 1,
+    "display": "893",
+    "kind": "계산 결과"
+  },
+  "f151": {
+    "source": "sim/test/stage4_results.json",
+    "key": [
+      "representative",
+      4,
+      "results",
+      5,
+      "muf",
+      "fill_time_s"
+    ],
+    "stored": 3.320933922451846,
+    "digits": 1,
+    "scale": 1,
+    "display": "3.3",
+    "kind": "계산 결과"
+  },
+  "f200": {
+    "source": "sim/test/stage4_results.json",
+    "key": [
+      "representative",
+      4,
+      "results",
+      8,
+      "muf",
+      "fill_time_s"
+    ],
+    "stored": 669.5749407356831,
+    "digits": 0,
+    "scale": 1,
+    "display": "670",
+    "kind": "계산 결과"
+  },
+  "f201": {
+    "source": "sim/test/stage4_results.json",
+    "key": [
+      "representative",
+      4,
+      "results",
+      9,
+      "muf",
+      "fill_time_s"
+    ],
+    "stored": 1.8697641294060616,
+    "digits": 1,
+    "scale": 1,
+    "display": "1.9",
+    "kind": "계산 결과"
+  },
+  "fill73": {
+    "source": "sim/test/stage4_results.json",
+    "key": [
+      "representative",
+      4,
+      "results",
+      3,
+      "muf",
+      "fill_time_s"
+    ],
+    "stored": 5.088470186138616,
+    "digits": 1,
+    "scale": 1,
+    "display": "5.1",
+    "kind": "계산 결과"
+  },
+  "tc_batch": {
+    "source": "sim/test/stage4_results.json",
+    "key": [
+      "representative",
+      3,
+      "results",
+      0,
+      "cycle",
+      "batch_post_s"
+    ],
+    "stored": 0,
+    "digits": 0,
+    "scale": 1,
+    "display": "0",
+    "kind": "계산 결과"
+  },
+  "rss": {
+    "source": "calc/midterm/error_budget.json",
+    "key": [
+      "rss_3s"
+    ],
+    "stored": 0.8824964589164084,
+    "digits": 2,
+    "scale": 1,
+    "display": "0.88",
+    "kind": "계산 결과"
+  },
+  "sigma": {
+    "source": "calc/midterm/error_budget.json",
+    "key": [
+      "rss_sigma"
+    ],
+    "stored": 0.29416548630546946,
+    "digits": 3,
+    "scale": 1,
+    "display": "0.294",
+    "kind": "계산 결과"
+  },
+  "coolmin": {
+    "source": "calc/hardware/reflow_heater.json",
+    "key": [
+      "results",
+      "forced_cooling_design_segment",
+      "min_cool_K_s"
+    ],
+    "stored": 3.3931509463912066,
+    "digits": 2,
+    "scale": 1,
+    "display": "3.39",
+    "kind": "계산 결과"
+  },
+  "coolend": {
+    "source": "calc/hardware/reflow_heater.json",
+    "key": [
+      "results",
+      "forced_cooling_design_segment",
+      "end_C"
+    ],
+    "stored": 180,
+    "digits": 0,
+    "scale": 1,
+    "display": "180",
+    "kind": "설계값"
+  },
+  "coolrate": {
+    "source": "calc/hardware/reflow_heater.json",
+    "key": [
+      "results",
+      "forced_cooling_design_segment",
+      "required_min_K_s"
+    ],
+    "stored": 4,
+    "digits": 0,
+    "scale": 1,
+    "display": "4",
+    "kind": "설계값"
+  },
+  "comp_approx": {
+    "source": "sim/test/stage4_results.json",
+    "key": [
+      "representative",
+      0,
+      "results",
+      1,
+      "thermal_layers",
+      0,
+      "bond_peak_C"
+    ],
+    "stored": 231.00231829801086,
+    "digits": 0,
+    "scale": 1,
+    "display": "231",
+    "kind": "계산 결과"
+  },
+  "tcx_short": {
+    "source": "sim/test/stage4_results.json",
+    "key": [
+      "representative",
+      1,
+      "results",
+      0,
+      "alignment",
+      "cumulative_um",
+      0
+    ],
+    "stored": 0.24377063387585574,
+    "digits": 2,
+    "scale": 1,
+    "display": "0.24",
+    "kind": "계산 결과"
+  },
+  "mrx_short": {
+    "source": "sim/test/stage4_results.json",
+    "key": [
+      "representative",
+      1,
+      "results",
+      1,
+      "alignment",
+      "cumulative_um",
+      0
+    ],
+    "stored": 0.041466768224123006,
+    "digits": 3,
+    "scale": 1,
+    "display": "0.041",
+    "kind": "계산 결과"
+  },
+  "tcy_short": {
+    "source": "sim/test/stage4_results.json",
+    "key": [
+      "representative",
+      1,
+      "results",
+      0,
+      "alignment",
+      "cumulative_um",
+      1
+    ],
+    "stored": -1.1564789944823815,
+    "digits": 2,
+    "scale": 1,
+    "display": "-1.16",
+    "kind": "계산 결과"
+  },
+  "mry_short": {
+    "source": "sim/test/stage4_results.json",
+    "key": [
+      "representative",
+      1,
+      "results",
+      1,
+      "alignment",
+      "cumulative_um",
+      1
+    ],
+    "stored": 0.011817520746281517,
+    "digits": 3,
+    "scale": 1,
+    "display": "0.012",
+    "kind": "계산 결과"
+  }
+}

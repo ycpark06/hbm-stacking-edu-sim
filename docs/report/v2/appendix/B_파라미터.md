@@ -1,0 +1,2850 @@
+# 부록 B. 파라미터 전표
+
+`sim/params.json`의 value·kind를 가진 모든 입력을 수록한다. 출처와 note는 원본을 유지한다. kind=midterm은 중간 설계/계산 입력이며 kpi로 바꾸지 않는다.
+
+## geometry.interlayer_gap
+
+```json
+{
+  "value": 15,
+  "unit": "um",
+  "range": [
+    7,
+    30
+  ],
+  "kind": "literature",
+  "source": "https://conferences.computer.org/ectc/pdfs/ECTC2023-1NkkviSxgDnmPjptC1ysqm/349800a878/349800a878.pdf ; https://www.3dincites.com/2024/06/why-are-hbm-manufacturers-choosing-liquid-mold-underfill/",
+  "note": " 사용자 확정 선택 범위 7~30 um 유지 (05 HANDOFF S5); literature_range는 패치 문헌 범위.",
+  "source_kind": "문헌",
+  "literature_range": [
+    15,
+    20
+  ]
+}
+```
+
+## geometry.bump_diameter
+
+```json
+{
+  "value": 25,
+  "unit": "um",
+  "range": [
+    15,
+    50
+  ],
+  "kind": "literature",
+  "source": "https://imapsource.org/article/67660.pdf",
+  "note": "Dow TV-II Cu pillar 25 um; IBM ubump ~25 um"
+}
+```
+
+## geometry.bump_pitch
+
+```json
+{
+  "value": 55,
+  "unit": "um",
+  "range": [
+    40,
+    80
+  ],
+  "kind": "literature",
+  "source": "https://imapsource.org/article/67660.pdf",
+  "note": "Dow TV-II 55 um; industry ~40 um historically (semiengineering)"
+}
+```
+
+## geometry.cu_pillar_height
+
+```json
+{
+  "value": 9,
+  "unit": "um",
+  "range": [
+    5,
+    25
+  ],
+  "kind": "assumption",
+  "source": "docs/research/params_research.md (기본값 제안·미확인 항목), params_draft.json: 기본 간격 15 μm에서 가정 솔더 높이 6 μm를 빼 9 μm로 둔다. 양산 치수는 미공개이며 Dow 시험 칩의 기둥 25 μm를 직접 적용하지 않는다.",
+  "note": "gap 15 minus solder 6; Dow TV-II pillar 25 um for larger gap"
+}
+```
+
+## geometry.solder_cap_height
+
+```json
+{
+  "value": 6,
+  "unit": "um",
+  "range": [
+    3,
+    15
+  ],
+  "kind": "assumption",
+  "source": "docs/research/params_research.md (기본값 제안·미확인 항목), params_draft.json: Dow TV-II 5 μm와 TV-I 15 μm를 참고하여 접합 후 솔더 캡을 6 μm로 가정한다. 양산 HBM 측정값이 아니다. 참고: https://imapsource.org/article/67660.pdf",
+  "note": "Dow TV-II 5 um, TV-I 15 um"
+}
+```
+
+## geometry.die_thickness
+
+```json
+{
+  "value": 100,
+  "unit": "um",
+  "range": [
+    30,
+    100
+  ],
+  "kind": "literature",
+  "source": "https://imapsource.org/article/67660.pdf",
+  "note": "test die 100 um; production 30-60 um (semiengineering, semiwiki, TrendForce). 50 um option."
+}
+```
+
+## geometry.die_size
+
+```json
+{
+  "value": 5,
+  "unit": "mm",
+  "range": [
+    5,
+    5
+  ],
+  "kind": "assumption",
+  "source": "docs/research/params_research.md (기본값 제안·미확인 항목), params_draft.json: docs/requirements.md 3절: 중간 과제 DoE와 같은 5 × 5 mm 더미 다이를 사용한다.",
+  "note": "fixed design decision"
+}
+```
+
+## geometry.stack_height_limit
+
+```json
+{
+  "value": 775,
+  "unit": "um",
+  "range": [
+    720,
+    775
+  ],
+  "kind": "literature",
+  "source": "https://semiengineering.com/hbm4-sticks-with-microbumps-postponing-hybrid-bonding/",
+  "note": "JEDEC limit raised 720->775 um; for context only"
+}
+```
+
+## ncf.film_thickness_over_gap
+
+```json
+{
+  "value": 4,
+  "unit": "um",
+  "range": [
+    3,
+    5
+  ],
+  "kind": "literature",
+  "source": "https://imapsource.org/article/67660.pdf",
+  "note": "film thickness = gap + this; Dow: NCF 3-5 um above solder cap, film 20 um"
+}
+```
+
+## ncf.min_melt_viscosity
+
+```json
+{
+  "value": 1727,
+  "unit": "Pa*s",
+  "range": [
+    1000,
+    30000
+  ],
+  "kind": "literature",
+  "source": "https://dm.henkel-dam.com/is/content/henkel/Whitepaper_Formulating_NCP_and_NCF_for_Optimal_Results_final",
+  "note": "Henkel NCF at 138 C; Dow GEN-1 30000 Pa*s at 130 C"
+}
+```
+
+## ncf.min_viscosity_temp
+
+```json
+{
+  "value": 138,
+  "unit": "C",
+  "range": [
+    100,
+    160
+  ],
+  "kind": "literature",
+  "source": "https://dm.henkel-dam.com/is/content/henkel/Whitepaper_Formulating_NCP_and_NCF_for_Optimal_Results_final",
+  "note": "Dow: typical minimum in 100-160 C"
+}
+```
+
+## ncf.viscosity_activation_energy
+
+```json
+{
+  "value": 60,
+  "unit": "kJ/mol",
+  "range": [
+    50,
+    80
+  ],
+  "kind": "assumption",
+  "source": "docs/research/params_research.md (기본값 제안·미확인 항목), params_draft.json: 실측 점도-온도 곡선이 미공개이므로 경화 전 Arrhenius 점도 감소를 표현하기 위해 초안의 60 kJ/mol(50~80)을 가정한다.",
+  "note": "Arrhenius drop before cure; no public curve"
+}
+```
+
+## ncf.cure_onset_temp
+
+```json
+{
+  "value": 141,
+  "unit": "C",
+  "range": [
+    141,
+    207
+  ],
+  "kind": "literature",
+  "source": "https://imapsource.org/article/67660.pdf",
+  "note": "DSC 10 C/min, Dow GEN-1 (GEN-2: 207)"
+}
+```
+
+## ncf.cure_peak_temp
+
+```json
+{
+  "value": 166,
+  "unit": "C",
+  "range": [
+    166,
+    250
+  ],
+  "kind": "literature",
+  "source": "https://imapsource.org/article/67660.pdf",
+  "note": "Dow GEN-1 (GEN-2: 250)"
+}
+```
+
+## ncf.gel_time_at_250C
+
+```json
+{
+  "value": 3,
+  "unit": "s",
+  "range": [
+    1,
+    10
+  ],
+  "kind": "assumption",
+  "source": "docs/research/params_research.md (기본값 제안·미확인 항목), params_draft.json: Dow 유지 시간 3.2 s와 160 ℃ 이상 빠른 경화를 참고하여 250 ℃ 겔화 시간을 3 s로 가정한다. 실측 반응속도 상수는 미공개다.",
+  "note": "bounded by Dow hold 3.2 s and rapid cure above 160 C"
+}
+```
+
+## ncf.cte1
+
+```json
+{
+  "value": 40,
+  "unit": "ppm/C",
+  "range": [
+    25,
+    40
+  ],
+  "kind": "literature",
+  "source": "https://dm.henkel-dam.com/is/content/henkel/Whitepaper_Formulating_NCP_and_NCF_for_Optimal_Results_final",
+  "note": "Dow 25-28"
+}
+```
+
+## ncf.cte2
+
+```json
+{
+  "value": 137,
+  "unit": "ppm/C",
+  "range": [
+    94,
+    137
+  ],
+  "kind": "literature",
+  "source": "https://dm.henkel-dam.com/is/content/henkel/Whitepaper_Formulating_NCP_and_NCF_for_Optimal_Results_final",
+  "note": ""
+}
+```
+
+## ncf.modulus_25C
+
+```json
+{
+  "value": 6.7,
+  "unit": "GPa",
+  "range": [
+    5.8,
+    7.5
+  ],
+  "kind": "literature",
+  "source": "https://dm.henkel-dam.com/is/content/henkel/Whitepaper_Formulating_NCP_and_NCF_for_Optimal_Results_final",
+  "note": "0.13 GPa at 250 C"
+}
+```
+
+## ncf.modulus_250C
+
+```json
+{
+  "value": 0.13,
+  "unit": "GPa",
+  "range": [
+    0.1,
+    0.6
+  ],
+  "kind": "literature",
+  "source": "https://dm.henkel-dam.com/is/content/henkel/Whitepaper_Formulating_NCP_and_NCF_for_Optimal_Results_final",
+  "note": "NCP 0.6"
+}
+```
+
+## ncf.tg
+
+```json
+{
+  "value": 166,
+  "unit": "C",
+  "range": [
+    92,
+    166
+  ],
+  "kind": "literature",
+  "source": "https://dm.henkel-dam.com/is/content/henkel/Whitepaper_Formulating_NCP_and_NCF_for_Optimal_Results_final",
+  "note": "Dow 122/92"
+}
+```
+
+## ncf.filler_wt
+
+```json
+{
+  "value": 40,
+  "unit": "wt%",
+  "range": [
+    30,
+    60
+  ],
+  "kind": "literature",
+  "source": "https://dm.henkel-dam.com/is/content/henkel/Whitepaper_Formulating_NCP_and_NCF_for_Optimal_Results_final",
+  "note": "upper range assumption"
+}
+```
+
+## ncf.thermal_conductivity
+
+```json
+{
+  "value": 0.4,
+  "unit": "W/m/K",
+  "range": [
+    0.2,
+    0.6
+  ],
+  "kind": "assumption",
+  "source": "docs/research/params_research.md (기본값 제안·미확인 항목), params_draft.json: Henkel UF8807 CUF 0.6 W/m/K와 IBM 측정용 언더필 0.55 W/m/K를 대리 근거로 초안의 NCF 0.4 W/m/K를 가정한다.",
+  "note": "CUF 0.6 (Henkel UF8807), IBM underfill 0.55"
+}
+```
+
+## ncf.density
+
+```json
+{
+  "value": 1500,
+  "unit": "kg/m3",
+  "range": [
+    1400,
+    1600
+  ],
+  "kind": "assumption",
+  "source": "docs/research/params_research.md (기본값 제안·미확인 항목), params_draft.json: Henkel UF8830S CUF 비중 1.6을 대리 근거로 초안의 NCF 밀도 1500 kg/m3를 가정한다.",
+  "note": "CUF SG 1.6 (UF8830S) as proxy"
+}
+```
+
+## ncf.specific_heat
+
+```json
+{
+  "value": 1100,
+  "unit": "J/kg/K",
+  "range": [
+    1000,
+    1300
+  ],
+  "kind": "assumption",
+  "source": "docs/research/params_research.md (기본값 제안·미확인 항목), params_draft.json: 양산 NCF 비열이 미공개이므로 초안의 충전 에폭시 대리값 1100 J/kg/K(1000~1300)를 유지한다. 측정값이 아닌 열용량 계산용 가정이다.",
+  "note": "typical filled epoxy"
+}
+```
+
+## ncf.gel_conversion
+
+```json
+{
+  "value": 0.6,
+  "unit": "1",
+  "kind": "assumption",
+  "source": "겔 전환율 실측값 부재로 0.6을 교육용 기준으로 가정한다. 250 ℃ gel_time을 이 전환율 도달 시간으로 정규화한다.",
+  "range": [
+    0.4,
+    0.8
+  ]
+}
+```
+
+## ncf.castro_A
+
+```json
+{
+  "value": 2,
+  "unit": "1",
+  "kind": "assumption",
+  "source": "model_inventory G10의 발산형 점도를 사용하며 실측 피팅 계수가 없어 지수 A=2를 가정한다.",
+  "range": [
+    1,
+    3
+  ]
+}
+```
+
+## ncf.castro_B
+
+```json
+{
+  "value": 0,
+  "unit": "1",
+  "kind": "assumption",
+  "source": "경화도 의존 지수의 실측 자료가 없어 B=0으로 단순화한다."
+}
+```
+
+## ncf.cure_activation_energy
+
+```json
+{
+  "value": 60,
+  "unit": "kJ/mol",
+  "kind": "assumption",
+  "source": "NCF 반응속도 실측값 부재로 원본 process_physics.py의 60 kJ/mol 에폭시 기준을 NCF에 대리 적용한다.",
+  "range": [
+    40,
+    80
+  ]
+}
+```
+
+## ncf.gel_reference_temp
+
+```json
+{
+  "value": 250,
+  "unit": "C",
+  "kind": "design",
+  "source": "ncf.gel_time_at_250C에 대응하는 기준 온도이며 원본 cureRate의 기준점만 변경한다."
+}
+```
+
+## ncf.integration_dt
+
+```json
+{
+  "value": 0.005,
+  "unit": "s",
+  "kind": "assumption",
+  "source": "C1 열 기록을 선형 보간하여 경화와 유동을 결합하는 시간 간격 가정. 절반 간격 검증을 수행한다."
+}
+```
+
+## ncf.film_initialization
+
+```json
+{
+  "value": "interlayer_gap + film_thickness_over_gap (both um)",
+  "unit": "model",
+  "kind": "assumption",
+  "source": "Issue #20: 이전 곱셈 지시 오류를 수정한다. film_thickness_over_gap note와 docs/research/params_research.md:175에 따라 간격에 여유 두께(둘 다 um)를 더한다. 기본 h0=15+4=19 um이다."
+}
+```
+
+## ncf.temperature_proxy
+
+```json
+{
+  "value": "new die-centre temperature for lumped filling layer",
+  "unit": "model",
+  "kind": "assumption",
+  "source": "C1 volume_model은 충전층 독립 온도 없이 다이 절점에 열용량을 합친다. 새 층 절점 온도를 충전층 온도의 대리값으로 사용하는 가정이다."
+}
+```
+
+## ncf.low_viscosity_factor
+
+```json
+{
+  "value": 2,
+  "unit": "1",
+  "kind": "assumption",
+  "source": "최소 용융 점도의 2배 이하를 기포 배출에 유리한 저점도 구간으로 분류하는 정성 규칙 가정이다."
+}
+```
+
+## ncf.low_viscosity_window
+
+```json
+{
+  "value": 1,
+  "unit": "s",
+  "kind": "assumption",
+  "source": "접촉 전 저점도 노출이 1 s 미만이면 짧다고 분류한다. 보이드 면적률로 보정하지 않는 교육용 정성 임계값이다.",
+  "range": [
+    0.5,
+    2
+  ]
+}
+```
+
+## muf.viscosity_at_fill
+
+```json
+{
+  "value": 5,
+  "unit": "Pa.s",
+  "range": [
+    1,
+    10
+  ],
+  "kind": "assumption",
+  "source": "https://www.techscience.com/cmc/v84n1/61779/html ; https://www.electronics.org/system/files/technical_resource/E18&S31-2.pdf ; 교육용 가정 근거: LMC viscosity at molding temperature not found. Uses surrogate-oil range and granular EMC U-curve minimum of 6.5 Pa.s at 175 C.",
+  "note": "LMC viscosity at molding temperature not found. Uses surrogate-oil range and granular EMC U-curve minimum of 6.5 Pa.s at 175 C.",
+  "source_kind": "문헌(간접)+가정"
+}
+```
+
+## muf.surface_tension
+
+```json
+{
+  "value": 0.0298,
+  "unit": "N/m",
+  "range": [
+    0.025,
+    0.035
+  ],
+  "kind": "assumption",
+  "source": "https://www.techscience.com/cmc/v84n1/61779/html ; 교육용 가정 근거: Paper's estimate for EMC at 175 C.",
+  "note": "Paper's estimate for EMC at 175 C.",
+  "source_kind": "문헌(추정)+가정"
+}
+```
+
+## muf.contact_angle
+
+```json
+{
+  "value": 20,
+  "unit": "deg",
+  "range": [
+    19,
+    70
+  ],
+  "kind": "literature",
+  "source": "https://www.techscience.com/cmc/v84n1/61779/html",
+  "note": "Depends on queue time after plasma.",
+  "source_kind": "문헌"
+}
+```
+
+## muf.filler_content
+
+```json
+{
+  "value": 77,
+  "unit": "%",
+  "range": [
+    70,
+    90
+  ],
+  "kind": "literature",
+  "source": "https://conferences.computer.org/ectc/pdfs/ECTC2023-1NkkviSxgDnmPjptC1ysqm/349800a878/349800a878.pdf",
+  "note": "SK hynix MUF"
+}
+```
+
+## muf.filler_max_size
+
+```json
+{
+  "value": 3,
+  "unit": "um",
+  "range": [
+    3,
+    5
+  ],
+  "kind": "literature",
+  "source": "https://conferences.computer.org/ectc/pdfs/ECTC2023-1NkkviSxgDnmPjptC1ysqm/349800a878/349800a878.pdf ; https://imapsource.org/article/129614-low-warpage-liquid-compression-molded-underfill-for-wafer-level-packaging.pdf",
+  "note": "SK hynix 3 um for a 15 um gap. Henkel 5 um top cut for a 20 um gap.",
+  "source_kind": "문헌"
+}
+```
+
+## muf.cte1
+
+```json
+{
+  "value": 18,
+  "unit": "ppm/C",
+  "range": [
+    8,
+    20
+  ],
+  "kind": "literature",
+  "source": "https://conferences.computer.org/ectc/pdfs/ECTC2023-1NkkviSxgDnmPjptC1ysqm/349800a878/349800a878.pdf",
+  "note": "Panasonic MUF 9-20"
+}
+```
+
+## muf.cte2
+
+```json
+{
+  "value": 50,
+  "unit": "ppm/C",
+  "range": [
+    38,
+    64
+  ],
+  "kind": "literature",
+  "source": "https://industrial.panasonic.com/sa/products/pt/adv-sc-pkg-em/ecommuf",
+  "note": "Panasonic MUF range; SK hynix value not given"
+}
+```
+
+## muf.modulus
+
+```json
+{
+  "value": 11,
+  "unit": "GPa",
+  "range": [
+    11,
+    26
+  ],
+  "kind": "literature",
+  "source": "https://conferences.computer.org/ectc/pdfs/ECTC2023-1NkkviSxgDnmPjptC1ysqm/349800a878/349800a878.pdf",
+  "note": ""
+}
+```
+
+## muf.tg
+
+```json
+{
+  "value": 152,
+  "unit": "C",
+  "range": [
+    145,
+    186
+  ],
+  "kind": "literature",
+  "source": "https://conferences.computer.org/ectc/pdfs/ECTC2023-1NkkviSxgDnmPjptC1ysqm/349800a878/349800a878.pdf",
+  "note": "selected LMC resin C"
+}
+```
+
+## muf.thermal_conductivity
+
+```json
+{
+  "value": 1.0,
+  "unit": "W/m/K",
+  "range": [
+    0.6,
+    4
+  ],
+  "kind": "assumption",
+  "source": "docs/research/params_research.md (기본값 제안·미확인 항목), params_draft.json: 일반 EMC 약 0.9 W/m/K(초안의 낮은 신뢰도 TDS 참고값)를 대리 근거로 1.0 W/m/K를 가정한다. 양산 MUF 측정값이 아니다.",
+  "note": "generic EMC ~0.9 (Hitachi TDS, low confidence); vendor claims 4-8"
+}
+```
+
+## muf.density
+
+```json
+{
+  "value": 2000,
+  "unit": "kg/m3",
+  "range": [
+    1800,
+    2100
+  ],
+  "kind": "literature",
+  "source": "https://e2e.ti.com/cfs-file/__key/communityserver-discussions-components-files/196/TDS-of-CEL_2D00_9220HF10.pdf",
+  "note": "SG 2.02 generic mold compound, low confidence"
+}
+```
+
+## muf.specific_heat
+
+```json
+{
+  "value": 900,
+  "unit": "J/kg/K",
+  "range": [
+    800,
+    1100
+  ],
+  "kind": "assumption",
+  "source": "docs/research/params_research.md (기본값 제안·미확인 항목), params_draft.json: 양산 MUF 비열은 조사 자료의 미확인 항목 6이다. 충전 에폭시의 열용량을 근사하기 위해 초안의 900 J/kg/K(800~1100)를 유지하는 교육용 가정이다.",
+  "note": ""
+}
+```
+
+## muf.cure_temp
+
+```json
+{
+  "value": 175,
+  "unit": "degC",
+  "range": [
+    150,
+    175
+  ],
+  "kind": "literature",
+  "source": "course lecture ; https://patents.google.com/patent/WO2012133384A1/en ; https://imapsource.org/article/129614-low-warpage-liquid-compression-molded-underfill-for-wafer-level-packaging.pdf",
+  "note": "175 C 4 h (lecture, patent) or 150 C 1 h (Henkel LCMUF).",
+  "source_kind": "문헌"
+}
+```
+
+## muf.cure_time
+
+```json
+{
+  "value": 4,
+  "unit": "h",
+  "range": [
+    1,
+    4
+  ],
+  "kind": "literature",
+  "source": "course lecture ; https://imapsource.org/article/129614-low-warpage-liquid-compression-molded-underfill-for-wafer-level-packaging.pdf",
+  "note": "",
+  "source_kind": "문헌"
+}
+```
+
+## muf.applied_pressure
+
+```json
+{
+  "value": 1,
+  "unit": "MPa",
+  "range": [
+    0.1,
+    3
+  ],
+  "kind": "assumption",
+  "source": "사용자 확정 2026-11-26 (05 HANDOFF 1절 1번): 간격 입구 유효 압력은 공개 수치가 없어 기본 1 MPa, 범위 0.1~3 MPa로 둔다. 금형 압력 3 MPa(문헌)의 손실 후 값",
+  "note": "Effective pressure at the inter-chip gap inlet is not known. Sweep this value.",
+  "source_kind": "가정"
+}
+```
+
+## muf.gel_time
+
+```json
+{
+  "value": 25,
+  "unit": "s",
+  "range": [
+    18,
+    40
+  ],
+  "kind": "literature",
+  "source": "https://www.electronics.org/system/files/technical_resource/E18&S31-2.pdf ; https://www.eesemi.com/moldcomp.htm",
+  "note": "Granular EMC at 175 C. LMC gel time not found.",
+  "source_kind": "문헌"
+}
+```
+
+## muf.gap_to_filler_min_ratio
+
+```json
+{
+  "value": 4,
+  "unit": "-",
+  "range": [
+    3,
+    5
+  ],
+  "kind": "literature",
+  "source": "https://www.electronicdesign.com/boards/use-underfill-encapsulants-enhance-flip-chip-assembly-reliability ; https://conferences.computer.org/ectc/pdfs/ECTC2023-1NkkviSxgDnmPjptC1ysqm/349800a878/349800a878.pdf",
+  "note": "General rule is 3x. HBM practice is 4-5x. Warn when below the ratio.",
+  "source_kind": "문헌"
+}
+```
+
+## muf.fill_model
+
+```json
+{
+  "value": "pressure_driven_hele_shaw_plus_capillary",
+  "unit": "-",
+  "range": null,
+  "kind": "literature",
+  "source": "https://conferences.computer.org/ectc/pdfs/ECTC2023-1NkkviSxgDnmPjptC1ysqm/349800a878/349800a878.pdf ; https://www.techscience.com/cmc/v84n1/61779/html",
+  "note": "t = 6*mu*L^2/(h^2*dP). Capillary pressure (about 1-4 kPa) is about 0.1% of mold pressure, so treat it as a correction term.",
+  "source_kind": "문헌+계산"
+}
+```
+
+## solder.liquidus_snag
+
+```json
+{
+  "value": 221,
+  "unit": "C",
+  "range": [
+    217,
+    221
+  ],
+  "kind": "literature",
+  "source": "https://www.msed.nist.gov/solder/clech/Sn-Ag_Overview.htm",
+  "note": "SAC305 217-220 C"
+}
+```
+
+## solder.surface_tension
+
+```json
+{
+  "value": 0.49,
+  "unit": "N/m",
+  "range": [
+    0.43,
+    0.49
+  ],
+  "kind": "literature",
+  "source": "https://www.msed.nist.gov/solder/clech/Sn-Ag_Other.htm",
+  "note": "Sn-3.5Ag, N2 0.493 / air 0.431, at liquidus+50 C"
+}
+```
+
+## solder.self_align_stiffness_model
+
+```json
+{
+  "value": "k = 2*gamma*d/h per bump (small displacement)",
+  "unit": "N/m",
+  "range": null,
+  "kind": "literature",
+  "source": "https://infoscience.epfl.ch/record/205124/files/Mastrangeli-MufNaf2014.pdf?version=1",
+  "note": "valid u<<h; stiffness halves after contact-line depinning, then zero. d=25 um, h=6 um gives ~4 N/m per bump"
+}
+```
+
+## solder.molten_height_for_alignment
+
+```json
+{
+  "value": 6,
+  "unit": "um",
+  "range": [
+    3,
+    15
+  ],
+  "kind": "assumption",
+  "source": "docs/research/params_research.md (기본값 제안·미확인 항목), params_draft.json: 자기정렬 계산의 용융 높이는 geometry.solder_cap_height의 가정값 6 μm와 같게 둔다.",
+  "note": "equals solder cap height"
+}
+```
+
+## reflow.preheat_start
+
+```json
+{
+  "value": 150,
+  "unit": "C",
+  "range": [
+    150,
+    150
+  ],
+  "kind": "literature",
+  "source": "https://www.microchip.com/content/dam/mchp/documents/FPGA/ProductDocuments/PackagingSpecifications/solder_reflow_leadfree.pdf",
+  "note": ""
+}
+```
+
+## reflow.preheat_end
+
+```json
+{
+  "value": 200,
+  "unit": "C",
+  "range": [
+    200,
+    200
+  ],
+  "kind": "literature",
+  "source": "https://www.microchip.com/content/dam/mchp/documents/FPGA/ProductDocuments/PackagingSpecifications/solder_reflow_leadfree.pdf",
+  "note": ""
+}
+```
+
+## reflow.soak_time
+
+```json
+{
+  "value": 90,
+  "unit": "s",
+  "range": [
+    60,
+    120
+  ],
+  "kind": "literature",
+  "source": "https://www.microchip.com/content/dam/mchp/documents/FPGA/ProductDocuments/PackagingSpecifications/solder_reflow_leadfree.pdf",
+  "note": ""
+}
+```
+
+## reflow.ramp_up
+
+```json
+{
+  "value": 2,
+  "unit": "C/s",
+  "range": [
+    1,
+    3
+  ],
+  "kind": "literature",
+  "source": "https://www.microchip.com/content/dam/mchp/documents/FPGA/ProductDocuments/PackagingSpecifications/solder_reflow_leadfree.pdf",
+  "note": "max 3"
+}
+```
+
+## reflow.peak_temp
+
+```json
+{
+  "value": 250,
+  "unit": "C",
+  "range": [
+    245,
+    260
+  ],
+  "kind": "literature",
+  "source": "https://www.microchip.com/content/dam/mchp/documents/FPGA/ProductDocuments/PackagingSpecifications/solder_reflow_leadfree.pdf",
+  "note": "course lecture 240-260"
+}
+```
+
+## reflow.time_above_liquidus
+
+```json
+{
+  "value": 90,
+  "unit": "s",
+  "range": [
+    60,
+    150
+  ],
+  "kind": "literature",
+  "source": "https://www.microchip.com/content/dam/mchp/documents/FPGA/ProductDocuments/PackagingSpecifications/solder_reflow_leadfree.pdf",
+  "note": "TL=217 C"
+}
+```
+
+## reflow.time_near_peak
+
+```json
+{
+  "value": 20,
+  "unit": "s",
+  "range": [
+    10,
+    30
+  ],
+  "kind": "literature",
+  "source": "https://www.microchip.com/content/dam/mchp/documents/FPGA/ProductDocuments/PackagingSpecifications/solder_reflow_leadfree.pdf",
+  "note": "within 5 C of peak, max ~30 s"
+}
+```
+
+## reflow.ramp_down
+
+```json
+{
+  "value": 4,
+  "unit": "C/s",
+  "range": [
+    1,
+    6
+  ],
+  "kind": "literature",
+  "source": "https://www.microchip.com/content/dam/mchp/documents/FPGA/ProductDocuments/PackagingSpecifications/solder_reflow_leadfree.pdf",
+  "note": "max 6"
+}
+```
+
+## reflow.total_time_25_to_peak_max
+
+```json
+{
+  "value": 480,
+  "unit": "s",
+  "range": [
+    240,
+    480
+  ],
+  "kind": "literature",
+  "source": "https://www.microchip.com/content/dam/mchp/documents/FPGA/ProductDocuments/PackagingSpecifications/solder_reflow_leadfree.pdf",
+  "note": "max 8 min"
+}
+```
+
+## tcncf_process.head_setpoint
+
+```json
+{
+  "value": 300,
+  "unit": "C",
+  "range": [
+    250,
+    300
+  ],
+  "kind": "literature",
+  "source": "https://imapsource.org/article/67660.pdf",
+  "note": "Dow TV-I"
+}
+```
+
+## tcncf_process.die_peak_temp
+
+```json
+{
+  "value": 250,
+  "unit": "C",
+  "range": [
+    235,
+    280
+  ],
+  "kind": "literature",
+  "source": "https://imapsource.org/article/67660.pdf",
+  "note": "center 250, edge 235; K&S peak ~280"
+}
+```
+
+## tcncf_process.stage_temp
+
+```json
+{
+  "value": 100,
+  "unit": "C",
+  "range": [
+    80,
+    150
+  ],
+  "kind": "literature",
+  "source": "https://imapsource.org/article/67660.pdf",
+  "note": "K&S alignment 100-150 C with NCF"
+}
+```
+
+## tcncf_process.bond_force
+
+```json
+{
+  "value": 40,
+  "unit": "N",
+  "range": [
+    25,
+    50
+  ],
+  "kind": "design",
+  "source": "사용자 확정 2026-11-25 (HANDOFF 1절 #4). 문헌 25~75 N (https://dm.henkel-dam.com/is/content/henkel/Whitepaper_Formulating_NCP_and_NCF_for_Optimal_Results_final), 원문 KPI 최대 50 N, 소프트웨어 경고 52 N까지 여유 12 N",
+  "note": "문헌의 시험 하중과 교육 장비의 선택 범위를 구분한다."
+}
+```
+
+## tcncf_process.approach_time
+
+```json
+{
+  "value": 3.2,
+  "unit": "s",
+  "range": [
+    1,
+    4
+  ],
+  "kind": "literature",
+  "source": "https://imapsource.org/article/67660.pdf",
+  "note": ""
+}
+```
+
+## tcncf_process.hold_time
+
+```json
+{
+  "value": 3.2,
+  "unit": "s",
+  "range": [
+    1,
+    5
+  ],
+  "kind": "literature",
+  "source": "https://imapsource.org/article/67660.pdf",
+  "note": ""
+}
+```
+
+## tcncf_process.cool_time
+
+```json
+{
+  "value": 1.7,
+  "unit": "s",
+  "range": [
+    1,
+    3
+  ],
+  "kind": "literature",
+  "source": "https://imapsource.org/article/67660.pdf",
+  "note": ""
+}
+```
+
+## tcncf_process.bond_time_per_layer
+
+```json
+{
+  "value": 10,
+  "unit": "s",
+  "range": [
+    5,
+    15
+  ],
+  "kind": "literature",
+  "source": "https://imapsource.org/api/v1/articles/56216-high-productivity-thermo-compression-flip-chip-bonding.pdf",
+  "note": "K&S 7-15 s current tools; Dow <10 s target"
+}
+```
+
+## mrmuf_process.tack_temp
+
+```json
+{
+  "value": 240,
+  "unit": "C",
+  "range": [
+    220,
+    260
+  ],
+  "kind": "assumption",
+  "source": "docs/research/params_research.md (기본값 제안·미확인 항목), params_draft.json: SK hynix는 순간 고열 가접 방식만 공개했다. 무연 솔더 액상선 이상에서 임시 고정하는 교육용 펄스로 초안의 240 ℃를 가정한다. 참고: https://news.skhynix.com/en/rulebreaker-revolutions-mr-muf-unlocks-hbm-heat-control/",
+  "note": "SK hynix discloses only 'momentary high heat' fusing bump to thin pad"
+}
+```
+
+## mrmuf_process.tack_time
+
+```json
+{
+  "value": 1,
+  "unit": "s",
+  "range": [
+    0.5,
+    3
+  ],
+  "kind": "assumption",
+  "source": "docs/research/params_research.md (기본값 제안·미확인 항목), params_draft.json: 가접 시간은 미공개이므로 순간 가열을 표현하는 초안의 1 s(0.5~3)를 유지한다. 양산 조건이 아닌 교육용 시간 가정이다.",
+  "note": ""
+}
+```
+
+## mrmuf_process.tack_force
+
+```json
+{
+  "value": 2,
+  "unit": "N",
+  "range": [
+    0.5,
+    10
+  ],
+  "kind": "assumption",
+  "source": "docs/research/params_research.md (기본값 제안·미확인 항목), params_draft.json: 매스 리플로우 자체에는 본딩 압력이 없다는 ECTC 2023 설명과 구분하여 임시 고정에만 작은 하중 2 N을 가정한다.",
+  "note": "mass reflow itself uses no bonding pressure (SK hynix ECTC 2023)"
+}
+```
+
+## mrmuf_process.warpage_tolerance
+
+```json
+{
+  "value": 20,
+  "unit": "um",
+  "range": [
+    20,
+    30
+  ],
+  "kind": "literature",
+  "source": "https://conferences.computer.org/ectc/pdfs/ECTC2023-1NkkviSxgDnmPjptC1ysqm/349800a878/349800a878.pdf",
+  "note": "+/-20 um stable joints; +/-30 um with planar mount sequence; 220 ℃ 측정. 문헌값으로 보존하며, judgement.warpage_fail_um의 설계 목표(불량 판정 기준)에 근거로 연결 (HANDOFF 1절 #2)."
+}
+```
+
+## mrmuf_process.mold_fill_temp
+
+```json
+{
+  "value": 175,
+  "unit": "degC",
+  "range": [
+    120,
+    185
+  ],
+  "kind": "literature",
+  "source": "course lecture ; https://imapsource.org/article/129614-low-warpage-liquid-compression-molded-underfill-for-wafer-level-packaging.pdf ; https://patents.google.com/patent/WO2012133384A1/en",
+  "note": "Transfer 175+-10 C. Liquid compression molding 120-125 C.",
+  "source_kind": "문헌"
+}
+```
+
+## mrmuf_process.mold_pressure_applied
+
+```json
+{
+  "value": 3,
+  "unit": "MPa",
+  "range": [
+    1,
+    7
+  ],
+  "kind": "literature",
+  "source": "https://www.techscience.com/cmc/v84n1/61779/html ; https://patents.google.com/patent/WO2012133384A1/en",
+  "note": "3 MPa transfer (CMC 2025) and 3 MPa compression (Sumitomo Bakelite example). 6.9 MPa = spiral-flow test pressure.",
+  "source_kind": "문헌"
+}
+```
+
+## mrmuf_process.in_mold_cure_time
+
+```json
+{
+  "value": 100,
+  "unit": "s",
+  "range": [
+    40,
+    600
+  ],
+  "kind": "literature",
+  "source": "https://www.electronics.org/system/files/technical_resource/E18&S31-2.pdf ; https://imapsource.org/article/129614-low-warpage-liquid-compression-molded-underfill-for-wafer-level-packaging.pdf",
+  "note": "Transfer EMC 40-100 s. LCMUF 600 s at 120 C.",
+  "source_kind": "문헌"
+}
+```
+
+## mrmuf_process.vacuum_level_abs
+
+```json
+{
+  "value": 19,
+  "unit": "kPa",
+  "range": [
+    1,
+    100
+  ],
+  "kind": "assumption",
+  "source": "https://www.techscience.com/cmc/v84n1/61779/html ; https://patents.google.com/patent/WO2012133384A1/en ; 교육용 가정 근거: SK hynix used its minimum vacuum level but gave no number.",
+  "note": "SK hynix used its minimum vacuum level but gave no number.",
+  "source_kind": "문헌+가정"
+}
+```
+
+## materials.si_cte
+
+```json
+{
+  "value": 2.6,
+  "unit": "ppm/K",
+  "range": [
+    2.5,
+    2.6
+  ],
+  "kind": "literature",
+  "source": "https://ssd-rd.web.cern.ch/Data/Si-General.html",
+  "note": ""
+}
+```
+
+## materials.si_E
+
+```json
+{
+  "value": 130,
+  "unit": "GPa",
+  "range": [
+    130,
+    185
+  ],
+  "kind": "literature",
+  "source": "https://www.ioffe.ru/SVA/NSM/Semicond/Si/mechanic.html",
+  "note": "[100]130, [110]170, [111]185"
+}
+```
+
+## materials.si_nu
+
+```json
+{
+  "value": 0.28,
+  "unit": "-",
+  "range": [
+    0.26,
+    0.28
+  ],
+  "kind": "literature",
+  "source": "https://www.ioffe.ru/SVA/NSM/Semicond/Si/mechanic.html",
+  "note": ""
+}
+```
+
+## materials.si_k
+
+```json
+{
+  "value": 150,
+  "unit": "W/m/K",
+  "range": [
+    140,
+    163
+  ],
+  "kind": "literature",
+  "source": "https://ssd-rd.web.cern.ch/Data/Si-General.html",
+  "note": ""
+}
+```
+
+## materials.si_rho
+
+```json
+{
+  "value": 2329,
+  "unit": "kg/m3",
+  "range": [
+    2328,
+    2330
+  ],
+  "kind": "literature",
+  "source": "https://www.ioffe.ru/SVA/NSM/Semicond/Si/mechanic.html",
+  "note": ""
+}
+```
+
+## materials.si_cp
+
+```json
+{
+  "value": 703,
+  "unit": "J/kg/K",
+  "range": [
+    678,
+    703
+  ],
+  "kind": "literature",
+  "source": "https://www.tf.uni-kiel.de/matwis/amat/semi_en/kap_3/backbone/r3_1_3.html",
+  "note": ""
+}
+```
+
+## materials.cu_cte
+
+```json
+{
+  "value": 17,
+  "unit": "ppm/K",
+  "range": [
+    16.5,
+    17
+  ],
+  "kind": "literature",
+  "source": "https://hyperphysics.gsu.edu/hbase/Tables/thexp.html",
+  "note": ""
+}
+```
+
+## materials.cu_E
+
+```json
+{
+  "value": 130,
+  "unit": "GPa",
+  "range": [
+    110,
+    130
+  ],
+  "kind": "literature",
+  "source": "https://www.mit.edu/~6.777/matprops/copper.htm",
+  "note": ""
+}
+```
+
+## materials.cu_nu
+
+```json
+{
+  "value": 0.34,
+  "unit": "-",
+  "range": [
+    0.34,
+    0.34
+  ],
+  "kind": "literature",
+  "source": "https://www.mit.edu/~6.777/matprops/copper.htm",
+  "note": ""
+}
+```
+
+## materials.cu_k
+
+```json
+{
+  "value": 401,
+  "unit": "W/m/K",
+  "range": [
+    385,
+    401
+  ],
+  "kind": "literature",
+  "source": "https://www.mit.edu/~6.777/matprops/copper.htm",
+  "note": ""
+}
+```
+
+## materials.cu_rho
+
+```json
+{
+  "value": 8960,
+  "unit": "kg/m3",
+  "range": [
+    8960,
+    8960
+  ],
+  "kind": "literature",
+  "source": "https://www.mit.edu/~6.777/matprops/copper.htm",
+  "note": ""
+}
+```
+
+## materials.cu_cp
+
+```json
+{
+  "value": 385,
+  "unit": "J/kg/K",
+  "range": [
+    385,
+    385
+  ],
+  "kind": "literature",
+  "source": "https://www.mit.edu/~6.777/matprops/copper.htm",
+  "note": ""
+}
+```
+
+## materials.snag_cte
+
+```json
+{
+  "value": 21.5,
+  "unit": "ppm/K",
+  "range": [
+    21.5,
+    26.9
+  ],
+  "kind": "literature",
+  "source": "https://www.msed.nist.gov/solder/clech/Sn-Ag_Other.htm",
+  "note": ""
+}
+```
+
+## materials.snag_E
+
+```json
+{
+  "value": 50,
+  "unit": "GPa",
+  "range": [
+    40,
+    55
+  ],
+  "kind": "assumption",
+  "source": "docs/research/params_research.md (기본값 제안·미확인 항목), params_draft.json: NIST는 그래프만 제공하므로 초안의 대표 영률 50 GPa(40~55)를 수치 가정으로 둔다. 참고: https://www.msed.nist.gov/solder/clech/Sn-Ag_Other.htm",
+  "note": "NIST shows plot only"
+}
+```
+
+## materials.snag_nu
+
+```json
+{
+  "value": 0.4,
+  "unit": "-",
+  "range": [
+    0.35,
+    0.4
+  ],
+  "kind": "literature",
+  "source": "https://www.msed.nist.gov/solder/clech/Sn-Ag_Other.htm",
+  "note": ""
+}
+```
+
+## materials.snag_k
+
+```json
+{
+  "value": 57,
+  "unit": "W/m/K",
+  "range": [
+    35,
+    57
+  ],
+  "kind": "literature",
+  "source": "https://www.msed.nist.gov/solder/clech/Sn-Ag-Cu_Other.htm",
+  "note": "Castin SAC 57.26; IBM model used 35"
+}
+```
+
+## materials.snag_rho
+
+```json
+{
+  "value": 7500,
+  "unit": "kg/m3",
+  "range": [
+    7370,
+    7500
+  ],
+  "kind": "literature",
+  "source": "https://www.msed.nist.gov/solder/clech/Sn-Ag_Other.htm",
+  "note": ""
+}
+```
+
+## materials.snag_cp
+
+```json
+{
+  "value": 232,
+  "unit": "J/kg/K",
+  "range": [
+    220,
+    240
+  ],
+  "kind": "literature",
+  "source": "https://www.kappalloy.com/pub/media/pdf/TDS%20280%20SAC305%20Tin%20Silver%20Copper.pdf",
+  "note": "SAC305 value"
+}
+```
+
+## materials.bump_layer_R_unit
+
+```json
+{
+  "value": 8.0,
+  "unit": "K*mm2/W",
+  "range": [
+    8,
+    19
+  ],
+  "kind": "literature",
+  "source": "https://www.electronics-cooling.com/2013/03/measured-thermal-resistance-of-microbumps-in-3d-chip-stacks/",
+  "note": "50/71/100 um pitch: 8.0/15.5/19.0, underfilled"
+}
+```
+
+## materials.bump_layer_k_eff
+
+```json
+{
+  "value": 2.0,
+  "unit": "W/m/K",
+  "range": [
+    1,
+    3
+  ],
+  "kind": "literature",
+  "source": "https://www.electronics-cooling.com/2013/03/measured-thermal-resistance-of-microbumps-in-3d-chip-stacks/",
+  "note": "derived: 16 um / 8 K*mm2/W"
+}
+```
+
+## cycle.tcb_cycle_min
+
+```json
+{
+  "value": 1.2,
+  "unit": "s",
+  "range": [
+    1.2,
+    4
+  ],
+  "kind": "literature",
+  "source": "https://imapsource.org/api/v1/articles/56216-high-productivity-thermo-compression-flip-chip-bonding.pdf",
+  "note": "theoretical minimum thermal cycle"
+}
+```
+
+## cycle.tcb_uph_current
+
+```json
+{
+  "value": 350,
+  "unit": "UPH",
+  "range": [
+    300,
+    400
+  ],
+  "kind": "literature",
+  "source": "https://imapsource.org/api/v1/articles/56216-high-productivity-thermo-compression-flip-chip-bonding.pdf",
+  "note": "dual-head flip-chip TCB; target 1000-2000"
+}
+```
+
+## cycle.mrmuf_tack_cycle_per_die
+
+```json
+{
+  "value": 3,
+  "unit": "s",
+  "range": [
+    1.5,
+    5
+  ],
+  "kind": "assumption",
+  "source": "docs/research/params_research.md (기본값 제안·미확인 항목), params_draft.json: 가접과 픽업·배치 시간은 미공개이므로 가접 1 s에 취급 시간을 포함하는 초안의 층당 3 s(1.5~5)를 교육용 사이클 가정으로 유지한다.",
+  "note": "tack + pick/place, undisclosed"
+}
+```
+
+## cycle.mass_reflow_total
+
+```json
+{
+  "value": 360,
+  "unit": "s",
+  "range": [
+    240,
+    480
+  ],
+  "kind": "literature",
+  "source": "https://www.microchip.com/content/dam/mchp/documents/FPGA/ProductDocuments/PackagingSpecifications/solder_reflow_leadfree.pdf",
+  "note": "one batch for whole wafer/stack"
+}
+```
+
+## cycle.xy_speed
+
+```json
+{
+  "value": 50,
+  "unit": "mm/s",
+  "kind": "midterm",
+  "source": "calc/midterm/drive_calc.py:27-28 XY 최대 속도."
+}
+```
+
+## cycle.xy_acceleration
+
+```json
+{
+  "value": 1000,
+  "unit": "mm/s2",
+  "kind": "midterm",
+  "source": "calc/midterm/drive_calc.py:27-28 XY 가속도 1 m/s2의 단위 환산."
+}
+```
+
+## cycle.z_speed
+
+```json
+{
+  "value": 20,
+  "unit": "mm/s",
+  "kind": "midterm",
+  "source": "calc/midterm/drive_calc.py:30 Z 최대 속도."
+}
+```
+
+## cycle.z_acceleration
+
+```json
+{
+  "value": 500,
+  "unit": "mm/s2",
+  "kind": "midterm",
+  "source": "calc/midterm/drive_calc.py:30 Z 가속도 0.5 m/s2의 단위 환산."
+}
+```
+
+## cycle.xy_distance
+
+```json
+{
+  "value": 50,
+  "unit": "mm",
+  "kind": "assumption",
+  "source": "트레이에서 본딩 위치까지 대표 이송 거리를 50 mm로 가정한다. 실측 경로가 없으며 왕복 이동을 이 거리에 포함한다.",
+  "range": [
+    25,
+    100
+  ]
+}
+```
+
+## cycle.z_distance
+
+```json
+{
+  "value": 5,
+  "unit": "mm",
+  "kind": "assumption",
+  "source": "픽업·배치의 고속 Z 총 이동 거리를 5 mm로 가정한다. 저속 접촉 접근은 별도 항목이다.",
+  "range": [
+    2,
+    10
+  ]
+}
+```
+
+## cycle.pickup_time
+
+```json
+{
+  "value": 0.5,
+  "unit": "s",
+  "kind": "assumption",
+  "source": "진공 픽업·확인 시간 실측값 부재로 0.5 s를 가정한다.",
+  "range": [
+    0.2,
+    1
+  ]
+}
+```
+
+## cycle.alignment_frame_time
+
+```json
+{
+  "value": 0.05,
+  "unit": "s",
+  "kind": "assumption",
+  "source": "카메라 노출·전송 및 이동 정착을 포함한 반복 정렬 1회 시간을 50 ms로 가정한다.",
+  "range": [
+    0.02,
+    0.1
+  ]
+}
+```
+
+## cycle.alignment_iterations
+
+```json
+{
+  "value": 1.01,
+  "unit": "count",
+  "kind": "midterm",
+  "source": "calc/midterm/vision.json closed_loop 분포 1회 99.1%, 2회 0.8%, 3회 0.1%의 기대 반복 수 1.010."
+}
+```
+
+## cycle.mrmuf_approach_time
+
+```json
+{
+  "value": 0.5,
+  "unit": "s",
+  "kind": "assumption",
+  "source": "가접 전 저속 접근 실측값이 없어 0.5 s를 가정한다. TC-NCF는 기존 approach_time을 사용한다."
+}
+```
+
+## cycle.mold_dispense_time
+
+```json
+{
+  "value": 10,
+  "unit": "s",
+  "kind": "assumption",
+  "source": "몰딩 재료 공급·금형 취급에 10 s를 가정한다. 충전 및 경화와 분리한 교육용 시간이다.",
+  "range": [
+    5,
+    20
+  ]
+}
+```
+
+## cycle.mold_fill_time
+
+```json
+{
+  "value": 10,
+  "unit": "s",
+  "range": [
+    5,
+    30
+  ],
+  "kind": "literature",
+  "source": "https://www.techscience.com/cmc/v84n1/61779/html ; course lecture",
+  "note": "",
+  "source_kind": "문헌"
+}
+```
+
+## judgement.warpage_caution_ratio
+
+```json
+{
+  "value": 0.25,
+  "unit": "-",
+  "kind": "design",
+  "source": "docs/requirements.md 4절; HANDOFF 1절 #2 사용자 확정 2026-11-25. 1001 플립칩 37쪽의 범프 미접촉 위험에 근거한 조기 경고 설계 목표.",
+  "note": "절대 휨이 층간 간격 × 이 비율을 초과하면 주의. 기본 15 μm에서 3.75 μm."
+}
+```
+
+## judgement.warpage_fail_um
+
+```json
+{
+  "value": 20,
+  "unit": "um",
+  "kind": "design",
+  "source": "https://conferences.computer.org/ectc/pdfs/ECTC2023-1NkkviSxgDnmPjptC1ysqm/349800a878/349800a878.pdf",
+  "ref": "mrmuf_process.warpage_tolerance",
+  "note": "판정 기준(설계 목표), 근거는 문헌값. 절대 휨 20 μm 초과 (±20 μm 밖)이면 불량. SK hynix MR 접합 안정 범위, 220 ℃ 측정. 교육용 공통 판정에 적용 (docs/requirements.md 4절)."
+}
+```
+
+## judgement.defect_good_max_pct
+
+```json
+{
+  "value": 1,
+  "unit": "%",
+  "kind": "design",
+  "source": "docs/requirements.md 4절 결함 면적률: 업체 기준 비공개이므로 MIL-STD-883 Method 2030 다이 부착 기준보다 엄격한 교육용 3단계 표시를 설계했다.",
+  "note": "보이드 + 미충전 합산 ≤ 1 % 양호."
+}
+```
+
+## judgement.defect_fail_above_pct
+
+```json
+{
+  "value": 5,
+  "unit": "%",
+  "kind": "design",
+  "source": "docs/requirements.md 4절 결함 면적률: 업체 기준 비공개이므로 MIL-STD-883 Method 2030 다이 부착 기준보다 엄격한 교육용 3단계 표시를 설계했다.",
+  "note": "1 % 초과 ~ 5 % 이하 주의, 5 % 초과 불량."
+}
+```
+
+## judgement.alignment_layer_3sigma_um
+
+```json
+{
+  "value": 1,
+  "unit": "um",
+  "kind": "design",
+  "source": "docs/requirements.md 4절: 아래층 대비 축별 3σ ≤1 μm 설계 목표. 누적 오차나 단일 시드 표본은 판정 대상이 아니다."
+}
+```
+
+## judgement.bond_temp_margin_C
+
+```json
+{
+  "value": 10,
+  "unit": "degC",
+  "kind": "design",
+  "source": "사용자 확정 2026-11-28 (Issue #29): 액상선 + 10 ℃를 층별 접합 온도 목표로 둔다"
+}
+```
+
+## vendor_claims.skhynix_junction_temp_reduction
+
+```json
+{
+  "value": 14,
+  "unit": "C",
+  "kind": "observation",
+  "company": "SK hynix",
+  "source": "https://conferences.computer.org/ectc/pdfs/ECTC2023-1NkkviSxgDnmPjptC1ysqm/349800a878/349800a878.pdf",
+  "note": "docs/research/params_research.md 7절, Lee et al., ECTC 2023: Advanced CoW MR-MUF 메모리 칩 평균 최대 접합온도가 TC-NCF보다 14 ℃ 낮다는 업체 내부 비교 주장. 관찰 항목(표시만): 회사·출처와 함께 표시하며 판정·계산 입력에 쓰지 않는다."
+}
+```
+
+## vendor_claims.samsung_thermal_resistance_reduction
+
+```json
+{
+  "value": 35,
+  "unit": "%",
+  "kind": "observation",
+  "company": "Samsung (인용 시뮬레이션)",
+  "source": "https://chipscalereview.com/wp-content/uploads/flipbook/38/files/basic-html/page47.html",
+  "note": "docs/research/params_research.md 7절: Samsung ECTC 2023 인용, TC-NCF 접합부 열저항이 MR-MUF보다 35 % 낮다는 임의 단위(A.U.) 시뮬레이션 주장. 관찰 항목(표시만): 회사·출처와 함께 표시하며 판정·계산 입력에 쓰지 않는다."
+}
+```
+
+## thermal_stack.ambient_temp
+
+```json
+{
+  "value": 20,
+  "unit": "C",
+  "kind": "midterm",
+  "source": "calc/midterm/thermal.py:6의 주위 온도를 적층 초기 온도로도 사용한다."
+}
+```
+
+## thermal_stack.dt
+
+```json
+{
+  "value": 0.05,
+  "unit": "s",
+  "kind": "assumption",
+  "source": "얇은 접합층의 빠른 응답을 기록하기 위한 후진 오일러 시간 간격. 1/2 간격 수렴 결과를 함께 보고한다."
+}
+```
+
+## thermal_stack.h_conv
+
+```json
+{
+  "value": 10,
+  "unit": "W/m2/K",
+  "kind": "assumption",
+  "source": "calc/midterm/thermal.py의 자연대류 10을 다이 노출 측면과 상면에 적용하는 가정. 복사는 별도로 포함하지 않는다."
+}
+```
+
+## thermal_stack.h_oven
+
+```json
+{
+  "value": 100,
+  "unit": "W/m2/K",
+  "kind": "assumption",
+  "source": "강제 순환 리플로우 오븐의 대류를 자연대류보다 큰 100으로 근사한다. 장비 측정값이 없으며 리플로우 경계는 척에도 같은 프로파일을 준다."
+}
+```
+
+## thermal_stack.tool_contact_R_area
+
+```json
+{
+  "value": 0.0002,
+  "unit": "m2K/W",
+  "range": [
+    2e-05,
+    0.001
+  ],
+  "kind": "estimate",
+  "source": "https://dspacemainprd01.lib.uwaterloo.ca/server/api/core/bitstreams/c5245d7b-a455-48da-9f03-070fce6eab7b/content ; https://www.jcetglobal.com/uploads/pdf/20200319153130_20609.pdf ; https://imapsource.org/api/v1/articles/56216-high-productivity-thermo-compression-flip-chip-bonding.pdf",
+  "note": "Effective heater-sensor-to-die value back-calculated with a 1D model (research2.md 1.2). No direct measurement found.",
+  "source_kind": "역산+가정"
+}
+```
+
+## thermal_stack.chuck_contact_R_area
+
+```json
+{
+  "value": 0.0002,
+  "unit": "m2K/W",
+  "range": [
+    5e-05,
+    0.002
+  ],
+  "kind": "estimate",
+  "source": "https://patents.google.com/patent/US5548470A/esLanguage ; https://www.swtest.org/swtw_library/2016proc/PDF/S03_01_Armstrong_SWTW2016.pdf",
+  "note": "Air-gap estimate delta/k_air for delta 2-10 um; vacuum ESC h_c 470-1100 W/m2K as upper bound.",
+  "source_kind": "계산+가정"
+}
+```
+
+## thermal_stack.unfilled_gap_capacity
+
+```json
+{
+  "value": "Cu/SnAg pillars only; void capacity neglected",
+  "unit": "model",
+  "kind": "assumption",
+  "source": "MR-MUF 미충전 간격은 지름/피치에서 계산한 범프 체적률만 열용량에 반영한다. 열전도는 underfilled 문헌 대리값 bump_layer_k_eff를 사용하므로 미충전 저항의 불확실성이 있다."
+}
+```
+
+## thermal_stack.mechanical_model
+
+```json
+{
+  "value": "1D strip; constant room-temperature moduli and cte1; no substrate",
+  "unit": "model",
+  "kind": "assumption",
+  "source": "독립 적층체의 열 휨만 비교한다. C2 경화·점탄성 이전 단계이므로 온도 의존 탄성률·Tg·경화 수축·소성·기판 구속을 제외한 선형 탄성 민감도 모델이다."
+}
+```
+
+## thermal_stack.mold_model
+
+```json
+{
+  "value": "replace effective gap with MUF at cure_temp; retain Si reflow reference",
+  "unit": "model",
+  "kind": "assumption",
+  "source": "몰딩 후 간격을 균질 MUF로 치환한다. 수지 무응력 온도는 가정 경화 온도이고 Si는 리플로우 피크를 유지한다. 범프 기계 강성의 병렬 기여는 이 단계에서 제외한다."
+}
+```
+
+## thermal_stack.reflow_shoulder_temp
+
+```json
+{
+  "value": 235.5,
+  "unit": "C",
+  "kind": "assumption",
+  "source": "리플로우 액상선 위 시간과 피크 유지 시간을 함께 지정하기 위해 SnAg 액상선 221 ℃와 피크 250 ℃의 중간 온도 235.5 ℃에 shoulder dwell을 둔다. 양산 오븐 프로파일이 아닌 교육용 구간 구성 가정이다. reflow.time_above_liquidus의 SAC217 기준 시간을 SnAg221 프로그램 경계에 적용한다."
+}
+```
+
+## thermal_stack.volume_model
+
+```json
+{
+  "value": "die-centred node; full gap below; gap capacity lumped to die",
+  "unit": "model",
+  "kind": "assumption",
+  "source": "층별 온도를 Si 다이 중심 온도로 정의한다. Si 열저항은 반씩 나누고 충전층 열저항은 해당 다이 아래에 전부 둔다. 매우 얇은 간격의 별도 온도를 풀지 않고 열용량을 다이에 합친 1차원 근사이다. 툴 접촉 중 상면 대류는 제외한다."
+}
+```
+
+## thermal_stack.T_head_minus_T_die_check
+
+```json
+{
+  "value": 50,
+  "unit": "degC",
+  "range": [
+    5,
+    150
+  ],
+  "kind": "literature",
+  "source": "https://uwspace.uwaterloo.ca/handle/10012/12523 ; https://imapsource.org/api/v1/articles/56216-high-productivity-thermo-compression-flip-chip-bonding.pdf ; https://www.jcetglobal.com/uploads/pdf/20200319153130_20609.pdf",
+  "note": "Validation target: 200->147.5 C (Waterloo), <=5 C die-on-tool (K&S), >400->250 C (STATS ChipPAC).",
+  "source_kind": "문헌"
+}
+```
+
+## head_drift.alignment_wait
+
+```json
+{
+  "value": 90,
+  "unit": "s",
+  "kind": "midterm",
+  "source": "중간 보고서 7장: 설정 온도 도달 90 s 후 정렬."
+}
+```
+
+## head_drift.fit_window
+
+```json
+{
+  "value": 10,
+  "unit": "s",
+  "kind": "assumption",
+  "source": "7장 on/off 제어의 스위칭 온도 진동을 평균화하기 위해 정렬 시각 중심 10 s 구간의 최소제곱 온도 기울기를 사용한다. 순간 기울기는 드리프트로 해석하지 않는다."
+}
+```
+
+## head_drift.target_temp
+
+```json
+{
+  "value": 400,
+  "unit": "C",
+  "kind": "midterm",
+  "source": "calc/midterm/thermal.py의 7장 가열 조건."
+}
+```
+
+## head_drift.arrival_threshold
+
+```json
+{
+  "value": 399,
+  "unit": "C",
+  "kind": "midterm",
+  "source": "calc/midterm/thermal.py: 설정 도달은 첫 399 ℃ 이상 기록 시점."
+}
+```
+
+## head_drift.dt
+
+```json
+{
+  "value": 0.005,
+  "unit": "s",
+  "kind": "midterm",
+  "source": "calc/midterm/thermal.py의 적분 시간 간격."
+}
+```
+
+## head_drift.sample_period
+
+```json
+{
+  "value": 0.1,
+  "unit": "s",
+  "kind": "midterm",
+  "source": "calc/midterm/thermal.py의 기록 간격."
+}
+```
+
+## head_drift.power
+
+```json
+{
+  "value": 400,
+  "unit": "W",
+  "kind": "midterm",
+  "source": "calc/midterm/thermal.py의 최대 히터 전력."
+}
+```
+
+## head_drift.original_drift
+
+```json
+{
+  "value": 2.6,
+  "unit": "um/s",
+  "kind": "midterm",
+  "source": "calc/midterm/control_sim.py:38의 비교용 상수. 7장 계산 근거가 없어 예측 입력으로 사용하지 않는다."
+}
+```
+
+## head_drift.temperature_mapping
+
+```json
+{
+  "value": "Collet/AlN=tip; MACOR=16-node mean; jacket and above=ambient",
+  "unit": "model",
+  "kind": "assumption",
+  "source": "7장 모델은 팁과 MACOR 16절점만 동적으로 푼다. 수냉 재킷은 20 ℃ 고정 경계이며 그 위 부품도 같은 고정 온도로 가정한다. 이 가정 아래 상부 기여는 0이며 실장비 전체 드리프트 검증이 아니다."
+}
+```
+
+## head_drift.steel_cte
+
+```json
+{
+  "value": 17,
+  "unit": "ppm/K",
+  "kind": "assumption",
+  "source": "CAD steel을 calc/midterm/thermal.py:6의 스테인리스 17 ppm/K로 대리한다. CAD에는 강종 정보가 없으므로 재료 대응은 가정이다."
+}
+```
+
+## head_drift.aln_cte
+
+```json
+{
+  "value": 4.5,
+  "unit": "ppm/K",
+  "kind": "midterm",
+  "source": "calc/midterm/thermal.py:6의 AlN 물성."
+}
+```
+
+## head_drift.macor_cte
+
+```json
+{
+  "value": 9.3,
+  "unit": "ppm/K",
+  "kind": "midterm",
+  "source": "calc/midterm/thermal.py:6의 MACOR 물성."
+}
+```
+
+## head_drift.al_cte
+
+```json
+{
+  "value": 23.6,
+  "unit": "ppm/K",
+  "kind": "assumption",
+  "source": "https://online.kaiseraluminum.com/depot/PublicProductInformation/Document/1071/Kaiser_Aluminum_6061_Pipe_Tube.pdf ; 20–100 ℃ 6061 대표값. CAD al의 합금 미지정이므로 6061 대응은 가정이다."
+}
+```
+
+## head_drift.Collet_Tool_length
+
+```json
+{
+  "value": 10,
+  "unit": "mm",
+  "kind": "assumption",
+  "source": "cad/midterm/spec.py: Collet_Tool의 box dz 또는 cylinder z_top−z_bottom. CAD 외형의 z 높이이며 직렬 하중 경로의 유효 열팽창 길이로 사용하는 것은 가정이다. Flexure는 실제 변형 경로 대신 외형 높이를 사용한다."
+}
+```
+
+## head_drift.AlN_Heater_length
+
+```json
+{
+  "value": 5,
+  "unit": "mm",
+  "kind": "assumption",
+  "source": "cad/midterm/spec.py: AlN_Heater의 box dz 또는 cylinder z_top−z_bottom. CAD 외형의 z 높이이며 직렬 하중 경로의 유효 열팽창 길이로 사용하는 것은 가정이다. Flexure는 실제 변형 경로 대신 외형 높이를 사용한다."
+}
+```
+
+## head_drift.MACOR_Insulator_length
+
+```json
+{
+  "value": 16,
+  "unit": "mm",
+  "kind": "assumption",
+  "source": "cad/midterm/spec.py: MACOR_Insulator의 box dz 또는 cylinder z_top−z_bottom. CAD 외형의 z 높이이며 직렬 하중 경로의 유효 열팽창 길이로 사용하는 것은 가정이다. Flexure는 실제 변형 경로 대신 외형 높이를 사용한다."
+}
+```
+
+## head_drift.Cooling_Jacket_length
+
+```json
+{
+  "value": 19,
+  "unit": "mm",
+  "kind": "assumption",
+  "source": "cad/midterm/spec.py: Cooling_Jacket의 box dz 또는 cylinder z_top−z_bottom. CAD 외형의 z 높이이며 직렬 하중 경로의 유효 열팽창 길이로 사용하는 것은 가정이다. Flexure는 실제 변형 경로 대신 외형 높이를 사용한다."
+}
+```
+
+## head_drift.Gimbal_Lockable_length
+
+```json
+{
+  "value": 16,
+  "unit": "mm",
+  "kind": "assumption",
+  "source": "cad/midterm/spec.py: Gimbal_Lockable의 box dz 또는 cylinder z_top−z_bottom. CAD 외형의 z 높이이며 직렬 하중 경로의 유효 열팽창 길이로 사용하는 것은 가정이다. Flexure는 실제 변형 경로 대신 외형 높이를 사용한다."
+}
+```
+
+## head_drift.Load_Cell_100N_length
+
+```json
+{
+  "value": 16,
+  "unit": "mm",
+  "kind": "assumption",
+  "source": "cad/midterm/spec.py: Load_Cell_100N의 box dz 또는 cylinder z_top−z_bottom. CAD 외형의 z 높이이며 직렬 하중 경로의 유효 열팽창 길이로 사용하는 것은 가정이다. Flexure는 실제 변형 경로 대신 외형 높이를 사용한다."
+}
+```
+
+## head_drift.Flexure_Leaf_Spring_length
+
+```json
+{
+  "value": 18,
+  "unit": "mm",
+  "kind": "assumption",
+  "source": "cad/midterm/spec.py: Flexure_Leaf_Spring의 box dz 또는 cylinder z_top−z_bottom. CAD 외형의 z 높이이며 직렬 하중 경로의 유효 열팽창 길이로 사용하는 것은 가정이다. Flexure는 실제 변형 경로 대신 외형 높이를 사용한다."
+}
+```
+
+## head_drift.Theta_Stage_length
+
+```json
+{
+  "value": 16,
+  "unit": "mm",
+  "kind": "assumption",
+  "source": "cad/midterm/spec.py: Theta_Stage의 box dz 또는 cylinder z_top−z_bottom. CAD 외형의 z 높이이며 직렬 하중 경로의 유효 열팽창 길이로 사용하는 것은 가정이다. Flexure는 실제 변형 경로 대신 외형 높이를 사용한다."
+}
+```
+
+## head_drift.Z_Carriage_length
+
+```json
+{
+  "value": 74,
+  "unit": "mm",
+  "kind": "assumption",
+  "source": "cad/midterm/spec.py: Z_Carriage의 box dz 또는 cylinder z_top−z_bottom. CAD 외형의 z 높이이며 직렬 하중 경로의 유효 열팽창 길이로 사용하는 것은 가정이다. Flexure는 실제 변형 경로 대신 외형 높이를 사용한다."
+}
+```
+
+## head_drift.max_heatup_time
+
+```json
+{
+  "value": 400,
+  "unit": "s",
+  "kind": "midterm",
+  "source": "calc/midterm/thermal.py:43의 가열 해석 400 s 구간을 미도달 감지 상한으로 사용한다."
+}
+```
+
+## alignment.sigma_layer_um
+
+```json
+{
+  "value": 0.29416548630546946,
+  "unit": "um",
+  "kind": "midterm",
+  "source": "calc/midterm/error_budget.json rss_sigma=0.29416548630546946 (RSS 3sigma=0.8824964589164084 um), 중간 5장."
+}
+```
+
+## alignment.mc_samples
+
+```json
+{
+  "value": 20000,
+  "unit": "count",
+  "kind": "assumption",
+  "source": "표본 표준편차 상대 표준오차 약 1/sqrt(2(M-1))가 0.5%인 20000회를 사용한다."
+}
+```
+
+## alignment.mc_seed
+
+```json
+{
+  "value": 489,
+  "unit": "seed",
+  "kind": "assumption",
+  "source": "재현 가능한 xoshiro128** Monte Carlo 보고용 시드 가정."
+}
+```
+
+## alignment.error_model
+
+```json
+{
+  "value": "independent Gaussian per axis; substrate is bottom datum",
+  "unit": "model",
+  "kind": "assumption",
+  "source": "중간 RSS 분산을 독립 정규 층 오차로 근사한다. N은 기판 위 배치 횟수이며 맨 아래 기준은 기판이다. 최상위-첫 다이 오차도 별도 제공한다. TC-NCF는 중간 4장에 따라 자기정렬을 적용하지 않는다."
+}
+```
+
+## alignment.damping
+
+```json
+{
+  "value": 0.01,
+  "unit": "N*s/m",
+  "kind": "assumption",
+  "source": "용융 솔더·tack의 감쇠 실측값이 없어 다이 전체의 선형 점성 감쇠를 0.01 N s/m로 가정한다. 불확실성 탐색은 한 차수 아래·위이며 특정 재료 점도에서 유도한 값이 아니다.",
+  "range": [
+    0.001,
+    0.1
+  ]
+}
+```
+
+## alignment.resist_force
+
+```json
+{
+  "value": 0.001,
+  "unit": "N",
+  "kind": "assumption",
+  "source": "tack 잔류 저항 실측값이 없어 축당 Coulomb 저항 1 mN을 가정한다. 접합 후 완전 보정 대신 정지 마찰 잔여를 표현하며 한 차수 아래·위로 탐색한다.",
+  "range": [
+    0.0001,
+    0.01
+  ]
+}
+```
+
+## alignment.pixel_um
+
+```json
+{
+  "value": 1.725,
+  "unit": "um/px",
+  "kind": "midterm",
+  "source": "calc/midterm/vision.py:5"
+}
+```
+
+## alignment.N
+
+```json
+{
+  "value": 128,
+  "unit": "px",
+  "kind": "midterm",
+  "source": "calc/midterm/vision.py:7"
+}
+```
+
+## alignment.template_size
+
+```json
+{
+  "value": 80,
+  "unit": "px",
+  "kind": "midterm",
+  "source": "calc/midterm/vision.py:19"
+}
+```
+
+## alignment.arm
+
+```json
+{
+  "value": 60,
+  "unit": "px",
+  "kind": "midterm",
+  "source": "calc/midterm/vision.py:7"
+}
+```
+
+## alignment.w
+
+```json
+{
+  "value": 6,
+  "unit": "px",
+  "kind": "midterm",
+  "source": "calc/midterm/vision.py:7"
+}
+```
+
+## alignment.blur
+
+```json
+{
+  "value": 1,
+  "unit": "px",
+  "kind": "midterm",
+  "source": "calc/midterm/vision.py:7"
+}
+```
+
+## alignment.bright
+
+```json
+{
+  "value": 220,
+  "unit": "gray",
+  "kind": "midterm",
+  "source": "calc/midterm/vision.py:7"
+}
+```
+
+## alignment.dark
+
+```json
+{
+  "value": 30,
+  "unit": "gray",
+  "kind": "midterm",
+  "source": "calc/midterm/vision.py:7"
+}
+```
+
+## alignment.noise_sigma
+
+```json
+{
+  "value": 2,
+  "unit": "gray",
+  "kind": "midterm",
+  "source": "calc/midterm/vision.py:77"
+}
+```
+
+## alignment.frames
+
+```json
+{
+  "value": 4,
+  "unit": "count",
+  "kind": "midterm",
+  "source": "calc/midterm/vision.py:77"
+}
+```
+
+## alignment.gray_max
+
+```json
+{
+  "value": 1023,
+  "unit": "gray",
+  "kind": "midterm",
+  "source": "calc/midterm/vision.py:32"
+}
+```
+
+## alignment.tol_um
+
+```json
+{
+  "value": 0.15,
+  "unit": "um",
+  "kind": "midterm",
+  "source": "calc/midterm/vision.py:82"
+}
+```
+
+## alignment.tol_theta_mrad
+
+```json
+{
+  "value": 0.03490658503988659,
+  "unit": "mrad",
+  "kind": "midterm",
+  "source": "calc/midterm/vision.py:82 (0.002 deg)"
+}
+```
+
+## alignment.max_iter
+
+```json
+{
+  "value": 3,
+  "unit": "count",
+  "kind": "midterm",
+  "source": "calc/midterm/vision.py:80"
+}
+```
+
+## alignment.map_error_sigma
+
+```json
+{
+  "value": 0.0005,
+  "unit": "ratio",
+  "kind": "midterm",
+  "source": "calc/midterm/vision.py:83-84"
+}
+```
+
+## alignment.stage_sigma_um
+
+```json
+{
+  "value": 0.02,
+  "unit": "um",
+  "kind": "midterm",
+  "source": "calc/midterm/vision.py:83-84"
+}
+```
+
+## alignment.stage_resolution_um
+
+```json
+{
+  "value": 0.01,
+  "unit": "um",
+  "kind": "midterm",
+  "source": "docs/report/midterm/03_시스템구성.md 3.3 미동 XY 10 nm"
+}
+```
+
+## alignment.theta_sigma_mrad
+
+```json
+{
+  "value": 0.005235987755982988,
+  "unit": "mrad",
+  "kind": "midterm",
+  "source": "calc/midterm/vision.py:84 (0.0003 deg)"
+}
+```
+
+## alignment.theta_resolution_mrad
+
+```json
+{
+  "value": 0,
+  "unit": "mrad",
+  "kind": "assumption",
+  "source": "가정: θ 지령 양자화 자료 없음; 반복 오차만 반영"
+}
+```
+
+## alignment.mark_spacing_um
+
+```json
+{
+  "value": 4000,
+  "unit": "um",
+  "kind": "midterm",
+  "source": "calc/midterm/vision.py:95; 중간 9.6절"
+}
+```
+
+## alignment.gradient_x
+
+```json
+{
+  "value": 0,
+  "unit": "ratio",
+  "kind": "assumption",
+  "source": "가정: 기본 균일 조명; vision_robust.py:5의 곱셈 기울기 모델"
+}
+```
+
+## alignment.gradient_y
+
+```json
+{
+  "value": 0,
+  "unit": "ratio",
+  "kind": "assumption",
+  "source": "가정: X와 동일한 선형 조명 모델을 Y로 확장"
+}
+```
+
+## alignment.initial_um
+
+```json
+{
+  "value": 30,
+  "unit": "um",
+  "kind": "midterm",
+  "source": "calc/midterm/vision.py:79"
+}
+```
+
+## alignment.initial_theta_mrad
+
+```json
+{
+  "value": 5.235987755982988,
+  "unit": "mrad",
+  "kind": "midterm",
+  "source": "calc/midterm/vision.py:79 (0.3 deg)"
+}
+```
+
+## recipe.layers
+
+```json
+{
+  "value": 8,
+  "unit": "count",
+  "kind": "assumption",
+  "source": "requirements 3절의 2/4/8/12단 중 8단을 기본 시연 조건으로 선택한다. 문헌 15 μm MR-MUF 8단과 함께 비교하며 결과 맞춤 값이 아니다.",
+  "range": [
+    2,
+    12
+  ]
+}
+```
+
+## recipe.alignment_reference
+
+```json
+{
+  "value": "previous",
+  "unit": "model",
+  "kind": "assumption",
+  "source": "층마다 바로 아래 다이에 맞추는 교육용 기준을 기본으로 한다. substrate 선택 시 기판 기준의 상관된 인접 오차를 유지한다."
+}
+```
+
+## equipment_limits.head_max_temp_C
+
+```json
+{
+  "value": 400,
+  "unit": "degC",
+  "kind": "kpi",
+  "source": "원문 KPI (PBL 7쪽) 펄스 히터 최고 400 ℃",
+  "source_kind": "원문 KPI"
+}
+```
+
+## equipment_limits.bond_force_max_N
+
+```json
+{
+  "value": 50,
+  "unit": "N",
+  "kind": "kpi",
+  "source": "원문 KPI (PBL 7쪽), 최대 본딩 하중 50 N"
+}
+```
+
+## equipment_limits.low_range_ramp_N_s
+
+```json
+{
+  "value": 1,
+  "unit": "N/s",
+  "kind": "design",
+  "source": "firmware/README.md: 저레인지·고레인지 프리셋, 검증 7 및 두 히터 인터락; 중간 보고서 10장. HMI는 이 값으로 입력 제한·고장 주입을 시연한다."
+}
+```
+
+## equipment_limits.force_warning_N
+
+```json
+{
+  "value": 52,
+  "unit": "N",
+  "kind": "design",
+  "source": "firmware/README.md: 저레인지·고레인지 프리셋, 검증 7 및 두 히터 인터락; 중간 보고서 10장. HMI는 이 값으로 입력 제한·고장 주입을 시연한다."
+}
+```
+
+## equipment_limits.force_latch_N
+
+```json
+{
+  "value": 55,
+  "unit": "N",
+  "kind": "design",
+  "source": "firmware/README.md: 저레인지·고레인지 프리셋, 검증 7 및 두 히터 인터락; 중간 보고서 10장. HMI는 이 값으로 입력 제한·고장 주입을 시연한다."
+}
+```
+
+## equipment_limits.temp_warning_C
+
+```json
+{
+  "value": 410,
+  "unit": "degC",
+  "kind": "design",
+  "source": "firmware/README.md: 저레인지·고레인지 프리셋, 검증 7 및 두 히터 인터락; 중간 보고서 10장. HMI는 이 값으로 입력 제한·고장 주입을 시연한다."
+}
+```
+
+## equipment_limits.temp_latch_C
+
+```json
+{
+  "value": 420,
+  "unit": "degC",
+  "kind": "design",
+  "source": "firmware/README.md: 저레인지·고레인지 프리셋, 검증 7 및 두 히터 인터락; 중간 보고서 10장. HMI는 이 값으로 입력 제한·고장 주입을 시연한다."
+}
+```
+
+## equipment_limits.reflow_heater_max_W
+
+```json
+{
+  "value": 150,
+  "unit": "W",
+  "kind": "design",
+  "source": "firmware/README.md: 저레인지·고레인지 프리셋, 검증 7 및 두 히터 인터락; 중간 보고서 10장. HMI는 이 값으로 입력 제한·고장 주입을 시연한다."
+}
+```
+
+## equipment_limits.force_high_spring_N_mm
+
+```json
+{
+  "value": 50,
+  "unit": "N/mm",
+  "kind": "design",
+  "source": "firmware/README.md: 저레인지·고레인지 프리셋, 검증 7 및 두 히터 인터락; 중간 보고서 10장. HMI는 이 값으로 입력 제한·고장 주입을 시연한다."
+}
+```
+
+## equipment_limits.force_low_spring_N_mm
+
+```json
+{
+  "value": 2,
+  "unit": "N/mm",
+  "kind": "design",
+  "source": "firmware/README.md: 저레인지·고레인지 프리셋, 검증 7 및 두 히터 인터락; 중간 보고서 10장. HMI는 이 값으로 입력 제한·고장 주입을 시연한다."
+}
+```
+
+## equipment_limits.force_high_ramp_N_s
+
+```json
+{
+  "value": 5,
+  "unit": "N/s",
+  "kind": "design",
+  "source": "firmware/README.md: 저레인지·고레인지 프리셋, 검증 7 및 두 히터 인터락; 중간 보고서 10장. HMI는 이 값으로 입력 제한·고장 주입을 시연한다."
+}
+```
+
+## equipment_limits.force_approach_mm_s
+
+```json
+{
+  "value": 0.02,
+  "unit": "mm/s",
+  "kind": "design",
+  "source": "firmware/README.md: 저레인지·고레인지 프리셋, 검증 7 및 두 히터 인터락; 중간 보고서 10장. HMI는 이 값으로 입력 제한·고장 주입을 시연한다."
+}
+```
+
+## equipment_limits.force_period_ms
+
+```json
+{
+  "value": 1,
+  "unit": "ms",
+  "kind": "design",
+  "source": "firmware/README.md: 저레인지·고레인지 프리셋, 검증 7 및 두 히터 인터락; 중간 보고서 10장. HMI는 이 값으로 입력 제한·고장 주입을 시연한다."
+}
+```
+
+## equipment_limits.sil_observation_tail_s
+
+```json
+{
+  "value": 9,
+  "unit": "s",
+  "kind": "design",
+  "source": "HMI 관찰 시간 설계값: sim/plant.js forceSim의 원본 control_sim.py 시험 창 9 s를 목표/ramp 시간 뒤 추가 관찰 창으로 재사용한다. 공정 유지 시간이 아니며 입력 하중에 도달한 뒤의 SIL 추종을 표시하기 위한 값이다."
+}
+```
+
+## equipment_limits.temp_period_ms
+
+```json
+{
+  "value": 10,
+  "unit": "ms",
+  "kind": "design",
+  "source": "firmware/README.md 검증 7: 온도 PI 10 ms, control_sim.py:45,54–56 원본 주기. HMI는 고장 시연에서 이 주기까지 1 ms tick을 진행한다."
+}
+```

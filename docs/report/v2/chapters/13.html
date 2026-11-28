@@ -1,0 +1,3 @@
+<h1>전원과 안전 체인을 분리했다</h1>
+<figure class="tall"><img src="../archive_v1/fig/ch11_wiring.png" alt="기말 배선 설계. PG0 외 신호는 배선 설계값이며 HAL 미구현이다."><figcaption>기말 배선 설계. PG0 외 신호는 배선 설계값이며 HAL 미구현이다.</figcaption></figure><table><thead><tr><th>구성</th><th>설계 의도</th></tr></thead><tbody><tr><td>48 V 600 W 전원 / 헤드 400 W·척 150 W</td><td>두 히터 동시 통전 금지·순차 사용</td></tr><tr><td>안전 릴레이·독립 비교기·K1</td><td>소프트웨어 래치와 별도 안전 계층</td></tr><tr><td>센서·전력선·접지</td><td>차폐·절연·퓨즈·배선 굵기 제작 검토</td></tr></tbody></table><p>소프트웨어 고장 주입과 독립 하드웨어 차단은 검증 대상이 다르다. MCU 바이너리 생성은 실제 센서·서보·PWM 동작 시험을 대신하지 않는다.</p>
+<p class="source">근거: <a href="../../../wiring/pinmap.csv">wiring/pinmap.csv</a> · <a href="../../../firmware/README.md">firmware/README.md</a></p>
