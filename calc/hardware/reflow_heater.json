@@ -1874,7 +1874,7 @@
     "power_48_head_phase_W": 500,
     "power_48_max_sequenced_W": 500,
     "power_24_W": 80,
-    "power_action": "순차 운전 채택: 헤드400 W와 척150 W 두 히터 동시 통전 금지(SW 인터락, 펌웨어/HMI는 타 브랜치). 동시650 W는 금지 상태 참고값."
+    "power_action": "순차 운전 채택: 헤드400 W와 척150 W 두 히터 동시 통전 금지(SW 인터락, 펌웨어 PR #30에서 구현·시험). 동시650 W는 금지 상태 참고값."
   },
   "verdict": {
     "original_KPI": {
@@ -1896,8 +1896,7 @@
     },
     "status": "FAIL/REVIEW",
     "remaining_FAIL_REVIEW": [
-      "forced_cooling_tracks_default_4K_s",
-      "두 히터 동시 통전 금지 SW 인터락은 타 브랜치 구현·검증 대기"
+      "forced_cooling_tracks_default_4K_s"
     ],
     "post_fabrication_tests": [
       "노즐 유량/h 및 탑재 상태 열프로파일 실측"

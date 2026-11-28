@@ -14,7 +14,7 @@ PROPOSAL='배선 설계값 (HAL 미구현)'
 ROWS=[('hal_hw_fault','PG0','입력 active-high pull-down','외부 고장 래치','HAL 구현 (임시 보드 핀)', 'firmware/hal/hal_stm32h7.c GPIOG_IDR bit0'),
 ('ADS1256_SCK','PA5','SPI1 SCK','로드셀 ADS1256',PROPOSAL,'보드 AF/전압 확인 필요'),('ADS1256_MISO','PA6','SPI1 MISO','로드셀 ADS1256',PROPOSAL,'보드 AF 확인 필요'),('ADS1256_MOSI','PA7','SPI1 MOSI','로드셀 ADS1256',PROPOSAL,'보드 AF 확인 필요'),('ADS1256_CS','PB0','출력 CS','로드셀 ADS1256',PROPOSAL,'독립 GPIO'),('ADS1256_DRDY','PB1','입력 DRDY','로드셀 ADS1256',PROPOSAL,'독립 GPIO'),
 ('hal_read_temp_C','PA0','ADC 입력','헤드 AD8495',PROPOSAL,'3.3 V ADC 범위 검토'),('reflow_temp','PA1','ADC 입력','리플로우 AD8495',PROPOSAL,'별도 온도 PI/HAL 필요'),('jig_pressure','PA2','ADC 입력','지그 압력 센서',PROPOSAL,'선택 입력; 0-3.3 V 조정'),('jig_position','PG1','입력','플런저 원점 스위치',PROPOSAL,'24 V 절연 입력'),
-('hal_write_heater_W','PE9','TIM1 CH1 PWM','헤드 게이트 드라이버',PROPOSAL,'20 kHz 설계값; PE9/PE11 두 히터 동시 통전 금지(SW 인터락), 타 브랜치 구현 대기'),('reflow_heater_pwm','PE11','TIM1 CH2 PWM','리플로우 게이트 드라이버',PROPOSAL,'150 W 설계값; PE9/PE11 두 히터 동시 통전 금지(SW 인터락), 펌웨어/HMI 타 브랜치 구현 대기'),('hal_write_z_velocity_mm_s','PD8/PD9','USART3 TX/RX','서보 속도 명령',PROPOSAL,'드라이버 프로토콜 미확정'),('hal_write_safety.brake','PG2','출력','브레이크 상태 요청',PROPOSAL,'독립 HW 차단과 별개'),('hal_write_safety.sto','PG3','출력','STO 상태 요청',PROPOSAL,'독립 HW 차단과 별개'),('fw_reset_latch','PC13','입력','수동 SW 리셋 요청',PROPOSAL,'HW 래치 수동 리셋 별도')]
+('hal_write_heater_W','PE9','TIM1 CH1 PWM','헤드 게이트 드라이버',PROPOSAL,'20 kHz 설계값; PE9/PE11 두 히터 동시 통전 금지(SW 인터락), 펌웨어 구현 PR #30'),('reflow_heater_pwm','PE11','TIM1 CH2 PWM','리플로우 게이트 드라이버',PROPOSAL,'150 W 설계값; PE9/PE11 두 히터 동시 통전 금지(SW 인터락), 펌웨어 PR #30·HMI 표시 W5'),('hal_write_z_velocity_mm_s','PD8/PD9','USART3 TX/RX','서보 속도 명령',PROPOSAL,'드라이버 프로토콜 미확정'),('hal_write_safety.brake','PG2','출력','브레이크 상태 요청',PROPOSAL,'독립 HW 차단과 별개'),('hal_write_safety.sto','PG3','출력','STO 상태 요청',PROPOSAL,'독립 HW 차단과 별개'),('fw_reset_latch','PC13','입력','수동 SW 리셋 요청',PROPOSAL,'HW 래치 수동 리셋 별도')]
 def validate():
     hal=(ROOT/'firmware/hal/hal_stm32h7.c').read_text()
     assert re.search(r'int hal_hw_fault\(void\).*GPIOG_IDR & 1u',hal)
@@ -75,7 +75,7 @@ def generate():
     link((409,157),(403,157),safety=True)
     ax.text(407,221,'HW STO / BRAKE',fontsize=7,color='#b32624',rotation=90,ha='right',va='top')
     ax.text(13,132,f"순차 전력: 척{R['power_48_sequenced_W']} W / 헤드{R['power_48_head_phase_W']} W ≤{H['power_48']['value']} W. 24 V측{R['power_24_W']}≤{H['power_24']['value']} W (보조는 가정값).",fontsize=8,color='#a22')
-    ax.text(13,126,'두 히터 동시 통전 금지(SW 인터락): 펌웨어/HMI 타 브랜치 구현 대기. 동시650 W 금지. 지그 기밀·내압: 제작 후 시험.',fontsize=8)
+    ax.text(13,126,'두 히터 동시 통전 금지(SW 인터락): 펌웨어 PR #30에서 구현·시험, HMI 표시는 W5. 동시650 W 금지. 지그 기밀·내압: 제작 후 시험.',fontsize=8)
     # Tabulated mapping on the same sheet; exact implemented pin separated by status.
     columns=['신호명 (함수명은 HAL 그대로)','핀','인터페이스','연결 / 구현 상태']
     cells=[[r[0],r[1],r[2],r[3]+(' · 두 히터 동시 통전 금지(SW 인터락)' if r[1] in ('PE9','PE11') else '')+' / '+('HAL 구현' if r[4].startswith('HAL 구현') else '배선 설계값 · HAL 미구현')] for r in ROWS]
