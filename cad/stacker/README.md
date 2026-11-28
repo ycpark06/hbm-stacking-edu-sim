@@ -4,6 +4,8 @@
 
 ## 실행 방법
 
+Fusion 내장 Python은 기본 인코딩이 ASCII이므로 모든 파일 입출력에 UTF-8을 명시한다 (#33).
+
 저장소 루트에서 Python 3.12로 사전 확인한다.
 
 ```sh
@@ -11,6 +13,7 @@ export PATH=/opt/homebrew/bin:$PATH
 /Library/Frameworks/Python.framework/Versions/3.12/bin/python3 calc/hardware/run_all.py
 /Library/Frameworks/Python.framework/Versions/3.12/bin/python3 cad/stacker/check_spec.py
 /Library/Frameworks/Python.framework/Versions/3.12/bin/python3 cad/tools/test_to_glb.py
+/Library/Frameworks/Python.framework/Versions/3.12/bin/python3 cad/tools/check_encoding.py
 MPLCONFIGDIR=/tmp/w4-matplotlib /Library/Frameworks/Python.framework/Versions/3.12/bin/python3 docs/drawings/generate.py
 MPLCONFIGDIR=/tmp/w4-matplotlib /Library/Frameworks/Python.framework/Versions/3.12/bin/python3 wiring/generate.py
 ```

@@ -14,7 +14,7 @@ def write(path,tris,binary):
         for t in tris: raw+=struct.pack('<12fH',0,0,0,*t.reshape(-1),0)
         path.write_bytes(raw)
     else:
-        path.write_text('solid test\n'+''.join('facet normal 0 0 0\nouter loop\n'+''.join('vertex '+' '.join(map(str,v))+'\n' for v in t)+'endloop\nendfacet\n' for t in tris)+'endsolid test\n')
+        path.write_text('solid test\n'+''.join('facet normal 0 0 0\nouter loop\n'+''.join('vertex '+' '.join(map(str,v))+'\n' for v in t)+'endloop\nendfacet\n' for t in tris)+'endsolid test\n', encoding='utf-8')
 class Conversion(unittest.TestCase):
     def test_ascii_binary_names_units_and_indices(self):
         with tempfile.TemporaryDirectory() as folder:
@@ -29,7 +29,7 @@ class Conversion(unittest.TestCase):
         _,f,_=index_mesh(tris,1); self.assertEqual(len(f),12)
     def test_invalid_stl(self):
         with tempfile.TemporaryDirectory() as folder:
-            p=Path(folder)/'bad.stl'; p.write_text('solid empty\nendsolid')
+            p=Path(folder)/'bad.stl'; p.write_text('solid empty\nendsolid', encoding='utf-8')
             with self.assertRaises(ValueError): read_stl(p)
     def test_size_limit_fails_without_partial_output(self):
         with tempfile.TemporaryDirectory() as folder:

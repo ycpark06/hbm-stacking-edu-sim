@@ -123,7 +123,8 @@ def run(context):
           "footprint_KPI_pass":max(size[:2])<=G.LIMITS['footprint'],
           "interference_pass":nint==0,"model_state":"parked tooling, unvalidated conceptual assembly",
           "design_review":"calc/hardware/*.json FAIL/REVIEW items must be resolved before fabrication"}
-        json.dump(summary,open(os.path.join(out,"summary.json"),"w"),ensure_ascii=False,indent=1)
+        with open(os.path.join(out,"summary.json"), "w", encoding='utf-8') as stream:
+            json.dump(summary,stream,ensure_ascii=False,indent=1)
         ui.messageBox("완료\n질량 %.1f kg\n외곽 %.0f x %.0f x %.0f mm\n간섭 %d건\n결과: %s"%(mass,size[0],size[1],size[2],nint,out))
     except:
         if ui: ui.messageBox("Failed:\n{}".format(traceback.format_exc()))
