@@ -96,7 +96,7 @@
         "value": 400,
         "unit": "W/m2/K",
         "kind": "가정값",
-        "source": "중간 7장 충돌제트 대리; 척 실측 필요"
+        "source": "유효 면적평균 h=400 가정: 소형 충돌 제트를 척 상면·측면에 분산, 유입 공기/N₂는 ambient. 유량으로 h를 산출한 값이 아니며 노즐 거리/유량별 실측 필요. 유동 열용량을 직렬 열저항으로 별도 반영."
       },
       "emissivity": {
         "value": 0.3,
@@ -105,10 +105,10 @@
         "source": "calc/midterm/thermal.py eps 대리"
       },
       "heater_power": {
-        "value": 120,
+        "value": 150,
         "unit": "W",
         "kind": "설계값",
-        "source": "40x40x8 척 48 V 박막 히터 후보; reflow_heater.json 검산"
+        "source": "사용자 확정 2026-11-28; spec_stacker.REFLOW.power_W와 일치; 3 K/s 필요전력 대비 검산"
       },
       "power_48": {
         "value": 600,
@@ -194,18 +194,6 @@
         "kind": "가정값",
         "source": "중간 ST-004 MACOR 4점 지지 피치 대리; 단순지지 보 모델"
       },
-      "die_strength": {
-        "value": 100,
-        "unit": "MPa",
-        "kind": "가정값",
-        "source": "결함 민감 Si 다이의 예비 인장 허용응력 설계 가정; 파손 보증값 아님"
-      },
-      "bump_contact_fraction": {
-        "value": 0.1,
-        "unit": "1",
-        "kind": "가정값",
-        "source": "접촉 면적 10% 최악 대리; 실제 범프 분포/모서리 결함 미포함"
-      },
       "die_thin": {
         "value": 0.05,
         "unit": "mm",
@@ -259,6 +247,30 @@
         "unit": "s",
         "kind": "설계값",
         "source": "냉각 미도달 판별 적분 상한"
+      },
+      "coolant_flow": {
+        "value": 100,
+        "unit": "L/min",
+        "kind": "가정값",
+        "source": "총 노즐 실제 체적유량, ambient에서 평가. 압축공기/상온 N₂ 공급, 병입 N₂ 기화냉각은 미포함. h와 독립 가정; 측정으로 확정."
+      },
+      "coolant_rho": {
+        "value": 1.16,
+        "unit": "kg/m3",
+        "kind": "가정값",
+        "source": "20 ℃·약1 atm 공기/N₂ 공통 보수 대리, 공급 가스 온도·압력 실측 필요."
+      },
+      "coolant_cp": {
+        "value": 1000,
+        "unit": "J/kg/K",
+        "kind": "가정값",
+        "source": "상온 공기/N₂ 공통 대리; 온도의존 생략. 유한 유량 열용량을 보수적으로 반영."
+      },
+      "die_strength_reference": {
+        "value": 261,
+        "unit": "MPa",
+        "kind": "문헌값",
+        "source": "Gupta et al. 2024 J. Micromech. Microeng. 34 105012, Table 3, 45° angled design: 평균 굽힘 파괴강도261 MPa, 표준편차39 MPa, 두께51 μm, 40개; Si MOSFET 유사시험편(6×3 mm). HBM 허용응력이나 최소보증값 아님. https://pure.tudelft.nl/ws/portalfiles/portal/222055008/Gupta_2024_J._Micromech._Microeng._34_105012.pdf ; https://doi.org/10.1088/1361-6439/ad76b4"
       }
     },
     "dimensions": {
@@ -489,6 +501,30 @@
         "unit": "mm",
         "kind": "설계값",
         "source": "설계값; 06 HANDOFF §3; 검산 calc/hardware/*.json"
+      },
+      "reflow.power": {
+        "value": 150,
+        "unit": "W",
+        "kind": "설계값",
+        "source": "사용자 확정 2026-11-28; 설계값; calc/hardware/reflow_heater.json"
+      },
+      "reflow.alignment_wait": {
+        "value": 90,
+        "unit": "s",
+        "kind": "설계값",
+        "source": "사용자 확정 2026-11-28; 중간 보고서 7장 온도 도달 후 안정화"
+      },
+      "mold.clamp_count": {
+        "value": 4,
+        "unit": "개",
+        "kind": "설계값",
+        "source": "사용자 확정 2026-11-28; M3 나사"
+      },
+      "mold.clamp_preload": {
+        "value": 216,
+        "unit": "N",
+        "kind": "설계값",
+        "source": "사용자 확정 2026-11-28; 합계 최소 예압, 개방력108 N × 안전율2"
       },
       "fit.H7_min": {
         "value": 0,
@@ -1801,7 +1837,7 @@
       {
         "ramp_K_s": 3,
         "required_W": 120.6868448579526,
-        "feasible": false
+        "feasible": true
       },
       {
         "ramp_K_s": 2,
@@ -1809,24 +1845,36 @@
         "feasible": true
       }
     ],
-    "heater_W": 120,
-    "heater_ohm": 19.2,
-    "heater_A": 2.5,
-    "natural_cool_to_100_s": 646.4699999995571,
-    "forced_cool_to_100_s": 31.690000000002154,
-    "cooling_dt_half_difference_s": 4.1744385725905886e-12,
+    "heater_W": 150,
+    "heater_ohm": 15.36,
+    "heater_A": 3.125,
+    "natural_cool_to_100_s": 646.4657291236103,
+    "forced_cool_to_100_s": 49.83701774649552,
+    "cooling_dt_half_difference_s": 0.002663449582996691,
     "natural_initial_cool_K_s": 0.40477784034993186,
-    "forced_initial_cool_K_s": 7.692868677424134,
+    "forced_initial_cool_K_s": 4.901870524272919,
     "forced_control_cool_W": 141.78528,
+    "forced_end_cool_K_s": 1.6891287242594342,
+    "forced_cool_to_liquidus_s": 7.27547994307671,
+    "controlled_cool_to_100_s": 50.86158036901563,
+    "ideal_4K_s_cool_to_100_s": 37.5,
+    "coolant_flow_L_min": 100,
+    "coolant_capacity_W_K": 1.9333333333333333,
+    "forced_effective_conductance_W_K": 0.7218668971477961,
+    "heater_margin_3K_s_W": 29.313155142047407,
+    "heater_margin_3K_s_percent": 24.288608403466625,
     "peak_hold_s": 20,
     "shoulder_hold_s": 45.25,
-    "TAL_s": 90,
+    "TAL_target_s": 90,
+    "TAL_estimated_controlled_s": 90.0000000000015,
     "heat_time_s": 250.25,
     "Biot_upper": 0.019161676646706587,
-    "power_48_simultaneous_W": 620,
-    "power_48_sequenced_W": 220,
+    "power_48_simultaneous_W": 650,
+    "power_48_sequenced_W": 250,
+    "power_48_head_phase_W": 500,
+    "power_48_max_sequenced_W": 500,
     "power_24_W": 80,
-    "power_action": "동시 정격 620 W: 600 W 초과. 리플로우 시 헤드 출력 금지 시퀀스 필요; 동시 사용 시 48 V 750 W 이상 전원 변경안(정격 검토 필요)."
+    "power_action": "순차 운전 채택: 헤드400 W와 척150 W 두 히터 동시 통전 금지(SW 인터락, 펌웨어/HMI는 타 브랜치). 동시650 W는 금지 상태 참고값."
   },
   "verdict": {
     "original_KPI": {
@@ -1837,19 +1885,27 @@
     },
     "design_checks": {
       "default_2K_s": true,
-      "all_1_to_3K_s": false,
+      "all_1_to_3K_s": true,
       "peak_hold": true,
-      "power48_simultaneous": false,
+      "power48_head_phase": true,
       "power48_sequenced": true,
       "power24": true,
       "profile_heat_time": true,
-      "natural_cooling_tracks_4K_s": false
+      "forced_cooling_tracks_default_4K_s": false,
+      "controlled_cooling_under_profile_max": true
     },
-    "status": "FAIL/REVIEW"
+    "status": "FAIL/REVIEW",
+    "remaining_FAIL_REVIEW": [
+      "forced_cooling_tracks_default_4K_s",
+      "두 히터 동시 통전 금지 SW 인터락은 타 브랜치 구현·검증 대기"
+    ],
+    "post_fabrication_tests": [
+      "노즐 유량/h 및 탑재 상태 열프로파일 실측"
+    ]
   },
   "limitations": [
     "Al plate + heater only; fixture/payload heat capacity and bolt thermal bridges omitted.",
-    "4 K/s 냉각은 자연냉각 불가: 제트 유량 피드백/스로틀 필요. 강제 h=400도 실측 전 추정.",
+    "공기/N₂ 유량100 L/min 및 h=400은 독립 가정. 유한 유량 열저항 포함; 기본4 K/s는 전 구간 추종 불가, 최대6 K/s와 기본4 K/s를 구분.",
     "집중정수는 면내 온도 균일성, 실제 프로파일 제어와 재료 인증을 검증하지 않음."
   ]
 }

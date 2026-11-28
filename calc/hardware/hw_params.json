@@ -1,44 +1,272 @@
 {
-  "al_rho": {"value":2700,"unit":"kg/m3","kind":"가정값","source":"cad/midterm/spec.py D.al; A6061 대리"},
-  "al_cp": {"value":900,"unit":"J/kg/K","kind":"가정값","source":"A6061 대표 상온 비열 대리; 온도의존 미반영"},
-  "al_E": {"value":69,"unit":"GPa","kind":"가정값","source":"중간 calc/fea_struct.py A6061 모델 대리; 250 C 강성 감소 미반영"},
-  "al_yield": {"value":55,"unit":"MPa","kind":"가정값","source":"고온 사용 보수적 허용응력 설계 가정; 재료 인증값 아님"},
-  "al_cte": {"value":23.6,"unit":"ppm/K","kind":"가정값","source":"sim/params.json head_drift.al_cte; 20-100 C 대표값을 250 C까지 외삽"},
-  "al_k": {"value":167,"unit":"W/m/K","kind":"가정값","source":"A6061 대표값 대리, 집중정수 Bi 검산용"},
-  "steel_E": {"value":193,"unit":"GPa","kind":"가정값","source":"SUS304 상온 대표값 대리; 고온/재료성적서 확인 필요"},
-  "steel_cte": {"value":17,"unit":"ppm/K","kind":"중간값","source":"calc/midterm/thermal.py ST.a"},
-  "quartz_E": {"value":72,"unit":"GPa","kind":"가정값","source":"fused silica 상온 대표값 대리; 창 지지 예비 검산"},
-  "quartz_cte": {"value":0.55,"unit":"ppm/K","kind":"가정값","source":"fused silica 대표값 대리"},
-  "aln_rho": {"value":3260,"unit":"kg/m3","kind":"중간값","source":"calc/midterm/thermal.py AlN.rho"},
-  "aln_cp": {"value":740,"unit":"J/kg/K","kind":"중간값","source":"calc/midterm/thermal.py AlN.c"},
-  "calsil_k": {"value":0.12,"unit":"W/m/K","kind":"중간값","source":"중간 7.5절; calc/midterm/thermal.py"},
-  "ambient": {"value":20,"unit":"C","kind":"중간값","source":"calc/midterm/thermal.py Tamb"},
-  "h_natural": {"value":10,"unit":"W/m2/K","kind":"가정값","source":"중간 7장 자연대류 대리"},
-  "h_forced": {"value":400,"unit":"W/m2/K","kind":"가정값","source":"중간 7장 충돌제트 대리; 척 실측 필요"},
-  "emissivity": {"value":0.3,"unit":"1","kind":"가정값","source":"calc/midterm/thermal.py eps 대리"},
-  "heater_power": {"value":120,"unit":"W","kind":"설계값","source":"40x40x8 척 48 V 박막 히터 후보; reflow_heater.json 검산"},
-  "power_48": {"value":600,"unit":"W","kind":"중간값","source":"중간 10.4절 48 V 전원"},
-  "voltage_48": {"value":48,"unit":"V","kind":"중간값","source":"중간 10.4절"},
-  "power_24": {"value":150,"unit":"W","kind":"중간값","source":"중간 10.4절 24 V 전원"},
-  "head_power": {"value":400,"unit":"W","kind":"중간값","source":"중간 7장 AlN 히터"},
-  "aux_48": {"value":100,"unit":"W","kind":"가정값","source":"서보 및 기타 동력 예약; BOM 정격 미확정"},
-  "aux_24": {"value":80,"unit":"W","kind":"가정값","source":"제어기 센서 릴레이 예약; BOM 정격 미확정"},
-  "mold_pressure": {"value":3,"unit":"MPa","kind":"문헌값","source":"inbox/05_web/params_patch.json mold_pressure_applied; 06 HANDOFF §3 사용자 확정"},
-  "force": {"value":40,"unit":"N","kind":"가정값","source":"06 HANDOFF §4 TC-NCF 기본 하중"},
-  "friction_reserve": {"value":5,"unit":"N","kind":"가정값","source":"플런저 마찰 하중 예약; 실측 부재 민감도"},
-  "diameters": {"value":[3,4,4.5,5,6],"unit":"mm","kind":"설계값","source":"플런저 후보 스윕; 선택 직경은 spec_stacker.MOLD.bore"},
-  "resin_overfill": {"value":1.2,"unit":"1","kind":"가정값","source":"충전 체적 20% 여유; 범프 체적을 빼지 않는 상한"},
-  "clamp_safety": {"value":2,"unit":"1","kind":"설계값","source":"지그 나사 체결 예압 안전율; proof test 필요"},
-  "support_span": {"value":80,"unit":"mm","kind":"가정값","source":"중간 ST-004 MACOR 4점 지지 피치 대리; 단순지지 보 모델"},
-  "die_strength": {"value":100,"unit":"MPa","kind":"가정값","source":"결함 민감 Si 다이의 예비 인장 허용응력 설계 가정; 파손 보증값 아님"},
-  "bump_contact_fraction": {"value":0.1,"unit":"1","kind":"가정값","source":"접촉 면적 10% 최악 대리; 실제 범프 분포/모서리 결함 미포함"},
-  "die_thin": {"value":0.05,"unit":"mm","kind":"설계값","source":"HANDOFF 박형 50 um 선택지"},
-  "datum_offset": {"value":20,"unit":"mm","kind":"설계값","source":"척 중심에서 한쪽 정렬 기준까지 거리"},
-  "mount_length": {"value":40,"unit":"mm","kind":"가정값","source":"고정부 유효 길이 대리; 전 길이 동일 온도 상승 최악 조건"},
-  "drift_budget": {"value":0.26,"unit":"um","kind":"중간값","source":"중간 5장 열드리프트 균일분포 반폭"},
-  "alignment_limit": {"value":1,"unit":"um","kind":"원문 KPI","source":"PBL p7; 중간 5장 RSS 3sigma 해석"},
-  "liquidus": {"value":217,"unit":"C","kind":"문헌값","source":"sim/params.json reflow.time_above_liquidus.note"},
-  "cool_to": {"value":100,"unit":"C","kind":"설계값","source":"냉각시간 비교 종료 온도"},
-  "dt": {"value":0.01,"unit":"s","kind":"설계값","source":"집중정수 냉각 explicit Euler; dt/2 수렴 검사"},
-  "max_cool_time": {"value":7200,"unit":"s","kind":"설계값","source":"냉각 미도달 판별 적분 상한"}
+  "al_rho": {
+    "value": 2700,
+    "unit": "kg/m3",
+    "kind": "가정값",
+    "source": "cad/midterm/spec.py D.al; A6061 대리"
+  },
+  "al_cp": {
+    "value": 900,
+    "unit": "J/kg/K",
+    "kind": "가정값",
+    "source": "A6061 대표 상온 비열 대리; 온도의존 미반영"
+  },
+  "al_E": {
+    "value": 69,
+    "unit": "GPa",
+    "kind": "가정값",
+    "source": "중간 calc/fea_struct.py A6061 모델 대리; 250 C 강성 감소 미반영"
+  },
+  "al_yield": {
+    "value": 55,
+    "unit": "MPa",
+    "kind": "가정값",
+    "source": "고온 사용 보수적 허용응력 설계 가정; 재료 인증값 아님"
+  },
+  "al_cte": {
+    "value": 23.6,
+    "unit": "ppm/K",
+    "kind": "가정값",
+    "source": "sim/params.json head_drift.al_cte; 20-100 C 대표값을 250 C까지 외삽"
+  },
+  "al_k": {
+    "value": 167,
+    "unit": "W/m/K",
+    "kind": "가정값",
+    "source": "A6061 대표값 대리, 집중정수 Bi 검산용"
+  },
+  "steel_E": {
+    "value": 193,
+    "unit": "GPa",
+    "kind": "가정값",
+    "source": "SUS304 상온 대표값 대리; 고온/재료성적서 확인 필요"
+  },
+  "steel_cte": {
+    "value": 17,
+    "unit": "ppm/K",
+    "kind": "중간값",
+    "source": "calc/midterm/thermal.py ST.a"
+  },
+  "quartz_E": {
+    "value": 72,
+    "unit": "GPa",
+    "kind": "가정값",
+    "source": "fused silica 상온 대표값 대리; 창 지지 예비 검산"
+  },
+  "quartz_cte": {
+    "value": 0.55,
+    "unit": "ppm/K",
+    "kind": "가정값",
+    "source": "fused silica 대표값 대리"
+  },
+  "aln_rho": {
+    "value": 3260,
+    "unit": "kg/m3",
+    "kind": "중간값",
+    "source": "calc/midterm/thermal.py AlN.rho"
+  },
+  "aln_cp": {
+    "value": 740,
+    "unit": "J/kg/K",
+    "kind": "중간값",
+    "source": "calc/midterm/thermal.py AlN.c"
+  },
+  "calsil_k": {
+    "value": 0.12,
+    "unit": "W/m/K",
+    "kind": "중간값",
+    "source": "중간 7.5절; calc/midterm/thermal.py"
+  },
+  "ambient": {
+    "value": 20,
+    "unit": "C",
+    "kind": "중간값",
+    "source": "calc/midterm/thermal.py Tamb"
+  },
+  "h_natural": {
+    "value": 10,
+    "unit": "W/m2/K",
+    "kind": "가정값",
+    "source": "중간 7장 자연대류 대리"
+  },
+  "h_forced": {
+    "value": 400,
+    "unit": "W/m2/K",
+    "kind": "가정값",
+    "source": "유효 면적평균 h=400 가정: 소형 충돌 제트를 척 상면·측면에 분산, 유입 공기/N₂는 ambient. 유량으로 h를 산출한 값이 아니며 노즐 거리/유량별 실측 필요. 유동 열용량을 직렬 열저항으로 별도 반영."
+  },
+  "emissivity": {
+    "value": 0.3,
+    "unit": "1",
+    "kind": "가정값",
+    "source": "calc/midterm/thermal.py eps 대리"
+  },
+  "heater_power": {
+    "value": 150,
+    "unit": "W",
+    "kind": "설계값",
+    "source": "사용자 확정 2026-11-28; spec_stacker.REFLOW.power_W와 일치; 3 K/s 필요전력 대비 검산"
+  },
+  "power_48": {
+    "value": 600,
+    "unit": "W",
+    "kind": "중간값",
+    "source": "중간 10.4절 48 V 전원"
+  },
+  "voltage_48": {
+    "value": 48,
+    "unit": "V",
+    "kind": "중간값",
+    "source": "중간 10.4절"
+  },
+  "power_24": {
+    "value": 150,
+    "unit": "W",
+    "kind": "중간값",
+    "source": "중간 10.4절 24 V 전원"
+  },
+  "head_power": {
+    "value": 400,
+    "unit": "W",
+    "kind": "중간값",
+    "source": "중간 7장 AlN 히터"
+  },
+  "aux_48": {
+    "value": 100,
+    "unit": "W",
+    "kind": "가정값",
+    "source": "서보 및 기타 동력 예약; BOM 정격 미확정"
+  },
+  "aux_24": {
+    "value": 80,
+    "unit": "W",
+    "kind": "가정값",
+    "source": "제어기 센서 릴레이 예약; BOM 정격 미확정"
+  },
+  "mold_pressure": {
+    "value": 3,
+    "unit": "MPa",
+    "kind": "문헌값",
+    "source": "inbox/05_web/params_patch.json mold_pressure_applied; 06 HANDOFF §3 사용자 확정"
+  },
+  "force": {
+    "value": 40,
+    "unit": "N",
+    "kind": "가정값",
+    "source": "06 HANDOFF §4 TC-NCF 기본 하중"
+  },
+  "friction_reserve": {
+    "value": 5,
+    "unit": "N",
+    "kind": "가정값",
+    "source": "플런저 마찰 하중 예약; 실측 부재 민감도"
+  },
+  "diameters": {
+    "value": [
+      3,
+      4,
+      4.5,
+      5,
+      6
+    ],
+    "unit": "mm",
+    "kind": "설계값",
+    "source": "플런저 후보 스윕; 선택 직경은 spec_stacker.MOLD.bore"
+  },
+  "resin_overfill": {
+    "value": 1.2,
+    "unit": "1",
+    "kind": "가정값",
+    "source": "충전 체적 20% 여유; 범프 체적을 빼지 않는 상한"
+  },
+  "clamp_safety": {
+    "value": 2,
+    "unit": "1",
+    "kind": "설계값",
+    "source": "지그 나사 체결 예압 안전율; proof test 필요"
+  },
+  "support_span": {
+    "value": 80,
+    "unit": "mm",
+    "kind": "가정값",
+    "source": "중간 ST-004 MACOR 4점 지지 피치 대리; 단순지지 보 모델"
+  },
+  "die_thin": {
+    "value": 0.05,
+    "unit": "mm",
+    "kind": "설계값",
+    "source": "HANDOFF 박형 50 um 선택지"
+  },
+  "datum_offset": {
+    "value": 20,
+    "unit": "mm",
+    "kind": "설계값",
+    "source": "척 중심에서 한쪽 정렬 기준까지 거리"
+  },
+  "mount_length": {
+    "value": 40,
+    "unit": "mm",
+    "kind": "가정값",
+    "source": "고정부 유효 길이 대리; 전 길이 동일 온도 상승 최악 조건"
+  },
+  "drift_budget": {
+    "value": 0.26,
+    "unit": "um",
+    "kind": "중간값",
+    "source": "중간 5장 열드리프트 균일분포 반폭"
+  },
+  "alignment_limit": {
+    "value": 1,
+    "unit": "um",
+    "kind": "원문 KPI",
+    "source": "PBL p7; 중간 5장 RSS 3sigma 해석"
+  },
+  "liquidus": {
+    "value": 217,
+    "unit": "C",
+    "kind": "문헌값",
+    "source": "sim/params.json reflow.time_above_liquidus.note"
+  },
+  "cool_to": {
+    "value": 100,
+    "unit": "C",
+    "kind": "설계값",
+    "source": "냉각시간 비교 종료 온도"
+  },
+  "dt": {
+    "value": 0.01,
+    "unit": "s",
+    "kind": "설계값",
+    "source": "집중정수 냉각 explicit Euler; dt/2 수렴 검사"
+  },
+  "max_cool_time": {
+    "value": 7200,
+    "unit": "s",
+    "kind": "설계값",
+    "source": "냉각 미도달 판별 적분 상한"
+  },
+  "coolant_flow": {
+    "value": 100,
+    "unit": "L/min",
+    "kind": "가정값",
+    "source": "총 노즐 실제 체적유량, ambient에서 평가. 압축공기/상온 N₂ 공급, 병입 N₂ 기화냉각은 미포함. h와 독립 가정; 측정으로 확정."
+  },
+  "coolant_rho": {
+    "value": 1.16,
+    "unit": "kg/m3",
+    "kind": "가정값",
+    "source": "20 ℃·약1 atm 공기/N₂ 공통 보수 대리, 공급 가스 온도·압력 실측 필요."
+  },
+  "coolant_cp": {
+    "value": 1000,
+    "unit": "J/kg/K",
+    "kind": "가정값",
+    "source": "상온 공기/N₂ 공통 대리; 온도의존 생략. 유한 유량 열용량을 보수적으로 반영."
+  },
+  "die_strength_reference": {
+    "value": 261,
+    "unit": "MPa",
+    "kind": "문헌값",
+    "source": "Gupta et al. 2024 J. Micromech. Microeng. 34 105012, Table 3, 45° angled design: 평균 굽힘 파괴강도261 MPa, 표준편차39 MPa, 두께51 μm, 40개; Si MOSFET 유사시험편(6×3 mm). HBM 허용응력이나 최소보증값 아님. https://pure.tudelft.nl/ws/portalfiles/portal/222055008/Gupta_2024_J._Micromech._Microeng._34_105012.pdf ; https://doi.org/10.1088/1361-6439/ad76b4"
+  }
 }

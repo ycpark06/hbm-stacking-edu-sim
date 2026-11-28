@@ -96,7 +96,7 @@
         "value": 400,
         "unit": "W/m2/K",
         "kind": "가정값",
-        "source": "중간 7장 충돌제트 대리; 척 실측 필요"
+        "source": "유효 면적평균 h=400 가정: 소형 충돌 제트를 척 상면·측면에 분산, 유입 공기/N₂는 ambient. 유량으로 h를 산출한 값이 아니며 노즐 거리/유량별 실측 필요. 유동 열용량을 직렬 열저항으로 별도 반영."
       },
       "emissivity": {
         "value": 0.3,
@@ -105,10 +105,10 @@
         "source": "calc/midterm/thermal.py eps 대리"
       },
       "heater_power": {
-        "value": 120,
+        "value": 150,
         "unit": "W",
         "kind": "설계값",
-        "source": "40x40x8 척 48 V 박막 히터 후보; reflow_heater.json 검산"
+        "source": "사용자 확정 2026-11-28; spec_stacker.REFLOW.power_W와 일치; 3 K/s 필요전력 대비 검산"
       },
       "power_48": {
         "value": 600,
@@ -194,18 +194,6 @@
         "kind": "가정값",
         "source": "중간 ST-004 MACOR 4점 지지 피치 대리; 단순지지 보 모델"
       },
-      "die_strength": {
-        "value": 100,
-        "unit": "MPa",
-        "kind": "가정값",
-        "source": "결함 민감 Si 다이의 예비 인장 허용응력 설계 가정; 파손 보증값 아님"
-      },
-      "bump_contact_fraction": {
-        "value": 0.1,
-        "unit": "1",
-        "kind": "가정값",
-        "source": "접촉 면적 10% 최악 대리; 실제 범프 분포/모서리 결함 미포함"
-      },
       "die_thin": {
         "value": 0.05,
         "unit": "mm",
@@ -259,6 +247,30 @@
         "unit": "s",
         "kind": "설계값",
         "source": "냉각 미도달 판별 적분 상한"
+      },
+      "coolant_flow": {
+        "value": 100,
+        "unit": "L/min",
+        "kind": "가정값",
+        "source": "총 노즐 실제 체적유량, ambient에서 평가. 압축공기/상온 N₂ 공급, 병입 N₂ 기화냉각은 미포함. h와 독립 가정; 측정으로 확정."
+      },
+      "coolant_rho": {
+        "value": 1.16,
+        "unit": "kg/m3",
+        "kind": "가정값",
+        "source": "20 ℃·약1 atm 공기/N₂ 공통 보수 대리, 공급 가스 온도·압력 실측 필요."
+      },
+      "coolant_cp": {
+        "value": 1000,
+        "unit": "J/kg/K",
+        "kind": "가정값",
+        "source": "상온 공기/N₂ 공통 대리; 온도의존 생략. 유한 유량 열용량을 보수적으로 반영."
+      },
+      "die_strength_reference": {
+        "value": 261,
+        "unit": "MPa",
+        "kind": "문헌값",
+        "source": "Gupta et al. 2024 J. Micromech. Microeng. 34 105012, Table 3, 45° angled design: 평균 굽힘 파괴강도261 MPa, 표준편차39 MPa, 두께51 μm, 40개; Si MOSFET 유사시험편(6×3 mm). HBM 허용응력이나 최소보증값 아님. https://pure.tudelft.nl/ws/portalfiles/portal/222055008/Gupta_2024_J._Micromech._Microeng._34_105012.pdf ; https://doi.org/10.1088/1361-6439/ad76b4"
       }
     },
     "dimensions": {
@@ -489,6 +501,30 @@
         "unit": "mm",
         "kind": "설계값",
         "source": "설계값; 06 HANDOFF §3; 검산 calc/hardware/*.json"
+      },
+      "reflow.power": {
+        "value": 150,
+        "unit": "W",
+        "kind": "설계값",
+        "source": "사용자 확정 2026-11-28; 설계값; calc/hardware/reflow_heater.json"
+      },
+      "reflow.alignment_wait": {
+        "value": 90,
+        "unit": "s",
+        "kind": "설계값",
+        "source": "사용자 확정 2026-11-28; 중간 보고서 7장 온도 도달 후 안정화"
+      },
+      "mold.clamp_count": {
+        "value": 4,
+        "unit": "개",
+        "kind": "설계값",
+        "source": "사용자 확정 2026-11-28; M3 나사"
+      },
+      "mold.clamp_preload": {
+        "value": 216,
+        "unit": "N",
+        "kind": "설계값",
+        "source": "사용자 확정 2026-11-28; 합계 최소 예압, 개방력108 N × 안전율2"
       },
       "fit.H7_min": {
         "value": 0,
@@ -1792,7 +1828,28 @@
     "load_path": "head → die stack → full-depth quartz insert → chuck → MACOR supports → XY stages → granite → columns/beam",
     "force_N": 40,
     "die_average_pressure_MPa": 1.6,
-    "local_contact_pressure_MPa": 16.0,
+    "local_contact_pressure_MPa": 9.8599670344291,
+    "bump_pitch_um": 55.0,
+    "bump_diameter_um": 25.0,
+    "bump_count_area_estimate": 8264.462809917355,
+    "single_bump_area_mm2": 0.0004908738521234052,
+    "total_bump_contact_area_mm2": 4.0568086952347535,
+    "force_cases": [
+      {
+        "force_N": 40,
+        "die_average_pressure_MPa": 1.6,
+        "bump_contact_stress_MPa": 9.8599670344291,
+        "reference_strength_ratio": 26.470676736406766
+      },
+      {
+        "force_N": 50,
+        "die_average_pressure_MPa": 2.0,
+        "bump_contact_stress_MPa": 12.324958793036375,
+        "reference_strength_ratio": 21.176541389125415
+      }
+    ],
+    "Si_reference_strength_MPa": 261,
+    "comparison": "문헌 굽힘 파괴강도와 접촉 압축응력 크기 비교; 균일하중·전면 석영 지지 조건부 손계산 PASS, 최소강도/수명 보증 아님",
     "chuck_bending_um": 0.12723405101290233,
     "chuck_bending_stress_MPa": 0.14814814814814814,
     "quartz_window_bending_um": 0.005358367626886145,
@@ -1848,13 +1905,16 @@
     "design_checks": {
       "chuck_flatness": true,
       "chuck_stress": true,
-      "average_die_stress": true,
-      "die_fracture_proven": false
+      "bump_contact_handcalc": true
     },
-    "status": "FAIL/REVIEW"
+    "status": "PASS",
+    "remaining_FAIL_REVIEW": [],
+    "post_fabrication_tests": [
+      "실제 다이 표면결함·범프 불균일 접촉 및 전면 지지 확인"
+    ]
   },
   "limitations": [
-    "Fracture not certified by average compression: edge flaws, bumps, bending and point loads require coupon test/FEA.",
+    "FEA 대신 범프 원형면적 손계산. 모든 범프가 균일 접촉하고 전면 석영 지지되는 조건. 문헌 굽힘 인장강도는 압축 접촉 허용응력과 다르며 파손확률/실물 안전 인증이 아님.",
     "50 um die must never bridge Ø15 opening without full quartz backing; interface bonding/contact stiffness unresolved.",
     "Beam supports simple, omitted joint/stage compliance. Flatness is manufactured geometry; load bending is separate."
   ]

@@ -32,6 +32,13 @@ REFLOW = dict(w=v('reflow.width',40),d=v('reflow.depth',40),t=v('reflow.thicknes
 MOLD = dict(w=v('mold.width',30),d=v('mold.depth',30),t=v('mold.thickness',10),cavity_w=v('mold.cavity_width',6),cavity_d=v('mold.cavity_depth',2),
             bore=v('mold.plunger_d',4),plunger_l=v('mold.plunger_length',20),stroke=v('mold.stroke',8),gate_w=v('mold.gate_width',1),gate_d=v('mold.gate_depth',.5),
             gate_l=v('mold.gate_length',6),vent_w=v('mold.vent_width',.5),vent_d=v('mold.vent_depth',.02),pitch=v('mold.clamp_pitch',22),bolt=v('mold.clamp_d',3.4))
+# 사용자 확정 2026-11-28: 치수 변경 없이 정격·체결·운전 절차 반영.
+REFLOW.update(power_W=v('reflow.power',150,'W','사용자 확정 2026-11-28; 설계값; calc/hardware/reflow_heater.json'),
+              forced_cooling='공기 또는 N₂ 강제 냉각', heater_interlock='두 히터 동시 통전 금지(SW 인터락)',
+              alignment_wait_s=v('reflow.alignment_wait',90,'s','사용자 확정 2026-11-28; 중간 보고서 7장 온도 도달 후 안정화'))
+MOLD.update(clamp_count=v('mold.clamp_count',4,'개','사용자 확정 2026-11-28; M3 나사'),
+            clamp_thread='M3', clamp_preload_N=v('mold.clamp_preload',216,'N','사용자 확정 2026-11-28; 합계 최소 예압, 개방력108 N × 안전율2'),
+            sealing_status='제작 후 시험')
 # ISO 286 diameter >3..6 mm, secondary machining dimensions are also in source.
 FIT = dict(hole_min=v('fit.H7_min',0),hole_max=v('fit.H7_max',.012),shaft_min=v('fit.g6_min',-.012),shaft_max=v('fit.g6_max',-.004))
 STACK = dict(layers=v('stack.layers',12,'count', '설계값; requirements §3 / recipe.layers.range'),die=SIM['geometry']['die_size']['value'],
