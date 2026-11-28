@@ -1,0 +1,1221 @@
+{
+  "commit_source": "git log main --date=short --pretty=%h|%ad|%s",
+  "date_basis": "commit: git author short date; GitHub events: Asia/Seoul",
+  "commits": [
+    {
+      "hash": "3041474",
+      "date": "2026-11-28",
+      "subject": "Merge PR: 트러블슈팅 로그에 #4 반영"
+    },
+    {
+      "hash": "1ed8b93",
+      "date": "2026-11-28",
+      "subject": "docs: 트러블슈팅 로그에 #4 반영"
+    },
+    {
+      "hash": "65489fd",
+      "date": "2026-11-28",
+      "subject": "Merge PR: 기말 보고서 요약·15~17장·PDF 빌드 (단계 6)"
+    },
+    {
+      "hash": "17c32a6",
+      "date": "2026-11-28",
+      "subject": "docs: 기말 보고서 PDF 빌드 결과 (89쪽)"
+    },
+    {
+      "hash": "cd33460",
+      "date": "2026-11-28",
+      "subject": "Merge remote-tracking branch 'origin/main' into docs/report"
+    },
+    {
+      "hash": "d1dec61",
+      "date": "2026-11-28",
+      "subject": "fix: 목차 HTML 엔티티와 11장 도면 가로 페이지 (빌드)"
+    },
+    {
+      "hash": "f5d2c31",
+      "date": "2026-11-28",
+      "subject": "Merge PR: 기말 보고서 8~14장 (단계 6)"
+    },
+    {
+      "hash": "d93f6e5",
+      "date": "2026-11-28",
+      "subject": "Merge PR: 기말 보고서 1~7장 (단계 6)"
+    },
+    {
+      "hash": "67ea341",
+      "date": "2026-11-28",
+      "subject": "docs: 기말 보고서 6~7장 구동·열 개정과 7장 PI 설명 수정 (#4)"
+    },
+    {
+      "hash": "4311960",
+      "date": "2026-11-28",
+      "subject": "docs: 기말 보고서 4~5장 공정 물리·오차 예산 개정"
+    },
+    {
+      "hash": "f9a4039",
+      "date": "2026-11-28",
+      "subject": "docs: 기말 보고서 1~3장 요구·구성 개정"
+    },
+    {
+      "hash": "0b15cfc",
+      "date": "2026-11-28",
+      "subject": "build: 기말 PDF 빌드와 보고서 안내 구성"
+    },
+    {
+      "hash": "933b439",
+      "date": "2026-11-28",
+      "subject": "docs: 중간 그림 이관 및 기말 결과 그림 추가"
+    },
+    {
+      "hash": "d259e93",
+      "date": "2026-11-28",
+      "subject": "docs: 기말 요약 및 15~17장 작성 (16장 HMI 캡처 포함)"
+    },
+    {
+      "hash": "063a0f3",
+      "date": "2026-11-28",
+      "subject": "docs: 기말 통합검증·교육안전·결론 개정"
+    },
+    {
+      "hash": "b95d1b1",
+      "date": "2026-11-28",
+      "subject": "docs: 기말 CAD·제작도면과 11장 그림 추가"
+    },
+    {
+      "hash": "2f948e2",
+      "date": "2026-11-28",
+      "subject": "docs: 기말 보고서 8~10장 구조·비전·제어 개정"
+    },
+    {
+      "hash": "23049d3",
+      "date": "2026-11-28",
+      "subject": "Merge PR: 실습 매뉴얼 A~E와 안전·인터락 점검 (단계 6)"
+    },
+    {
+      "hash": "28b44d4",
+      "date": "2026-11-28",
+      "subject": "docs: 학생용 실습 A~E 매뉴얼과 안전·인터락 점검 절차 추가"
+    },
+    {
+      "hash": "ffa9609",
+      "date": "2026-11-28",
+      "subject": "Merge PR: 하드웨어 공용 파일 반영"
+    },
+    {
+      "hash": "3d87243",
+      "date": "2026-11-28",
+      "subject": "docs: PLAN 단계 4·5 진행 표시"
+    },
+    {
+      "hash": "c5075f5",
+      "date": "2026-11-28",
+      "subject": "docs: requirements 6절 하드웨어 운전 조건"
+    },
+    {
+      "hash": "4dcab90",
+      "date": "2026-11-28",
+      "subject": "docs: README 하드웨어 절과 트러블슈팅 #33·#37"
+    },
+    {
+      "hash": "732bedb",
+      "date": "2026-11-28",
+      "subject": "Merge PR: 시나리오 기준값 비교 상대 허용 (#37)"
+    },
+    {
+      "hash": "49a6c02",
+      "date": "2026-11-28",
+      "subject": "test: 시나리오 기준값 비교를 상대 1e-12 허용으로 (#37)"
+    },
+    {
+      "hash": "27abf67",
+      "date": "2026-11-28",
+      "subject": "Merge PR: HMI·알람·3D 뷰와 README (단계 4-D·E·F)"
+    },
+    {
+      "hash": "10b13cf",
+      "date": "2026-11-28",
+      "subject": "fix: HMI 배지·범례·S5 조건 표시 수정"
+    },
+    {
+      "hash": "0d6b43c",
+      "date": "2026-11-28",
+      "subject": "Merge remote-tracking branch 'origin/main' into feat/hmi"
+    },
+    {
+      "hash": "052dc45",
+      "date": "2026-11-28",
+      "subject": "Merge PR: 리플로우 냉각 판정 구간(피크→180 ℃) 재정의"
+    },
+    {
+      "hash": "076c5bb",
+      "date": "2026-11-28",
+      "subject": "feat: 리플로우 냉각 판정 구간(피크→180 ℃) 재정의"
+    },
+    {
+      "hash": "f19fe73",
+      "date": "2026-11-28",
+      "subject": "Merge PR: cad 스크립트 UTF-8 입출력 명시 (#33)"
+    },
+    {
+      "hash": "8b73dfc",
+      "date": "2026-11-28",
+      "subject": "test: ASCII 기본 인코딩 실행 검사"
+    },
+    {
+      "hash": "59b1e67",
+      "date": "2026-11-28",
+      "subject": "fix: cad 스크립트 파일 입출력 UTF-8 명시 (#33)"
+    },
+    {
+      "hash": "06231ef",
+      "date": "2026-11-28",
+      "subject": "Merge remote-tracking branch 'origin/main' into feat/hmi"
+    },
+    {
+      "hash": "d9c8f38",
+      "date": "2026-11-28",
+      "subject": "Merge PR: HBM 적층 부품 CAD·계산·도면·배선도·GLB (단계 5)"
+    },
+    {
+      "hash": "9eac8d0",
+      "date": "2026-11-28",
+      "subject": "docs: 아키텍처와 실행법 및 모델 한계와 진행 현황 갱신"
+    },
+    {
+      "hash": "a352862",
+      "date": "2026-11-28",
+      "subject": "feat: 로컬 three.js와 절차적 3D 및 GLB 연결 추가"
+    },
+    {
+      "hash": "910568e",
+      "date": "2026-11-28",
+      "subject": "feat: Worker 기반 HMI와 레시피 검증 및 알람 시연 추가"
+    },
+    {
+      "hash": "a9c4f56",
+      "date": "2026-11-28",
+      "subject": "cad: 웹 3D용 GLB (hbm_stacker.glb, 179 KB)"
+    },
+    {
+      "hash": "2108fff",
+      "date": "2026-11-28",
+      "subject": "cad: Fusion 실행 결과 (STEP, 바디별 STL, summary, 뷰)"
+    },
+    {
+      "hash": "d4d60e6",
+      "date": "2026-11-28",
+      "subject": "fix: 히터 인터락 상태를 펌웨어 PR #30 반영으로 갱신"
+    },
+    {
+      "hash": "f9e59cb",
+      "date": "2026-11-28",
+      "subject": "fix: 배선도 겹침 수정과 히터 순차 인터락 경로 반영"
+    },
+    {
+      "hash": "5e149cc",
+      "date": "2026-11-28",
+      "subject": "cad: 척·지그 도면과 리플로우 운전 절차 갱신"
+    },
+    {
+      "hash": "5b628f0",
+      "date": "2026-11-28",
+      "subject": "feat: 사용자 확정 전원·지그·범프 응력·열팽창 계산 반영"
+    },
+    {
+      "hash": "6c1f64e",
+      "date": "2026-11-28",
+      "subject": "Merge PR: 접합 온도 미달 알람과 층별 헤드 온도 보정 옵션 (#29)"
+    },
+    {
+      "hash": "00cfa33",
+      "date": "2026-11-28",
+      "subject": "fix: 400 ℃ 장비 한계를 원문 KPI kind(kpi)로 구분"
+    },
+    {
+      "hash": "489cd71",
+      "date": "2026-11-28",
+      "subject": "docs: 접합 온도 보정 결과와 박형 휨 모델 한계 기록"
+    },
+    {
+      "hash": "db49dea",
+      "date": "2026-11-28",
+      "subject": "test: 기본 결과 불변 검증과 S1·S3 결과 갱신"
+    },
+    {
+      "hash": "8b3b494",
+      "date": "2026-11-28",
+      "subject": "feat: 접합 온도 미달 판정과 층별 헤드 온도 보정 옵션 (#29)"
+    },
+    {
+      "hash": "be7b105",
+      "date": "2026-11-28",
+      "subject": "Merge PR: 헤드·리플로우 척 히터 동시 통전 금지 인터락"
+    },
+    {
+      "hash": "6afba97",
+      "date": "2026-11-28",
+      "subject": "docs: 펌웨어 README 히터 인터락"
+    },
+    {
+      "hash": "9ba97ec",
+      "date": "2026-11-28",
+      "subject": "build: wasm export 추가와 펌웨어 산출물 재빌드"
+    },
+    {
+      "hash": "c837e8d",
+      "date": "2026-11-28",
+      "subject": "test: 히터 인터락 시험 (PC·wasm)"
+    },
+    {
+      "hash": "36262ac",
+      "date": "2026-11-28",
+      "subject": "feat: 두 히터 동시 통전 금지 인터락"
+    },
+    {
+      "hash": "aea8972",
+      "date": "2026-11-28",
+      "subject": "feat: 리플로우 척 히터 HAL 채널 (150 W 설계값)"
+    },
+    {
+      "hash": "f4c2d67",
+      "date": "2026-11-28",
+      "subject": "Merge PR: MUF 가압 충전·접촉 열저항·후경화 보정과 S1~S5 (단계 4-A)"
+    },
+    {
+      "hash": "3edbf3c",
+      "date": "2026-11-28",
+      "subject": "docs: 배선도와 STM32H743 핀 배정표"
+    },
+    {
+      "hash": "7f01868",
+      "date": "2026-11-28",
+      "subject": "docs: 적층 척·리플로우 척·가압 지그 도면"
+    },
+    {
+      "hash": "a9ef134",
+      "date": "2026-11-28",
+      "subject": "feat: STL→GLB 변환기와 합성 검사"
+    },
+    {
+      "hash": "ffe42c3",
+      "date": "2026-11-28",
+      "subject": "cad: HBM 적층 본더 Fusion 스크립트와 실행 안내"
+    },
+    {
+      "hash": "4a715b4",
+      "date": "2026-11-28",
+      "subject": "feat: 신규 하드웨어 계산 4종과 판정 문서"
+    },
+    {
+      "hash": "d365bc2",
+      "date": "2026-11-28",
+      "subject": "cad: 적층 장비 치수 원본과 사전 검사"
+    },
+    {
+      "hash": "4386c56",
+      "date": "2026-11-27",
+      "subject": "docs: 단계 4 모델 보정 결과와 requirements 1·6·7절"
+    },
+    {
+      "hash": "74c7469",
+      "date": "2026-11-27",
+      "subject": "test: 가압 충전 검산과 시나리오·민감도 재실행"
+    },
+    {
+      "hash": "8f85763",
+      "date": "2026-11-27",
+      "subject": "feat: 대표 장면 S1~S5 프리셋(scenarios.js)"
+    },
+    {
+      "hash": "d20a4f3",
+      "date": "2026-11-27",
+      "subject": "feat: Hele-Shaw 가압 충전, 필러·겔 경고, 후경화 4 h 반영"
+    },
+    {
+      "hash": "3f0f03e",
+      "date": "2026-11-27",
+      "subject": "feat: params에 MUF 몰딩·접촉 열저항 조사값 반영 (역산 추정값 kind 추가)"
+    },
+    {
+      "hash": "5de0700",
+      "date": "2026-11-27",
+      "subject": "Merge PR: 비전 정렬 모듈과 층별 검출 표시 (단계 4-C)"
+    },
+    {
+      "hash": "220af17",
+      "date": "2026-11-27",
+      "subject": "feat: 층별 비전 검출 표시 페이지"
+    },
+    {
+      "hash": "38e8aa3",
+      "date": "2026-11-27",
+      "subject": "test: 비전 golden 재현·평탄화·폐루프 수렴"
+    },
+    {
+      "hash": "e9d3190",
+      "date": "2026-11-27",
+      "subject": "refactor: golden 비전 항목을 vision.js로 계산"
+    },
+    {
+      "hash": "d23aea6",
+      "date": "2026-11-27",
+      "subject": "feat: 비전 정렬 모듈(vision.js)과 영상 기반 폐루프 정렬"
+    },
+    {
+      "hash": "b11e72b",
+      "date": "2026-11-27",
+      "subject": "Merge PR: Pages 워크플로 Node 24 테스트 명령 (#25)"
+    },
+    {
+      "hash": "f908664",
+      "date": "2026-11-27",
+      "subject": "fix: Pages 워크플로 테스트 명령을 Node 24 glob으로 (#25)"
+    },
+    {
+      "hash": "6229b1b",
+      "date": "2026-11-27",
+      "subject": "Merge PR: GitHub Pages 배포와 브라우저 wasm 확인 (단계 4-B)"
+    },
+    {
+      "hash": "9f091fe",
+      "date": "2026-11-27",
+      "subject": "test: 헤드리스 Chrome wasm 확인과 Node 결과 비교"
+    },
+    {
+      "hash": "283f012",
+      "date": "2026-11-27",
+      "subject": "feat: 브라우저 wasm 확인 페이지와 임시 첫 화면"
+    },
+    {
+      "hash": "0f681be",
+      "date": "2026-11-27",
+      "subject": "feat: 사이트 조립·로컬 실행 스크립트 (저장소 구조 유지)"
+    },
+    {
+      "hash": "38c2699",
+      "date": "2026-11-27",
+      "subject": "ci: GitHub Pages 배포 워크플로 (test → build → deploy)"
+    },
+    {
+      "hash": "7b382ed",
+      "date": "2026-11-26",
+      "subject": "Merge PR: MR-MUF 모드·runStack·시나리오 (단계 3-C3)"
+    },
+    {
+      "hash": "376a4d0",
+      "date": "2026-11-26",
+      "subject": "docs: README 트러블슈팅 로그 정리 (열린 #4 제외)"
+    },
+    {
+      "hash": "e84d5f8",
+      "date": "2026-11-26",
+      "subject": "docs: MR-MUF 결함 판정의 지배 가정과 경계값 분석"
+    },
+    {
+      "hash": "8ae3cfc",
+      "date": "2026-11-26",
+      "subject": "docs: README 시뮬레이션 모델·실행·트러블슈팅 갱신"
+    },
+    {
+      "hash": "2ed5075",
+      "date": "2026-11-26",
+      "subject": "docs: 대표 시나리오·민감도 보고"
+    },
+    {
+      "hash": "a047c20",
+      "date": "2026-11-26",
+      "subject": "test: 16개 시나리오 실행 기록과 물리 일관성 검증"
+    },
+    {
+      "hash": "c9b7427",
+      "date": "2026-11-26",
+      "subject": "feat: 최상위 runStack과 판정"
+    },
+    {
+      "hash": "17b419f",
+      "date": "2026-11-26",
+      "subject": "feat: 리플로우 자기정렬(selfAlign)"
+    },
+    {
+      "hash": "a54eccd",
+      "date": "2026-11-26",
+      "subject": "feat: MUF 압력·모세관 충전과 미충전 면적률"
+    },
+    {
+      "hash": "b8cf8e0",
+      "date": "2026-11-26",
+      "subject": "Merge PR: TC-NCF 모드 모델 (단계 3-C2)"
+    },
+    {
+      "hash": "25644b7",
+      "date": "2026-11-26",
+      "subject": "docs: C2 결과 재계산 (#20)"
+    },
+    {
+      "hash": "b2510cc",
+      "date": "2026-11-26",
+      "subject": "fix: 사이클 시간을 본더 점유와 배치 후공정으로 분리 (#20)"
+    },
+    {
+      "hash": "ea5c9ca",
+      "date": "2026-11-26",
+      "subject": "fix: NCF 초기 필름 두께를 간격+여유로 (#20)"
+    },
+    {
+      "hash": "6a0b9dd",
+      "date": "2026-11-26",
+      "subject": "docs: TC-NCF 시나리오·민감도·처리량 비교 보고"
+    },
+    {
+      "hash": "2fdb3af",
+      "date": "2026-11-26",
+      "subject": "fix: 스퀴즈 입력의 무한 점도에서 겔화 감지"
+    },
+    {
+      "hash": "401eca3",
+      "date": "2026-11-26",
+      "subject": "test: TC-NCF 물리·통계 검증과 시나리오 기록"
+    },
+    {
+      "hash": "710402e",
+      "date": "2026-11-26",
+      "subject": "feat: 두 모드 사이클 시간(cycle.js)"
+    },
+    {
+      "hash": "1a42c34",
+      "date": "2026-11-26",
+      "subject": "feat: 적층 누적 정렬 오차(stackOffset)"
+    },
+    {
+      "hash": "ceb3dbf",
+      "date": "2026-11-26",
+      "subject": "feat: NCF 점도·경화 결합과 RK4 스퀴즈"
+    },
+    {
+      "hash": "24c521a",
+      "date": "2026-11-26",
+      "subject": "Merge PR: 층별 열 이력과 적층 휨 (단계 3-C1)"
+    },
+    {
+      "hash": "dbecc6a",
+      "date": "2026-11-26",
+      "subject": "fix: 재가열(후속 접합 가열)과 재용융(액상선 교차) 지표 분리"
+    },
+    {
+      "hash": "b414c7a",
+      "date": "2026-11-26",
+      "subject": "docs: C1 열·휨 결과와 헤드 열팽창 가정 보고"
+    },
+    {
+      "hash": "1e868bd",
+      "date": "2026-11-26",
+      "subject": "fix: 열 사슬의 다이 중심과 충전층 저항 위치 명시"
+    },
+    {
+      "hash": "d405ece",
+      "date": "2026-11-26",
+      "subject": "build: firmware Makefile clean/distclean 타깃"
+    },
+    {
+      "hash": "ab6978d",
+      "date": "2026-11-26",
+      "subject": "test: 열·휨 물리 일관성과 C1 시나리오 기록"
+    },
+    {
+      "hash": "aa911ca",
+      "date": "2026-11-26",
+      "subject": "feat: 헤드 열팽창 계산 (#2)"
+    },
+    {
+      "hash": "536b1b6",
+      "date": "2026-11-26",
+      "subject": "feat: 적층판 휨 이력과 휨 판정 (warpage.js)"
+    },
+    {
+      "hash": "ac4997c",
+      "date": "2026-11-26",
+      "subject": "feat: N층 열 사슬과 모드별 열 이력 (thermal.js)"
+    },
+    {
+      "hash": "0b8effa",
+      "date": "2026-11-26",
+      "subject": "Merge PR: 중간 모델 JS 이식과 golden 재현 (단계 3-B)"
+    },
+    {
+      "hash": "bff756f",
+      "date": "2026-11-26",
+      "subject": "docs: 단계 3-B 검증과 Issue #3·#4·#5·#7 기록"
+    },
+    {
+      "hash": "e5f5837",
+      "date": "2026-11-26",
+      "subject": "fix: 10장 열 제어는 wasm SIL 경로로 제한"
+    },
+    {
+      "hash": "f84e98b",
+      "date": "2026-11-26",
+      "subject": "feat: 원본 계산 실행 래퍼 run_midterm.py (#7)"
+    },
+    {
+      "hash": "e7b5fc5",
+      "date": "2026-11-26",
+      "subject": "feat: contact_transient 재생성 스크립트 (#5)"
+    },
+    {
+      "hash": "692dace",
+      "date": "2026-11-26",
+      "subject": "test: golden 111개 JS 대조와 float 예외 오차 출력"
+    },
+    {
+      "hash": "8c69f11",
+      "date": "2026-11-26",
+      "subject": "build: SIL 온도 비교용 기존 주기 설정 API wasm export"
+    },
+    {
+      "hash": "093e214",
+      "date": "2026-11-26",
+      "subject": "feat: SIL 플랜트와 wasm REFERENCE 제어기 연결"
+    },
+    {
+      "hash": "bab1d4d",
+      "date": "2026-11-26",
+      "subject": "feat: 열 모듈 이식과 프리셋 2개 (#3)"
+    },
+    {
+      "hash": "b479a4a",
+      "date": "2026-11-26",
+      "subject": "feat: NCF·MUF·휨·정렬·사이클 기존 식 이식"
+    },
+    {
+      "hash": "770b22c",
+      "date": "2026-11-26",
+      "subject": "feat: 시드 PRNG xoshiro128**와 Box–Muller"
+    },
+    {
+      "hash": "ba55805",
+      "date": "2026-11-26",
+      "subject": "Merge PR #17: 시뮬레이션 파라미터와 요구사항 갱신 (단계 3-A)"
+    },
+    {
+      "hash": "aefae84",
+      "date": "2026-11-26",
+      "subject": "docs: 판정 기준은 설계 목표, 업체 주장은 관찰 항목으로 구분 정리"
+    },
+    {
+      "hash": "e1ddcf3",
+      "date": "2026-11-25",
+      "subject": "docs: README 주요 사양과 PLAN 브랜치 표 갱신"
+    },
+    {
+      "hash": "fe649d6",
+      "date": "2026-11-25",
+      "subject": "docs: requirements 층간 간격·휨 2단계·하중·승온 속도 갱신"
+    },
+    {
+      "hash": "5d4dab7",
+      "date": "2026-11-25",
+      "subject": "docs: 파라미터 조사 자료 추가"
+    },
+    {
+      "hash": "350b5fe",
+      "date": "2026-11-25",
+      "subject": "feat: 시뮬레이션 파라미터(params.json)와 스키마 테스트"
+    },
+    {
+      "hash": "8a6b25f",
+      "date": "2026-11-25",
+      "subject": "Merge PR: 하중 램프 제한·PLAN MCU 결정 (단계 2 후속)"
+    },
+    {
+      "hash": "04346d9",
+      "date": "2026-11-25",
+      "subject": "docs: README 트러블슈팅 로그에 #15 추가"
+    },
+    {
+      "hash": "0dd52f0",
+      "date": "2026-11-25",
+      "subject": "docs: 하중 램프 상한 결정 기록"
+    },
+    {
+      "hash": "e8f3283",
+      "date": "2026-11-25",
+      "subject": "build: 하중 램프 제한 MCU·wasm 산출물 갱신"
+    },
+    {
+      "hash": "8edd147",
+      "date": "2026-11-25",
+      "subject": "test: 하중 램프 경계·저레인지 성능·wasm 거부 검증"
+    },
+    {
+      "hash": "6e71281",
+      "date": "2026-11-25",
+      "subject": "feat: 하중 램프를 장비 능력 이하로 제한"
+    },
+    {
+      "hash": "24a6fd2",
+      "date": "2026-11-25",
+      "subject": "docs: PLAN 6절 대상 MCU 결정 반영"
+    },
+    {
+      "hash": "3b86651",
+      "date": "2026-11-25",
+      "subject": "Merge PR #14: 펌웨어 — 하중·온도 PI, anti-windup, 인터락, MCU·wasm 빌드 (단계 2)"
+    },
+    {
+      "hash": "a01bfd5",
+      "date": "2026-11-25",
+      "subject": "docs: 펌웨어 빌드 방법과 README 갱신"
+    },
+    {
+      "hash": "33fd544",
+      "date": "2026-11-25",
+      "subject": "build: emscripten wasm 빌드"
+    },
+    {
+      "hash": "dcc423a",
+      "date": "2026-11-25",
+      "subject": "build: STM32H743 링커 스크립트·startup과 MCU 빌드"
+    },
+    {
+      "hash": "0d1ee8e",
+      "date": "2026-11-25",
+      "subject": "test: 펌웨어 모드 성능·anti-windup·인터락 검증 (#13)"
+    },
+    {
+      "hash": "bb7f183",
+      "date": "2026-11-25",
+      "subject": "docs: 하중 적분 제한값 결정 기록"
+    },
+    {
+      "hash": "6fb0f33",
+      "date": "2026-11-25",
+      "subject": "feat: 인터락과 고장 래치 모사"
+    },
+    {
+      "hash": "24597e7",
+      "date": "2026-11-25",
+      "subject": "feat: 하중 PI 적분 제한·anti-windup (#6)"
+    },
+    {
+      "hash": "cbccbe5",
+      "date": "2026-11-25",
+      "subject": "test: 온도 플랜트와 golden 대조"
+    },
+    {
+      "hash": "ee1c0ad",
+      "date": "2026-11-25",
+      "subject": "feat: 온도 PI 10 ms"
+    },
+    {
+      "hash": "acd7cb3",
+      "date": "2026-11-25",
+      "subject": "refactor: 호스트 전용 HAL 함수를 hal_host.h로 분리"
+    },
+    {
+      "hash": "a1e752a",
+      "date": "2026-11-25",
+      "subject": "test: C 테스트 플랜트와 golden 대조"
+    },
+    {
+      "hash": "63be664",
+      "date": "2026-11-25",
+      "subject": "feat: 하중 PI 1 ms (원본 동작 모드)"
+    },
+    {
+      "hash": "0064373",
+      "date": "2026-11-25",
+      "subject": "feat: 펌웨어 골격과 HAL 인터페이스"
+    },
+    {
+      "hash": "cd0c5a9",
+      "date": "2026-11-25",
+      "subject": "Merge PR: PLAN 11.2절·14절 후속 정리"
+    },
+    {
+      "hash": "1a121ba",
+      "date": "2026-11-25",
+      "subject": "docs: PLAN 11.2절·14절 후속 정리 (requirements 브랜치, 저장소 주소)"
+    },
+    {
+      "hash": "8ada960",
+      "date": "2026-11-25",
+      "subject": "Merge PR #11: 요구사항과 설계 목표(requirements.md) 추가"
+    },
+    {
+      "hash": "e313085",
+      "date": "2026-11-25",
+      "subject": "Merge PR #10: 중간 계산 모델 인벤토리와 golden vector 추가"
+    },
+    {
+      "hash": "a64ca1e",
+      "date": "2026-11-25",
+      "subject": "docs: PLAN 7절·14절 갱신"
+    },
+    {
+      "hash": "6aac5d5",
+      "date": "2026-11-25",
+      "subject": "docs: README 주요 사양에 설계 목표 반영"
+    },
+    {
+      "hash": "b8c991d",
+      "date": "2026-11-25",
+      "subject": "docs: 요구사항과 설계 목표(requirements.md) 추가"
+    },
+    {
+      "hash": "20f39bf",
+      "date": "2026-11-25",
+      "subject": "docs: README 트러블슈팅 로그에 #8, #9 추가"
+    },
+    {
+      "hash": "6734c8e",
+      "date": "2026-11-25",
+      "subject": "docs: PLAN 11.2절에 docs/model-inventory 브랜치 추가"
+    },
+    {
+      "hash": "87dbeb8",
+      "date": "2026-11-25",
+      "subject": "test: golden vector tolerance 비교 스크립트 추가"
+    },
+    {
+      "hash": "7530127",
+      "date": "2026-11-25",
+      "subject": "fix: reference_models 출력 경로를 저장소 구조에 맞춤"
+    },
+    {
+      "hash": "5d2ae88",
+      "date": "2026-11-25",
+      "subject": "feat: 중간 모델 참조 구현(reference_models.py) 추가"
+    },
+    {
+      "hash": "8dc4464",
+      "date": "2026-11-25",
+      "subject": "test: JS 이식 검증용 golden vector 추가"
+    },
+    {
+      "hash": "df9bd6c",
+      "date": "2026-11-25",
+      "subject": "docs: 중간 계산 모델 인벤토리 추가"
+    },
+    {
+      "hash": "230aae5",
+      "date": "2026-11-25",
+      "subject": "Merge PR #1: 저장소 설정과 중간 자산 이관 (단계 1)"
+    },
+    {
+      "hash": "b27c9b1",
+      "date": "2026-11-25",
+      "subject": "docs: PLAN 10절 폴더 구조를 .gitkeep으로 생성"
+    },
+    {
+      "hash": "d57c083",
+      "date": "2026-11-25",
+      "subject": "docs: PLAN 11절에 작업 분담 요약 추가"
+    },
+    {
+      "hash": "2738f49",
+      "date": "2026-11-25",
+      "subject": "docs: CLAUDE.md Git 규칙에 Codex 작성·Claude 검증 작업 분담 추가"
+    },
+    {
+      "hash": "247c54c",
+      "date": "2026-11-25",
+      "subject": "docs: CLAUDE.md에 Chat 작업물(inbox) 받기 규칙 추가"
+    },
+    {
+      "hash": "a3eb1de",
+      "date": "2026-11-25",
+      "subject": "refactor: 중간 계산 모델을 calc/midterm/으로 이동"
+    },
+    {
+      "hash": "583198e",
+      "date": "2026-11-25",
+      "subject": "cad: 중간 Fusion 스크립트와 STEP(LFS) 이관"
+    },
+    {
+      "hash": "8e86913",
+      "date": "2026-11-25",
+      "subject": "feat: 중간 계산 모델(calc/) 이관"
+    },
+    {
+      "hash": "ebe289d",
+      "date": "2026-11-25",
+      "subject": "docs: 중간 보고서 원고와 그림 이관 (v1.0-midterm 기준점)"
+    },
+    {
+      "hash": "32e0e11",
+      "date": "2026-11-25",
+      "subject": "docs: PR 템플릿과 Issue 템플릿 추가"
+    },
+    {
+      "hash": "8b3cd84",
+      "date": "2026-11-25",
+      "subject": "docs: 저장소 초기화 (README, CLAUDE.md, PLAN.md)"
+    }
+  ],
+  "prs": [
+    {
+      "mergedAt": "2026-11-28T02:50:22Z",
+      "number": 44,
+      "title": "docs: 트러블슈팅 로그에 #4 반영"
+    },
+    {
+      "mergedAt": "2026-11-28T02:47:26Z",
+      "number": 43,
+      "title": "docs: 기말 보고서 요약·15~17장·PDF 빌드 (단계 6)"
+    },
+    {
+      "mergedAt": "2026-11-28T02:46:07Z",
+      "number": 42,
+      "title": "docs: 기말 보고서 8~14장 (단계 6)"
+    },
+    {
+      "mergedAt": "2026-11-28T02:45:56Z",
+      "number": 41,
+      "title": "docs: 기말 보고서 1~7장 (단계 6)"
+    },
+    {
+      "mergedAt": "2026-11-28T02:39:46Z",
+      "number": 40,
+      "title": "docs: 실습 매뉴얼 A~E와 안전·인터락 점검 (단계 6)"
+    },
+    {
+      "mergedAt": "2026-11-28T01:38:53Z",
+      "number": 39,
+      "title": "docs: 하드웨어 공용 파일 반영 (README·requirements·PLAN)"
+    },
+    {
+      "mergedAt": "2026-11-28T01:32:18Z",
+      "number": 38,
+      "title": "test: 시나리오 기준값 비교 상대 허용 (#37)"
+    },
+    {
+      "mergedAt": "2026-11-28T01:26:13Z",
+      "number": 36,
+      "title": "feat: HMI·알람·3D 뷰와 README (단계 4-D·E·F)"
+    },
+    {
+      "mergedAt": "2026-11-28T01:22:35Z",
+      "number": 35,
+      "title": "feat: 리플로우 냉각 판정 구간(피크→180 ℃) 재정의"
+    },
+    {
+      "mergedAt": "2026-11-28T01:21:35Z",
+      "number": 34,
+      "title": "fix: cad 스크립트 UTF-8 입출력 명시 (#33)"
+    },
+    {
+      "mergedAt": "2026-11-28T01:17:49Z",
+      "number": 32,
+      "title": "cad: HBM 적층 부품 CAD·계산·도면·배선도·GLB (단계 5)"
+    },
+    {
+      "mergedAt": "2026-11-28T00:07:50Z",
+      "number": 31,
+      "title": "feat: 접합 온도 미달 알람과 층별 헤드 온도 보정 옵션 (#29)"
+    },
+    {
+      "mergedAt": "2026-11-28T00:06:01Z",
+      "number": 30,
+      "title": "feat: 헤드·리플로우 척 히터 동시 통전 금지 인터락"
+    },
+    {
+      "mergedAt": "2026-11-27T23:56:51Z",
+      "number": 28,
+      "title": "feat: MUF 가압 충전·접촉 열저항·후경화 보정과 S1~S5 (단계 4-A)"
+    },
+    {
+      "mergedAt": "2026-11-27T04:16:17Z",
+      "number": 27,
+      "title": "feat: 비전 정렬 모듈과 층별 검출 표시 (단계 4-C)"
+    },
+    {
+      "mergedAt": "2026-11-26T21:29:51Z",
+      "number": 26,
+      "title": "fix: Pages 워크플로 Node 24 테스트 명령 (#25)"
+    },
+    {
+      "mergedAt": "2026-11-26T21:28:38Z",
+      "number": 24,
+      "title": "ci: GitHub Pages 배포와 브라우저 wasm 확인 (단계 4-B)"
+    },
+    {
+      "mergedAt": "2026-11-26T05:11:08Z",
+      "number": 22,
+      "title": "feat: MR-MUF 모드, runStack, 시나리오·민감도, 시뮬레이션 문서 (단계 3-C3)"
+    },
+    {
+      "mergedAt": "2026-11-26T04:54:07Z",
+      "number": 21,
+      "title": "feat: TC-NCF 모드 — NCF 점도·스퀴즈, 누적 정렬, 사이클 시간 (단계 3-C2)"
+    },
+    {
+      "mergedAt": "2026-11-26T04:41:23Z",
+      "number": 19,
+      "title": "feat: 층별 열 이력과 적층 휨, 헤드 열팽창 (단계 3-C1)"
+    },
+    {
+      "mergedAt": "2026-11-26T04:25:00Z",
+      "number": 18,
+      "title": "feat: 중간 모델 JS 이식과 golden 재현, SIL 플랜트 (단계 3-B)"
+    },
+    {
+      "mergedAt": "2026-11-26T04:12:06Z",
+      "number": 17,
+      "title": "feat: 시뮬레이션 파라미터와 요구사항 갱신 (단계 3-A)"
+    },
+    {
+      "mergedAt": "2026-11-25T13:09:30Z",
+      "number": 16,
+      "title": "feat: 하중 램프를 장비 능력 이하로 제한, PLAN MCU 결정 반영 (단계 2 후속)"
+    },
+    {
+      "mergedAt": "2026-11-25T13:03:13Z",
+      "number": 14,
+      "title": "feat: 펌웨어 — 하중·온도 PI, anti-windup, 인터락, MCU·wasm 빌드 (단계 2)"
+    },
+    {
+      "mergedAt": "2026-11-25T10:17:58Z",
+      "number": 12,
+      "title": "docs: PLAN 11.2절·14절 후속 정리"
+    },
+    {
+      "mergedAt": "2026-11-25T10:16:49Z",
+      "number": 11,
+      "title": "docs: 요구사항과 설계 목표(requirements.md) 추가 (단계 1 완료 기준)"
+    },
+    {
+      "mergedAt": "2026-11-25T10:16:45Z",
+      "number": 10,
+      "title": "docs: 중간 계산 모델 인벤토리와 golden vector 추가"
+    },
+    {
+      "mergedAt": "2026-11-25T06:15:00Z",
+      "number": 1,
+      "title": "docs: 저장소 설정과 중간 자산 이관 (단계 1)"
+    }
+  ],
+  "issues": [
+    {
+      "closedAt": "2026-11-28T01:32:20Z",
+      "createdAt": "2026-11-28T01:28:31Z",
+      "labels": [
+        {
+          "id": "LA_kwDOV7MCic8AAAADE9ZBww",
+          "name": "bug",
+          "description": "버그",
+          "color": "d73a4a"
+        },
+        {
+          "id": "LA_kwDOV7MCic8AAAADE9ZNdw",
+          "name": "model",
+          "description": "계산·시뮬레이션 모델",
+          "color": "1d76db"
+        }
+      ],
+      "number": 37
+    },
+    {
+      "closedAt": "2026-11-28T01:21:37Z",
+      "createdAt": "2026-11-28T01:17:53Z",
+      "labels": [
+        {
+          "id": "LA_kwDOV7MCic8AAAADE9ZBww",
+          "name": "bug",
+          "description": "버그",
+          "color": "d73a4a"
+        },
+        {
+          "id": "LA_kwDOV7MCic8AAAADE9ZOuw",
+          "name": "cad",
+          "description": "CAD·도면·배선",
+          "color": "fbca04"
+        }
+      ],
+      "number": 33
+    },
+    {
+      "closedAt": "2026-11-28T00:07:52Z",
+      "createdAt": "2026-11-27T23:57:06Z",
+      "labels": [
+        {
+          "id": "LA_kwDOV7MCic8AAAADE9ZNdw",
+          "name": "model",
+          "description": "계산·시뮬레이션 모델",
+          "color": "1d76db"
+        }
+      ],
+      "number": 29
+    },
+    {
+      "closedAt": "2026-11-26T21:29:52Z",
+      "createdAt": "2026-11-26T21:29:32Z",
+      "labels": [
+        {
+          "id": "LA_kwDOV7MCic8AAAADE9ZBww",
+          "name": "bug",
+          "description": "버그",
+          "color": "d73a4a"
+        }
+      ],
+      "number": 25
+    },
+    {
+      "closedAt": "2026-11-28T01:40:42Z",
+      "createdAt": "2026-11-26T21:28:07Z",
+      "labels": [
+        {
+          "id": "LA_kwDOV7MCic8AAAADE9ZBww",
+          "name": "bug",
+          "description": "버그",
+          "color": "d73a4a"
+        }
+      ],
+      "number": 23
+    },
+    {
+      "closedAt": "2026-11-26T04:54:08Z",
+      "createdAt": "2026-11-26T04:49:45Z",
+      "labels": [
+        {
+          "id": "LA_kwDOV7MCic8AAAADE9ZNdw",
+          "name": "model",
+          "description": "계산·시뮬레이션 모델",
+          "color": "1d76db"
+        }
+      ],
+      "number": 20
+    },
+    {
+      "closedAt": "2026-11-25T13:09:32Z",
+      "createdAt": "2026-11-25T13:08:18Z",
+      "labels": [
+        {
+          "id": "LA_kwDOV7MCic8AAAADE9ZN2Q",
+          "name": "firmware",
+          "description": "제어 펌웨어",
+          "color": "5319e7"
+        }
+      ],
+      "number": 15
+    },
+    {
+      "closedAt": "2026-11-25T13:03:17Z",
+      "createdAt": "2026-11-25T10:44:15Z",
+      "labels": [
+        {
+          "id": "LA_kwDOV7MCic8AAAADE9ZN2Q",
+          "name": "firmware",
+          "description": "제어 펌웨어",
+          "color": "5319e7"
+        }
+      ],
+      "number": 13
+    },
+    {
+      "closedAt": "2026-11-25T10:16:47Z",
+      "createdAt": "2026-11-25T06:21:19Z",
+      "labels": [
+        {
+          "id": "LA_kwDOV7MCic8AAAADE9ZNdw",
+          "name": "model",
+          "description": "계산·시뮬레이션 모델",
+          "color": "1d76db"
+        }
+      ],
+      "number": 9
+    },
+    {
+      "closedAt": "2026-11-25T06:21:22Z",
+      "createdAt": "2026-11-25T06:18:23Z",
+      "labels": [
+        {
+          "id": "LA_kwDOV7MCic8AAAADE9ZBww",
+          "name": "bug",
+          "description": "버그",
+          "color": "d73a4a"
+        }
+      ],
+      "number": 8
+    },
+    {
+      "closedAt": "2026-11-26T04:25:05Z",
+      "createdAt": "2026-11-25T06:17:35Z",
+      "labels": [
+        {
+          "id": "LA_kwDOV7MCic8AAAADE9ZNdw",
+          "name": "model",
+          "description": "계산·시뮬레이션 모델",
+          "color": "1d76db"
+        }
+      ],
+      "number": 7
+    },
+    {
+      "closedAt": "2026-11-25T13:03:15Z",
+      "createdAt": "2026-11-25T06:17:33Z",
+      "labels": [
+        {
+          "id": "LA_kwDOV7MCic8AAAADE9ZNdw",
+          "name": "model",
+          "description": "계산·시뮬레이션 모델",
+          "color": "1d76db"
+        }
+      ],
+      "number": 6
+    },
+    {
+      "closedAt": "2026-11-26T04:25:03Z",
+      "createdAt": "2026-11-25T06:17:31Z",
+      "labels": [
+        {
+          "id": "LA_kwDOV7MCic8AAAADE9ZNdw",
+          "name": "model",
+          "description": "계산·시뮬레이션 모델",
+          "color": "1d76db"
+        }
+      ],
+      "number": 5
+    },
+    {
+      "closedAt": "2026-11-28T02:45:58Z",
+      "createdAt": "2026-11-25T06:17:29Z",
+      "labels": [
+        {
+          "id": "LA_kwDOV7MCic8AAAADE9ZNdw",
+          "name": "model",
+          "description": "계산·시뮬레이션 모델",
+          "color": "1d76db"
+        }
+      ],
+      "number": 4
+    },
+    {
+      "closedAt": "2026-11-26T04:25:01Z",
+      "createdAt": "2026-11-25T06:17:27Z",
+      "labels": [
+        {
+          "id": "LA_kwDOV7MCic8AAAADE9ZNdw",
+          "name": "model",
+          "description": "계산·시뮬레이션 모델",
+          "color": "1d76db"
+        }
+      ],
+      "number": 3
+    },
+    {
+      "closedAt": "2026-11-26T04:41:24Z",
+      "createdAt": "2026-11-25T06:17:25Z",
+      "labels": [
+        {
+          "id": "LA_kwDOV7MCic8AAAADE9ZNdw",
+          "name": "model",
+          "description": "계산·시뮬레이션 모델",
+          "color": "1d76db"
+        }
+      ],
+      "number": 2
+    }
+  ],
+  "event_source": "GitHub gh pr list / gh issue list (read-only)"
+}
