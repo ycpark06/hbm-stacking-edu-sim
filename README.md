@@ -3,7 +3,7 @@
 > UNIST MSE489 첨단패키징기술 PBL 과제
 > 중간 과제의 교육용 다이본더를 다단 적층 본더로 고도화한 디지털 트윈
 
-**데모 사이트:** _(GitHub Pages 주소 — 단계 4에서 기입)_
+**데모 사이트:** https://ycpark06.github.io/hbm-stacking-edu-sim/
 **시뮬레이션 영상:** _(단계 7에서 기입)_
 
 ---
@@ -46,16 +46,26 @@ TC-NCF 기본 하중은 **40 N** (선택 25~50 N, 사용자 확정 설계값; He
 
 ## 2. 시스템 아키텍처
 
-_(그림 — 단계 4에서 추가)_
+```text
+firmware/src/*.c (공통 제어기 C)
+   ├── MCU HAL → controller.bin → STM32H743
+   └── wasm HAL → controller.js + controller.wasm
+                         ↕
+ sim/plant.js (JS 플랜트, 독립 SIL)    sim/stack.js (열·휨·충전·정렬)
+                         └──────────┬───────────────┘
+                           Web Worker (web/js/worker.js)
+                                    ↕ 계산 결과·진행 이벤트
+                           HMI · Canvas 그래프 · three.js 3D
+                                    │
+ GitHub Actions: web/ + sim/ + firmware/build/ (+ 선택 CAD GLB)
+                                    ↓
+                          _site/ → GitHub Pages
+```
 
-```
-[웹 HMI / 3D 뷰]  ←→  [시뮬레이션 엔진 (JS)]  ←→  [펌웨어 (wasm)]
-   레시피·모드 선택        플랜트 물리 모델           하중 PI 1 ms
-   실시간 그래프           (열·휨·NCF·MUF)           온도 PI 10 ms
-   비전 정렬 화면                                    인터락
-                                                       │
-                                     같은 C 코드 → MCU 빌드 (controller.bin)
-```
+HMI는 ES module Worker에서 모델을 계산하고, 계산 후 실제 층·단계 이력을 재생한다.
+하중 그래프는 `sim/plant.js` + wasm REFERENCE 제어기의 독립 SIL이다.
+적층 열 모델의 이상 경계 조건과 직접 연결된 폐루프라고 해석하지 않는다.
+고장 주입은 별도의 wasm FIRMWARE 인스턴스를 사용한다.
 
 ---
 
@@ -72,7 +82,15 @@ _(그림 — 단계 4에서 추가)_
 [빌드·검증 및 wasm API](firmware/README.md), [#6·#13 결정 기록](firmware/docs/force_integral_limit.md)을 참고한다.
 
 ### 3.2 비전 정렬
-_(단계 4에서 작성 — 피듀셜 생성, NCC 검출, 서브픽셀 보간, 아핀 보정, 폐루프 정렬)_
+`sim/vision.js`는 합성 피듀셜, NCC 검출, 가우시안 서브픽셀 보간,
+평탄화 보정, 아핀 좌표 변환 및 재측정 폐루프를 제공한다.
+`web/vision.html`에서 층별 상·하 영상, 검출 십자선, Δx·Δy·Δθ와 보정 반복을 확인한다.
+HMI의 현재 층 링크가 비전 페이지의 층 선택에 연결된다.
+원본 golden 비전 오차 허용치는 절대 **2e-4 px**, 중간 보고서 폐루프 결과는
+**3σ 0.09 μm**이다(중간 보고서 결과이며 실물 KPI 달성 보증이 아님).
+비전 상수 24개는 `params.alignment`에 원본 value·unit·kind·source로 보존했다
+(21개 midterm, θ 분해능·조명 기울기 3개 assumption).
+`visionOptions`는 params → 원본 기본값 순으로 읽고 호출자 override를 마지막에 적용한다.
 
 ### 3.3 시뮬레이션 모델
 
@@ -93,7 +111,8 @@ _(단계 4에서 작성 — 피듀셜 생성, NCC 검출, 서브픽셀 보간, �
 | `stack.js` | 휨: gap/4 초과 주의,20 μm 초과 불량; 결함: ≤1% 양호,>1~5% 주의,>5% 불량; 층간 축별3σ≤1 μm | MR 결함률은 미충전만 포함하며 정량 보이드 없음. MR 접촉은 젖음·접촉 가정으로 정량 판정 없음. 누적 오차와 업체 주장은 관찰값 |
 
 **재가열은 후속 접합 가열 이벤트 수**이며 **재용융은 액상선221 ℃ 교차**와 구분한다.
-TC 아래층은 N−1회 후속 접합 가열을 받고, 기본 조건에서는 첫 접합만 액상선을 넘는다.
+TC 아래층은 N−1회 후속 접합 가열을 받지만, 액상선 교차·후속 재용융 횟수는 층별 이력으로 구분한다.
+현재 기본 TC-NCF의 1·2층은 자기 접합 때 액상선에 미달한다. 후속 재가열을 자기 접합 온도 충족으로 간주하지 않는다.
 MR은 전체 리플로우1회, 후속 tack 노출은 별도 기록한다. 업체 주장은 회사·출처와 함께 표시만 한다.
 
 중간 모델 golden은 `ch7_16node`(MACOR16절점)와 `ch10_3node` 프리셋을 각각 재현한다.
@@ -103,17 +122,49 @@ MR은 전체 리플로우1회, 후속 tack 노출은 별도 기록한다. 업체
 
 원문 KPI(±1 μm·400 ℃·50 N·≤600 mm)와 원문 요구10 ms는 장비 요구이고,
 층간3σ·휨·결함 기준은 **설계 목표**,15 μm 등은 **문헌값**,40 N은 **설계값**이다.
-접촉 열저항·MUF 충전 점도/압력·감쇠/마찰·경화 시간은 **가정값**으로 params 한곳에 근거를 둔다.
+접촉 열저항은 **역산 추정값**, MUF 충전 점도/입구 압력·감쇠/마찰은 **가정값**, 후경화 시간은 **문헌값**으로 params 한곳에 근거를 둔다.
 원본 재현 상수는 원본 출처 주석과 함께 보존한다. 결과에 맞춘 파라미터 조정은 하지 않았다.
 
 [단계3 전체 표·대표 시나리오·민감도·신규 params](docs/stage3_report.md),
 [16개 시나리오 및 민감도 JSON](sim/test/scenario_results.json),
 [C1 열·휨·#2](docs/thermal_history_report.md), [C2 NCF·#20](docs/tcncf_mode_report.md),
 [golden과 #3·#4·#5·#7](docs/sim_port_report.md)에 재현 조건과 한계가 있다.
-기본 gap15 μm MR도 미충전80.153%로 불량이므로 “좁힐 때만 불량” 시연을 뒷받침하지 않는다.
+단계 4에서는 가압 충전 `t=6μL²/[h²(ΔP입구+ΔP모세관)]`으로 보정했다.
+기본 입구 유효 압력 1 MPa(가정값, 범위 0.1~3 MPa)에서 간격 15 μm의 충전 시간은
+약 3.32 s, 미충전률은 0 %다(계산 결과). 압력 0은 모세관 단독 비교로 남긴다.
+접촉 열저항 툴–다이·다이–척 각각 2e-4 m²K/W는 직접 측정값이 아닌 **역산 추정값**이다.
+이 입력에서 TC-NCF 12단의 자기 접합 최고온도는 1층 약 208.54 ℃, 2층 약 215.85 ℃로
+액상선 221 ℃(문헌값)에 못 미쳐 `BOND_TEMP_LOW`를 표시한다.
+`head_temp_compensation` 옵션은 층별 목표 = 액상선 + 10 ℃(설계값)를 만족하도록
+헤드 온도를 계산한다. 필요 온도가 400 ℃(원문 KPI)를 넘으면 `HEAD_TEMP_LIMIT`로
+거부하고 층·필요 온도를 표시한다. 기본 레시피와 모델 파라미터는 유지한다.
+[S1~S5 및 보정 결과·웹 호출 계약](docs/stage4_model_update.md)을 참고한다.
+
+### 모델 한계
+
+휨 판정은 두 모드에 **같은 기준**(주의=간격/4, 불량=절대 휨 20 μm 초과,
+설계 목표)을 사용한다. 업체의 “TC-NCF가 휨에 민감 / MR-MUF가 박형에 유리”라는
+주장과 달리 이 모델의 S3에서는 50 μm에서 두 모드 모두 불량이다.
+1D 선형 탄성·상온 물성의 한계이며 기판 구속·점탄성·경화 수축을 포함하지 않는다.
+결과를 맞추려 파라미터나 모드별 기준을 조정하지 않았다.
+NCF 보이드 정량 모델은 없고, MUF 미충전 모델에는 범프 투과도·필러 여과·갇힌 공기가
+포함되지 않는다. 필러 막힘 규칙과 겔 경고는 별도로 표시한다.
+[가정값 전체 목록](sim/params.json)은 HMI 파라미터 표에서 `assumption`으로 검색할 수 있다.
+[가정값 민감도와 한계](docs/stage4_model_update.md#민감도-판정을-바꾸는-가정-순서)도 참고한다.
 
 ### 3.4 알람과 인터락
-_(단계 4에서 작성)_
+경고 **52 N / 410 ℃**, 래치 **55 N / 420 ℃**는 중간 보고서 10장 안전 계층의
+**설계값**이다. 원문 KPI 최대 50 N / 400 ℃와 구분한다.
+`fw_get_warning`·`fw_get_latched`를 표시하고 과하중·과온·하드웨어 고장을 주입한다.
+고장 원인 해제만으로 래치는 풀리지 않으며 `fw_reset_latch` 수동 리셋이 필요하다.
+조건이 남아 있으면 즉시 재래치한다. 래치 시 히터·Z가 차단된다.
+
+두 히터 동시 통전은 금지한다. 헤드 통전 중 리플로우 척 히터를 요청하면
+`fw_get_dual_heater_blocked`가 차단을 보고하고 척 출력은 0 W가 된다.
+이 플래그는 비래치 경고이며 양방향 전환에는 펌웨어가 정한 대기 주기가 있다.
+자세한 [wasm 히터 인터락 계약](firmware/README.md)을 따른다.
+모델 알람은 접합 온도 미달 `BOND_TEMP_LOW`, 휨·결함 판정, 필러·겔 경고를
+펌웨어 보호 상태와 함께 표시한다.
 
 ---
 
@@ -137,8 +188,8 @@ _(단계 4에서 작성)_
 ### 시뮬레이션 모델 검증
 
 ```bash
-node --test sim/test          # golden111 유지 + 물리 모델 + 16개 시나리오/민감도, 전체139개
-(cd sim && npm test)          # 동일한 Node 내장 테스트
+node --test 'sim/test/*.test.js' # golden111 + 비전·모델·HMI 검증 (Node 24 호환 glob)
+# sim/package.json의 폴더 인자 npm test는 Node 버전에 따라 실패할 수 있으므로 위 glob 사용
 python3 -I calc/reference/check_golden.py
 python3 calc/contact_transient.py  # JSON은 stdout, 항목별 차이는 stderr
 python3 calc/run_midterm.py       # 임시 복사본 실행 결과 표, 원본은 수정하지 않음
@@ -153,8 +204,21 @@ SIL 모듈의 상대 ESM import는 브라우저에서도 같고, Node의 wasm �
 
 ### 웹 시뮬레이터
 ```bash
-# 단계 4에서 작성
+web/serve_local.sh             # 저장소 구조를 _site/에 조립하고 서버 실행
+# http://localhost:8000/web/
+web/tools/headless_check.sh     # Chrome headless wasm 로드·1,000 tick, Node와 비교
+node web/tools/wasm_check_node.mjs # 브라우저 없이 wasm 점검
+node web/tools/check_hmi.mjs    # JS 문법·정적 import/자산·vendor 해시 검사
+node web/tools/check_worker.mjs # S1~S5 Worker 메시지·전체 이력·wasm SIL 확인 (DOM/3D 검증 제외)
 ```
+
+HMI에서 레시피 실행 또는 S1~S5를 선택한다. S1은 기본/헤드 보정/MR-MUF를 비교하며
+층별 접합 온도·재가열·재용융을 펼쳐 볼 수 있다. S3은 휨 증가 배율과 모델 한계를,
+S5는 간격 × 입구 압력 표와 필러·겔 경고를 표시한다.
+고장 주입 → 고장 원인 해제 → 수동 래치 리셋 순서로 보호 동작을 확인한다.
+3D는 절차적 모델을 쓰며, `cad/web/hbm_stacker.glb`가 병합되면 조립 스크립트가
+복사하고 뷰어가 같은 노드 이름으로 헤드·척 위치를 연결한다.
+three.js 0.160.0은 로컬 vendor이며 [원본 URL·SHA256·라이선스](web/vendor/README.md)를 보존한다.
 
 ### 펌웨어 빌드
 
@@ -177,6 +241,9 @@ make -C firmware test-wasm  # 검증 6, Node ↔ PC 고정 입력 비교 (별도
 
 | 날짜 | Issue | 문제 | 원인 | 해결 |
 |---|---|---|---|---|
+| 2026-11-28 | [#23](https://github.com/ycpark06/hbm-stacking-edu-sim/issues/23) | worktree index.lock 생성 실패 | Codex 샌드박스의 git 메타데이터 보호 | Codex는 코드 작성, Claude가 커밋 |
+| 2026-11-28 | [#25](https://github.com/ycpark06/hbm-stacking-edu-sim/issues/25) | Node 24에서 node --test 폴더 인자 실패 | 폴더를 모듈 경로로 해석 | `node --test 'sim/test/*.test.js'` glob 사용 |
+| 2026-11-28 | [#29](https://github.com/ycpark06/hbm-stacking-edu-sim/issues/29) | TC-NCF 1·2층 접합 온도 미달 | 역산 접촉 열저항 입력으로 다이 온도 하강 | 파라미터 유지, 알람·헤드 보정 옵션·KPI 초과 거부 |
 | 2026-11-26 | #3 | 7·10장 열 모델 차이 | 절점·손실 면적·열용량이 다름 | 하나의 플랜트에 16/3절점 프리셋, 두 golden 재현 ([기록](docs/sim_port_report.md)) |
 | 2026-11-26 | #5 | contact_transient_N 수기 입력 | control_sim 출력에 해당 키 없음 | 원본 contact_speed_study 재사용 스크립트, 6항목 차이 0 N |
 | 2026-11-26 | #7 | 원본 실행 폴더가 다름 | 상대 출력 경로 혼재 | 임시 작업 폴더 래퍼 추가, h=10 FEM 원본 오류 보존 ([기록](docs/sim_port_report.md)) |
