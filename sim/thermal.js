@@ -217,12 +217,14 @@ export function stackSim(model,schedule) {
   return {history,layers:stats};
 }
 
-export function tcncfSchedule(N,p) {
-  const q=p.tcncf_process,s=p.thermal_stack,stage=q.stage_temp.value,head=q.head_setpoint.value;
-  const ramp=(head-stage)/q.ramp_rate.equipment_value;
-  if(!(ramp>0)) throw new RangeError('head above stage');
+export function tcncfSchedule(N,p,headSetpoints=null) {
+  const q=p.tcncf_process,s=p.thermal_stack,stage=q.stage_temp.value;
+  if(headSetpoints&&headSetpoints.length!==N) throw new RangeError('head setpoints length');
   const schedule=[];
   for(let n=1;n<=N;n++) {
+    const head=headSetpoints?.[n-1]??q.head_setpoint.value;
+    const ramp=(head-stage)/q.ramp_rate.equipment_value;
+    if(!Number.isFinite(head)||!(ramp>0)) throw new RangeError('head above stage');
     const base={activeLayers:n,exposure:{id:`bond-${n}`,kind:'bond',layer:n}};
     const input=T=>({T_head_C:T,T_chuck_C:stage,h_conv:s.h_conv.value,T_amb_C:s.ambient_temp.value});
     schedule.push({...base,phase:'bond-ramp',duration_s:ramp,input:t=>input(stage+q.ramp_rate.equipment_value*t)});

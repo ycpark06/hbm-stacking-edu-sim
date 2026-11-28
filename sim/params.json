@@ -9,7 +9,8 @@
       "design": "사용자 확정 설계값 또는 설계 목표. 원문 KPI와 구분.",
       "midterm": "중간 보고서의 장비 설계·계산에 근거한 값.",
       "observation": "관찰 항목: 표시만, 판정·계산 입력에 쓰지 않음.",
-      "estimate": "역산 추정값: 문헌의 측정 온도차 등에서 모델로 역산한 값. 직접 측정값이 아님"
+      "estimate": "역산 추정값: 문헌의 측정 온도차 등에서 모델로 역산한 값. 직접 측정값이 아님",
+      "kpi": "원문 KPI: 과제 안내(PBL 7쪽)에 적힌 장비 성능 요구. 설계 목표·문헌값과 구분한다."
     },
     "decisions_applied": "05 HANDOFF 1절 사용자 확정 사항과 params_patch 19개 반영, 2026-11-27"
   },
@@ -1308,6 +1309,12 @@
       "unit": "um",
       "kind": "design",
       "source": "docs/requirements.md 4절: 아래층 대비 축별 3σ ≤1 μm 설계 목표. 누적 오차나 단일 시드 표본은 판정 대상이 아니다."
+    },
+    "bond_temp_margin_C": {
+      "value": 10,
+      "unit": "degC",
+      "kind": "design",
+      "source": "사용자 확정 2026-11-28 (Issue #29): 액상선 + 10 ℃를 층별 접합 온도 목표로 둔다"
     }
   },
   "vendor_claims": {
@@ -1622,6 +1629,15 @@
       "unit": "model",
       "kind": "assumption",
       "source": "층마다 바로 아래 다이에 맞추는 교육용 기준을 기본으로 한다. substrate 선택 시 기판 기준의 상관된 인접 오차를 유지한다."
+    }
+  },
+  "equipment_limits": {
+    "head_max_temp_C": {
+      "value": 400,
+      "unit": "degC",
+      "kind": "kpi",
+      "source": "원문 KPI (PBL 7쪽) 펄스 히터 최고 400 ℃",
+      "source_kind": "원문 KPI"
     }
   }
 }
