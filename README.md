@@ -262,6 +262,7 @@ make -C firmware test-wasm  # 검증 6, Node ↔ PC 고정 입력 비교 (별도
 
 | 날짜 | Issue | 문제 | 원인 | 해결 |
 |---|---|---|---|---|
+| 2026-11-28 | [#4](https://github.com/ycpark06/hbm-stacking-edu-sim/issues/4) | 중간 7장 "PI로 유지" 설명과 결과 계산 조건 불일치 | 결과는 Kp 1e6·Ki 0(사실상 on/off)으로 계산 | 기말 보고서 7장 7.2.1절에 두 조건 결과를 구분해 기록, 원본 golden 보존 ([PR #41](https://github.com/ycpark06/hbm-stacking-edu-sim/pull/41)) |
 | 2026-11-28 | [#37](https://github.com/ycpark06/hbm-stacking-edu-sim/issues/37) | CI Node 24에서 시나리오 기준값 정확 일치 테스트 실패 | Box–Muller `Math.log/cos/sin` 마지막 ulp가 V8 버전마다 다름 | 숫자 상대 1e-12 허용 비교 ([PR #38](https://github.com/ycpark06/hbm-stacking-edu-sim/pull/38)) |
 | 2026-11-28 | [#33](https://github.com/ycpark06/hbm-stacking-edu-sim/issues/33) | Fusion 내장 Python 기본 인코딩 ASCII에서 `read_text`/`open` 실패 | 인코딩 미지정 | cad 스크립트 입출력 UTF-8 명시 + ASCII 환경 검사 `cad/tools/check_encoding.py` ([PR #34](https://github.com/ycpark06/hbm-stacking-edu-sim/pull/34)) |
 | 2026-11-28 | [#23](https://github.com/ycpark06/hbm-stacking-edu-sim/issues/23) | worktree index.lock 생성 실패 | Codex 샌드박스의 git 메타데이터 보호 | Codex는 코드 작성, Claude가 커밋 |
