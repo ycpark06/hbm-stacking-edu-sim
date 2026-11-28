@@ -3,6 +3,8 @@ export async function initVisionView({alignLayer,visionOptions}) {
 const $=id=>document.getElementById(id),fmt=v=>v.toFixed(5);
 let params,result;
 for(let i=1;i<=12;i++)$('layer').add(new Option(`${i}층`,i));
+const requestedLayer=Number(new URLSearchParams(location.search).get('layer'));
+if(Number.isInteger(requestedLayer)&&requestedLayer>=1&&requestedLayer<=12)$('layer').value=requestedLayer;
 function image(id,im,d){
   const cv=$(id);cv.width=im.width;cv.height=im.height;const ctx=cv.getContext('2d'),pixels=ctx.createImageData(im.width,im.height);
   for(let i=0;i<im.data.length;i++){const v=Math.max(0,Math.min(255,im.data[i]));pixels.data.set([v,v,v,255],i*4);}

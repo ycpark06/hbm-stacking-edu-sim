@@ -1611,6 +1611,150 @@
         0.0001,
         0.01
       ]
+    },
+    "pixel_um": {
+      "value": 1.725,
+      "unit": "um/px",
+      "kind": "midterm",
+      "source": "calc/midterm/vision.py:5"
+    },
+    "N": {
+      "value": 128,
+      "unit": "px",
+      "kind": "midterm",
+      "source": "calc/midterm/vision.py:7"
+    },
+    "template_size": {
+      "value": 80,
+      "unit": "px",
+      "kind": "midterm",
+      "source": "calc/midterm/vision.py:19"
+    },
+    "arm": {
+      "value": 60,
+      "unit": "px",
+      "kind": "midterm",
+      "source": "calc/midterm/vision.py:7"
+    },
+    "w": {
+      "value": 6,
+      "unit": "px",
+      "kind": "midterm",
+      "source": "calc/midterm/vision.py:7"
+    },
+    "blur": {
+      "value": 1,
+      "unit": "px",
+      "kind": "midterm",
+      "source": "calc/midterm/vision.py:7"
+    },
+    "bright": {
+      "value": 220,
+      "unit": "gray",
+      "kind": "midterm",
+      "source": "calc/midterm/vision.py:7"
+    },
+    "dark": {
+      "value": 30,
+      "unit": "gray",
+      "kind": "midterm",
+      "source": "calc/midterm/vision.py:7"
+    },
+    "noise_sigma": {
+      "value": 2,
+      "unit": "gray",
+      "kind": "midterm",
+      "source": "calc/midterm/vision.py:77"
+    },
+    "frames": {
+      "value": 4,
+      "unit": "count",
+      "kind": "midterm",
+      "source": "calc/midterm/vision.py:77"
+    },
+    "gray_max": {
+      "value": 1023,
+      "unit": "gray",
+      "kind": "midterm",
+      "source": "calc/midterm/vision.py:32"
+    },
+    "tol_um": {
+      "value": 0.15,
+      "unit": "um",
+      "kind": "midterm",
+      "source": "calc/midterm/vision.py:82"
+    },
+    "tol_theta_mrad": {
+      "value": 0.03490658503988659,
+      "unit": "mrad",
+      "kind": "midterm",
+      "source": "calc/midterm/vision.py:82 (0.002 deg)"
+    },
+    "max_iter": {
+      "value": 3,
+      "unit": "count",
+      "kind": "midterm",
+      "source": "calc/midterm/vision.py:80"
+    },
+    "map_error_sigma": {
+      "value": 0.0005,
+      "unit": "ratio",
+      "kind": "midterm",
+      "source": "calc/midterm/vision.py:83-84"
+    },
+    "stage_sigma_um": {
+      "value": 0.02,
+      "unit": "um",
+      "kind": "midterm",
+      "source": "calc/midterm/vision.py:83-84"
+    },
+    "stage_resolution_um": {
+      "value": 0.01,
+      "unit": "um",
+      "kind": "midterm",
+      "source": "docs/report/midterm/03_시스템구성.md 3.3 미동 XY 10 nm"
+    },
+    "theta_sigma_mrad": {
+      "value": 0.005235987755982988,
+      "unit": "mrad",
+      "kind": "midterm",
+      "source": "calc/midterm/vision.py:84 (0.0003 deg)"
+    },
+    "theta_resolution_mrad": {
+      "value": 0,
+      "unit": "mrad",
+      "kind": "assumption",
+      "source": "가정: θ 지령 양자화 자료 없음; 반복 오차만 반영"
+    },
+    "mark_spacing_um": {
+      "value": 4000,
+      "unit": "um",
+      "kind": "midterm",
+      "source": "calc/midterm/vision.py:95; 중간 9.6절"
+    },
+    "gradient_x": {
+      "value": 0,
+      "unit": "ratio",
+      "kind": "assumption",
+      "source": "가정: 기본 균일 조명; vision_robust.py:5의 곱셈 기울기 모델"
+    },
+    "gradient_y": {
+      "value": 0,
+      "unit": "ratio",
+      "kind": "assumption",
+      "source": "가정: X와 동일한 선형 조명 모델을 Y로 확장"
+    },
+    "initial_um": {
+      "value": 30,
+      "unit": "um",
+      "kind": "midterm",
+      "source": "calc/midterm/vision.py:79"
+    },
+    "initial_theta_mrad": {
+      "value": 5.235987755982988,
+      "unit": "mrad",
+      "kind": "midterm",
+      "source": "calc/midterm/vision.py:79 (0.3 deg)"
     }
   },
   "recipe": {
@@ -1638,6 +1782,90 @@
       "kind": "kpi",
       "source": "원문 KPI (PBL 7쪽) 펄스 히터 최고 400 ℃",
       "source_kind": "원문 KPI"
+    },
+    "bond_force_max_N": {
+      "value": 50,
+      "unit": "N",
+      "kind": "kpi",
+      "source": "원문 KPI (PBL 7쪽), 최대 본딩 하중 50 N"
+    },
+    "low_range_ramp_N_s": {
+      "value": 1,
+      "unit": "N/s",
+      "kind": "design",
+      "source": "firmware/README.md: 저레인지·고레인지 프리셋, 검증 7 및 두 히터 인터락; 중간 보고서 10장. HMI는 이 값으로 입력 제한·고장 주입을 시연한다."
+    },
+    "force_warning_N": {
+      "value": 52,
+      "unit": "N",
+      "kind": "design",
+      "source": "firmware/README.md: 저레인지·고레인지 프리셋, 검증 7 및 두 히터 인터락; 중간 보고서 10장. HMI는 이 값으로 입력 제한·고장 주입을 시연한다."
+    },
+    "force_latch_N": {
+      "value": 55,
+      "unit": "N",
+      "kind": "design",
+      "source": "firmware/README.md: 저레인지·고레인지 프리셋, 검증 7 및 두 히터 인터락; 중간 보고서 10장. HMI는 이 값으로 입력 제한·고장 주입을 시연한다."
+    },
+    "temp_warning_C": {
+      "value": 410,
+      "unit": "degC",
+      "kind": "design",
+      "source": "firmware/README.md: 저레인지·고레인지 프리셋, 검증 7 및 두 히터 인터락; 중간 보고서 10장. HMI는 이 값으로 입력 제한·고장 주입을 시연한다."
+    },
+    "temp_latch_C": {
+      "value": 420,
+      "unit": "degC",
+      "kind": "design",
+      "source": "firmware/README.md: 저레인지·고레인지 프리셋, 검증 7 및 두 히터 인터락; 중간 보고서 10장. HMI는 이 값으로 입력 제한·고장 주입을 시연한다."
+    },
+    "reflow_heater_max_W": {
+      "value": 150,
+      "unit": "W",
+      "kind": "design",
+      "source": "firmware/README.md: 저레인지·고레인지 프리셋, 검증 7 및 두 히터 인터락; 중간 보고서 10장. HMI는 이 값으로 입력 제한·고장 주입을 시연한다."
+    },
+    "force_high_spring_N_mm": {
+      "value": 50,
+      "unit": "N/mm",
+      "kind": "design",
+      "source": "firmware/README.md: 저레인지·고레인지 프리셋, 검증 7 및 두 히터 인터락; 중간 보고서 10장. HMI는 이 값으로 입력 제한·고장 주입을 시연한다."
+    },
+    "force_low_spring_N_mm": {
+      "value": 2,
+      "unit": "N/mm",
+      "kind": "design",
+      "source": "firmware/README.md: 저레인지·고레인지 프리셋, 검증 7 및 두 히터 인터락; 중간 보고서 10장. HMI는 이 값으로 입력 제한·고장 주입을 시연한다."
+    },
+    "force_high_ramp_N_s": {
+      "value": 5,
+      "unit": "N/s",
+      "kind": "design",
+      "source": "firmware/README.md: 저레인지·고레인지 프리셋, 검증 7 및 두 히터 인터락; 중간 보고서 10장. HMI는 이 값으로 입력 제한·고장 주입을 시연한다."
+    },
+    "force_approach_mm_s": {
+      "value": 0.02,
+      "unit": "mm/s",
+      "kind": "design",
+      "source": "firmware/README.md: 저레인지·고레인지 프리셋, 검증 7 및 두 히터 인터락; 중간 보고서 10장. HMI는 이 값으로 입력 제한·고장 주입을 시연한다."
+    },
+    "force_period_ms": {
+      "value": 1,
+      "unit": "ms",
+      "kind": "design",
+      "source": "firmware/README.md: 저레인지·고레인지 프리셋, 검증 7 및 두 히터 인터락; 중간 보고서 10장. HMI는 이 값으로 입력 제한·고장 주입을 시연한다."
+    },
+    "sil_observation_tail_s": {
+      "value": 9,
+      "unit": "s",
+      "kind": "design",
+      "source": "HMI 관찰 시간 설계값: sim/plant.js forceSim의 원본 control_sim.py 시험 창 9 s를 목표/ramp 시간 뒤 추가 관찰 창으로 재사용한다. 공정 유지 시간이 아니며 입력 하중에 도달한 뒤의 SIL 추종을 표시하기 위한 값이다."
+    },
+    "temp_period_ms": {
+      "value": 10,
+      "unit": "ms",
+      "kind": "design",
+      "source": "firmware/README.md 검증 7: 온도 PI 10 ms, control_sim.py:45,54–56 원본 주기. HMI는 고장 시연에서 이 주기까지 1 ms tick을 진행한다."
     }
   }
 }
