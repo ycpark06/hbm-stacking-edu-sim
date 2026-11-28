@@ -30,6 +30,11 @@ build = site / 'firmware' / 'build'
 build.mkdir(parents=True)
 for name in ('controller.js', 'controller.wasm'):
     shutil.copy2(root / 'firmware' / 'build' / name, build / name)
+# Optional hardware assets; absent until the hardware work is merged.
+for glb in sorted((root / 'cad' / 'web').glob('*.glb')):
+    target = site / 'cad' / 'web'
+    target.mkdir(parents=True, exist_ok=True)
+    shutil.copy2(glb, target / glb.name)
 (site / '.nojekyll').touch()
 (site / 'index.html').write_text('''<!doctype html>
 <html lang="ko"><meta charset="utf-8"><meta http-equiv="refresh" content="0; url=web/">

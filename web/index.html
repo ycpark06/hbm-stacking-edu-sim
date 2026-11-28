@@ -1,19 +1,12 @@
 <!doctype html>
-<html lang="ko">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>적층 본더 웹 데모</title>
-  <style>
-    body { font: 1rem/1.7 system-ui, sans-serif; max-width: 48rem; margin: 4rem auto; padding: 0 1.5rem; color: #17253b; background: #f4f7fc; }
-    a { color: #1746a2; }
-  </style>
-</head>
-<body>
-  <main>
-    <h1>적층 본더 웹 데모</h1>
-    <p>데모 준비 중입니다.</p>
-    <p><a href="wasm_check.html">브라우저 wasm 확인</a></p>
-  </main>
-</body>
-</html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>HBM 적층 공정 실험실</title><link rel="stylesheet" href="hmi.css">
+<script type="importmap">{"imports":{"three":"./vendor/three/build/three.module.js"}}</script></head>
+<body><header><div><p class="eyebrow">MSE489 · EDUCATIONAL DIGITAL TWIN</p><h1>HBM 적층 공정 실험실</h1><p>TC-NCF / MR-MUF · 같은 장비에서 공정의 차이를 관찰합니다.</p></div><nav><a href="vision.html">비전 정렬</a><a href="wasm_check.html">wasm 확인</a><a href="#sources">파라미터 근거</a></nav></header>
+<main><section class="recipe"><h2>레시피</h2><form id="recipe"><div id="fields" class="fields"></div><label class="check"><input type="checkbox" name="head_temp_compensation"> 층별 헤드 설정 온도 보정 <span class="badge">설계 목표·설계값</span></label><p id="limits"></p><p id="recipe-error" role="alert"></p><button id="run" type="submit">두 모드 비교 실행</button></form><div id="presets" class="presets" aria-label="대표 시나리오"></div></section>
+<section class="stage"><div class="section-head"><h2>장비 · 적층 진행</h2><span id="model-state">3D 초기화 중</span></div><div id="viewer" aria-label="마우스로 회전 가능한 적층 장비 3D"></div><div class="stage-controls"><label>휨 과장 배율 <select id="warp-scale"><option>1</option><option>100</option><option>1000</option></select> × <span class="badge">관찰 항목</span></label><a href="vision.html" id="vision-link">현재 층 비전 보기</a></div><p>절차적 형상·GLB 배치는 교육용 개략 표현입니다. 다이 두께·간격은 입력값을 사용합니다. 휨은 계산된 최대값을 과장 표시합니다.</p><progress id="progress" value="0" max="1"></progress><p id="status" role="status">레시피 또는 프리셋을 선택하세요.</p></section>
+<section class="wide"><div class="section-head"><h2>두 모드 결과</h2><span class="badge">계산 결과</span></div><p id="description"></p><div id="results" class="results"></div><div id="s5" class="scroll"></div></section>
+<section class="wide"><h2>공정 이력 <span class="badge">계산 결과</span></h2><label>그래프 결과 선택 <select id="result-choice"></select></label><div id="charts" class="chart-grid"></div><p>하중 SIL은 중간 보고서 원본 JS 플랜트 + wasm REFERENCE 제어기의 독립 시험입니다. 적층 열 모델은 이상 경계 조건이며 SIL과 직접 결합하지 않습니다.</p></section>
+<section class="wide"><h2>알람 · 인터락</h2><p>고장 주입은 별도의 wasm FIRMWARE 인스턴스에서 실행합니다. 원인을 해제한 뒤 수동 리셋하세요.</p><div id="fault-buttons" class="presets"></div><p id="firmware-status" role="status">펌웨어 초기화 중…</p><div id="model-alarms"></div></section>
+<section id="sources" class="wide"><h2>파라미터 · 근거</h2><label>키·구분·출처 검색 <input id="search" type="search" placeholder="예: assumption, alignment, 접촉"></label><div class="scroll"><table><thead><tr><th>키</th><th>값 / 단위 / 구분</th><th>출처</th></tr></thead><tbody id="params"></tbody></table></div></section>
+<section class="wide"><h2>업체 주장 <span class="badge">관찰 항목</span> · 판정 없음</h2><div id="claims"></div><p>TC-NCF가 휨에 민감 / MR-MUF가 박형에 유리하다는 공개 설명과 단순 모델 결과는 다를 수 있습니다. 업체 주장을 계산 입력이나 판정으로 사용하지 않습니다.</p><h3>모델 한계</h3><p>두 모드에 같은 휨 기준을 적용합니다. 박형 다이에서는 두 모드 모두 불량이 나올 수 있습니다. NCF 보이드 정량 모델은 없습니다. MUF 미충전 모델에는 범프 투과도·필러 여과·갇힌 공기가 포함되지 않습니다. 모든 가정값은 위 표에서 assumption으로 검색할 수 있습니다.</p></section>
+</main><footer>교육용 시뮬레이션 · 공정 우열 판정 및 실물 성능 보증 목적이 아닙니다.</footer><script type="module" src="js/hmi.js"></script></body></html>
