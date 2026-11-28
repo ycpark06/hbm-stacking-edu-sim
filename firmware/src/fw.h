@@ -25,6 +25,12 @@ int fw_set_recipe(const fw_recipe_t *recipe);
  * fw_init/fw_set_recipe는 기본 10 ms로 복원하고 온도 상태도 초기화한다.
  * 이 함수는 주기만 변경한다. 실행 시점은 공유 tick의 배수(t=0 포함). */
 int fw_set_temp_period_ms(unsigned period_ms);
+/* Requests apply on next 1 ms tick. Init/accepted recipe clears reflow and
+ * enables head PI. Nonpositive/NaN reflow -> 0; positive capped at design max. */
+void fw_set_head_heater_enabled(int enabled);
+void fw_request_reflow_heater_W(float power_W);
+float fw_get_reflow_heater_power(void); /* accepted output, W */
+int fw_get_dual_heater_blocked(void); /* non-latching warning, no Z freeze */
 void fw_step_1ms(void);
 /* HANDOFF 3.3: 래치 해제 전용. 조건이 남아 있으면 즉시 다시 래치. */
 void fw_reset_latch(void);

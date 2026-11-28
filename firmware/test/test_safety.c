@@ -144,9 +144,91 @@ static unsigned check_antiwindup_order(void)
     printf("Force clip/rollback order and mode | %s\n", failed ? "FAIL" : "PASS");
     return failed;
 }
+/* Test stimuli use existing head profile/limits; no new process parameters. */
+static unsigned check_dual_heaters(void)
+{
+    unsigned failed = 0, mode, cause, order;
+    for (mode = 0; mode < 2; ++mode) {
+        fw_recipe_t r = fw_recipe_high_range_default();
+        r.mode = (fw_mode_t)mode;
+        hal_host_reset(); fw_reset_latch(); fw_init(); CHECK(fw_set_recipe(&r) == FW_OK);
+        hal_host_set_temp_C(FW_TEMP_INITIAL_C - 1.0f);
+        fw_step_1ms();
+        CHECK(hal_host_get_heater_W() > 0);
+        fw_request_reflow_heater_W(FW_REFLOW_HEATER_MAX_W);
+        fw_step_1ms();
+        CHECK(hal_host_get_reflow_heater_W() == 0);
+        CHECK(fw_get_dual_heater_blocked() && !fw_get_interlock_state()->warning);
+        CHECK(!fw_get_interlock_state()->latched && !hal_host_get_sto());
+        CHECK(hal_host_get_z_velocity_mm_s() != 0);
+        fw_set_head_heater_enabled(0);
+        fw_step_1ms(); /* Previous owner must reach zero for an entire tick. */
+        CHECK(hal_host_get_heater_W() == 0 && hal_host_get_reflow_heater_W() == 0);
+        CHECK(fw_get_dual_heater_blocked());
+        fw_step_1ms();
+        CHECK(fw_get_reflow_heater_power() == FW_REFLOW_HEATER_MAX_W);
+        CHECK(hal_host_get_reflow_heater_W() == FW_REFLOW_HEATER_MAX_W);
+        CHECK(!fw_get_dual_heater_blocked());
+        fw_set_head_heater_enabled(1);
+        fw_step_1ms();
+        CHECK(hal_host_get_heater_W() == 0 && fw_get_dual_heater_blocked());
+        fw_request_reflow_heater_W(0);
+        fw_step_1ms();
+        CHECK(hal_host_get_heater_W() == 0 && hal_host_get_reflow_heater_W() == 0);
+        fw_step_1ms();
+        CHECK(hal_host_get_heater_W() > 0 && !fw_get_dual_heater_blocked());
+
+        /* Idle tie is independent of API call order. */
+        for (order = 0; order < 2; ++order) {
+            fw_init(); CHECK(fw_set_recipe(&r) == FW_OK);
+            if (order) fw_request_reflow_heater_W(FW_REFLOW_HEATER_MAX_W);
+            fw_set_head_heater_enabled(1);
+            if (!order) fw_request_reflow_heater_W(FW_REFLOW_HEATER_MAX_W);
+            fw_step_1ms();
+            CHECK(hal_host_get_heater_W() > 0 && hal_host_get_reflow_heater_W() == 0);
+            CHECK(fw_get_dual_heater_blocked());
+        }
+        fw_init(); CHECK(fw_set_recipe(&r) == FW_OK); fw_set_head_heater_enabled(0);
+        fw_request_reflow_heater_W(FW_REFLOW_HEATER_MAX_W * 2);
+        fw_step_1ms();
+        CHECK(fw_get_reflow_heater_power() == FW_REFLOW_HEATER_MAX_W);
+        fw_request_reflow_heater_W(-1); fw_step_1ms();
+        CHECK(fw_get_reflow_heater_power() == 0);
+        fw_request_reflow_heater_W(NAN); fw_step_1ms();
+        CHECK(fw_get_reflow_heater_power() == 0);
+        fw_request_reflow_heater_W(INFINITY); fw_step_1ms();
+        CHECK(fw_get_reflow_heater_power() == FW_REFLOW_HEATER_MAX_W);
+
+        /* Each latch source cuts either owner even between temp PI updates. */
+        for (cause = 0; cause < 3; ++cause) for (order = 0; order < 2; ++order) {
+            hal_host_reset(); fw_reset_latch(); fw_init(); CHECK(fw_set_recipe(&r) == FW_OK);
+            hal_host_set_temp_C(FW_TEMP_INITIAL_C - 1.0f);
+            fw_set_head_heater_enabled(order == 0);
+            fw_request_reflow_heater_W(order ? FW_REFLOW_HEATER_MAX_W : 0);
+            fw_step_1ms();
+            CHECK(hal_host_get_heater_W() > 0 || hal_host_get_reflow_heater_W() > 0);
+            if (cause == 0) hal_host_set_force_N(FW_FAULT_FORCE_N);
+            if (cause == 1) hal_host_set_temp_C(FW_FAULT_TEMP_C);
+            if (cause == 2) hal_host_set_hw_fault(1);
+            fw_step_1ms();
+            CHECK(fw_get_interlock_state()->latched);
+            CHECK(hal_host_get_heater_W() == 0 && hal_host_get_reflow_heater_W() == 0);
+            CHECK(!fw_get_dual_heater_blocked());
+            fw_request_reflow_heater_W(FW_REFLOW_HEATER_MAX_W);
+            fw_reset_latch();
+            CHECK(hal_host_get_heater_W() == 0 && hal_host_get_reflow_heater_W() == 0);
+            fw_init(); CHECK(fw_set_recipe(&r) == FW_OK);
+            CHECK(hal_host_get_reflow_heater_W() == 0 && fw_get_interlock_state()->latched);
+        }
+        hal_host_reset(); fw_reset_latch(); fw_init(); CHECK(fw_set_recipe(&r) == FW_OK);
+    }
+    printf("Dual heaters: both orders / off tick / idle priority / clamp / three latch sources | %s\n", failed ? "FAIL" : "PASS");
+    return failed;
+}
 int main(void)
 {
     unsigned failed = check_interlocks();
+    failed += check_dual_heaters();
     failed += check_sequence();
     failed += check_antiwindup_order();
     return failed ? 1 : 0;
