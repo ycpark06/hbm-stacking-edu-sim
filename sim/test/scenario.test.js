@@ -80,3 +80,49 @@ test('16 stacks, S1–S5 and endpoint sensitivity: record outcomes without fixin
   writeFileSync(new URL('scenario_results.json',import.meta.url),JSON.stringify(data,null,2)+'\n');
   writeFileSync(new URL('stage4_results.json',import.meta.url),JSON.stringify({representative},null,2)+'\n');
 });
+
+// Compare every pre-W6 key, allowing only additive result metadata. This checks
+// numeric histories/statistics as well as judgement strings without pinning the
+// newly introduced under-temperature layers to particular layer numbers.
+function existingFields(actual,baseline) {
+  if(Array.isArray(baseline))return baseline.map((v,i)=>existingFields(actual[i],v));
+  if(baseline&&typeof baseline==='object')return Object.fromEntries(Object.entries(baseline)
+    .map(([k,v])=>[k,existingFields(actual[k],v)]));
+  return actual;
+}
+test('all 16 default recipes exactly preserve PR #28 results; explicit false equals omitted',()=>{
+  const baseline=JSON.parse(readFileSync(new URL('stage4_bond_baseline_results.json',import.meta.url),'utf8'));
+  for(const old of baseline.results) {
+    const actual=run(old.recipe.mode,old.recipe);
+    assert.deepEqual(existingFields(actual,old),old);
+    assert.deepEqual(actual,run(old.recipe.mode,{...old.recipe,head_temp_compensation:false}));
+  }
+});
+
+test('S1 exposes three recipes and per-layer melt counts; S3 reports both thickness ratios and model limit',()=>{
+  const s1=runScenario('S1',params);
+  assert.equal(s1.results.length,3);
+  assert.deepEqual(s1.results.map(r=>r.recipe.mode),['TC-NCF','TC-NCF','MR-MUF']);
+  assert.equal(s1.results[0].recipe.head_temp_compensation,false);
+  assert.equal(s1.results[1].recipe.head_temp_compensation,true);
+  assert.ok(s1.display_keys.includes('thermal_layers.*.remelt_count'));
+  for(const r of s1.results)assert.equal(r.thermal_layers.length,12);
+  const s3=runScenario('S3',params);
+  for(const mode of ['TC-NCF','MR-MUF']) {
+    const [base,thin]=s3.results.filter(r=>r.recipe.mode===mode);
+    assert.equal(thin.warpage.thickness_half_ratio,thin.warpage.max_um/base.warpage.max_um);
+    assert.equal(base.warpage.thickness_half_ratio,thin.warpage.thickness_half_ratio);
+    assert.match(thin.model_limit,/모델 한계/);
+  }
+  const small_stacks=[2,4,8].map(layers=>{
+    const r=runStack('TC-NCF',{layers},params);
+    return {layers,under_temperature_layers:r.alarms.map(a=>a.layer),count:r.alarms.length};
+  });
+  const bad=structuredClone(params);
+  bad.thermal_stack.tool_contact_R_area.value=bad.thermal_stack.tool_contact_R_area.range[1];
+  const rejection=runStack('TC-NCF',{layers:12,head_temp_compensation:true},bad);
+  writeFileSync(new URL('bond_temp_results.json',import.meta.url),JSON.stringify({
+    S1:s1.results.map(({thermal,...r})=>r),S3:s3.results,small_stacks,
+    rejection_case:{tool_contact_R_area:bad.thermal_stack.tool_contact_R_area.value,...rejection}},null,2)+'\n');
+
+});

@@ -414,3 +414,78 @@ test('gel warning uses fill duration and transfer allowance remains independent'
       p.geometry.die_size.value*1e-3,h,{gamma:p.muf.surface_tension.value,theta_deg:p.muf.contact_angle.value}));
   }
 });
+
+import {judgeBondTemperature} from '../stack.js';
+test('bond temperature uses strict liquidus boundary and finite own-exposure peak',()=>{
+  const tl=params.solder.liquidus_snag.value;
+  assert.equal(judgeBondTemperature(tl,params).bond_temp_ok,true);
+  assert.equal(judgeBondTemperature(tl,params).shortfall_C,0);
+  assert.equal(judgeBondTemperature(tl+0.01,params).bond_temp_ok,true);
+  const low=judgeBondTemperature(tl-0.01,params);
+  assert.equal(low.bond_temp_ok,false);close(low.shortfall_C,0.01);
+  assert.throws(()=>judgeBondTemperature(NaN,params));
+  for(const mode of ['TC-NCF','MR-MUF']) {
+    const r=runStack(mode,{layers:4},params);
+    const own=Array(4).fill(-Infinity);
+    for(const row of r.thermal.history) {
+      if(mode==='TC-NCF'&&row.phase.startsWith('bond-')) {
+        const i=row.T.length-1;own[i]=Math.max(own[i],row.T[i]);
+      } else if(mode==='MR-MUF'&&row.phase.startsWith('reflow-'))
+        row.T.forEach((T,i)=>{own[i]=Math.max(own[i],T);});
+    }
+    r.thermal.layers.forEach((l,i)=>{
+      assert.equal(l.bond_peak_C,own[i]);
+      assert.equal(l.bond_temp_ok,own[i]>=tl);
+      assert.equal(r.alarms.some(a=>a.layer===i+1),mode==='TC-NCF'&&own[i]<tl);
+    });
+    r.alarms.forEach(a=>{assert.equal(a.peak_C,own[a.layer-1]);close(a.shortfall_C,tl-a.peak_C);});
+  }
+});
+
+test('sequential head compensation targets every own bond, keeps rate/hold and params immutable',()=>{
+  const saved=structuredClone(params),target=params.solder.liquidus_snag.value+params.judgement.bond_temp_margin_C.value;
+  for(const thickness_um of [100,50]) {
+    const r=runStack('TC-NCF',{layers:12,thickness_um,head_temp_compensation:true},params);
+    assert.equal(r.accepted,true);assert.deepEqual(r.alarms,[]);
+    for(const l of r.thermal.layers)assert.ok(Math.abs(l.bond_peak_C-target)<=0.5);
+    assert.ok(r.head_setpoints_C.every(t=>t<=params.equipment_limits.head_max_temp_C.value));
+    const schedule=tcncfSchedule(12,params,r.head_setpoints_C);
+    close(schedule.reduce((sum,s)=>sum+s.duration_s,0),r.cycle.breakdown.layer_totals.ramp_s+
+      r.cycle.breakdown.layer_totals.hold_s+r.cycle.breakdown.layer_totals.cooling_s);
+    schedule.forEach(s=>{
+      if(s.phase==='bond-hold')assert.equal(s.duration_s,params.tcncf_process.hold_time.value);
+      if(s.phase==='bond-ramp')close(s.input(s.duration_s).T_head_C,
+        params.tcncf_process.stage_temp.value+params.tcncf_process.ramp_rate.equipment_value*s.duration_s);
+    });
+    const prefix=runStack('TC-NCF',{layers:4,thickness_um,head_temp_compensation:true},params);
+    assert.deepEqual(r.head_setpoints_C.slice(0,4),prefix.head_setpoints_C);
+    assert.ok(r.head_compensation.layers.every(l=>l.iterations<=r.head_compensation.max_iterations));
+  }
+  assert.deepEqual(params,saved);
+  assert.throws(()=>runStack('TC-NCF',{head_temp_compensation:'true'},params));
+});
+
+test('head compensation rejects above-KPI requirements before returning an executed stack',()=>{
+  // Deliberately adverse validation input at the existing estimated-contact range endpoint.
+  const p=structuredClone(params);
+  p.thermal_stack.tool_contact_R_area.value=p.thermal_stack.tool_contact_R_area.range[1];
+  const r=runStack('TC-NCF',{layers:12,head_temp_compensation:true},p);
+  assert.equal(r.accepted,false);assert.equal(r.rejection.code,'HEAD_TEMP_LIMIT');
+  assert.ok(r.rejection.layer>=1&&r.rejection.layer<=12);
+  assert.ok(r.rejection.required_head_C>p.equipment_limits.head_max_temp_C.value);
+  assert.equal(r.thermal,undefined);assert.equal(r.cycle,undefined);
+  // A root exactly at the KPI is accepted (the direct peak(limit) decides).
+  const atLimit=structuredClone(params);
+  const modelLimit=buildStack({layers:[{mode:'TC-NCF'}],params:atLimit});
+  const limitPeak=stackSim(modelLimit,tcncfSchedule(1,atLimit,[atLimit.equipment_limits.head_max_temp_C.value])).layers[0].peak_C;
+  atLimit.judgement.bond_temp_margin_C.value=limitPeak-atLimit.solder.liquidus_snag.value;
+  assert.equal(runStack('TC-NCF',{layers:2,head_temp_compensation:true},atLimit).accepted,true);
+  // MR records under-temperature status without an alarm; head compensation does not alter its oven.
+  const mr=structuredClone(params);
+  mr.thermal_stack.chuck_contact_R_area.value=1e8;mr.thermal_stack.h_oven.value=0;
+  mr.mrmuf_process.tack_temp.value=mr.thermal_stack.ambient_temp.value;
+  const low=runStack('MR-MUF',{layers:2},mr);
+  assert.ok(low.thermal.layers.every(l=>!l.bond_temp_ok));assert.deepEqual(low.alarms,[]);
+  const a=runStack('MR-MUF',{layers:2},params),b=runStack('MR-MUF',{layers:2,head_temp_compensation:true},params);
+  assert.deepEqual(a.thermal,b.thermal);assert.deepEqual(b.alarms,[]);
+});

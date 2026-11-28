@@ -1,0 +1,5360 @@
+{
+  "S1": [
+    {
+      "recipe": {
+        "mode": "TC-NCF",
+        "layers": 12,
+        "thickness_um": 100,
+        "gap_um": 15,
+        "inlet_pressure_MPa": 1,
+        "bond_force_N": 40,
+        "head_temp_compensation": false,
+        "seed": 489,
+        "alignment_reference": "previous"
+      },
+      "accepted": true,
+      "rejection": null,
+      "head_compensation": {
+        "enabled": false,
+        "requested": false,
+        "note": "기본 레시피"
+      },
+      "head_setpoints_C": [
+        300,
+        300,
+        300,
+        300,
+        300,
+        300,
+        300,
+        300,
+        300,
+        300,
+        300,
+        300
+      ],
+      "alarms": [
+        {
+          "code": "BOND_TEMP_LOW",
+          "message": "접합 온도 미달",
+          "layer": 1,
+          "peak_C": 208.53952569281378,
+          "shortfall_C": 12.460474307186217,
+          "liquidus_C": 221
+        },
+        {
+          "code": "BOND_TEMP_LOW",
+          "message": "접합 온도 미달",
+          "layer": 2,
+          "peak_C": 215.84777140033444,
+          "shortfall_C": 5.152228599665563,
+          "liquidus_C": 221
+        }
+      ],
+      "thermal_layers": [
+        {
+          "peak_C": 208.53952569281378,
+          "time_above_s": 0,
+          "remelt_count": 0,
+          "subsequent_remelts": 0,
+          "reheat_count": 11,
+          "reheat_peaks_C": [
+            199.82231852688062,
+            192.39572838572326,
+            185.99243317718393,
+            180.41416951639457,
+            175.5107852476551,
+            171.1664805809965,
+            167.2905151505844,
+            163.81077542092456,
+            160.66922263485887,
+            157.81860562643695,
+            155.2200428305674
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {},
+          "bond_temp_ok": false,
+          "bond_peak_C": 208.53952569281378,
+          "liquidus_C": 221,
+          "shortfall_C": 12.460474307186217,
+          "head_setpoint_C": 300
+        },
+        {
+          "peak_C": 215.84777140033444,
+          "time_above_s": 0,
+          "remelt_count": 0,
+          "subsequent_remelts": 0,
+          "reheat_count": 10,
+          "reheat_peaks_C": [
+            207.2291271145049,
+            199.79802850658342,
+            193.32438861114153,
+            187.63395410422004,
+            182.59233798399157,
+            178.09423501592747,
+            174.05595667706544,
+            170.41014854805454,
+            167.10197565130372,
+            164.0863165139601
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {},
+          "bond_temp_ok": false,
+          "bond_peak_C": 215.84777140033444,
+          "liquidus_C": 221,
+          "shortfall_C": 5.152228599665563,
+          "head_setpoint_C": 300
+        },
+        {
+          "peak_C": 222.06910008203667,
+          "time_above_s": 3.262535795768736,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 9,
+          "reheat_peaks_C": [
+            213.60993714409068,
+            206.24069370292378,
+            199.76300914784494,
+            194.02390454868745,
+            188.90350612263404,
+            184.30654750462824,
+            180.15635651372835,
+            176.39051306296534,
+            172.95765537241306
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {
+            "bond-ramp": 1
+          },
+          "bond_temp_ok": true,
+          "bond_peak_C": 222.06910008203667,
+          "liquidus_C": 221,
+          "shortfall_C": 0,
+          "head_setpoint_C": 300
+        },
+        {
+          "peak_C": 227.42864407185758,
+          "time_above_s": 3.7701423315545357,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 8,
+          "reheat_peaks_C": [
+            219.16353832626757,
+            211.8983762700891,
+            205.4615816756559,
+            199.718708022095,
+            194.56290784841255,
+            189.90818881097996,
+            185.68454421413222,
+            181.83437148197035
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {
+            "bond-ramp": 1
+          },
+          "bond_temp_ok": true,
+          "bond_peak_C": 227.42864407185758,
+          "liquidus_C": 221,
+          "shortfall_C": 0,
+          "head_setpoint_C": 300
+        },
+        {
+          "peak_C": 232.09337624532358,
+          "time_above_s": 7.589073464546903,
+          "remelt_count": 2,
+          "subsequent_remelts": 1,
+          "reheat_count": 7,
+          "reheat_peaks_C": [
+            224.04048158414184,
+            216.90577097990266,
+            210.54022047291102,
+            204.82539785040882,
+            199.66598789617174,
+            194.98439559099518,
+            190.71677696269322
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {
+            "bond-ramp": 2
+          },
+          "bond_temp_ok": true,
+          "bond_peak_C": 232.09337624532358,
+          "liquidus_C": 221,
+          "shortfall_C": 0,
+          "head_setpoint_C": 300
+        },
+        {
+          "peak_C": 236.18975143978437,
+          "time_above_s": 11.158463359613894,
+          "remelt_count": 3,
+          "subsequent_remelts": 2,
+          "reheat_count": 6,
+          "reheat_peaks_C": [
+            228.35687430496776,
+            221.36842345419666,
+            215.09437786221645,
+            209.4300964138952,
+            204.2903938211002,
+            199.60518397991143
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {
+            "bond-ramp": 2,
+            "bond-hold": 1
+          },
+          "bond_temp_ok": true,
+          "bond_peak_C": 236.18975143978437,
+          "liquidus_C": 221,
+          "shortfall_C": 0,
+          "head_setpoint_C": 300
+        },
+        {
+          "peak_C": 239.81529373703995,
+          "time_above_s": 12.40858062586571,
+          "remelt_count": 3,
+          "subsequent_remelts": 2,
+          "reheat_count": 5,
+          "reheat_peaks_C": [
+            232.20369717893237,
+            225.37020845765224,
+            219.20085720855337,
+            213.60286568282345,
+            208.49990474897294
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {
+            "bond-ramp": 3
+          },
+          "bond_temp_ok": true,
+          "bond_peak_C": 239.81529373703995,
+          "liquidus_C": 221,
+          "shortfall_C": 0,
+          "head_setpoint_C": 300
+        },
+        {
+          "peak_C": 243.04642210736512,
+          "time_above_s": 16.393182152460728,
+          "remelt_count": 4,
+          "subsequent_remelts": 3,
+          "reheat_count": 4,
+          "reheat_peaks_C": [
+            235.65325044555178,
+            228.9786133365701,
+            222.92213811649736,
+            217.40125154363233
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {
+            "bond-ramp": 3,
+            "bond-hold": 1
+          },
+          "bond_temp_ok": true,
+          "bond_peak_C": 243.04642210736512,
+          "liquidus_C": 221,
+          "shortfall_C": 0,
+          "head_setpoint_C": 300
+        },
+        {
+          "peak_C": 245.94386488275836,
+          "time_above_s": 17.476985522474283,
+          "remelt_count": 4,
+          "subsequent_remelts": 3,
+          "reheat_count": 3,
+          "reheat_peaks_C": [
+            238.76370807922328,
+            232.2485382371966,
+            226.30953670813707
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {
+            "bond-ramp": 4
+          },
+          "bond_temp_ok": true,
+          "bond_peak_C": 245.94386488275836,
+          "liquidus_C": 221,
+          "shortfall_C": 0,
+          "head_setpoint_C": 300
+        },
+        {
+          "peak_C": 248.55648495607917,
+          "time_above_s": 14.53516524719201,
+          "remelt_count": 3,
+          "subsequent_remelts": 2,
+          "reheat_count": 2,
+          "reheat_peaks_C": [
+            241.58239334915203,
+            235.22507267298624
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {
+            "bond-ramp": 3
+          },
+          "bond_temp_ok": true,
+          "bond_peak_C": 248.55648495607917,
+          "liquidus_C": 221,
+          "shortfall_C": 0,
+          "head_setpoint_C": 300
+        },
+        {
+          "peak_C": 250.92403096171802,
+          "time_above_s": 10.508911396865958,
+          "remelt_count": 2,
+          "subsequent_remelts": 1,
+          "reheat_count": 1,
+          "reheat_peaks_C": [
+            244.148171974254
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {
+            "bond-ramp": 2
+          },
+          "bond_temp_ok": true,
+          "bond_peak_C": 250.92403096171802,
+          "liquidus_C": 221,
+          "shortfall_C": 0,
+          "head_setpoint_C": 300
+        },
+        {
+          "peak_C": 253.0791472762897,
+          "time_above_s": 5.61363040370266,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {
+            "bond-ramp": 1
+          },
+          "bond_temp_ok": true,
+          "bond_peak_C": 253.0791472762897,
+          "liquidus_C": 221,
+          "shortfall_C": 0,
+          "head_setpoint_C": 300
+        }
+      ],
+      "warpage": {
+        "max_um": 7.413174969357404,
+        "judgement": "주의"
+      },
+      "defect_area_pct": null,
+      "defect_judgement": "정량 모델 없음 (경향: 낮은 경향)",
+      "contact_judgement": "접촉",
+      "alignment": {
+        "layer_errors_um": [
+          [
+            -0.033190150438392386,
+            -0.2706640078779766
+          ],
+          [
+            -0.08149844348633645,
+            -0.4854712069158612
+          ],
+          [
+            -0.17148762644360574,
+            0.11278986799642254
+          ],
+          [
+            -0.12282804233113959,
+            -0.10379525644558207
+          ],
+          [
+            0.42305773164154814,
+            -0.2698290716893673
+          ],
+          [
+            0.34649530131731726,
+            -0.10270613524285754
+          ],
+          [
+            -0.48745033987860964,
+            0.1856111701405596
+          ],
+          [
+            0.4665837544207004,
+            -0.07126324841825582
+          ],
+          [
+            0.44038960324035986,
+            0.20512804278031627
+          ],
+          [
+            -0.24636510345592322,
+            -0.12069642653652679
+          ],
+          [
+            0.2499163348664334,
+            -0.02625447843326223
+          ],
+          [
+            -0.5398523855764963,
+            -0.20932824383999027
+          ]
+        ],
+        "cumulative_um": [
+          0.24377063387585574,
+          -1.1564789944823815
+        ],
+        "top_to_first_die_um": [
+          0.27696078431424814,
+          -0.8858149866044048
+        ],
+        "adjacent_3sigma_um": [
+          0.8824964589164084,
+          0.8824964589164084,
+          0.8824964589164084,
+          0.8824964589164084,
+          0.8824964589164084,
+          0.8824964589164084,
+          0.8824964589164084,
+          0.8824964589164084,
+          0.8824964589164084,
+          0.8824964589164084,
+          0.8824964589164084,
+          0.8824964589164084
+        ],
+        "judgement": "양호"
+      },
+      "cycle": {
+        "bonder_s": 239.88600000000002,
+        "batch_post_s": 0,
+        "total_serial_s": 239.88600000000002,
+        "breakdown": {
+          "per_layer": {
+            "pickup_s": 0.5,
+            "xy_move_s": 1.05,
+            "z_move_s": 0.29,
+            "alignment_s": 0.0505,
+            "approach_s": 3.2,
+            "ramp_s": 10,
+            "hold_s": 3.2,
+            "cooling_s": 1.7
+          },
+          "layer_totals": {
+            "pickup_s": 6,
+            "xy_move_s": 12.600000000000001,
+            "z_move_s": 3.4799999999999995,
+            "alignment_s": 0.6060000000000001,
+            "approach_s": 38.400000000000006,
+            "ramp_s": 120,
+            "hold_s": 38.400000000000006,
+            "cooling_s": 20.4
+          },
+          "once": {},
+          "per_layer_s": 19.9905,
+          "all_layers_s": 239.88600000000002,
+          "once_s": 0,
+          "literature_comparison": {
+            "tcb_thermal_cycle_min_s": 1.2,
+            "tcb_uph_current": 350,
+            "tcb_bond_time_per_layer_s": 10,
+            "mrmuf_tack_cycle_per_die_s": 3,
+            "mass_reflow_total_s": 360,
+            "note": "비교만: 본더 점유 스택/h=3600/bonder_s, 직렬 환산=3600/total_serial_s. 배치 크기 가정 없이 라인 UPH는 산출하지 않음"
+          }
+        }
+      },
+      "muf": null,
+      "ncf": [
+        {
+          "contact_time_s": 7.4402919306738085,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 27.38552421730112,
+          "gel_before_contact": false,
+          "layer": 1,
+          "contact_viscosity_Pa_s": 424.257109146379,
+          "low_viscosity_time_s": 5.355291930673831,
+          "final_conversion": 0.9346366824868938,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 7.13677783619412,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 24.909231354019415,
+          "gel_before_contact": false,
+          "layer": 2,
+          "contact_viscosity_Pa_s": 401.3692112741301,
+          "low_viscosity_time_s": 5.166777836194139,
+          "final_conversion": 0.9655591155345429,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 6.903415848739465,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 22.40376085194414,
+          "gel_before_contact": false,
+          "layer": 3,
+          "contact_viscosity_Pa_s": 383.8618242265677,
+          "low_viscosity_time_s": 5.013415848739483,
+          "final_conversion": 0.9810161364519306,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 6.71901771426922,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 13.345852236338356,
+          "gel_before_contact": false,
+          "layer": 4,
+          "contact_viscosity_Pa_s": 370.0439691658145,
+          "low_viscosity_time_s": 4.8940177142692365,
+          "final_conversion": 0.9887583475802817,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 6.57015820555351,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 12.683173432837442,
+          "gel_before_contact": false,
+          "layer": 5,
+          "contact_viscosity_Pa_s": 358.8689624161831,
+          "low_viscosity_time_s": 4.790158205553526,
+          "final_conversion": 0.9926337615799513,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 6.447906514779506,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 12.193638769273923,
+          "gel_before_contact": false,
+          "layer": 6,
+          "contact_viscosity_Pa_s": 349.6544510588076,
+          "low_viscosity_time_s": 4.702906514779521,
+          "final_conversion": 0.9944836108287598,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 6.346082568692007,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 11.815518118093685,
+          "gel_before_contact": false,
+          "layer": 7,
+          "contact_viscosity_Pa_s": 341.93649923066977,
+          "low_viscosity_time_s": 4.631082568692022,
+          "final_conversion": 0.9951091908729603,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 6.2602675938411405,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 11.517279903540155,
+          "gel_before_contact": false,
+          "layer": 8,
+          "contact_viscosity_Pa_s": 335.3894039936068,
+          "low_viscosity_time_s": 4.570267593841154,
+          "final_conversion": 0.9946635230742609,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 6.187213466075042,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 11.277911564791287,
+          "gel_before_contact": false,
+          "layer": 9,
+          "contact_viscosity_Pa_s": 329.77810345712186,
+          "low_viscosity_time_s": 4.512213466075056,
+          "final_conversion": 0.9925203705148448,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 6.124475216118494,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 11.082889580167858,
+          "gel_before_contact": false,
+          "layer": 10,
+          "contact_viscosity_Pa_s": 324.92873049672744,
+          "low_viscosity_time_s": 4.464475216118507,
+          "final_conversion": 0.9858766939992596,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 6.070174024405532,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 10.921837788266595,
+          "gel_before_contact": false,
+          "layer": 11,
+          "contact_viscosity_Pa_s": 320.7108976961794,
+          "low_viscosity_time_s": 4.425174024405545,
+          "final_conversion": 0.9621105851771404,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 6.022840013756686,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 10.787160126112454,
+          "gel_before_contact": false,
+          "layer": 12,
+          "contact_viscosity_Pa_s": 317.025122863089,
+          "low_viscosity_time_s": 4.387840013756699,
+          "final_conversion": 0.8467115795417165,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        }
+      ]
+    },
+    {
+      "recipe": {
+        "mode": "TC-NCF",
+        "layers": 12,
+        "thickness_um": 100,
+        "gap_um": 15,
+        "inlet_pressure_MPa": 1,
+        "bond_force_N": 40,
+        "head_temp_compensation": true,
+        "seed": 489,
+        "alignment_reference": "previous"
+      },
+      "accepted": true,
+      "rejection": null,
+      "head_compensation": {
+        "enabled": true,
+        "target_C": 231,
+        "limit_C": 400,
+        "tolerance_C": 0.05,
+        "max_iterations": 64,
+        "head_setpoints_C": [
+          341.387939453125,
+          326.153564453125,
+          314.617919921875,
+          305.609130859375,
+          298.358154296875,
+          292.388916015625,
+          287.408447265625,
+          283.160400390625,
+          279.534912109375,
+          276.385498046875,
+          273.602294921875,
+          271.185302734375
+        ],
+        "layers": [
+          {
+            "layer": 1,
+            "required_head_C": 341.387939453125,
+            "headroom_C": 58.612060546875,
+            "iterations": 13,
+            "expansions": 0
+          },
+          {
+            "layer": 2,
+            "required_head_C": 326.153564453125,
+            "headroom_C": 73.846435546875,
+            "iterations": 13,
+            "expansions": 0
+          },
+          {
+            "layer": 3,
+            "required_head_C": 314.617919921875,
+            "headroom_C": 85.382080078125,
+            "iterations": 13,
+            "expansions": 0
+          },
+          {
+            "layer": 4,
+            "required_head_C": 305.609130859375,
+            "headroom_C": 94.390869140625,
+            "iterations": 13,
+            "expansions": 0
+          },
+          {
+            "layer": 5,
+            "required_head_C": 298.358154296875,
+            "headroom_C": 101.641845703125,
+            "iterations": 13,
+            "expansions": 0
+          },
+          {
+            "layer": 6,
+            "required_head_C": 292.388916015625,
+            "headroom_C": 107.611083984375,
+            "iterations": 13,
+            "expansions": 0
+          },
+          {
+            "layer": 7,
+            "required_head_C": 287.408447265625,
+            "headroom_C": 112.591552734375,
+            "iterations": 13,
+            "expansions": 0
+          },
+          {
+            "layer": 8,
+            "required_head_C": 283.160400390625,
+            "headroom_C": 116.839599609375,
+            "iterations": 13,
+            "expansions": 0
+          },
+          {
+            "layer": 9,
+            "required_head_C": 279.534912109375,
+            "headroom_C": 120.465087890625,
+            "iterations": 13,
+            "expansions": 0
+          },
+          {
+            "layer": 10,
+            "required_head_C": 276.385498046875,
+            "headroom_C": 123.614501953125,
+            "iterations": 13,
+            "expansions": 0
+          },
+          {
+            "layer": 11,
+            "required_head_C": 273.602294921875,
+            "headroom_C": 126.397705078125,
+            "iterations": 13,
+            "expansions": 0
+          },
+          {
+            "layer": 12,
+            "required_head_C": 271.185302734375,
+            "headroom_C": 128.814697265625,
+            "iterations": 13,
+            "expansions": 0
+          }
+        ]
+      },
+      "head_setpoints_C": [
+        341.387939453125,
+        326.153564453125,
+        314.617919921875,
+        305.609130859375,
+        298.358154296875,
+        292.388916015625,
+        287.408447265625,
+        283.160400390625,
+        279.534912109375,
+        276.385498046875,
+        273.602294921875,
+        271.185302734375
+      ],
+      "alarms": [],
+      "thermal_layers": [
+        {
+          "peak_C": 231.00231829801086,
+          "time_above_s": 4.250750845195414,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 11,
+          "reheat_peaks_C": [
+            212.87797413447063,
+            199.15067385649132,
+            188.40506207743096,
+            179.75369495827618,
+            172.63531256648255,
+            166.6823606377203,
+            161.61921167157092,
+            157.27366387728273,
+            153.49602662924005,
+            150.17509400396662,
+            147.24981812759995
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {
+            "bond-ramp": 1
+          },
+          "bond_temp_ok": true,
+          "bond_peak_C": 231.00231829801086,
+          "liquidus_C": 221,
+          "shortfall_C": 0,
+          "head_setpoint_C": 341.387939453125
+        },
+        {
+          "peak_C": 230.99901166826444,
+          "time_above_s": 4.1898469323387895,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 10,
+          "reheat_peaks_C": [
+            215.06831994407625,
+            202.5979124223129,
+            192.55790020016596,
+            184.2969345943775,
+            177.38846460582926,
+            171.51262132868175,
+            166.46956265496863,
+            162.08557110539414,
+            158.23159146198455,
+            154.83677799259726
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {
+            "bond-ramp": 1
+          },
+          "bond_temp_ok": true,
+          "bond_peak_C": 230.99901166826444,
+          "liquidus_C": 221,
+          "shortfall_C": 0,
+          "head_setpoint_C": 326.153564453125
+        },
+        {
+          "peak_C": 230.99281553060217,
+          "time_above_s": 4.141119138488794,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 9,
+          "reheat_peaks_C": [
+            216.79717438855977,
+            205.36816452512787,
+            195.9643256354539,
+            188.1000950102984,
+            181.41135112476084,
+            175.6706046204943,
+            170.68010533036374,
+            166.29294483804043,
+            162.42847825052553
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {
+            "bond-ramp": 1
+          },
+          "bond_temp_ok": true,
+          "bond_peak_C": 230.99281553060217,
+          "liquidus_C": 221,
+          "shortfall_C": 0,
+          "head_setpoint_C": 314.617919921875
+        },
+        {
+          "peak_C": 231.0033465595901,
+          "time_above_s": 4.1021933274539215,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 8,
+          "reheat_peaks_C": [
+            218.18493774424348,
+            207.63789537070923,
+            198.81762797234123,
+            191.31574863905854,
+            184.87711286550032,
+            179.27993114414468,
+            174.35943739432273,
+            170.02518604505215
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {
+            "bond-ramp": 1
+          },
+          "bond_temp_ok": true,
+          "bond_peak_C": 231.0033465595901,
+          "liquidus_C": 221,
+          "shortfall_C": 0,
+          "head_setpoint_C": 305.609130859375
+        },
+        {
+          "peak_C": 231.00866989714288,
+          "time_above_s": 4.068433553195872,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 7,
+          "reheat_peaks_C": [
+            219.31805369808717,
+            209.54143982030126,
+            201.2261616487974,
+            194.08941066817053,
+            187.88535055231148,
+            182.43135251405022,
+            177.62716855087967
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {
+            "bond-ramp": 1
+          },
+          "bond_temp_ok": true,
+          "bond_peak_C": 231.00866989714288,
+          "liquidus_C": 221,
+          "shortfall_C": 0,
+          "head_setpoint_C": 298.358154296875
+        },
+        {
+          "peak_C": 231.00521074687046,
+          "time_above_s": 4.037933128487667,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 6,
+          "reheat_peaks_C": [
+            220.27190710286487,
+            211.14293814135368,
+            203.30782150435547,
+            196.49666573556405,
+            190.5089737078339,
+            185.2346929734192
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {
+            "bond-ramp": 1
+          },
+          "bond_temp_ok": true,
+          "bond_peak_C": 231.00521074687046,
+          "liquidus_C": 221,
+          "shortfall_C": 0,
+          "head_setpoint_C": 292.388916015625
+        },
+        {
+          "peak_C": 231.00940660228727,
+          "time_above_s": 6.492321965118717,
+          "remelt_count": 2,
+          "subsequent_remelts": 1,
+          "reheat_count": 5,
+          "reheat_peaks_C": [
+            221.06642632648587,
+            212.53266905888643,
+            205.11417905988878,
+            198.59258462163749,
+            192.8480265519611
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {
+            "bond-ramp": 1,
+            "bond-hold": 1
+          },
+          "bond_temp_ok": true,
+          "bond_peak_C": 231.00940660228727,
+          "liquidus_C": 221,
+          "shortfall_C": 0,
+          "head_setpoint_C": 287.408447265625
+        },
+        {
+          "peak_C": 230.9969746486111,
+          "time_above_s": 6.97037497983803,
+          "remelt_count": 2,
+          "subsequent_remelts": 1,
+          "reheat_count": 4,
+          "reheat_peaks_C": [
+            221.76427723708088,
+            213.73819308734673,
+            206.68246904638946,
+            200.46743656648448
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {
+            "bond-ramp": 1,
+            "bond-hold": 1
+          },
+          "bond_temp_ok": true,
+          "bond_peak_C": 230.9969746486111,
+          "liquidus_C": 221,
+          "shortfall_C": 0,
+          "head_setpoint_C": 283.160400390625
+        },
+        {
+          "peak_C": 231.00297017643652,
+          "time_above_s": 7.069599350046653,
+          "remelt_count": 2,
+          "subsequent_remelts": 1,
+          "reheat_count": 3,
+          "reheat_peaks_C": [
+            222.36901058748475,
+            214.77891092925344,
+            208.09319034816332
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {
+            "bond-ramp": 1,
+            "bond-hold": 1
+          },
+          "bond_temp_ok": true,
+          "bond_peak_C": 231.00297017643652,
+          "liquidus_C": 221,
+          "shortfall_C": 0,
+          "head_setpoint_C": 279.534912109375
+        },
+        {
+          "peak_C": 231.00693454934756,
+          "time_above_s": 7.111678949941181,
+          "remelt_count": 2,
+          "subsequent_remelts": 1,
+          "reheat_count": 2,
+          "reheat_peaks_C": [
+            222.88219438652675,
+            215.72555529354472
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {
+            "bond-ramp": 1,
+            "bond-hold": 1
+          },
+          "bond_temp_ok": true,
+          "bond_peak_C": 231.00693454934756,
+          "liquidus_C": 221,
+          "shortfall_C": 0,
+          "head_setpoint_C": 276.385498046875
+        },
+        {
+          "peak_C": 230.9926037180911,
+          "time_above_s": 7.136524685867292,
+          "remelt_count": 2,
+          "subsequent_remelts": 1,
+          "reheat_count": 1,
+          "reheat_peaks_C": [
+            223.3647988822912
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {
+            "bond-ramp": 1,
+            "bond-hold": 1
+          },
+          "bond_temp_ok": true,
+          "bond_peak_C": 230.9926037180911,
+          "liquidus_C": 221,
+          "shortfall_C": 0,
+          "head_setpoint_C": 273.602294921875
+        },
+        {
+          "peak_C": 231.01118869829833,
+          "time_above_s": 3.900788301116546,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {
+            "bond-ramp": 1
+          },
+          "bond_temp_ok": true,
+          "bond_peak_C": 231.01118869829833,
+          "liquidus_C": 221,
+          "shortfall_C": 0,
+          "head_setpoint_C": 271.185302734375
+        }
+      ],
+      "warpage": {
+        "max_um": 8.757359298858633,
+        "judgement": "주의"
+      },
+      "defect_area_pct": null,
+      "defect_judgement": "정량 모델 없음 (경향: 낮은 경향)",
+      "contact_judgement": "접촉",
+      "alignment": {
+        "layer_errors_um": [
+          [
+            -0.033190150438392386,
+            -0.2706640078779766
+          ],
+          [
+            -0.08149844348633645,
+            -0.4854712069158612
+          ],
+          [
+            -0.17148762644360574,
+            0.11278986799642254
+          ],
+          [
+            -0.12282804233113959,
+            -0.10379525644558207
+          ],
+          [
+            0.42305773164154814,
+            -0.2698290716893673
+          ],
+          [
+            0.34649530131731726,
+            -0.10270613524285754
+          ],
+          [
+            -0.48745033987860964,
+            0.1856111701405596
+          ],
+          [
+            0.4665837544207004,
+            -0.07126324841825582
+          ],
+          [
+            0.44038960324035986,
+            0.20512804278031627
+          ],
+          [
+            -0.24636510345592322,
+            -0.12069642653652679
+          ],
+          [
+            0.2499163348664334,
+            -0.02625447843326223
+          ],
+          [
+            -0.5398523855764963,
+            -0.20932824383999027
+          ]
+        ],
+        "cumulative_um": [
+          0.24377063387585574,
+          -1.1564789944823815
+        ],
+        "top_to_first_die_um": [
+          0.27696078431424814,
+          -0.8858149866044048
+        ],
+        "adjacent_3sigma_um": [
+          0.8824964589164084,
+          0.8824964589164084,
+          0.8824964589164084,
+          0.8824964589164084,
+          0.8824964589164084,
+          0.8824964589164084,
+          0.8824964589164084,
+          0.8824964589164084,
+          0.8824964589164084,
+          0.8824964589164084,
+          0.8824964589164084,
+          0.8824964589164084
+        ],
+        "judgement": "양호"
+      },
+      "cycle": {
+        "bonder_s": 237.37562402343747,
+        "batch_post_s": 0,
+        "total_serial_s": 237.37562402343747,
+        "breakdown": {
+          "per_layer": {
+            "pickup_s": 0.5,
+            "xy_move_s": 1.0500000000000003,
+            "z_move_s": 0.29,
+            "alignment_s": 0.050499999999999996,
+            "approach_s": 3.1999999999999997,
+            "ramp_s": 9.790802001953125,
+            "hold_s": 3.1999999999999997,
+            "cooling_s": 1.6999999999999995
+          },
+          "layer_totals": {
+            "pickup_s": 6,
+            "xy_move_s": 12.600000000000003,
+            "z_move_s": 3.48,
+            "alignment_s": 0.606,
+            "approach_s": 38.4,
+            "ramp_s": 117.4896240234375,
+            "hold_s": 38.4,
+            "cooling_s": 20.399999999999995
+          },
+          "once": {},
+          "per_layer_s": 19.781302001953122,
+          "all_layers_s": 237.37562402343747,
+          "once_s": 0,
+          "literature_comparison": {
+            "tcb_thermal_cycle_min_s": 1.2,
+            "tcb_uph_current": 350,
+            "tcb_bond_time_per_layer_s": 10,
+            "mrmuf_tack_cycle_per_die_s": 3,
+            "mass_reflow_total_s": 360,
+            "note": "비교만: 본더 점유 스택/h=3600/bonder_s, 직렬 환산=3600/total_serial_s. 배치 크기 가정 없이 라인 UPH는 산출하지 않음"
+          },
+          "by_layer": [
+            {
+              "layer": 1,
+              "pickup_s": 0.5,
+              "xy_move_s": 1.05,
+              "z_move_s": 0.29,
+              "alignment_s": 0.0505,
+              "approach_s": 3.2,
+              "ramp_s": 12.06939697265625,
+              "hold_s": 3.2,
+              "cooling_s": 1.7
+            },
+            {
+              "layer": 2,
+              "pickup_s": 0.5,
+              "xy_move_s": 1.05,
+              "z_move_s": 0.29,
+              "alignment_s": 0.0505,
+              "approach_s": 3.2,
+              "ramp_s": 11.30767822265625,
+              "hold_s": 3.2,
+              "cooling_s": 1.7
+            },
+            {
+              "layer": 3,
+              "pickup_s": 0.5,
+              "xy_move_s": 1.05,
+              "z_move_s": 0.29,
+              "alignment_s": 0.0505,
+              "approach_s": 3.2,
+              "ramp_s": 10.73089599609375,
+              "hold_s": 3.2,
+              "cooling_s": 1.7
+            },
+            {
+              "layer": 4,
+              "pickup_s": 0.5,
+              "xy_move_s": 1.05,
+              "z_move_s": 0.29,
+              "alignment_s": 0.0505,
+              "approach_s": 3.2,
+              "ramp_s": 10.28045654296875,
+              "hold_s": 3.2,
+              "cooling_s": 1.7
+            },
+            {
+              "layer": 5,
+              "pickup_s": 0.5,
+              "xy_move_s": 1.05,
+              "z_move_s": 0.29,
+              "alignment_s": 0.0505,
+              "approach_s": 3.2,
+              "ramp_s": 9.91790771484375,
+              "hold_s": 3.2,
+              "cooling_s": 1.7
+            },
+            {
+              "layer": 6,
+              "pickup_s": 0.5,
+              "xy_move_s": 1.05,
+              "z_move_s": 0.29,
+              "alignment_s": 0.0505,
+              "approach_s": 3.2,
+              "ramp_s": 9.61944580078125,
+              "hold_s": 3.2,
+              "cooling_s": 1.7
+            },
+            {
+              "layer": 7,
+              "pickup_s": 0.5,
+              "xy_move_s": 1.05,
+              "z_move_s": 0.29,
+              "alignment_s": 0.0505,
+              "approach_s": 3.2,
+              "ramp_s": 9.37042236328125,
+              "hold_s": 3.2,
+              "cooling_s": 1.7
+            },
+            {
+              "layer": 8,
+              "pickup_s": 0.5,
+              "xy_move_s": 1.05,
+              "z_move_s": 0.29,
+              "alignment_s": 0.0505,
+              "approach_s": 3.2,
+              "ramp_s": 9.15802001953125,
+              "hold_s": 3.2,
+              "cooling_s": 1.7
+            },
+            {
+              "layer": 9,
+              "pickup_s": 0.5,
+              "xy_move_s": 1.05,
+              "z_move_s": 0.29,
+              "alignment_s": 0.0505,
+              "approach_s": 3.2,
+              "ramp_s": 8.97674560546875,
+              "hold_s": 3.2,
+              "cooling_s": 1.7
+            },
+            {
+              "layer": 10,
+              "pickup_s": 0.5,
+              "xy_move_s": 1.05,
+              "z_move_s": 0.29,
+              "alignment_s": 0.0505,
+              "approach_s": 3.2,
+              "ramp_s": 8.81927490234375,
+              "hold_s": 3.2,
+              "cooling_s": 1.7
+            },
+            {
+              "layer": 11,
+              "pickup_s": 0.5,
+              "xy_move_s": 1.05,
+              "z_move_s": 0.29,
+              "alignment_s": 0.0505,
+              "approach_s": 3.2,
+              "ramp_s": 8.68011474609375,
+              "hold_s": 3.2,
+              "cooling_s": 1.7
+            },
+            {
+              "layer": 12,
+              "pickup_s": 0.5,
+              "xy_move_s": 1.05,
+              "z_move_s": 0.29,
+              "alignment_s": 0.0505,
+              "approach_s": 3.2,
+              "ramp_s": 8.55926513671875,
+              "hold_s": 3.2,
+              "cooling_s": 1.7
+            }
+          ],
+          "per_layer_note": "보정 레시피는 층 평균; 실제 층별 시간은 by_layer"
+        }
+      },
+      "muf": null,
+      "ncf": [
+        {
+          "contact_time_s": 7.4402919306738085,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 14.35688581419206,
+          "gel_before_contact": false,
+          "layer": 1,
+          "contact_viscosity_Pa_s": 424.257109146379,
+          "low_viscosity_time_s": 5.355291930673831,
+          "final_conversion": 0.9683745954033989,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 7.136772122560589,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 13.78910714590831,
+          "gel_before_contact": false,
+          "layer": 2,
+          "contact_viscosity_Pa_s": 401.3698204992957,
+          "low_viscosity_time_s": 5.166772122560609,
+          "final_conversion": 0.9741154486012228,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 6.9033999247403335,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 13.362549890537165,
+          "gel_before_contact": false,
+          "layer": 3,
+          "contact_viscosity_Pa_s": 383.8635241313364,
+          "low_viscosity_time_s": 5.013399924740352,
+          "final_conversion": 0.9774623582927593,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 6.718995797519889,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 13.030095206642365,
+          "gel_before_contact": false,
+          "layer": 4,
+          "contact_viscosity_Pa_s": 370.0463108403975,
+          "low_viscosity_time_s": 4.8939957975199055,
+          "final_conversion": 0.97904329179125,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 6.5701419863644,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 12.76551893894739,
+          "gel_before_contact": false,
+          "layer": 5,
+          "contact_viscosity_Pa_s": 358.87069499729495,
+          "low_viscosity_time_s": 4.790141986364416,
+          "final_conversion": 0.9790488805745688,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 6.447914516704668,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 12.551235448450205,
+          "gel_before_contact": false,
+          "layer": 6,
+          "contact_viscosity_Pa_s": 349.6535950932758,
+          "low_viscosity_time_s": 4.702914516704683,
+          "final_conversion": 0.9773098364499342,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 6.346139991257817,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 12.373880938624236,
+          "gel_before_contact": false,
+          "layer": 7,
+          "contact_viscosity_Pa_s": 341.9303546999316,
+          "low_viscosity_time_s": 4.6311399912578315,
+          "final_conversion": 0.9731421068417689,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 6.260406307240348,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 12.227029252228418,
+          "gel_before_contact": false,
+          "layer": 8,
+          "contact_viscosity_Pa_s": 335.3745509024591,
+          "low_viscosity_time_s": 4.570406307240362,
+          "final_conversion": 0.9648657730596993,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 6.187473059150021,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 12.101725133275927,
+          "gel_before_contact": false,
+          "layer": 9,
+          "contact_viscosity_Pa_s": 329.75026326858836,
+          "low_viscosity_time_s": 4.512473059150034,
+          "final_conversion": 0.9485977280703418,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 6.1249025834420445,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 11.995196536801991,
+          "gel_before_contact": false,
+          "layer": 10,
+          "contact_viscosity_Pa_s": 324.88280476081263,
+          "low_viscosity_time_s": 4.464902583442058,
+          "final_conversion": 0.9146181810408787,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 6.070825046462806,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 11.905777832456112,
+          "gel_before_contact": false,
+          "layer": 11,
+          "contact_viscosity_Pa_s": 320.6408742174004,
+          "low_viscosity_time_s": 4.425825046462819,
+          "final_conversion": 0.8362977402985063,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 6.02378060077414,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 11.827603708855507,
+          "gel_before_contact": false,
+          "layer": 12,
+          "contact_viscosity_Pa_s": 316.9235782189951,
+          "low_viscosity_time_s": 4.388780600774153,
+          "final_conversion": 0.6310401686269284,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        }
+      ]
+    },
+    {
+      "recipe": {
+        "mode": "MR-MUF",
+        "layers": 12,
+        "thickness_um": 100,
+        "gap_um": 15,
+        "inlet_pressure_MPa": 1,
+        "bond_force_N": 40,
+        "head_temp_compensation": false,
+        "seed": 489,
+        "alignment_reference": "previous"
+      },
+      "accepted": true,
+      "rejection": null,
+      "head_compensation": {
+        "enabled": false,
+        "requested": false,
+        "note": "MR-MUF는 리플로우 피크 검사만 기록"
+      },
+      "head_setpoints_C": null,
+      "alarms": [],
+      "thermal_layers": [
+        {
+          "peak_C": 249.9999999999958,
+          "time_above_s": 89.99999994235286,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 11,
+          "tack_peaks_C": [
+            129.80284318333122,
+            127.67936488748411,
+            125.63363297060398,
+            123.65386157361075,
+            121.72089077863986,
+            119.810483730174,
+            117.8981271269589,
+            115.96331584262357,
+            113.99199347169431,
+            111.97719512378727,
+            109.91844417219359
+          ],
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          },
+          "bond_temp_ok": true,
+          "bond_peak_C": 249.9999999999958,
+          "liquidus_C": 221,
+          "shortfall_C": 0,
+          "head_setpoint_C": null
+        },
+        {
+          "peak_C": 249.99999999999565,
+          "time_above_s": 89.99999994197027,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 10,
+          "tack_peaks_C": [
+            131.91136434618224,
+            129.7852739654492,
+            127.72786714091036,
+            125.71935988402954,
+            123.73467357450518,
+            121.74838718732954,
+            119.7391840422358,
+            117.69240114218,
+            115.60071613958664,
+            113.46353780357636
+          ],
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          },
+          "bond_temp_ok": true,
+          "bond_peak_C": 249.99999999999565,
+          "liquidus_C": 221,
+          "shortfall_C": 0,
+          "head_setpoint_C": null
+        },
+        {
+          "peak_C": 249.9999999999955,
+          "time_above_s": 89.99999994170805,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 9,
+          "tack_peaks_C": [
+            133.9377877301346,
+            131.8029074782192,
+            129.71929343180804,
+            127.66114005940213,
+            125.60217681336952,
+            123.52027023029514,
+            121.40009519355802,
+            119.23388556922421,
+            117.02083643400776
+          ],
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          },
+          "bond_temp_ok": true,
+          "bond_peak_C": 249.9999999999955,
+          "liquidus_C": 221,
+          "shortfall_C": 0,
+          "head_setpoint_C": null
+        },
+        {
+          "peak_C": 249.9999999999954,
+          "time_above_s": 89.99999994154236,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 8,
+          "tack_peaks_C": [
+            135.8790148344233,
+            133.72072986823818,
+            131.58993708008543,
+            129.45957781314803,
+            127.30669802423606,
+            125.11525456354708,
+            122.8769493954148,
+            120.59066217932407
+          ],
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          },
+          "bond_temp_ok": true,
+          "bond_peak_C": 249.9999999999954,
+          "liquidus_C": 221,
+          "shortfall_C": 0,
+          "head_setpoint_C": null
+        },
+        {
+          "peak_C": 249.99999999999525,
+          "time_above_s": 89.99999994139642,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 7,
+          "tack_peaks_C": [
+            137.72369879666303,
+            135.521101636875,
+            133.32064479039823,
+            131.09855212873805,
+            128.83800708084615,
+            126.53009059862167,
+            124.1732631605118
+          ],
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          },
+          "bond_temp_ok": true,
+          "bond_peak_C": 249.99999999999525,
+          "liquidus_C": 221,
+          "shortfall_C": 0,
+          "head_setpoint_C": null
+        },
+        {
+          "peak_C": 249.99999999999514,
+          "time_above_s": 89.99999994124248,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 6,
+          "tack_peaks_C": [
+            139.45465375230918,
+            137.18540489732942,
+            134.8958778562091,
+            132.56842870347654,
+            130.1934280855849,
+            127.76881211587563
+          ],
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          },
+          "bond_temp_ok": true,
+          "bond_peak_C": 249.99999999999514,
+          "liquidus_C": 221,
+          "shortfall_C": 0,
+          "head_setpoint_C": null
+        },
+        {
+          "peak_C": 249.99999999999505,
+          "time_above_s": 89.99999994113932,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 5,
+          "tack_peaks_C": [
+            141.05385785277898,
+            138.69868098353987,
+            136.3065431530797,
+            133.86701605964677,
+            131.37740548662356
+          ],
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          },
+          "bond_temp_ok": true,
+          "bond_peak_C": 249.99999999999505,
+          "liquidus_C": 221,
+          "shortfall_C": 0,
+          "head_setpoint_C": null
+        },
+        {
+          "peak_C": 249.999999999995,
+          "time_above_s": 89.99999994107348,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 4,
+          "tack_peaks_C": [
+            142.50692794635313,
+            140.05232194796352,
+            137.55084383721726,
+            134.99906298161258
+          ],
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          },
+          "bond_temp_ok": true,
+          "bond_peak_C": 249.999999999995,
+          "liquidus_C": 221,
+          "shortfall_C": 0,
+          "head_setpoint_C": null
+        },
+        {
+          "peak_C": 249.99999999999494,
+          "time_above_s": 89.99999994103368,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 3,
+          "tack_peaks_C": [
+            143.80568483464674,
+            141.24483611164638,
+            138.63372762398993
+          ],
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          },
+          "bond_temp_ok": true,
+          "bond_peak_C": 249.99999999999494,
+          "liquidus_C": 221,
+          "shortfall_C": 0,
+          "head_setpoint_C": null
+        },
+        {
+          "peak_C": 249.99999999999488,
+          "time_above_s": 89.99999994101091,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 2,
+          "tack_peaks_C": [
+            144.9488536626855,
+            142.2812662794378
+          ],
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          },
+          "bond_temp_ok": true,
+          "bond_peak_C": 249.99999999999488,
+          "liquidus_C": 221,
+          "shortfall_C": 0,
+          "head_setpoint_C": null
+        },
+        {
+          "peak_C": 249.99999999999483,
+          "time_above_s": 89.99999994099852,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 1,
+          "tack_peaks_C": [
+            145.94147066270597
+          ],
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          },
+          "bond_temp_ok": true,
+          "bond_peak_C": 249.99999999999483,
+          "liquidus_C": 221,
+          "shortfall_C": 0,
+          "head_setpoint_C": null
+        },
+        {
+          "peak_C": 249.9999999999948,
+          "time_above_s": 89.99999994099231,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          },
+          "bond_temp_ok": true,
+          "bond_peak_C": 249.9999999999948,
+          "liquidus_C": 221,
+          "shortfall_C": 0,
+          "head_setpoint_C": null
+        }
+      ],
+      "warpage": {
+        "max_um": 5.406727729136941,
+        "judgement": "주의"
+      },
+      "defect_area_pct": 0,
+      "defect_judgement": "양호",
+      "contact_judgement": "정량 접촉 모델 없음 (자기정렬은 젖음·접촉 가정)",
+      "alignment": {
+        "layer_errors_um": [
+          [
+            -0.02738241926148503,
+            -0.00917557788327598
+          ],
+          [
+            0.019227179949682448,
+            0.0034135959316235003
+          ],
+          [
+            -0.017997250747280237,
+            -0.011724924348834992
+          ],
+          [
+            0.002380294856463567,
+            0.02009809157703475
+          ],
+          [
+            0.014758421039327844,
+            -0.008452028811824856
+          ],
+          [
+            -0.012851474658115654,
+            0.021111964595412994
+          ],
+          [
+            0.004954056927763231,
+            0.0053118349466853895
+          ],
+          [
+            0.011287479960130485,
+            0.009351891259645416
+          ],
+          [
+            0.02874036383997332,
+            -0.01221773481815799
+          ],
+          [
+            0.011881659749626707,
+            0.004364635749194725
+          ],
+          [
+            -0.008804190806925228,
+            -0.02625447843326223
+          ],
+          [
+            0.015272647374961552,
+            0.015990250982040793
+          ]
+        ],
+        "cumulative_um": [
+          0.041466768224123006,
+          0.011817520746281517
+        ],
+        "top_to_first_die_um": [
+          0.06884918748560803,
+          0.020993098629557498
+        ],
+        "adjacent_3sigma_um": [
+          0.05251438613968167,
+          0.05246812391557677,
+          0.052587842899648296,
+          0.052041442211258115,
+          0.05231287336861318,
+          0.05235639131247467,
+          0.05246471501070959,
+          0.05232307935609186,
+          0.05235035701115133,
+          0.05240086570353687,
+          0.05280936441860774,
+          0.052261798532683285
+        ],
+        "judgement": "양호"
+      },
+      "cycle": {
+        "bonder_s": 40.68600000000001,
+        "batch_post_s": 14825.75,
+        "total_serial_s": 14866.436,
+        "breakdown": {
+          "per_layer": {
+            "pickup_s": 0.5,
+            "xy_move_s": 1.05,
+            "z_move_s": 0.29,
+            "alignment_s": 0.0505,
+            "approach_s": 0.5,
+            "tack_s": 1
+          },
+          "layer_totals": {
+            "pickup_s": 6,
+            "xy_move_s": 12.600000000000001,
+            "z_move_s": 3.4799999999999995,
+            "alignment_s": 0.6060000000000001,
+            "approach_s": 6,
+            "tack_s": 12
+          },
+          "once": {
+            "reflow_s": 305.75,
+            "mold_dispense_s": 10,
+            "mold_fill_s": 10,
+            "mold_cure_s": 100,
+            "postcure_s": 14400
+          },
+          "per_layer_s": 3.3905000000000003,
+          "all_layers_s": 40.68600000000001,
+          "once_s": 14825.75,
+          "literature_comparison": {
+            "tcb_thermal_cycle_min_s": 1.2,
+            "tcb_uph_current": 350,
+            "tcb_bond_time_per_layer_s": 10,
+            "mrmuf_tack_cycle_per_die_s": 3,
+            "mass_reflow_total_s": 360,
+            "note": "비교만: 본더 점유 스택/h=3600/bonder_s, 직렬 환산=3600/total_serial_s. 배치 크기 가정 없이 라인 UPH는 산출하지 않음"
+          }
+        }
+      },
+      "muf": {
+        "layers": [
+          {
+            "capillary_fill_time_s": 892.7665876475774,
+            "capillary_unfilled_fraction": 0.8941645804101102,
+            "filler": {
+              "ratio": 4.999999999999999,
+              "warning": false,
+              "blocked": false
+            },
+            "gel_warning": false,
+            "capillary_gel_warning": true,
+            "layer": 1,
+            "gap_m": 0.000014999999999999999,
+            "mu_Pa_s": 5,
+            "L_m": 0.005,
+            "area_m2": 0.000025,
+            "fill_time_s": 3.320933922451846,
+            "unfilled_fraction": 0
+          },
+          {
+            "capillary_fill_time_s": 892.7665876475774,
+            "capillary_unfilled_fraction": 0.8941645804101102,
+            "filler": {
+              "ratio": 4.999999999999999,
+              "warning": false,
+              "blocked": false
+            },
+            "gel_warning": false,
+            "capillary_gel_warning": true,
+            "layer": 2,
+            "gap_m": 0.000014999999999999999,
+            "mu_Pa_s": 5,
+            "L_m": 0.005,
+            "area_m2": 0.000025,
+            "fill_time_s": 3.320933922451846,
+            "unfilled_fraction": 0
+          },
+          {
+            "capillary_fill_time_s": 892.7665876475774,
+            "capillary_unfilled_fraction": 0.8941645804101102,
+            "filler": {
+              "ratio": 4.999999999999999,
+              "warning": false,
+              "blocked": false
+            },
+            "gel_warning": false,
+            "capillary_gel_warning": true,
+            "layer": 3,
+            "gap_m": 0.000014999999999999999,
+            "mu_Pa_s": 5,
+            "L_m": 0.005,
+            "area_m2": 0.000025,
+            "fill_time_s": 3.320933922451846,
+            "unfilled_fraction": 0
+          },
+          {
+            "capillary_fill_time_s": 892.7665876475774,
+            "capillary_unfilled_fraction": 0.8941645804101102,
+            "filler": {
+              "ratio": 4.999999999999999,
+              "warning": false,
+              "blocked": false
+            },
+            "gel_warning": false,
+            "capillary_gel_warning": true,
+            "layer": 4,
+            "gap_m": 0.000014999999999999999,
+            "mu_Pa_s": 5,
+            "L_m": 0.005,
+            "area_m2": 0.000025,
+            "fill_time_s": 3.320933922451846,
+            "unfilled_fraction": 0
+          },
+          {
+            "capillary_fill_time_s": 892.7665876475774,
+            "capillary_unfilled_fraction": 0.8941645804101102,
+            "filler": {
+              "ratio": 4.999999999999999,
+              "warning": false,
+              "blocked": false
+            },
+            "gel_warning": false,
+            "capillary_gel_warning": true,
+            "layer": 5,
+            "gap_m": 0.000014999999999999999,
+            "mu_Pa_s": 5,
+            "L_m": 0.005,
+            "area_m2": 0.000025,
+            "fill_time_s": 3.320933922451846,
+            "unfilled_fraction": 0
+          },
+          {
+            "capillary_fill_time_s": 892.7665876475774,
+            "capillary_unfilled_fraction": 0.8941645804101102,
+            "filler": {
+              "ratio": 4.999999999999999,
+              "warning": false,
+              "blocked": false
+            },
+            "gel_warning": false,
+            "capillary_gel_warning": true,
+            "layer": 6,
+            "gap_m": 0.000014999999999999999,
+            "mu_Pa_s": 5,
+            "L_m": 0.005,
+            "area_m2": 0.000025,
+            "fill_time_s": 3.320933922451846,
+            "unfilled_fraction": 0
+          },
+          {
+            "capillary_fill_time_s": 892.7665876475774,
+            "capillary_unfilled_fraction": 0.8941645804101102,
+            "filler": {
+              "ratio": 4.999999999999999,
+              "warning": false,
+              "blocked": false
+            },
+            "gel_warning": false,
+            "capillary_gel_warning": true,
+            "layer": 7,
+            "gap_m": 0.000014999999999999999,
+            "mu_Pa_s": 5,
+            "L_m": 0.005,
+            "area_m2": 0.000025,
+            "fill_time_s": 3.320933922451846,
+            "unfilled_fraction": 0
+          },
+          {
+            "capillary_fill_time_s": 892.7665876475774,
+            "capillary_unfilled_fraction": 0.8941645804101102,
+            "filler": {
+              "ratio": 4.999999999999999,
+              "warning": false,
+              "blocked": false
+            },
+            "gel_warning": false,
+            "capillary_gel_warning": true,
+            "layer": 8,
+            "gap_m": 0.000014999999999999999,
+            "mu_Pa_s": 5,
+            "L_m": 0.005,
+            "area_m2": 0.000025,
+            "fill_time_s": 3.320933922451846,
+            "unfilled_fraction": 0
+          },
+          {
+            "capillary_fill_time_s": 892.7665876475774,
+            "capillary_unfilled_fraction": 0.8941645804101102,
+            "filler": {
+              "ratio": 4.999999999999999,
+              "warning": false,
+              "blocked": false
+            },
+            "gel_warning": false,
+            "capillary_gel_warning": true,
+            "layer": 9,
+            "gap_m": 0.000014999999999999999,
+            "mu_Pa_s": 5,
+            "L_m": 0.005,
+            "area_m2": 0.000025,
+            "fill_time_s": 3.320933922451846,
+            "unfilled_fraction": 0
+          },
+          {
+            "capillary_fill_time_s": 892.7665876475774,
+            "capillary_unfilled_fraction": 0.8941645804101102,
+            "filler": {
+              "ratio": 4.999999999999999,
+              "warning": false,
+              "blocked": false
+            },
+            "gel_warning": false,
+            "capillary_gel_warning": true,
+            "layer": 10,
+            "gap_m": 0.000014999999999999999,
+            "mu_Pa_s": 5,
+            "L_m": 0.005,
+            "area_m2": 0.000025,
+            "fill_time_s": 3.320933922451846,
+            "unfilled_fraction": 0
+          },
+          {
+            "capillary_fill_time_s": 892.7665876475774,
+            "capillary_unfilled_fraction": 0.8941645804101102,
+            "filler": {
+              "ratio": 4.999999999999999,
+              "warning": false,
+              "blocked": false
+            },
+            "gel_warning": false,
+            "capillary_gel_warning": true,
+            "layer": 11,
+            "gap_m": 0.000014999999999999999,
+            "mu_Pa_s": 5,
+            "L_m": 0.005,
+            "area_m2": 0.000025,
+            "fill_time_s": 3.320933922451846,
+            "unfilled_fraction": 0
+          },
+          {
+            "capillary_fill_time_s": 892.7665876475774,
+            "capillary_unfilled_fraction": 0.8941645804101102,
+            "filler": {
+              "ratio": 4.999999999999999,
+              "warning": false,
+              "blocked": false
+            },
+            "gel_warning": false,
+            "capillary_gel_warning": true,
+            "layer": 12,
+            "gap_m": 0.000014999999999999999,
+            "mu_Pa_s": 5,
+            "L_m": 0.005,
+            "area_m2": 0.000025,
+            "fill_time_s": 3.320933922451846,
+            "unfilled_fraction": 0
+          }
+        ],
+        "inlet_pressure_Pa": 1000000,
+        "filler_warning": false,
+        "filler_blocked": false,
+        "gel_warning": false,
+        "gel_time_s": 25,
+        "warnings": [],
+        "capillary_only": {
+          "fill_time_s": 892.7665876475774,
+          "unfilled_fraction": 0.8941645804101098,
+          "gel_warning": true
+        },
+        "fill_time_s": 3.320933922451846,
+        "mold_fill_time_s": 10,
+        "unfilled_fraction": 0,
+        "geometry": "one-edge straight front; no bump permeability correction",
+        "quantitative_void_model": false
+      },
+      "ncf": null
+    }
+  ],
+  "S3": [
+    {
+      "recipe": {
+        "mode": "TC-NCF",
+        "layers": 12,
+        "thickness_um": 100,
+        "gap_um": 15,
+        "inlet_pressure_MPa": 1,
+        "bond_force_N": 40,
+        "head_temp_compensation": false,
+        "seed": 489,
+        "alignment_reference": "previous"
+      },
+      "accepted": true,
+      "rejection": null,
+      "head_compensation": {
+        "enabled": false,
+        "requested": false,
+        "note": "기본 레시피"
+      },
+      "head_setpoints_C": [
+        300,
+        300,
+        300,
+        300,
+        300,
+        300,
+        300,
+        300,
+        300,
+        300,
+        300,
+        300
+      ],
+      "alarms": [
+        {
+          "code": "BOND_TEMP_LOW",
+          "message": "접합 온도 미달",
+          "layer": 1,
+          "peak_C": 208.53952569281378,
+          "shortfall_C": 12.460474307186217,
+          "liquidus_C": 221
+        },
+        {
+          "code": "BOND_TEMP_LOW",
+          "message": "접합 온도 미달",
+          "layer": 2,
+          "peak_C": 215.84777140033444,
+          "shortfall_C": 5.152228599665563,
+          "liquidus_C": 221
+        }
+      ],
+      "thermal_layers": [
+        {
+          "peak_C": 208.53952569281378,
+          "time_above_s": 0,
+          "remelt_count": 0,
+          "subsequent_remelts": 0,
+          "reheat_count": 11,
+          "reheat_peaks_C": [
+            199.82231852688062,
+            192.39572838572326,
+            185.99243317718393,
+            180.41416951639457,
+            175.5107852476551,
+            171.1664805809965,
+            167.2905151505844,
+            163.81077542092456,
+            160.66922263485887,
+            157.81860562643695,
+            155.2200428305674
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {},
+          "bond_temp_ok": false,
+          "bond_peak_C": 208.53952569281378,
+          "liquidus_C": 221,
+          "shortfall_C": 12.460474307186217,
+          "head_setpoint_C": 300
+        },
+        {
+          "peak_C": 215.84777140033444,
+          "time_above_s": 0,
+          "remelt_count": 0,
+          "subsequent_remelts": 0,
+          "reheat_count": 10,
+          "reheat_peaks_C": [
+            207.2291271145049,
+            199.79802850658342,
+            193.32438861114153,
+            187.63395410422004,
+            182.59233798399157,
+            178.09423501592747,
+            174.05595667706544,
+            170.41014854805454,
+            167.10197565130372,
+            164.0863165139601
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {},
+          "bond_temp_ok": false,
+          "bond_peak_C": 215.84777140033444,
+          "liquidus_C": 221,
+          "shortfall_C": 5.152228599665563,
+          "head_setpoint_C": 300
+        },
+        {
+          "peak_C": 222.06910008203667,
+          "time_above_s": 3.262535795768736,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 9,
+          "reheat_peaks_C": [
+            213.60993714409068,
+            206.24069370292378,
+            199.76300914784494,
+            194.02390454868745,
+            188.90350612263404,
+            184.30654750462824,
+            180.15635651372835,
+            176.39051306296534,
+            172.95765537241306
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {
+            "bond-ramp": 1
+          },
+          "bond_temp_ok": true,
+          "bond_peak_C": 222.06910008203667,
+          "liquidus_C": 221,
+          "shortfall_C": 0,
+          "head_setpoint_C": 300
+        },
+        {
+          "peak_C": 227.42864407185758,
+          "time_above_s": 3.7701423315545357,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 8,
+          "reheat_peaks_C": [
+            219.16353832626757,
+            211.8983762700891,
+            205.4615816756559,
+            199.718708022095,
+            194.56290784841255,
+            189.90818881097996,
+            185.68454421413222,
+            181.83437148197035
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {
+            "bond-ramp": 1
+          },
+          "bond_temp_ok": true,
+          "bond_peak_C": 227.42864407185758,
+          "liquidus_C": 221,
+          "shortfall_C": 0,
+          "head_setpoint_C": 300
+        },
+        {
+          "peak_C": 232.09337624532358,
+          "time_above_s": 7.589073464546903,
+          "remelt_count": 2,
+          "subsequent_remelts": 1,
+          "reheat_count": 7,
+          "reheat_peaks_C": [
+            224.04048158414184,
+            216.90577097990266,
+            210.54022047291102,
+            204.82539785040882,
+            199.66598789617174,
+            194.98439559099518,
+            190.71677696269322
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {
+            "bond-ramp": 2
+          },
+          "bond_temp_ok": true,
+          "bond_peak_C": 232.09337624532358,
+          "liquidus_C": 221,
+          "shortfall_C": 0,
+          "head_setpoint_C": 300
+        },
+        {
+          "peak_C": 236.18975143978437,
+          "time_above_s": 11.158463359613894,
+          "remelt_count": 3,
+          "subsequent_remelts": 2,
+          "reheat_count": 6,
+          "reheat_peaks_C": [
+            228.35687430496776,
+            221.36842345419666,
+            215.09437786221645,
+            209.4300964138952,
+            204.2903938211002,
+            199.60518397991143
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {
+            "bond-ramp": 2,
+            "bond-hold": 1
+          },
+          "bond_temp_ok": true,
+          "bond_peak_C": 236.18975143978437,
+          "liquidus_C": 221,
+          "shortfall_C": 0,
+          "head_setpoint_C": 300
+        },
+        {
+          "peak_C": 239.81529373703995,
+          "time_above_s": 12.40858062586571,
+          "remelt_count": 3,
+          "subsequent_remelts": 2,
+          "reheat_count": 5,
+          "reheat_peaks_C": [
+            232.20369717893237,
+            225.37020845765224,
+            219.20085720855337,
+            213.60286568282345,
+            208.49990474897294
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {
+            "bond-ramp": 3
+          },
+          "bond_temp_ok": true,
+          "bond_peak_C": 239.81529373703995,
+          "liquidus_C": 221,
+          "shortfall_C": 0,
+          "head_setpoint_C": 300
+        },
+        {
+          "peak_C": 243.04642210736512,
+          "time_above_s": 16.393182152460728,
+          "remelt_count": 4,
+          "subsequent_remelts": 3,
+          "reheat_count": 4,
+          "reheat_peaks_C": [
+            235.65325044555178,
+            228.9786133365701,
+            222.92213811649736,
+            217.40125154363233
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {
+            "bond-ramp": 3,
+            "bond-hold": 1
+          },
+          "bond_temp_ok": true,
+          "bond_peak_C": 243.04642210736512,
+          "liquidus_C": 221,
+          "shortfall_C": 0,
+          "head_setpoint_C": 300
+        },
+        {
+          "peak_C": 245.94386488275836,
+          "time_above_s": 17.476985522474283,
+          "remelt_count": 4,
+          "subsequent_remelts": 3,
+          "reheat_count": 3,
+          "reheat_peaks_C": [
+            238.76370807922328,
+            232.2485382371966,
+            226.30953670813707
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {
+            "bond-ramp": 4
+          },
+          "bond_temp_ok": true,
+          "bond_peak_C": 245.94386488275836,
+          "liquidus_C": 221,
+          "shortfall_C": 0,
+          "head_setpoint_C": 300
+        },
+        {
+          "peak_C": 248.55648495607917,
+          "time_above_s": 14.53516524719201,
+          "remelt_count": 3,
+          "subsequent_remelts": 2,
+          "reheat_count": 2,
+          "reheat_peaks_C": [
+            241.58239334915203,
+            235.22507267298624
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {
+            "bond-ramp": 3
+          },
+          "bond_temp_ok": true,
+          "bond_peak_C": 248.55648495607917,
+          "liquidus_C": 221,
+          "shortfall_C": 0,
+          "head_setpoint_C": 300
+        },
+        {
+          "peak_C": 250.92403096171802,
+          "time_above_s": 10.508911396865958,
+          "remelt_count": 2,
+          "subsequent_remelts": 1,
+          "reheat_count": 1,
+          "reheat_peaks_C": [
+            244.148171974254
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {
+            "bond-ramp": 2
+          },
+          "bond_temp_ok": true,
+          "bond_peak_C": 250.92403096171802,
+          "liquidus_C": 221,
+          "shortfall_C": 0,
+          "head_setpoint_C": 300
+        },
+        {
+          "peak_C": 253.0791472762897,
+          "time_above_s": 5.61363040370266,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {
+            "bond-ramp": 1
+          },
+          "bond_temp_ok": true,
+          "bond_peak_C": 253.0791472762897,
+          "liquidus_C": 221,
+          "shortfall_C": 0,
+          "head_setpoint_C": 300
+        }
+      ],
+      "warpage": {
+        "max_um": 7.413174969357404,
+        "judgement": "주의",
+        "thickness_half_ratio": 4.143386159699916
+      },
+      "defect_area_pct": null,
+      "defect_judgement": "정량 모델 없음 (경향: 낮은 경향)",
+      "contact_judgement": "접촉",
+      "alignment": {
+        "layer_errors_um": [
+          [
+            -0.033190150438392386,
+            -0.2706640078779766
+          ],
+          [
+            -0.08149844348633645,
+            -0.4854712069158612
+          ],
+          [
+            -0.17148762644360574,
+            0.11278986799642254
+          ],
+          [
+            -0.12282804233113959,
+            -0.10379525644558207
+          ],
+          [
+            0.42305773164154814,
+            -0.2698290716893673
+          ],
+          [
+            0.34649530131731726,
+            -0.10270613524285754
+          ],
+          [
+            -0.48745033987860964,
+            0.1856111701405596
+          ],
+          [
+            0.4665837544207004,
+            -0.07126324841825582
+          ],
+          [
+            0.44038960324035986,
+            0.20512804278031627
+          ],
+          [
+            -0.24636510345592322,
+            -0.12069642653652679
+          ],
+          [
+            0.2499163348664334,
+            -0.02625447843326223
+          ],
+          [
+            -0.5398523855764963,
+            -0.20932824383999027
+          ]
+        ],
+        "cumulative_um": [
+          0.24377063387585574,
+          -1.1564789944823815
+        ],
+        "top_to_first_die_um": [
+          0.27696078431424814,
+          -0.8858149866044048
+        ],
+        "adjacent_3sigma_um": [
+          0.8824964589164084,
+          0.8824964589164084,
+          0.8824964589164084,
+          0.8824964589164084,
+          0.8824964589164084,
+          0.8824964589164084,
+          0.8824964589164084,
+          0.8824964589164084,
+          0.8824964589164084,
+          0.8824964589164084,
+          0.8824964589164084,
+          0.8824964589164084
+        ],
+        "judgement": "양호"
+      },
+      "cycle": {
+        "bonder_s": 239.88600000000002,
+        "batch_post_s": 0,
+        "total_serial_s": 239.88600000000002,
+        "breakdown": {
+          "per_layer": {
+            "pickup_s": 0.5,
+            "xy_move_s": 1.05,
+            "z_move_s": 0.29,
+            "alignment_s": 0.0505,
+            "approach_s": 3.2,
+            "ramp_s": 10,
+            "hold_s": 3.2,
+            "cooling_s": 1.7
+          },
+          "layer_totals": {
+            "pickup_s": 6,
+            "xy_move_s": 12.600000000000001,
+            "z_move_s": 3.4799999999999995,
+            "alignment_s": 0.6060000000000001,
+            "approach_s": 38.400000000000006,
+            "ramp_s": 120,
+            "hold_s": 38.400000000000006,
+            "cooling_s": 20.4
+          },
+          "once": {},
+          "per_layer_s": 19.9905,
+          "all_layers_s": 239.88600000000002,
+          "once_s": 0,
+          "literature_comparison": {
+            "tcb_thermal_cycle_min_s": 1.2,
+            "tcb_uph_current": 350,
+            "tcb_bond_time_per_layer_s": 10,
+            "mrmuf_tack_cycle_per_die_s": 3,
+            "mass_reflow_total_s": 360,
+            "note": "비교만: 본더 점유 스택/h=3600/bonder_s, 직렬 환산=3600/total_serial_s. 배치 크기 가정 없이 라인 UPH는 산출하지 않음"
+          }
+        }
+      },
+      "muf": null,
+      "ncf": [
+        {
+          "contact_time_s": 7.4402919306738085,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 27.38552421730112,
+          "gel_before_contact": false,
+          "layer": 1,
+          "contact_viscosity_Pa_s": 424.257109146379,
+          "low_viscosity_time_s": 5.355291930673831,
+          "final_conversion": 0.9346366824868938,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 7.13677783619412,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 24.909231354019415,
+          "gel_before_contact": false,
+          "layer": 2,
+          "contact_viscosity_Pa_s": 401.3692112741301,
+          "low_viscosity_time_s": 5.166777836194139,
+          "final_conversion": 0.9655591155345429,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 6.903415848739465,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 22.40376085194414,
+          "gel_before_contact": false,
+          "layer": 3,
+          "contact_viscosity_Pa_s": 383.8618242265677,
+          "low_viscosity_time_s": 5.013415848739483,
+          "final_conversion": 0.9810161364519306,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 6.71901771426922,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 13.345852236338356,
+          "gel_before_contact": false,
+          "layer": 4,
+          "contact_viscosity_Pa_s": 370.0439691658145,
+          "low_viscosity_time_s": 4.8940177142692365,
+          "final_conversion": 0.9887583475802817,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 6.57015820555351,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 12.683173432837442,
+          "gel_before_contact": false,
+          "layer": 5,
+          "contact_viscosity_Pa_s": 358.8689624161831,
+          "low_viscosity_time_s": 4.790158205553526,
+          "final_conversion": 0.9926337615799513,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 6.447906514779506,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 12.193638769273923,
+          "gel_before_contact": false,
+          "layer": 6,
+          "contact_viscosity_Pa_s": 349.6544510588076,
+          "low_viscosity_time_s": 4.702906514779521,
+          "final_conversion": 0.9944836108287598,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 6.346082568692007,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 11.815518118093685,
+          "gel_before_contact": false,
+          "layer": 7,
+          "contact_viscosity_Pa_s": 341.93649923066977,
+          "low_viscosity_time_s": 4.631082568692022,
+          "final_conversion": 0.9951091908729603,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 6.2602675938411405,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 11.517279903540155,
+          "gel_before_contact": false,
+          "layer": 8,
+          "contact_viscosity_Pa_s": 335.3894039936068,
+          "low_viscosity_time_s": 4.570267593841154,
+          "final_conversion": 0.9946635230742609,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 6.187213466075042,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 11.277911564791287,
+          "gel_before_contact": false,
+          "layer": 9,
+          "contact_viscosity_Pa_s": 329.77810345712186,
+          "low_viscosity_time_s": 4.512213466075056,
+          "final_conversion": 0.9925203705148448,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 6.124475216118494,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 11.082889580167858,
+          "gel_before_contact": false,
+          "layer": 10,
+          "contact_viscosity_Pa_s": 324.92873049672744,
+          "low_viscosity_time_s": 4.464475216118507,
+          "final_conversion": 0.9858766939992596,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 6.070174024405532,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 10.921837788266595,
+          "gel_before_contact": false,
+          "layer": 11,
+          "contact_viscosity_Pa_s": 320.7108976961794,
+          "low_viscosity_time_s": 4.425174024405545,
+          "final_conversion": 0.9621105851771404,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 6.022840013756686,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 10.787160126112454,
+          "gel_before_contact": false,
+          "layer": 12,
+          "contact_viscosity_Pa_s": 317.025122863089,
+          "low_viscosity_time_s": 4.387840013756699,
+          "final_conversion": 0.8467115795417165,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        }
+      ],
+      "model_limit": "모델 한계: 1D 선형 탄성·상온 물성·기판·점탄성·경화 수축 미포함. 두 모드 모두 50 μm에서 불량으로, 업체 주장 \"MR-MUF가 박형 휨에 유리\"를 재현하지 못함"
+    },
+    {
+      "recipe": {
+        "mode": "TC-NCF",
+        "layers": 12,
+        "thickness_um": 50,
+        "gap_um": 15,
+        "inlet_pressure_MPa": 1,
+        "bond_force_N": 40,
+        "head_temp_compensation": false,
+        "seed": 489,
+        "alignment_reference": "previous"
+      },
+      "accepted": true,
+      "rejection": null,
+      "head_compensation": {
+        "enabled": false,
+        "requested": false,
+        "note": "기본 레시피"
+      },
+      "head_setpoints_C": [
+        300,
+        300,
+        300,
+        300,
+        300,
+        300,
+        300,
+        300,
+        300,
+        300,
+        300,
+        300
+      ],
+      "alarms": [
+        {
+          "code": "BOND_TEMP_LOW",
+          "message": "접합 온도 미달",
+          "layer": 1,
+          "peak_C": 208.55424946623376,
+          "shortfall_C": 12.445750533766244,
+          "liquidus_C": 221
+        },
+        {
+          "code": "BOND_TEMP_LOW",
+          "message": "접합 온도 미달",
+          "layer": 2,
+          "peak_C": 215.81625976912727,
+          "shortfall_C": 5.183740230872729,
+          "liquidus_C": 221
+        }
+      ],
+      "thermal_layers": [
+        {
+          "peak_C": 208.55424946623376,
+          "time_above_s": 0,
+          "remelt_count": 0,
+          "subsequent_remelts": 0,
+          "reheat_count": 11,
+          "reheat_peaks_C": [
+            199.90861418229224,
+            192.53543568134754,
+            186.17279601459398,
+            180.62604497888256,
+            175.74750777017297,
+            171.4231204571936,
+            167.56338247414945,
+            164.09708234368978,
+            160.96685310718448,
+            158.1259637927296,
+            155.535963606092
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {},
+          "bond_temp_ok": false,
+          "bond_peak_C": 208.55424946623376,
+          "liquidus_C": 221,
+          "shortfall_C": 12.445750533766244,
+          "head_setpoint_C": 300
+        },
+        {
+          "peak_C": 215.81625976912727,
+          "time_above_s": 0,
+          "remelt_count": 0,
+          "subsequent_remelts": 0,
+          "reheat_count": 10,
+          "reheat_peaks_C": [
+            207.26922547004645,
+            199.8936140620944,
+            193.46378582117856,
+            187.8085551975282,
+            182.79569857377913,
+            178.32146633834503,
+            174.3033097045342,
+            170.67472853780913,
+            167.38155200595935,
+            164.37920771190662
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {},
+          "bond_temp_ok": false,
+          "bond_peak_C": 215.81625976912727,
+          "liquidus_C": 221,
+          "shortfall_C": 5.183740230872729,
+          "head_setpoint_C": 300
+        },
+        {
+          "peak_C": 222.0066994686412,
+          "time_above_s": 3.2738790200400754,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 9,
+          "reheat_peaks_C": [
+            213.61797121662877,
+            206.3049392743543,
+            199.87290397852598,
+            194.171479424408,
+            189.0826649135229,
+            184.512572725842,
+            180.38556824275858,
+            176.64003970669108,
+            173.2252922434953
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {
+            "bond-ramp": 1
+          },
+          "bond_temp_ok": true,
+          "bond_peak_C": 222.0066994686412,
+          "liquidus_C": 221,
+          "shortfall_C": 0,
+          "head_setpoint_C": 300
+        },
+        {
+          "peak_C": 227.34613748205024,
+          "time_above_s": 3.775253074300956,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 8,
+          "reheat_peaks_C": [
+            219.14975796670205,
+            211.94079145912144,
+            205.55068680860882,
+            199.8471899083296,
+            194.72507225784915,
+            190.09956326663374,
+            185.90160904034204,
+            182.07439123336485
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {
+            "bond-ramp": 1
+          },
+          "bond_temp_ok": true,
+          "bond_peak_C": 227.34613748205024,
+          "liquidus_C": 221,
+          "shortfall_C": 0,
+          "head_setpoint_C": 300
+        },
+        {
+          "peak_C": 231.99849459862156,
+          "time_above_s": 7.622305746883568,
+          "remelt_count": 2,
+          "subsequent_remelts": 1,
+          "reheat_count": 7,
+          "reheat_peaks_C": [
+            224.01245505488754,
+            216.93354459332144,
+            210.61525309685365,
+            204.94100921446375,
+            199.81690471610608,
+            195.16644221292512,
+            190.92667877319096
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {
+            "bond-ramp": 2
+          },
+          "bond_temp_ok": true,
+          "bond_peak_C": 231.99849459862156,
+          "liquidus_C": 221,
+          "shortfall_C": 0,
+          "head_setpoint_C": 300
+        },
+        {
+          "peak_C": 236.0881322556861,
+          "time_above_s": 11.409349001518478,
+          "remelt_count": 3,
+          "subsequent_remelts": 2,
+          "reheat_count": 6,
+          "reheat_peaks_C": [
+            228.32027671730148,
+            221.38706632279158,
+            215.16058457721903,
+            209.53778376367688,
+            204.43472149463173,
+            199.78232901723388
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {
+            "bond-ramp": 2,
+            "bond-hold": 1
+          },
+          "bond_temp_ok": true,
+          "bond_peak_C": 236.0881322556861,
+          "liquidus_C": 221,
+          "shortfall_C": 0,
+          "head_setpoint_C": 300
+        },
+        {
+          "peak_C": 239.71110719552556,
+          "time_above_s": 12.49507795240005,
+          "remelt_count": 3,
+          "subsequent_remelts": 2,
+          "reheat_count": 5,
+          "reheat_peaks_C": [
+            232.16284150361543,
+            225.38399939922726,
+            219.26239165143863,
+            213.70662922341654,
+            208.64151618575906
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {
+            "bond-ramp": 3
+          },
+          "bond_temp_ok": true,
+          "bond_peak_C": 239.71110719552556,
+          "liquidus_C": 221,
+          "shortfall_C": 0,
+          "head_setpoint_C": 300
+        },
+        {
+          "peak_C": 242.94279063474227,
+          "time_above_s": 16.6180414639334,
+          "remelt_count": 4,
+          "subsequent_remelts": 3,
+          "reheat_count": 4,
+          "reheat_peaks_C": [
+            235.61145480913484,
+            228.99091969483672,
+            222.9823478085846,
+            217.50441456846215
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {
+            "bond-ramp": 4
+          },
+          "bond_temp_ok": true,
+          "bond_peak_C": 242.94279063474227,
+          "liquidus_C": 221,
+          "shortfall_C": 0,
+          "head_setpoint_C": 300
+        },
+        {
+          "peak_C": 245.84315201507965,
+          "time_above_s": 17.656211730604515,
+          "remelt_count": 4,
+          "subsequent_remelts": 3,
+          "reheat_count": 3,
+          "reheat_peaks_C": [
+            238.72355928643412,
+            232.26205973438064,
+            226.37119852789883
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {
+            "bond-ramp": 4
+          },
+          "bond_temp_ok": true,
+          "bond_peak_C": 245.84315201507965,
+          "liquidus_C": 221,
+          "shortfall_C": 0,
+          "head_setpoint_C": 300
+        },
+        {
+          "peak_C": 248.46050189967656,
+          "time_above_s": 14.637449290945849,
+          "remelt_count": 3,
+          "subsequent_remelts": 2,
+          "reheat_count": 2,
+          "reheat_peaks_C": [
+            241.54594756358037,
+            235.2420425029199
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {
+            "bond-ramp": 3
+          },
+          "bond_temp_ok": true,
+          "bond_peak_C": 248.46050189967656,
+          "liquidus_C": 221,
+          "shortfall_C": 0,
+          "head_setpoint_C": 300
+        },
+        {
+          "peak_C": 250.8341939410848,
+          "time_above_s": 10.563563349942786,
+          "remelt_count": 2,
+          "subsequent_remelts": 1,
+          "reheat_count": 1,
+          "reheat_peaks_C": [
+            244.11712101211043
+          ],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {
+            "bond-ramp": 2
+          },
+          "bond_temp_ok": true,
+          "bond_peak_C": 250.8341939410848,
+          "liquidus_C": 221,
+          "shortfall_C": 0,
+          "head_setpoint_C": 300
+        },
+        {
+          "peak_C": 252.99660865723428,
+          "time_above_s": 5.63609204661437,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 0,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {
+            "bond-ramp": 1
+          },
+          "bond_temp_ok": true,
+          "bond_peak_C": 252.99660865723428,
+          "liquidus_C": 221,
+          "shortfall_C": 0,
+          "head_setpoint_C": 300
+        }
+      ],
+      "warpage": {
+        "max_um": 30.715646567469317,
+        "judgement": "불량",
+        "thickness_half_ratio": 4.143386159699916
+      },
+      "defect_area_pct": null,
+      "defect_judgement": "정량 모델 없음 (경향: 낮은 경향)",
+      "contact_judgement": "접촉",
+      "alignment": {
+        "layer_errors_um": [
+          [
+            -0.033190150438392386,
+            -0.2706640078779766
+          ],
+          [
+            -0.08149844348633645,
+            -0.4854712069158612
+          ],
+          [
+            -0.17148762644360574,
+            0.11278986799642254
+          ],
+          [
+            -0.12282804233113959,
+            -0.10379525644558207
+          ],
+          [
+            0.42305773164154814,
+            -0.2698290716893673
+          ],
+          [
+            0.34649530131731726,
+            -0.10270613524285754
+          ],
+          [
+            -0.48745033987860964,
+            0.1856111701405596
+          ],
+          [
+            0.4665837544207004,
+            -0.07126324841825582
+          ],
+          [
+            0.44038960324035986,
+            0.20512804278031627
+          ],
+          [
+            -0.24636510345592322,
+            -0.12069642653652679
+          ],
+          [
+            0.2499163348664334,
+            -0.02625447843326223
+          ],
+          [
+            -0.5398523855764963,
+            -0.20932824383999027
+          ]
+        ],
+        "cumulative_um": [
+          0.24377063387585574,
+          -1.1564789944823815
+        ],
+        "top_to_first_die_um": [
+          0.27696078431424814,
+          -0.8858149866044048
+        ],
+        "adjacent_3sigma_um": [
+          0.8824964589164084,
+          0.8824964589164084,
+          0.8824964589164084,
+          0.8824964589164084,
+          0.8824964589164084,
+          0.8824964589164084,
+          0.8824964589164084,
+          0.8824964589164084,
+          0.8824964589164084,
+          0.8824964589164084,
+          0.8824964589164084,
+          0.8824964589164084
+        ],
+        "judgement": "양호"
+      },
+      "cycle": {
+        "bonder_s": 239.88600000000002,
+        "batch_post_s": 0,
+        "total_serial_s": 239.88600000000002,
+        "breakdown": {
+          "per_layer": {
+            "pickup_s": 0.5,
+            "xy_move_s": 1.05,
+            "z_move_s": 0.29,
+            "alignment_s": 0.0505,
+            "approach_s": 3.2,
+            "ramp_s": 10,
+            "hold_s": 3.2,
+            "cooling_s": 1.7
+          },
+          "layer_totals": {
+            "pickup_s": 6,
+            "xy_move_s": 12.600000000000001,
+            "z_move_s": 3.4799999999999995,
+            "alignment_s": 0.6060000000000001,
+            "approach_s": 38.400000000000006,
+            "ramp_s": 120,
+            "hold_s": 38.400000000000006,
+            "cooling_s": 20.4
+          },
+          "once": {},
+          "per_layer_s": 19.9905,
+          "all_layers_s": 239.88600000000002,
+          "once_s": 0,
+          "literature_comparison": {
+            "tcb_thermal_cycle_min_s": 1.2,
+            "tcb_uph_current": 350,
+            "tcb_bond_time_per_layer_s": 10,
+            "mrmuf_tack_cycle_per_die_s": 3,
+            "mass_reflow_total_s": 360,
+            "note": "비교만: 본더 점유 스택/h=3600/bonder_s, 직렬 환산=3600/total_serial_s. 배치 크기 가정 없이 라인 UPH는 산출하지 않음"
+          }
+        }
+      },
+      "muf": null,
+      "ncf": [
+        {
+          "contact_time_s": 7.430078541522078,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 27.347818420481804,
+          "gel_before_contact": false,
+          "layer": 1,
+          "contact_viscosity_Pa_s": 424.2690983338021,
+          "low_viscosity_time_s": 5.3550785415221,
+          "final_conversion": 0.9360907645646295,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 7.120919609255526,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 24.882054461813606,
+          "gel_before_contact": false,
+          "layer": 2,
+          "contact_viscosity_Pa_s": 401.51540021091336,
+          "low_viscosity_time_s": 5.165919609255545,
+          "final_conversion": 0.9663348226175276,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 6.881815741408582,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 22.386677091988187,
+          "gel_before_contact": false,
+          "layer": 3,
+          "contact_viscosity_Pa_s": 384.0658973232983,
+          "low_viscosity_time_s": 5.0168157414086,
+          "final_conversion": 0.9814628482205884,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 6.691688682995684,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 13.325697390140261,
+          "gel_before_contact": false,
+          "layer": 4,
+          "contact_viscosity_Pa_s": 370.2607153638592,
+          "low_viscosity_time_s": 4.8916886829957,
+          "final_conversion": 0.9890411105582652,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 6.537169737186881,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 12.65762932743769,
+          "gel_before_contact": false,
+          "layer": 5,
+          "contact_viscosity_Pa_s": 359.06832491204705,
+          "low_viscosity_time_s": 4.792169737186896,
+          "final_conversion": 0.9928337545250281,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 6.409360617786385,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 12.160570089995035,
+          "gel_before_contact": false,
+          "layer": 6,
+          "contact_viscosity_Pa_s": 349.81371915045224,
+          "low_viscosity_time_s": 4.709360617786399,
+          "final_conversion": 0.9946443471167724,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 6.30210385109539,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 11.774687588229027,
+          "gel_before_contact": false,
+          "layer": 7,
+          "contact_viscosity_Pa_s": 342.03684121189195,
+          "low_viscosity_time_s": 4.637103851095404,
+          "final_conversion": 0.9952588675812882,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 6.210999876547605,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 11.468579651416357,
+          "gel_before_contact": false,
+          "layer": 8,
+          "contact_viscosity_Pa_s": 335.41300274616157,
+          "low_viscosity_time_s": 4.570999876547618,
+          "final_conversion": 0.9948286796338366,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 6.132819554370911,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 11.22131847379487,
+          "gel_before_contact": false,
+          "layer": 9,
+          "contact_viscosity_Pa_s": 329.7069459826848,
+          "low_viscosity_time_s": 4.517819554370924,
+          "final_conversion": 0.9927414468865737,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 6.065137738383457,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 11.018501524649112,
+          "gel_before_contact": false,
+          "layer": 10,
+          "contact_viscosity_Pa_s": 324.74368606144225,
+          "low_viscosity_time_s": 4.470137738383468,
+          "final_conversion": 0.9862423308507293,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 6.006096601930782,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 10.849922342721353,
+          "gel_before_contact": false,
+          "layer": 11,
+          "contact_viscosity_Pa_s": 320.3909620011964,
+          "low_viscosity_time_s": 4.4260966019307935,
+          "final_conversion": 0.9628534722071252,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        },
+        {
+          "contact_time_s": 5.954248011118877,
+          "remaining_thickness_m": 0.000014999999999999999,
+          "gel_time_s": 10.708142857499974,
+          "gel_before_contact": false,
+          "layer": 12,
+          "contact_viscosity_Pa_s": 316.54639698931715,
+          "low_viscosity_time_s": 4.389248011118888,
+          "final_conversion": 0.8483599772549475,
+          "tendency": {
+            "quantitative": false,
+            "grade": "낮은 경향",
+            "reasons": [],
+            "ramp_rate_K_s": 20,
+            "literature_ramp_K_s": 80,
+            "ramp_ratio": 0.25,
+            "ramp_note": "20 K/s 교육 장비는 80 ℃/s 문헌보다 승온이 느림: 저점도 체류와 경화가 함께 변하므로 속도만으로 결함률을 결정하지 않음"
+          },
+          "contact_gap_m": 0.000014999999999999999,
+          "bump_height_m": 0.000014999999999999999,
+          "contact_model": "h_stop=interlayer_gap (effective post-bond standoff); pillar+cap is reference geometry"
+        }
+      ],
+      "model_limit": "모델 한계: 1D 선형 탄성·상온 물성·기판·점탄성·경화 수축 미포함. 두 모드 모두 50 μm에서 불량으로, 업체 주장 \"MR-MUF가 박형 휨에 유리\"를 재현하지 못함"
+    },
+    {
+      "recipe": {
+        "mode": "MR-MUF",
+        "layers": 12,
+        "thickness_um": 100,
+        "gap_um": 15,
+        "inlet_pressure_MPa": 1,
+        "bond_force_N": 40,
+        "head_temp_compensation": false,
+        "seed": 489,
+        "alignment_reference": "previous"
+      },
+      "accepted": true,
+      "rejection": null,
+      "head_compensation": {
+        "enabled": false,
+        "requested": false,
+        "note": "MR-MUF는 리플로우 피크 검사만 기록"
+      },
+      "head_setpoints_C": null,
+      "alarms": [],
+      "thermal_layers": [
+        {
+          "peak_C": 249.9999999999958,
+          "time_above_s": 89.99999994235286,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 11,
+          "tack_peaks_C": [
+            129.80284318333122,
+            127.67936488748411,
+            125.63363297060398,
+            123.65386157361075,
+            121.72089077863986,
+            119.810483730174,
+            117.8981271269589,
+            115.96331584262357,
+            113.99199347169431,
+            111.97719512378727,
+            109.91844417219359
+          ],
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          },
+          "bond_temp_ok": true,
+          "bond_peak_C": 249.9999999999958,
+          "liquidus_C": 221,
+          "shortfall_C": 0,
+          "head_setpoint_C": null
+        },
+        {
+          "peak_C": 249.99999999999565,
+          "time_above_s": 89.99999994197027,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 10,
+          "tack_peaks_C": [
+            131.91136434618224,
+            129.7852739654492,
+            127.72786714091036,
+            125.71935988402954,
+            123.73467357450518,
+            121.74838718732954,
+            119.7391840422358,
+            117.69240114218,
+            115.60071613958664,
+            113.46353780357636
+          ],
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          },
+          "bond_temp_ok": true,
+          "bond_peak_C": 249.99999999999565,
+          "liquidus_C": 221,
+          "shortfall_C": 0,
+          "head_setpoint_C": null
+        },
+        {
+          "peak_C": 249.9999999999955,
+          "time_above_s": 89.99999994170805,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 9,
+          "tack_peaks_C": [
+            133.9377877301346,
+            131.8029074782192,
+            129.71929343180804,
+            127.66114005940213,
+            125.60217681336952,
+            123.52027023029514,
+            121.40009519355802,
+            119.23388556922421,
+            117.02083643400776
+          ],
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          },
+          "bond_temp_ok": true,
+          "bond_peak_C": 249.9999999999955,
+          "liquidus_C": 221,
+          "shortfall_C": 0,
+          "head_setpoint_C": null
+        },
+        {
+          "peak_C": 249.9999999999954,
+          "time_above_s": 89.99999994154236,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 8,
+          "tack_peaks_C": [
+            135.8790148344233,
+            133.72072986823818,
+            131.58993708008543,
+            129.45957781314803,
+            127.30669802423606,
+            125.11525456354708,
+            122.8769493954148,
+            120.59066217932407
+          ],
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          },
+          "bond_temp_ok": true,
+          "bond_peak_C": 249.9999999999954,
+          "liquidus_C": 221,
+          "shortfall_C": 0,
+          "head_setpoint_C": null
+        },
+        {
+          "peak_C": 249.99999999999525,
+          "time_above_s": 89.99999994139642,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 7,
+          "tack_peaks_C": [
+            137.72369879666303,
+            135.521101636875,
+            133.32064479039823,
+            131.09855212873805,
+            128.83800708084615,
+            126.53009059862167,
+            124.1732631605118
+          ],
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          },
+          "bond_temp_ok": true,
+          "bond_peak_C": 249.99999999999525,
+          "liquidus_C": 221,
+          "shortfall_C": 0,
+          "head_setpoint_C": null
+        },
+        {
+          "peak_C": 249.99999999999514,
+          "time_above_s": 89.99999994124248,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 6,
+          "tack_peaks_C": [
+            139.45465375230918,
+            137.18540489732942,
+            134.8958778562091,
+            132.56842870347654,
+            130.1934280855849,
+            127.76881211587563
+          ],
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          },
+          "bond_temp_ok": true,
+          "bond_peak_C": 249.99999999999514,
+          "liquidus_C": 221,
+          "shortfall_C": 0,
+          "head_setpoint_C": null
+        },
+        {
+          "peak_C": 249.99999999999505,
+          "time_above_s": 89.99999994113932,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 5,
+          "tack_peaks_C": [
+            141.05385785277898,
+            138.69868098353987,
+            136.3065431530797,
+            133.86701605964677,
+            131.37740548662356
+          ],
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          },
+          "bond_temp_ok": true,
+          "bond_peak_C": 249.99999999999505,
+          "liquidus_C": 221,
+          "shortfall_C": 0,
+          "head_setpoint_C": null
+        },
+        {
+          "peak_C": 249.999999999995,
+          "time_above_s": 89.99999994107348,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 4,
+          "tack_peaks_C": [
+            142.50692794635313,
+            140.05232194796352,
+            137.55084383721726,
+            134.99906298161258
+          ],
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          },
+          "bond_temp_ok": true,
+          "bond_peak_C": 249.999999999995,
+          "liquidus_C": 221,
+          "shortfall_C": 0,
+          "head_setpoint_C": null
+        },
+        {
+          "peak_C": 249.99999999999494,
+          "time_above_s": 89.99999994103368,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 3,
+          "tack_peaks_C": [
+            143.80568483464674,
+            141.24483611164638,
+            138.63372762398993
+          ],
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          },
+          "bond_temp_ok": true,
+          "bond_peak_C": 249.99999999999494,
+          "liquidus_C": 221,
+          "shortfall_C": 0,
+          "head_setpoint_C": null
+        },
+        {
+          "peak_C": 249.99999999999488,
+          "time_above_s": 89.99999994101091,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 2,
+          "tack_peaks_C": [
+            144.9488536626855,
+            142.2812662794378
+          ],
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          },
+          "bond_temp_ok": true,
+          "bond_peak_C": 249.99999999999488,
+          "liquidus_C": 221,
+          "shortfall_C": 0,
+          "head_setpoint_C": null
+        },
+        {
+          "peak_C": 249.99999999999483,
+          "time_above_s": 89.99999994099852,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 1,
+          "tack_peaks_C": [
+            145.94147066270597
+          ],
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          },
+          "bond_temp_ok": true,
+          "bond_peak_C": 249.99999999999483,
+          "liquidus_C": 221,
+          "shortfall_C": 0,
+          "head_setpoint_C": null
+        },
+        {
+          "peak_C": 249.9999999999948,
+          "time_above_s": 89.99999994099231,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          },
+          "bond_temp_ok": true,
+          "bond_peak_C": 249.9999999999948,
+          "liquidus_C": 221,
+          "shortfall_C": 0,
+          "head_setpoint_C": null
+        }
+      ],
+      "warpage": {
+        "max_um": 5.406727729136941,
+        "judgement": "주의",
+        "thickness_half_ratio": 4.1058286564224815
+      },
+      "defect_area_pct": 0,
+      "defect_judgement": "양호",
+      "contact_judgement": "정량 접촉 모델 없음 (자기정렬은 젖음·접촉 가정)",
+      "alignment": {
+        "layer_errors_um": [
+          [
+            -0.02738241926148503,
+            -0.00917557788327598
+          ],
+          [
+            0.019227179949682448,
+            0.0034135959316235003
+          ],
+          [
+            -0.017997250747280237,
+            -0.011724924348834992
+          ],
+          [
+            0.002380294856463567,
+            0.02009809157703475
+          ],
+          [
+            0.014758421039327844,
+            -0.008452028811824856
+          ],
+          [
+            -0.012851474658115654,
+            0.021111964595412994
+          ],
+          [
+            0.004954056927763231,
+            0.0053118349466853895
+          ],
+          [
+            0.011287479960130485,
+            0.009351891259645416
+          ],
+          [
+            0.02874036383997332,
+            -0.01221773481815799
+          ],
+          [
+            0.011881659749626707,
+            0.004364635749194725
+          ],
+          [
+            -0.008804190806925228,
+            -0.02625447843326223
+          ],
+          [
+            0.015272647374961552,
+            0.015990250982040793
+          ]
+        ],
+        "cumulative_um": [
+          0.041466768224123006,
+          0.011817520746281517
+        ],
+        "top_to_first_die_um": [
+          0.06884918748560803,
+          0.020993098629557498
+        ],
+        "adjacent_3sigma_um": [
+          0.05251438613968167,
+          0.05246812391557677,
+          0.052587842899648296,
+          0.052041442211258115,
+          0.05231287336861318,
+          0.05235639131247467,
+          0.05246471501070959,
+          0.05232307935609186,
+          0.05235035701115133,
+          0.05240086570353687,
+          0.05280936441860774,
+          0.052261798532683285
+        ],
+        "judgement": "양호"
+      },
+      "cycle": {
+        "bonder_s": 40.68600000000001,
+        "batch_post_s": 14825.75,
+        "total_serial_s": 14866.436,
+        "breakdown": {
+          "per_layer": {
+            "pickup_s": 0.5,
+            "xy_move_s": 1.05,
+            "z_move_s": 0.29,
+            "alignment_s": 0.0505,
+            "approach_s": 0.5,
+            "tack_s": 1
+          },
+          "layer_totals": {
+            "pickup_s": 6,
+            "xy_move_s": 12.600000000000001,
+            "z_move_s": 3.4799999999999995,
+            "alignment_s": 0.6060000000000001,
+            "approach_s": 6,
+            "tack_s": 12
+          },
+          "once": {
+            "reflow_s": 305.75,
+            "mold_dispense_s": 10,
+            "mold_fill_s": 10,
+            "mold_cure_s": 100,
+            "postcure_s": 14400
+          },
+          "per_layer_s": 3.3905000000000003,
+          "all_layers_s": 40.68600000000001,
+          "once_s": 14825.75,
+          "literature_comparison": {
+            "tcb_thermal_cycle_min_s": 1.2,
+            "tcb_uph_current": 350,
+            "tcb_bond_time_per_layer_s": 10,
+            "mrmuf_tack_cycle_per_die_s": 3,
+            "mass_reflow_total_s": 360,
+            "note": "비교만: 본더 점유 스택/h=3600/bonder_s, 직렬 환산=3600/total_serial_s. 배치 크기 가정 없이 라인 UPH는 산출하지 않음"
+          }
+        }
+      },
+      "muf": {
+        "layers": [
+          {
+            "capillary_fill_time_s": 892.7665876475774,
+            "capillary_unfilled_fraction": 0.8941645804101102,
+            "filler": {
+              "ratio": 4.999999999999999,
+              "warning": false,
+              "blocked": false
+            },
+            "gel_warning": false,
+            "capillary_gel_warning": true,
+            "layer": 1,
+            "gap_m": 0.000014999999999999999,
+            "mu_Pa_s": 5,
+            "L_m": 0.005,
+            "area_m2": 0.000025,
+            "fill_time_s": 3.320933922451846,
+            "unfilled_fraction": 0
+          },
+          {
+            "capillary_fill_time_s": 892.7665876475774,
+            "capillary_unfilled_fraction": 0.8941645804101102,
+            "filler": {
+              "ratio": 4.999999999999999,
+              "warning": false,
+              "blocked": false
+            },
+            "gel_warning": false,
+            "capillary_gel_warning": true,
+            "layer": 2,
+            "gap_m": 0.000014999999999999999,
+            "mu_Pa_s": 5,
+            "L_m": 0.005,
+            "area_m2": 0.000025,
+            "fill_time_s": 3.320933922451846,
+            "unfilled_fraction": 0
+          },
+          {
+            "capillary_fill_time_s": 892.7665876475774,
+            "capillary_unfilled_fraction": 0.8941645804101102,
+            "filler": {
+              "ratio": 4.999999999999999,
+              "warning": false,
+              "blocked": false
+            },
+            "gel_warning": false,
+            "capillary_gel_warning": true,
+            "layer": 3,
+            "gap_m": 0.000014999999999999999,
+            "mu_Pa_s": 5,
+            "L_m": 0.005,
+            "area_m2": 0.000025,
+            "fill_time_s": 3.320933922451846,
+            "unfilled_fraction": 0
+          },
+          {
+            "capillary_fill_time_s": 892.7665876475774,
+            "capillary_unfilled_fraction": 0.8941645804101102,
+            "filler": {
+              "ratio": 4.999999999999999,
+              "warning": false,
+              "blocked": false
+            },
+            "gel_warning": false,
+            "capillary_gel_warning": true,
+            "layer": 4,
+            "gap_m": 0.000014999999999999999,
+            "mu_Pa_s": 5,
+            "L_m": 0.005,
+            "area_m2": 0.000025,
+            "fill_time_s": 3.320933922451846,
+            "unfilled_fraction": 0
+          },
+          {
+            "capillary_fill_time_s": 892.7665876475774,
+            "capillary_unfilled_fraction": 0.8941645804101102,
+            "filler": {
+              "ratio": 4.999999999999999,
+              "warning": false,
+              "blocked": false
+            },
+            "gel_warning": false,
+            "capillary_gel_warning": true,
+            "layer": 5,
+            "gap_m": 0.000014999999999999999,
+            "mu_Pa_s": 5,
+            "L_m": 0.005,
+            "area_m2": 0.000025,
+            "fill_time_s": 3.320933922451846,
+            "unfilled_fraction": 0
+          },
+          {
+            "capillary_fill_time_s": 892.7665876475774,
+            "capillary_unfilled_fraction": 0.8941645804101102,
+            "filler": {
+              "ratio": 4.999999999999999,
+              "warning": false,
+              "blocked": false
+            },
+            "gel_warning": false,
+            "capillary_gel_warning": true,
+            "layer": 6,
+            "gap_m": 0.000014999999999999999,
+            "mu_Pa_s": 5,
+            "L_m": 0.005,
+            "area_m2": 0.000025,
+            "fill_time_s": 3.320933922451846,
+            "unfilled_fraction": 0
+          },
+          {
+            "capillary_fill_time_s": 892.7665876475774,
+            "capillary_unfilled_fraction": 0.8941645804101102,
+            "filler": {
+              "ratio": 4.999999999999999,
+              "warning": false,
+              "blocked": false
+            },
+            "gel_warning": false,
+            "capillary_gel_warning": true,
+            "layer": 7,
+            "gap_m": 0.000014999999999999999,
+            "mu_Pa_s": 5,
+            "L_m": 0.005,
+            "area_m2": 0.000025,
+            "fill_time_s": 3.320933922451846,
+            "unfilled_fraction": 0
+          },
+          {
+            "capillary_fill_time_s": 892.7665876475774,
+            "capillary_unfilled_fraction": 0.8941645804101102,
+            "filler": {
+              "ratio": 4.999999999999999,
+              "warning": false,
+              "blocked": false
+            },
+            "gel_warning": false,
+            "capillary_gel_warning": true,
+            "layer": 8,
+            "gap_m": 0.000014999999999999999,
+            "mu_Pa_s": 5,
+            "L_m": 0.005,
+            "area_m2": 0.000025,
+            "fill_time_s": 3.320933922451846,
+            "unfilled_fraction": 0
+          },
+          {
+            "capillary_fill_time_s": 892.7665876475774,
+            "capillary_unfilled_fraction": 0.8941645804101102,
+            "filler": {
+              "ratio": 4.999999999999999,
+              "warning": false,
+              "blocked": false
+            },
+            "gel_warning": false,
+            "capillary_gel_warning": true,
+            "layer": 9,
+            "gap_m": 0.000014999999999999999,
+            "mu_Pa_s": 5,
+            "L_m": 0.005,
+            "area_m2": 0.000025,
+            "fill_time_s": 3.320933922451846,
+            "unfilled_fraction": 0
+          },
+          {
+            "capillary_fill_time_s": 892.7665876475774,
+            "capillary_unfilled_fraction": 0.8941645804101102,
+            "filler": {
+              "ratio": 4.999999999999999,
+              "warning": false,
+              "blocked": false
+            },
+            "gel_warning": false,
+            "capillary_gel_warning": true,
+            "layer": 10,
+            "gap_m": 0.000014999999999999999,
+            "mu_Pa_s": 5,
+            "L_m": 0.005,
+            "area_m2": 0.000025,
+            "fill_time_s": 3.320933922451846,
+            "unfilled_fraction": 0
+          },
+          {
+            "capillary_fill_time_s": 892.7665876475774,
+            "capillary_unfilled_fraction": 0.8941645804101102,
+            "filler": {
+              "ratio": 4.999999999999999,
+              "warning": false,
+              "blocked": false
+            },
+            "gel_warning": false,
+            "capillary_gel_warning": true,
+            "layer": 11,
+            "gap_m": 0.000014999999999999999,
+            "mu_Pa_s": 5,
+            "L_m": 0.005,
+            "area_m2": 0.000025,
+            "fill_time_s": 3.320933922451846,
+            "unfilled_fraction": 0
+          },
+          {
+            "capillary_fill_time_s": 892.7665876475774,
+            "capillary_unfilled_fraction": 0.8941645804101102,
+            "filler": {
+              "ratio": 4.999999999999999,
+              "warning": false,
+              "blocked": false
+            },
+            "gel_warning": false,
+            "capillary_gel_warning": true,
+            "layer": 12,
+            "gap_m": 0.000014999999999999999,
+            "mu_Pa_s": 5,
+            "L_m": 0.005,
+            "area_m2": 0.000025,
+            "fill_time_s": 3.320933922451846,
+            "unfilled_fraction": 0
+          }
+        ],
+        "inlet_pressure_Pa": 1000000,
+        "filler_warning": false,
+        "filler_blocked": false,
+        "gel_warning": false,
+        "gel_time_s": 25,
+        "warnings": [],
+        "capillary_only": {
+          "fill_time_s": 892.7665876475774,
+          "unfilled_fraction": 0.8941645804101098,
+          "gel_warning": true
+        },
+        "fill_time_s": 3.320933922451846,
+        "mold_fill_time_s": 10,
+        "unfilled_fraction": 0,
+        "geometry": "one-edge straight front; no bump permeability correction",
+        "quantitative_void_model": false
+      },
+      "ncf": null,
+      "model_limit": "모델 한계: 1D 선형 탄성·상온 물성·기판·점탄성·경화 수축 미포함. 두 모드 모두 50 μm에서 불량으로, 업체 주장 \"MR-MUF가 박형 휨에 유리\"를 재현하지 못함"
+    },
+    {
+      "recipe": {
+        "mode": "MR-MUF",
+        "layers": 12,
+        "thickness_um": 50,
+        "gap_um": 15,
+        "inlet_pressure_MPa": 1,
+        "bond_force_N": 40,
+        "head_temp_compensation": false,
+        "seed": 489,
+        "alignment_reference": "previous"
+      },
+      "accepted": true,
+      "rejection": null,
+      "head_compensation": {
+        "enabled": false,
+        "requested": false,
+        "note": "MR-MUF는 리플로우 피크 검사만 기록"
+      },
+      "head_setpoints_C": null,
+      "alarms": [],
+      "thermal_layers": [
+        {
+          "peak_C": 249.9999999999954,
+          "time_above_s": 89.99999999999442,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 11,
+          "tack_peaks_C": [
+            129.89991910258144,
+            127.8609946695157,
+            125.89591992062593,
+            124.0007131310718,
+            122.1715409134901,
+            120.40450235631035,
+            118.6953811821659,
+            117.03946714979885,
+            115.43151428206849,
+            113.86584030565979,
+            112.3365266226586
+          ],
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          },
+          "bond_temp_ok": true,
+          "bond_peak_C": 249.9999999999954,
+          "liquidus_C": 221,
+          "shortfall_C": 0,
+          "head_setpoint_C": null
+        },
+        {
+          "peak_C": 249.9999999999952,
+          "time_above_s": 89.99999999999429,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 10,
+          "tack_peaks_C": [
+            131.93002692262033,
+            129.8908202263049,
+            127.92411776698896,
+            126.02594329619241,
+            124.19225287345783,
+            122.41867820197513,
+            120.70034085057132,
+            119.03180769747391,
+            117.40719264367947,
+            115.82036281993165
+          ],
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          },
+          "bond_temp_ok": true,
+          "bond_peak_C": 249.9999999999952,
+          "liquidus_C": 221,
+          "shortfall_C": 0,
+          "head_setpoint_C": null
+        },
+        {
+          "peak_C": 249.99999999999503,
+          "time_above_s": 89.99999999999417,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 9,
+          "tack_peaks_C": [
+            133.88616822201092,
+            131.84796268411165,
+            129.88078116759945,
+            127.98044094193381,
+            126.14242893483747,
+            124.36170832432816,
+            122.6326699534515,
+            120.94923479004373,
+            119.30506501362366
+          ],
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          },
+          "bond_temp_ok": true,
+          "bond_peak_C": 249.99999999999503,
+          "liquidus_C": 221,
+          "shortfall_C": 0,
+          "head_setpoint_C": null
+        },
+        {
+          "peak_C": 249.99999999999488,
+          "time_above_s": 89.99999999999407,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 8,
+          "tack_peaks_C": [
+            135.77226387022745,
+            133.73607027316214,
+            131.76908219789254,
+            129.86664921930935,
+            128.02358619528482,
+            126.2341193810926,
+            124.49198806427587,
+            122.79065912973682
+          ],
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          },
+          "bond_temp_ok": true,
+          "bond_peak_C": 249.99999999999488,
+          "liquidus_C": 221,
+          "shortfall_C": 0,
+          "head_setpoint_C": null
+        },
+        {
+          "peak_C": 249.99999999999477,
+          "time_above_s": 89.999999999994,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 7,
+          "tack_peaks_C": [
+            137.59182631436713,
+            135.55819213676196,
+            133.59135455030136,
+            131.68599038970447,
+            129.83617307240948,
+            128.0354717994533,
+            126.27716815253858
+          ],
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          },
+          "bond_temp_ok": true,
+          "bond_peak_C": 249.99999999999477,
+          "liquidus_C": 221,
+          "shortfall_C": 0,
+          "head_setpoint_C": null
+        },
+        {
+          "peak_C": 249.99999999999469,
+          "time_above_s": 89.99999999999395,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 6,
+          "tack_peaks_C": [
+            139.34778611263346,
+            137.31656007612287,
+            135.34893612767206,
+            133.43884686262427,
+            131.57970330977088,
+            129.76461207156177
+          ],
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          },
+          "bond_temp_ok": true,
+          "bond_peak_C": 249.99999999999469,
+          "liquidus_C": 221,
+          "shortfall_C": 0,
+          "head_setpoint_C": null
+        },
+        {
+          "peak_C": 249.99999999999463,
+          "time_above_s": 89.99999999999389,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 5,
+          "tack_peaks_C": [
+            141.04228059876365,
+            139.01243792067876,
+            137.04215532169695,
+            135.12469787150658,
+            133.25300784671154
+          ],
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          },
+          "bond_temp_ok": true,
+          "bond_peak_C": 249.99999999999463,
+          "liquidus_C": 221,
+          "shortfall_C": 0,
+          "head_setpoint_C": null
+        },
+        {
+          "peak_C": 249.99999999999457,
+          "time_above_s": 89.99999999999385,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 4,
+          "tack_peaks_C": [
+            142.67650957503687,
+            140.64611175515492,
+            138.67046871751586,
+            136.74236939169037
+          ],
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          },
+          "bond_temp_ok": true,
+          "bond_peak_C": 249.99999999999457,
+          "liquidus_C": 221,
+          "shortfall_C": 0,
+          "head_setpoint_C": null
+        },
+        {
+          "peak_C": 249.99999999999454,
+          "time_above_s": 89.99999999999382,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 3,
+          "tack_peaks_C": [
+            144.25072821421875,
+            142.21702704529181,
+            140.23270757584146
+          ],
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          },
+          "bond_temp_ok": true,
+          "bond_peak_C": 249.99999999999454,
+          "liquidus_C": 221,
+          "shortfall_C": 0,
+          "head_setpoint_C": null
+        },
+        {
+          "peak_C": 249.99999999999451,
+          "time_above_s": 89.99999999999378,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 2,
+          "tack_peaks_C": [
+            145.7643820385382,
+            143.72403024440007
+          ],
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          },
+          "bond_temp_ok": true,
+          "bond_peak_C": 249.99999999999451,
+          "liquidus_C": 221,
+          "shortfall_C": 0,
+          "head_setpoint_C": null
+        },
+        {
+          "peak_C": 249.99999999999451,
+          "time_above_s": 89.99999999999379,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 1,
+          "tack_peaks_C": [
+            147.21634225703045
+          ],
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          },
+          "bond_temp_ok": true,
+          "bond_peak_C": 249.99999999999451,
+          "liquidus_C": 221,
+          "shortfall_C": 0,
+          "head_setpoint_C": null
+        },
+        {
+          "peak_C": 249.99999999999454,
+          "time_above_s": 89.99999999999379,
+          "remelt_count": 1,
+          "subsequent_remelts": 0,
+          "reheat_count": 0,
+          "reheat_peaks_C": [],
+          "reflow_count": 1,
+          "tack_exposures": 0,
+          "tack_peaks_C": [],
+          "crossings_by_phase": {
+            "reflow-ramp": 1
+          },
+          "bond_temp_ok": true,
+          "bond_peak_C": 249.99999999999454,
+          "liquidus_C": 221,
+          "shortfall_C": 0,
+          "head_setpoint_C": null
+        }
+      ],
+      "warpage": {
+        "max_um": 22.1990976477645,
+        "judgement": "불량",
+        "thickness_half_ratio": 4.1058286564224815
+      },
+      "defect_area_pct": 0,
+      "defect_judgement": "양호",
+      "contact_judgement": "정량 접촉 모델 없음 (자기정렬은 젖음·접촉 가정)",
+      "alignment": {
+        "layer_errors_um": [
+          [
+            -0.0274244030155755,
+            -0.0020423275215231433
+          ],
+          [
+            0.018499040220736063,
+            -0.015874245145273233
+          ],
+          [
+            -0.021014239440070328,
+            -0.013112113110619874
+          ],
+          [
+            0.004040589492054616,
+            0.02124056639331227
+          ],
+          [
+            -0.0007231617828846549,
+            -0.0013604532741403694
+          ],
+          [
+            -0.0018379225874905656,
+            0.022224807987904403
+          ],
+          [
+            -0.01448568649521923,
+            0.008880855772172428
+          ],
+          [
+            0.029125671923198218,
+            0.008769129059207632
+          ],
+          [
+            0.01206835273913538,
+            -0.00788587847078822
+          ],
+          [
+            0.017802059859279316,
+            0.005966936094709212
+          ],
+          [
+            -0.014901846311993688,
+            -0.02625447843326223
+          ],
+          [
+            0.022279561319801796,
+            0.011494225783108117
+          ]
+        ],
+        "cumulative_um": [
+          0.023428015920971428,
+          0.012047025134806995
+        ],
+        "top_to_first_die_um": [
+          0.05085241893654693,
+          0.014089352656330139
+        ],
+        "adjacent_3sigma_um": [
+          0.052490438644133,
+          0.052252516918449086,
+          0.05277930702357041,
+          0.05242198628241526,
+          0.05232382743365967,
+          0.052604288968665674,
+          0.052607844926837594,
+          0.052309666638780755,
+          0.05233585785206314,
+          0.05251590613960977,
+          0.052674843601077964,
+          0.052362935118922274
+        ],
+        "judgement": "양호"
+      },
+      "cycle": {
+        "bonder_s": 40.68600000000001,
+        "batch_post_s": 14825.75,
+        "total_serial_s": 14866.436,
+        "breakdown": {
+          "per_layer": {
+            "pickup_s": 0.5,
+            "xy_move_s": 1.05,
+            "z_move_s": 0.29,
+            "alignment_s": 0.0505,
+            "approach_s": 0.5,
+            "tack_s": 1
+          },
+          "layer_totals": {
+            "pickup_s": 6,
+            "xy_move_s": 12.600000000000001,
+            "z_move_s": 3.4799999999999995,
+            "alignment_s": 0.6060000000000001,
+            "approach_s": 6,
+            "tack_s": 12
+          },
+          "once": {
+            "reflow_s": 305.75,
+            "mold_dispense_s": 10,
+            "mold_fill_s": 10,
+            "mold_cure_s": 100,
+            "postcure_s": 14400
+          },
+          "per_layer_s": 3.3905000000000003,
+          "all_layers_s": 40.68600000000001,
+          "once_s": 14825.75,
+          "literature_comparison": {
+            "tcb_thermal_cycle_min_s": 1.2,
+            "tcb_uph_current": 350,
+            "tcb_bond_time_per_layer_s": 10,
+            "mrmuf_tack_cycle_per_die_s": 3,
+            "mass_reflow_total_s": 360,
+            "note": "비교만: 본더 점유 스택/h=3600/bonder_s, 직렬 환산=3600/total_serial_s. 배치 크기 가정 없이 라인 UPH는 산출하지 않음"
+          }
+        }
+      },
+      "muf": {
+        "layers": [
+          {
+            "capillary_fill_time_s": 892.7665876475774,
+            "capillary_unfilled_fraction": 0.8941645804101102,
+            "filler": {
+              "ratio": 4.999999999999999,
+              "warning": false,
+              "blocked": false
+            },
+            "gel_warning": false,
+            "capillary_gel_warning": true,
+            "layer": 1,
+            "gap_m": 0.000014999999999999999,
+            "mu_Pa_s": 5,
+            "L_m": 0.005,
+            "area_m2": 0.000025,
+            "fill_time_s": 3.320933922451846,
+            "unfilled_fraction": 0
+          },
+          {
+            "capillary_fill_time_s": 892.7665876475774,
+            "capillary_unfilled_fraction": 0.8941645804101102,
+            "filler": {
+              "ratio": 4.999999999999999,
+              "warning": false,
+              "blocked": false
+            },
+            "gel_warning": false,
+            "capillary_gel_warning": true,
+            "layer": 2,
+            "gap_m": 0.000014999999999999999,
+            "mu_Pa_s": 5,
+            "L_m": 0.005,
+            "area_m2": 0.000025,
+            "fill_time_s": 3.320933922451846,
+            "unfilled_fraction": 0
+          },
+          {
+            "capillary_fill_time_s": 892.7665876475774,
+            "capillary_unfilled_fraction": 0.8941645804101102,
+            "filler": {
+              "ratio": 4.999999999999999,
+              "warning": false,
+              "blocked": false
+            },
+            "gel_warning": false,
+            "capillary_gel_warning": true,
+            "layer": 3,
+            "gap_m": 0.000014999999999999999,
+            "mu_Pa_s": 5,
+            "L_m": 0.005,
+            "area_m2": 0.000025,
+            "fill_time_s": 3.320933922451846,
+            "unfilled_fraction": 0
+          },
+          {
+            "capillary_fill_time_s": 892.7665876475774,
+            "capillary_unfilled_fraction": 0.8941645804101102,
+            "filler": {
+              "ratio": 4.999999999999999,
+              "warning": false,
+              "blocked": false
+            },
+            "gel_warning": false,
+            "capillary_gel_warning": true,
+            "layer": 4,
+            "gap_m": 0.000014999999999999999,
+            "mu_Pa_s": 5,
+            "L_m": 0.005,
+            "area_m2": 0.000025,
+            "fill_time_s": 3.320933922451846,
+            "unfilled_fraction": 0
+          },
+          {
+            "capillary_fill_time_s": 892.7665876475774,
+            "capillary_unfilled_fraction": 0.8941645804101102,
+            "filler": {
+              "ratio": 4.999999999999999,
+              "warning": false,
+              "blocked": false
+            },
+            "gel_warning": false,
+            "capillary_gel_warning": true,
+            "layer": 5,
+            "gap_m": 0.000014999999999999999,
+            "mu_Pa_s": 5,
+            "L_m": 0.005,
+            "area_m2": 0.000025,
+            "fill_time_s": 3.320933922451846,
+            "unfilled_fraction": 0
+          },
+          {
+            "capillary_fill_time_s": 892.7665876475774,
+            "capillary_unfilled_fraction": 0.8941645804101102,
+            "filler": {
+              "ratio": 4.999999999999999,
+              "warning": false,
+              "blocked": false
+            },
+            "gel_warning": false,
+            "capillary_gel_warning": true,
+            "layer": 6,
+            "gap_m": 0.000014999999999999999,
+            "mu_Pa_s": 5,
+            "L_m": 0.005,
+            "area_m2": 0.000025,
+            "fill_time_s": 3.320933922451846,
+            "unfilled_fraction": 0
+          },
+          {
+            "capillary_fill_time_s": 892.7665876475774,
+            "capillary_unfilled_fraction": 0.8941645804101102,
+            "filler": {
+              "ratio": 4.999999999999999,
+              "warning": false,
+              "blocked": false
+            },
+            "gel_warning": false,
+            "capillary_gel_warning": true,
+            "layer": 7,
+            "gap_m": 0.000014999999999999999,
+            "mu_Pa_s": 5,
+            "L_m": 0.005,
+            "area_m2": 0.000025,
+            "fill_time_s": 3.320933922451846,
+            "unfilled_fraction": 0
+          },
+          {
+            "capillary_fill_time_s": 892.7665876475774,
+            "capillary_unfilled_fraction": 0.8941645804101102,
+            "filler": {
+              "ratio": 4.999999999999999,
+              "warning": false,
+              "blocked": false
+            },
+            "gel_warning": false,
+            "capillary_gel_warning": true,
+            "layer": 8,
+            "gap_m": 0.000014999999999999999,
+            "mu_Pa_s": 5,
+            "L_m": 0.005,
+            "area_m2": 0.000025,
+            "fill_time_s": 3.320933922451846,
+            "unfilled_fraction": 0
+          },
+          {
+            "capillary_fill_time_s": 892.7665876475774,
+            "capillary_unfilled_fraction": 0.8941645804101102,
+            "filler": {
+              "ratio": 4.999999999999999,
+              "warning": false,
+              "blocked": false
+            },
+            "gel_warning": false,
+            "capillary_gel_warning": true,
+            "layer": 9,
+            "gap_m": 0.000014999999999999999,
+            "mu_Pa_s": 5,
+            "L_m": 0.005,
+            "area_m2": 0.000025,
+            "fill_time_s": 3.320933922451846,
+            "unfilled_fraction": 0
+          },
+          {
+            "capillary_fill_time_s": 892.7665876475774,
+            "capillary_unfilled_fraction": 0.8941645804101102,
+            "filler": {
+              "ratio": 4.999999999999999,
+              "warning": false,
+              "blocked": false
+            },
+            "gel_warning": false,
+            "capillary_gel_warning": true,
+            "layer": 10,
+            "gap_m": 0.000014999999999999999,
+            "mu_Pa_s": 5,
+            "L_m": 0.005,
+            "area_m2": 0.000025,
+            "fill_time_s": 3.320933922451846,
+            "unfilled_fraction": 0
+          },
+          {
+            "capillary_fill_time_s": 892.7665876475774,
+            "capillary_unfilled_fraction": 0.8941645804101102,
+            "filler": {
+              "ratio": 4.999999999999999,
+              "warning": false,
+              "blocked": false
+            },
+            "gel_warning": false,
+            "capillary_gel_warning": true,
+            "layer": 11,
+            "gap_m": 0.000014999999999999999,
+            "mu_Pa_s": 5,
+            "L_m": 0.005,
+            "area_m2": 0.000025,
+            "fill_time_s": 3.320933922451846,
+            "unfilled_fraction": 0
+          },
+          {
+            "capillary_fill_time_s": 892.7665876475774,
+            "capillary_unfilled_fraction": 0.8941645804101102,
+            "filler": {
+              "ratio": 4.999999999999999,
+              "warning": false,
+              "blocked": false
+            },
+            "gel_warning": false,
+            "capillary_gel_warning": true,
+            "layer": 12,
+            "gap_m": 0.000014999999999999999,
+            "mu_Pa_s": 5,
+            "L_m": 0.005,
+            "area_m2": 0.000025,
+            "fill_time_s": 3.320933922451846,
+            "unfilled_fraction": 0
+          }
+        ],
+        "inlet_pressure_Pa": 1000000,
+        "filler_warning": false,
+        "filler_blocked": false,
+        "gel_warning": false,
+        "gel_time_s": 25,
+        "warnings": [],
+        "capillary_only": {
+          "fill_time_s": 892.7665876475774,
+          "unfilled_fraction": 0.8941645804101098,
+          "gel_warning": true
+        },
+        "fill_time_s": 3.320933922451846,
+        "mold_fill_time_s": 10,
+        "unfilled_fraction": 0,
+        "geometry": "one-edge straight front; no bump permeability correction",
+        "quantitative_void_model": false
+      },
+      "ncf": null,
+      "model_limit": "모델 한계: 1D 선형 탄성·상온 물성·기판·점탄성·경화 수축 미포함. 두 모드 모두 50 μm에서 불량으로, 업체 주장 \"MR-MUF가 박형 휨에 유리\"를 재현하지 못함"
+    }
+  ],
+  "small_stacks": [
+    {
+      "layers": 2,
+      "under_temperature_layers": [
+        1,
+        2
+      ],
+      "count": 2
+    },
+    {
+      "layers": 4,
+      "under_temperature_layers": [
+        1,
+        2
+      ],
+      "count": 2
+    },
+    {
+      "layers": 8,
+      "under_temperature_layers": [
+        1,
+        2
+      ],
+      "count": 2
+    }
+  ],
+  "rejection_case": {
+    "tool_contact_R_area": 0.001,
+    "recipe": {
+      "mode": "TC-NCF",
+      "layers": 12,
+      "thickness_um": 100,
+      "gap_um": 15,
+      "inlet_pressure_MPa": 1,
+      "bond_force_N": 40,
+      "head_temp_compensation": true,
+      "seed": 489,
+      "alignment_reference": "previous"
+    },
+    "accepted": false,
+    "rejection": {
+      "code": "HEAD_TEMP_LIMIT",
+      "reason": "층별 접합 목표에 필요한 헤드 온도가 원문 KPI 최고 온도를 초과함",
+      "layer": 1,
+      "required_head_C": 782.21435546875,
+      "limit_C": 400
+    },
+    "head_compensation": {
+      "enabled": true,
+      "target_C": 231,
+      "limit_C": 400,
+      "tolerance_C": 0.05,
+      "max_iterations": 64,
+      "head_setpoints_C": [],
+      "layers": [
+        {
+          "layer": 1,
+          "required_head_C": 782.21435546875,
+          "headroom_C": -382.21435546875,
+          "iterations": 15,
+          "expansions": 2
+        }
+      ],
+      "rejection": {
+        "code": "HEAD_TEMP_LIMIT",
+        "reason": "층별 접합 목표에 필요한 헤드 온도가 원문 KPI 최고 온도를 초과함",
+        "layer": 1,
+        "required_head_C": 782.21435546875,
+        "limit_C": 400
+      }
+    },
+    "alarms": []
+  }
+}
