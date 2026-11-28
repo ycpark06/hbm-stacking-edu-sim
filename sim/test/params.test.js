@@ -3,7 +3,7 @@ import { readFileSync } from 'node:fs';
 import test from 'node:test';
 
 const params = JSON.parse(readFileSync(new URL('../params.json', import.meta.url), 'utf8'));
-const kinds = new Set(['literature', 'assumption', 'design', 'midterm', 'observation', 'estimate']);
+const kinds = new Set(['literature', 'assumption', 'design', 'midterm', 'observation', 'estimate', 'kpi']);
 const valueKeys = ['value', 'equipment_value', 'literature_value'];
 
 function checkTree(node, path = 'params') {
@@ -75,4 +75,19 @@ test('ramp comparison retains separate equipment and literature provenance', () 
   assert.ok(Number.isFinite(ramp.literature_value));
   assert.equal(ramp.literature_kind, 'literature');
   assert.ok(ramp.literature_source.trim());
+});
+
+test('Issue #29 only adds params keys; margin is design and heater limit retains original KPI provenance',()=>{
+  const baseline=JSON.parse(readFileSync(new URL('stage4_bond_baseline_results.json',import.meta.url),'utf8')).params;
+  function unchanged(actual,old,path='params') {
+    for(const [key,value] of Object.entries(old)) {
+      if(value&&typeof value==='object'&&!Array.isArray(value))unchanged(actual[key],value,`${path}.${key}`);
+      else assert.deepEqual(actual[key],value,`${path}.${key}`);
+    }
+  }
+  unchanged(params,baseline);
+  assert.equal(params.judgement.bond_temp_margin_C.kind,'design');
+  assert.match(params.judgement.bond_temp_margin_C.source,/사용자 확정.*Issue #29/);
+  assert.notEqual(params.equipment_limits.head_max_temp_C.kind,'design');
+  assert.match(params.equipment_limits.head_max_temp_C.source,/원문 KPI \(PBL 7쪽\).*400/);
 });
