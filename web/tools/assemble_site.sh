@@ -35,6 +35,25 @@ for glb in sorted((root / 'cad' / 'web').glob('*.glb')):
     target = site / 'cad' / 'web'
     target.mkdir(parents=True, exist_ok=True)
     shutil.copy2(glb, target / glb.name)
+# CAD explorer assets retain repository-relative URLs under _site/web/.
+# STEP is deliberately excluded: Git LFS originals are linked on GitHub.
+cad_patterns = (
+    'cad/stacker/out/*.png',
+    'cad/stacker/out/summary.json',
+    'cad/stacker/out/mesh/*.stl',
+    'cad/midterm/DieBonderModel/out/view_iso.png',
+    'docs/drawings/*.png',
+    'docs/drawings/*.pdf',
+    'docs/report/final/fig/dwg/*.png',
+    'docs/report/midterm/fig/dwg/*.png',
+    'wiring/hbm_wiring.svg',
+    'wiring/pinmap.csv',
+)
+for pattern in cad_patterns:
+    for source in sorted(root.glob(pattern)):
+        target = site / source.relative_to(root)
+        target.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(source, target)
 (site / '.nojekyll').touch()
 (site / 'index.html').write_text('''<!doctype html>
 <html lang="ko"><meta charset="utf-8"><meta http-equiv="refresh" content="0; url=web/">
