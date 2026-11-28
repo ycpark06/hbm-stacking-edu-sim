@@ -13,3 +13,6 @@ node_modules/
 calc/out/
 
 _site/
+
+# 시연 장면 WebM·메타데이터·연결 영상 (영상은 Releases/외부 링크)
+media/out/
